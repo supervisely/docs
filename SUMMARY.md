@@ -148,8 +148,8 @@
 
 ## 👔 Enterprise Edition
 
-* [Installation](enterprise/installation/index.md)
-    * [Post-installation](enterprise/post-installation/index.md)
+* [Installation](enterprise/installation/README.md)
+    * [Post-installation](enterprise/post-installation/README.md)
     * [Upgrade](enterprise/update/index.md)
 * Advanced Tuning
     * [HTTPS](enterprise/https/index.md)
