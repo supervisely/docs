@@ -4,7 +4,7 @@
 
 ## 📌 Getting started
 
-* [First steps](getting-started/first-steps.md)
+* [First Steps](getting-started/first-steps.md)
 * [FAQ](getting-started/faq.md)
 * [Support](getting-started/support.md)
 
