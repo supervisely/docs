@@ -6,5 +6,8 @@ root: ./
 
 redirects:
   enterprise/installation: enterprise/installation/README.md
+  enterprise/installation/: enterprise/installation/README.md
   enterprise/post-installation: enterprise/post-installation/README.md
+  enterprise/post-installation/: enterprise/post-installation/README.md
   ann_format: data-organization/supervisely-format.md
+  ann_format/: data-organization/supervisely-format.md
