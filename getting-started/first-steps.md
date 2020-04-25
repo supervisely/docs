@@ -14,7 +14,7 @@ If you feel Supervisely is the right fit for you and your company,  feel free to
 
 When you create an account we automatically create a new **team** for you that has the same name as your login. You are the only member right now — but you can invite your colleagues and work on the same data together!
 
-{% page-ref page="../collaboration/README.md" %}
+{% page-ref page="../collaboration/teams.md" %}
 
 ### 📂 Import some data
 
@@ -46,7 +46,7 @@ Before you start, you need to connect a computer with GPU on board to the platfo
 
 Thankfully, it's super easy to do: just add a new **agent** at the **cluster** page and run the one-liner on your computer: that's it!
 
-{% page-ref page="../customization/agents/overview/index.md" %}
+{% page-ref page="../customization/agents/overview.md" %}
 
 {% page-ref page="../neural-networks/overview/overview.md" %}
 
@@ -60,7 +60,7 @@ Now you know the basics, but there is so much more to explore! Data augmentation
 
 A nice idea would be to learn some core concepts about Supervisely:
 
-{% page-ref page="../data-organization/README.md" %}
+{% page-ref page="../data-organization/core-concepts.md" %}
 
 Enjoy Supervisely, leave your feedback at [support@supervise.ly](mailto:support@supervise.ly) and see you in our [Slack group](https://supervise.ly/slack)!
 
