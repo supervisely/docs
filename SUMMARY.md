@@ -10,7 +10,7 @@
 
 ## 📂 Data Organization
 
-* [Core Concepts](data-organization/README.md)
+* [Core Concepts](data-organization/core-concepts.md)
 * [Projects](data-organization/projects.md)
     * [Datasets](data-organization/datasets.md)
     * [Classes](data-organization/classes.md)
@@ -47,7 +47,7 @@
 
 ## 🤝 Collaboration
 
-* [Teams & Workspaces](collaboration/README.md)
+* [Teams & Workspaces](collaboration/teams.md)
 * [Members](collaboration/members.md)
 * [Sharing](collaboration/sharing.md)
 

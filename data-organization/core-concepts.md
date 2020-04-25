@@ -32,7 +32,7 @@ To associate some extra information with annotations (or images, or images, ...)
 
 ## Example
 
-For instance, in [Team](../collaboration/README.md) "Driving Division" you can have a **Workspace** "Pre-Labeling". In this Workspace you can have a Project "Cityscapes" with two Datasets: "Zurich" and "Stuttgart".
+For instance, in [Team](../collaboration/teams.md) "Driving Division" you can have a **Workspace** "Pre-Labeling". In this Workspace you can have a Project "Cityscapes" with two Datasets: "Zurich" and "Stuttgart".
 
 There are several classes defined in this Project (and, thus, in every Dataset): a building, a traffic light, a vehicle and so on. All classes are set to the "bitmap" shape, so that there is no way someone will accidentally create some "Cars" with polygon tool (a set of points), and some "Cars" with bitmap tool (a set of pixels).
 

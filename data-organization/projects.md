@@ -4,7 +4,7 @@ You can think of a Project as a superfolder with data and meta information.
 
 ## Projects List
 
-At the "Projects" page you can view all projects you have in the current [workspace](../collaboration/README.md).
+At the "Projects" page you can view all projects you have in the current [workspace](../collaboration/teams.md).
 
 ![](assets/projects-list.jpg)
 
