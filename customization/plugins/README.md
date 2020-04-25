@@ -4,7 +4,7 @@ We want to make the customization of Supervisely as easy as possible. That's why
 
 ## What is a plugin?
 
-A Plugin is a set of docker images that can be executed on the [node](../agents/overview/index.md) using the agent from the web interface. Usually a plugin has just one docker image to perform it's operation, but some (like Neural Network Architecture) can have more than one image (for example, one for training and another one for inference): 
+A Plugin is a set of docker images that can be executed on the [node](../agents/overview.md) using the agent from the web interface. Usually a plugin has just one docker image to perform it's operation, but some (like Neural Network Architecture) can have more than one image (for example, one for training and another one for inference): 
 
 The following types of plugins are supported:
 

@@ -1,6 +1,6 @@
 # Python Scripts
 
-"Python scripts" solves a bunch of tasks related with projects and datasets manipulations such as export or transformation. As follows from name it based on python scripts and allow to run tasks easier. Main difference between Python scripts and Python Notebooks is that Python scripts are executed on selected [agent](../customization/agents/overview/index.md) by "Python" [plugin](../customization/plugins/README.md).
+"Python scripts" solves a bunch of tasks related with projects and datasets manipulations such as export or transformation. As follows from name it based on python scripts and allow to run tasks easier. Main difference between Python scripts and Python Notebooks is that Python scripts are executed on selected [agent](../customization/agents/overview.md) by "Python" [plugin](../customization/plugins/README.md).
 
 ## Run Python Script
 

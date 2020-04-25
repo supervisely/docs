@@ -24,7 +24,7 @@ If you plan to use smart tool (AI powered semantic segmentation) or neural netwo
 
  - GPU Memory: 8 GB or more (GeForce GTX 1080, Tesla K80, Tesla P100)
 
-You can install Supervisely and run GPU computations on different machines using agents (see [cluster](../../customization/agents/overview/index.md)). 
+You can install Supervisely and run GPU computations on different machines using agents (see [cluster](../../customization/agents/overview.md)). 
 
 #### AWS & cloud providers
 

@@ -22,7 +22,7 @@ Click "Signup" to create a new user. We will automatically create a new team for
 
 ## Deploy an additional agent (optional)
 
-Every kind of potentially long operation (like Import or Training) is performed on so-called [agents](../../customization/agents/overview/index.md). Before you can use Supervisely, you should deploy at least one.
+Every kind of potentially long operation (like Import or Training) is performed on so-called [agents](../../customization/agents/overview.md). Before you can use Supervisely, you should deploy at least one.
 
 In your configuration we already deploy a default "Main Node" agent so you don't have to do anything. But, if you don't have a GPU device on your machine with Supervisely, you may want to deploy an additional agent on AWS or some computer with a videocard. 
 
