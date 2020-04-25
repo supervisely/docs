@@ -1,0 +1,10 @@
+root: ./
+
+​structure:
+  readme: README.md
+  summary: SUMMARY.md​
+
+redirects:
+  enterprise/installation: enterprise/installation/README.md
+  enterprise/post-installation: enterprise/post-installation/README.md
+  ann_format: data-organization/supervisely-format.md
