@@ -1,0 +1,27 @@
+[
+  {
+    "title": "tomato",
+    "shape": "bitmap",
+    "color": "#F6FF00"
+  },
+  {
+    "title": "egg",
+    "shape": "polygon",
+    "color": "#00FF06"
+  },
+  {
+    "title": "bread",
+    "shape": "rectangle",
+    "color": "#FF0000"
+  },
+  {
+    "title": "basil",
+    "shape": "line",
+    "color": "#FF00B1"
+  },
+  {
+    "title": "mozzarella",
+    "shape": "point",
+    "color": "#0030FF"
+  }
+]
