@@ -45,6 +45,8 @@ When all requirements above have been installed, you can deploy Supervisely.
 
 Before the installation we will send you a `license.key`, a unique installation key and command to install `supervise-cli`. Please run it on the machine where you want to install Supervisely and make sure `sudo supervisely` gives you help information.
 
+![](Screenshot 2020-04-26 at 20.33.45.png)
+
 ### Step 2. Install pre-requirements
 
 Run `sudo supervisely install-all` in your terminal. We will detect the necessary dependencies and install them. The following software may be installed:
@@ -58,9 +60,11 @@ If don't have NVIDIA drivers and CUDA, you will be asked if you need to install 
 
 ### Step 3. Download configuration
 
-We have sent you installation key that looks like "hdhUssJskOskAA". Run `sudo supervisely auth <installation key>` to authenticate yourself. Now, run `sudo supervisely update` to download the latest version of Supervisely. We will ask you to provide a directory to store configuration in. Be default, we use `/opt/supervisely` folder. You can always check where is your configuration directory using `supervisely where` command. 
+We have sent you installation key that looks like "hdhUssJskOskAA". Run `sudo supervisely auth <installation key>` to authenticate yourself. Now, run `sudo supervisely update` to download the latest version of Supervisely. We will ask you to provide a directory to store configuration in and some required variables. Be default, we use `/opt/supervisely` folder. You can always check where is your configuration directory using `supervisely where` command.
 
-### Step 4. Edit configuration
+### Step 4. Edit configuration (optional)
+
+Though we will ask you to provide required configuration variables on the previous step, it's a good idea to make a final overview.
 
 Open file `/opt/supervisely/.env`. There are some configuration variables in it that you might want to change. Look for `<please, insert the value here>` - you need to provide values here explicitly because we don't know those values in advance.
 
@@ -127,10 +131,6 @@ It seems the agent has tried to wait for Supervisely to start. Restart agent man
 Nvidia container runtime has not been installed. Try to run command `docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi` to see if it works.
 
 If you don't want to run train & inference tasks, please remove checkbox "Use nvidia runtime" under advances settings in the new node modal window and run the deploy command again.
-
-#### Import fails with `FINAL_ACTION_ERROR`
-
-Please make sure that you have drag-and-dropped a folder and not the files.
 
 #### There are no or just a few models in Model Zoo
 
