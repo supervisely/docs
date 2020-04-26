@@ -1,6 +1,6 @@
 # 🤖 What's Supervisely
 
-**Supervisely** is a powerful platform for computer vision development, where individual researches and large teams can annotate and experiment with **datasets** and **neural networks**.
+**Supervisely** is a powerful platform for computer vision development, where individual researchers and large teams can annotate and experiment with **datasets** and **neural networks**.
 
 Our mission is to help people with and without machine learning expertise to create state-of-the-art computer vision applications.
 
