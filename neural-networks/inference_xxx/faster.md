@@ -2,7 +2,7 @@
 
 In this example we will consider using the trained Faster-RCNN model to detect objects.
 
-To run inference you'll need to have a connected [agent](../../customization/agents/overview.md) to use its computational resources.
+To run inference you'll need to have a connected [agent](../../customization/agents/README.md) to use its computational resources.
 
 ## Step 1: Get the model
 
