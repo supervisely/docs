@@ -20,7 +20,7 @@ Because AMI is specific for availability zone, select "Oregon" zone is top right
 
 Click "Launch Instance". You will see "Choose an Amazon Machine Image" screen. Select "Community AMIs" and type "Supervisely" in the search field.
 
-Find Supervisely-P2 ("ami-15d3886d") image and click "Select".
+Find Supervisely-Agent ("ami-00e6c1fd802c03828") image and click "Select".
 
 ![](screenshot-us-west-2-console-aws-amazon-com-ec2-v2-home-1533486949823.png)
 
