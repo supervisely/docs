@@ -1,6 +1,6 @@
 # Notifications
 
-## Notification via email
+## Notifications via email
 
 {% hint style="info" %}
 Email notification available only for labeling jobs.
