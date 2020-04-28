@@ -86,7 +86,7 @@ You should see "Login Succeeded" in your terminal.
 
 ### Step 6. Run Supervisely
 
-Now it's time to start the Supervisely instance. Run `sudo supervisely up -d`. We will pull docker images from registry and run every service defined in `docker-compose.yml` in detached mode.
+Now it's time to start the Supervisely instance. Run `sudo supervisely upgrade --skip-backup`. We will pull docker images from registry and run every service defined in `docker-compose.yml` in detached mode.
 
 This can take a while.
 
