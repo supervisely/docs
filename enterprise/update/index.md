@@ -2,58 +2,27 @@ Follow this guide to upgrade your current Supervisely instance.
 
 ## Step-by-step manual
 
-### Step 1. Bring your instance down
+### Step 1. Update Supervisely CLI
+Make sure you're using the latest Supervisely CLI:
+```
+sudo supervisely self-update
+```
 
-First, let's stop Supervisely. To do it, run `docker-compose stop` command in the folder with your `docker-compose.yml` file.
+### Step 2. Backup + Update + Deploy
+One single command to handle them all:
+```
+sudo supervisely upgrade
+```
 
-### Step 2. Backup your data and configuration
+To be sure you can always go back to any previous versions we make automatic backups every time you run the `sudo supervisely upgrade` command.
 
-This step is optional, but highly recommended. To be sure you can always go back to the previous version, copy and save somewhere these two folders:
-
+We backup configuration and database files only:
 - Configuration folder: directory where you have your `docker-compose.yml` and `.env` files. We usually choose `/opt/supervisely` or `/supervisely`, but if you have installed Supervisely yourself, this folder can be somewhere else.
 - Database folder: sometimes your upgrade requires database migration so it's a good idea to backup the db before. Database files are stored in `${DATA_PATH}/db`. Default value is `/supervisely/data/db`.
 
-### Step 3. Replace your current configuration
-
-Replace your current `docker-compose.yml` file with the one we have sent you.
-
-Usually you don't have to replace your current `.env` file. Check that nothing has changed, but if something has, replace it, but do not forget to save the variables like `SERVER_ADDRESS` from the previous file.
-
-### Step 4. Run update
-
-Run `docker-compose up -d` in the folder with the `docker-compose.yml` file. This action will have two effects:
-
-- Your current docker services like `api` or `web interface` will be started from the latest version
-- (optional) New values for configuration may be applied
-- (optional) `migrator` service may update your database structure to the latest version
-
-### Step 5. Check your new version
+### Step 3. Check your new version
 
 Wait a couple minutes and open Supervisely. Everything should work fine and you can start using the new functionality.
-
-## Example
-
-Here is a typical script that does update:
-
-```
-# Switch to your Supervisely folder (docker-compose.yml directory)
-cd /opt/supervisely
-
-# Stop Supervisely
-docker-compose stop
-
-# Create backup dir
-mkdir backup
-
-# Copy database and current configuration to backup dir
-cp /supervisely/data/db docker-compose.yml .env backup/
-
-# Replace current configuration with updated 
-cp ~/Downloads/supervisely-update/docker-compose.yml docker-compose.yml
-
-# Restart docker services to run update
-docker-compose up -d 
-```
 
 ## Troubleshooting
 
