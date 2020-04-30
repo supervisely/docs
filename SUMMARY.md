@@ -119,7 +119,7 @@
     * [NN lifecycle](neural-networks/nn-lifecycle/nn-lifecycle.md)
     * [Training](neural-networks/training/training.md)
     * [Inference](neural-networks/inference/inference.md)
-    * [Cleanup unused weights](neural-networks/cleanup-unused-weights/README.md)
+    * [Cleanup Unused Weights](neural-networks/cleanup-unused-weights/README.md)
 * [Configurations](neural-networks/configs/overview.md)
   * [Training](neural-networks/configs/train_config.md)
   * [Inference](neural-networks/configs/inference_config.md)
