@@ -33,6 +33,6 @@ To clear some space, you can delete the extra NN weights from your agent. Here�
 
 ![](screenshot-app-supervise-ly-nodes-tasks-1588247335378.png)
 
-The process is done. In our example we’ve reduced the disk space occupied by NN weights from 2GB to 232 MB.
+The process is done. In our example we’ve dramatically reduced the disk space occupied by NN weights from 2GB to 232 MB.
 
 ![](screenshot-app-supervise-ly-nodes-6698-info-1588247348721.png)  
