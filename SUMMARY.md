@@ -39,6 +39,7 @@
     * [Figures](labeling/images/figures.md)
     * [Instruments](labeling/images/instruments.md)
     * [History](labeling/images/history.md)
+    * [Smart Tool](labeling/images/smart-tool/README.md)
   * [Videos](labeling/videos/README.md)
   * [Point Clouds](labeling/point-clouds/README.md)
 * [Jobs](labeling/jobs/README.md)
