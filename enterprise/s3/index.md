@@ -32,11 +32,11 @@ For example, here are settings for Amazon S3:
 So in the end, here is how your `.env` settings could look like:
 
 ```
-`STORAGE_PROVIDER=minio`
-`STORAGE_ENDPOINT=s3.amazonaws.com`
-`STORAGE_PORT=443`
-`STORAGE_ACCESS_KEY=<hidden>`
-`STORAGE_SECRET_KEY=<hidden>`
+STORAGE_PROVIDER=minio
+STORAGE_ENDPOINT=s3.amazonaws.com
+STORAGE_PORT=443
+STORAGE_ACCESS_KEY=<hidden>
+STORAGE_SECRET_KEY=<hidden>
 ```
 
 ## Migration from local storage to S3
