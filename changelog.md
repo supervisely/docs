@@ -1,5 +1,19 @@
 # Changelog
 
+## 18 May 2020
+
+**Improvements:**
+- You can now copy tags from the previous image
+- Added list view for projects and datasets
+- Added an option to send HTTP requests to notifications
+
+
+**Bug fixes:**
+- Fixed bug with tags dissapearing upong cloning a Labeling Job
+- Fixed the list of available plugins for adding data to an existing project
+- Fixed bug with rolling back changes in the Annotation interface
+- Fixed activity log for team memebers
+
 ## 20 April 2020
 
 **Improvements:**
