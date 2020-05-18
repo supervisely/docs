@@ -5,8 +5,7 @@
 **Improvements:**
 - You can now copy tags from the previous image
 - Added list view for projects and datasets
-- Added an option to send HTTP requests to notifications
-
+- Added an option to send notifications on endpoints via HTTP requests
 
 **Bug fixes:**
 - Fixed bug with tags dissapearing upong cloning a Labeling Job
