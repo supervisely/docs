@@ -1,5 +1,19 @@
 # Changelog
 
+## 28 May 2020
+
+**Improvements:**
+- Added real-time project meta update to the annotation interface: now you don't need to manually refresh the page to sync up with other people working on your project
+- Added labeler name to the member activity page
+- Added *split images randomly / by name* dropdown menu for Labeling Jobs
+- Added *by labeler* to the annotation interface filter
+- Added activity_logs.attach/detach/update_tag for tags to the API
+
+**Bug fixes:**
+- Fixed stats refresh after deleting objects
+- Fixed word-warp for titles to the projects list
+- Fixed the wrong error description for Labeling Jobs
+
 ## 18 May 2020
 
 **Improvements:**
