@@ -26,7 +26,7 @@ Classes are pre-defined types of your annotations, for example Person or Backgro
 
 ## 🏷️ Tags
 
-To associate some extra information with annotations (or images, or images, ...) you can define a Tag, for example `needs_review`.
+To associate some extra information with annotations (or images, or videos, ...) you can define a Tag, for example `needs_review`.
 
 {% page-ref page="tags.md" %}
 
