@@ -18,7 +18,7 @@ To work with 3D annotation we recommend to use computer with hardware accelerati
 
 3D Annotation module supports working with only one `Dataset` at once.
 
-To start annotation you should open a `Project` and click on the relevant `Dataset` from the [dashboard](../../data-organization/projects.md). You can also choose `Start annotation` from the `Dataset` context menu.
+To start annotation you should open a `Project` and click on the relevant `Dataset` from the [dashboard](../../data-organization/projects.md). 
 
 ## Overview
 
