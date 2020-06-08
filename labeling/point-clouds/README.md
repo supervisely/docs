@@ -22,7 +22,7 @@ To start annotation you should open a `Project` and click on the relevant `Datas
 
 ## Overview
 
-![](/images/navigation.png)
+![](images/navigation.png)
 
 Please use this reference of annotation application interface to quickly navigate to the relevant documentation section:
 
