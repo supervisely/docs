@@ -77,7 +77,7 @@ To refine the selection, you can use the **Polygon substract** mode.
 
 ![](images/pcd_example_3.png)
 
-All of the points you select in this point are removed from the figure. 
+All of the points you select in this mode are removed from the figure. 
 
 ![](images/pcd_example_4.png)
 
