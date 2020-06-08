@@ -1,6 +1,6 @@
 
 
-Instruments panel on the left side of the screen provides tools to create and edit annotations and manipulate scene.
+The Instruments panel on the left side of the screen provides tools to create and edit annotations and manipulate scene.
 
 ![](images/3d_instruments.PNG)
 
