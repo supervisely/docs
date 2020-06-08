@@ -1,8 +1,5 @@
-Placeholder from image figures
 
-Also known as *objects*, figures are annotations that you create to show particular things on image.
-
-Figures panel shows all annotations for a currently selected [image](images.md).
+In Supervisely 3D annotation module, objects contain figures (annotations) that you create to show a particular thing on the scene. An object cannot be associated with a scene without at least one figure from it (annotation) present there.
 
 ## Overview
 
