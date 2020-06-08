@@ -6,96 +6,51 @@ Figures panel shows all annotations for a currently selected [image](images.md).
 
 ## Overview
 
-![Figures panel](../../assets/legacy/annotation/figures.png)
+![](images/3d_objects.PNG)
 
-1. Total number of figures on current image
-2. [Filter of figures](#filters)
-3. Batch [actions](#actions)
-4. Example of a [hole inside the figure](#holes)
-5. [Order of the figure](#order) on the image
-6. Class of the figure
-7. Percentage of total image area
-8. Figure actions
+The menu is divided in several sections. The elements in each section are described from left to right, top to bottow.
 
-## Actions
+1. Main menu panel. This section of the Object menu affects all objects on the scene. It contains:
+   - Total number of objects
+   - Number of selected objects
+   - *Filters* (coming soon)
+   - *Sorting order* button
+   - *Delete all objects* button
+   - *Toggle Global Visibility* button
 
-![](../../assets/legacy/annotation/delete.png) — Delete figure
+There are several options available for the way in which the files in the dataset are sorrted: 
+
+![](images/sorting_order.PNG)
 
 
+2. Selected Object. This section displays:
+   - Class colour for the object
+   - Class name and shape (you can move objects between classes of the same shape in this drop-down menu)
+   - Object ID
+   - Number of figures associated with the object
+   - *Remove object* button
+   - *Hide object* button
 
-![](../../assets/legacy/annotation/hide.png) — Hide figure from scene
+3. List of Figures. The section contains:
+   - Figures on screen / Total figures toggle
+   - Figure shape
+   - Figure ID (if the ID is too long it can be viewed by hovering over the shortened number)
+   - *Edit* button (You can also click on the figure row to start editing it)
+   - *Remove figure* button
+   - *Hide figure* button
 
-## Selection
+4. Tags attached to object. This section contains the list of all tags attached to the current object and provides an option to delete them from the object individually.
 
-Click on a figure row in the figures panel to select the annotation for editing.
+5. Tags Available. This section contains:
+   - Add new tag button (in the section title)
+   - The number of total available tags for the current object
+   - Search bar for the tags list
+   - List of all available tags. Ech tag can be added to the current object by pressing the *+* button on the right.
+   
+6. Custom Metadata. Use this field to add additional information about the object. All entered data needs to be manually saved save by pressing the corresponding button under the text field.
 
-{% hint style="info" %}
-Hover mouse cursor over a row in the figures panel to highlight it on the main scene.
-{% endhint %}
-
-## Order
-
-![](../../assets/legacy/annotation/order.gif)
-
-In some cases annotations can overlap each other.
-
-For example, in road scene segmentation, you may want to annotate road first and then annotate cars and pedestrians. If you plan to use [DTL](../../data-manipulation/dtl/index.md) to generate segmentation masks, it's important to maintain the order of figures and keep cars above the road.
-
-Figure order controls which annotations are on top of others. Figures that comes first in [figures panel](#overview) (have smaller order number) would be shown on top on scene (like layers in Photoshop)
-
-You can use drag and drop in [figures panel](#overview) to change that order.
-
-{% hint style="info" %}
-Figures preserve order during [export](../../data-organization/import-export.md).
-{% endhint %}
-
-## Holes
-
-It is possible to create holes inside polygons. It can be useful to exclude unnecessary parts from main figure, for example, exclude windows from a car. Some popular open datasets use this approach.
-
-![Figures holes](../../assets/legacy/annotation/hole-example.png)
-
-![Figures holes](../../assets/legacy/annotation/hole-example2.png)
-
-Every hole is just yet another polygon that is internally connected to the main polygon. In the [figures panel](#overview) holes are shown below the main polygon and will be shown / hidden by pressing on the little triangle on the left.
-
-You can create multiple holes inside the same figure.
-
-To read more on how to create holes please refer to the documentation on [polygons](instruments.md#polygon-tool).
+7. Created By. This section contains the name of the user that created the current object and how long ago that was.
 
 ## Filters
 
-![Figures panel](../../assets/legacy/annotation/figures-filter.png)
-
-If there are a lot of annotations on image, you can use filter popup to leave only figures that pass certain conditions.
-
-Open filter popup by clicking Filter icon (see [overview](#overview) above).
-
-{% hint style="info" %}
-You can hide unwanted small annotations that have less than 10 pixels.
-{% endhint %}
-
-## Tags
-
-![Figures tags](../../assets/legacy/annotation/figure-tags.png)
-
-Figures tags visibility depends on seleted tool:
-
-* Move scene tool - visibility depends on "Tags show mode" in [scene controls](scene.md#controls).
-
-* Tag figures tool - tags always visible.
-
-Figure tags works the same way, as [image tags](images.md#tags). Please refer corresponding documentation.
-
-{% hint style="warning" %}
-There are different lists of tags for images and figures.
-{% endhint %}
-
-{% hint style="info" %}
-To add tag on the figure you can select or hover on it from scene or figures sidebar and press tag hotkey
-{% endhint %}
-
-{% hint style="info" %}
-Say, you want to build a person detection application and you also want to predict gender. Create tag `Man` and `Women` and assign them hotkeys `M` and `W`. Now you can quickly label figures by pressing corresponding button on a keyboard.
-{% endhint %}
-
+Coming Soon
