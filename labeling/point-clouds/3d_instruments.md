@@ -1,16 +1,18 @@
-Placeholder from images
+
 
 Instruments panel on the left side of the screen provides tools to create and edit annotations and manipulate scene.
 
 Only one instrument can be selected at a time.
+![](3d_instruments.png)
+
 
 ## Auxiliary tools
 
-Use the following tools to interact with scene and figures on it in a general way. Those tools doesn't take into account class of annotation or it's shape.
+Use the following tools to interact with scene and objects on it in a general way. These tools work with all objects of any shape or class.
 
 ### Move tool
 
-![Move tool](../../assets/legacy/annotation/tool-move.png)
+![](navigation.png)
 
 Choose move tool to pan and zoom image on the scene. While in `Move tool` is active, interactions with annotations on scene are disabled.
 
