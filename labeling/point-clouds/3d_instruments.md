@@ -2,57 +2,42 @@
 
 Instruments panel on the left side of the screen provides tools to create and edit annotations and manipulate scene.
 
-Only one instrument can be selected at a time.
-![](3d_instruments.png)
+![](images/3d_instruments.PNG)
 
+Only one instrument can be selected at a time.
 
 ## Auxiliary tools
 
 Use the following tools to interact with scene and objects on it in a general way. These tools work with all objects of any shape or class.
 
-### Move tool
+### Pan & zoom scene tool
 
-![](navigation.png)
+![](images/3d_move.png)
 
-Choose move tool to pan and zoom image on the scene. While in `Move tool` is active, interactions with annotations on scene are disabled.
+Choose this tool to pan and zoom the scene in the main scene or in the any of the additional view winows. While it's active, interactions with annotations on scene are disabled.
 
-### Select tool
+### Select figure tool
 
-![Select tool](../../assets/legacy/annotation/tool-select.png)
+![](images/3d_drag.png)
 
-Use `Select tool` to select figures (annotations) directly on the scene.
+Use `Select tool` to select objects (annotations) directly on the scene.
 
-Immediately after selecting a figure, corresponding editing tool with be enabled and you can start changing the annotation.
+Immediately after selecting a figure, the corresponding editing tool with be enabled and you can start changing the annotation.
 
 {% hint style="info" %}
-You can also select annotations by clicking on interesting in [figures panel](figures.md).
+You can also select annotations by clicking on them in the [figures panel](figures.md).
 {% endhint %}
-
-### Drag tool
-
-![Drag tool](../../assets/legacy/annotation/tool-move.png)
-
-If you need to drag figures on the scene, select `Drag tool`, move mouse cursor over an interesting figure and drag it to a new position.
-
-### Tag figures tool
-
-![Tag figures tool](../../assets/legacy/annotation/tool-tags.png)
-
-If you need to manipulate figure tags or description, select `Tag figures tool` and click on the tag to open figure tags popup.
 
 ## Annotation tools
 
-Use annotation tools to create new and change existing figures.
+Use annotation tools to create new and change the existing figures.
 
 ### Shapes & Classes
 
-Each annotation instrument is used to create one of the following shapes:
+Currently, each annotation instrument is used to create one of the following shapes:
 
-- Point
-- Line
-- Rectangle
-- Polygon
-- Bitmap
+- Cuboid
+- 
 
 In Supervisely by design each `Class` must be one (and only one!) of the shapes above. It means, that you can't have two figures of class "Car" of different shapes.
 
