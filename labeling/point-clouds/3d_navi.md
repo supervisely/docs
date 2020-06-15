@@ -16,7 +16,7 @@ Shows current dataset and selected image.
 8. Quick user menu access 
 
 
-## Progress bar
+## Title bar
 
 ![](images/3d_frame.png)
 
