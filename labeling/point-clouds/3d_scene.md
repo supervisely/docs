@@ -1,28 +1,22 @@
-Main scene takes the largest portion of the screen and is used to display current image, it's annotations and manipulate with them.
+## Main Scene and Photo Context
 
-![Scene](../../assets/legacy/annotation/scene.jpg)
+
+Main scene takes the largest portion of the screen and is used to display the current file, photo context (if provided) and it's annotations. This area consists of 4 sub-areas: main view window, top, side and front views. 
+
+![](images/3d_scene.PNG)
 
 {% hint style="info" %}
-You can control how large portion of the screen main scene use by dragging border between main scene and right sidebar.
+You can control how large the main view window is by dragging the 3 dots beween it and the sidebar or between it and the bottom row,  right sidebar.
 {% endhint %}
 
-## Controls
+### Main scene view
 
-![Scene settings](../../assets/legacy/annotation/scene-controls.png)
+The camera in this window can be rotated, dragged around and zoomed in and out with the Pan & zoom scene tool to provide you with the optimal viewpoint for the annotation process. Cuboids be placed here, point cloud polygons can be placed and redacted. 
 
-Use blue button at the bottom right corner to control view settings of annotations on the main scene.
+### Top, Side & Front views
 
-Hover mouse cursor over the button to show zoom controls.
+In all of these windows, camera angles are always fixed in their respective positons. Cameras can be zoomed in and out and dragged around. All types of figures can be placed and edited here. 
 
-Press the button to open popup with display settings.
+### Photo context
 
-The following options are available:
-
-1. Press `Fit` to adjusting current image size to fit the scene. Press `1:1` again to resize image to it's original size.
-2. Zoom image
-3. Zoom out image
-4. Control opacity of every annotation on the scene.
-5. Control size of the border of of every annotation on the scene
-6. Tags show mode when "Move scene" tool is selected.
-7. Show / hide grid on top of the image.
-8. Automatically choose border size of annotations depending on the zoom level
+If provided, you can display a photo context image in the main scene view window by clicking on the file in the Point Clouds menu. All of your annotations for the current scene will be projected on this image. By clicking on it, you can switch between a smaller display in the top right corner or a larger view that will fit the main scene horisontally. 
