@@ -6,12 +6,19 @@ Shows current dataset and selected image.
 
 ![](images/3d_navi.png)
 
-1. Home button
-2. Project name 
-3. Current image file name
-4. Project of current dataset. Click to navigate.
-5. Current dataset name. Click to navigate.
+1. Home button. Click to navigate.
+2. Project name. Click to navigate.
+3. Dataset name
+4. *Hide sidebar* button
+5. *Take screenshot* button. A screenshot of the current scene will open in a new window.
+6. *Fullscreen* button
+7. *Hotkeys list* button. 
+8. Quick user menu access 
+
 
 ## Progress bar
 
-Blue progress bar at the bottom of navigation panel shows numeric position of current image in current dataset. It can be useful in scenario, when the goal is to annotate whole dataset: use that progress bar to estimate remaining work.
+![](images/3d_frame.png)
+
+This element of the interface displays the filename for the current scene and provides an option to quickly navigate back (also **Shift + Enter** hotkey) back and forth (**Enter**) between the files in the dataset.
+
