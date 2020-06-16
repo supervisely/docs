@@ -146,7 +146,7 @@
     * [AMI (Amazon)](customization/agents/ami/README.md)
     * [Clean Up](customization/agents/clean_up/clean_up.md)
 * [SDK](customization/sdk/README.md)
-* [API](https://legacy.docs.supervise.ly/api/v3/)
+* [API](https://api.docs.supervise.ly)
 
 ## 👔 Enterprise Edition
 
