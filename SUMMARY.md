@@ -139,6 +139,7 @@
 ## 🔧 Customization
 
 * [Plugins](customization/plugins/README.md)
+  * [Plugin updates and versions](customization/plugins/versions.md)
 * [Agents](customization/agents/README.md)
     * [Agent](customization/agents/agent/agent.md)
     * [Add / Restart / Delete agent](customization/agents/add_delete_node/add_delete_node.md)
