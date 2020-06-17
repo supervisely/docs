@@ -37,5 +37,3 @@ To do that, navigate to the Versions tab under the plugin title card and click o
 Once you've done that, the page will refresh and the version you clicked on will be displayed as selected. There's no limit on how many times you can do that or from which to which version you're switching.
 
 ![](plugin_versioning_tada.png)
-
-
