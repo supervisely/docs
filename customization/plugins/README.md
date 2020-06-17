@@ -55,3 +55,7 @@ It is very useful to customize plugin behaviour in such cases like training or i
 You can also save your current configuration directly from the DTL / Import / Run plugin page by selecting "New config..." in the configuration selector.  
  
 ![](config.png)
+
+## Plugin Versions and Updates
+
+See [here.](versions.md)
