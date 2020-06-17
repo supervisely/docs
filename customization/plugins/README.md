@@ -58,4 +58,4 @@ You can also save your current configuration directly from the DTL / Import / Ru
 
 ## Plugin Versions and Updates
 
-See [here.](versions.md)
+See [here.](../../customization/plugins/versions.md)
