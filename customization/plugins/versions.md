@@ -16,11 +16,9 @@ There are 2 ways to update your plugins inside Supervisely:
 
 ![](plugin_check_upd.png)
 
-2. Select either all or a few individual plugins you wish to update and press *Update to Latest*
+2. Select either all or a few individual plugins you wish to update and press *Update to Latest*. Success!
 
 ![](plugin_checkmark.png)
-
-Success!
 
 **Updating individual plugins**
 
