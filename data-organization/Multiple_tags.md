@@ -1,33 +1,29 @@
 # Multiple Tags
 
-дефолт одиночно с пояснением что это такое
-как включить с примером
-как добавить одиноковые теги - галочки 
-если 2 тега одиноковых на картинке
-теги одинаеовые, но лейблеое логин разный
+While the default Supervisely behavior regarding tags allows only unique tags for objects and images, sometines you need to allow for mutitudes of each unique tag, such in consensus labeling cases.   
 
-как работает в джобе подробно 
+## How does it work?
 
+For tags added by different users, multiple instances of the same tag are distinguished between themselves by the associated LabelerLogin. Several instances of the same tag added by the same user are **???**
 
-While the default Supervisely behavior regarding tags allows only unique tags for objects and images, sometines you need to allow for mutitudes of each unique tag, such in consensus labeling cases.   Sometime you need more than a bunch of marked pixels on an image. You may need to associate some extra information with annotations or files. For example, you may want to label what type of defect on a road is that or point out that this image should be selected for training. To structure this, you can define a Tag.
+## Enabling Multiple Tags
 
-A Tag defines a name, possible values for a tag instance and what types of things it can be attached to. Usually, you can't attach a particular Tag to a particular object multiple times. 
-                              
-## Type
-                    
-You can also define tags with values, i.e. "number_of_wheels". We support values of the following types: Text, Number, and One of. You can, of course, select None and provide no value at all.               
-      
-## Hotkey
+You can enable multiple tags for the current project on the Tags tab of the project Settings. Press Save to apply the changes. 
 
-Optionally, you can assign a Hotkey for a tag to quickly select it during labeling. You can only set a single latin character (because other combinations may be unavailable).
+![](assets/multiple_tags.png)
 
-## Filtering
+## Adding and managing multiple instances of the same tag
 
-Tags can be later used to filter out images or objects in the labeling interface or define a labeling jobs to annotate files that are marked with a particular tags
+Once you enabled Multple Tags for the current project, you can start utilizing the feature. You can use checkmarks in the image/object properties menus on the right or hotkeys to add tags. Each click/hotkey press adds one instance of the selected tag to the image/object. 
 
-## Examples
+To remove tags, either unmark the corresponding checkbox or switch to the Tag too (the default hotkey is 4) and remove extra tags by clicking on the x next to them.
 
-- "probability" (of "Number" type) — automatically attached to the generated labels during inference
-- "to_train" (of "None" type) — can used for filtering to automatically move those images to the training set
-- "bad_one" (of "None" type) — especially with a hotkey attached, can be used to quickly mark images that needs to be re-labeled
-- "color" (of "String" type) — describes some information about an object
+## Usage of Multiple Tags functionality in Labeling Jobs
+
+As we mentioned before, this functionality is useful for the purposes of consensus labeling. to utilize that, we've added a new setting to our Labeling Jobs functionality:
+
+**Labeler sees tags** 
+  - All. Selecting this option allows labeler to see and modify tags created by other users
+  - Only own. In this mode the current labeler doesn't see any tags other than the ones they added themselves. 
+  
+These settings don't affect reviewers, these users always see all tags added to the current image/object.   
