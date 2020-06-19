@@ -18,6 +18,21 @@ Once you enabled Multple Tags for the current project, you can start utilizing t
 
 To remove tags, either unmark the corresponding checkbox or switch to the Tag too (the default hotkey is 4) and remove extra tags by clicking on the x next to them.
 
+### Example
+
+The image below already has one instance of the tag Like (1) assigned to it. 
+
+To add another instance (2), either click on the checkbox or use the associated hotkey. 
+
+![](assets/multiple_tags_example.png)
+
+Once you've done so, a new instance of the tag will be added to the image. 
+
+![](assets/multiple_tags_example_s.png)
+
+You can add Multiple Object Tags by using the same principle. 
+
+
 ## Usage of Multiple Tags functionality in Labeling Jobs
 
 As we mentioned before, this functionality is useful for the purposes of consensus labeling. to utilize that, we've added a new setting to our Labeling Jobs functionality:
