@@ -4,7 +4,7 @@ While the default Supervisely behavior regarding tags allows only unique tags fo
 
 ## How does it work?
 
-For tags added by different users, multiple instances of the same tag are distinguished between themselves by the associated LabelerLogin. Several instances of the same tag added by the same user are **???**
+For tags added by different users, multiple instances of the same tag are distinguished between themselves by the associated LabelerLogin. Several instances of the same tag added by the same user are identified by a unique TagID, assigned to each of them. 
 
 ## Enabling Multiple Tags
 
