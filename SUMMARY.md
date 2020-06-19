@@ -146,7 +146,7 @@
     * [Node monitoring](customization/agents/manage/manage.md)
     * [AMI (Amazon)](customization/agents/ami/README.md)
     * [Clean Up](customization/agents/clean_up/clean_up.md)
-* [SDK](customization/sdk/README.md)
+* [SDK](https://sdk.docs.supervise.ly)
 * [API](https://api.docs.supervise.ly)
 
 ## 👔 Enterprise Edition
