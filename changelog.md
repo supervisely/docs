@@ -3,15 +3,21 @@
 ## 22 June 2020
 
 **Improvements:**
+- 🤩 HUGE! A new project option "multiple tags mode" which allows you to assign a single tag multiple times. A must have when it comes to a labeling consensus
+- ... and of course a new option "Labeler sees tags" so now you can hide tags made by other labelers to remove labeling bias
+- New hotkeys: quickly switch between brush / fill tool options
+- Custom meta properties for images: attach custom IDs to match two DBs or 100Mb matrices for future inference
 - Reset settings button for the image labeling tool (handy for resetting brightness / contrast and opacity)
 - Quick *one of* tag value selection: now you can just select a tag, press "3" to select third value and press "enter" to confirm
 - Now we show a name of the last labeling job in which dataset was participated to know what dataset is yet to be labeled
 - Better handling of laaaaaaaaaaaaaaarge project and dataset names in the table view
+- API: Archive / unarchive labeling jobs
 - API: Retain `createdAt` and `updatedAt` fields in tags and figures in the `annotations.bulk.add` method
 
 **Bug fixes:**
 - Keypoints removal fixed
 - Cuboids creation improved
+- Maintain case sensitivity in the Links plugin
  
 ## 28 May 2020
 
