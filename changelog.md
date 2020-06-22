@@ -1,5 +1,18 @@
 # Changelog
 
+## 22 June 2020
+
+**Improvements:**
+- Reset settings button for the image labeling tool (handy for resetting brightness / contrast and opacity)
+- Quick *one of* tag value selection: now you can just select a tag, press "3" to select third value and press "enter" to confirm
+- Now we show a name of the last labeling job in which dataset was participated to know what dataset is yet to be labeled
+- Better handling of laaaaaaaaaaaaaaarge project and dataset names in the table view
+- API: Retain `createdAt` and `updatedAt` fields in tags and figures in the `annotations.bulk.add` method
+
+**Bug fixes:**
+- Keypoints removal fixed
+- Cuboids creation improved
+ 
 ## 28 May 2020
 
 **Improvements:**
