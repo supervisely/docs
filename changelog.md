@@ -1,5 +1,20 @@
 # Changelog
 
+## 17 July 2020
+
+**Improvements:**
+- Moved pagination to the backend for Labeling Jobs
+- Added an option to create Labeling Exams without selecting Classes (Now it's possible to create one with just the Tags selected)
+- Added online/offline indicators to the Users page
+- Added erase underlying objects" for crop / fill in bitmap tool
+
+**Bug fixes:**
+- Fixed filtering objects by tag
+- Fixed slowdown for polygons with a large number of points
+- Fixed issues with 3D Point Cloud Pen tool selection
+- Fixed issues with large remote images
+- Fixed the 'The following images with hashes were not found' DTL error
+
 ## 22 June 2020
 
 **Improvements:**
