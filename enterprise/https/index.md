@@ -4,7 +4,7 @@ This guide will help you to run Supervisely over HTTPS.
 
 ## Option 1. Using Let's Encrypt
 
-Create a new file `docker-compose.override.yml` in the folder with `docker-compose.yml` configuration with the following content:
+Create a new file `docker-compose.override.yml` in the folder with `docker-compose.yml` (you can find it by running `supervisely where` command) configuration with the following content:
 
 ```
 version: '2.2'
@@ -37,6 +37,8 @@ services:
       - /supervisely/data/letsencrypt_cache:/etc/letsencrypt:rw
       - /supervisely/data/certs:/etc/nginx/certs:rw
 ```
+
+Run `supervisely up -d` to apply changes. It will take a few minutes to issue your new certificates. After `default.crt` fill appear in the `data/certs` folder, run `supervisely restart proxy` — now your Supervisely instance works over HTTPS! Please do not forget to change `SERVER_ADDRESS` in your `.env` file accordingly.
 
 ## Option 2. Built-in SSL support
 
