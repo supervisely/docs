@@ -24,7 +24,7 @@ Click "Signup" to create a new user. We will automatically create a new team for
 
 Every kind of potentially long operation (like Import or Training) is performed on so-called [agents](../../customization/agents/README.md). Before you can use Supervisely, you should deploy at least one.
 
-In your configuration we already deploy a default "Main Node" agent so you don't have to do anything. But, if you don't have a GPU device on your machine with Supervisely, you may want to deploy an additional agent on AWS or some computer with a videocard. 
+During the installation we automatically deploy a default "Main Node" agent via `supervisely deploy-agent` so you don't have to do anything. But, if you don't have a GPU device on your machine with Supervisely, you may want to deploy an additional agent on AWS or some computer with a videocard.
 
 Go to Cluster page and click "Add agent". Execute command from popup window on your server in terminal (you can use the same machine where Supervisely is deployed).
 
@@ -35,7 +35,7 @@ Choose "Share with all users" from agent context menu if you want any user of yo
 {% endhint %}
 
 {% hint style="warning" %}
-If you see at Cluster page that your Main Node is in Waiting status, it means that it could not be connected to Supervisely. Please check `SERVER_ADDRESS` variable in your `.env` file. Agent should be able to make outbound connections to that IP or Host. As a quick solution you can find your `docker0` ip address that act as `locahost` for Docker: run `ip addr list docker0` and use it in `SERVER_ADDRESS`. It should look like `172.17.0.1` or something. Run `supervisely up -d agent` to apply your changes. Main Node at Cluster page should change status to "Running" 
+If you see at Cluster page that your Main Node is in Waiting status, it means that it could not be connected to Supervisely. Please check `SERVER_ADDRESS` variable in your `.env` file. Agent should be able to make outbound connections to that IP or Host. As a quick solution you can find your `docker0` ip address that act as `locahost` for Docker: run `ip addr list docker0` and use it in `SERVER_ADDRESS`. It should look like `172.17.0.1` or something. Run `supervisely deploy-agent` to apply your changes. Main Node at Cluster page should change status to "Running" 
 {% endhint %}
 
 
