@@ -74,6 +74,8 @@ Here are some variables that you can find here:
 - `STORAGE_ACCESS_KEY` - Access key for S3 integration (optional)
 - `STORAGE_SECRET_KEY` - Secret key for S3 integration (optional)
 
+If you will decide to change those values later after the installation is complete, do not forget to run `supervisely up -d` to apply the changes.
+
 ### Step 5. Login to Docker registry
 
 Run `sudo supervisely login` to login to our private docker registry. We provide the necessary credentials in `.env` file so you don't have to input anything.
