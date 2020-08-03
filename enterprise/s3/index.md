@@ -27,6 +27,8 @@ For example, here are settings for Amazon S3:
 So in the end, here is how your `.env` settings could look like:
 
 ```
+JUPYTER_DOWNLOAD_FILES_BEFORE_START=true
+STORAGE_JUPYTER_SYNC=true
 STORAGE_PROVIDER=minio
 STORAGE_ENDPOINT=s3.amazonaws.com
 STORAGE_PORT=443
@@ -45,10 +47,10 @@ Also, you need to provide `STORAGE_ACCESS_KEY` (your storage account name) and `
 Here is how your `.env` settings could look like:
 
 ```
-UPYTER_DOWNLOAD_FILES_BEFORE_START=true
+JUPYTER_DOWNLOAD_FILES_BEFORE_START=true
+STORAGE_JUPYTER_SYNC=true
 STORAGE_ACCESS_KEY=<account name>
 STORAGE_ENDPOINT=https://<account name>.blob.core.windows.net
-STORAGE_JUPYTER_SYNC=true
 STORAGE_PROVIDER=azure
 STORAGE_SECRET_KEY=<secret key 88 chars long or so: aflmg+wg23fWA+6gAafWmgF4a>
 ```
