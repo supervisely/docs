@@ -156,7 +156,7 @@
     * [Upgrade](enterprise/update/index.md)
 * Advanced Tuning
     * [HTTPS](enterprise/https/index.md)
-    * [S3 Support](enterprise/s3/index.md)
+    * [Remove Storage](enterprise/s3/README.md)
     * [External authorization](enterprise/auth/index.md)
     * [Notifications](enterprise/notifications/README.md)
 
