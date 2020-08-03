@@ -76,3 +76,23 @@ Finally, restart services to apply new configuration: `supervisely up -d`.
 If you want to use [IAM Role](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#instance-metadata-security-credentials) you must specify `STORAGE_IAM_ROLE=<role_name>` in .env file then `STORAGE_ACCESS_KEY` and `STORAGE_SECRET_KEY` variables can be ommited. 
 
 IAM Roles are only supported for AWS S3.
+
+## Frontend caching
+
+Since AWS and Azure can be quite price in case of heavy reads, we enable image caching by default.
+
+If the image is not in the preview cache but in the STORAGE cache it will be generated and put into previews cache, but it will not be fetched from the remote server.
+
+Here are the default values (you can alter them via `docker-compose.override.yml` file):
+
+```
+services:
+  proxy:
+    environment:
+      CACHE_PREVIEWS_SIZE: 1g
+      CACHE_PREVIEWS_EXPIRES: 12h
+      CACHE_STORAGE_SIZE: 10g
+      CACHE_STORAGE_EXPIRES: 7d
+      CACHE_IMAGE_CONVERTER_SIZE: 10g
+      CACHE_IMAGE_CONVERTER_EXPIRES: 7d
+```
