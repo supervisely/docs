@@ -1,5 +1,21 @@
 # Changelog
 
+## 04 August 2020
+
+**Improvements:**
+- Added an option to change 'next/previous 10 frames' to an adjustable number of frames in the Video Annotator
+- Added API call to extract specific checkpoint
+- Added an option to keep the assigned images when cloning Jobs
+- Added model identificator to the Neural Networks list
+- Added filters to the user list on Labeling Job creation page
+- Added Moving Cursor timer to statistics 
+- Added an option to select multiple tags for the frame range in the Video Editor
+
+**Bug fixes:**
+- Fixed scroll to the Job in the Labeling Job list
+- Fixed email editing
+- Multiple bug fixes
+
 ## 17 July 2020
 
 **Improvements:**
