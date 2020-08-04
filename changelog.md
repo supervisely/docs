@@ -8,7 +8,7 @@
 - Added an option to keep the assigned images when cloning Jobs
 - Added model identificator to the Neural Networks list
 - Added filters to the user list on Labeling Job creation page
-- Added Moving Cursor timer to statistics 
+- Updated Moving Cursor Time in statistics 
 - Added an option to select multiple tags for the frame range in the Video Editor
 
 **Bug fixes:**
