@@ -15,7 +15,7 @@ $ cd $(sudo supervisely where)
   client_secret: <client_secret>
 ```
 
-3\. Create `docker-compose-override.yml` file
+3\. Create `docker-compose.override.yml` file
 
 ```yaml
 version: '2.2'
@@ -36,7 +36,7 @@ $ sudo supervisely up -d
 
 5\. Go to your authorization service and add new redirect (callback) URI `<https_instance_domain>/api/account/auth/<provider_name>/callback`
 where:
-  - https_instance_domain - domain, that you specified in `docker-compose-override.yml`
+  - https_instance_domain - domain, that you specified in `docker-compose.override.yml`
   - provider_name - name, that you specified in `openid.yml`
 
 #### Authorization through Microsoft Azure Active Directory
@@ -54,7 +54,7 @@ microsoft:
   client_secret: j2Hy-***************************
 ```
 
-###### docker-compose-override.yml
+###### docker-compose.override.yml
 ```yaml
 version: '2.2'
 
@@ -74,7 +74,7 @@ services:
 $ cd $(sudo supervisely where)
 ```
 
-2\. Create `docker-compose-override.yml` file
+2\. Create `docker-compose.override.yml` file
 
 ```yaml
 version: '2.2'
@@ -95,7 +95,7 @@ services:
 $ sudo supervisely up -d
 ```
 
-###### docker-compose-override.yml exmaple
+###### docker-compose.override.yml exmaple
 
 ```yaml
 version: '2.2'
