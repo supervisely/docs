@@ -12,7 +12,8 @@ At the moment the following roles are available:
 - **Developer**: Similar to the admin, but can only remove entities created by themself and cannot invite new members to the team.
 - **Manager**: Has no access to things like Python Notebooks or Neural Networks, but can view and modify Projects & Labeling Jobs
 - **Annotator**: Has access only to a single page, Labeling Jobs.
-- **Viewer**: can only view items in team
+- **Reviewer**: Same as Annotator, but can also create new labeling jobs
+- **Viewer**: Can only view items in team
 
 Every team must have at least one `admin`, but can have two or more.
 
