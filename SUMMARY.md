@@ -157,8 +157,9 @@
 * Advanced Tuning
     * [HTTPS](enterprise/https/index.md)
     * [Remote Storage](enterprise/s3/README.md)
-    * [External authorization](enterprise/auth/index.md)
+    * [External Authorization](enterprise/auth/index.md)
     * [Notifications](enterprise/notifications/README.md)
+    * [Moving Instance](enterprise/moving/README.md)
 
 ## 💡 Resources
 
