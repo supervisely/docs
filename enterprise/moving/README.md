@@ -32,7 +32,7 @@ rsync -azP /supervisely/data new_server:/supervisely/data
 
 ### If you store data on external storage (i.e. S3)
 
-In this case you will need to copy data from the cloud via some external utility. We suggest to use `minio` as in this [tutorial](/enterprise-edition/advanced-tuning/s3#migration-from-local-storage).
+In this case you will need to copy data from the cloud via some external utility. We suggest to use `minio` as in this [tutorial](../s3#migration-from-local-storage).
 
 ## Step 4. Start the new instance
 
