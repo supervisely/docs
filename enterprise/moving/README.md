@@ -19,6 +19,8 @@ rsync -azP /opt/supervisely new_server:/opt/supervisely/
 
 ## Step 3. Move data to a new machine
 
+### If you store data on the local drive
+
 Locate data folder on a new and old machine via `sudo supervisely where data` command (run on both servers — usually, `/supervisely/data`).
 
 First, stop an existing instance via `sudo supervisely stop`. Now, copy the folder from the old machine to the new one. For example: 
@@ -27,6 +29,10 @@ First, stop an existing instance via `sudo supervisely stop`. Now, copy the fold
 # on the old server
 rsync -azP /supervisely/data new_server:/supervisely/data
 ```
+
+### If you store data on external storage (i.e. S3)
+
+In this case you will need to copy data from the cloud via some external utility. We suggest to use `minio` as in this [tutorial](/enterprise-edition/advanced-tuning/s3#migration-from-local-storage).
 
 ## Step 4. Start the new instance
 
