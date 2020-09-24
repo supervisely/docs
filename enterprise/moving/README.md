@@ -4,7 +4,7 @@ One of the most frequently asked questions is how to move an existing Supervisel
 
 ## Step 1. Install Supervisely on a new machine
 
-Install `supervisely-cli` and run `sudo supervisely install-all` to get all the necessary dependencies on a new server. You can check this [document](../installation/README.md#installation). It is a good idea to pick the same config and data folders as on old server, but it is not nessessary.
+Install `supervisely-cli`, run `supervisely auth <key>` with the key provided to you before and run `sudo supervisely install-all` to get all the necessary dependencies on a new server. You can check this [document](../installation/README.md#installation). It is a good idea to pick the same config and data folders as on old server, but it is not nessessary.
 
 ## Step 2. Move configuration to a new machine
 
