@@ -13,6 +13,10 @@ $ cd $(sudo supervisely where)
   metadata_url: <metada_url>
   client_id: <client_id>
   client_secret: <client_secret>
+  
+  # optional
+  http_proxy: <proxy url>
+  https_proxy: <proxy url>
 ```
 
 3\. Create `docker-compose.override.yml` file
@@ -89,13 +93,13 @@ services:
       LDAP_SEARCH_BASE: <search_base>
 ```
 
-3\. Execute following command
+3\. Execute the following command
 
 ```sh
 $ sudo supervisely up -d
 ```
 
-###### docker-compose.override.yml exmaple
+###### docker-compose.override.yml example
 
 ```yaml
 version: '2.2'
