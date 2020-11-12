@@ -26,7 +26,7 @@ Fields definitions:
 
 - `name` - string - name of the tag
 - `value` - value of the current tag (always null for any tag of type 'none')
-- Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](x)
+- Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](##Optional-fields)
 
 ## Tag with 'Number' Value
 
