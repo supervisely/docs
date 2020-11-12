@@ -16,7 +16,7 @@ But at some point you will need to export labeled data from Supervisely or uploa
 
 In Supervisely data can be labeled with many different shapes from bitmaps and polygons to cuboids and custom graph structures as well as tags with pre-defined values. No existing format was there to handle all those features, so we made our own, called **Supervisely Format**.
 
-It's a simple combination of .json files that store annotations, `meta.json` file that describes meta information about the project and (optionally) original content (images or videos). You can read more about the format [here](./Annotation-JSON-format/00_ann_format_navi.md). A quick overview of the required file structure for the upload can be found [here](./import/formats/supervisely.md)
+It's a simple combination of .json files that store annotations, `meta.json` file that describes meta information about the project and (optionally) original content (images or videos). You can read more about the format [here](./Annotation-JSON-format/00_ann_format_navi.md). You can see a quick overview of the required file structure for the upload [here](./import/formats/supervisely.md).
 
 ## ⚙ Data Processing
 
