@@ -8,7 +8,7 @@ Supervisely Annotation Format supports the following figures:
 - polygon
 - line / polyline 
 - bitmap
-- keypoint structures (vertices (also called nodes or points) which are connected by edges (also called links or lines))
+- keypoint structures 
 - cuboid
 
 ## Coordinate System
@@ -74,7 +74,7 @@ Json format for this shape:
 
 Fields definitions:
 
-- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described above
+- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
 - `description` - string - text description (optional)
 - `geometryType: "point"` - class shape
 - `tags` - list of tags assigned to the current object
@@ -120,7 +120,7 @@ Json format for this figure:
 
 Fields definitions:
 
-- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described above
+- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
 - `description` - string - text description (optional)
 - `geometryType: "rectangle"` - class shape
 - `tags` - list of tags assigned to the current object
@@ -168,7 +168,7 @@ Example:
 
 Fields definitions:
 
-- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described above
+- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
 - `description` - string - text description (optional)
 - `geometryType: "polygon"` - class shape
 - `tags` - list of tags assigned to the curent object
@@ -231,7 +231,7 @@ Example:
 
 Fields definitions:
 
-- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described above
+- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
 - `description` - string - text description (optional)
 - `geometryType: "polygon"` - class shape
 - `tags` - list of tags assigned to the curent object
@@ -279,7 +279,7 @@ Example:
 
 Fields definitions:
 
-- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described above
+- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
 - `description` - string - text description (optional)
 - `geometryType: "line"` - class shape
 - `tags` - list of tags assigned to the current object 
@@ -319,7 +319,7 @@ Example:
 
 Fields description:
 
-- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described above
+- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
 - `description` - string - text description (optional)
 - `geometryType: "bitmap"` - class shape
 - `tags` - list of tags assigned to the current object 
@@ -448,7 +448,7 @@ Example:
 
 Fields definitions:
 
-- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described above
+- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
 - `description` - string - text description (optional)
 - `geometryType: "graph"` - class shape
 - `tags` - list of tags assigned to the current object 
@@ -522,7 +522,7 @@ Example:
 
 Fields definitions:
 
-- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described above
+- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
 - `description` - string - text description (optional)
 - `geometryType: "graph"` - class shape
 - `tags` - list of tags assigned to the current object 
