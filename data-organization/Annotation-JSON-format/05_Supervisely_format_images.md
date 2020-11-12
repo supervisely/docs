@@ -22,8 +22,8 @@ Fields definitions:
 - `size` - stores image size. Mostly, it is used to get the image size without the actual image reading to speed up some data processing steps.
   - `width` - image width in pixels
   - `height` - image height in pixels
-- `tags` - list of strings that will be interpreted as image [tags](x)
-- `objects` - list of [objects on the image](x)
+- `tags` - list of strings that will be interpreted as image [tags](./03_Supervisely_format_tags.md)
+- `objects` - list of [objects on the image](./04_Supervisely_Format_objects.md)
 
 
 
