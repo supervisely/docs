@@ -16,7 +16,6 @@
     * [Classes](data-organization/classes.md)
     * [Tags](data-organization/tags.md)
 * [Import & Export](data-organization/import-export.md)
-    * [Supervisely Format](data-organization/supervisely-format.md)
     * [Import via Browser](data-organization/import/upload/README.md)
     * [Import via Agent](data-organization/import/agent/README.md)
     * [Import via Links](data-organization/import/links/README.md)
