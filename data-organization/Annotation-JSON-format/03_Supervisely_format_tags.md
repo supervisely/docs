@@ -158,7 +158,7 @@ Fields definitions:
 
 - `name` - string - name of the tag
 - `value` - value of current tag
-- Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](x)
+- Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#Optional-fields)
 
 
 **Objects tags:**
