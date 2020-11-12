@@ -4,11 +4,11 @@ In Supervisely you can annotate data from several different mediums: images, vid
 
 **Table of Contents:**
 
-1. [Project Structure in Supervisely Annotation Format](./01_Project_Structure_new.md)
-2. [Project Classes and Tags](./02_Project_Classes_And_Tags.md)
-3. [Tags](./03_Supervisely_format_tags.md)
-4. [Objects](./04_Supervisely_Format_objects.md)
-5. [Individual Image Annotations](./05_Supervisely_format_images.md)
-6. [Individual Video Annotations](./06_Supervisely_format_videos.md)
+1. [Project Structure in Supervisely Annotation Format](data-organization/Annotation-JSON-format//01_Project_Structure_new.md)
+2. [Project Classes and Tags](data-organization/Annotation-JSON-format//02_Project_Classes_And_Tags.md)
+3. [Tags](data-organization/Annotation-JSON-format//03_Supervisely_format_tags.md)
+4. [Objects](data-organization/Annotation-JSON-format//04_Supervisely_Format_objects.md)
+5. [Individual Image Annotations](data-organization/Annotation-JSON-format//05_Supervisely_format_images.md)
+6. [Individual Video Annotations](data-organization/Annotation-JSON-format//06_Supervisely_format_videos.md)
 
 
