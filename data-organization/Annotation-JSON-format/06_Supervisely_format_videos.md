@@ -96,7 +96,7 @@ Json format of annotation for video format:
 
 ## Key id map file
 
-Key_id_map.json file is optional. It is created when annotating the video in [https://app.supervise.ly](https://app.supervise.ly/) and sets the correspondence between the unique identifiers of the video, object and the frame on which the object is located.  If you annotate manually, you do not need to create this file. This will not affect the work being done.
+Key_id_map.json file is optional. It is created when annotating the video inside Supervisely interface and sets the correspondence between the unique identifiers of the video, object and the frame on which the object is located.  If you annotate manually, you do not need to create this file. This will not affect the work being done.
 
 
 
@@ -119,7 +119,7 @@ Json format of key_id_map.json:
 
 Fields definitions:
 
-- `objects` - dictionary, where the key is a unique string, generated in [https://app.supervise.ly](https://app.supervise.ly/) to set correspondence of current object in annotation, and values are unique integer ID corresponding to the current object
-- `figures` - dictionary, where the key is a unique string, generated in [https://app.supervise.ly](https://app.supervise.ly/) to set correspondence of object on current frame in annotation, and values are unique integer ID corresponding to the current frame
-- `videos` - dictionary, where the key is unique string, generated in [https://app.supervise.ly](https://app.supervise.ly/) to set correspondence of video in annotation, and value is a unique integer ID corresponding to the current video
-- `tags` - dictionary, where the keys are unique strings, generated in [https://app.supervise.ly](https://app.supervise.ly/) to set correspondence of tag on current frame in annotation, and values are a unique integer ID corresponding to the current tag
+- `objects` - dictionary, where the key is a unique string, generated inside Supervisely environment to set correspondence of current object in annotation, and values are unique integer ID corresponding to the current object
+- `figures` - dictionary, where the key is a unique string, generated inside Supervisely environment to set correspondence of object on current frame in annotation, and values are unique integer ID corresponding to the current frame
+- `videos` - dictionary, where the key is unique string, generated inside Supervisely environment to set correspondence of video in annotation, and value is a unique integer ID corresponding to the current video
+- `tags` - dictionary, where the keys are unique strings, generated inside Supervisely environment to set correspondence of tag on current frame in annotation, and values are a unique integer ID corresponding to the current tag
