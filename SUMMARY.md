@@ -26,7 +26,15 @@
         * [Mapillary](data-organization/import/formats/mapillary.md)
         * [Pascal VOC](data-organization/import/formats/pascal_voc.md)
         * [KITTI SemSeg](data-organization/import/formats/kitti_semseg.md)
-* [Supervisely Format](data-organization/Annotation-JSON-format/00_ann_format_navi.md)        
+* [Supervisely Format](data-organization/Annotation-JSON-format/00_ann_format_navi.md) 
+    * [Project Structure in Supervisely Annotation Format](./01_Project_Structure_new.md)
+    * [Project Classes and Tags](./02_Project_Classes_And_Tags.md)
+    * [Tags](./03_Supervisely_format_tags.md)
+    * [Objects](./04_Supervisely_Format_objects.md)
+    * [Individual Image Annotations](./05_Supervisely_format_images.md)
+    * [Individual Video Annotations](./06_Supervisely_format_videos.md)
+
+
 * [Storage](data-organization/storage/README.md)
 
 ## 📝 Labeling
