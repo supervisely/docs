@@ -50,7 +50,7 @@ Fields definitions:
 
 - `name` - string - name of the tag
 - `value` - value of the current tag
-- Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](x)
+- Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](#Optional-fields)
 
 ## Tag with String('Text') Value
 
@@ -74,7 +74,7 @@ Fields definitions:
 
 - `name` - string - name of the tag
 - `value` - value of current tag
-- Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](x)
+- Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](#Optional-fields)
 
 ## Tag with value from a given list ('One Of')
 
@@ -98,7 +98,7 @@ Fields definitions:
 
 - `name` - string - name of the tag
 - `value` - value of current tag
-- Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](x)
+- Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](#Optional-fields)
 
 ## Optional fields
 
