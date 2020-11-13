@@ -1,5 +1,52 @@
 # Changelog
 
+## 2 November 2020
+
+**Improvements:**
+- OpenID http proxy support
+- Pixel perfect zoom to cursor
+- Better frustum settings for cuboids
+- Better WASD navigation in point cloud labeling tool
+- Low disk space warnings
+- Automatic cleanup tasks
+
+**Bug fixes:**
+- 502 bad gateway error permanent fix
+
+
+## 8 October 2020
+
+**Improvements:**
+- Intorducing resolution scale option in images annotation tool to improve rendering performance
+- Show warning if HW acceleration is unavailable in your browser
+- `http-proxy` & `noproxy` settings for agent
+
+**Bug fixes:**
+- Annotations lines width
+- Multiple bug fixes
+
+## 15 September 2020
+
+**Improvements:**
+- Limit editing history size in images annotation tool
+- Introducting labeling new mode to show and restore removed figures and objects
+- Improved frame preloading speed in video tool
+
+## 17 August 2020
+
+**Improvements:**
+- New "go to frame" hotkey in video labeling tool
+- Scroll to figure in image labeling tool
+- Opening labeling job notification automatically scrolls to the job
+- Jobs filter added Pending & Finished
+- Can now filter objects by tag value in image labeling tool
+- Annotation object id on scene in point-cloud annotation tool
+
+**Bug fixes:**
+- Memory consumptions optimizations
+- Video rendering optimizations 
+- Improved storage performance
+
 ## 04 August 2020
 
 **Improvements:**
