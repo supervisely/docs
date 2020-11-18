@@ -35,6 +35,7 @@ mkdir -p ~/temp
 wget https://repo.anaconda.com/miniconda/Miniconda3-py38_4.8.3-MacOSX-x86_64.sh -O ~/temp/miniconda.sh
 sudo bash ~/temp/miniconda.sh -bfp /usr/local
 sudo conda install -y python=3.8
+python3.8 -m pip install --user --upgrade pip
 sudo conda clean --all --yes
 rm -rf ~/temp/miniconda.sh
 ```
