@@ -40,7 +40,7 @@ sudo conda clean --all --yes
 rm -rf ~/temp/miniconda.sh
 ```
 
-## Install other packages and libraries
+## Install other packages and libraries ??
 
 
 brew install -y libgeos-dev=3.5.0-1ubuntu2 
@@ -50,8 +50,16 @@ libxrender-dev=1:0.9.9-0ubuntu1
 apt-get install -y libjpeg-dev libpng-dev
 
 
+- fork project
+- clone it to computer and go to the root project folder
 
+https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment
+python3 -m venv env
+source env/bin/activate
+pip install -r requirements.txt
+deactivate
 
+/usr/local/bin/python
 
 
 ----
