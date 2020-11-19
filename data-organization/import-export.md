@@ -88,7 +88,7 @@ Labeling is done, now you want your content and labels back. How to download the
 
 In the Projects content menu you will find "Download as..." option. This is actually a list Python Scripts that have word "Download" in its name. So when you click on it, a new task is deployed to an agent and a Python Script pull all the data is needed from the storage and database.
 
-We've already prepared a couple of scripts that saves data in the [Supervisely Format](supervisely-format.md) and, for some project types, and extra scripts (like masks generation script for images).
+We've already prepared a couple of scripts that saves data in the [Supervisely Format](./Annotation-JSON-format/00_ann_format_navi.md) and, for some project types, and extra scripts (like masks generation script for images).
 
 {% hint style="info" %}
 Enterprise Edition users can create their own Python Scripts to download Project in desired format.
