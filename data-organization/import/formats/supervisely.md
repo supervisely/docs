@@ -34,3 +34,7 @@ Let's consider the example above. To upload that project user has to select `met
 {% hint style="info" %}
 We recomemnd to split images logically into several datasets inside one project.
 {% endhint %}
+
+# Read more about Supervisely format
+
+The full specification for the format can be found [here]((../../data-organization/Annotation-JSON-format/00_ann_format_navi.md).
