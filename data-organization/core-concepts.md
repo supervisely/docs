@@ -1,6 +1,6 @@
 # Core Concepts
 
-To organize data for labeling and neural net training is not an easy task. If there is no structure, things get messy 💩 pretty quick. Learn those essentials to organize your efficiently. ☝️
+To organize data for labeling and neural net training is not an easy task. If there is no structure, things get messy pretty quick. Learn those essentials to organize your efficiently. ☝️
 
 ## 🗂️ Projects
 
