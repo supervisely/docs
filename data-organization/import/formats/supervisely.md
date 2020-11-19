@@ -37,4 +37,4 @@ We recomemnd to split images logically into several datasets inside one project.
 
 # Read more about Supervisely format
 
-The full specification for the format can be found [here]((../../data-organization/Annotation-JSON-format/00_ann_format_navi.md).
+The full specification for the format can be found [here](../../data-organization/Annotation-JSON-format/00_ann_format_navi.md).
