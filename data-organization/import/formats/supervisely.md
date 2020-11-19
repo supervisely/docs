@@ -7,18 +7,18 @@ my_project
 ├── meta.json
 ├── dataset_name_01
 │   ├── ann
-│   │   ├── img_x.json
-│   │   ├── img_y.json
-│   │   └── img_z.json
+│   │   ├── img_x.jpeg.json
+│   │   ├── img_y.jpeg.json
+│   │   └── img_z.jpeg.json
 │   └── img
 │       ├── img_x.jpeg
 │       ├── img_y.jpeg
 │       └── img_z.jpeg
 ├── dataset_name_02
 │   ├── ann
-│   │   ├── img_x.json
-│   │   ├── img_y.json
-│   │   └── img_z.json
+│   │   ├── img_x.jpeg.json
+│   │   ├── img_y.jpeg.json
+│   │   └── img_z.jpeg.json
 │   └── img
 │       ├── img_x.jpeg
 │       ├── img_y.jpeg
