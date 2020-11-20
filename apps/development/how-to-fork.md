@@ -12,8 +12,4 @@
 
 ![](./images/fork/fork-03.png)
 
-4. Change repository name
-
-![](./images/fork/fork-04.png)
-
 
