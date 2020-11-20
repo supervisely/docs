@@ -15,7 +15,7 @@ Supervisely Ecosystem is automatically updated every 30 minutes. This can be cha
 
 In addition to automatic updates, if they are enabled on your instance, the update can always be pushed manually. This action can only be performed by the `admin` user. 
  
- **Manual update of the whole Ecosystem**
+ **Manual Update of the Whole Ecosystem**
  
  To immediately update the whole ecosystem and every app installed on the platform you need to:
 
@@ -27,7 +27,7 @@ In addition to automatic updates, if they are enabled on your instance, the upda
  
  Depending on the total volume of installed apps, this make take a few minutes. 
 
-**Manual update of an individual App**
+**Manual Update of an Individual App**
 
 To update an idvidual app inside the plaform you need to:
 
@@ -41,7 +41,7 @@ To update an idvidual app inside the plaform you need to:
  
  The update will be downloaded add applied.
  
-## Version History And Switching Between Versions
+## Version History and Switching Between Versions
 
 By default, the system always used the latest available version of the app. Older versions are available on the `releases` tab on the app's page and the `admin` user can switch between them by selecting the desired version.
 
