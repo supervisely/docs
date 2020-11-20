@@ -16,7 +16,7 @@ brew install git
 brew install md5sha1sum
 ```
 
-3. Install [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+3. Install [Miniconda](https://docs.conda.io/en/latest/miniconda.html) and `python 3.8`
 
 ```sh
 mkdir -p ~/temp
