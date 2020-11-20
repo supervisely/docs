@@ -23,7 +23,7 @@ In addition to automatic updates, if they are enabled on your instance, the upda
  2. Navigate to the Ecosystem page 
  3. Press the `refresh` button at the top of the page
  
- [screenshot]
+ ![example](./images/screenshot-78-46-75-100-38585-ecosystem-1605864450392.png)
  
  Depending on the total volume of installed apps, this make take a few minutes. 
 
