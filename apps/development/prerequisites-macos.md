@@ -26,3 +26,6 @@ sudo conda install -y python=3.8
 sudo conda clean --all --yes
 rm -rf ~/temp/miniconda.sh
 ```
+
+4. Install your favorite python IDE. We prefer and use [Pycharm](https://www.jetbrains.com/pycharm/download/#section=mac). The further steps will be shown using Pycharm CE (Community Edition).
+
