@@ -13,7 +13,16 @@ This app just prints progress bar (to console log and to Supervisely) from 1 to 
 
 ## Fork and clone template app
 
-1. Fork [app](https://github.com/supervisely-ecosystem/app-template-headless) to you account
-2. Change name: for example `my-first-app`
+1. Fork [app](https://github.com/supervisely-ecosystem/app-template-headless) to you account and change it name. How-to-fork guide is [here](./how-to-fork.md).
+
+5. Copy Github URL
+
+![](./images/fork/fork-05.png)
+
+6. Clone it to your computer. It will be something like this (do not forget to change my URL to your one). We will clone it to `~/tutorial/my-first-app` folder.
+```
+git clone https://github.com/mkolomeychenko/my-first-app.git ~/tutorial/my-first-app
+```
+
 3. Clone this app to your computer
 
