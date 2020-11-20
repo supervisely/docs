@@ -45,4 +45,4 @@ To update an idvidual app inside the plaform you need to:
 
 By default, the system always used the latest available version of the app. Older versions are available on the `releases` tab on the app's page and the `admin` user can switch between them by selecting the desired version.
 
-[screenshot]
+ ![example](./images/x)
