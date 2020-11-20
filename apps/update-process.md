@@ -37,7 +37,7 @@ To update an idvidual app inside the plaform you need to:
  4. Navingate to the app's individual page
  3. Press the `update` button in the right sidebar
  
-  [screenshot]
+   ![example](./images/screenshot-78-46-75-100-38585-ecosystem-apps-create-trainset-for-smarttool-1605864474510.png)
  
  The update will be downloaded add applied.
  
