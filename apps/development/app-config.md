@@ -1,11 +1,11 @@
 ```json
 {
-  "name": "App Template (No GUI)",
   "type": "app",
+  "name": "App Template (No GUI)",
+  "description": "template for your headless app",
   "categories": [
     "development"
   ],
-  "description": "template for your headless app",
   "docker_image": "supervisely/base-py-sdk:6",
   "main_script": "src/my_super_script.py",
   "task_location": "workspace_tasks",
