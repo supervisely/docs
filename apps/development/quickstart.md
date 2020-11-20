@@ -36,4 +36,6 @@ This app just prints progress bar (both to console log and to Supervisely) from 
 git clone https://github.com/mkolomeychenko/my-first-app.git ~/tutorial/my-first-app
 ```
 
+## Few words about project structure
+
 
