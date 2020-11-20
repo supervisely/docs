@@ -1,1 +1,2 @@
-ss
+# Prerequisites for Linux
+
