@@ -59,7 +59,7 @@ This guide is focuses on some basic information about Supervisely Apps and on st
 * Information
   * What Supervisely Apps are
   * Types of apps
-  * How app works under the hood
+  * [Supervisely App Engine: how app works under the hood](./app-engine.md)
   * Team files
 * Prerequisites Installation
   * [for MacOS](./prerequisites-macos.md)
