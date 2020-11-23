@@ -29,3 +29,11 @@ There are several approaches how you can start apps development (3 options): ...
 Public vs Private apps: ...
 
 Link to SDK quickstart, examples and documentaiton: ...
+
+Directory structure
+App config
+Context menu
+Github / releases
+How to add private apps
+Integrate app to labeling interface (images)
+
