@@ -61,13 +61,13 @@ This guide is focuses on some basic information about Supervisely Apps and on st
   * Types of apps
   * How app works under the hood
   * Team files
+* Prerequisites Installation
+  * [for MacOS](./prerequisites-macos.md)
+  * [for Linux](./prerequisites-linux.md)
+* Quickstart
   * [Application directory structure](./app-directory-structure.md)
   * [Application config](./app-config.md)
   * Recommendations for README file (imgurl to decrease repository size, etc...)
-* Prerequisites Installation
-  * for MacOS
-  * for Linux
-* Quickstart
   * Fork one of the prepared templates
   * How to clone repository and start development
   * Cheese
