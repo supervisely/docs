@@ -54,7 +54,7 @@ Apps - сделать два раздела в документации (user gu
 
 
 ## The Developer Guide
-This part of the documentation, which is mostly prose, begins with some background information about Supervisely Apps, then focuses on step-by-step instructions for getting the most out of Supervisely Apps.
+This guide is focuses on some basic information about Supervisely Apps and on step-by-step instructions for creating custom Supervisely Apps.
 
 * Information
   * What Supervisely Apps are
