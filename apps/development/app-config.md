@@ -77,7 +77,7 @@ img here
 ```
 
 - `"context_menu"` field defines if the app will be started from context menu. Possible values for `target`: `images_project`, `images_dataset`, `team_member`, 
-
+`files_folder`, `files_file`. Detailes are covered in other section
 
 TODO: explain later:
 `need_gpu`
