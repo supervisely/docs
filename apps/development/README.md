@@ -56,7 +56,8 @@ This part of the documentation, which is mostly prose, begins with some backgrou
   * for MacOS
   * for Linux
 * Quickstart
-  * Milk
+  * Fork one of the prepared templates
+  * How to clone repository and start development
   * Cheese
 * Tutorial
   * My first app
