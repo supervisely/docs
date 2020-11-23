@@ -4,6 +4,8 @@ icons - https://icons8.com/icons/color
 
 how to create icons
 
+при сохранении файла в `~/sessions/abc.png` файл сохраняется в `~/work/src/~/sessions/abc.png` 
+
 app that download file (in venv) - директория сессии не существуюет my_app.data_dir не существует и не дает поотлаживать ее
 
 how to create project and start debugging
