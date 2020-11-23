@@ -19,4 +19,4 @@ Let's consider the following example: [Hello World App](https://github.com/super
 - `debug.env`, `secret_debug_example.env` (optional) - files used only for debug and development process
 - `src/gui.html` (optional) - defines UI
 - `src/modal.html` (optional) - defines modal window UI. It appears before application start, allows to choose: agent that will host app, app version and allows to setup input parameters for app before start.
-- `src/my_main_script.py` - entrypoint (main) script. There are no special requirements on how to organize source files: you can have a single python files or multiple files in arbitrary structure. The only one requirement: is to defile the path of entrypoint python script in the `config.json` file.
+- `src/my_main_script.py` - entrypoint (main) script. There are no special requirements on how to organize source files: you can have a single python file or multiple files in arbitrary structure. The only one requirement: is to defile the path of entrypoint python script in the `config.json` file.
