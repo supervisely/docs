@@ -3,7 +3,7 @@
 icons - https://icons8.com/icons/color
 
 how to create icons
-
+app that download file (in venv) - директория сессии не существуюет
 how to create project and start debugging
 
 api object from app service
