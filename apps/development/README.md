@@ -3,8 +3,10 @@
 What is application?
 
 Supervisely application is the combination of two 
-1. 
-3. d
+1. a
+2. b
+3. c
+4. d
 
 Types of applications (from simple to complex):
 1. python script, for example app [Print Progress and Error](https://github.com/supervisely-ecosystem/debug-progress-error-app)
