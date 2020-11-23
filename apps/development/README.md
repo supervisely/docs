@@ -48,6 +48,7 @@ This part of the documentation, which is mostly prose, begins with some backgrou
   * What Supervisely Apps are
   * Types of apps
   * How app works under the hood
+  * Team files
   * Application directory structure
   * Application config
   * Recommendations for README file (imgurl to decrease repository size, etc...)
