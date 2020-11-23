@@ -65,9 +65,6 @@ This guide is focuses on some basic information about Supervisely Apps and on st
   * [for MacOS](./prerequisites-macos.md)
   * [for Linux](./prerequisites-linux.md)
 * Quickstart
-  * [Application directory structure](./app-directory-structure.md)
-  * [Application config](./app-config.md)
-  * Recommendations for README file (imgurl to decrease repository size, etc...)
   * Fork one of the prepared templates
   * How to clone repository and start development
   * Cheese
@@ -77,8 +74,10 @@ This guide is focuses on some basic information about Supervisely Apps and on st
   * Add app to Supervisely
   * Test app right in Supervisely
   * Create releases
-  
 * Advanced usage
+  * [Application directory structure](./app-directory-structure.md)
+  * [Application config](./app-config.md)
+  * Recommendations for README file (imgurl to decrease repository size, etc...)
   * How to setup application output in workspace tasks
   * Multiuser Apps
   * UI widgets explained
