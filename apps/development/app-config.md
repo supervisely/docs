@@ -62,7 +62,7 @@ img here
 - `"main_script": "src/my_super_script.py"` - path to entrypoint (main) script in app directory. If not defined, the following default value will be used: `"src/main.py"` 
 
 ## Differences:
-- `"headless": false,` - `true` or `false`.  
+- `"headless": false,` - `true` or `false`.  If not defined, the default value `true` will be used. 
 
 
 
