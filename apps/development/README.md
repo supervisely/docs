@@ -45,10 +45,12 @@ Apps - сделать два раздела в документации (user gu
 This part of the documentation, which is mostly prose, begins with some background information about Supervisely Apps, then focuses on step-by-step instructions for getting the most out of Supervisely Apps.
 
 * Information
-  * What are Supervisely Apps?
+  * What Supervisely Apps are
   * Types of apps
+  * How app works under the hood
   * Application directory structure
   * Application config
+  * Recommendations for README file (imgurl to decrease repository size, etc...)
 * Prerequisites Installation
   * for MacOS
   * for Linux
@@ -61,6 +63,7 @@ This part of the documentation, which is mostly prose, begins with some backgrou
   * Add app to Supervisely
   * Test app right in Supervisely
   * Create releases
+  
 * Advanced usage
   * How to setup application output in workspace tasks
   * dfsf
