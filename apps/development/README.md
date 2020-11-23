@@ -1,5 +1,7 @@
 # How to develop apps
 
+This tutorial walks you through how to develop apps in Supervisely. It will show you how to add the necessary files and structure to create the app, how to debug an app, and how to integrate it to Supervisely platform.
+
 What is application?
 
 Supervisely application is the combination of two 
