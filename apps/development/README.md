@@ -37,3 +37,22 @@ Github / releases
 How to add private apps
 Integrate app to labeling interface (images)
 
+
+## The Developer Guide
+This part of the documentation, which is mostly prose, begins with some background information about Supervisely Apps, then focuses on step-by-step instructions for getting the most out of Supervisely Apps.
+
+* Prerequisites Installation
+  * for MacOS
+  * for Linux
+* Quickstart
+  * Milk
+  * Cheese
+* Tutorial
+  * My first app
+  * Debug your app
+  * Add app to Supervisely
+  * Test app right in Supervisely
+  * Create releases
+* Advanced usage
+  * dfsf
+
