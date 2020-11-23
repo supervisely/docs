@@ -6,7 +6,7 @@ What is application?
 3. d
 
 Types of applications:
-1. (Super simple) python script
+1. (Super simple) python script, for example app [Print Progress and Error](https://github.com/supervisely-ecosystem/debug-progress-error-app)
 2. (Simple) python script with app service
 3. (Simple) python script with modal window
 4. (Intermediate) app with modal window and GUI
@@ -14,7 +14,7 @@ Types of applications:
 
 
 How to develop approaches
-- python script
+- python script, 
 - app with venv
 - app with custom dockerimage
 - app with ...
