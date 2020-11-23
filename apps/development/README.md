@@ -69,3 +69,5 @@ This part of the documentation, which is mostly prose, begins with some backgrou
   * How to setup application output in workspace tasks
   * Multiuser Apps
   * UI widgets explained
+  * Integration to Labeling Interfaces
+  * NN integration (training, inference, serving, integration to Labeling interface)
