@@ -38,9 +38,16 @@ How to add private apps
 Integrate app to labeling interface (images)
 
 
+Apps - сделать два раздела в документации (user guide / developer guide)
+
+
 ## The Developer Guide
 This part of the documentation, which is mostly prose, begins with some background information about Supervisely Apps, then focuses on step-by-step instructions for getting the most out of Supervisely Apps.
 
+* Information
+  * What are Supervisely Apps?
+  * Types of apps
+  * xxx
 * Prerequisites Installation
   * for MacOS
   * for Linux
