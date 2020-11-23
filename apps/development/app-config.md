@@ -58,7 +58,7 @@ Example for `"application_sessions"`:
 img here
 
 - `"docker_image": "supervisely/base-py-sdk:6"` -  just keep it this way. Agent runs app in isolated container from defined dockerimage. For most of the apps just keep our default dockerimage. If your app uses additional packages that are missed in our [build](https://github.com/supervisely/supervisely/blob/master/base_images/py/Dockerfile) you can define them in `requirements.txt` file. This topic is coverd in next sections.  
-
+- `"main_script": "src/my_super_script.py"` - path to entrypoint (main) script in app directory. If not defined, the following default value will be used: `"src/main.py"` 
 
 Differences:
 - `"headless": false,` - `true` or `false`.  
