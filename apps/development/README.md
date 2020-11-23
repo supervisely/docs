@@ -47,7 +47,8 @@ This part of the documentation, which is mostly prose, begins with some backgrou
 * Information
   * What are Supervisely Apps?
   * Types of apps
-  * xxx
+  * Application directory structure
+  * Application config
 * Prerequisites Installation
   * for MacOS
   * for Linux
