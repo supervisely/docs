@@ -68,4 +68,4 @@ This part of the documentation, which is mostly prose, begins with some backgrou
 * Advanced usage
   * How to setup application output in workspace tasks
   * Multiuser Apps
-
+  * UI widgets explained
