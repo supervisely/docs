@@ -1,1 +1,1 @@
-# Supervisely Appliaction engine: how app works under the hood
+# Supervisely Appliaction Engine: how apps work under the hood
