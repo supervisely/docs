@@ -62,7 +62,7 @@ img here
 - `"main_script": "src/my_super_script.py"` - path to entrypoint (main) script in app directory. If not defined, the following default value will be used: `"src/main.py"` 
 
 ## Differences:
-- `"headless": false,` - `true` or `false`.  If not defined, the default value `true` will be used. 
+- `"headless": false,` - `true` or `false`.  If not defined, the default value `true` will be used. It means that the button `Open` is disabled for this apps. It behave like a console utility, you can view logs, stop it, but it does not have a GUI. It is allowed to have modal GUI window (opens before app start) for headless apps. Will be coverd in next sections. 
 
 
 
