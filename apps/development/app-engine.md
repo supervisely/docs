@@ -6,11 +6,9 @@ This doc explains high-level app lifecycle: how it is started and hosted, how it
 
 App defines how it can be started: from context menu ([example](https://ecosystem.supervise.ly/apps/classes-stats-for-images)) or directly from applications page ([example](https://ecosystem.supervise.ly/apps/import-from-google-cloud-storage)).
 
-
-<p float="left">
-  <img src="https://i.imgur.com/6jVrnAK.png"/>
-  <img src="https://i.imgur.com/2HciaQv.png"/>
-</p>
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![](https://i.imgur.com/6jVrnAK.png)  |  ![](https://i.imgur.com/2HciaQv.png)
 
 
 
