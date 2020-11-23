@@ -61,7 +61,7 @@ This guide is focuses on some basic information about Supervisely Apps and on st
   * Types of apps
   * How app works under the hood
   * Team files
-  * Application directory structure
+  * [Application directory structure](./app-directory-structure.md)
   * Application config
   * Recommendations for README file (imgurl to decrease repository size, etc...)
 * Prerequisites Installation
