@@ -4,17 +4,13 @@ Application without GUI (headless):
 ```json
 {
   "type": "app",
-  "name": "My Super App (without GUI)",
-  "categories": [
-    "a",
-    "b",
-    "c"
-  ],
+  "name": "My Super App (with GUI)",
   "description": "short one-sentance description",
-  "headless": true,
-  "task_location": "workspace_tasks",
+  "categories": ["a", "b", "c"],
   "icon": "https://img.icons8.com/color/96/000000/console.png",
   "icon_background": "#FFFFFF",
+  "task_location": "workspace_tasks",
+  "headless": true,
   "docker_image": "supervisely/base-py-sdk:6",
   "main_script": "src/my_super_script.py",
 }
@@ -26,16 +22,12 @@ Application with GUI:
 {
   "type": "app",
   "name": "My Super App (with GUI)",
-  "categories": [
-    "a",
-    "b",
-    "c"
-  ],
   "description": "short one-sentance description",
-  "headless": false,
-  "task_location": "workspace_tasks",
+  "categories": ["a", "b", "c"],
   "icon": "https://img.icons8.com/color/96/000000/console.png",
   "icon_background": "#FFFFFF",
+  "task_location": "workspace_tasks",
+  "headless": false,
   "docker_image": "supervisely/base-py-sdk:6",
   "main_script": "src/my_super_script.py",
   "modal_template": "src/modal.html",
@@ -46,6 +38,13 @@ Application with GUI:
 }
 ```
 
+
+Similarities (applicable to any app):
+- `"type": "app"` - just keep it this way (other types will be relesed later)
+- `"name": "My Super App (with GUI)"` - name of the app
+- `"description": "short one-sentance description",` - description
+- `"categories": ["a", "b", "c"],` - app can be assigned to multiple categories and will be listed in each of them
+- `"headless": false,` - `true` or `false`.  
 
 
 
