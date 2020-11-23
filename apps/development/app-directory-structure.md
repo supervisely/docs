@@ -14,7 +14,7 @@ Let's consider the following example: [Hello World App](https://github.com/super
     └── my_main_script.py
 ```
 
-- `README.md` - file that explains how to use application
+- `README.md` - file that explains how to use application, it is a welcome page on both Supervisely Ecosystem ([example](https://ecosystem.supervise.ly/apps/classes-stats-for-images)) and Github ([example](https://github.com/supervisely-ecosystem/classes-stats-for-images)).
 - `config.json` - JSON file defines: icon, title, short description, categories in ecosystem, context menu, ...
 - `debug.env`, `secret_debug_example.env` (optional) - files used only for debug and development process
 - `src/gui.html` (optional) - defines UI
