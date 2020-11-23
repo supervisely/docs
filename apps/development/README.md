@@ -5,12 +5,12 @@ What is application?
 2. d
 3. d
 
-Types of applications:
-1. (Super simple) python script, for example app [Print Progress and Error](https://github.com/supervisely-ecosystem/debug-progress-error-app)
-2. (Simple) python script with app service
-3. (Simple) python script with modal window
-4. (Intermediate) app with modal window and GUI
-4. (Advanced) app that is integrated to labeling interface
+Types of applications (from simple to complex):
+1. python script, for example app [Print Progress and Error](https://github.com/supervisely-ecosystem/debug-progress-error-app)
+2. python script with app service, for example app [App Template (No GUI)](https://github.com/supervisely-ecosystem/app-template-headless)
+3. (Simple) python script with modal window [TODO: Example]()
+4. (Intermediate) app with modal window and GUI [TODO: Example]()
+4. (Advanced) app that is integrated to labeling interface [TODO: Example]()
 
 
 How to develop approaches
