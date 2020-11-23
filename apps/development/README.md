@@ -62,5 +62,6 @@ This part of the documentation, which is mostly prose, begins with some backgrou
   * Test app right in Supervisely
   * Create releases
 * Advanced usage
+  * How to setup application output in workspace tasks
   * dfsf
 
