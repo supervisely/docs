@@ -1,6 +1,7 @@
+# App configuration
 Apps with GUI or without GUI (headless) have similar configs with little differences. Let's consider both examples, similarities and differences.  
 
-Application without GUI (headless):
+## Application without GUI (headless):
 ```json
 {
   "type": "app",
@@ -17,7 +18,7 @@ Application without GUI (headless):
 ```
 
 
-Application with GUI:
+## Application with GUI:
 ```json
 {
   "type": "app",
@@ -39,7 +40,7 @@ Application with GUI:
 ```
 
 
-Similarities (applicable to any app):
+## Similarities (applicable to any app):
 - `"type": "app"` - just keep it this way (other types will be relesed later)
 - `"name": "My Super App (with GUI)"` - name of the app
 - `"description": "short one-sentance description",` - description
@@ -60,7 +61,7 @@ img here
 - `"docker_image": "supervisely/base-py-sdk:6"` -  just keep it this way. Agent runs app in isolated container from defined dockerimage. For most of the apps just keep our default dockerimage. If your app uses additional packages that are missed in our [build](https://github.com/supervisely/supervisely/blob/master/base_images/py/Dockerfile) you can define them in `requirements.txt` file. This topic is coverd in next sections.  
 - `"main_script": "src/my_super_script.py"` - path to entrypoint (main) script in app directory. If not defined, the following default value will be used: `"src/main.py"` 
 
-Differences:
+## Differences:
 - `"headless": false,` - `true` or `false`.  
 
 
