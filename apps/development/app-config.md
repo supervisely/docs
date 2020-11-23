@@ -47,7 +47,7 @@ Apps with GUI or without GUI (headless) have similar configs with little differe
 - `"categories": ["a", "b", "c"],` - app can be assigned to multiple categories and will be listed in each of them
 - `"icon": "https://img.icons8.com/color/96/000000/console.png"` - icon URL
 - `"icon_background": "#FFFFFF"` - icon background (we recommend to keep it white)
-- `"task_location": "workspace_tasks"` - once you ran an app, the task is created. This field defines where the task will be shown: `"workspace_tasks"` or `"application_sessions"`. If your application applies to some item / or creates something in workspace (project / dataset / neural network / report/ ...) we recommend to use `"workspace_tasks"` to keep it at the same workspace, if your app uses items from different workspace or work with top-level items (team files, team members, labeling jobs, ...) we recommend to use `"application_sessions"` value. This option helps organize applications tasks and keep the logic consistent: thus you can easily find app task later, open / stop it and view logs. 
+- `"task_location": "workspace_tasks"` - once you ran an app, the task is created. This field defines where the task will be shown: `"workspace_tasks"` or `"application_sessions"`. If your application applies to some item / or creates something in workspace (project / dataset / neural network / report/ ...) we recommend to use `"workspace_tasks"` to keep it at the same workspace, if your app uses items from different workspace or work with top-level items (team files, team members, labeling jobs, ...) we recommend to use `"application_sessions"` value. This option helps organize applications tasks and keep the logic consistent: thus you can easily find app task later, open / stop it and view logs 
 
 Example for `"workspace_tasks"`: 
 
@@ -58,12 +58,14 @@ Example for `"application_sessions"`:
 
 img here
 
-- `"docker_image": "supervisely/base-py-sdk:6"` -  just keep it this way. Agent runs app in isolated container from defined dockerimage. For most of the apps just keep our default dockerimage. If your app uses additional packages that are missed in our [build](https://github.com/supervisely/supervisely/blob/master/base_images/py/Dockerfile) you can define them in `requirements.txt` file. This topic is coverd in next sections.  
+- `"docker_image": "supervisely/base-py-sdk:6"` -  just keep it this way. Agent runs app in isolated container from defined dockerimage. For most of the apps just keep our default dockerimage. If your app uses additional packages that are missed in our [build](https://github.com/supervisely/supervisely/blob/master/base_images/py/Dockerfile) you can define them in `requirements.txt` file. This topic is coverd in next sections  
 - `"main_script": "src/my_super_script.py"` - path to entrypoint (main) script in app directory. If not defined, the following default value will be used: `"src/main.py"` 
 
 ## Differences:
-- `"headless": false,` - `true` or `false`.  If not defined, the default value `true` will be used. It means that the button `Open` is disabled for this apps. It behave like a console utility, you can view logs, stop it, but it does not have a GUI. It is allowed to have modal GUI window (opens before app start) for headless apps. Will be coverd in next sections. 
-
+- `"headless": false,` - `true` or `false`.  If not defined, the default value `true` will be used. It means that the button `Open` is disabled for this apps. It behave like a console utility, you can view logs, stop it, but it does not have a GUI. It is allowed to have modal GUI window (opens before app start) for headless apps. Will be coverd in next sections
+- `"modal_template": "src/modal.html"` - path to html template that defines modal window UI
+- `"modal_template_state"` - object ("variable name" -> default value) for every control on modal window (comboboxes, input fields, chackboxes and so on). This topic will be coverd in next sections separately
+- `"gui_template": "src/gui.html"` - path to html template that defines application GUI
 
 
 ## Additional settings (advanced usage):
@@ -71,8 +73,11 @@ img here
 "context_menu": {
     "target": ["images_project", "images_dataset"],
     "context_root": "Report"
-},
+}
 ```
+
+- `"context_menu"` field defines if the app will be started from context menu. Possible values for `target`: `images_project`, `images_dataset`, `team_member`, 
+
 
 TODO: explain later:
 `need_gpu`
