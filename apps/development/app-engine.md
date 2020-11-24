@@ -12,7 +12,13 @@ Example: run from context  |  Example: run from `Team Apps` page
 
 ## 2. Task is created
 
-Task is created and can be found in workspace tasks list ([example](https://github.com/supervisely-ecosystem/classes-stats-for-images)) or in application sessions (it depends on the app).  
+Task is created and can be found in workspace tasks list ([example](https://github.com/supervisely-ecosystem/classes-stats-for-images)) or in application sessions (it depends on the app). `task_id` allows to directly communicate with the app via public API. Also you can view task logs and stop task.
+
+Workspace tasks           |  Application sessions
+:-------------------------:|:-----------------------------------:
+![](https://i.imgur.com/C6zo9Q2.png)  |  ![](https://i.imgur.com/EVaMydM.png)
+
+
 
 
 
