@@ -15,7 +15,7 @@ Some apps may have a modal window that allows to configure some input parameters
 
 <img src="https://i.imgur.com/lI6jenf.png" width="400"/>
 
-## 2. Task is created
+## 3. Task is created
 
 Task is created and can be found in workspace tasks list ([example](https://github.com/supervisely-ecosystem/classes-stats-for-images)) or in [application sessions](https://ecosystem.supervise.ly/apps/labeling-events-stats) (it depends on the app). `task_id` allows to directly communicate with the app via public API. Also you can view task logs and stop task.
 
@@ -24,7 +24,15 @@ Workspace tasks           |  Application sessions
 ![](https://i.imgur.com/C6zo9Q2.png)  |  ![](https://i.imgur.com/EVaMydM.png)
 
 
-## 3. 
+## 4. Agent starts app
+
+- receives a message from Supervisely Server  
+- pulls docker image
+- download app sources from github for a selected version or from `master` branch (vertioned releases are cached on agent to speed up running process). `master` branch is not cached and is always downloaded from github
+- (optional) installs packages from `requirements.txt` (using pip cache for speed up)
+- runs docker container: sources and task directory are mounted to docker container. Running command is an entrypoint script that is defined in application config. all input parameters and context are passes in form of environment variables to container.  
+
+
 
 
 
