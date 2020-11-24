@@ -32,11 +32,14 @@ Workspace tasks           |  Application sessions
 - (optional) installs packages from `requirements.txt` (using pip cache for speed up)
 - runs docker container: sources and task directory are mounted to docker container. Running command is an entrypoint script that is defined in application config. All input parameters and context are passes in form of environment variables to container
 - connects to containers logs and streams them to Supervisely Server
+- 
 
 ## 5. Application is started
 
 - app reads input parameters from environment veriables
-- (optional) it initializes UI (html template, data dictionary and state dictionary)
+- (optional) app initializes UI (html template, data dictionary and state dictionary)
+- app starts application service in backgorund and connects to Supervisely Server to receive events: button clicks, stop event, ...
+- app uses public API to modify the state/data of UI widgets
 
 
 
