@@ -30,13 +30,13 @@ Workspace tasks           |  Application sessions
 - pulls docker image
 - download app sources from github for a selected version or from `master` branch (vertioned releases are cached on agent to speed up running process). `master` branch is not cached and is always downloaded from github
 - (optional) installs packages from `requirements.txt` (using pip cache for speed up)
-- runs docker container: sources and task directory are mounted to docker container. Running command is an entrypoint script that is defined in application config. all input parameters and context are passes in form of environment variables to container.  
+- runs docker container: sources and task directory are mounted to docker container. Running command is an entrypoint script that is defined in application config. All input parameters and context are passes in form of environment variables to container
+- connects to containers logs and streams them to Supervisely Server
 
+## 5. Application is started
 
-
-
-
-
+- app reads input parameters from environment veriables
+- (optional) it initializes UI (html template, data dictionary and state dictionary)
 
 
 
