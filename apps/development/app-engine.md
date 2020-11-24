@@ -13,7 +13,7 @@ Example: run from context  |  Example: run from `Team Apps` page
 ## 2. Modal Window before start (Optional)
 Some apps may have a modal window that allows to configure some input parameters before starting an app. These parameters will be passed to app using environment variables. [Example](https://ecosystem.supervise.ly/apps/classes-stats-for-images)
 
-![](https://i.imgur.com/lI6jenf.png)
+<img src="https://i.imgur.com/lI6jenf.png" width="400"/>
 
 ## 2. Task is created
 
