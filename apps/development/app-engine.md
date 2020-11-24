@@ -43,4 +43,6 @@ Workspace tasks           |  Application sessions
 - Application serviec is a part of Supervisely python SDK, it executes received events asynchronous
 
 
+http://www.giphy.com/gifs/pEjEyyHEi5x5eyCLuJ
+
 
