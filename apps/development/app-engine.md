@@ -36,7 +36,7 @@ Workspace tasks           |  Application sessions
 
 ## 5. Application starting
 
-- app reads input parameters from environment veriables
+- app reads input parameters from environment variables
 - (optional) app initializes UI (html template, data dictionary and state dictionary)
 - app starts application service in backgorund and connects to Supervisely Server to receive events: button clicks, stop event, ...
 - Note: App Engine is a part of Supervisely python SDK, it executes received events asynchronous
