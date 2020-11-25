@@ -53,7 +53,7 @@ See demo how it works:
 ![](./images/hello-world.gif)
 
 
-Interanlly it works this way: 
+Interтally it works this way: 
 
 ![](https://i.imgur.com/5IrRv6i.png)
 
