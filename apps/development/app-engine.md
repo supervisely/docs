@@ -50,7 +50,7 @@ Workspace tasks           |  Application sessions
 Let's consider some basic example: `Hello World App`. This app has UI: user clicks on the button, app generates random string and shows it in UI. 
 Here is demo how it works:
 
-![](../images/hello-world.gif)
+![](./images/hello-world.gif)
 
 
 
