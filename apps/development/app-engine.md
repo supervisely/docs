@@ -92,6 +92,15 @@ sly.logger.info('Message with extra params', extra={"a": 1, "b": 2})
 ![](https://i.imgur.com/8OmKQGE.png)
 
 
+Application logs can be opened from application task or from application UI (i it has it): 
+- workspace tasks
+<img src="https://i.imgur.com/L8swGDM.png"/>
+
+- application sessions
+<img src="https://i.imgur.com/ICwohtG.png"/>
+
+- application UI
+<img src="https://i.imgur.com/7mZByvm.png"/>
 
 
 
