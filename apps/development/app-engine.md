@@ -32,7 +32,7 @@ Workspace tasks           |  Application sessions
 - (optional) installs packages from `requirements.txt` (using pip cache for speed up)
 - runs docker container: sources and task directory are mounted to docker container. Running command is an entrypoint script that is defined in application config. All input parameters and context are passes in form of environment variables to container
 - connects to containers logs and streams them to Supervisely Server
-- 
+
 
 ## 5. Application starting
 
@@ -42,16 +42,12 @@ Workspace tasks           |  Application sessions
 - Note: App Engine is a part of Supervisely python SDK, it executes received events asynchronous
 
 
-
-
-
 ## 5. Application runnning
 
 Let's consider some basic example: `Hello World App`. This app has UI: user clicks on the button, app generates random string and shows it in UI. 
 See demo how it works:
 
 ![](./images/hello-world.gif)
-
 
 Internally it works this way: 
 
@@ -61,6 +57,7 @@ Internally it works this way:
 2. Application receives event `generate` and the corresponding python function is executed
 3. Python code uses api to modify or refresh the state and data of UI widgets. Python sends API request to Supervisely Server to refresh varible `data.randomString`.
 4. Supervisely Server updates UI.
+
 
 ## 5. Application logs
 All application logs are streamed to Supervisely server out of the box. Developer doesn't have to care about it. It works this way: Agent runs application in docker container and streams all logs from this container. It means that all prints to stdout will be streamed to server and saved. You can use any printing method you like: 
@@ -78,7 +75,7 @@ logging.warning('Watch out!')  # will print a message to the console
 logging.info('I told you so')  # will not print anything
 ```
 
-We recommend to use supervisely Logger, it is build on top of default python logging. It also wraps some warning and error messages and print nice-looking stacktrace. Also it is nicely formatted in Supervisely Logs.  
+We recommend to use supervisely Logger, it is built on top of default python logging. It also wraps some warning and error messages and prints nice-looking stacktraces. Also it is nicely formatted in Supervisely Logs.  
 
 ```py
 import supervisely_lib as sly
@@ -91,7 +88,7 @@ sly.logger.info('Message with extra params', extra={"a": 1, "b": 2})
 ![](https://i.imgur.com/8OmKQGE.png)
 
 
-Application logs can be opened from application task or from application UI (iа it has it): 
+Application logs can be opened from application task or from application UI (if it has it): 
 
 - workspace tasks
 <img src="https://i.imgur.com/L8swGDM.png"/>
