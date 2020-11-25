@@ -53,6 +53,10 @@ See demo how it works:
 ![](./images/hello-world.gif)
 
 
+Interanlly it works this way: 
+1. User clicks button `Generate`. Web browser (client) sends message to `Supervisely Server`
+2. Application receives event `generate` and the corresponding python function is executed
+3. Python code uses api to modify or refresh the state and data of UI widgets. Python sends API to refresh varible `data.randomString`
 
 - app uses public API to modify the state/data of UI widgets
 - 
