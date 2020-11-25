@@ -47,7 +47,13 @@ Workspace tasks           |  Application sessions
 
 ## 5. Application runnning
 
-Let's consider some basic example: Hello World App. This app has UI: user clicks on the button, app generates random string and shows it in UI. 
+Let's consider some basic example: `Hello World App`. This app has UI: user clicks on the button, app generates random string and shows it in UI. 
+Here is an example:
+
+
+
+
+
 - app uses public API to modify the state/data of UI widgets
 - 
 
