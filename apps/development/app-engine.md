@@ -34,14 +34,22 @@ Workspace tasks           |  Application sessions
 - connects to containers logs and streams them to Supervisely Server
 - 
 
-## 5. Application is started
+## 5. Application starting
 
 - app reads input parameters from environment veriables
 - (optional) app initializes UI (html template, data dictionary and state dictionary)
 - app starts application service in backgorund and connects to Supervisely Server to receive events: button clicks, stop event, ...
-- app uses public API to modify the state/data of UI widgets
-- Application serviec is a part of Supervisely python SDK, it executes received events asynchronous
+- Note: App Engine is a part of Supervisely python SDK, it executes received events asynchronous
 
+
+
+
+
+## 5. Application runnning
+
+Let's consider some basic example: Hello World App. This app has UI: user clicks on the button, app generates random string and shows it in UI. 
+- app uses public API to modify the state/data of UI widgets
+- 
 
 http://www.giphy.com/gifs/pEjEyyHEi5x5eyCLuJ
 
