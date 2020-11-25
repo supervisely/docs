@@ -62,4 +62,5 @@ Interтally it works this way:
 3. Python code uses api to modify or refresh the state and data of UI widgets. Python sends API request to Supervisely Server to refresh varible `data.randomString`.
 4. Supervisely Server updates UI.
 
-
+## 5. Application logs
+sdcsf
