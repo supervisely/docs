@@ -54,18 +54,12 @@ See demo how it works:
 
 
 Interanlly it works this way: 
-1. User clicks button `Generate`. Web browser (client) sends message to `Supervisely Server`
-2. Application receives event `generate` and the corresponding python function is executed
-3. Python code uses api to modify or refresh the state and data of UI widgets. Python sends API to refresh varible `data.randomString`
-
-- app uses public API to modify the state/data of UI widgets
-- 
-
-http://www.giphy.com/gifs/pEjEyyHEi5x5eyCLuJ
-
-
-![](https://i.imgur.com/bHP9faS.mp4)
-
-
 
 ![](https://i.imgur.com/5IrRv6i.png)
+
+1. User clicks button `Generate`. Web browser (client) sends message to `Supervisely Server`
+2. Application receives event `generate` and the corresponding python function is executed
+3. Python code uses api to modify or refresh the state and data of UI widgets. Python sends API request to Supervisely Server to refresh varible `data.randomString`.
+4. Supervisely Server updates UI.
+
+
