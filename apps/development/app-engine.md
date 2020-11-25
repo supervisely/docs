@@ -63,4 +63,19 @@ Internally it works this way:
 4. Supervisely Server updates UI.
 
 ## 5. Application logs
-sdcsf
+All application logs are streamed to Supervisely server out of the box. Developer doesn't have to care about it. It works this way: Agent runs application in docker container and streams all logs from this container. It means that all prints to stdout will be streamed to server and saved. You can use any printing method you like: 
+
+`print("abc")` 
+
+or
+
+```
+import logging
+logging.warning('Watch out!')  # will print a message to the console
+logging.info('I told you so')  # will not print anything
+```
+
+
+
+
+
