@@ -48,9 +48,9 @@ Workspace tasks           |  Application sessions
 ## 5. Application runnning
 
 Let's consider some basic example: `Hello World App`. This app has UI: user clicks on the button, app generates random string and shows it in UI. 
-Here is an example:
+Here is demo how it works:
 
-
+![](../images/hello-world.gif)
 
 
 
