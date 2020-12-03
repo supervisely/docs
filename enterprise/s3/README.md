@@ -96,3 +96,20 @@ services:
       CACHE_IMAGE_CONVERTER_SIZE: 10g
       CACHE_IMAGE_CONVERTER_EXPIRES: 7d
 ```
+
+## Links plugin S3 support
+
+If you already have some files on Amazon S3 and you don't want Supervisely to store those files, you can use "Links" plugin to link the files to Supervisely server.
+
+Create a new file `docker-compose.override.yml` under `cd $(sudo supervisely where)`:
+```
+services:
+  http-storage:
+    environment:
+      REMOTE_STORAGE_ENDPOINT: s3.amazonaws.com
+      REMOTE_STORAGE_PORT: 443
+      REMOTE_STORAGE_ACCESS_KEY: # access key
+      REMOTE_STORAGE_SECRET_KEY: # secret key
+      REMOTE_STORAGE_REGION: # region if applicable
+      REMOTE_STORAGE_IAM_ROLE: # IAM role name if applicable
+```
