@@ -99,7 +99,9 @@ services:
 
 ## Links plugin S3 support
 
-If you already have some files on Amazon S3 and you don't want Supervisely to store those files, you can use "Links" plugin to link the files to Supervisely server.
+If you already have some files on Amazon S3 and you don't want to upload and store those files in Supervisely, you can use "Links" plugin to link the files to Supervisely server.
+
+Instead of uploading actual files (i.e. images), you will need to upload .txt file(s) that contains a list of URLs to your files. If your URLs are publicly available (i.e. link looks like `https://s3-us-west-2.amazonaws.com/test1/abc` and you can open it in your web browser directly), you are good. If your files are protected, you will need to provide URLs as `s3://s3-us-west-2.amazonaws.com/test1/abc` and provide `REMOTE_STORAGE_*` variables like this:
 
 Create a new file `docker-compose.override.yml` under `cd $(sudo supervisely where)`:
 ```
