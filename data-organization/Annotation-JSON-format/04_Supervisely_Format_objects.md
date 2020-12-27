@@ -460,7 +460,8 @@ Fields definitions:
 
 Example:
 
-![](../assets/legacy/all_images/cuboids-example.jpg)
+
+![cuboid 2d example](./figures_images/cuboid_2D.png)
 
 ```json
 {
