@@ -1,0 +1,103 @@
+# Supervisely Application Engine: how apps work under the hood
+
+This doc explains high-level app lifecycle: how it is started and hosted, how it initialize UI, how it handle requists from user (e.g. button clicks) and so on.
+
+## 1. User starts application
+
+App defines how it can be started: from context menu ([example](https://ecosystem.supervise.ly/apps/classes-stats-for-images)) or directly from applications page ([example](https://ecosystem.supervise.ly/apps/import-from-google-cloud-storage)).
+
+Example: run from context  |  Example: run from `Team Apps` page
+:-------------------------:|:-----------------------------------:
+![](https://i.imgur.com/6jVrnAK.png)  |  ![](https://i.imgur.com/2HciaQv.png)
+
+## 2. Modal Window before start (Optional)
+Some apps may have a modal window that allows to configure some input parameters before starting an app. These parameters will be passed to app using environment variables. [Example](https://ecosystem.supervise.ly/apps/classes-stats-for-images)
+
+<img src="https://i.imgur.com/lI6jenf.png" width="400"/>
+
+## 3. Task is created
+
+Task is created and can be found in workspace tasks list ([example](https://github.com/supervisely-ecosystem/classes-stats-for-images)) or in [application sessions](https://ecosystem.supervise.ly/apps/labeling-events-stats) (it depends on the app). `task_id` allows to directly communicate with the app via public API. Also you can view task logs and stop task.
+
+Workspace tasks           |  Application sessions
+:-------------------------:|:-----------------------------------:
+![](https://i.imgur.com/C6zo9Q2.png)  |  ![](https://i.imgur.com/EVaMydM.png)
+
+
+## 4. Agent starts app
+
+- receives a message from Supervisely Server  
+- pulls docker image
+- download app sources from github for a selected version or from `master` branch (vertioned releases are cached on agent to speed up running process). `master` branch is not cached and is always downloaded from github
+- (optional) installs packages from `requirements.txt` (using pip cache for speed up)
+- runs docker container: sources and task directory are mounted to docker container. Running command is an entrypoint script that is defined in application config. All input parameters and context are passes in form of environment variables to container
+- connects to containers logs and streams them to Supervisely Server
+
+
+## 5. Application starting
+
+- app reads input parameters from environment variables
+- (optional) app initializes UI (html template, data dictionary and state dictionary)
+- app starts application service in backgorund and connects to Supervisely Server to receive events: button clicks, stop event, ...
+- Note: App Engine is a part of Supervisely python SDK, it executes received events asynchronous
+
+
+## 5. Application runnning
+
+Let's consider some basic example: `Hello World App`. This app has UI: user clicks on the button, app generates random string and shows it in UI. 
+See demo how it works:
+
+![](./images/hello-world.gif)
+
+Internally it works this way: 
+
+![](https://i.imgur.com/5IrRv6i.png)
+
+1. User clicks button `Generate`. Web browser (client) sends message to `Supervisely Server`
+2. Application receives event `generate` and the corresponding python function is executed
+3. Python code uses api to modify or refresh the state and data of UI widgets. Python sends API request to Supervisely Server to refresh varible `data.randomString`.
+4. Supervisely Server updates UI.
+
+
+## 5. Application logs
+All application logs are streamed to Supervisely server out of the box. Developer doesn't have to care about it. It works this way: Agent runs application in docker container and streams all logs from this container. It means that all prints to stdout will be streamed to server and saved. You can use any printing method you like: 
+
+```
+print("abc")
+```
+
+or
+
+```py
+import logging
+
+logging.warning('Watch out!')  # will print a message to the console
+logging.info('I told you so')  # will not print anything
+```
+
+We recommend to use supervisely Logger, it is built on top of default python logging. It also wraps some warning and error messages and prints nice-looking stacktraces. Also it is nicely formatted in Supervisely Logs.  
+
+```py
+import supervisely_lib as sly
+
+sly.logger.info('I told you so')
+sly.logger.warning('Watch out!')
+sly.logger.info('Message with extra params', extra={"a": 1, "b": 2})
+```
+
+![](https://i.imgur.com/8OmKQGE.png)
+
+
+Application logs can be opened from application task or from application UI (if it has it): 
+
+- workspace tasks
+<img src="https://i.imgur.com/L8swGDM.png"/>
+
+- application sessions
+<img src="https://i.imgur.com/ICwohtG.png"/>
+
+- application UI
+<img src="https://i.imgur.com/7mZByvm.png"/>
+
+
+
