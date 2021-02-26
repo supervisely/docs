@@ -31,11 +31,17 @@ You can install Supervisely and run GPU computations on different machines using
 We recommend to use the following EC2-instances for deployment in AWS:
 
 - 1 × m5.2xlarge — the platform itself
-- 1 × p2.xlarge — (for Training Module)
+- 1 × p2.xlarge — (for Neural Network Module only)
 
 ### Software
 
-To run Supervisely you will need Linux OS with kernel 3.10 or newer. Debian-based distributions are preferable: Ubuntu 18.04, 16.04, 14.04, Debian Jessie. All other pre-requirements can be installed via `supervisely-cli`.
+To run Supervisely you will need Linux OS with kernel 3.10 or newer. The following configuration is recommended:
+
+- OS: Ubuntu 18.04 or later
+- NVIDIA graphics driver: 460.27.03 or later (for Neural Network module only)
+- nvidia-docker2 (for Neural Network module only)
+
+All pre-requirements can be automatically installed via `supervisely-cli` utility for Ubuntu 18.04 or later. In case of a different linux distribution, you can install Supervisely and pre-requirements manually, but we won't be able to provide installation support.
 
 ## Installation
 
