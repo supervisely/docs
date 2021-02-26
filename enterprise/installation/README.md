@@ -45,7 +45,7 @@ All pre-requirements can be automatically installed via `supervisely-cli` utilit
 
 ## Installation
 
-When all requirements above have been installed, you can deploy Supervisely.
+When all requirements above have been installed, you can deploy Supervisely. Please follow those steps one by one. Read each step carefully and complete it fully before going to the next step.
 
 ### Step 1. Get your unique key from us
 
