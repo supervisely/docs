@@ -143,9 +143,13 @@ azure://boats_bucket_2020_20_10/supersonicboat.jpg
 ```
 
 Create a new file `docker-compose.override.yml` under `cd $(sudo supervisely where)`:
-```
+```yaml
 services:
   http-storage:
     volumes:
     - <path to the configuration file>:/remote_links.yml:ro
+```
+Then execute the following to apply the changes:
+```
+sudo supervisely up -d http-storage
 ```
