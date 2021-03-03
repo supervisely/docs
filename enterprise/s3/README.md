@@ -97,21 +97,55 @@ services:
       CACHE_IMAGE_CONVERTER_EXPIRES: 7d
 ```
 
-## Links plugin S3 support
+## Links plugin cloud providers support
 
-If you already have some files on Amazon S3 and you don't want to upload and store those files in Supervisely, you can use "Links" plugin to link the files to Supervisely server.
+If you already have some files on Amazon S3/Google Cloud Storage/Azure Storage and you don't want to upload and store those files in Supervisely, you can use the "Links" plugin to link the files to Supervisely server.
 
-Instead of uploading actual files (i.e. images), you will need to upload .txt file(s) that contains a list of URLs to your files. If your URLs are publicly available (i.e. link looks like `https://s3-us-west-2.amazonaws.com/test1/abc` and you can open it in your web browser directly), you are good. If your files are protected, you will need to provide URLs with [S3 protocol](https://gpdb.docs.pivotal.io/510/admin_guide/external/g-s3-protocol.html) as `s3://bucket-name/object-path/abc.png` and provide `REMOTE_STORAGE_*` variables like this:
+Instead of uploading actual files (i.e. images), you will need to upload .txt file(s) that contains a list of URLs to your files. If your URLs are publicly available (i.e. link looks like `https://s3-us-west-2.amazonaws.com/test1/abc` and you can open it in your web browser directly), then you can stop reading and start uploading. 
+
+If your files are protected, however, you will need to create a configuration file for Supervisely. 
+Example configuration file:
+```yaml
+# s3 example
+my-car-datasets:
+  provider: minio
+  endpoint: s3.amazonaws.com
+  access_key: <your access key>
+  secret_key: <your secret key>
+  # iam_role: <or just use your iam role>
+  region: eu-central-1
+  # array of buckets
+  buckets:
+  - cars_2020_20_10
+  - cars_2020_10_10
+
+# azure example
+my-boats-datasets:
+  provider: azure
+  endpoint: https://<account name>.blob.core.windows.net
+  access_key: <account name>
+  secret_key: <secret key 88 chars long or so: aflmg+wg23fWA+6gAafWmgF4a>
+  # array of buckets
+  buckets:
+  - boats_bucket_2020_20_10
+  - another_boats_bucket_2020_10_10
+```
+
+Links file structure:
+```
+<provider name>://<bucket name>/<object name>
+```
+
+Links file example:
+```
+s3://cars_2020_20_10/truck.jpg
+azure://boats_bucket_2020_20_10/supersonicboat.jpg
+```
 
 Create a new file `docker-compose.override.yml` under `cd $(sudo supervisely where)`:
 ```
 services:
   http-storage:
-    environment:
-      REMOTE_STORAGE_ENDPOINT: s3.amazonaws.com
-      REMOTE_STORAGE_PORT: 443
-      REMOTE_STORAGE_ACCESS_KEY: # access key
-      REMOTE_STORAGE_SECRET_KEY: # secret key
-      REMOTE_STORAGE_REGION: # region if applicable
-      REMOTE_STORAGE_IAM_ROLE: # IAM role name if applicable
+    volumes:
+    - <path to the configuration file>:/remote_links.yml:ro
 ```
