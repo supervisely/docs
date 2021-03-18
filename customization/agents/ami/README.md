@@ -1,6 +1,6 @@
 If, for some reason, your computer doesn't meet the requirements, hardware (no GPU) or software (no CUDA or nvidia-docker), there is a quick way to try training & inference with Supervisely on Amazon EC2.
 
-We have prepared an AMI (ready-to-use Amazon Machine Image) that already has every component prepared. If you have an account on EC2, deploying Supervisely agent is easy as one-two-three: 
+If you have an account on EC2, deploying Supervisely agent is easy as one-two-three: 
 
 ## Step 1: Login into Amazon EC2 Console
 
@@ -9,24 +9,18 @@ We have prepared an AMI (ready-to-use Amazon Machine Image) that already has eve
 ![](screenshot-signin-aws-amazon-com-signin-1533487048057.jpg)
 
 
-## Step 2: Select "Oregon" zone
+## Step 2: Select AMI
 
-Because AMI is specific for availability zone, select "Oregon" zone is top right menu.
+Select EC2, open "Instances" section and click "Launch Instance" button.
 
-![](screenshot-us-west-2-console-aws-amazon-com-ec2-v2-home-1533486910173.png)
+![](Screenshot 2021-03-18 at 21.33.21.png)
 
+Search for "Deep Learning AMI". You will see a bunch of out-of-the-box images that have Docker and CUDA installed - exactly what we are looking for. We suggest to use "Deep Learning AMI (Amazon Linux 2)". Click "Select" button.
 
-## Step 3: Find "Supervisely" AMI
-
-Click "Launch Instance". You will see "Choose an Amazon Machine Image" screen. Select "Community AMIs" and type "Supervisely" in the search field.
-
-Find Supervisely-Agent ("ami-00e6c1fd802c03828") image and click "Select".
-
-![](screenshot-us-west-2-console-aws-amazon-com-ec2-v2-home-1533486949823.png)
+![]Screenshot 2021-03-18 at 21.36.54.png)
 
 
-
-## Step 4: Run the GPU instance
+## Step 3: Run the GPU instance
 
 On a next step select "GPU compute" filter and select "p2.*" instance type. We suggest using "p2.xlarge".
 
@@ -38,7 +32,7 @@ Click "Review and Launch" to start your instance.
 
 
 
-## Step 5: Copy-paste command in the instance terminal
+## Step 4: Copy-paste command in the instance terminal
 
 Connect to your new instance using ssh. Follow [those steps](../add_delete_node/add_delete_node.md) to generate the agent deployment command and run it on your Amazon instance. 
 
