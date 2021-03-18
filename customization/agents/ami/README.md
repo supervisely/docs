@@ -13,16 +13,16 @@ If you have an account on EC2, deploying Supervisely agent is easy as one-two-th
 
 Select EC2, open "Instances" section and click "Launch Instance" button.
 
-![](Screenshot 2021-03-18 at 21.33.21.png)
+![](Screenshot%202021-03-18%20at%2021.33.21.png)
 
 Search for "Deep Learning AMI". You will see a bunch of out-of-the-box images that have Docker and CUDA installed - exactly what we are looking for. We suggest to use "Deep Learning AMI (Amazon Linux 2)". Click "Select" button.
 
-![]Screenshot 2021-03-18 at 21.36.54.png)
+![](Screenshot%202021-03-18%20at%2021.36.54.png)
 
 
 ## Step 3: Run the GPU instance
 
-On a next step select "GPU compute" filter and select "p2.*" instance type. We suggest using "p2.xlarge".
+On a next step select "GPU compute" filter and select "p3.*" instance type. We suggest using "p3.2xlarge".
 
 By default 20 GiB storage would be used. This is a minimum required volume size, because agent will download pretty large docker images. You can also attach additional EBS volume and create a symlink to `~/.supervisely-agent` - this is where your model weights and images will be stored.
 
