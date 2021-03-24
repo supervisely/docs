@@ -27,14 +27,12 @@
         * [Pascal VOC](data-organization/import/formats/pascal_voc.md)
         * [KITTI SemSeg](data-organization/import/formats/kitti_semseg.md)
 * [Supervisely Format](data-organization/Annotation-JSON-format/00_ann_format_navi.md) 
-    * [Project Structure](data-organization/Annotation-JSON-format//01_Project_Structure_new.md)
-    * [Project Classes and Tags](data-organization/Annotation-JSON-format//02_Project_Classes_And_Tags.md)
-    * [Tags](data-organization/Annotation-JSON-format//03_Supervisely_format_tags.md)
-    * [Objects](data-organization/Annotation-JSON-format//04_Supervisely_Format_objects.md)
-    * [Individual Image Annotations](data-organization/Annotation-JSON-format//05_Supervisely_format_images.md)
-    * [Individual Video Annotations](data-organization/Annotation-JSON-format//06_Supervisely_format_videos.md)
-
-
+    * [Project Structure](data-organization/Annotation-JSON-format/01_Project_Structure_new.md)
+    * [Project Classes and Tags](data-organization/Annotation-JSON-format/02_Project_Classes_And_Tags.md)
+    * [Tags](data-organization/Annotation-JSON-format/03_Supervisely_format_tags.md)
+    * [Objects](data-organization/Annotation-JSON-format/04_Supervisely_Format_objects.md)
+    * [Individual Image Annotations](data-organization/Annotation-JSON-format/05_Supervisely_format_images.md)
+    * [Individual Video Annotations](data-organization/Annotation-JSON-format/06_Supervisely_format_videos.md)
 * [Storage](data-organization/storage/README.md)
 
 ## 📝 Labeling
