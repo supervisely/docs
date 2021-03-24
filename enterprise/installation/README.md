@@ -14,8 +14,12 @@ The minimum hardware requirements are as following:
 
 Choose the hard drive size according to your needs. There is also an option to attach any S3 compatible storage to distribute the data in your cloud.
 
-{% hint style="warning" %}
+{% hint style="info" %}
 If you don't have enough free space on a system drive, but you have mounted another one, you can change the place where the data is stored by changing `DATA_PATH` in `.env` file
+{% endhint %}
+
+{% hint style="danger" %}
+Never set `DATA_PATH` pointing to a network share (NFS or SMB), because it affects performance significantly. Set `DATA_PATH` pointing to an actual directory on your local hard drive and then mount `storage` subfolder of `DATA_PATH` directory as a network share - this way "hot" subfolders like `db` or `proxy_cache` will be on a local hard drive and image / videos storage on a network share.
 {% endhint %}
 
 #### GPU instance deployment
