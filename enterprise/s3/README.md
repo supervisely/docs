@@ -106,7 +106,7 @@ Instead of uploading actual files (i.e. images), you will need to upload .txt fi
 If your files are protected, however, you will need to create a configuration file for Supervisely. 
 Example configuration file:
 ```yaml
-# s3 example
+# amazon s3 example
 my-car-datasets:
   provider: minio
   endpoint: s3.amazonaws.com
@@ -119,7 +119,7 @@ my-car-datasets:
   - cars_2020_20_10
   - cars_2020_10_10
 
-# azure example
+# azure storage example
 my-boats-datasets:
   provider: azure
   endpoint: https://<account name>.blob.core.windows.net
@@ -129,6 +129,16 @@ my-boats-datasets:
   buckets:
   - boats_bucket_2020_20_10
   - another_boats_bucket_2020_10_10
+
+# google cloud storage example
+my-planes-datasets:
+  provider: google
+  endpoint: https://storage.googleapis.com
+  credentials_path: <path to the secret file inside the container>
+  # array of buckets
+  buckets:
+  - planes_bucket_2020_20_10
+  - another_planes_bucket_2020_10_10
 ```
 
 Links file structure:
@@ -140,6 +150,7 @@ Links file example:
 ```
 s3://cars_2020_20_10/truck.jpg
 azure://boats_bucket_2020_20_10/supersonicboat.jpg
+google://another_planes_bucket_2020_10_10/boeing.jpg
 ```
 
 Create a new file `docker-compose.override.yml` under `cd $(sudo supervisely where)`:
@@ -152,4 +163,12 @@ services:
 Then execute the following to apply the changes:
 ```
 sudo supervisely up -d http-storage
+```
+
+Google Cloud Storage secret file example, `docker-compose.override.yml`:
+```yaml
+services:
+  http-storage:
+    volumes:
+    - <path to the secret file>:/secret_planes.json:ro
 ```
