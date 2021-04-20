@@ -87,3 +87,16 @@ proxy_send_timeout 3600;
 proxy_read_timeout 3600;
 send_timeout 3600;
 ```
+
+
+## Configuring Agents
+
+If you are using a custom self-signed certificate, you will need to provide it to your agents so that they can connect to the instance. To do it, go to the Cluster page, select "Instructions" in each agent context menu and under "Advanced" provide path to your CA certificate:
+
+![](ca-cert-path.png)
+
+Run generated command on your machine to re-deploy this agent and to apply the changes.
+
+{% hint style="info" %}
+If you have multiple CAs you need to concat all of them into one file and use that file so it trusts the whole chain, i.e. `cat globalroot.crt secondary.crt > ca_chain.crt`
+{% endhint %}
