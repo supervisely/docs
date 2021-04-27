@@ -1,4 +1,6 @@
-In Enterprise Edition we support data storage in Azure Blob Storage or any S3 compatible storage (i.e. AWS S3).
+In Enterprise Edition you can not only store files on a hard drive, but also connect Azure Blob Storage, Google Cloud or any S3 compatible storage (i.e. AWS S3).
+
+You can upload files from your PC to connected cloud storage or use already uploaded files from cloud storage as a source (without duplicating it).
 
 ## How we store files
 
@@ -135,7 +137,14 @@ If you already have some files on Amazon S3/Google Cloud Storage/Azure Storage a
 
 Instead of uploading actual files (i.e. images), you will need to upload .txt file(s) that contains a list of URLs to your files. If your URLs are publicly available (i.e. link looks like `https://s3-us-west-2.amazonaws.com/test1/abc` and you can open it in your web browser directly), then you can stop reading and start uploading. 
 
-If your files are protected, however, you will need to create a configuration file for Supervisely. 
+If your files are protected, however, you will need to provide credentials in the [instance settings](/enterprise/post-installation#configure-your-instance) or manually create configuration file. 
+
+![](configure-cloud-1.png)
+
+![](configure-cloud-2.png)
+
+If you are brave enough, you can create configuration files manually:
+
 Example configuration file:
 ```yaml
 # amazon s3 example
