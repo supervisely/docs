@@ -19,6 +19,12 @@ Click on the user in the top right corner and select "Users". Here you can manag
 Click "Signup" to create a new user. We will automatically create a new team for that user and populate "Plugins" section with default plugins, marked as "Seed" (i.e. "Import / Images" or "DTL"). 
 
 
+## Configure your instance
+
+A good idea would be to check the Instance Settings page located in the admin's user menu. You will find tons of options you might like to configure, for example, enable HTTPS support or disable signup page:
+
+![](instance-settings-2.png)
+
 
 ## Deploy an additional agent (optional)
 
