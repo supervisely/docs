@@ -14,7 +14,7 @@ Our mission is to help people with and without machine learning expertise to cre
 
 ![](assets/jobs-ui.jpg)
 
-* **Train** and **apply** Neural Networks on your data — from our Model Zoo or your custom ones.
+* **Train** and **apply** Neural Networks on your data — from our Model Zoo or your custom ones!
 
 ![](assets/neural-networks-ui.jpg)
 
