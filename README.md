@@ -18,7 +18,7 @@ Our mission is to help people with and without machine learning expertise to cre
 
 ![](assets/neural-networks-ui.jpg)
 
-* Explore your data and automate common tasks with integrated Python Notebooks and Scripts.
+* Explore your data and automate common tasks with integrated Python Notebooks and Scripts!
 
 ![](assets/notebooks-ui.jpg)
 
@@ -32,4 +32,3 @@ The best way to explore Supervisely is to try it out — so don't wait and [crea
 Still have some questions? Check our FAQ:
 
 {% page-ref page="getting-started/faq.md" %}
-
