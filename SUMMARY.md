@@ -167,6 +167,7 @@
     * [Notifications](enterprise/notifications/README.md)
     * [Moving Instance](enterprise/moving/README.md)
     * [Storage Cleanup](enterprise/cleanup/README.md)
+    * [Private Apps](enterprise/private-apps/README.md)
 
 ## 💡 Resources
 
