@@ -17,6 +17,8 @@ $ cd $(sudo supervisely where)
   # optional
   http_proxy: <proxy url>
   https_proxy: <proxy url>
+  icon: <url> / <base64> / <svg> (login button icon)
+  login_label: <login_label> (login button label)
 ```
 
 3\. Create `docker-compose.override.yml` file
