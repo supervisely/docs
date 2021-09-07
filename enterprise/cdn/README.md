@@ -5,10 +5,10 @@ Supervisely allows you to use CDN services to fetch images and videos in labelin
 1. Go to Services → Cloudfront → Distributions → Create distribution
 2. Provide the following values:
 
-- "Origin domain" type the domain address of your server that Amazon will use to get the files from. In most cases it will be your "SERVER_ADDRESS" value from the ".env" file 
-- Protocol: Match viewer.
-- HTTP port: use the value of "PROXY_PORT" from the ".env" file
-- Cache key and origin requests
+— "Origin domain" type the domain address of your server that Amazon will use to get the files from. In most cases it will be your "SERVER_ADDRESS" value from the ".env" file 
+— Protocol: Match viewer.
+— HTTP port: use the value of "PROXY_PORT" from the ".env" file
+— Cache key and origin requests
 
 You can either select "Legacy cache settings" or setup policies to your liking.
 CachePolicy: "CachingOptimized"
