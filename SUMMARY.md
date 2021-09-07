@@ -165,6 +165,7 @@
     * [HTTPS](enterprise/https/index.md)
     * [Remote Storage](enterprise/s3/README.md)
     * [External Authorization](enterprise/auth/index.md)
+    * [CDN](enterprise/cdn/index.md)
     * [Notifications](enterprise/notifications/README.md)
     * [Moving Instance](enterprise/moving/README.md)
     * [Storage Cleanup](enterprise/cleanup/README.md)
