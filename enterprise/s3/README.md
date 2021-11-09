@@ -143,6 +143,18 @@ If your files are protected, however, you will need to provide credentials in th
 
 ![](configure-cloud-2.png)
 
+
+### File system provider
+
+If you want to use images from your host where supervisely instance running, you can use "File system" provider
+![image](https://user-images.githubusercontent.com/30120872/140936210-cf1b68ec-f2ba-4094-a2f5-fc4d37b77d49.png)
+- *Folder path on the server* - path to folder on the host server that will be mounted
+- *Storage ID (bucket)* - mouted folder identifyer. It will be used in links to mounted folder
+
+For instance, for the example above, when you want to add a new assets (image or video) with local path on your hard drive `/data/datasets/persons/image1.jpg`, use the following format in API, SDK or corresponding application: `fs://local-datasets/persons/image1.jpg`
+
+### Manual configuration
+
 If you are brave enough, you can create configuration files manually:
 
 Example configuration file:
