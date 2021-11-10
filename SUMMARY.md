@@ -34,6 +34,7 @@
     * [Objects](data-organization/Annotation-JSON-format/04_Supervisely_Format_objects.md)
     * [Individual Image Annotations](data-organization/Annotation-JSON-format/05_Supervisely_format_images.md)
     * [Individual Video Annotations](data-organization/Annotation-JSON-format/06_Supervisely_format_videos.md)
+    * [Point Cloud Episodes](data-organization/Annotation-JSON-format/07_Supervisely_format_pointcloud_episode.md)
 * [Storage](data-organization/storage/README.md)
 
 ## 📝 Labeling
