@@ -1,7 +1,7 @@
 # Point cloud Episode Project and Annotations
 ![cudoid_3d example](./figures_images/pointcloud_episode.png)
-##Project Structure Example
 
+## Project Structure Example
 Root folder for the project named `project name`
   - `meta.json` file 
   - `key_id_map.json` file (optional)
@@ -15,7 +15,7 @@ Root folder for the project named `project name`
             - image ann files (`.json`) - json files, named according to image name (`1.png -> 1.json`)
    
 
-## Format of `annotation.json` for point clouds episode:
+## Format of `annotation.json`
 
 ```.json
 [
@@ -87,14 +87,14 @@ Root folder for the project named `project name`
 - `labelerLogin` - string - the name of a user who created the current figure
 - `geometryType` - "cuboid_3d" - class shape
 
-**Fields definitions for objects field:**
+**Fields definitions for `objects` field:**
 
 - `id` - int, an unique identifier of given object (used in key_id_map.json to get the object KEY
 - `classTitle` - string - the title of a class. It's used to identify the class shape from the `meta.json` file
 - `tags` - list of strings that will be interpreted as object tags
 - `labelerLogin` - string - the name of the user that added this figure to the project
 
-**Fields description for figures field:**
+**Fields description for `figures` field:**
 
 - `id` - int, an unique identifier of given figure (used in key_id_map.json to get the object KEY)
 - `geometryType` - "rectangle" -class shape
@@ -131,10 +131,10 @@ This file create for mapping between pointcloud files and annotation frames in t
 }
 ```
 
-**Keys** - frame order number
+**Keys** - frame order number\
 **Values** - point cloud name
 
-#### Photo context image annotation file
+## Photo context image annotation file
 ```json 
     {
         "name": "host-a005_cam4_1231201437716091006.jpeg"
