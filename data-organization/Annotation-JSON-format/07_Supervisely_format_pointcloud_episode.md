@@ -1,5 +1,5 @@
 # Point cloud Episode Project and Annotations
-![cudoid_3d example](./figures_images/pointcloud_episode.png)
+![cudoid_3d example](./images/3d_episodes_interface.png)
 
 ## Project Structure Example
 Root folder for the project named `project name`
@@ -26,9 +26,6 @@ Root folder for the project named `project name`
             {
                 "id": 5344,
                 "classId": 3473,
-                "labelerLogin": "admin",
-                "createdAt": "2021-05-18T13:19:45.291Z",
-                "updatedAt": "2021-05-18T13:19:45.291Z",
                 "tags": [],
                 "classTitle": "Car"
             },
@@ -66,9 +63,6 @@ Root folder for the project named `project name`
                         "bitmap": null,
                         "meta": {},
                         "geometryType": "cuboid_3d",
-                        "labelerLogin": "admin",
-                        "createdAt": "2020-07-02T10:53:26.038Z",
-                        "updatedAt": "2020-07-02T10:53:26.038Z"
                     }
                 ]
             }
@@ -175,11 +169,11 @@ This file create for mapping between pointcloud files and annotation frames in t
 **Fields description:**
 - name - string - Name of image file 
 - entityId  - integer >= 1 ID of the Point Cloud
-- deviceId - string- Device ID or name 
+- deviceId - string- Device ID or name.
 - timestamp - string <date-time> - Time when the frame occurred in ISO 8601 format
-- sensorsData - Sensors data such as Pinhole camera model parameters. See https://en.wikipedia.org/wiki/Pinhole_camera_model and https://docs.opencv.org/2.4/modules/calib3d/doc/camera_calibration_and_3d_reconstruction.html
-    - intrinsicMatrix - Array of number <float> - Matrix of intrinsic parameters in row-major order, also called camera matrix. It's used to denote camera calibration parameters. See https://en.wikipedia.org/wiki/Camera_resectioning#Intrinsic_parameters
-    - extrinsicMatrix - Array of number <float> - Matrix of extrinsic parameters in row-major order, also called joint rotation-translation matrix. It's used to denote the coordinate system transformations from 3D world coordinates to 3D camera coordinates. See https://en.wikipedia.org/wiki/Camera_resectioning#Extrinsic_parameters
+- sensorsData - Sensors data such as Pinhole camera model parameters. See wiki: [Pinhole camera model](https://en.wikipedia.org/wiki/Pinhole_camera_model) and [OpenCV docs for 3D reconstruction](https://docs.opencv.org/2.4/modules/calib3d/doc/camera_calibration_and_3d_reconstruction.html).
+    - intrinsicMatrix - Array of number <float> - 3x3 flatten matrix (dropped last zeros column) of intrinsic parameters in row-major order, also called camera matrix. It's used to denote camera calibration parameters. See [Intrinsic parameters](https://en.wikipedia.org/wiki/Camera_resectioning#Intrinsic_parameters).
+    - extrinsicMatrix - Array of number <float> - 4x3 flatten matrix (dropped last zeros column) of extrinsic parameters in row-major order, also called joint rotation-translation matrix. It's used to denote the coordinate system transformations from 3D world coordinates to 3D camera coordinates. See [Extrinsic_parameters](https://en.wikipedia.org/wiki/Camera_resectioning#Extrinsic_parameters).
 
 
 
