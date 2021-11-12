@@ -185,4 +185,3 @@
 * [Changelog](https://app.supervise.ly/changelog)
 * [GitHub](https://github.com/supervisely/supervisely)
 * [Blog](https://medium.com/@deepsystems)
-
