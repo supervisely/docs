@@ -1,5 +1,5 @@
 # Point cloud Episode Project and Annotations
-![cudoid_3d example](./images/3d_episodes_interface.png)
+![3D Episodes labeling interface](./images/3d_episodes_interface.png)
 
 ## Project Structure Example
 Root folder for the project named `project name`
