@@ -43,7 +43,6 @@ For example (`/project_name/dataset_name/ann/volume1.nrrd.json`)
     "objects": [
         {
             "id": 593494,
-            "classId": 127524,
             "datasetId": 42699,
             "labelerLogin": "username",
             "createdAt": "2021-11-13T08:05:28.771Z",
@@ -54,7 +53,6 @@ For example (`/project_name/dataset_name/ann/volume1.nrrd.json`)
         },
         {
             "id": 593495,
-            "classId": 127525,
             "datasetId": 42699,
             "tags": [],
             "entityId": 2388727,
@@ -75,7 +73,6 @@ For example (`/project_name/dataset_name/ann/volume1.nrrd.json`)
                     "figures": [
                         {
                             "id": 57036532,
-                            "classId": null,
                             "objectId": 593494,
                             "description": "",
                             "geometryType": "bitmap",
@@ -99,7 +96,6 @@ For example (`/project_name/dataset_name/ann/volume1.nrrd.json`)
                     "figures": [
                         {
                             "id": 57036538,
-                            "classId": null,
                             "objectId": 593495,
                             "description": "",
                             "geometryType": "rectangle",
