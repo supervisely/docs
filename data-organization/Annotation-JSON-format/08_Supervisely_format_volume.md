@@ -146,13 +146,17 @@ For example (`/project_name/dataset_name/ann/volume1.nrrd.json`)
 ╚════════╩════════════╝
 ```
 - `intensity` - `{"min": int, "max": int}` - intensity range. Depends on the device getting the data
-- `windowWidth` - float - Depends on the device getting the data
-- `rescaleSlope` - float - Depends on the device getting the data
-- `windowCenter` - float - Depends on the device getting the data
-- `rescaleIntercept` - float - Depends on the device getting the data  
+- `windowWidth` - float - Specify a linear conversion. Window Width contains the width of the window
+- `windowCenter` - float - Specify a linear conversion. Window Center contains the value that is the center of the window
 - `channelsCount` - float - channel count of your image data. Default: 1
 - `dimensionsIJK` -  dict {"x": int, "y": int, "z": int} - dimensions of volume described as vector in [IJK notation](https://en.wikipedia.org/wiki/Unit_vector)
 - `IJK2WorldMatrix` - matrix to transform coordinates from IJK to world (cartesian). See [here](https://www.slicer.org/wiki/Coordinate_systems#Image_transformation) 
+
+Grayscale transformations to be applied to Pixel Data are defined by the equivalent of the Modality LUT and Rescale Intercept, Value of Interest Attributes, Photometric Interpretation and the equivalent of the Presentation LUT.
+
+`units = m*SV + b`
+- `rescaleSlope` - float - m in the equation specified by Rescale Intercept
+- `rescaleIntercept` - float - The value "b" in the relationship between stored values (SV) in Pixel Data and the output units specified in Rescale Type.  
 
 **Fields description for `planes` field:**
 - `name` - string - the name of the plane, where the figures are placed. Can be  [coronal, sagittal or axial](https://www.slicer.org/wiki/Coordinate_systems#Anatomical_coordinate_system)
