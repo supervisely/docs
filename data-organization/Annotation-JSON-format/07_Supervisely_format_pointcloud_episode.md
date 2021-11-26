@@ -17,7 +17,7 @@ Root folder for the project named `project name`
 ## Main concepts
 **Point cloud Episode Project Folder**
 
-On the top level we have Project folders, these are the elements visible on the main Supervisely dashboard. Inside them they can contain only Datasets and Poject Meta information, all other data has to be stored a level below in a Dataset (Sequence). All datasets within a project have to contain content of the same cathegory.
+On the top level are stored Project folders, these are the elements visible on the main Supervisely dashboard. Inside them they can contain only Datasets and Poject Meta information, all other data has to be stored a level below in a Dataset (Sequence). All datasets within a project have to contain content of the same cathegory.
 
 **Project Meta**
 
@@ -36,39 +36,27 @@ The PCD file format description can be found [here](https://pointclouds.org/docu
 **Items Annotation**
 
 A sequence of frames has a list of `objects` that are shared between frames.
-For example, we might have 10 cars represented by theirs `figures` in 100 frames.
+For example, sequence might have 10 cars objects represented by theirs `figures` in 100 frames.
 
-The list of `objects` is defined for the entire sequence, even if the object occurs in only one frame. 
+The list of `objects` is defined for the entire sequence, even if the object's figure occurs in only one frame. 
 
 Figures - represents individual cuboids, attached to one single frame and its object.
 
-**Example**:
+    Example:
+    The sequence contains 3 objects: (car1, car2, pedestrian1) and 10 frames.
 
-The sequence contains 3 objects: (car1, car2, pedestrian1) and 10 frames.
-
-For each frame in the sequence, we create a figure and attach it to the corresponding object.
-Then we have 30 figures (10 for each object and 1 for the object per frame).
+    Each frame in the sequence might have a figure for every object.
+    Then it will be 30 figures (10 figures for each object per sequence; 1 figure for the object per frame).
 
 **Linking between point clouds , Objects and Figures** 
 
 In Supervisely Annotation Format each point cloud is a frame. 
 Frame contain `figures` and `index`: sequence number, that have relation to point cloud name in `frame_pointcloud_map.json`.
 
-In the example below, we create one Car object (with key "6663ca1d20c74bea83bd48c24568989d") for the entire sequence. (Means that this object can appear in any frame of the sequence) 
+In the example below, created one Car object (with key "6663ca1d20c74bea83bd48c24568989d") for the entire sequence. (Means that this object can appear in any frame of the sequence) 
 
-Then on frames with indexes 0 and 1 we create a figures (cuboid geometry), that corresponds to Car object by `objectKey` field.
+Then on frames with indexes 0 and 1 putted figures (cuboid geometry), that corresponds to Car object by `objectKey` field.
 
-**Optional fields and loading**
-These fields are optional and are not needed when loading the project.
-The server can automatically fill in these fields while project is loading.
-
-- `id` - unique identifier of the current object
-- `classId` - unique class identifier of the current object
-- `labelerLogin` - string - the name of user who created the current figure
-- `createdAt` - string - date and time of figure creation
-- `updatedAt` - string - date and time of the last figure update
-
-Main idea of `key` fields and `id` you can see below in [Key id map file](#key-id-map-file) section.
 
 ## Format of `annotation.json`
 ```json
@@ -146,9 +134,20 @@ Main idea of `key` fields and `id` you can see below in [Key id map file](#key-i
     }
 ]
 ```
+**Optional fields and loading**
+These fields are optional and are not needed when loading the project.
+The server can automatically fill in these fields while project is loading.
+
+- `id` - unique identifier of the current object
+- `classId` - unique class identifier of the current object
+- `labelerLogin` - string - the name of user who created the current figure
+- `createdAt` - string - date and time of figure creation
+- `updatedAt` - string - date and time of the last figure update
+
+Main idea of `key` fields and `id` you can see below in [Key id map file](#key-id-map-file) section.
 
 **Fields definitions:**
-- `description` - string - (optional) -  this field is used to store the text we want to assign to the video. In the labeling intrface it corresponds to the 'data' filed.
+- `description` - string - (optional) -  this field is used to store the text to assign to the sequence.
 - `key` - string, unique key for a given sequence (used in key_id_map.json to get the sequence ID)
 - `tags` - list of strings that will be interpreted as episode tags
 - `objects` - list of objects that may be present on the episode
