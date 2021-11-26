@@ -55,8 +55,7 @@ Frame contain `figures` and `index`: sequence number, that have relation to poin
 
 In the example below, created one Car object (with key "6663ca1d20c74bea83bd48c24568989d") for the entire sequence. (Means that this object can appear in any frame of the sequence) 
 
-Then on frames with indexes 0 and 1 putted figures (cuboid geometry), that corresponds to Car object by `objectKey` field.
-
+Then, on frames (with indices 0 and 1) figures are placed, and each figure correspond to the Car object by the `objectKey` field.
 
 ## Format of `annotation.json`
 ```json
