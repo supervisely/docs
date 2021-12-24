@@ -28,7 +28,7 @@ Click "Run" and wait for application to start
 
 Go to the Project section and click on any dataset to open annotation tool. Click "magic wand" icon in toolset menu to select smart tool.
 
-![](step4.jpg)
+![](step4.png)
 
 {% hint style="info" %}
 If more than one smart tool model or app is deployed you can select which one you want to use
@@ -36,7 +36,7 @@ If more than one smart tool model or app is deployed you can select which one yo
 
 Now place two points to form rectangle over any object and see results. That's it!
 
-![](step4-b.jpg)
+![](step4-b.png)
 
 ## How to stop smart tool app
 
