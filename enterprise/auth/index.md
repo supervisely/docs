@@ -19,12 +19,13 @@ $ cd $(sudo supervisely where)
   https_proxy: <proxy url>
   icon: <url> / <base64> / <svg> (login button icon)
   login_label: <login_label> (login button label)
+  extra_scope: <extra_scope> (comma-separated list of additional scopes)
 ```
 
 3\. Create `docker-compose.override.yml` file
 
 ```yaml
-version: '2.2'
+version: '2.4'
 
 services:
   api:
@@ -33,6 +34,8 @@ services:
     volumes:
     - <path_to_folder>/openid.yml:/openid.yml:ro
 ```
+
+>Notice: if you update the `openid.yml` file later then you need to execute `sudo supervisely restart api` instead of `up -d`
 
 4\. Execute following command
 
@@ -62,7 +65,7 @@ microsoft:
 
 ###### docker-compose.override.yml
 ```yaml
-version: '2.2'
+version: '2.4'
 
 services:
   api:
@@ -83,7 +86,7 @@ $ cd $(sudo supervisely where)
 2\. Create `docker-compose.override.yml` file
 
 ```yaml
-version: '2.2'
+version: '2.4'
 
 services:
   api:
@@ -104,7 +107,7 @@ $ sudo supervisely up -d
 ###### docker-compose.override.yml example
 
 ```yaml
-version: '2.2'
+version: '2.4'
 
 services:
   api:
