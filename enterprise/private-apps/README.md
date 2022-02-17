@@ -1,4 +1,4 @@
-You can extend existing library of ready Supervisely Apps available at Ecosystem page with new applications, only available at your Supervisely instance. This tutorial will show you how to create and deploy new private applications as private GitHub repositories. You can also check out our in depth guide on how to creat the Apps themselves [here](https://github.com/supervisely-ecosystem/how-to-create-app).
+You can extend existing library of ready Supervisely Apps available at Ecosystem page with new applications, only available at your Supervisely instance. This tutorial will show you how to create and deploy new private applications as private GitHub repositories. You can also check out our in-depth guide on how to create the Apps themselves [here](https://github.com/supervisely-ecosystem/how-to-create-app).
 
 ## Step 1. Generate new personal token
 
