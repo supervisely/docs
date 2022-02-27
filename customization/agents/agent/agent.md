@@ -76,3 +76,13 @@ By default, agent stores models, images, logs and other useful stuff in `~/.supe
 └── tmp
 
 ```
+
+
+## Agent settings
+
+To rename an agent or change the list of tasks that can be run on it, go to the agents page and click on the "edit" button next to this agent.
+
+![](agent_edit_a.png)
+
+![](agent_edit_b.png)
+
