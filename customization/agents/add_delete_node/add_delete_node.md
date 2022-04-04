@@ -41,9 +41,14 @@ Before starting Agent on you computer you can customize a few parameters.
 
 ![](agent_adv_a.png)
 
+{% hint style="info" %}
+To apply changes in advanced settings to already running agent you need to copy resulting command and execute it on the same machine where agent running
+{% endhint %}
+
 - Use nvidia runtime: will add `--runtime-nvidia` flag to docker run to support GPU related taks
 - Registries: if you want to use your own private docker images for training and inference custom models, provide path, login and password.
 
+  
 {% hint style="info" %}
 We don't store your registry credentials. Your login and password will be passed to command as an environment variables.
 {% endhint %}
