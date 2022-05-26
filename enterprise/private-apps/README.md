@@ -2,6 +2,7 @@ You can extend existing library of ready Supervisely Apps available at Ecosystem
 
 ## Step 1. Generate new personal token
 
+### GitHub
 To access private GitHub repositories, you will need to generate a personal token. Please note, that this token will provide your Supervisely instance a read access to all repositories, available for this GitHub account — you may want to create a dedicated GutHub account for a single Supervisely App repository.
 
 Open GitHub → Settings → Developer settings → [Personal access tokens](https://github.com/settings/tokens) and click Generate new token.
@@ -9,6 +10,16 @@ Open GitHub → Settings → Developer settings → [Personal access tokens](htt
 Select "repo" access scope and click "Generate token" button. Save generated token — you will need it later.
 
 ![](personal-token.png)
+
+### GitLab
+To access private GitLab repositories, you will need to generate a personal token. Please note, that this token will provide your Supervisely instance a read access to all repositories, available for this GitLab account — you may want to create a dedicated GutLab account for a single Supervisely App repository.
+
+Open GilLab → Settings → [Access Tokens](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token)
+
+Select "api" access scope and click "Create personal access token" button. Save generated token — you will need it later.
+
+![](personal-token-gitlab.png)
+
 
 ## Step 2. Create GitHub repository
 
