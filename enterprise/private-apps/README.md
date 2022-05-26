@@ -1,4 +1,4 @@
-You can extend existing library of ready Supervisely Apps available at Ecosystem page with new applications, only available at your Supervisely instance. This tutorial will show you how to create and deploy new private applications as private GitHub repositories. You can also check out our in-depth guide on [how to create custom Apps](https://github.com/supervisely-ecosystem/how-to-create-app).
+You can extend existing library of ready Supervisely Apps available at Ecosystem page with new applications, only available at your Supervisely instance. This tutorial will show you how to create and deploy new private applications as private GitHub and GitLab repositories. You can also check out our in-depth guide on [how to create custom Apps](https://github.com/supervisely-ecosystem/how-to-create-app).
 
 ## Step 1. Generate new personal token
 
@@ -21,12 +21,20 @@ Select "api" access scope and click "Create personal access token" button. Save 
 ![](personal-token-gitlab.png)
 
 
-## Step 2. Create GitHub repository
+## Step 2. Create repository
+
+### GitHub
 
 Let's create a new GitHub repository that we will use to deploy a new Supervisely application.  Create a [new private GitHub repository](https://github.com/new): do not forget to choose "Private" visibility option.
   
 ![](new-repo.png)
-  
+
+### GitLab
+
+Let's create a new GitLab repository that we will use to deploy a new Supervisely application.  Create a new project.
+
+![](new-repo-gitlab.png)
+
 {% hint style="info" %}
 You can create a public repositry alright — you will still need a personal token and further steps are gonna be the same.
 {% endhint %}
@@ -57,14 +65,14 @@ You will find a few files in your new application:
 - `src/main.py` your entry-point python file
   
 Let's leave it as is for now
+
+## Step 4. Add Application to Supervisely
   
-## Step 4. Setup GitHub repository in Supervisely
+Go to Ecosystem page → Private apps → Click "Add private app"
   
-Login as an admin user to your Supervisely instance and select "Instance settings" in admin's user menu.
-  
-Scroll to Ecosystem section and provide your personal access token and repository name here. Click "Save" at the bottom to update your instance settings.
-  
-![](ecosystem-creds.png)
+![](add-app-page.png)
+
+![](add-app-modal.png)
 
 ## Step 5. Check your first application
   
