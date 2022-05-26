@@ -16,7 +16,7 @@ To access private GitLab repositories, you will need to generate a personal toke
 
 Open GilLab → Settings → [Access Tokens](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token)
 
-Select "api" access scope and click "Create personal access token" button. Save generated token — you will need it later.
+Select with "read_api", "read_repository" scopes enabled and click "Create personal access token" button. Save generated token — you will need it later.
 
 ![](personal-token-gitlab.png)
 
