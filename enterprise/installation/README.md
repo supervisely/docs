@@ -80,7 +80,7 @@ Open file `/opt/supervisely/.env`. There are some configuration variables in it 
 
 Here are some variables that you can find here:
 
-- `SERVER_ADDRESS` - Public or local network address of the server where you deploy Supervisely. That value will be used by *agents* to connect to the cluster. Example: *192.168.1.42* or *supervisely.intranet*. If you have a very restrictive network environment with firewall, you can use `ip addr list docker0` to get your docker0 IP address - it is some kind of `localhost` for docker. 
+- `SERVER_ADDRESS` - Public or local network address of the server where you deploy Supervisely. That value will be used by *agents* to connect to the cluster. Example: *192.168.1.42* or *supervisely.intranet*. If you have a very restrictive network environment with firewall, you can use `http://host.docker.internal`. 
 - `STORAGE_ACCESS_KEY` - Access key for S3 integration (optional)
 - `STORAGE_SECRET_KEY` - Secret key for S3 integration (optional)
 
