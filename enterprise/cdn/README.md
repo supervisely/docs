@@ -36,7 +36,8 @@ Create or update `docker-compose.override.yml`:
 version: '2.4'
 services:
   api:
-    CDN_DOMAIN: ${CDN_DOMAIN}
+    environment:
+      CDN_DOMAIN: ${CDN_DOMAIN}
 ```
 
 Deploy the changes:
