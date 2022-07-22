@@ -99,7 +99,7 @@ Now, the CLI will automatically do the following steps, required to set your Sup
 
 Now you can refresh the current page. You will see the login box:
 
-![](screenshot-192-168-1-42-login-1530385548750.jpg)
+![](screenshot-dev-supervise-ly-login-1658511306465.jpg)
 
 Enter the default credentials: login and password `admin`. Now your are in. Welcome!
 
