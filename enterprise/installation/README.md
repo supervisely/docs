@@ -53,9 +53,7 @@ When all requirements above have been installed, you can deploy Supervisely. Ple
 
 ### Step 1. Get your unique key from us
 
-Before the installation we will send you a `license.key`, a unique installation key and command to install `supervise-cli`. Please run it on the machine where you want to install Supervisely and make sure `sudo supervisely` gives you help information.
-
-![](Screenshot 2020-04-26 at 20.33.45.png)
+Before the installation we will send you a license key and `supervise-cli` installation command. Please run it on the machine where you want to install Supervisely.
 
 ### Step 2. Install pre-requirements
 
@@ -68,51 +66,36 @@ Run `sudo supervisely install-all` in your terminal. We will detect the necessar
 
 If don't have NVIDIA drivers and CUDA, you will be asked if you need to install it. Choose `y` if you have GPU on your server. Your computer will be rebooted during the installation of the NVIDIA driver.
 
-### Step 3. Download configuration
+### Step 3. Run installation command
 
-We have sent you installation key that looks like "hdhUssJskOskAA". Run `sudo supervisely auth <installation key>` to authenticate yourself. Now, run `sudo supervisely update` to download the latest version of Supervisely. We will ask you to provide a directory to store configuration in and some required variables. Be default, we use `/opt/supervisely` folder. You can always check where is your configuration directory using `supervisely where` command.
+Run `sudo supervisely init "<your license key>"`. If this is your first time running this command, you will see three prompts, asking you to choose where to store the CLI configuration file (first prompt), Supervisely configuration files (second prompt) and backups (the last prompt).
 
-### Step 4. Edit configuration (optional)
+```bash
+[0] /opt/supervisely
+[1] /supervisely
+[2] /root/.supervisely
+[3] /root/.supervisely
+[4] /root/.config/supervisely
 
-Though we will ask you to provide required configuration variables on the previous step, it's a good idea to make a final overview.
+Couldn't find Supervisely config. Please choose the new location:
+```
 
-Open file `/opt/supervisely/.env`. There are some configuration variables in it that you might want to change. Look for `<please, insert the value here>` - you need to provide values here explicitly because we don't know those values in advance.
+You can select one of the suggested options or enter your custom location. If you are not sure which option to choose, you can select the default (`/opt/supervisely`).
 
-Here are some variables that you can find here:
+You can always check where is your configuration and backups locations using `supervisely where` command.
 
-- `SERVER_ADDRESS` - Public or local network address of the server where you deploy Supervisely. That value will be used by *agents* to connect to the cluster. Example: *192.168.1.42* or *supervisely.intranet*. If you have a very restrictive network environment with firewall, you can use `http://host.docker.internal`. 
-- `STORAGE_ACCESS_KEY` - Access key for S3 integration (optional)
-- `STORAGE_SECRET_KEY` - Secret key for S3 integration (optional)
+### Step 4. Wait for the installation to complete
 
-If you will decide to change those values later after the installation is complete, do not forget to run `supervisely up -d` to apply the changes.
+Now, the CLI will automatically do the following steps, required to set your Supervisely instance:
 
-### Step 5. Login to Docker registry
+1. Download docker-compose configuration files
+2. Login to our docker registry
+3. Pull and run docker containers
+4. Initilize the database and download some sample data
+5. Install the license key
+6. Deploy the default Supervisely Agent
 
-Run `sudo supervisely login` to login to our private docker registry. We provide the necessary credentials in `.env` file so you don't have to input anything.
-
-{% hint style="warning" %}
-If you see "syntax error", you forgot to set one of the variables in `.env`. Please go back to the previous step to edit the required variables. 
-{% endhint %}
-
-You should see "Login Succeeded" in your terminal.
-
-### Step 6. Run Supervisely
-
-Now it's time to start the Supervisely instance. Run `sudo supervisely upgrade --skip-backup`. We will pull docker images from registry and run every service defined in `docker-compose.yml` in detached mode.
-
-This can take a while.
-
-### Step 7. Enter license key
-
-When the script has finished, you can open Supervisely in your web browser. Go to `http://localhost` page. You will see the following:
-
-![](screenshot-192-168-1-42-licenses-1530384717806.png)
-
-Enter your license key from the file `license.key` here and press "Update license".
-
-You should see a "Success" message - your license has been updated.
-
-### Step 8. Start using Supervisely!
+### Step 5. Start using Supervisely!
 
 Now you can refresh the current page. You will see the login box:
 
@@ -136,14 +119,10 @@ One of our internal services haven't got the license key. Refresh the page and t
 
 #### My "admin / Main Node" agent is stuck in "Waiting" status
 
-It seems the agent has tried to wait for Supervisely to start. Restart agent manually: `sudo supervisely restart agent`. 
+It seems the agent has tried to wait for Supervisely to start. Restart agent manually: `sudo supervisely deploy-agent`. 
 
 #### When i deploy an agent i see a "runtime" error
 
 Nvidia container runtime has not been installed. Try to run command `docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi` to see if it works.
 
 If you don't want to run train & inference tasks, please remove checkbox "Use nvidia runtime" under advances settings in the new node modal window and run the deploy command again.
-
-#### There are no or just a few models in Model Zoo
-
-The models are still downloading. It can take a while, just wait some time and refresh the Models list.
