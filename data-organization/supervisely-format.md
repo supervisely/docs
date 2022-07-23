@@ -386,6 +386,6 @@ def mask_2_base64(mask):
     img_pil.putpalette([0,0,0,255,255,255])
     bytes_io = io.BytesIO()
     img_pil.save(bytes_io, format='PNG', transparency=0, optimize=0)
-    bytes = bytes_io.getvalue()
-    return base64.b64encode(zlib.compress(bytes)).decode('utf-8')
+    bytes_enc = bytes_io.getvalue()
+    return base64.b64encode(zlib.compress(bytes_enc)).decode('utf-8')
 ```
