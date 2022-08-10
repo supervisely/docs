@@ -148,6 +148,7 @@
 
 ## 🔧 Customization
 
+* [Developer Portal](https://developer.supervise.ly/)
 * [Plugins](customization/plugins/README.md)
   * [Plugin updates and versions](customization/plugins/versions.md)
 * [Agents](customization/agents/README.md)
@@ -156,7 +157,7 @@
     * [Node monitoring](customization/agents/manage/manage.md)
     * [AMI (Amazon)](customization/agents/ami/README.md)
     * [Clean Up](customization/agents/clean_up/clean_up.md)
-* [SDK](https://sdk.docs.supervise.ly)
+* [SDK](https://supervisely.readthedocs.io/en/latest/sdk_packages.html)
 * [API](https://api.docs.supervise.ly)
 
 ## 👔 Enterprise Edition
