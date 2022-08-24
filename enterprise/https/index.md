@@ -2,7 +2,21 @@ By default Supervisely starts on port 80 without HTTPS. While it's fine for inte
 
 This guide will help you to run Supervisely over HTTPS.
 
-## Option 1. Using Let's Encrypt
+## UI configuration
+
+Usually, enabling HTTPS can be done in just a few clicks. Please login as the "admin" user and open "Instance Settings" page under your account menu:
+
+![](instance-settings.png)
+
+Now, open "HTTPS" section and switch "Let's encrypt" option on. Enter the address you access the instance now, without "http://" (i.e. `supervisely.my-company.com`) and your email. Click "Save" — your Supervisely instance will apply the new configuration and restart itself: you should be able to access Supervisely now via `https://supervisely.my-company.com`.
+
+![](instance-settings-https.png)
+
+## Manual configuration
+
+If, for some reason, the default method via UI does not work for you, there are a few options how to enable HTTPS directly via configuration files.
+
+### Option 1. Using Let's Encrypt
 
 Create a new file `docker-compose.override.yml` in the folder with `docker-compose.yml` (you can find it by running `supervisely where` command) configuration with the following content:
 
@@ -40,7 +54,7 @@ services:
 
 Run `supervisely up -d` to apply changes. It will take a few minutes to issue your new certificates. After `default.crt` fill appear in the `data/certs` folder, run `supervisely restart proxy` — now your Supervisely instance works over HTTPS! Please do not forget to change `SERVER_ADDRESS` in your `.env` file accordingly.
 
-## Option 2. Built-in SSL support
+### Option 2. Built-in SSL support
 
 As an entrypoint we share `proxy` docker service based on nginx on host port 80. To enable https support you simply need to share certs as a volume from host.
 
@@ -71,7 +85,7 @@ If you try to access Supervisely over HTTP, you will be automatically redirected
 
 
 
-## Option 3. Setup reverse-proxy
+### Option 3. Setup reverse-proxy
 
 If, for some reason, you built-in Supervisely proxy doesn't meet your needs, you can run a reverse-proxy server in front of Supervisely. For example, you can use [docker-ssl-proxy](https://hub.docker.com/r/fsouza/docker-ssl-proxy/) to achieve that.
 
@@ -89,7 +103,7 @@ send_timeout 3600;
 ```
 
 
-## Configuring Agents
+### Configuring Agents
 
 If you are using a custom self-signed certificate, you will need to provide it to your agents so that they can connect to the instance. To do it, go to the Cluster page, select "Instructions" in each agent context menu and under "Advanced" provide path to your CA certificate:
 
