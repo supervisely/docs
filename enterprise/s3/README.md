@@ -15,6 +15,10 @@ That's because we maintain the same structure in local storage as if you would u
 
 ## Configure Supervisely to use S3 compatible storage (Amazon S3, Minio)
 
+{% hint style="warning" %}
+This section describes how to configure Supervisely to store its data on a cloud storage rather than on a hard drive. This won't allow you to use existing images and videos on your cloud. If you need to use existing images and videos, please check [the section below](#links-plugin-cloud-providers-support).
+{% endhint %}
+
 Edit `.env` configuration file - you can find it by running `supervisely where` command. 
 
 Change `STORAGE_PROVIDER` from `http` (local hard drive) to `minio` (S3 storage backend).
@@ -42,6 +46,10 @@ Execute `sudo supervisely up -d` to apply the new settings
 
 ## Configure Supervisely to use Azure Blob Storage
 
+{% hint style="warning" %}
+This section describes how to configure Supervisely to store its data on a cloud storage rather than on a hard drive. This won't allow you to use existing images and videos on your cloud. If you need to use existing images and videos, please check [the section below](#links-plugin-cloud-providers-support).
+{% endhint %}
+
 Edit `.env` configuration file - you can find it by running `supervisely where` command. 
 
 Change `STORAGE_PROVIDER` from `http` (local hard drive) to `azure` (Azure storage backend).
@@ -62,6 +70,10 @@ STORAGE_SECRET_KEY=<secret key 88 chars long or so: aflmg+wg23fWA+6gAafWmgF4a>
 Execute `sudo supervisely up -d` to apply the new settings
 
 ## Configure Supervisely to use Google Cloud Storage
+
+{% hint style="warning" %}
+This section describes how to configure Supervisely to store its data on a cloud storage rather than on a hard drive. This won't allow you to use existing images and videos on your cloud. If you need to use existing images and videos, please check [the section below](#links-plugin-cloud-providers-support).
+{% endhint %}
 
 Edit `.env` configuration file - you can find it by running `supervisely where` command. 
 
