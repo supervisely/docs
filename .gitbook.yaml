@@ -14,3 +14,5 @@ redirects:
   cluster/overview/: customization/agents/README.md
   ann_format: data-organization/Annotation-JSON-format/00_ann_format_navi.md
   ann_format/: data-organization/Annotation-JSON-format/00_ann_format_navi.md
+  data-organization/import-export/supervisely-format: data-organization/Annotation-JSON-format/00_ann_format_navi.md
+  data-organization/import-export/supervisely-format/: data-organization/Annotation-JSON-format/00_ann_format_navi.md
