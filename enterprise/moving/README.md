@@ -2,38 +2,24 @@
 
 One of the most frequently asked questions is how to move an existing Supervisely instance from one machine/cloud to another machine/cloud? It's actually very easy.
 
-## Step 1. Install Supervisely on a new machine
+## Step 1. Find where your Supervisely data and configuration is located
 
-Install `supervisely-cli`, run `supervisely auth <key>` with the key provided to you before and run `sudo supervisely install-all` to get all the necessary dependencies on a new server. You can check this [document](../installation/README.md#installation). It is a good idea to pick the same config and data folders as on old server, but it is not nessessary.
+First, we need to transfer data and configuration files to the new machine. Run the following commands:
 
-## Step 2. Move configuration to a new machine
+- `sudo supervisely where` — where your instance configuration is at
+- `sudo supervisely where config` — where your cli configuration is at
+- `sudo supervisely where data` — where your data is at
 
-Locate configuration folder on a new and old machine via `sudo supervisely where` command (run on both servers — usually, `/opt/supervisely`).
+## Step 2. Transfer files to the new server
 
-Now, copy this folder from old machine to a new one — do not forget to copy both `docker-compose.yml` and `.env` files. For example:
+Create the same folders on the new server and copy contents. For example, your command to move data could look like this:
 
-```
-# on the old server
-rsync -azP /opt/supervisely new_server:/opt/supervisely/
-```
-
-## Step 3. Move data to a new machine
-
-### If you store data on the local drive
-
-Locate data folder on a new and old machine via `sudo supervisely where data` command (run on both servers — usually, `/supervisely/data`).
-
-First, stop an existing instance via `sudo supervisely stop`. Now, copy the folder from the old machine to the new one. For example: 
-
-```
-# on the old server
-rsync -azP /supervisely/data new_server:/supervisely/data
+```bash
+rsync -azP /opt/supervisely new_server:/opt/supervisely
+# rsync -azP /opt/supervisely/config new_server:/opt/supervisely/config
+# rsync -azP /opt/supervisely/data new_server:/opt/supervisely/data
 ```
 
-### If you store data on external storage (i.e. S3)
+## Step 3. Install Supervisely on a new machine
 
-In this case you will need to copy data from the cloud via some external utility. We suggest to use `minio` as in this [tutorial](../s3#migration-from-local-storage).
-
-## Step 4. Start the new instance
-
-We are done with the old server — you can run it back again via `sudo superviselu up -d`. On the new machine, login the the docker registry via `sudo supervisely login` and initialise instance via `sudo supervisely upgrade --skip-backup`.
+Install `supervisely-cli`, run `sudo sueprvisely install-all` and run `supervisely init`. Your license has already been copied on the previous step — just wait a bit for the installation to complete and you are good to go!
