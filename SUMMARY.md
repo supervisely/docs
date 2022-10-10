@@ -155,6 +155,7 @@
     * [Agent](customization/agents/agent/agent.md)
     * [Add / Restart / Delete agent](customization/agents/add_delete_node/add_delete_node.md)
     * [Node monitoring](customization/agents/manage/manage.md)
+    * [Agent Storage](customization/agents/agent-storage/agent-storage.md)
     * [AMI (Amazon)](customization/agents/ami/README.md)
     * [Clean Up](customization/agents/clean_up/clean_up.md)
 * [SDK](https://supervisely.readthedocs.io/en/latest/sdk_packages.html)
