@@ -2,7 +2,7 @@ If you need to load a large project or want to have access to files from your ho
 
 1. Open agents list page, click "instructions" button in agent context menu. 
   - Make sure that the "Enable supervisely net" setting is enabled.
-  - You can change the folder using the "Folder to mount" setting. `~/sueprvisely/agent-{agentId}` folder will be used by default.
+  - You can change the folder using the "Folder to mount" setting. `~/supervisely/agent-{agentId}` folder will be used by default.
 
 ![](agent-settings.png)
 
