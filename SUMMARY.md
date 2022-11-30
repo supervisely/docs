@@ -166,6 +166,7 @@
 * [Installation](enterprise/installation/README.md)
     * [Post-installation](enterprise/post-installation/README.md)
     * [Upgrade](enterprise/update/index.md)
+    * [License Update](enterprise/updating-the-license/readme.md)
 * Advanced Tuning
     * [HTTPS](enterprise/https/index.md)
     * [Remote Storage](enterprise/s3/README.md)
