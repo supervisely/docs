@@ -19,7 +19,11 @@ $ cd $(sudo supervisely where)
   https_proxy: <proxy url>
   icon: <url> / <base64> / <svg> (login button icon)
   login_label: <login_label> (login button label)
-  extra_scope: <array> (list of additional scopes)
+  extra_scope: <array> (list of additional scopes) # deprecated, use extra_settings.scope
+  extra_settings: # <optional object if specific settings are required>
+    scope: <array> (list of additional scopes)
+    token_endpoint_auth_method: <string>
+    acr_values: <string>
 ```
 
 3\. Create `docker-compose.override.yml` file
