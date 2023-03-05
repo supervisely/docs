@@ -6,20 +6,20 @@ Before you start the installation of Supervisely to your host, please make sure 
 
 ### Hardware
 
-The minimum hardware requirements are as follows:
+|  | Minimum    | Recommended | Videos                    |
+|--------|------------|-------------|---------------------------|
+| CPU    | 4          | 8           | 8+                        |
+| RAM    | 8Gb        | 32Gb        | 32Gb+                     |
+| Disk   | 100Gb SSD  | 200Gb SSD   | 200Gb SSD + Cloud storage |
 
- - CPU: 4 vCPUs / cores
- - Memory: 8 GB RAM
- - Hard drive: 100 GB storage or more
-
-Choose the hard drive size according to your needs. There is also an option to attach any S3 compatible storage to distribute the data in your cloud.
+Choose the disk size according to your needs. There is also an option to attach any S3 compatible storage to distribute the data in your cloud.
 
 {% hint style="info" %}
 If you don't have enough free space on a system drive, but you have another one mounted , you can change the place where the data is stored by changing `DATA_PATH` in `.env` file
 {% endhint %}
 
 {% hint style="danger" %}
-Never set `DATA_PATH` pointing to a network share (NFS or SMB), because it affects the performance significantly. Set `DATA_PATH` pointing to an actual directory on your local hard drive and then mount `storage` subfolder of `DATA_PATH` directory as a network share - this way "hot" subfolders like `db` or `proxy_cache` will be on a local hard drive and image / videos storage on a network share.
+Never set `DATA_PATH` pointing to a network share (NFS/SMB/ESB/etc), because it affects the performance significantly. Set `DATA_PATH` pointing to an actual directory on your local disk and then mount `storage` subfolder of `DATA_PATH` directory as a network share - this way "hot" subfolders like `db` or `proxy_cache` will be on a local disk and image / videos storage on a network share.
 {% endhint %}
 
 #### GPU instance deployment
