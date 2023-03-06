@@ -6,11 +6,11 @@ Before you start the installation of Supervisely to your host, please make sure 
 
 ### Hardware
 
-|  | Minimum    | Recommended | Videos                    |
-|--------|------------|-------------|---------------------------|
-| CPU    | 4          | 8           | 8+                        |
-| RAM    | 8Gb        | 32Gb        | 32Gb+                     |
-| Disk   | 100Gb SSD  | 200Gb SSD   | 200Gb SSD + Cloud storage |
+| Component | Minimum    | Recommended | Videos                    |
+|-----------|------------|-------------|---------------------------|
+| CPU       | 4          | 8           | 8+                        |
+| RAM       | 8Gb        | 32Gb        | 32Gb+                     |
+| Disk      | 100Gb SSD  | 200Gb SSD   | 200Gb SSD + Cloud storage |
 
 Choose the disk size according to your needs. There is also an option to attach any S3 compatible storage to distribute the data in your cloud.
 
