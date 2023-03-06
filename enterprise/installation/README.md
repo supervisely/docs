@@ -22,6 +22,32 @@ If you don't have enough free space on a system drive, but you have another one 
 Never set `DATA_PATH` pointing to a network share (NFS/SMB/ESB/etc), because it affects the performance significantly. Set `DATA_PATH` pointing to an actual directory on your local disk and then mount `storage` subfolder of `DATA_PATH` directory as a network share - this way "hot" subfolders like `db` or `proxy_cache` will be on a local disk and image / videos storage on a network share.
 {% endhint %}
 
+#### Network
+
+By default Supervisely exposes 2 ports on its host. Both ports are configurable.
+
+`PROXY_PORT` is used for the HTTP server. Default to `80`
+
+{% hint style="info" %}
+if you're using Supervisely's built-in HTTPS then port 443 will be exposed as well
+{% endhint %}
+
+`NET_SERVER_PORT` is used for WireGuard communication between the server and the Apps. Default to `51822`
+
+{% hint style="info" %}
+Make sure that the agent can reach the WireGuard server via `{SERVER_ADDRESS}:{NET_SERVER_PORT}`. Otherwise the GUI Apps won't work
+{% endhint %}
+
+You can find the configuration file `.env` in the Supervisely workdir:
+```bash
+cd $(sudo supervisely where)
+```
+
+After changing the values you have to redeploy Supervisely services:
+```bash
+sudo supervisely up -d
+```
+
 #### GPU instance deployment
 
 If you plan to use Smart Tool (AI powered semantic segmentation) or Neural Networks (human-in-the-loop) you will need a server with GPU. The requirements are as follows:
