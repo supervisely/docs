@@ -22,7 +22,7 @@ If you don't have enough free space on a system drive, but you have another one 
 Never set `DATA_PATH` pointing to a network share (NFS/SMB/ESB/etc), because it affects the performance significantly. Set `DATA_PATH` pointing to an actual directory on your local disk and then mount `storage` subfolder of `DATA_PATH` directory as a network share - this way "hot" subfolders like `db` or `proxy_cache` will be on a local disk and image / videos storage on a network share.
 {% endhint %}
 
-#### Network
+### Network
 
 By default Supervisely exposes 2 ports on its host. Both ports are configurable.
 
