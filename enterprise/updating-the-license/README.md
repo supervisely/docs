@@ -15,7 +15,7 @@ License has been updated
 
 ### Updating the license using Supervisely interface
 
-Login to you instance as the *admin* user and open the menu in the top right corner. Navigate to the "Licenses".
+Login to your instance as the *admin* user and open the menu in the top right corner. Navigate to the "Licenses".
 
 ![Screenshot_licenses](https://user-images.githubusercontent.com/48245050/227457809-2074c69a-c4df-46a7-be5e-85e05909390d.png)
 
