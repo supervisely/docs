@@ -1,5 +1,5 @@
 # Troubleshoot Archives
-Supervisely troubleshoot archive is an important platform service tool, useful for maintanense and problem-solving.
+Supervisely troubleshoot archive is an important platform service tool, useful for maintenancee and problem-solving.
 
 ## Generating a Troubleshoot Archive
 
