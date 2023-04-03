@@ -11,7 +11,7 @@ To generate the troubleshoot archive from the platform interface, you need to be
 
 ![generate tsa](https://user-images.githubusercontent.com/48245050/228557293-69f40688-8067-4c32-97c0-75573682dc99.png)
 
-Once the archive it ready, it will be downloaded automatically. Please don't log out or close the window until the download has started. 
+Once the archive is ready, it will be downloaded automatically. Please don't log out or close the window until the download has started. 
 
 ### Using the Supervisely Server Terminal
 
