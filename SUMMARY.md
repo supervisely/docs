@@ -154,6 +154,7 @@
 * [Agents](customization/agents/README.md)
     * [Agent](customization/agents/agent/agent.md)
     * [Add / Restart / Delete agent](customization/agents/add_delete_node/add_delete_node.md)
+    * [Agent Status & Troubleshoot Guide](customization/agents/status_and_troubleshooting/status.md)
     * [Node monitoring](customization/agents/manage/manage.md)
     * [Agent Storage](customization/agents/agent-storage/agent-storage.md)
     * [AMI (Amazon)](customization/agents/ami/README.md)
