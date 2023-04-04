@@ -175,6 +175,7 @@
     * [CDN](enterprise/cdn/README.md)
     * [Notifications](enterprise/notifications/README.md)
     * [Moving Instance](enterprise/moving/README.md)
+    * [Generating Troubleshoot Archive](enterprise/troubleshoot/generating_ts_archive.md)
     * [Storage Cleanup](enterprise/cleanup/README.md)
     * [Private Apps](enterprise/private-apps/README.md)
 
