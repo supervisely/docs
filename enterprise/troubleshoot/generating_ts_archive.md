@@ -19,7 +19,7 @@ To generate the archive by using the terminal run the following command:
 
 ```sudo supervisely troubleshoot```
 
-The system will generate the archive and it MAGIC HAPPENS.
+The system will generate the archive in the current working directory. 
 
 
 ## Troubleshoot Archive Contents
