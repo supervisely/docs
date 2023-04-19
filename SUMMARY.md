@@ -178,6 +178,7 @@
     * [Generating Troubleshoot Archive](enterprise/troubleshoot/generating_ts_archive.md)
     * [Storage Cleanup](enterprise/cleanup/README.md)
     * [Private Apps](enterprise/private-apps/README.md)
+    * [Data Folder](enterprise/data-folder/README.md)
 
 ## 💡 Resources
 
