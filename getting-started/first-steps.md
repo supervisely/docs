@@ -7,7 +7,7 @@ Sounds good, huh? Onboarding takes no more than five minutes, so let's go! 💥
 Supervisely is free for non-commercial usage and requires no card info. Go to the [**signup page**](https://app.supervise.ly/signup), choose login and password to create your personal account. You can sign in through the GitHub or Google Account too.
 
 {% hint style="info" %}
-If you feel Supervisely is the right fit for you and your company,  feel free to [contact us](https://supervise.ly/contact) and get an Enterprise Edition — a self-hosted version with advanced data security, customization and [more](https://supervise.ly/enterprise)!
+If you feel Supervisely is the right fit for you and your company,  feel free to [contact us](https://supervisely.com/contact) and get an Enterprise Edition — a self-hosted version with advanced data security, customization and [more](https://supervisely.com/enterprise)!
 {% endhint %}
 
 ### 👋 Invite more people
@@ -62,5 +62,5 @@ A nice idea would be to learn some core concepts about Supervisely:
 
 {% page-ref page="../data-organization/core-concepts.md" %}
 
-Enjoy Supervisely, leave your feedback at [support@supervise.ly](mailto:support@supervise.ly) and see you in our [Slack group](https://supervise.ly/slack)!
+Enjoy Supervisely, leave your feedback at [support@supervisely.com](mailto:support@supervisely.com) and see you in our [Slack group](https://supervisely.com/slack)!
 
