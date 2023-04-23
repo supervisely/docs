@@ -148,7 +148,7 @@
 
 ## 🔧 Customization
 
-* [Developer Portal](https://developer.supervise.ly/)
+* [Developer Portal](https://developer.supervisely.com/)
 * [Plugins](customization/plugins/README.md)
   * [Plugin updates and versions](customization/plugins/versions.md)
 * [Agents](customization/agents/README.md)
@@ -160,7 +160,7 @@
     * [AMI (Amazon)](customization/agents/ami/README.md)
     * [Clean Up](customization/agents/clean_up/clean_up.md)
 * [SDK](https://supervisely.readthedocs.io/en/latest/sdk_packages.html)
-* [API](https://api.docs.supervise.ly)
+* [API](https://api.docs.supervisely.com)
 
 ## 👔 Enterprise Edition
 
@@ -192,5 +192,5 @@
     * [How drones analyse power lines](use-cases/powerlines/powerlines.md)
 * [Changelog](https://app.supervise.ly/changelog)
 * [GitHub](https://github.com/supervisely/supervisely)
-* [Developer Portal](https://developer.supervise.ly)
+* [Developer Portal](https://developer.supervisely.com)
 * [Blog](https://medium.com/@supervisely)
