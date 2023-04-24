@@ -44,15 +44,15 @@ Can be safely cleaned: Yes
 
 ### rabbitmq
 
-This subfolder is used by RabbitMQ message broker. This is a temporary storage to queue tasks.
+This subfolder is used by RabbitMQ message broker. This is a temporary storage to queue tasks. If you clean this folder, running tasks will be stopped an may end up in an invalid state
 
-Can be safely cleaned: Yes
+Can be safely cleaned: Almost
 
 ### redis & redis-json
 
-This subfolder is used by Redis cache database. This is a storage for temporary data that is also available in the main database (PostgreSQL), but is duplicated for fast access. For example, users' online status is cached there.
+This subfolder is used by Redis cache database. This is a storage for temporary data that is also available in the main database (PostgreSQL), but is duplicated for fast access. For example, users' online status is cached there. If you clean this folder, some minor information such as real-time logs can be lost
 
-Can be safely cleaned: Yes
+Can be safely cleaned: Almost
 
 ### storage
 
