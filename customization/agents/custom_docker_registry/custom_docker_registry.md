@@ -24,10 +24,18 @@ In order for agent to have access to the registry from your account, go to the "
 
 
 ### Supervisley configuration 
-Open `.env` file in Supervisely folder and add your registry credentials to the following fields with a comma separation:
-* DOCKER_REGISTRY
-* DOCKER_LOGIN
-* DOCKER_PASSWORD
-* AGENT_DOCKER_REGISTRY
-* AGENT_DOCKER_LOGIN
-* AGENT_DOCKER_PASSWORD
+1. Open `.env` file in Supervisely folder and add your registry credentials to the following fields with a comma separation:
+```
+DOCKER_REGISTRY
+DOCKER_LOGIN
+DOCKER_PASSWORD
+AGENT_DOCKER_REGISTRY
+AGENT_DOCKER_LOGIN
+AGENT_DOCKER_PASSWORD
+```
+
+2. Restart your instance
+```
+sudo supervisely up -d
+```
+3. Go to the "Team Cluster" page -> open agent "Instructions" -> Copy the command and run it on the server where the agent is running.
