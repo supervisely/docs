@@ -1,6 +1,6 @@
-If you want to add your own Docker registry, for example, to develop and run private applications, you can use the following methods:
+If you want to run Docker images from your own registry, for example, to develop and run private applications, you can use the following methods:
 
-### Local docker image
+### Local docker images
 Put Docker image on the computer where the agent is running. When the application starts, agent will find this image and run it.
 
 
@@ -8,9 +8,9 @@ Put Docker image on the computer where the agent is running. When the applicatio
 This method is better for you if you want only specific users to have access to Docker registry credentials.
 
 
-Open "Account Settings" -> "Registers" -> click the "Add" button. Fill the form and click "Add registry".
-  
-  
+Open "Account Settings" -> "Registries" -> click the "Add" button. Fill in the form and click "Add registry".
+
+
 ![](add_custom_registry.png)
   
   
@@ -38,4 +38,4 @@ AGENT_DOCKER_PASSWORD
 ```
 sudo supervisely up -d
 ```
-3. Go to the "Team Cluster" page -> open agent "Instructions" -> Copy the command and run it on the server where the agent is running.
+3. Go to the "Team Cluster" page -> open agent "Instructions" -> Copy the command and run it on the computer where the agent is running.
