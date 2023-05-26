@@ -30,14 +30,17 @@ Next, redeploy your agent to apply changes. Сopy the command and run it on the 
 
 
 ### Supervisley configuration 
-1. Open `.env` file in Supervisely folder and add your registry credentials to the following fields with a comma separation:
+
+This method will allow any agent on your instance to connect to your docker registry (this will require the agent to be redeployed)
+
+1. Connect to the server where Supervisely instance is running. Open `.env` file in Supervisely folder and add your registry credentials to the following fields with a comma separation:
 ```
-DOCKER_REGISTRY
-DOCKER_LOGIN
-DOCKER_PASSWORD
-AGENT_DOCKER_REGISTRY
-AGENT_DOCKER_LOGIN
-AGENT_DOCKER_PASSWORD
+DOCKER_REGISTRY=docker.enterprise.supervise.ly,<your-registry-url>
+DOCKER_LOGIN=sly...,<your-registry-login>
+DOCKER_PASSWORD=va7f...,<your-registry-password>
+AGENT_DOCKER_REGISTRY=docker.enterprise.supervise.ly,<your-registry-url>
+AGENT_DOCKER_LOGINsly...,<your-registry-login>
+AGENT_DOCKER_PASSWORD=va7f...,<your-registry-password>
 ```
 
 2. Restart your instance
