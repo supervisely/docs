@@ -8,21 +8,25 @@ Put your Docker image on the computer where the agent is running. When the appli
 This method is better for you if you want only specific users to have access to Docker registry credentials.
 
 
+{% hint style="warning" %} This method requires instance version `6.7.41` or higher {% endhint %}
+
+
 Open "Account Settings" -> "Registries" -> click the "Add" button. Fill in the form and click "Add registry".
 
 
 ![](add-custom-registry.png)
-  
-  
-In order for agent to have access to the registry from your account, go to the "Team Cluster" page -> open agent "Instructions" -> click "Advanced settings" and enable "Add my Docker credentials" setting. Next, copy the command and run it on the server where the agent is running.
-  
-  
-![](agent-custom-creds.png)
-  
-  
-{% hint style="info" %} You must be the owner of the agent that it had access to your registers list. {% endhint %}
 
-{% hint style="warning" %} This method requires instance version `6.7.41` or higher {% endhint %}
+
+In order for agent to have access to the registry from your account, go to the "Team Cluster" page -> open agent "Instructions" -> click "Advanced settings" and enable "Add my Docker credentials" setting. 
+
+
+![](agent-custom-creds.png)
+
+
+Next, redeploy your agent to apply changes. Сopy the command and run it on the server where this agent is running.
+
+
+{% hint style="info" %} You must be the agent owner that it had access to your registries list. {% endhint %}
 
 
 ### Supervisley configuration 
@@ -40,4 +44,4 @@ AGENT_DOCKER_PASSWORD
 ```
 sudo supervisely up -d
 ```
-3. Go to the "Team Cluster" page -> open agent "Instructions" -> Copy the command and run it on the computer where the agent is running.
+3. Redeploy your agents to apply changes. To do this go to the "Team Cluster" page -> open agent "Instructions" -> Copy the command and run it on the server where this agent is running.
