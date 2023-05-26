@@ -159,7 +159,7 @@
     * [Agent Storage](customization/agents/agent-storage/agent-storage.md)
     * [AMI (Amazon)](customization/agents/ami/README.md)
     * [Clean Up](customization/agents/clean_up/clean_up.md)
-    * [Add docker registry](customization/agents/custom_docker_registry/custom_docker_registry.md)
+    * [Add docker registry](customization/agents/custom-docker-registry/README.md)
 * [SDK](https://supervisely.readthedocs.io/en/latest/sdk_packages.html)
 * [API](https://api.docs.supervisely.com)
 
