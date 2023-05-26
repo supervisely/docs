@@ -22,6 +22,8 @@ In order for agent to have access to the registry from your account, go to the "
   
 {% hint style="info" %} You must be the owner of the agent that it had access to your registers list. {% endhint %}
 
+{% hint style="warning" %} This method requires instance version `6.7.41` or higher {% endhint %}
+
 
 ### Supervisley configuration 
 1. Open `.env` file in Supervisely folder and add your registry credentials to the following fields with a comma separation:
