@@ -25,7 +25,7 @@ Our mission is to help people with and without machine learning expertise to cre
 
 ### What's next?
 
-The best way to explore Supervisely is to try it out — so don't wait and [create an account](https://app.supervise.ly/signup) \(it's completely free!\). Here are some things to start with:
+The best way to explore Supervisely is to try it out — so don't wait and [create an account](https://app.supervisely.com/signup) \(it's completely free!\). Here are some things to start with:
 
 {% page-ref page="getting-started/first-steps.md" %}
 

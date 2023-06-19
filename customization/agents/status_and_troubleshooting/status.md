@@ -12,7 +12,7 @@ Here are the troubleshoot guides for the most common issues causing the latter t
 ## Waiting
 The agent is either not deployed or can't connect to the server.
 
-In case the agent is not deployed, please follow the deployment guide [here](https://docs.supervise.ly/customization/agents/add_delete_node).
+In case the agent is not deployed, please follow the deployment guide [here](https://docs.supervisely.com/customization/agents/add_delete_node).
 
 In case the agent can't connect to the server,  connect to the server via SSH and check the container logs.
 ```bash

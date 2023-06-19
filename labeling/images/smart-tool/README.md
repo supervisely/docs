@@ -1,4 +1,4 @@
-[Smart tool](https://supervise.ly/smart-tool) is a class-agnostic annotation tool created specifically for semantic segmentation. You have probably already seen how it works, but if not, check out this example:
+[Smart tool](https://supervisely.com/smart-tool) is a class-agnostic annotation tool created specifically for semantic segmentation. You have probably already seen how it works, but if not, check out this example:
 
 ![](smart-tool.gif)
 

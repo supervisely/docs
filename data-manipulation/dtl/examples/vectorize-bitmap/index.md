@@ -4,7 +4,7 @@ Suppose we have some annotations of shape "bitmap", but want to work with vector
 
 The task is very common. Annotations in form of masks may be obtained from different sources, including:
 
- - manual annotation, may be with our awesome [Smart Tool](https://supervise.ly/smart-tool)
+ - manual annotation, may be with our awesome [Smart Tool](https://supervisely.com/smart-tool)
 
  - segmentation results from some [appropriate neural network](../../../../neural-networks/supported_nns.md), e.g. [UNet](../../../../neural-networks/examples/unet.md)
 
