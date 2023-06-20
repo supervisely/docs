@@ -191,7 +191,7 @@
     * [Satellite imagery](use-cases/satellite-imagery/satellite-imagery.md)
     * [Find instances by segmenting object boundaries](use-cases/instance-boundary/instance-boundary.md)
     * [How drones analyse power lines](use-cases/powerlines/powerlines.md)
-* [Changelog](https://app.supervise.ly/changelog)
+* [Changelog](https://app.supervisely.com/changelog)
 * [GitHub](https://github.com/supervisely/supervisely)
 * [Developer Portal](https://developer.supervisely.com)
 * [Blog](https://medium.com/@supervisely)

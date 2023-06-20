@@ -74,7 +74,7 @@ version: '2.4'
 services:
   api:
     environment:
-      DOMAIN: https://app.supervise.ly
+      DOMAIN: https://app.supervisely.com
     volumes:
     - <path_to_folder>/openid.yml:/openid.yml:ro
 ```

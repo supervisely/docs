@@ -307,5 +307,5 @@ After clone the repository, install the supervise library sdk from the requireme
 
 Then, you can run the code, after specifying your token, server address and workspace id.
 
-If you do not have the necessary credentials for connection, please contact technical support via [website](https://supervise.ly/contact) or [slack channel](https://supervise.ly/slack). 
+If you do not have the necessary credentials for connection, please contact technical support via [website](https://supervisely.com/contact) or [slack channel](https://supervisely.com/slack). 
 
