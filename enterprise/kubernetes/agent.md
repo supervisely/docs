@@ -1,13 +1,15 @@
-(Beta) Follow these steps to connect Kubernetes cluster with Supervisely to run Apps on it.
+Follow these steps to connect Kubernetes cluster with Supervisely to run Apps on it.
 
-Keep in mind that this is a beta version and some features may not work as expected.
+{% hint style="warning" %}
+**BETA** Keep in mind that this is a beta version and some features may not work as expected.
+{% endhint %}
 
-`Start` -> `Team Cluster`
+Go to the `Team Cluster` page, click `Add` button and select `Kubernetes` in the popup window.
 
-Go to the `Team Cluster` page and click `Add` button and select `Kubernetes` in the popup window.
 ![](screenshot-2023-06-24-192432.png)
 
 You will see the following window:
+
 ![](screenshot-2023-06-24-193246.png)
 
 `Server address` - this is the address of your Supervisely server that is accessible from Kubernetes cluster.

@@ -1,8 +1,13 @@
-(Beta) Follow these steps to deploy Supervisely in Kubernetes cluster.
+Follow these steps to deploy Supervisely in Kubernetes cluster.
 
-Keep in mind that this is a beta version and some features may not work as expected.
+{% hint style="warning" %}
+**BETA** keep in mind that this is a beta version and some features may not work as expected.
 The configuration provided by Supervisely is a proof of concept (POC) and not suitable for production use out of the box.
+{% endhint %}
+
+{% hint style="info" %}
 For a production deployment, you should have strong working knowledge of Kubernetes, you can follow the recommendations in this guide to customize the configuration for your needs.
+{% endhint %}
 
 ## Pre-requirements
 
@@ -30,4 +35,7 @@ It's mostly used for SSO (in which case it has to match redirect-uri and callbac
 4) Change `storageClassName` in the YAML configuration file to the name of the storage class that you want to use for storing data. It can be a local storage class or a cloud storage class, fast CSI storage class is recommended for production use.
 
 ## Step 3: Ingress configuration
+By default Supervisely ships with NGINX ingress configuration, but you can manually configure your ingress controller to route traffic to Supervisely services.
+
+## Step 4: Ingress configuration
 By default Supervisely ships with NGINX ingress configuration, but you can manually configure your ingress controller to route traffic to Supervisely services.
