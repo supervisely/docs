@@ -27,7 +27,7 @@
         * [Pascal VOC](data-organization/import/formats/pascal_voc.md)
         * [KITTI SemSeg](data-organization/import/formats/kitti_semseg.md)
         * [Videos](data-organization/import/formats/videos.md)
-* [Supervisely Format](data-organization/Annotation-JSON-format/00_ann_format_navi.md) 
+* [Supervisely Format](data-organization/Annotation-JSON-format/00_ann_format_navi.md)
     * [Project Structure](data-organization/Annotation-JSON-format/01_Project_Structure_new.md)
     * [Project Classes and Tags](data-organization/Annotation-JSON-format/02_Project_Classes_And_Tags.md)
     * [Tags](data-organization/Annotation-JSON-format/03_Supervisely_format_tags.md)
@@ -169,6 +169,8 @@
     * [Post-installation](enterprise/post-installation/README.md)
     * [Upgrade](enterprise/update/index.md)
     * [License Update](enterprise/updating-the-license/README.md)
+* [Kubernetes](enterprise/kubernetes/installation.md)
+    * [Connect cluster](enterprise/kubernetes/agent.md)
 * Advanced Tuning
     * [HTTPS](enterprise/https/index.md)
     * [Remote Storage](enterprise/s3/README.md)
