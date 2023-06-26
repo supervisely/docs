@@ -11,7 +11,7 @@ For a production deployment, you should have strong working knowledge of Kuberne
 
 ## Pre-requirements
 
-- Kubernetes cluster version `1.19` and later
+- Kubernetes cluster version `1.21` and later
 - [NVIDIA Device plugin](https://github.com/NVIDIA/k8s-device-plugin) (if you plan to use GPU features)
 - [NGINX ingress controller](https://kubernetes.github.io/ingress-nginx/deploy/) (let us know if you want to use another ingress controller)
 
