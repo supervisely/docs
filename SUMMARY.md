@@ -165,11 +165,14 @@
 
 ## 👔 Enterprise Edition
 
-* [Installation](enterprise/installation/README.md)
+* Installation
+    * [Overview](enterprise/installation/README.md)
     * [Post-installation](enterprise/post-installation/README.md)
     * [Upgrade](enterprise/update/index.md)
     * [License Update](enterprise/updating-the-license/README.md)
-* [Kubernetes](enterprise/kubernetes/README.md)
+* Kubernetes
+    * [Overview](enterprise/kubernetes/overview.md)
+    * [Installation](enterprise/kubernetes/installation.md)
     * [Connect cluster](enterprise/kubernetes/agent.md)
 * Advanced Tuning
     * [HTTPS](enterprise/https/index.md)
