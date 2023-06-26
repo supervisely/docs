@@ -32,7 +32,7 @@ The deployed PostgreSQL server should be accessible from the Kubernetes cluster.
 This is highly recommended for production use.
 3) Change the `SERVER_ADDRESS` and `DOMAIN` envs in the YAML configuration file to the URL of your Supervisely server, it can be private or public address.
 It's mostly used for SSO (in which case it has to match redirect-uri and callback URL) and internal communication between the server and Supervisely agents (if you have dedicated server that are not in Kubernetes cluster, but you want to connect them to the Supervisely cluster).
-4) Change `storageClassName` in the YAML configuration file to the name of the storage class that you want to use for storing data. It can be a local storage class or a cloud storage class, fast CSI storage class is recommended for production use.
+4) Change `storageClassName` in the YAML configuration file to the name of the storage class that you want to use for storing data. It can be a local storage class or a cloud storage class, fast CSI storage class is recommended for production use. Consider using "Retain" reclaim policy for the storage class to avoid accidental data loss. You can find more information about the reclaim policy [here](https://kubernetes.io/docs/tasks/administer-cluster/change-pv-reclaim-policy/#changing-the-reclaim-policy-of-a-persistentvolume).
 
 ## Step 3: Ingress configuration
 By default Supervisely ships with NGINX ingress configuration, but you can manually configure your ingress controller to route traffic to Supervisely services.
