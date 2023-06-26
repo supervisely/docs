@@ -7,8 +7,8 @@ structure:
 redirects:
   enterprise/installation: enterprise/installation/README.md
   enterprise/installation/: enterprise/installation/README.md
-  enterprise-edition/installation: enterprise/installation/README.md
-  enterprise-edition/installation/: enterprise/installation/README.md
+  enterprise-edition/installation: ./enterprise/installation/README.md
+  enterprise-edition/installation/: ./enterprise/installation/README.md
   enterprise/post-installation: enterprise/post-installation/README.md
   enterprise/post-installation/: enterprise/post-installation/README.md
   enterprise/advanced-tuning/index-1: enterprise/advanced-tuning/s3/README.md

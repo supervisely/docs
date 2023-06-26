@@ -1,8 +1,7 @@
 Follow these steps to deploy Supervisely in Kubernetes cluster.
 
 {% hint style="warning" %}
-**BETA**
-Keep in mind that this is a beta version and some features may not work as expected.
+**BETA** keep in mind that this is a beta version and some features may not work as expected.
 The configuration provided by Supervisely is a proof of concept (POC) and not suitable for production use out of the box.
 {% endhint %}
 

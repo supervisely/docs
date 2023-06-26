@@ -168,7 +168,7 @@
 * Get Supervisely
     * [Installation](enterprise/installation/README.md)
     * [Post-installation](enterprise/post-installation/README.md)
-    * [Upgrade](enterprise/update/index.md)
+    * [Upgrade](enterprise/update/upgrade.md)
     * [License Update](enterprise/updating-the-license/README.md)
 * Kubernetes
     * [Overview](enterprise/kubernetes/overview.md)
