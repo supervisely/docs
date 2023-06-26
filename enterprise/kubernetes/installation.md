@@ -37,5 +37,7 @@ It's mostly used for SSO (in which case it has to match redirect-uri and callbac
 ## Step 3: Ingress configuration
 By default Supervisely ships with NGINX ingress configuration, but you can manually configure your ingress controller to route traffic to Supervisely services.
 
-## Step 4: Ingress configuration
-By default Supervisely ships with NGINX ingress configuration, but you can manually configure your ingress controller to route traffic to Supervisely services.
+## Step 4: Use the cluster to deploy Supervisely Apps
+In order to let Supervisely know that you have a Kubernetes cluster available for deployment, you will have to add the cluster on the `Team Cluster` page.
+
+Please follow the instructions [here](./agent).
