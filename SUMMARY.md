@@ -165,8 +165,8 @@
 
 ## 👔 Enterprise Edition
 
-* Installation
-    * [Overview](enterprise/installation/README.md)
+* Get Supervisely
+    * [Installation](enterprise/installation/README.md)
     * [Post-installation](enterprise/post-installation/README.md)
     * [Upgrade](enterprise/update/index.md)
     * [License Update](enterprise/updating-the-license/README.md)

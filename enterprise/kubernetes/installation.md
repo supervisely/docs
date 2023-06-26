@@ -1,7 +1,8 @@
 Follow these steps to deploy Supervisely in Kubernetes cluster.
 
 {% hint style="warning" %}
-**BETA** keep in mind that this is a beta version and some features may not work as expected.
+**BETA**
+Keep in mind that this is a beta version and some features may not work as expected.
 The configuration provided by Supervisely is a proof of concept (POC) and not suitable for production use out of the box.
 {% endhint %}
 
@@ -38,6 +39,6 @@ It's mostly used for SSO (in which case it has to match redirect-uri and callbac
 By default Supervisely ships with NGINX ingress configuration, but you can manually configure your ingress controller to route traffic to Supervisely services.
 
 ## Step 4: Use the cluster to deploy Supervisely Apps
-In order to let Supervisely know that you have a Kubernetes cluster available for deployment, you will have to add the cluster on the `Team Cluster` page.
+In order to let Supervisely know that you have a Kubernetes cluster available for Apps deployment, you will have to add the cluster on the `Team Cluster` page.
 
-Please follow the instructions [here](./agent).
+Please follow the instructions [here](agent.md).
