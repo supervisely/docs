@@ -1,5 +1,3 @@
-# DTL
-
 Data preparation for training takes most of data scientists's time. In addition, there is a high probability of mistakes while performing such process.
 
 We designed a special language that allows to fully automate data manipulation: merge projects and datasets, make classes mapping, various augmentations of images and annotations, save to different formats and more.
@@ -62,28 +60,32 @@ Every layer is a JSON-object in the following format:
 
 Fields description:
 
-* `action` — defines the type of operation. For example: `"action": "flip"` means that every image that is fed to this layer will be flipped.
+* `action` — defines the type of operation. For example: ```"action": "flip"``` means that every image that is fed to this layer will be flipped.
+
 * `src` — input data
+
 * `dst` — output data
+
 * `settings` — transformation settings
 
 Here is the graphical representation of the computational graph from the example:
 
-![](../../assets/legacy/all\_images/exp\_001.png)
+![](../../assets/legacy/all_images/exp_001.png)
 
 The first layer from the example is data layer. It takes all images with their annotations from all datasets in the project `my_project`. Then this data is fed to the flip layer. The flip layer produces the flipped versions of images and annotations. The last layer ( `"action": "supervisely"`) creates a new project `result_project` and saves the input data (original + flipped).
 
-### Placeholders
 
-As you can see from the example, we use values like `$data` or `$data_flip` in fields `src` and `dst`. Don't worry if you haven't seen them before — we haven't either. These are just temporal names for variables (aka _placeholders_). You can choose any name you want. It has to start with the symbol `$`.
+## Placeholders
+
+As you can see from the example, we use values like `$data` or `$data_flip` in fields `src` and `dst`. Don't worry if you haven't seen them before — we haven't either. These are just temporal names for variables (aka *placeholders*). You can choose any name you want. It has to start with the symbol `$`.
 
 The only exceptions are Data and Save layers: some of these layers use fields `src` and `dst` as the name of an input project or an output directory.
 
-### How to run Data Transformation in Supervisely
+## How to run Data Transformation in Supervisely
 
 Click "DTL" in the left menu. Write a json configuration in the edit widget and then click the "Start" button. You will be automatically moved to the "Tasks" tab where you can see the progress and logs, stop task, download the final archive or go to the generated project.
 
-![](<intro/ui (1).png>)
+![](intro/ui.png)
 
 Primary controls:
 
@@ -91,3 +93,50 @@ Primary controls:
 2. Agent selection.
 3. "Start" button
 4. The graphical representation of the config. You can download it as an `.svg` file by clicking the top right icon. Also you can zoom and shift it with the mouse. If you will click on the purple node (any action), you will be automatically redirected to its json-object in the configuation.
+
+<!---
+## About export
+
+Configure a series of transformation layers to do things like filtering, resizing, argumentation, train-validation splitting, combining multiple datasets in one and export in Tensorflow, Caffe and other formats.
+
+![](../../assets/legacy/export/pandas.png)
+
+The idea of `Export` was to create a special tool to save your time during routine tasks like converting data for specific framework.
+
+## Layers (Transformations)
+
+To export data you should first configure a sequence of transformations, also called layers. Every layer is a JSON-object in the following format:
+
+```JSON
+{
+  "action": "...",
+  "src": "...",
+  "dst": "...",
+  "settings": {}
+}
+```
+
+- `action` — Layer name
+- `src` — Input data
+- `dst` — Output data
+- `settings` — Transformation settings
+
+For every layer `input` and `output` can be a variable - placeholder, for example `$sample1`.
+Value of `input` and `output` can also be an array of placeholders.
+
+{% hint style="info" %}
+You can use the same placeholder in multiple layers
+{% endhint %}
+
+## UI
+
+![](../../assets/legacy/export/ui.png)
+
+1. Configuration editor
+2. Configuration diagram
+3. Saved configuration presets
+4. New layer button
+5. Start export button
+6. Previous exports with statuses
+7. Editor mode: code editor or layers tree
+-->

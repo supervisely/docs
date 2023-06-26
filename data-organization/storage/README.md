@@ -14,9 +14,9 @@ Here you can see Projects, Models and Python Notebooks from all Workspaces in cu
 
 When you remove Projects, Models and Python Notebooks they will be moved to Trash Bin.
 
-![](<trash-bin-menu (1).png>)
+![](trash-bin-menu.png)
 
-All removed Projects, Models and Python Notebooks from current Team are located here.
+All removed Projects, Models and Python Notebooks from current Team are located here. 
 
 ![](trash-bin.png)
 

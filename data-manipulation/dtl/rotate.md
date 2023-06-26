@@ -1,14 +1,12 @@
-# Rotate
-
 Rotate layer (`rotate`) rotates images and its annotations.
 
-### Settings
+## Settings
 
-* `rotate_angles`
-  * `min_degrees` (type: number)
-  * `max_degrees` (type: number)
-* `black_regions`
-  * `mode` (type: string, enum: \[`keep`, `crop`, `preserve_size`])
+- `rotate_angles`
+    - `min_degrees` (type: number)
+    - `max_degrees` (type: number)
+- `black_regions`
+    - `mode` (type: string, enum: [`keep`, `crop`, `preserve_size`])
 
 ```json
 {
@@ -30,16 +28,18 @@ Rotate layer (`rotate`) rotates images and its annotations.
 Each image will be rotated by a random angle (around the image center, CCW) with uniform distribution from `min_degrees` to `max_degrees`. You can:
 
 * keep original image data (`mode: keep`), then new regions will be filled with black color;
+
 * crop rotated result to exclude black regions (`mode: crop`);
+
 * crop rotated result to preserve original image size and scale of objects (`mode: preserve_size`);
 
-### Example: keep
+## Example: keep
 
 Rotate images by a random degree from -45 to 45 and keep black regions:
 
-![Original](<../../assets/legacy/export/rotate/before (1).jpg>)
+![Original](../../assets/legacy/export/rotate/before.jpg)
 
-![Result](../../assets/legacy/export/rotate/keep\_after.jpg)
+![Result](../../assets/legacy/export/rotate/keep_after.jpg)
 
 ```json
 [
@@ -78,13 +78,13 @@ Rotate images by a random degree from -45 to 45 and keep black regions:
 ]
 ```
 
-### Example: crop
+## Example: crop
 
 Rotate images by a fixed degree 45 and crop black regions:
 
-![Original](<../../assets/legacy/export/rotate/before (1).jpg>)
+![Original](../../assets/legacy/export/rotate/before.jpg)
 
-![Result](../../assets/legacy/export/rotate/crop\_after.jpg)
+![Result](../../assets/legacy/export/rotate/crop_after.jpg)
 
 ```json
 [
@@ -122,3 +122,4 @@ Rotate images by a fixed degree 45 and crop black regions:
   }
 ]
 ```
+

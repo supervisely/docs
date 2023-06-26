@@ -1,8 +1,6 @@
-# Tag
-
 Tag layer (`tag`) adds or removes tags from images. Tags are used for several things, e.g. to split images by folders in save layers or to filter images by tag.
 
-### Settings
+## Settings
 
 ```json
 {
@@ -17,9 +15,9 @@ Tag layer (`tag`) adds or removes tags from images. Tags are used for several th
 ```
 
 * `tag` — tag title
-* `action` (type: enum \[`add`, `delete`]) — possible action (add the tag to image or delete one from image)
+* `action` (type: enum [`add`, `delete`]) — possible action (add the tag to image or delete one from image)
 
-### Example
+## Example
 
 Split data into train and validation sets by adding corresponding tag to each image.
 
@@ -78,4 +76,4 @@ Split data into train and validation sets by adding corresponding tag to each im
 
 Computational graph:
 
-![](<../../assets/legacy/all\_images/if\_001 (1).png>)
+![](../../assets/legacy/all_images/if_001.png)
