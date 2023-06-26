@@ -6,5 +6,5 @@ Deploying in Kubernetes is an advanced topic and requires a strong working knowl
 
 There are two ways to integrate Supervisely with Kubernetes:
 
-- [Deploy all Supervisely components in a Kubernetes cluster](./installation)
-- [Connect a Kubernetes cluster with a Supervisely server for Supervisely Apps deployment](./agent)
+- [Deploy all Supervisely components in a Kubernetes cluster](installation.md)
+- [Connect a Kubernetes cluster with a Supervisely server for Supervisely Apps deployment](agent.md)
