@@ -10,8 +10,6 @@ redirects:
   enterprise/post-installation: enterprise/post-installation/README.md
   enterprise/post-installation/: enterprise/post-installation/README.md
   enterprise/advanced-tuning/index-1: enterprise/advanced-tuning/s3/README.md
-  enterprise/kubernetes: enterprise/kubernetes/installation.md
-  enterprise/kubernetes/: enterprise/kubernetes/installation.md
   cluster/overview: customization/agents/README.md
   cluster/overview/: customization/agents/README.md
   ann_format: data-organization/Annotation-JSON-format/00_ann_format_navi.md

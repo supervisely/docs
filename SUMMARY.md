@@ -169,7 +169,7 @@
     * [Post-installation](enterprise/post-installation/README.md)
     * [Upgrade](enterprise/update/index.md)
     * [License Update](enterprise/updating-the-license/README.md)
-* [Kubernetes](enterprise/kubernetes/installation.md)
+* [Kubernetes](enterprise/kubernetes/README.md)
     * [Connect cluster](enterprise/kubernetes/agent.md)
 * Advanced Tuning
     * [HTTPS](enterprise/https/index.md)
