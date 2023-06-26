@@ -12,23 +12,26 @@ Our mission is to help people with and without machine learning expertise to cre
 
 * **Manage** and **track** annotation workflow at scale with teams, workspaces, roles and labeling jobs.
 
-![](assets/jobs-ui.jpg)
+![](<assets/jobs-ui (1).jpg>)
 
 * **Train** and **apply** Neural Networks on your data — from our Model Zoo or your custom ones!
 
-![](assets/neural-networks-ui.jpg)
+![](<assets/neural-networks-ui (1).jpg>)
 
 * Explore your data and automate common tasks with integrated Python Notebooks and Scripts!
 
-![](assets/notebooks-ui.jpg)
-
+![](<assets/notebooks-ui (1).jpg>)
 
 ### What's next?
 
-The best way to explore Supervisely is to try it out — so don't wait and [create an account](https://app.supervisely.com/signup) \(it's completely free!\). Here are some things to start with:
+The best way to explore Supervisely is to try it out — so don't wait and [create an account](https://app.supervisely.com/signup) (it's completely free!). Here are some things to start with:
 
-{% page-ref page="getting-started/first-steps.md" %}
+{% content-ref url="getting-started/first-steps.md" %}
+[first-steps.md](getting-started/first-steps.md)
+{% endcontent-ref %}
 
 Still have some questions? Check our FAQ:
 
-{% page-ref page="getting-started/faq.md" %}
+{% content-ref url="getting-started/faq.md" %}
+[faq.md](getting-started/faq.md)
+{% endcontent-ref %}

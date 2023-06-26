@@ -1,12 +1,12 @@
-# Labeling Jobs
+# Jobs
 
 Labeling Jobs allow assigning annotation tasks to labelers.
 
 While you can call annotation interface directly from the Projects page, there are some difficulties you may face:
 
-- Job management - the need to describe a particular task: what kind of objects to annotate and how
-- Progress monitoring - tracking annotation status and reviewing submitted results
-- Access permissions - limiting access only to specific datasets and classes within a single job
+* Job management - the need to describe a particular task: what kind of objects to annotate and how
+* Progress monitoring - tracking annotation status and reviewing submitted results
+* Access permissions - limiting access only to specific datasets and classes within a single job
 
 Labeling Jobs address these problems in the following way:
 
@@ -36,9 +36,9 @@ Click "Signup" button and enter login and password for a new labeler account. We
 
 ![](Screenshot-08.png)
 
-Now go to the "Members" page and invite some existing user to your "Labeling team". Choose an "Annotator" role - that means that user won't have access to any page apart from "Labeling Jobs". You can choose a "Developer" role if you want that user to be able to upload new data, but we advice to upload datasets in a separate "Working" team and then clone them to "Labeling" team - that way it will be easier to separate research from annotation and manage labeling jobs. 
+Now go to the "Members" page and invite some existing user to your "Labeling team". Choose an "Annotator" role - that means that user won't have access to any page apart from "Labeling Jobs". You can choose a "Developer" role if you want that user to be able to upload new data, but we advice to upload datasets in a separate "Working" team and then clone them to "Labeling" team - that way it will be easier to separate research from annotation and manage labeling jobs.
 
-![](add_members_a.png)
+![](add\_members\_a.png)
 
 ### 3. Provide a description
 
@@ -56,7 +56,7 @@ You can change "labeling job" name, add description and readme if you want. Then
 
 Then in "Data to annotate" section choose your project and dataset. Then in section "Annotation settings" select classes and tags that will be available to the labeler. Additionally, you can limit the number of objects and tags that the labeler can create on each image.
 
-![](create-job-2.png)
+![](<create-job-2 (1).png>)
 
 In "Images filtering" section you can specify the parameters by which images will be filtered for annotation. In our case, the "Images range" parameter is disabled, since we assigned this "labeling job" to two users and it will be calculated automatically
 
@@ -68,7 +68,7 @@ Click "Create" to finish. You will be redirected to "labeling jobs" page. Here w
 
 ### 5. Complete Jobs
 
-Let's sign in as a labeler. 
+Let's sign in as a labeler.
 
 ![](labeler-jobs-ui.png)
 
@@ -88,7 +88,7 @@ Let's get back to the Manager account.
 
 ![](jobs-list-review.png)
 
-After the annotator completes the "labeling job", its status will change to "On review". Click on the name of the "labeling job" and accept or decline the annotations of each image. 
+After the annotator completes the "labeling job", its status will change to "On review". Click on the name of the "labeling job" and accept or decline the annotations of each image.
 
 ![](job-clicker-review.png)
 
@@ -100,8 +100,8 @@ After all the images are checked, go back to the "labeling jobs" list and comple
 
 There are two types of statistics:
 
-- Member stats
-- "Labeling job" stats
+* Member stats
+* "Labeling job" stats
 
 ### Member statistics
 
@@ -111,15 +111,16 @@ Go to the "Members" page and click "Stats" button
 
 "Member" statistics contain information about user actions in the current team. It can be filtered by the selected time period and contains information about:
 
-- Labeling time
-- Completed jobs
-- Labeled images
-- Labeled objects
-- Reviewed images
+* Labeling time
+* Completed jobs
+* Labeled images
+* Labeled objects
+* Reviewed images
 
 ![](member-stats.png)
 
 ### "Labeling job" statistics
+
 To view annotation click "Stats" button under the "labeling job".
 
 ![](job-stats-btn.png)
@@ -128,10 +129,10 @@ To view annotation click "Stats" button under the "labeling job".
 
 "Labeling job" statistics divided into three parts:
 
-- Job activity - general information about "labeling job"
-    - Labeled images - annotated images count
-    - Job duration - Total time from creating "labeling job"
-    - Editing duration - total time of objects editing
-    - Annotation duration - total time spent in annotation interface
-- Statistics per class 
-- Statistics per image
+* Job activity - general information about "labeling job"
+  * Labeled images - annotated images count
+  * Job duration - Total time from creating "labeling job"
+  * Editing duration - total time of objects editing
+  * Annotation duration - total time spent in annotation interface
+* Statistics per class
+* Statistics per image
