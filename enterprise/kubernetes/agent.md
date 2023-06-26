@@ -4,6 +4,8 @@ Follow these steps to connect Kubernetes cluster with Supervisely to run Apps on
 **BETA** Keep in mind that this is a beta version and some features may not work as expected.
 {% endhint %}
 
+## Add a Kubernetes cluster
+
 Go to the `Team Cluster` page, click `Add` button and select `Kubernetes` in the popup window.
 
 ![](screenshot-2023-06-24-192432.png)
@@ -12,13 +14,15 @@ You will see the following window:
 
 ![](screenshot-2023-06-24-193246.png)
 
+## Configure the options
+
 `Server address` - this is the address of your Supervisely server that is accessible from Kubernetes cluster.
 
-`Service account token` - long-term token that will be used to authenticate Kubernetes cluster with Supervisely. You can find the token using `kubectl -n supervisely get secret`
+`Service account token` - long-term token that will be used to authenticate Kubernetes cluster with Supervisely. You can find the token value using `kubectl -n supervisely get secret sly-task-manager-token -o jsonpath='{.data.token}'`
 
 `API endpoint` - this is the address of your Kubernetes cluster API server that is accessible from Supervisely server.
 
-`Certificate Authority` - this is the CA.crt certificate that is used to verify the identity of the Kubernetes cluster API server.
+`Certificate Authority` - this is the CA.crt certificate that is used to verify the identity of the Kubernetes cluster API server. You can find the CA value using `kubectl -n supervisely get secret sly-task-manager-token -o jsonpath='{.data.ca\.crt}'`
 
 `Namespace` - a namespace in which all the resources required to deploy Supervisely Apps will be created.
 
