@@ -170,7 +170,7 @@
     * [Post-installation](enterprise/post-installation/README.md)
     * [Upgrade](enterprise/update/upgrade.md)
     * [License Update](enterprise/updating-the-license/README.md)
-* Kubernetes
+* <em style="color:red">(Beta)</em> Kubernetes
     * [Overview](enterprise/kubernetes/overview.md)
     * [Installation](enterprise/kubernetes/installation.md)
     * [Connect cluster](enterprise/kubernetes/agent.md)
