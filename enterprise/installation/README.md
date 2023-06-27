@@ -54,7 +54,7 @@ If you plan to use Smart Tool (AI powered semantic segmentation) or Neural Netwo
 
  - GPU Memory: 8 GB or more (GeForce GTX 1080, Tesla K80, Tesla P100)
 
-You can install Supervisely and run GPU computations on different machines using agents (see [cluster](../../customization/agents/README.md)). 
+You can install Supervisely and run GPU computations on different machines using agents (see [cluster](../../customization/agents/README.md)).
 
 #### AWS & cloud providers
 
@@ -71,7 +71,7 @@ To run Supervisely you will need Linux OS with kernel 3.10 or newer. The followi
 - NVIDIA graphics driver: 460.27.03 or later (for Neural Network module only)
 - nvidia-docker2 (for Neural Network module only)
 
-All pre-requirements can be automatically installed via `supervisely-cli` utility for Ubuntu 18.04 or later. In case of a different Linux distribution, you can install Supervisely and pre-requirements manually, but we won't be able to provide installation support.
+All pre-requirements can be automatically installed via `supervisely-cli` utility for Ubuntu 18.04 and later. In case of a different Linux distribution, you can install Supervisely and pre-requirements manually, but we won't be able to provide installation support.
 
 ## Installation
 
@@ -91,6 +91,13 @@ Run `sudo supervisely install-all` in your terminal. We will detect the necessar
 - [NVIDIA Container Runtime](https://github.com/NVIDIA/nvidia-docker#quickstart) (for Training Module)
 
 If you don't have NVIDIA drivers, you will be asked if you need to install it. Choose `y` if you have GPU on your server. Your computer will be rebooted during the installation of the NVIDIA driver.
+
+In case `install-all` doesn't support your OS, you can install the dependencies manually.
+This script should work on most of the Linux distributions:
+
+```bash
+curl -fsSL https://get.docker.com | sh
+```
 
 ### Step 3. Run the installation command
 
@@ -145,7 +152,7 @@ One of our internal services haven't got the license key. Refresh the page and t
 
 #### My "admin / Main Node" agent is stuck in "Waiting" status
 
-It seems the agent has tried to wait for Supervisely to start. Restart agent manually: `sudo supervisely deploy-agent`. 
+It seems the agent has tried to wait for Supervisely to start. Restart agent manually: `sudo supervisely deploy-agent`.
 
 #### When i deploy an agent i see a "runtime" error
 
