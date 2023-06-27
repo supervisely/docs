@@ -20,7 +20,7 @@ You will see the following window:
 
 `Service account token` - long-term token that will be used to authenticate Kubernetes cluster with Supervisely. You can find the token value using `kubectl -n supervisely get secret sly-task-manager-token -o jsonpath='{.data.token}'`
 
-`API endpoint` - this is the address of your Kubernetes cluster API server that is accessible from Supervisely server.
+`API endpoint` - this is the address of your Kubernetes cluster API server that is accessible from Supervisely server. You can find the API address using `kubectl cluster-info`
 
 `Certificate Authority` - this is the CA.crt certificate that is used to verify the identity of the Kubernetes cluster API server. You can find the CA value using `kubectl -n supervisely get secret sly-task-manager-token -o jsonpath='{.data.ca\.crt}'`
 
