@@ -18,7 +18,7 @@ You will see the following window:
 
 `Server address` - this is the address of your Supervisely server that is accessible from Kubernetes cluster.
 
-`Service account token` - long-term token that will be used to authenticate Kubernetes cluster with Supervisely. You can find the token value using `kubectl -n supervisely get secret sly-task-manager-token -o jsonpath='{.data.token}'`
+`Service account token` - long-term token that will be used to authenticate Kubernetes cluster with Supervisely. You can find the token value using `kubectl -n supervisely get secret sly-task-manager-token -o jsonpath='{.data.token}' | base64 -d`
 
 `API endpoint` - this is the address of your Kubernetes cluster API server that is accessible from Supervisely server. You can find the API address using `kubectl cluster-info`
 
