@@ -15,6 +15,10 @@ Before you start the installation of Supervisely to your host, please make sure 
 Choose the disk size according to your needs. There is also an option to attach any S3 compatible storage to distribute the data in your cloud.
 
 {% hint style="info" %}
+Make sure you are using SSD disk for OS, docker data and `DATA_PATH/db`. Otherwise, the performance will be significantly lower
+{% endhint %}
+
+{% hint style="info" %}
 If you don't have enough free space on a system drive, but you have another one mounted , you can change the place where the data is stored by changing `DATA_PATH` in `.env` file
 {% endhint %}
 
