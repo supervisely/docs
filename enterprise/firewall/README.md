@@ -11,3 +11,4 @@ Here is the list of domains and their usage:
 - `app.supervisely.com` - used to fetch new Supervisely App versions and its data
 - `cloud.enterprise.supervise.ly` - deprecated functionality, used to fetch legacy data for initialization
 - `git.ecosystem.supervise.ly` - deprecated functionality, used to fetch Supervisely App versions and its data
+- `github.com` - some of Supervisely Apps might fetch data from GitHub, like NN models, projects, etc.
