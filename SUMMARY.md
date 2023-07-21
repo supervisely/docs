@@ -186,6 +186,7 @@
     * [Private Apps](enterprise/private-apps/README.md)
     * [Data Folder](enterprise/data-folder/README.md)
     * [Firewall](enterprise/firewall/README.md)
+    * [HTTP Proxy](enterprise/http-proxy/README.md)
 
 ## 💡 Resources
 
