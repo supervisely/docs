@@ -20,8 +20,9 @@ First, make sure that the computer you want to use in Supervisely meets the foll
 ### Video Guide
 To connect the agent you can follow the steps as they described in the following video guide:
 
+{% embed url="https://github.com/supervisely/docs/assets/48245050/832ae03d-58d4-4abb-9e8c-307ca8f4b072" %}
 
-https://github.com/supervisely/docs/assets/48245050/832ae03d-58d4-4abb-9e8c-307ca8f4b072
+
 
  
 
