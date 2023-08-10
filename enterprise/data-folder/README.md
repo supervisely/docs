@@ -46,7 +46,7 @@ Can be safely cleaned: No, you will lose all your annotations and projects.
 
 ### logs
 
-This subfolder is used by Logstash logs parsing and transforming service (`logstash` Docker container). The actual logs are collected via [Vector](https://vector.dev) service (`vector` Docker container). Logstash dumps logs in the `logs` subfolder in gzipped JSON format. Logs can be easily obtained by running the `sudo supervisely troubleshoot` command.
+This subfolder is used by [Vector](https://vector.dev) logs parsing and transforming service (`vector` Docker container). Vector dumps the logs into the `logs` subfolder in Zstandard JSON lines format. Logs can be easily obtained by running the `sudo supervisely troubleshoot` command.
 
 {% hint style="warning" %}
 By default we do not clean this folder automatically.
