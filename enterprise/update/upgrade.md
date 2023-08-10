@@ -27,5 +27,5 @@ Wait a couple minutes and open Supervisely. Everything should work fine and you 
 ## Troubleshooting
 
 **My agent changed its status to WAITING**: There are two possible reasons - either agents were disconnected during the update (in this case just wait a couple more minutes), or you forgot to set `SERVER_ADDRESS` in `.env`.
-  
-**Nothing works now. How do I go back?**: In case of any problems with the new release it's easy to go back to a previous version. Just replace your new configuration files with the previous ones from the backup, do the same with the database folder and hit `docker-compose up -d` once again.
+
+**Nothing works now. How do I go back?**: In case of any problems with the new release it's easy to go back to a previous version. Just replace your new configuration files with the previous ones from the backup, do the same with the database folder and hit `supervisely up -d` once again.

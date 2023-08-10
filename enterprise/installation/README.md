@@ -19,7 +19,9 @@ Make sure you are using SSD disk for OS, docker data and `DATA_PATH/db`. Otherwi
 {% endhint %}
 
 {% hint style="info" %}
-If you don't have enough free space on a system drive, but you have another one mounted , you can change the place where the data is stored by changing `DATA_PATH` in `.env` file
+If you don't have enough free space on a system drive, but you have another one mounted, you can change the place where the data is stored by changing `DATA_PATH` in `.env` file.
+
+Please check [this article](../data-folder/README.md) for more details.
 {% endhint %}
 
 {% hint style="danger" %}
