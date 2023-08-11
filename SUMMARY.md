@@ -7,6 +7,9 @@
 * [First Steps](getting-started/first-steps.md)
 * [FAQ](getting-started/faq.md)
 * [Support](getting-started/support.md)
+* [Connect your computer](getting-started/connect-your-computer/README.md)
+  * [Unix-based OS](getting-started/connect-your-computer/unix-based/unix-based.md.md)
+  * [Windows WSL](getting-started/connect-your-computer/windows-wsl/windows-wsl.md)
 
 ## 📂 Data Organization
 
