@@ -16,7 +16,7 @@ Go to the "Cluster" page. Click on the name of the relevant node.
 
 2. Local Agent storage information
 
-3. NVidia-smi
+3. Nvidia-smi
 
 4. htop
 

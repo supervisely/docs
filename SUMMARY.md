@@ -10,6 +10,15 @@
 * [Connect your computer](getting-started/connect-your-computer/README.md)
   * [Unix-based](getting-started/connect-your-computer/unix-based/unix-based.md)
   * [Windows WSL](getting-started/connect-your-computer/windows-wsl/windows-wsl.md)
+  * [Agents](getting-started/connect-your-computer/agents/README.md)
+      * [Agent](getting-started/connect-your-computer/agents/agent/agent.md)
+      * [Add / Restart / Delete agent](getting-started/connect-your-computer/agents/add_delete_node/add_delete_node.md)
+      * [Agent Status & Troubleshoot Guide](getting-started/connect-your-computer/agents/status_and_troubleshooting/status.md)
+      * [Node monitoring](getting-started/connect-your-computer/agents/manage/manage.md)
+      * [Agent Storage](getting-started/connect-your-computer/agents/agent-storage/agent-storage.md)
+      * [AMI (Amazon)](getting-started/connect-your-computer/agents/ami/README.md)
+      * [Clean Up](getting-started/connect-your-computer/agents/clean_up/clean_up.md)
+      * [Add docker registry](getting-started/connect-your-computer/agents/custom-docker-registry/README.md)
 
 ## 📂 Data Organization
 
@@ -154,15 +163,6 @@
 * [Developer Portal](https://developer.supervisely.com/)
 * [Plugins](customization/plugins/README.md)
   * [Plugin updates and versions](customization/plugins/versions.md)
-* [Agents](customization/agents/README.md)
-    * [Agent](customization/agents/agent/agent.md)
-    * [Add / Restart / Delete agent](customization/agents/add_delete_node/add_delete_node.md)
-    * [Agent Status & Troubleshoot Guide](customization/agents/status_and_troubleshooting/status.md)
-    * [Node monitoring](customization/agents/manage/manage.md)
-    * [Agent Storage](customization/agents/agent-storage/agent-storage.md)
-    * [AMI (Amazon)](customization/agents/ami/README.md)
-    * [Clean Up](customization/agents/clean_up/clean_up.md)
-    * [Add docker registry](customization/agents/custom-docker-registry/README.md)
 * [SDK](https://supervisely.readthedocs.io/en/latest/sdk_packages.html)
 * [API](https://api.docs.supervisely.com)
 
