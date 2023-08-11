@@ -1,12 +1,12 @@
 ---
 description: >-
-  Everything you need to know about deploying Supervisely agent on Unix based
+  Everything you need to know about deploying Supervisely agent on Unix-based
   operating systems
 ---
 
-# Linux
+# Unix-based
 
-This guide aims to lead you through the step-by-step process for establishing and configuring the Supervisely agent within your unix based operating system environment.
+This guide aims to lead you through the step-by-step process for establishing and configuring the Supervisely agent within your unix-based operating system environment.
 
 {% embed url="https://www.youtube.com/watch?v=aO7Zc4kTrVg" %}
 Video guide
@@ -14,7 +14,7 @@ Video guide
 
 ## Prerequisites
 
-* Unix based OS (Linux, MacOS)
+* Unix-based OS (Linux, MacOS)
 * [Docker](https://docs.docker.com/engine/install/) (Version 18.0 or higher)
 * [CUDA](https://developer.nvidia.com/cuda-downloads) (Version 9.0 or higher)
 * [NVIDIA Docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)

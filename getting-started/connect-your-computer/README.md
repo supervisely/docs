@@ -10,5 +10,5 @@ After you run Agent on your computer, Agent will automatically connect your serv
 
 ## Instructions for different operating systems:
 
-* [Unix-based OS](unix-based/unix-based.md)
+* [Unix-based](unix-based/unix-based.md)
 * [Windows WSL](windows-wsl/windows-wsl.md)
