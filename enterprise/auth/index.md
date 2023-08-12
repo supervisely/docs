@@ -1,4 +1,4 @@
-## OpenID authorization
+## General OpenID authorization
 
 1\. Open terminal and go to the Supervisely configs folder
 
@@ -6,14 +6,14 @@
 $ cd $(sudo supervisely where)
 ```
 
-2\. Create `openid.yml` file with external service credentials  
+2\. Create `openid.yml` file with external service credentials
 
 ```yaml
 <provider_name>:
   metadata_url: <metada_url>
   client_id: <client_id>
   client_secret: <client_secret>
-  
+
   # optional
   http_proxy: <proxy url>
   https_proxy: <proxy url>
@@ -52,7 +52,7 @@ where:
   - https_instance_domain - domain, that you specified in `docker-compose.override.yml`
   - provider_name - name, that you specified in `openid.yml`
 
-#### Authorization through Microsoft Azure Active Directory
+## Authorization through Microsoft Azure Active Directory
 First you need to [register app](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app) and [configure web API access](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis).
 
 On [Add redirect URI(s) step](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-redirect-uris-to-your-application) add new URI `<https_instance_domain>/api/account/auth/microsoft/callback`
@@ -65,6 +65,42 @@ microsoft:
   metadata_url: https://login.microsoftonline.com/568427e8-****-****-****-************/.well-known/openid-configuration
   client_id: 7006e956-****-****-****-************
   client_secret: j2Hy-***************************
+```
+
+###### docker-compose.override.yml
+```yaml
+version: '2.4'
+
+services:
+  api:
+    environment:
+      DOMAIN: https://app.supervisely.com
+    volumes:
+    - <path_to_folder>/openid.yml:/openid.yml:ro
+```
+
+## Authorization through OKTA
+First you need to register a new app.
+Click Applications -> "Create App Integration" button and then select "OIDC - OpenID Connect" and "Web Application".
+
+![](images/okta_app_dialog.png)
+
+Make sure that "Authorization Code" code is selected.
+Under `Sign-in redirect URIs` add a new URI `<https_instance_domain>/api/account/auth/okta/callback`.
+
+You can find `metadata_url` by clicking on your account name in the top right corner.
+
+![](images/okta_url.png)
+
+Copy and save your client ID and client Secret.
+You can now proceed with modifications on the server-side.
+
+###### openid.yml
+```yaml
+okta:
+  metadata_url: https://<subdomain from okta>.okta.com
+  client_id: <client_id>
+  client_secret: <client_secret>
 ```
 
 ###### docker-compose.override.yml
