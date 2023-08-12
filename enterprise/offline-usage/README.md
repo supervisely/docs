@@ -41,6 +41,8 @@ If you want to disable it instead, just set `OFFLINE_MODE` to `false` and deploy
 
 To enable offline mode for Supervisely Agents you need to open the Supervisely page in your browser, go to `Team Cluster` -> 3 dots button -> Instructions -> Advanced Settings and select `Enable offline mode`.
 
+![](images/agent_offline_usage.png)
+
 After that use the blue clipboard button to copy the command and then run it in your terminal on the server where the agent is running.
 
 If you want to disable it instead, just deselected the option and redeploy the agent the same way.
