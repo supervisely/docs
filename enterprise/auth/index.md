@@ -1,4 +1,4 @@
-## General OpenID authorization
+## General OpenID Connect (OIDC) configuration
 
 1\. Open terminal and go to the Supervisely configs folder
 
@@ -52,7 +52,7 @@ where:
   - https_instance_domain - domain, that you specified in `docker-compose.override.yml`
   - provider_name - name, that you specified in `openid.yml`
 
-## Authorization through Microsoft Azure Active Directory
+## Microsoft Azure Active Directory
 First you need to [register app](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app) and [configure web API access](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis).
 
 On [Add redirect URI(s) step](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-redirect-uris-to-your-application) add new URI `<https_instance_domain>/api/account/auth/microsoft/callback`
@@ -79,7 +79,7 @@ services:
     - <path_to_folder>/openid.yml:/openid.yml:ro
 ```
 
-## Authorization through OKTA
+## OKTA
 First you need to register a new app.
 Click Applications -> "Create App Integration" button and then select "OIDC - OpenID Connect" and "Web Application".
 
@@ -115,7 +115,7 @@ services:
     - <path_to_folder>/openid.yml:/openid.yml:ro
 ```
 
-## LDAP authorization
+## LDAP
 
 1\. Open terminal and go to the Supervisely configs folder
 
