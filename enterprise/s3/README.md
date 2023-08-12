@@ -19,7 +19,7 @@ That's because we maintain the same structure in local storage as if you would u
 This section describes how to configure Supervisely to store its data on a cloud storage rather than on a hard drive. This won't allow you to use existing images and videos on your cloud. If you need to use existing images and videos, please check [the section below](#links-plugin-cloud-providers-support).
 {% endhint %}
 
-Edit `.env` configuration file - you can find it by running `supervisely where` command. 
+Edit `.env` configuration file - you can find it by running `supervisely where` command.
 
 Change `STORAGE_PROVIDER` from `http` (local hard drive) to `minio` (S3 storage backend).
 
@@ -42,7 +42,9 @@ STORAGE_ACCESS_KEY=<hidden>
 STORAGE_SECRET_KEY=<hidden>
 ```
 
-Execute `sudo supervisely up -d` to apply the new settings
+Execute `sudo supervisely up -d` to apply the new settings.
+
+If you're working with large files (4GB+) you might also want to add permission for "s3:ListBucketMultipartUploads" at the bucket level, so Supervisely can initiate multipart uploads for larger artifacts.
 
 ## Configure Supervisely to use Azure Blob Storage
 
@@ -50,7 +52,7 @@ Execute `sudo supervisely up -d` to apply the new settings
 This section describes how to configure Supervisely to store its data on a cloud storage rather than on a hard drive. This won't allow you to use existing images and videos on your cloud. If you need to use existing images and videos, please check [the section below](#links-plugin-cloud-providers-support).
 {% endhint %}
 
-Edit `.env` configuration file - you can find it by running `supervisely where` command. 
+Edit `.env` configuration file - you can find it by running `supervisely where` command.
 
 Change `STORAGE_PROVIDER` from `http` (local hard drive) to `azure` (Azure storage backend).
 
@@ -75,7 +77,7 @@ Execute `sudo supervisely up -d` to apply the new settings
 This section describes how to configure Supervisely to store its data on a cloud storage rather than on a hard drive. This won't allow you to use existing images and videos on your cloud. If you need to use existing images and videos, please check [the section below](#links-plugin-cloud-providers-support).
 {% endhint %}
 
-Edit `.env` configuration file - you can find it by running `supervisely where` command. 
+Edit `.env` configuration file - you can find it by running `supervisely where` command.
 
 Change `STORAGE_PROVIDER` from `http` (local hard drive) to `google` (GCS backend).
 
@@ -119,7 +121,7 @@ Finally, restart services to apply new configuration: `supervisely up -d`.
 
 ## Keys from IAM Role
 
-If you want to use [IAM Role](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#instance-metadata-security-credentials) you must specify `STORAGE_IAM_ROLE=<role_name>` in .env file then `STORAGE_ACCESS_KEY` and `STORAGE_SECRET_KEY` variables can be ommited. 
+If you want to use [IAM Role](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#instance-metadata-security-credentials) you must specify `STORAGE_IAM_ROLE=<role_name>` in .env file then `STORAGE_ACCESS_KEY` and `STORAGE_SECRET_KEY` variables can be ommited.
 
 IAM Roles are only supported for AWS S3.
 
@@ -147,9 +149,9 @@ services:
 
 If you already have some files on Amazon S3/Google Cloud Storage/Azure Storage and you don't want to upload and store those files in Supervisely, you can use the "Links" plugin to link the files to Supervisely server.
 
-Instead of uploading actual files (i.e. images), you will need to upload .txt file(s) that contains a list of URLs to your files. If your URLs are publicly available (i.e. link looks like `https://s3-us-west-2.amazonaws.com/test1/abc` and you can open it in your web browser directly), then you can stop reading and start uploading. 
+Instead of uploading actual files (i.e. images), you will need to upload .txt file(s) that contains a list of URLs to your files. If your URLs are publicly available (i.e. link looks like `https://s3-us-west-2.amazonaws.com/test1/abc` and you can open it in your web browser directly), then you can stop reading and start uploading.
 
-If your files are protected, however, you will need to provide credentials in the [instance settings](/enterprise/post-installation#configure-your-instance) or manually create configuration file. 
+If your files are protected, however, you will need to provide credentials in the [instance settings](/enterprise/post-installation#configure-your-instance) or manually create configuration file.
 
 ![](configure-cloud-1.png)
 
