@@ -1,6 +1,7 @@
 In case you have multiple disks on your server, you can configure Supervisely to store data on multiple disks, including the Agent data. This will allow you to better utilize your server resources and increase the overall performance of your instance, sometimes it's necessary to store data on multiple disks due to the limited capacity of the OS drive.
 
 ## Docker data
+
 1. To change the docker data folder location you first need to find its current location. To do that, run the following command:
 ```bash
 sudo docker info | grep 'Docker Root Dir'
@@ -34,6 +35,7 @@ sudo systemctl start docker
 Now all of your docker data will be stored in the new location `/new/path/docker`
 
 ## Supervisely server data
+
 Please check [this article](../data-folder/README.md) first for more details. You can link any folder in `DATA_PATH` to a different location.
 
 Here's an example of how you could link storage to a different location:
