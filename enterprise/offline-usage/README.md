@@ -45,4 +45,4 @@ To enable offline mode for Supervisely Agents you need to open the Supervisely p
 
 After that use the blue clipboard button to copy the command and then run it in your terminal on the server where the agent is running.
 
-If you want to disable it instead, just deselected the option and redeploy the agent the same way.
+If you want to disable it instead, just deselect the option and redeploy the agent the same way.
