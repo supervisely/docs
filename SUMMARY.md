@@ -191,6 +191,7 @@
     * [Firewall](enterprise/firewall/README.md)
     * [HTTP Proxy](enterprise/http-proxy/README.md)
     * [Offline usage](enterprise/offline-usage/README.md)
+    * [Multi-disk usage](enterprise/multi-disk/README.md)
 
 ## 💡 Resources
 
