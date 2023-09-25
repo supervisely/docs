@@ -22,3 +22,5 @@ redirects:
   customization/agents/status/: ./getting-started/connect-your-computer/agents/status_and_troubleshooting/status.md
   customization/agents: ./getting-started/connect-your-computer/README.md
   customization/agents/: ./getting-started/connect-your-computer/README.md
+  cluster/overview: ./getting-started/connect-your-computer/README.md
+  cluster/overview/: ./getting-started/connect-your-computer/README.md
