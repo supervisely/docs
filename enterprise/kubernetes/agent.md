@@ -14,6 +14,10 @@ You will see the following window:
 
 ![](screenshot-2023-06-24-193246.png)
 
+## Deploy required resources
+
+You can either download the configuration and deploy it manually or use the command provided in the window above to deploy the resources automatically.
+
 ## Configure the options
 
 `Server address` - this is the address of your Supervisely server that is accessible from Kubernetes cluster.
