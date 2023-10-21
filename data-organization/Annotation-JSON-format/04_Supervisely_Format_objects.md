@@ -326,7 +326,7 @@ Fields description:
 - `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file 
 - `bitmap` - object with two fields:
   - `origin`  - points (`x` and `y` coordinates) of the top left corner of the bitmap, i.e. the position of the bitmap within the image
-  - `data`  - string - encoded representation of a string
+  - `data`  - string - encoded representation of a boolean matrix
 
   
 
