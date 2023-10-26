@@ -5,23 +5,22 @@ structure:
   summary: SUMMARY.md
 
 redirects:
-  enterprise/installation: ./enterprise/installation/README.md
-  enterprise/installation/: ./enterprise/installation/README.md
-  enterprise-edition/installation: ./enterprise/installation/README.md
-  enterprise-edition/installation/: ./enterprise/installation/README.md
-  enterprise/post-installation: ./enterprise/post-installation/README.md
-  enterprise/post-installation/: ./enterprise/post-installation/README.md
-  enterprise/advanced-tuning/index-1: ./enterprise/advanced-tuning/s3/README.md
-  cluster/overview: ./customization/agents/README.md
-  cluster/overview/: ./customization/agents/README.md
-  ann_format: ./data-organization/Annotation-JSON-format/00_ann_format_navi.md
-  ann_format/: ./data-organization/Annotation-JSON-format/00_ann_format_navi.md
-  data-organization/import-export/supervisely-format: ./data-organization/Annotation-JSON-format/00_ann_format_navi.md
-  data-organization/import-export/supervisely-format/: ./data-organization/Annotation-JSON-format/00_ann_format_navi.md
-  customization/agents/status: ./getting-started/connect-your-computer/agents/status_and_troubleshooting/status.md
-  customization/agents/status/: ./getting-started/connect-your-computer/agents/status_and_troubleshooting/status.md
-  customization/agents: ./getting-started/connect-your-computer/README.md
-  customization/agents/: ./getting-started/connect-your-computer/README.md
-  cluster/overview: ./getting-started/connect-your-computer/README.md
-  cluster/overview/: ./getting-started/connect-your-computer/README.md
-
+  enterprise/installation: enterprise/installation/README.md
+  enterprise/installation/: enterprise/installation/README.md
+  enterprise-edition/installation: enterprise/installation/README.md
+  enterprise-edition/installation/: enterprise/installation/README.md
+  enterprise/post-installation: enterprise/post-installation/README.md
+  enterprise/post-installation/: enterprise/post-installation/README.md
+  enterprise/advanced-tuning/index-1: enterprise/s3/README.md
+  cluster/overview: getting-started/connect-your-computer/README.md
+  cluster/overview/: getting-started/connect-your-computer/README.md
+  ann_format: data-organization/Annotation-JSON-format/00_ann_format_navi.md
+  ann_format/: data-organization/Annotation-JSON-format/00_ann_format_navi.md
+  data-organization/import-export/supervisely-format: data-organization/Annotation-JSON-format/00_ann_format_navi.md
+  data-organization/import-export/supervisely-format/: data-organization/Annotation-JSON-format/00_ann_format_navi.md
+  customization/agents/status: getting-started/connect-your-computer/agents/status_and_troubleshooting/status.md
+  customization/agents/status/: getting-started/connect-your-computer/agents/status_and_troubleshooting/status.md
+  customization/agents: getting-started/connect-your-computer/README.md
+  customization/agents/: getting-started/connect-your-computer/README.md
+  cluster/overview: getting-started/connect-your-computer/README.md
+  cluster/overview/: getting-started/connect-your-computer/README.md
