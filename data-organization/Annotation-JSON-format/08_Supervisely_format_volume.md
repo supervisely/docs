@@ -210,10 +210,10 @@ Grayscale transformations to be applied to Pixel Data are defined by the equival
 #### `slices` fields description:
 
 * `index` - int value of slice index
-* `figures` - list of figures placed on slice. It can be [bitmap](objects.md#bitmap) or [rectangle](objects.md#rectangle).
+* `figures` - list of figures placed on slice. It can be [bitmap](./04_Supervisely_Format_objects.md#bitmap) or [rectangle](./04_Supervisely_Format_objects.md#rectangle).
 
 #### `spatialFigures` fields description
-This list contains 3D objects of type [Mask3D](objects.md#mask3d)
+This list contains 3D objects of type [Mask3D](./04_Supervisely_Format_objects.md#mask3d)
 
 * `key` - string - unique key for a given figure (used in `key_id_map.json`)
 * `objectKey` - string - unique key to link figure to object (used in `key_id_map.json`)
@@ -223,7 +223,7 @@ This list contains 3D objects of type [Mask3D](objects.md#mask3d)
 
 ## NRRD files in `mask` folder
 
-These files contain geometry for 3D annotation objects, every file name must be the same as  figure key to which it belongs.
+These files contain geometry for 3D annotation objects, every file name must be the same as figure key to which it belongs.
 
 Example: 
 
