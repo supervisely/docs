@@ -4,7 +4,7 @@
 
 Unlike other platforms, Supervisely is built like OS: instead of having a huge monolith, Supervisely creates a foundation for developing and running applications called Supervisely Apps.
 
-Supervisely is available online for free, as well as an on-premise edition for enterprises.
+Supervisely is available [online](https://app.supervisely.com/signup) for free, as well as an on-premise edition for enterprises.
 
 ### With Supervisely you can
 
