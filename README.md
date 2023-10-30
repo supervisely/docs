@@ -8,6 +8,7 @@ Supervisely is available [online](https://app.supervisely.com/signup) for free, 
 
 ### With Supervisely you can
 
+
 * Label **images**, **videos**, **3D point clouds**, **volumetric slices** and other data in the best labeling tool.
 
 ![](assets/labeling-ui.jpg)
