@@ -213,7 +213,7 @@ Grayscale transformations to be applied to Pixel Data are defined by the equival
 * `figures` - list of figures placed on slice. It can be [bitmap](./04_Supervisely_Format_objects.md#bitmap) or [rectangle](./04_Supervisely_Format_objects.md#rectangle).
 
 #### `spatialFigures` fields description
-This list contains 3D objects of type [Mask3D](./04_Supervisely_Format_objects.md#mask3d)
+This list contains 3D objects of type [Mask3D](./04_Supervisely_Format_objects.md#mask3d-3d-annotation)
 
 * `key` - string - unique key for a given figure (used in `key_id_map.json`)
 * `objectKey` - string - unique key to link figure to object (used in `key_id_map.json`)
