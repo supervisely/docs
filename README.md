@@ -1,8 +1,10 @@
 # 🤖 What's Supervisely
 
-**Supervisely** is computer vision platform for researchers and companies to annotate, manage and train neural networks.
+**Supervisely** is computer vision platform for researchers and companies to annotate and manage datasets, train neural networks and much more.
 
-Our mission is to help people with and without machine learning expertise to create state-of-the-art computer vision applications.
+Unlike other platforms, Supervisely is built like OS: instead of having a huge monolith, Supervisely creates a foundation for developing and running applications called Supervisely Apps.
+
+Supervisely is available online for free, as well as an on-premise edition for enterprises.
 
 ### With Supervisely you can
 
