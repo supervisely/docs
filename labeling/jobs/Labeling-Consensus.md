@@ -5,7 +5,7 @@ Consensus labeling is an annotation approach when multiple annotators collaborat
 
 You can see a detailed example in the blog
 [(https://supervisely.com/blog/labeling-consensus)](https://supervisely.com/blog/labeling-consensus/)
-## Example
+## Tutorial
 
 {% embed url="https://www.youtube.com/watch?v=a9psonpLPIw&ab_channel=Supervisely" %} Video guide {% endembed %}
 https://supervisely.com/blog/labeling-consensus

@@ -18,21 +18,21 @@
       * [Add docker registry](getting-started/connect-your-computer/agents/custom-docker-registry/README.md)
 
 ## 📂 Data Organization
-* Overview 
+* [Overview](data-organization/overview.md)
 * [Projects](data-organization/project/projects.md)
     * [Datasets](data-organization/project/datasets.md)
     * [Classes](data-organization/project/classes.md)
     * [Tags](data-organization/project/tags.md)
 * [Import & Export](data-organization/import-export.md)
-* Team Files
+* [Team Files](data-organization/teamfiles.md)
 * [Data usage & Cleanup](data-organization/storage/README.md)
-* Operations with Data - чисто упоминание раздела экосистема
-  * Data Filtration
-  * Augmentations
-  * Converting & Splitting data
-  * Statistics
-* [Data Commander](data-manipulation/data-commander/README.md)
-    * [Clone Project Meta](data-manipulation/data-commander/clone-meta.md)
+* [Operations with Data](/data-organization/Operations-with-Data/README.md)
+  * [Data Filtration](/data-organization/Operations-with-Data/data-filtration.md)
+  * [Augmentations](/data-organization/Operations-with-Data/Augmentations.md)
+  * [Converting & Splitting data](/data-organization/Operations-with-Data/Converting&Splitdata.md)
+  * [Statistics](/data-organization/Operations-with-Data/Statistics.md)
+* [Data Commander](data-organization/data-commander/README.md)
+    * [Clone Project Meta](data-organization/data-commander/clone-meta.md)
 
 ## 📝 Labeling
 

@@ -11,6 +11,6 @@ While you can call annotation interface directly from the Projects page, there a
 You can see a detailed example in the blog
 [(https://supervisely.com/blog/labeling-jobs)](https://supervisely.com/blog/labeling-jobs/)
 
-## Example
+## Tutorial
 
 {% embed url="https://www.youtube.com/watch?v=YwNHbvyZL7Q&ab_channel=Supervisely" %} Video guide {% endembed %}

@@ -16,7 +16,7 @@ We strongly advice you to keep admin account clean from models and projects and 
 
 Click on the user in the top right corner and select "Users". Here you can manage existing users, delete them, login under their accounts and create new ones.
 
-Click "Signup" to create a new user. We will automatically create a new team for that user and populate "Plugins" section with default plugins, marked as "Seed" (i.e. "Import / Images" or "DTL"). 
+Click "Signup" to create a new user. We will automatically create a new team for that user and populate "Apps" section with default apps, marked as "Seed" (i.e. "Import / Images"). 
 
 
 ## Configure your instance
@@ -50,5 +50,5 @@ If you see at Cluster page that your Main Node is in Waiting status, it means th
 Go to the Import page, make sure preset "Supervisely / Images" is selected and drag-and-drop a folder with some images. Enter a name for the new project, wait till the files are uploaded and click "Import". New import task has been started and you will see your new project on the Projects page after it's finished.
 
 {% hint style="warning" %}
-If you see message like above at Import page, there could be two reasons: 1). You are logged-in as "admin" user. We do not automatically add any plugins to admin team. You can do it manually from Explore section, but we suggest to create new user instead. 2). Another reason is that you don't have active agents at Cluster page. Check "Main Node is in Waiting status" section above. 
+If you see message like above at Import page, there could be two reasons: 1). You are logged-in as "admin" user. We do not automatically add any apps to admin team. You can do it manually from Explore section, but we suggest to create new user instead. 2). Another reason is that you don't have active agents at Cluster page. Check "Main Node is in Waiting status" section above. 
 {% endhint %}

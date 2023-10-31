@@ -4,6 +4,6 @@ Labeling Queues is a systematic method for distributing and managing labeling pr
 
 You can see a detailed example in the blog
 [(https://supervisely.com/blog/labeling-queues)](https://supervisely.com/blog/labeling-queues/)
-## Example
+## Turoeial
 
 {% embed url="https://www.youtube.com/watch?v=Pr7YFY_ntdM&ab_channel=Supervisely" %} Video guide {% endembed %}

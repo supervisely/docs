@@ -4,11 +4,11 @@ You can think of a Project as a superfolder with data and meta information.
 
 ## Projects List
 
-At the "Projects" page you can view all projects you have in the current [workspace](../collaboration/teams.md).
+At the "Projects" page you can view all projects you have in the current [workspace](/collaboration/teams.md).
 
-![](assets/projects-list.jpg)
+![](/data-organization/project/project.png)
 
-Please note the ⋮ ("three dots") icon in the bottom right corner of a project. From here (we call it a "content menu") you can run many important actions: like clone, download or delete a project.  
+Please note the ⋮ ("three dots") icon in the bottom right corner of a project. From here (we call it a "content menu") you can run many important actions: like clone, run app for project or delete a project.  
 
 ## How to create a Project
 
@@ -32,14 +32,9 @@ When you create a Project, you must specify what type of data would be stored in
 
 - Images
 - Videos
-- Point Clouds
+- 3D Point Clouds
+- DICOM
 
 You can see a project type in the top left corner of a project card.
 
-{% hint style="warning" %}
-Some features are unsupported for Videos and Point Clouds projects.  
-{% endhint %}  
 
-{% hint style="info" %}
-When you upload data at the Import page, project type will be automatically set by the plugin.
-{% endhint %}
