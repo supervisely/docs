@@ -2,7 +2,7 @@
 
 This section covers the various methods for importing and exporting data within our system. We provide several flexible options to suit your needs.
 
-## 📂 Drag-and-Drop Across Different Applications
+## 🫱 Drag-and-Drop 
 
 One of the most user-friendly ways to import and export data is by using the drag-and-drop feature across different applications. This method simplifies the process of moving files, making it as easy as dragging and dropping items from one application to another.
 
@@ -14,7 +14,7 @@ For seamless data management within your team, our system allows you to drag and
 
 Our system enables you to import data through specific applications, ensuring a structured and organized approach to data management. This method ensures that data is appropriately placed in the relevant applications for effective categorization.
 
-Import applications: https://app.supervisely.com/ecosystem/import
+[Import applications](https://app.supervisely.com/ecosystem/import)
 
 ## 🛠️ Utilize the Software Development Kit (SDK)
 
@@ -29,7 +29,7 @@ Our system offers the flexibility to integrate data from various sources using A
 
 This section covers various methods for exporting data from our system, providing convenience and flexibility for users.
 
-Using Export Applications: https://app.supervisely.com/ecosystem/export
+[Using Export Applications](https://app.supervisely.com/ecosystem/export)
 
 To perform exports in the specified formats, you can use the corresponding applications and tools, providing maximum flexibility when working with your data and annotations.
 

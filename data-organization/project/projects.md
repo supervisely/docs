@@ -6,7 +6,7 @@ You can think of a Project as a superfolder with data and meta information.
 
 At the "Projects" page you can view all projects you have in the current [workspace](/collaboration/teams.md).
 
-![](/data-organization/project/project.png)
+![](project.png)
 
 Please note the ⋮ ("three dots") icon in the bottom right corner of a project. From here (we call it a "content menu") you can run many important actions: like clone, run app for project or delete a project.  
 

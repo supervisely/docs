@@ -10,7 +10,7 @@ For tags added by different users, multiple instances of the same tag are distin
 
 You can enable multiple tags for the current project on the Tags tab of the project Settings. Press Save to apply the changes. 
 
-![](assets/multiple_tags.png)
+![](multiple_tags.png)
 
 ## Adding and managing multiple instances of the same tag
 
@@ -24,11 +24,11 @@ The image below already has one instance of the tag Like (1) assigned to it.
 
 To add another instance (2), either click on the checkbox or use the associated hotkey. 
 
-![](assets/multiple_tags_example.png)
+![](multiple_tags_example.png)
 
 Once you've done so, a new instance of the tag will be added to the image. 
 
-![](assets/multiple_tags_example_s.png)
+![](multiple_tags_example_s.png)
 
 You can add Multiple Object Tags by using the same principle. 
 

@@ -15,6 +15,7 @@ You can switch teams at any moment or create a new team in the left menu.
 
 ![](teams.png)
 ![](teams2.png)
+
 ## Workspaces
 
 When multiple users are collaborating together in the same team it is usually convenient to have a way to split results into separate "rooms" called "workspaces".
