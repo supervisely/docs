@@ -7,11 +7,16 @@ While you can call annotation interface directly from the Projects page, there a
 - Progress monitoring - tracking annotation status and reviewing submitted results
 - Access permissions - limiting access only to specific datasets and classes within a single job
 
-You can see a detailed example in the blog
-[(https://supervisely.com/blog/labeling-jobs)](https://supervisely.com/blog/labeling-jobs/) {% page-ref page="https://supervisely.com/blog/labeling-jobs" %}
+## Create Job
+<video playsinline="" autoplay="autoplay" muted="muted" loop="loop"><source src="create-labeling-job" type="video/mp4"></video>
 
 
-{% page-ref page="../collaboration/teams.md" %}
+<video src="create-labeling-job.mp4" controls title="Title"></video>
+
+
+You can see a detailed example in the [blog](https://supervisely.com/blog/labeling-jobs)
+{% page-ref page="https://supervisely.com/blog/labeling-jobs" %}
+
 
 ## Tutorial
 
