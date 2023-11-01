@@ -14,9 +14,12 @@ For seamless data management within your team, our system allows you to drag and
 
 Our system enables you to import data through specific applications, ensuring a structured and organized approach to data management. This method ensures that data is appropriately placed in the relevant applications for effective categorization.
 
+{% hint style="info" %}
 [Import applications](https://app.supervisely.com/ecosystem/import)
+{% endhint %}
 
-## 🛠️ Utilize the Software Development Kit (SDK)
+
+## 🛠️ Software Development Kit (SDK)
 
 For more advanced data integration and customization, our Software Development Kit (SDK) provides you with the tools and resources needed to streamline data import processes. It empowers you to create tailored solutions that best suit your requirements.
 
@@ -29,7 +32,9 @@ Our system offers the flexibility to integrate data from various sources using A
 
 This section covers various methods for exporting data from our system, providing convenience and flexibility for users.
 
+{% hint style="info" %}
 [Using Export Applications](https://app.supervisely.com/ecosystem/export)
+{% endhint %}
+
 
 To perform exports in the specified formats, you can use the corresponding applications and tools, providing maximum flexibility when working with your data and annotations.
-
