@@ -56,7 +56,7 @@
 * [Members](collaboration/members.md)
 * [Labeling Jobs](labeling/jobs/README.md)
   * [Labeling Queues](labeling/jobs/Labeling-Queues.md)
-  * [Labeling Consensus](labeling/jobs/Labeling-consensus.md)
+  * [Labeling Consensus](labeling/jobs/Labeling-Consensus.md)
   * [Labeling Statistics](labeling/jobs/Labeling-Statistics.md)
 * [Issues](labeling/issues/README.md)
 * [Guides & Exams](labeling/exams/README.md)
