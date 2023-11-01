@@ -8,7 +8,7 @@ While you can call annotation interface directly from the Projects page, there a
 - Access permissions - limiting access only to specific datasets and classes within a single job
 
 ## Create Job
-<video playsinline="" autoplay="autoplay" muted="muted" loop="loop"><source src="create-labeling-job" type="video/mp4"></video>
+<video playsinline="" autoplay="autoplay" muted="muted" loop="loop"><source src="create-labeling-job.mp4" type="video/mp4"></video>
 
 
 <video src="create-labeling-job.mp4" controls title="Title"></video>
