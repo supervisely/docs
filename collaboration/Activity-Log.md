@@ -21,6 +21,10 @@ The Activity Log is a powerful tool that enables team members to closely monitor
 
 ![](activity-log3.png)
 
+Additionally, the "Activity Log" allows you to export activity logs in CSV format, opening opportunities for further data analysis and processing. You can upload the CSV file from the context menu of a project, job, or team and work with the data according to your needs. This feature makes team activity management more flexible and adaptable to your goals and tasks.
+
+Furthermore, you can access the activity log via an API, enabling integration with other systems and the creation of custom solutions based on the activity log. This expands the possibilities for managing and analyzing your team's activity.
+
 Thus, the Activity Log provides a more detailed and effective means of project management and team member action tracking.
 
 
