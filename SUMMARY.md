@@ -43,18 +43,17 @@
 ## 📝 Labeling
 
 * Labeling Toolboxes 
-  * Images
-  * Multi-spectral images
-  * Multi-view images
-  * Images with high-color depth (infra-red, thermal, etc…)
-  * Videos
-  * 3D Point Clouds (Single scene)
-  * 3D Point Clouds (Episodes)
-  * Sensor-fusion
-  * DICOM 2D
-  * DICOM Volumes
-* AI Labeling with Supervisely Apps
-* Custom UIs
+  * [Images](labeling/images/README.md)
+    * [Multi-view images](<labeling/images/Multi-view images/Multi-view images.md>)
+  * [Videos](labeling/videos/README.md)
+    * [Video tracking](labeling/videos/video-tracking.md)
+  * [3D Point Clouds](labeling/3D-Point-Clouds/3D-Point-Clouds.md)
+    * [3D Point Clouds Episodes](labeling/3D-Point-Clouds/3D-Point-Clouds-episod.md)
+    * [Sensor-fusion](labeling/3D-Point-Clouds/Sensor-fusion/Sensor-fusion.md)
+  * [DICOM](labeling/DICOM/DICOM.md)
+* [AI Labeling with Supervisely Apps](labeling/AI-Labeling.md)
+  *  [Smart Tool](labeling/images/smart-tool-apps/README.md)
+* [Custom UIs](labeling/Coustom-UI.md)
 
 ## 🤝 Collaboration
 

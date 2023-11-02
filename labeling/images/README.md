@@ -20,7 +20,7 @@ To start annotation you should open a `Project` and click on the relevant `Datas
 
 ## Overview
 
-![](ann_001.jpg)
+![Alt text](image-toolbox.png)
 
 Please use this reference of annotation application interface to quickly navigate to the relevant documentation section:
 
@@ -30,9 +30,7 @@ Please use this reference of annotation application interface to quickly navigat
 4. Additional controls — quick links and application view settings
 5. [Images panel](images.md) — list of images in the dataset
 6. [Figures panel](figures.md) — list of figures on the current image
-7. [History panel](history.md) — recent actions
-8. [Scene controls](scene.md#controls) — opacity and border of annotations, zoom controls
-9. [Main scene](scene.md) — current image and annotations
+7. [Main scene](scene.md) — current image and annotations
 
 ## Simultaneous editing
 
