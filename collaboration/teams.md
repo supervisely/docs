@@ -32,8 +32,10 @@ A workspace is a part of a team. You cannot have a workspace outside of a team. 
 At every moment you work in particular workspace and all projects, neural networks and tasks you create become a part of the current workspace and the current team.
 
 Workspaces do not provide any access permissions or roles mechanisms, unlike teams. 
+
 ![](workspaces.png)
 
 
-The current team and workspace are visible in the white stripe at the top and you can switch by hovering the cursor there and selecting the item
+The current team and workspace are visible in the white stripe at the top and you can switch by hovering the cursor there and selecting the item.
+
 ![](switch-team-workspace.png)

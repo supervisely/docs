@@ -1,14 +1,46 @@
 # Overview
 
-The "Data Organization" section delves into the methodology of data management, which is a vital component of our system. We aim to ensure efficient data storage and management while considering the following crucial aspects.
+To organize data for labeling and neural net training is not an easy task. If there is no structure, things get messy pretty quick. Learn those essentials to organize your efficiently. ☝️
 
-## 🔀 Data Deduplication:
-Data deduplication is the process of eliminating redundant information. We actively apply this technique to reduce the volume of stored data, optimize system performance, and remove duplicates, enhancing data cleanliness and storage efficiency. It's important to note that while we have the capability to remove duplicates, it is not a mandatory requirement, offering flexibility in data management.
+## 🗂️ Projects
 
-## ☁️ Cloud Resources:
-Our system provides the capability to use cloud storage for more effective and reliable data storage. This allows us to scale our storage when needed and facilitates the uploading and downloading of data from and to cloud services. Thus, we offer flexibility and data accessibility from anywhere in the world.
+Project is a combination of datasets and related meta information (like classes and tags) and it's a major building block of data organization in Supervisely.
 
-## 🗄️ [Data Storage:](storage/README.md)
-All our data is stored in a specialized hard drive, which ensures its safety and availability. We pay special attention to data management to ensure the safety and integrity of your information.
-Detailed information can be found in the [data storage section](storage/README.md) 
+{% page-ref page="projects.md" %}
+
+## 📂 Datasets
+
+This is where your labeled and unlabeled images, videos and point clouds live. A dataset is some sort of data folder with stuff to annotate.  
+
+{% hint style="success" %}
+You can upload images multiple times, but only one copy will be stored inside Supervisely. This approach allows us to effectively work with cloud storage. Also this has a good effect on system performance and backup speed.
+{% endhint %}
+
+{% page-ref page="datasets.md" %}
+
+## 🎨 Classes
+
+Classes are pre-defined types of your annotations, for example Person or Background. Thus, every label you create has defined class.
+
+{% page-ref page="classes.md" %}
+
+## 🏷️ Tags
+
+To associate some extra information with annotations (or images, or videos, ...) you can define a Tag, for example `needs_review`.
+
+{% page-ref page="tags.md" %}
+
+## Example
+
+For instance, in [Team](../collaboration/teams.md) "Driving Division" you can have a **Workspace** "Pre-Labeling". In this Workspace you can have a Project "Cityscapes" with two Datasets: "Zurich" and "Stuttgart".
+
+There are several classes defined in this Project (and, thus, in every Dataset): a building, a traffic light, a vehicle and so on. All classes are set to the "bitmap" shape, so that there is no way someone will accidentally create some "Cars" with polygon tool (a set of points), and some "Cars" with bitmap tool (a set of pixels).
+
+Also, there are two tags defined: a "vehicle_type" of several pre-defined options ("Bus", "Bicycle", "Train") and a "color" that accepts any string value.
+
+Datasets are used to split data into a "subfolders" to make data management easier. For example, you can then define a [Labeling Job](../labeling/jobs/README.md) to label all Vehicles in Zurich.
+
+{% hint style="info" %}
+This is just an example, experiment! Maybe you would like to have projects like "Data from 04/14/2020" or "From Mike" or even "To train v2 (final) (2)" 😃  
+{% endhint %}
 

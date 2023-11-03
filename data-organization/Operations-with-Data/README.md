@@ -6,3 +6,4 @@ It's also your hub for efficient data handling, from data import to export, anno
 
 Details about your data and the operations performed on it can be accessed by following our [link](https://app.supervisely.com/ecosystem/data-operations) and utilizing the tools within the "data operations" section. This section provides data management capabilities from import to export, annotation, and analysis. It empowers you to efficiently handle your data and enhance your data-driven workflows.
 
+![](Operations-with-Data.png)

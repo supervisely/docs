@@ -2,12 +2,20 @@
 
 Within our platform, each team is provided with its dedicated data storage. This feature serves as a convenient and secure repository designed for storing and organizing all the necessary files and information your team requires. Whether it's project-related documents, datasets, data import history, or neural network training history, your team's "Team Files" section provides a centralized and easily accessible resource.
 
-In "Team Files," your team has a dedicated space that empowers efficient data management, fosters collaboration, and ensures data security, including data import history and neural network training history. It's the central hub for your team's digital assets, providing the necessary infrastructure for productive teamwork.
+In "Team Files," your team has a dedicated space, . It's the central hub for your team's digital assets, providing the necessary infrastructure for productive teamwork.
+
+One of the main functions of Team Files is collecting information from applications including data import history and neural network training history launched by team members
 
 ![](teamfiles.png)
 
 ![](teamfiles2.png)
 
+
+## Context menu of files in Team Files
+
+You can right-click on a file or folder. From here (we call this the "context menu") you can perform many important actions related to files: for example: clone, save a file path to launch an application, launch an application so that they immediately download the selected file, download locally or delete files.
+
+![](Context-menu-Team-Files.png)
 
 ## Key Benefits of "Team Files"
 
@@ -19,5 +27,5 @@ In "Team Files," your team has a dedicated space that empowers efficient data ma
 
 * Version Control: The platform includes version control features, allowing your team to track changes and revisions to documents, ensuring transparency and accountability.
 
-* Flexible Access: Team members can access "Team Files" from anywhere with an internet connection, facilitating remote work and flexibility.
+* Flexible Access: Team members can access "Team Files" from anywhere with an internet connection.
 
