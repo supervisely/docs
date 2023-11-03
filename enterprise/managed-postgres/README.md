@@ -34,7 +34,7 @@ POSTGRES_URL: psql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${PO
 ```
 
 {% hint style="warning" %}
-In case you don't have POSTGRES_SSL in your configuration, you will have to [upgrade](/enterprise-edition/get-supervisely/upgrade) your Supervisely installation to the latest version (at least 6.8.47).
+In case you don't have POSTGRES_SSL in your configuration, you will have to [upgrade](../update/upgrade.md) your Supervisely installation to the latest version (at least 6.8.47).
 {% endhint %}
 
 You will have to change the values of the variables to match your database configuration. For example, if you are using Amazon RDS, you will have to change the values to something like this:
