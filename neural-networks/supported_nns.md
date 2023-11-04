@@ -62,7 +62,7 @@ https://www.tablesgenerator.com/html_tables
 
 | Architecture          | Backbone             | Pretrained on      | Framework        | Paper        |
 | ------------          | --------             | -------------      | ---------        | ------------ |
-| YOLO V3               |                      | COCO               | DarkNet (C++)    | [arxiv](https://arxiv.org/abs/1703.06870) |
+| YOLO V3               |                      | COCO               | DarkNet (C++)    | [arxiv](https://arxiv.org/abs/1904.04620) |
 | SSD                   | Inception V2         | COCO               | Tensorflow       | [arxiv](https://arxiv.org/abs/1512.02325) |
 |                       | MobileNet V1         | COCO               |                  |                                           |
 |                       | MobileNet V2         | COCO               |                  |                                           |
