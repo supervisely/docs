@@ -24,18 +24,18 @@ When multiple users are collaborating together in the same team it is usually co
 Workspace is filter inside a particular team that allows to quickly switch between different sets of experiments. There are three resources that are split between workspaces:
 
 - Projects and datasets
-- Neural networks
-- Tasks
+- Workspace Tasks
+
 
 A workspace is a part of a team. You cannot have a workspace outside of a team. Every team must have at least one workspace, but can have two or more. 
 
-At every moment you work in particular workspace and all projects, neural networks and tasks you create become a part of the current workspace and the current team.
+At every moment you work in particular workspace and all projects and tasks you create become a part of the current workspace and the current team.
 
 Workspaces do not provide any access permissions or roles mechanisms, unlike teams. 
 
 ![](workspaces.png)
 
 
-The current team and workspace are visible in the white stripe at the top and you can switch by hovering the cursor there and selecting the item.
+You can find the current team and workspace right next to the Start button in the header bar. You can quickly switch between available teams and workspaces by hovering your cursor and selecting another team or workspace.
 
 ![](switch-team-workspace.png)

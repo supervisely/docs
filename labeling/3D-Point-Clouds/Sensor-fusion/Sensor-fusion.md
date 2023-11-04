@@ -1,18 +1,18 @@
 # **Sensor fusion with adding photo & video context**
-Provide more information for accurate labeling and identification with photo and video context. Supervisely automatically calculates correlation between 3D space and 2D context and projects your labeled objects on it, letting you achieve unprecedented quality of labeling.
 
 {% hint style="info" %}
-You can find more information 
-[(here)](https://supervisely.com/labeling-toolbox/3d-lidar-sensor-fusion/#context) or in the [blog](https://supervisely.com/blog/mbptrack-point-cloud-3d-object-tracking/)
+[MBPTrack Tutorial - SOTA 3D Point Cloud Object Tracking in 2023 for LiDAR & Radar
+](https://supervisely.com/labeling-toolbox/3d-lidar-sensor-fusion/#context)
 {% endhint %}
 
-**Object projection on cameras**
+Additionally to a [single point cloud](../3D-Point-Clouds.md) and [episodes point clouds](../3D-Point-Clouds-episod.md) toolboxes, Supervisely allows you to provide additional photo and video context for accurate labeling.
+
+Supervisely automatically calculates correlation between 3D space and 2D context and projects your labeled objects on it, letting you achieve unprecedented quality of labeling.”
+
+
+
+
 ![](Sensor-fusion.gif)
 
-**Multiple camera views**
-![](Sensor-fusion3.png)
-
-**Move camera to the same position as you see on a photo**
-![](Sensor-fusion2.gif)
 
 

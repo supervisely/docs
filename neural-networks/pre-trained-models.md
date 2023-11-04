@@ -8,8 +8,10 @@ You can deploy your trained model in Supervisely with just a click or pick one o
 - [Serve Segment Anything in High Quality](https://ecosystem.supervisely.com/apps/serve-segment-anything-hq/supervisely_integration/serve)
 - [Serve UNet](https://ecosystem.supervisely.com/apps/unet/supervisely/serve)
 
-[and other](https://ecosystem.supervisely.com/neural-network+images)
 
+{% hint style="info" %}
+**Find more pre-trained models in [Ecosystem](https://ecosystem.supervisely.com/neural-network+images)**
+{% endhint %}
 
 ## Some examples of model applications:
 
@@ -24,23 +26,10 @@ You can deploy your trained model in Supervisely with just a click or pick one o
 - [Apply Detection and Pose Estimation Models to Images Project](https://ecosystem.supervisely.com/apps/apply-det-and-pose-estim-models-to-project)
 
 ## Guides on running models in Supervisely:
+- [How to auto-label images with OWL-ViT - SOTA Google's foundation object detector](https://supervisely.com/blog/owl-vit/)
 
-### **Segment Anything Model**
+- [ViTPose — How to use the best Pose Estimation Model on Humans & Animals](https://supervisely.com/blog/vitpose-state-of-the-art-pose-estimation-model-in-supervisely/)
 
-- Step 1. Connect your computer with GPU using this [90 seconds video guide](https://youtu.be/aO7Zc4kTrVg). This is a one-time procedure, if you already connected your computer, just skip this step.
+- [Unlocking Text - OCR with Supervisely](https://supervisely.com/blog/mmocr/)
 
-    {% embed url="https://www.youtube.com/watch?v=aO7Zc4kTrVg&ab_channel=Supervisely" %} Video guide {% endembed %}
-
-- Step 2. Segment Anything (SAM) and Segment Anything in High Quality (HQ-SAM) models are integrated in the form of Supervisely Apps. Just press the "Run" button to start them on the GPU computer connected to your account.
-
-    ![](serve-model.png)
-
-
-- Step 3.Select the SmartTool in the image labeling toolbox, put the bounding box around the object of interest and correct predictions with 🟢 positive and 🔴 negative clicks.
-
-
-{% hint style="info" %}
-You can see a detailed example in the [blog](https://supervisely.com/blog/segment-anything-in-high-quality-HQ-SAM/) 
-{% endhint %}
-
-
+- [MBPTrack Tutorial - SOTA 3D Point Cloud Object Tracking in 2023 for LiDAR & Radar](https://supervisely.com/blog/mbptrack-point-cloud-3d-object-tracking/)

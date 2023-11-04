@@ -3,6 +3,7 @@ The Activity Log is a powerful tool that enables team members to closely monitor
 
 
 ![](activity-log1.png)
+
 ![](activity-log2.png)
 
  Here is a more in-depth look at its capabilities:

@@ -1,9 +1,14 @@
 # MULTI-FRAME 3D POINT CLOUDS
-## Putting time in perspective
-In many task such as autonomous cars localization and mapping (SLAM) and lane detection you have to label not just a single point cloud, but a series of clouds, called episodes. Supervisely provides labeling toolbox specially designed for such a case.
+
+{% hint style="info" %}
+[How To Use 3D Object Interpolation To Speed Up Point Cloud Annotation for LiDAR & Radar
+](https://supervisely.com/labeling-toolbox/3d-lidar-sensor-fusion/#episodes)
+{% endhint %}
+
+Our [toolbox for 3D Point Cloud labeling](3D-Point-Clouds.md) is a great solution for annotation a single point cloud at a time. But if you need to label a series of point clouds, we have a dedicated toolbox for that called 3D Point Clouds Episodes.
 
 ## **Point cloud episodes**
-Just like as specially designed [video labeling toolbox](https://supervisely.com/labeling-toolbox/videos/) is remarkably more performant than annotation of separate frames in [image toolbox](https://supervisely.com/labeling-toolbox/images/), specially designed 3D episodes toolbox is surpassingly more excellent in every aspect from playback speed to tracking performance.
+Just like as specially designed [video labeling toolbox](../videos/README.md) is remarkably more performant than annotation of separate frames in [image toolbox](../images/README.md), specially designed 3D episodes toolbox is surpassingly more excellent in every aspect from playback speed to tracking performance.
 
 ![](Point-cloud-episodes.gif)
 
@@ -15,10 +20,3 @@ Episode timeline panel provides overall structure, answers questions like what i
 ![](Point-cloud-episodes2.png)
 
 
-https://supervisely.com/blog/3d-object-interpolation-in-point-clouds/.
-
-{% hint style="info" %}
-You can find more information 
-[(here)](https://supervisely.com/labeling-toolbox/3d-lidar-sensor-fusion/#episodes)
-or in the [blog](https://supervisely.com/blog/3d-object-interpolation-in-point-clouds/)
-{% endhint %}

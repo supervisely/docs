@@ -17,7 +17,7 @@ At the moment the following roles are available:
 
 Every team must have at least one `admin`, but can have two or more.
 
-Roles are especially important when annotating with jobs, [link](/labeling/jobs/README.md)
+Roles are especially important when annotating with [labeling jobs.](/labeling/jobs/README.md)
 
 Here is the full list of roles permissions:
 

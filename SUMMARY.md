@@ -28,21 +28,18 @@
     * [Info](data-organization/project/info/info.md)
 
 
-
-* [Import & Export](data-organization/import/import.md)
-    * [import](data-organization/import/import/import.md)
-      * [Import using Web UI](data-organization/import/import/Import-using-Web-UI.md)
-        * [Add pictures to an existing dataset or project]()
-      * [Import using Team Files]()
-      * [Import from Cloud](data-organization/import/import/Import-from-Cloud.md)
-      * [Import using API & SDK](data-organization/import/import-sdk-api.md)
-      * [Import sample dataset]()
+* [Import](data-organization/import/import/import.md)
+  * [Import using Web UI](data-organization/import/import/Import-using-Web-UI.md)
+    * [Import into an existing dataset](data-organization/import/import/exesting-dataset.md)
+  * [Import using Team Files](data-organization/import/import/Import-Team-Files.md)
+  * [Import from Cloud](data-organization/import/import/Import-from-Cloud.md)
+  * [Import using API & SDK](data-organization/import/import-sdk-api.md)
+  * [Import sample dataset](data-organization/import/import/Import-sample-dataset.md)
 
 
-
-  * [Export](data-organization/import/export/export.md)
-    * [Export via SDK/API](data-organization/import/export/export-sdk.md)
-    * [Export Applications](data-organization/import/export/export-apps.md)
+* [Export](data-organization/import/export/export.md)
+  * [Export via SDK/API](data-organization/import/export/export-sdk.md)
+  * [Export Applications](data-organization/import/export/export-apps.md)
 * [Team Files](data-organization/team-files/README.md)
 * [Data usage & Cleanup](data-organization/storage/README.md)
 * [Operations with Data](/data-organization/Operations-with-Data/README.md)
@@ -55,9 +52,9 @@
 
 ## 📝 Labeling
 
-* Labeling Toolboxes 
+* [Labeling Toolboxes](labeling/Labeling-toolbox.md)
   * [Images](labeling/images/README.md)
-    * [Multi-view images](<labeling/images/Multi-view images/Multi-view images.md>)
+  * [Multi-view images](<labeling/images/Multi-view images/Multi-view images.md>)
   * [Videos](labeling/videos/README.md)
     * [Video tracking](labeling/videos/video-tracking.md)
   * [3D Point Clouds](labeling/3D-Point-Clouds/3D-Point-Clouds.md)
@@ -86,7 +83,6 @@
 ## 🔮 Neural Networks
 
 * [Overview](neural-networks/overview/overview.md)
-* [Deploy an Agent](neural-networks/Deploy-an-Agent/Deploy-an-Agent.md)
 * [Train custom Neural Networks](neural-networks/custom-nn/custom-nn.md)
 * [Run pre-trained models](neural-networks/pre-trained-models.md)
 

@@ -8,13 +8,15 @@ Traditionally all annotators are compared with each other and the consensus scor
 ![](Labeling-Consensus.png)
 
 {% hint style="info" %}
-We have an [application](https://ecosystem.supervisely.com/apps/consensus?utm_source=blog) for easy use
+Example above is Labeling Consensus [application](https://ecosystem.supervisely.com/apps/consensus?utm_source=blog) from our Ecosystem.
+{% endhint %}
 
-You can see a detailed example in the blog
-[(https://supervisely.com/blog/labeling-consensus)](https://supervisely.com/blog/labeling-consensus/)
+{% hint style="info" %}
+
+Learn more about Labeling Consensus in [How to use labeling consensus to get accurate training data](https://supervisely.com/blog/labeling-consensus) tutorial.
+
 {% endhint %}
 
 ## Step-By-Step Guide
 
 {% embed url="https://www.youtube.com/watch?v=a9psonpLPIw&ab_channel=Supervisely" %} Video guide {% endembed %}
-https://supervisely.com/blog/labeling-consensus

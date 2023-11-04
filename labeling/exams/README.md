@@ -10,18 +10,19 @@ Why do we need **Labeling Guides** and **Labeling Exams**? Let’s consider seve
 - From labelers perspective, comprehensive annotation policy should be presented as **easy to learn guides and materials**
 - From time to time company changes annotation policy, all labelers have to be **notified and re-examined**
 
-**Labeling Guides** and **Labeling Exams** in Supervisely are designed to handle all these aspects.
+**Labeling Guides** and [**Labeling Exams**](https://ecosystem.supervisely.com/apps/exams) in Supervisely are designed to handle all these aspects.
 
 ## Labeling Guides
 
 Labeling Guides are videos, documents and markdown posts. You can pin here your annotation policy, examples of good and bad labeling and so on. Labeling Guides can later be attached to Labeling Jobs and Exams.
 
 ![](guides.png)
+
 ![](guides2.png)
 
 
 ## Labeling Exams
-We recommend using exams via the new app. It has new features, improvements, and can be customized by request. 
+We recommend using exams via the new [app in Ecosystem](https://ecosystem.supervisely.com/apps/exams). It has new features, improvements, and can be customized by request. 
 
 Measure how labelers understand task. A manager sees the table with exams and their general information.
 
