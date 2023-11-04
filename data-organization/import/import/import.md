@@ -1,5 +1,5 @@
 # Import 
-You already know [(core concepts)](../../overview.md) that we have projects and datasets, catalogs of pictures and videos. You can also [create annotations](../../../labeling/images/README.md) there, but how can you load your data or try supervisely a data sample as an example?
+You already know that we have projects and datasets, catalogs of pictures and videos. You can also [create annotations](../../../labeling/images/README.md) there, but how can you load your data or try supervisely a data sample as an example?
 
 Dataset formats are very different (coco, cityscapes and others), and there are many more modalities (pictures, videos and others), and even just with pictures, there are many variations of file formats.
 

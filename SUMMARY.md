@@ -33,13 +33,14 @@
     * [Import into an existing dataset](data-organization/import/import/exesting-dataset.md)
   * [Import using Team Files](data-organization/import/import/Import-Team-Files.md)
   * [Import from Cloud](data-organization/import/import/Import-from-Cloud.md)
-  * [Import using API & SDK](data-organization/import/import-sdk-api.md)
+  * [Import using API & SDK](data-organization/import/import/import-sdk-api.md)
   * [Import sample dataset](data-organization/import/import/Import-sample-dataset.md)
 
 
 * [Export](data-organization/import/export/export.md)
-  * [Export via SDK/API](data-organization/import/export/export-sdk.md)
+  * [Export via SDK/API](  data-organization/import/export/export-sdk-api.md)
   * [Export Applications](data-organization/import/export/export-apps.md)
+
 * [Team Files](data-organization/team-files/README.md)
 * [Data usage & Cleanup](data-organization/storage/README.md)
 * [Operations with Data](/data-organization/Operations-with-Data/README.md)
