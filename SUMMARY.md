@@ -86,9 +86,9 @@
 ## 🔮 Neural Networks
 
 * [Overview](neural-networks/overview/overview.md)
-  * [Deploy an Agent](neural-networks/Deploy-an-Agent/Deploy-an-Agent.md)
-  * [Train custom Neural Networks](neural-networks/custom-nn/custom-nn.md)
-  * [Run pre-trained models](neural-networks/pre-trained-models.md)
+* [Deploy an Agent](neural-networks/Deploy-an-Agent/Deploy-an-Agent.md)
+* [Train custom Neural Networks](neural-networks/custom-nn/custom-nn.md)
+* [Run pre-trained models](neural-networks/pre-trained-models.md)
 
 
 ## 👔 Enterprise Edition

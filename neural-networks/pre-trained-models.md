@@ -40,7 +40,7 @@ You can deploy your trained model in Supervisely with just a click or pick one o
 
 
 {% hint style="info" %}
-You can see a detailed exampe in the [blog](https://supervisely.com/blog/segment-anything-in-high-quality-HQ-SAM/) 
+You can see a detailed example in the [blog](https://supervisely.com/blog/segment-anything-in-high-quality-HQ-SAM/) 
 {% endhint %}
 
 
