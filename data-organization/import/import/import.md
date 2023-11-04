@@ -12,4 +12,4 @@ Using applications or methods, you can turn your files of pictures, videos and a
 - Supervisor storage on a remote disk, for example S3 (enterprise only available)
 - Storage in external storage Import by “Links”
 
-We are super smart, so when importing we count file hashes and do not initiate upload of duplicates.
+**When importing we count file hashes and do not initiate upload of duplicates.**
