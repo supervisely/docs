@@ -19,7 +19,7 @@ You can think of Supervisely as an Operating System available via your web brows
 
 ![](main-ecosystem.png)
 
-{% embed url=”https://ecosystem.supervisely.com” %}{% endembed %} 
+{% embed url="https://ecosystem.supervisely.com" %}{% endembed %} 
 
 The simplicity of creating Supervisely Apps has already led to the development of [hundreds of applications](https://ecosystem.supervisely.com/), ready to be run within a single click in a web browser and get the job done.
 
@@ -29,7 +29,7 @@ Label your data, perform quality assurance, inspect every aspect of your data, c
 
 ![](ecsystem-scripts.png)
 
-{% embed url=”https://developer.supervisely.com” %}{% endembed %} 
+{% embed url="https://developer.supervisely.com" %}{% endembed %} 
 
 Feel free to join the development of Supervisely and start building your own Supervisely Apps. You can integrate your favorite GitHub repository, machine learning model, create an import or export of a custom data format or anything in between!
 

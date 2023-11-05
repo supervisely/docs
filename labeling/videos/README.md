@@ -31,6 +31,6 @@ Video labeling toolbox has countless features, but most importantly, it provides
 
 You can check this short video to get an overview on AI capabilities in the video labeling toolbox:
 
-{% embed url=" (https://www.youtube.com/watch?v=7fc0JF_o5VM)" %} Video guide {% endembed %}
+{% embed url="https://www.youtube.com/watch?v=7fc0JF_o5VM" %} Video guide {% endembed %}
 
 

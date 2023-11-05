@@ -42,7 +42,7 @@ Anyway, here, in the modal window, drag and drop one or more images in one of th
 Once the uploading is finished, enter a name in the “Result Project Name” field and click the “Run” button at the bottom of the modal window (you might need to scroll down a bit).
 
 {% hint style="info" %}
-You can actually click the "Run" button even before uploading is finished — we will wait for it for you.
+You can actually click the "Run" button even before uploading is done — we will wait take it from there.
 {% endhint %}
 
 You will be redirected to the tasks page where you can watch the progress of the application. You can click “three dots” (⋮) icon and check the application logs.
