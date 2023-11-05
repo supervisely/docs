@@ -20,7 +20,7 @@ CLEANUP_DOCKER_UNTIL=24h
 
 ## Manual agent cleanup
 
-At the Cluster section for each agent you can [monitor storage](/customization/agents/clean_up) in real time. You will find there a few buttons that clean agent cache.
+At the Cluster section for each agent you can [monitor storage](../../getting-started/connect-your-computer/agents/status_and_troubleshooting/status.md) in real time. You will find there a few buttons that clean agent cache.
 
 ## Automatic agent cleanup
 

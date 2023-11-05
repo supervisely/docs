@@ -55,7 +55,7 @@ You can configure each folder using the advanced settings in the Agent Instructi
 Start -> Team Cluster -> 3 dots -> Instructions.
 
 Click on the `Advanced settings` button and you will see the following form:
-![](images/agent_offline_usage.png)
+![](../offline-usage/images/agent_offline_usage.png)
 
 You should configure both "Agent host directory" and "Folder to mount" with the path to the new location.
 For example, you might want to have a dedicated folder for agents on another drive: `/mnt/storage/supervisely/agents`.

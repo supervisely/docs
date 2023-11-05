@@ -172,7 +172,7 @@ Grayscale transformations to be applied to Pixel Data are defined by the equival
 
 **Fields description for `slices` field:**  
 - index - int value of slice index
-- figures - list of figures placed on slice. It can be [bitmap](./04_supervisely_format_objects#bitmap) or [rectangle](./04_supervisely_format_objects#rectangle).
+- figures - list of figures placed on slice. It can be [bitmap](./04_Supervisely_Format_objects.md#bitmap) or [rectangle](./04_Supervisely_Format_objects.md#rectangle).
 
 ## Key id map file
 

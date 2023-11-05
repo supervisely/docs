@@ -6,10 +6,6 @@ So how does it work? Using [cluster page](add_delete_node/add_delete_node.md) yo
 
 Supervisely Computational Cluster can be scaled horizontally without any limits (All limits are defined by licensing agreement). Now users can add tens of nodes and perform hundreds of tasks in parallel. 
 
-![](../../assets/legacy/cluster/agent-diagramm.png)
-
-&nbsp;
-
 {% hint style="success" %}
 This technology allows to organize and administrate a private data center inside the organization without any special knowledge. Now data scientists within the organization can easily share computational resources and perform multiple experiments simultaneously (NN training / inference, applying massive data augmentations and so on). 
 {% endhint %}

@@ -50,6 +50,6 @@ Once the import is finished, you will see the link to your new project in the Ou
 
 ![](project.png)
 
-All set! Now, in the [next section](Getting-Started-Annotate.md), let’s annotate your uploaded images.
+All set! Now, in the [next section](How-to-annotate.md), let’s annotate your uploaded images.
 
 

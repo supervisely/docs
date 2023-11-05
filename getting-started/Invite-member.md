@@ -16,7 +16,7 @@ This 5-minute tutorial is a part of introduction to Supervisely series. You can 
 If you want to learn more about collaboration, team members, labeling jobs and much more, then you need to go to [this section.](../collaboration/teams.md)
 {% endhint %}
 
-We have now learned how to [upload](Getting-Started-Import-an-images.md) and [annotate](Getting-Started-Annotate.md) datasets — that’s great! But when it comes to a more realistic scenario of creating a computer vision dataset, you will need more than just you alone. You will need a team of people working together on the same data. So, let’s invite one!
+We have now learned how to [upload](How-to-import.md) and [annotate](How-to-annotate.md) datasets — that’s great! But when it comes to a more realistic scenario of creating a computer vision dataset, you will need more than just you alone. You will need a team of people working together on the same data. So, let’s invite one!
 
 First, login to Supervisely and click the “Start” button. Select “Team members” — you will see the list of users who are members of the current [team](../collaboration/teams.md) (which you can find right next to the “Start” button). Presumably, it’s just you alone now. Let’s fix that!
 
