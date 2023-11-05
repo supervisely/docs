@@ -7,6 +7,7 @@ This 5-minute tutorial is a part of introduction to Supervisely series. You can 
 - [How to annotate](../How-to-annotate.md)
 - [How to invite team members](../Invite-member.md)
 - How to connect agents **(you are here)**
+- [How to train models](how-to-train-models.md)
 
 {% endhint %}
 

@@ -19,6 +19,7 @@
       * [AMI (Amazon)](getting-started/connect-your-computer/agents/ami/README.md)
       * [Clean Up](getting-started/connect-your-computer/agents/clean_up/clean_up.md)
       * [Add docker registry](getting-started/connect-your-computer/agents/custom-docker-registry/README.md)
+* [How to train models](getting-started/how-to-train-models.md)
 
 ## 📂 Data Organization
 
