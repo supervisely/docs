@@ -4,8 +4,8 @@
 This 5-minute tutorial is a part of introduction to Supervisely series. You can complete them one-by-one, separately, or jump the rest of the documentation at any moment.
 
 - How to import **(you are here)**
-- [How to annotate](Getting-Started-Annotate.md)
-- [How to invite team members](Getting-Started-Invite-member.md)
+- [How to annotate](How-to-annotate.md)
+- [How to invite team members](Invite-member.md)
 - [How to connect agents](connect-your-computer/README.md)
 
 {% endhint %}

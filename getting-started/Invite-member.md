@@ -3,9 +3,9 @@
 {% hint style="info" %}
 This 5-minute tutorial is a part of introduction to Supervisely series. You can complete them one-by-one, separately, or jump the rest of the documentation at any moment.
 
-- [How to import](Getting-Started-Import-an-images.md)
-- [How to annotate](Getting-Started-Annotate.md)
-- [How to invite team members]**(you are here)**
+- [How to import](How-to-import.md)
+- [How to annotate](How-to-annotate.md)
+- How to invite team members **(you are here)**
 - [How to connect agents](connect-your-computer/README.md)
 
 {% endhint %}
