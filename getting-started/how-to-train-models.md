@@ -19,3 +19,7 @@ This 5-minute tutorial is a part of introduction to Supervisely series. You can 
 {% hint style="danger" %}
 We are working on this page — please come back soon!
 {% endhint %}
+
+Meanwhile, please check the main section of the documentation on neural networks:
+
+{% page-ref page="neural-networks/overview/overview.md" %}

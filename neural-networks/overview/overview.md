@@ -1,7 +1,6 @@
-# Overview
 In Supervisely you can do much more than just labeling, and of the most important features of the platforms in our unique ecosystem for machine learning, that unifies the best models, AI tools for analysis and model improvement, plus numerous applications built on top.
 
-Apart from many other platforms, Supervisely is built like an OS for Computer Vision. Because of that, we made possible integration of the best machine learning models and tools on our platform. Instead of trying to put various models inside a black box,  the [Ecosystem](https://ecosystem.supervisely.com/) of the best models and tools integrated as Supervisely Apps.
+Apart from many other platforms, Supervisely is built like an OS for Computer Vision. Because of that, we made possible integration of the best machine learning models and tools on our platform. Instead of trying to put various models inside a black box, the [Ecosystem](https://ecosystem.supervisely.com/) of the best models and tools integrated as Supervisely Apps.
 
 {% hint style="info" %}
  A good start for understanding how Neural Networks work in Supervisely would be [Part 4 of our video course “Computer Vision with Supervisely”](https://supervisely.com/what-is-supervisely/#37) 
