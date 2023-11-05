@@ -126,3 +126,4 @@
 * [Changelog](https://app.supervisely.com/changelog)
 * [GitHub](https://github.com/supervisely/supervisely)
 * [Blog](https://supervisely.com/blog/)
+* [Ecosystem](https://ecosystem.supervisely.com/)
