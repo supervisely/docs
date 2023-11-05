@@ -7,8 +7,8 @@ Having entered the project, in the top menu we see the statistics section. In th
 ## Datasets
 **In the datasets section we see:**
 - Name of the dataset
-- the amount of data inside each dataset located in the selected project
-- data size of individual datasets and the entire project
+- The amount of data inside each dataset located in the selected project
+- Data size of individual datasets and the entire project
 
 ## Images
 **In the Images section we see:**
@@ -18,15 +18,15 @@ Having entered the project, in the top menu we see the statistics section. In th
 - Images in dataset
 
 ## Images Tags and Object Tags
-**In the Images tags and Object Tags sections we see:**
-- what tags are used in the dataset and how many of them are marked
+**In the Images tags and Object Tags sections you can see:**
+- What tags are used in the dataset and how many of them are marked
 - Images tagged
 - Images not tagged
 
 ## Object
 **In the Object section we see:**
 - Name of the dataset
-- how many labeled objects are inside each dataset.
+- How many labeled objects are inside each dataset.
 
 ## Object Area
 **In the Object Area section we see:**

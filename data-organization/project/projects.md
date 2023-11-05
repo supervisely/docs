@@ -16,9 +16,11 @@ Please note the ⋮ ("three dots") icon in the bottom right corner of a project.
 
 Wait, there is no "Create" button on this page. So how do I create one?
 
+You can take a [sample project](https://ecosystem.supervisely.com/import+images+project) from the ecosystem.
+
 ### Import Data
 
-Upload images or videos or other files from your computer at the "Import" page. You will be asked to provide a name for a Project — and after successful import, you will have one.
+[Upload](../import/import/import.md) images, videos or other files from your computer at the ["Import"](../import/import/import.md) page. You will be asked to provide a name for a Project — and after successful import, you will have one.
 
 
 ### Add using API
@@ -36,16 +38,22 @@ At the moment we support:
 
 You can see a project type in the top left corner of a project card.
 
-## Additional features:
-- Switch view mode
 
-    ![](Switch-view-mode1.png)
-    ![](Switch-view-mode2.png)
-- Filter projects by:
-    - **Types.** Image, Video, Point cloud, Volumes.
-    - **Authors.** The person who uploaded the project
-- Manipulate projects via [Data Commander](data-organization/data-commander/README.md)
-- The project can be placed in the trash, this will not delete it. [(Storage Cleanup)](enterprise/cleanup/README.md)
+## Cards & table views
+At the Project page you can change how to list projects and datasets: as cards or as a table. You can switch the view by clicking the icon at the most right side of the page.
+
+![](Switch-view-mode1.png)
+
+![](Switch-view-mode2.png)
+
+## Filter & sort projects
+Show only specific projects and datasets by multiple parameters, including project type, labeling job, author and so on.
+
+## Data Commander
+You can also find the list of your projects across all of your teams and workspaces by navigating to the [Data Commander](../data-commander/README.md). There, you can move or copy both projects, datasets, images and even project metadata.
+
+## Trash Bin
+You can remove one or multiple projects and datasets by selecting them using checkboxes and clicking the “Move to Trash” button. This won’t delete your data immediately — you can learn more in the [Storage Cleanup](../storage/README.md) section.
 
 
 

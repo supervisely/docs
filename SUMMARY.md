@@ -25,7 +25,6 @@
     * [Classes](data-organization/project/classes/classes.md)
     * [Tags](data-organization/project/tags/tags.md)
     * [Statistics](data-organization/project/statistics/statistics.md)
-    * [Info](data-organization/project/info/info.md)
 
 
 * [Import](data-organization/import/import/import.md)
@@ -38,8 +37,7 @@
 
 
 * [Export](data-organization/import/export/export.md)
-  * [Export via SDK/API](  data-organization/import/export/export-sdk-api.md)
-  * [Export Applications](data-organization/import/export/export-apps.md)
+
 
 * [Team Files](data-organization/team-files/README.md)
 * [Data usage & Cleanup](data-organization/storage/README.md)
@@ -62,9 +60,7 @@
     * [3D Point Clouds Episodes](labeling/3D-Point-Clouds/3D-Point-Clouds-episod.md)
     * [Sensor-fusion](labeling/3D-Point-Clouds/Sensor-fusion/Sensor-fusion.md)
   * [DICOM](labeling/DICOM/DICOM.md)
-* [AI Labeling with Supervisely Apps](labeling/AI-Labeling.md)
-  *  [Smart Tool](labeling/images/smart-tool-apps/README.md)
-* [Custom UIs](labeling/Coustom-UI.md)
+
 
 ## 🤝 Collaboration
 

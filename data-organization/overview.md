@@ -6,7 +6,7 @@ To organize data for labeling and neural net training is not an easy task. If th
 
 Project is a combination of datasets and related meta information (like classes and tags) and it's a major building block of data organization in Supervisely.
 
-{% page-ref page="projects.md" %}
+{% page-ref page="project/projects.md" %}
 
 ## 📂 Datasets
 
@@ -16,19 +16,19 @@ This is where your labeled and unlabeled images, videos and point clouds live. A
 You can upload images multiple times, but only one copy will be stored inside Supervisely. This approach allows us to effectively work with cloud storage. Also this has a good effect on system performance and backup speed.
 {% endhint %}
 
-{% page-ref page="datasets.md" %}
+{% page-ref page="project/datasets/datasets.md" %}
 
 ## 🎨 Classes
 
 Classes are pre-defined types of your annotations, for example Person or Background. Thus, every label you create has defined class.
 
-{% page-ref page="classes.md" %}
+{% page-ref page="project/classes/classes.md" %}
 
 ## 🏷️ Tags
 
 To associate some extra information with annotations (or images, or videos, ...) you can define a Tag, for example `needs_review`.
 
-{% page-ref page="tags.md" %}
+{% page-ref page="project/tags/tags.md" %}
 
 ## Example
 
@@ -41,6 +41,6 @@ Also, there are two tags defined: a "vehicle_type" of several pre-defined option
 Datasets are used to split data into a "subfolders" to make data management easier. For example, you can then define a [Labeling Job](../labeling/jobs/README.md) to label all Vehicles in Zurich.
 
 {% hint style="info" %}
-This is just an example, experiment! Maybe you would like to have projects like "Data from 04/14/2020" or "From Mike" or even "To train v2 (final) (2)" 😃  
+This is just an example, experiment! Maybe you would like to have projects like "Data from Data from 14 august" or "From Mike" or even "To train v2 (final) (2)" 😃  
 {% endhint %}
 
