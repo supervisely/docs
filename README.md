@@ -11,26 +11,25 @@ Supervisely is available [online](https://app.supervisely.com/signup) for free, 
 
 * Label **images**, **videos**, **3D point clouds**, **volumetric slices** and other data in the best labeling tool.
 
-![](assets/labeling-ui.jpg)
+![](assets/main-screen.png)
+
 
 * **Manage** and **track** annotation workflow at scale with teams, workspaces, roles and labeling jobs.
 
-![](assets/jobs-ui.jpg)
+![](assets/main-jobs.png)
 
-* **Train** and **apply** Neural Networks on your data — from our Model Zoo or your custom ones!
+* **Train** neural networks on your custom datasets or use pre-trained models to speed up manual labeling.
 
-![](assets/neural-networks-ui.jpg)
+![](assets/main-nntrain.png)
 
-* Explore your data and automate common tasks with integrated Python Notebooks and Scripts!
 
-![](assets/notebooks-ui.jpg)
+
+* Use the best machine learning tools, visualize and improve your data with hundreds of applications from [Ecosystem](https://dev.supervise.ly/ecosystem/)
+
+![](assets/main-ecosystem.png)
 
 ### What's next?
 
 The best way to explore Supervisely is to try it out — so don't wait and [create an account](https://app.supervisely.com/signup) \(it's completely free!\). Here are some things to start with:
 
-{% page-ref page="getting-started/first-steps.md" %}
-
-Still have some questions? Check our FAQ here:
-
-{% page-ref page="getting-started/faq.md" %}
+{% page-ref page="getting-started/connect-your-computer/README.md" %}

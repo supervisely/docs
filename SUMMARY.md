@@ -1,9 +1,11 @@
 # Table of contents
-## 📌 Introduction
 * [🤖 What's Supervisely](README.md)
-* [Ecosystem of Supervisely Apps](assets/text.md)
+* [🚀Ecosystem of Supervisely Apps](ecosystem/ecosystem.md)
 
 ## 📌 Getting started
+* [Import your first image](getting-started/Getting-Started-Import-an-images.md)
+* [Label your first image](getting-started/Getting-Started-Annotate.md)
+* [Invite member to your team](getting-started/Getting-Started-Invite-member.md)
 * [Connect your computer](getting-started/connect-your-computer/README.md)
   * [Unix-based](getting-started/connect-your-computer/unix-based/unix-based.md)
   * [Windows WSL](getting-started/connect-your-computer/windows-wsl/windows-wsl.md)
@@ -16,6 +18,7 @@
       * [AMI (Amazon)](getting-started/connect-your-computer/agents/ami/README.md)
       * [Clean Up](getting-started/connect-your-computer/agents/clean_up/clean_up.md)
       * [Add docker registry](getting-started/connect-your-computer/agents/custom-docker-registry/README.md)
+* [Train your first AI model]()
 
 ## 📂 Data Organization
 
@@ -54,13 +57,13 @@
 
 * [Labeling Toolboxes](labeling/Labeling-toolbox.md)
   * [Images](labeling/images/README.md)
-  * [Multi-view images](<labeling/images/Multi-view images/Multi-view images.md>)
-  * [Videos](labeling/videos/README.md)
+  * [Multi-view images](<labeling/images/Multi-view images/Multi-view-images.md>)
+* [Videos](labeling/videos/README.md)
     * [Video tracking](labeling/videos/video-tracking.md)
-  * [3D Point Clouds](labeling/3D-Point-Clouds/3D-Point-Clouds.md)
+* [3D Point Clouds](labeling/3D-Point-Clouds/3D-Point-Clouds.md)
     * [3D Point Clouds Episodes](labeling/3D-Point-Clouds/3D-Point-Clouds-episod.md)
     * [Sensor-fusion](labeling/3D-Point-Clouds/Sensor-fusion/Sensor-fusion.md)
-  * [DICOM](labeling/DICOM/DICOM.md)
+* [DICOM](labeling/DICOM/DICOM.md)
 
 
 ## 🤝 Collaboration
