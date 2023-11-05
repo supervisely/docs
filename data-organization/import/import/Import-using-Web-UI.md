@@ -1,7 +1,7 @@
 # Import using Web UI
 
 {% hint style="info" %}
-Check our 5-minute tutorial on [how to import your first images to Supervisely](../../../getting-started/Getting-Started-Import-an-images.md).
+Check our 5-minute tutorial on [how to import your first images to Supervisely](../../../getting-started/How-to-import.md).
 {% endhint %}
 
 The most simple and straightforward method of importing is uploading your data using one of our Supervisely Apps. To start, open the Import page on the Start menu:
