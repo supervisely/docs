@@ -1,3 +1,8 @@
+---
+description: >-
+  Learn how to run model training or heavy processing on any computer in a single click
+---
+
 # How to connect agents
 
 {% hint style="info" %}

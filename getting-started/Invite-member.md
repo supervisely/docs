@@ -1,3 +1,8 @@
+---
+description: >-
+  Learn how to connect more people to your team and do things together
+---
+
 # How to invite team members
 
 {% hint style="info" %}
