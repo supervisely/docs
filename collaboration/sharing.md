@@ -1,15 +1,15 @@
-# Sharing
+# Resource Sharing
+While keeping your resources well-organized, there are times when you need to share them between teams and users. The platform offers several ways to do this.
 
-While having your resources organized in convenient, sometimes you need to share your resources between teams and users. There are three ways to do it. 
+### Cloning
+Cloning is one of the simplest methods to share resources. You can copy resources and data between teams by selecting "Clone to..." in the context menu and specifying the team to which you want to clone the item. Please note that you can only choose teams in which you are already a member.
 
-### Explore
+### Share via Link
+For more flexible resource sharing, you can create a unique link to grant access to the item. This allows you to share resources even with teams where you are not a member. When this link is opened in another team or workspace, you will see the option to clone the specific item.
 
-You can share projects, neural networks and plugins with the whole instance using the Explore section. Choose "Publish" in the context menu to add items to make them accessible for everyone. Users in different teams see the same items on the Explore page. Other users cannot change items in Explore, but can clone them to their current team and workspace.
+### Data Commander
+For more complex and extensive data exchange operations between teams and workspaces, you can make use of the "[Data Commander](../data-organization/data-commander/README.md)" tool. This tool provides additional capabilities for more flexible and controlled data movement and copying.
 
-### Clone
+### [Instance Copying Application](https://app.supervisely.com/ecosystem/apps/copy-project-between-instances?id=40)
 
-Clone can be used directly without Explore. Choose "Clone to..." in the context menu and select the team to which you want to clone the item. You can only select teams that have you as a member.
-
-### Share as link
-
-To clone an item directly to a team that doesn't have you as a member, create a unique link to share the item. When you open it in another team or workspace, you will see a conformation to clone a particular item.   
+To transfer resources between different instances of the platform, a dedicated [application](https://app.supervisely.com/ecosystem/apps/copy-project-between-instances?id=40) is available. It offers a convenient way to transfer resources and data between various environments, providing broader collaboration opportunities.

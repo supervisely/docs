@@ -1,4 +1,14 @@
-# Connect your computer
+# How to connect agents
+
+{% hint style="info" %}
+This 5-minute tutorial is a part of introduction to Supervisely series. You can complete them one-by-one, separately, or jump the rest of the documentation at any moment.
+
+- [How to import](../How-to-import.md)
+- [How to annotate](../How-to-annotate.md)
+- [How to invite team members](../Invite-member.md)
+- How to connect agents **(you are here)**
+
+{% endhint %}
 
 Supervisely Agent is a tiny docker container that allows you to connect your computational resources (cloud server or PC) to the platform. You can run any task from web interface (for example Neural Network training/inference/deploy). Running tasks with GPU will enhance performance and efficiency for your computer vision and deep learning projects.
 

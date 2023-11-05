@@ -1,27 +1,16 @@
-Currently Neural Networks are the methods of choice for dealing with most computer vision tasks. With Supervisely, you can train neural networks on your images, control and visualize training process. After the model is ready, you can apply it to recognize your images or download the model and use it in your products.
+# Overview
+In Supervisely you can do much more than just labeling, and of the most important features of the platforms in our unique ecosystem for machine learning, that unifies the best models, AI tools for analysis and model improvement, plus numerous applications built on top.
 
-Neural networks are at the heart of Supervisely and  extend Supervisely functionality in the following ways:
+Apart from many other platforms, Supervisely is built like an OS for Computer Vision. Because of that, we made possible integration of the best machine learning models and tools on our platform. Instead of trying to put various models inside a black box,  the [Ecosystem](https://ecosystem.supervisely.com/) of the best models and tools integrated as Supervisely Apps.
 
-- **Access to State-Of-The-Art models.** You will find a large collection of State-Of-The-Art models in Supervisely model collection that you can train and use in your products. Some of the available models are listed below:
-    - UNet
-    - Mask R-CNN
-    - YOLO v3
-    - DeepLab v3
-    - MobileNet SSD
-    - PSPNet
-    - ICNet
-    - Faster-RCNN
-    - and others
+{% hint style="info" %}
+ A good start for understanding how Neural Networks work in Supervisely would be [Part 4 of our video course “Computer Vision with Supervisely”](https://supervisely.com/what-is-supervisely/#37) 
+{% endhint %}
 
-- **Research automatization.** Building a neural network that provides desired levels of accuracy might require a lot of “training procedures”. It is very important to treat the process systematically - to be able to save, review and reproduce the results of experiments, share the results with other team members. The Supervisely was designed to automate research processes
+{% embed url="https://www.youtube.com/watch?v=1Z_0-kC6u9s&list=PLDo7qx2mEhsofZt0WgH968FuTM2bsnvUb&ab_channel=Supervisely" %} Video guide {% endembed %}
 
-- **Human-in-the-loop.** Human-in-the-loop approach is known to be effective when you need to perform image annotation faster.
+# Deploy an Agent
 
-- **Usage of pre-trained models.** Often, a computer vision system is built to handle "well-known" objects, such as people or cars. For such cases,  there are a number of pre-trained models in the collection. These models can be used as a ready-to-use-component through API, or for speeding up the annotation process.
+ Before you start training or running neural networks, you would need to connect your PC or a cloud server with GPU to Supervisely by running a simple command in your terminal. That will allow you to train neural networks and run inference right from the Supervisely web interface. You can find information on how to do this [here.](../../getting-started/connect-your-computer/README.md)
 
-- **Integration of custom models.** Docker technology makes it easy to integrate your custom neural networks into Supervisely. Just implement simple API and put your code into docker image.
-
-- **Smart tool optimization for segmenting specific objects on the images.** Smart Tool allows to do pixelwise annotation with minimum number of clicks. To adapt Smart Tool for your specific object you can train it within Supervisely.
-
-
-Please use the left menu to read more about neural networks.
+{% embed url="https://www.youtube.com/watch?v=aO7Zc4kTrVg&ab_channel=Supervisely" %} Video guide {% endembed %}

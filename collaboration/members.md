@@ -10,23 +10,23 @@ At the moment the following roles are available:
 
 - **Admin**: Has full access in the team. Admin can invite new team members and remove entities created by the other team members.
 - **Developer**: Similar to the admin, but can only remove entities created by themself and cannot invite new members to the team.
-- **Manager**: Has no access to things like Python Notebooks or Neural Networks, but can view and modify Projects & Labeling Jobs
+- **Manager**: Has no access to things like Neural Networks, but can view and modify Projects & Labeling Jobs
 - **Annotator**: Has access only to a single page, Labeling Jobs.
 - **Reviewer**: Same as Annotator, but can also create new labeling jobs
 - **Viewer**: Can only view items in team
 
 Every team must have at least one `admin`, but can have two or more.
 
+Roles are especially important when annotating with [labeling jobs.](/labeling/jobs/README.md)
+
 Here is the full list of roles permissions:
 
 | Actions                   | Admin         | Developer     | Manager       | Viewer        | Annotator     |
 | :------------------------ | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: |
-| **DTL**                   | ✅             | ✅             |               |               |               |
 | **Import**                | ✅             | ✅             |               |               |               |
 | **Neural Networks**       | ✅             | ✅             |               |               |               |
-| **Python Notebooks**      | ✅             | ✅             |               |               |               |
 | **Tasks**                 | ✅             | ✅             |               |               |               |
-| &#8192;                   |               |               |               |               |               |
+&#8192;                   |               |               |               |               |               |
 | **Teams**                 |               |               |               |               |               |
 | &#8192;&#8192; Create     | ✅             | ✅             |               |               |               |
 | &#8192;&#8192; Edit       | ✅             | ✅             | ✅             |               |               |
@@ -49,7 +49,7 @@ Here is the full list of roles permissions:
 | &#8192;&#8192; Remove own | ✅             | ✅             |               |               |               |
 | &#8192;&#8192; Remove all | ✅             |               |               |               |               |
 | &#8192;                   |               |               |               |               |               |
-| **Plugins**               |               |               |               |               |               |
+| **Apps**               |               |               |               |               |               |
 | &#8192;&#8192; List       | ✅             | ✅             |               |               |               |
 | &#8192;&#8192; View       | ✅             | ✅             |               |               |               |
 | &#8192;&#8192; Create     | ✅             | ✅             |               |               |               |
@@ -57,7 +57,7 @@ Here is the full list of roles permissions:
 | &#8192;&#8192; Remove own | ✅             | ✅             |               |               |               |
 | &#8192;&#8192; Remove all | ✅             |               |               |               |               |
 | &#8192;                   |               |               |               |               |               |
-| **Nodes**                 |               |               |               |               |               |
+| **Agents**                 |               |               |               |               |               |
 | &#8192;&#8192; List       | ✅             | ✅             |               |               | ✅             |
 | &#8192;&#8192; View       | ✅             | ✅             |               |               | ✅             |
 | &#8192;&#8192; Create     | ✅             | ✅             |               |               |               |
@@ -107,10 +107,19 @@ Here is the full list of roles permissions:
 | &#8192;&#8192; Edit       | ✅             | ✅             | ✅             |               | ✅             |
 | &#8192;&#8192; Remove     | ✅             | ✅             |               |               |               |
 | &#8192;                   |               |               |               |               |               |
-| **Figures**               |               |               |               |               |               |
+| **Annotation Objects**               |               |               |               |               |               |
 | &#8192;&#8192; List       | ✅             | ✅             | ✅             | ✅             | ✅             |
 | &#8192;&#8192; View       | ✅             | ✅             | ✅             | ✅             | ✅             |
 | &#8192;&#8192; Create     | ✅             | ✅             |               |               | ✅             |
 | &#8192;&#8192; Edit       | ✅             | ✅             | ✅             |               | ✅             |
 | &#8192;&#8192; Remove own | ✅             | ✅             |               |               | ✅             |
 | &#8192;&#8192; Remove all | ✅             | ✅             |               |               |               |
+| &#8192;
+**Team Files**              |               |               |               |               |               |
+| &#8192;&#8192; List       | ✅             | ✅             | ✅             | ✅             |               |
+| &#8192;&#8192; View       | ✅             | ✅             | ✅             | ✅             | ✅             |
+| &#8192;&#8192; Create     | ✅             | ✅             |               |               |               |
+| &#8192;&#8192; Edit       | ✅             | ✅             | ✅             |               |               |
+| &#8192;&#8192; Remove own | ✅             | ✅             |               |               |               |
+| &#8192;&#8192; Remove all | ✅             |               |               |               |               |
+| &#8192;                   |               |               |               |  

@@ -93,7 +93,7 @@ Some of the examples:
 Usually, we generate a unique file name or use file hash instead of the original file name.
 
 {% hint style="warning" %}
-You can configure Supervisely to [use remote storage](/enterprise-edition/advanced-tuning/s3), such as S3, instead of this folder. In this case this folder will be empty, and actual files will be stored as blob objects in the selected cloud.
+You can configure Supervisely to [use remote storage](../s3/README.md), such as S3, instead of this folder. In this case this folder will be empty, and actual files will be stored as blob objects in the selected cloud.
 {% endhint %}
 
 {% hint style="warning" %}

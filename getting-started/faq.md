@@ -22,4 +22,4 @@ The name Supervisely comes from machine learning term supervised learning — wh
 
 ## Origins of Supervisely
 
-It's not unusual when internal tools become public projects. Supervisely was first developed at Deep Systems as a solution to deal with everyday task of large datasets annotation. We hope that you will like Supervisely as much as we do and it'll become your favourite tool too 🎉.
+It's not unusual when internal tools become public projects. Supervisely was first developed as a solution to deal with everyday task of large datasets annotation. We hope that you will like Supervisely as much as we do and it'll become your favourite tool too 🎉.
