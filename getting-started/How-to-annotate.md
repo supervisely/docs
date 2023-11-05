@@ -16,7 +16,7 @@ This 5-minute tutorial is a part of introduction to Supervisely series. You can 
 You can learn more about Labeling, such as labeling of videos and 3D point clouds, using AI-assisted labeling and more in [this section.](../labeling/Labeling-toolbox.md)
 {% endhint %}
 
-Once you [uploaded your first images](Getting-Started-Import-an-images.md), let’s annotate it with a bounding box or a mask.
+Once you [uploaded your first images](How-to-import.md), let’s annotate it with a bounding box or a mask.
 
 Click on the project you’ve just created. You will open the list of datasets (subfolders) inside your project (you can learn more on data organization [here](../data-organization/overview.md)). Depending on if you have uploaded a set of folders with images or just images directly, there could be one or more datasets. Don’t worry — you can move and copy images between datasets (and even project) using the [Data Commander.](../data-organization/data-commander/README.md) But why are there projects and datasets, what’s the difference?
 
