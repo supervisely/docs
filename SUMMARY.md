@@ -19,7 +19,6 @@
       * [Clean Up](getting-started/connect-your-computer/agents/clean_up/clean_up.md)
       * [Add docker registry](getting-started/connect-your-computer/agents/custom-docker-registry/README.md)
 
-
 ## 📂 Data Organization
 
 * [Overview](data-organization/overview.md)
@@ -28,8 +27,6 @@
     * [Classes](data-organization/project/classes/classes.md)
     * [Tags](data-organization/project/tags/tags.md)
     * [Statistics](data-organization/project/statistics/statistics.md)
-
-
 * [Import](data-organization/import/import/import.md)
   * [Import using Web UI](data-organization/import/import/Import-using-Web-UI.md)
   * [Import sample dataset](data-organization/import/import/Import-sample-dataset.md)
@@ -37,12 +34,7 @@
   * [Import using Team Files](data-organization/import/import/Import-Team-Files.md)
   * [Import from Cloud](data-organization/import/import/Import-from-Cloud.md)
   * [Import using API & SDK](data-organization/import/import/import-sdk-api.md)
-
-
-
 * [Export](data-organization/import/export/export.md)
-
-
 * [Team Files](data-organization/team-files/README.md)
 * [Data usage & Cleanup](data-organization/storage/README.md)
 * [Operations with Data](/data-organization/Operations-with-Data/README.md)
@@ -78,14 +70,11 @@
 * [Activity Log](collaboration/Activity-Log.md)
 * [Sharing](collaboration/sharing.md)
 
-
-
 ## 🔮 Neural Networks
 
 * [Overview](neural-networks/overview/overview.md)
 * [Train custom Neural Networks](neural-networks/custom-nn/custom-nn.md)
 * [Run pre-trained models](neural-networks/pre-trained-models.md)
-
 
 ## 👔 Enterprise Edition
 
@@ -116,7 +105,6 @@
 
 ## 🔧 Customization and Integration 
 
-* [Developer Portal](https://developer.supervisely.com/)
 * [Supervisely .JSON Format](data-organization/Annotation-JSON-format/00_ann_format_navi.md)
     * [Project Structure](data-organization/Annotation-JSON-format/01_Project_Structure_new.md)
     * [Project Classes and Tags](data-organization/Annotation-JSON-format/Project_Classes_And_Tags.md)
@@ -126,6 +114,7 @@
     * [Individual Video Annotations](data-organization/Annotation-JSON-format/06_Supervisely_format_videos.md)
     * [Point Cloud Episodes](data-organization/Annotation-JSON-format/07_Supervisely_format_pointcloud_episode.md)
     * [Volumes Annotation](data-organization/Annotation-JSON-format/08_Supervisely_format_volume.md)
+* [Developer Portal](https://developer.supervisely.com/)
 * [SDK](https://supervisely.readthedocs.io/en/latest/sdk_packages.html)
 * [API](https://api.docs.supervisely.com)
   
@@ -133,5 +122,4 @@
 
 * [Changelog](https://app.supervisely.com/changelog)
 * [GitHub](https://github.com/supervisely/supervisely)
-* [Developer Portal](https://developer.supervisely.com)
-* [Blog](https://medium.com/@supervisely)
+* [Blog](https://supervisely.com/blog/)

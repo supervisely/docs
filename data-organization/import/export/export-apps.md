@@ -7,7 +7,7 @@ from the context menu of a project or dataset or launch the application directly
     we have applications for [export to Supervisely Format.](https://app.supervisely.com/ecosystem/apps/export-to-supervisely-format?id=81)
     Starting from version 2.7.7 the application will save images metadata in JSON format to meta directory in each dataset.
 
-    Download images project or dataset in [Supervisely JSON format](https://docs.supervise.ly/data-organization/00_ann_format_navi?_ga=2.260390989.1588633722.1698657810-1548462166.1688143034). It is possible to download both images and annotations or only annotations.
+    Download images project or dataset in [Supervisely JSON format](../../../data-organization/Annotation-JSON-format/00_ann_format_navi.md). It is possible to download both images and annotations or only annotations.
 
     ![](export-super-format.png)
 

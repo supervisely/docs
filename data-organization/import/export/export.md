@@ -5,10 +5,9 @@ While your data and annotations are stored securely in Supervisely, you can expo
 
 ## Export using Supervisely Apps
 
-You can export data in different ways: from the context menu of a project or a dataset or you can launch the export application directly from the [Ecosystem.](https://ecosystem.supervisely.com/export)
+You can export data in different ways: from the context menu of a project or a dataset or you can launch the export application directly from the [Ecosystem](https://ecosystem.supervisely.com/export).
 
-
-### **Export to Supervisely Format**
+### Export to Supervisely Format
 
 The best way to export and download your dataset from Supervisely is by saving it to the [Supervisely Format.](../../supervisely-format.md) Since it has the full support of every capability available on the platform, no matter how complex your annotations and data are (for example, 3D labels of cloud point episodes with photo context), you can be 100% sure that all the information is saved in the convenient .json-based format.
 

@@ -23,7 +23,7 @@ First thing you will see after you login to Supervisely, is your [Projects](../d
 
 ![](clear-project.png)
 
-Click the Start button at the very top left corner of the page and click Import. You will see a selection of [Supervisely Apps](https://dev.supervise.ly/import/apps) that allows you to import data to Supervisely.
+Click the Start button at the very top left corner of the page and click Import. You will see a selection of [Supervisely Apps](https://ecosystem.supervisely.com/import/apps) that allows you to import data to Supervisely.
 
 
 Hover your cursor over the card “Import Images“ in the Essentials section and click Run App. This is how you run Supervisely Apps — and there are many more of them! Some will let you label your data, train neural networks or perform data operations. And most of them are open-source!

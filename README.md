@@ -23,8 +23,7 @@ Supervisely is available [online](https://app.supervisely.com/signup) for free, 
 ![](assets/main-nntrain.png)
 
 
-
-* Use the best machine learning tools, visualize and improve your data with hundreds of applications from [Ecosystem](https://dev.supervise.ly/ecosystem/)
+* Use the best machine learning tools, visualize and improve your data with hundreds of applications from [Ecosystem](https://ecosystem.supervisely.com/)
 
 ![](assets/main-ecosystem.png)
 
@@ -32,4 +31,4 @@ Supervisely is available [online](https://app.supervisely.com/signup) for free, 
 
 The best way to explore Supervisely is to try it out — so don't wait and [create an account](https://app.supervisely.com/signup) \(it's completely free!\). Here are some things to start with:
 
-{% page-ref page="getting-started/Getting-Started-Import-an-images.md" %}
+{% page-ref page="getting-started/How-to-import.md" %}
