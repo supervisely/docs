@@ -32,4 +32,4 @@ Supervisely is available [online](https://app.supervisely.com/signup) for free, 
 
 The best way to explore Supervisely is to try it out — so don't wait and [create an account](https://app.supervisely.com/signup) \(it's completely free!\). Here are some things to start with:
 
-{% page-ref page="getting-started/connect-your-computer/README.md" %}
+{% page-ref page="getting-started/Getting-Started-Import-an-images.md" %}

@@ -1,10 +1,19 @@
-# Getting Started: Annotate an image
-(такой же This 5-minute tutorial is a part…)
+#  How to annotate
 
-(и скрины на твое умотрение)
+{% hint style="info" %}
+This 5-minute tutorial is a part of introduction to Supervisely series. You can complete them one-by-one, separately, or jump the rest of the documentation at any moment.
+
+- [How to import](Getting-Started-Import-an-images.md)
+- How to annotate **(you are here)**
+- [How to invite team members](Getting-Started-Invite-member.md)
+- [How to connect agents](connect-your-computer/README.md)
+
+{% endhint %}
+
+![](getting-start-labeling.gif)
 
 {% hint style="success" %}
-You can learn more about Labeling, such as labeling of videos and 3D point clouds, using AI-assisted labeling and more in this section.
+You can learn more about Labeling, such as labeling of videos and 3D point clouds, using AI-assisted labeling and more in [this section.](../labeling/Labeling-toolbox.md)
 {% endhint %}
 
 Once you [uploaded your first images](Getting-Started-Import-an-images.md), let’s annotate it with a bounding box or a mask.
@@ -39,6 +48,7 @@ Now, let’s hover the cursor over any object on your image and make two clicks 
 
 You can also check our blog post on how to label with bounding boxes:
 
-{% embed url=“https://supervisely.com/blog/bounding-box-annotation-for-object-detection/” %}{% endembed %} 
 
-You rock! Now, you can explore other labeling tools (such as [polygons](https://supervisely.com/blog/how-to-use-polygon-anotation-tool-for-image-segmentation/), masks or skeleton shapes), more advanced tools, such as video or 3D point clouds — or continue our journey and see how [collaboration](../collaboration/teams.md) works in Supervisely.
+{% embed url=”https://supervisely.com/blog/bounding-box-annotation-for-object-detection/%}{% endembed %} 
+
+You rock! Now, you can explore other labeling tools (such as [polygons](https://supervisely.com/blog/how-to-use-polygon-anotation-tool-for-image-segmentation/), masks or skeleton shapes), more advanced tools, such as video or 3D point clouds — or continue our journey and see how [collaboration](../collaboration/members.md) works in Supervisely.

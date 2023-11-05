@@ -1,7 +1,7 @@
 # Import from Cloud
-It’s also worth mentioning that we have applications to import data not from your computer, but from cloud services
+It’s also worth mentioning that we have applications to import data not from your computer, but from cloud services.
 
-## Sample apps to import your data:
+## Sample apps to import your data
 * [Remote import](https://ecosystem.supervisely.com/apps/remote-import)
 * [Import images from cloud storage](https://ecosystem.supervisely.com/apps/import-images-from-cloud-storage)
 * [Import from Google Cloud Storage](https://ecosystem.supervisely.com/apps/import-from-google-cloud-storage)
