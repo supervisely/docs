@@ -1,7 +1,7 @@
 # How to invite team members
 
 {% hint style="info" %}
-This 5-minute tutorial is a part of introduction to Supervisely series. You can complete them one-by-one, separately, or jump the rest of the documentation at any moment.
+This 5-minute tutorial is a part of introduction to Supervisely series. You can complete them one-by-one, in random order, or jump to the rest of the documentation at any moment.
 
 - [How to import](How-to-import.md)
 - [How to annotate](How-to-annotate.md)
