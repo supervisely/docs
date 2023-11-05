@@ -1,3 +1,8 @@
+---
+description: >-
+  How Supervisely is different from others and what are the Ecosystem and Supervisely Apps?
+---
+
 # 🚀Ecosystem of Supervisely Apps
 
 ![](ecosystem-main.png)
