@@ -23,7 +23,7 @@
 
 ## 📂 Data Organization
 
-* [Overview](data-organization/overview.md)
+* [Core concepts](data-organization/overview.md)
 * [Projects](data-organization/project/projects.md)
     * [Datasets](data-organization/project/datasets/datasets.md)
     * [Classes](data-organization/project/classes/classes.md)
@@ -65,16 +65,16 @@
 
 ## 🤝 Collaboration
 
-* [Teams & Workspaces](collaboration/teams.md)
+* [Teams & workspaces](collaboration/teams.md)
 * [Members](collaboration/members.md)
 * [Issues](labeling/issues/README.md)
-* [Guides & Exams](labeling/exams/README.md)
-* [Activity Log](collaboration/Activity-Log.md)
+* [Guides & exams](labeling/exams/README.md)
+* [Activity log](collaboration/Activity-Log.md)
 * [Sharing](collaboration/sharing.md)
 
 ## 🔮 Neural Networks
 
-* [Overview](neural-networks/overview/overview.md)
+* [Starting with Neural Networks](neural-networks/overview/overview.md)
 * [Train custom Neural Networks](neural-networks/custom-nn/custom-nn.md)
 * [Run pre-trained models](neural-networks/pre-trained-models.md)
 
