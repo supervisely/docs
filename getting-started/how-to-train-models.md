@@ -22,4 +22,4 @@ We are working on this page — please come back soon!
 
 Meanwhile, please check the main section of the documentation on neural networks:
 
-{% page-ref page="neural-networks/overview/overview.md" %}
+{% page-ref page="../neural-networks/overview/overview.md" %}
