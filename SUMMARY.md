@@ -1,7 +1,7 @@
 # Table of contents
 ## 📌 Introduction
 * [🤖 What's Supervisely](README.md)
-* Ecosystem of Supervisely Apps
+* [Ecosystem of Supervisely Apps](assets/text.md)
 
 ## 📌 Getting started
 * [Connect your computer](getting-started/connect-your-computer/README.md)

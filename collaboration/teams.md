@@ -21,7 +21,7 @@ You can switch teams at any moment or create a new team in the left menu.
 
 When multiple users are collaborating together in the same team it is usually convenient to have a way to split results into separate "rooms" called "workspaces".
 
-Workspace is filter inside a particular team that allows to quickly switch between different sets of experiments. There are three resources that are split between workspaces:
+Workspace is filter inside a particular team that allows to quickly switch between different sets of experiments. There are two resources that are split between workspaces:
 
 - Projects and datasets
 - Workspace Tasks
