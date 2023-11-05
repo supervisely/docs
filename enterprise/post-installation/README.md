@@ -28,7 +28,7 @@ A good idea would be to check the Instance Settings page located in the admin's 
 
 ## Deploy an additional agent (optional)
 
-Every kind of potentially long operation (like Import or Training) is performed on so-called [agents](../../customization/agents/README.md). Before you can use Supervisely, you should deploy at least one.
+Every kind of potentially long operation (like Import or Training) is performed on so-called [agents](../../getting-started/connect-your-computer/README.md). Before you can use Supervisely, you should deploy at least one.
 
 During the installation we automatically deploy a default "Main Node" agent via `supervisely deploy-agent` so you don't have to do anything. But, if you don't have a GPU device on your machine with Supervisely, you may want to deploy an additional agent on AWS or some computer with a videocard.
 

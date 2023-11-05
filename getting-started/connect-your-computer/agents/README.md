@@ -9,10 +9,3 @@ Supervisely Computational Cluster can be scaled horizontally without any limits 
 {% hint style="success" %}
 This technology allows to organize and administrate a private data center inside the organization without any special knowledge. Now data scientists within the organization can easily share computational resources and perform multiple experiments simultaneously (NN training / inference, applying massive data augmentations and so on). 
 {% endhint %}
-
-What kind of tasks can you run on Agents? Here are some examples:
-
-- [Import](../../../data-organization/import-export.md) (converting datasets into Supervisely format)
-- [Data Transformation Language](../../../data-manipulation/dtl/index.md)
-- [Training](../../../neural-networks/overview/overview.md) neural networks
-- [Inference](../../../neural-networks/inference/inference.md) applying neural networks
