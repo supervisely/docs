@@ -1,6 +1,7 @@
 # Table of contents
 * [🤖 What's Supervisely](README.md)
 * [🚀 Ecosystem of Supervisely Apps](ecosystem/ecosystem.md)
+* [💡 FAQ](getting-started/faq.md)
 
 ## 📌 Getting started
 * [How to import](getting-started/How-to-import.md)
