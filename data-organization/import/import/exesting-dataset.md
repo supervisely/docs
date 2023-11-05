@@ -1,22 +1,15 @@
 # How to add images to an existing dataset or project
-Step 1. Run the app from Ecosystem
+It is possible to add more assets such as images to the existing project or dataset. Depending on the Supervisely App, some of them (not every application!) support additional context, such as Input Project or Input Dataset. You can look for it in the Run Application modal window, but there is a more simple way.
 
-![](exesting-dataset1.png)
+Go to the Projects or Datasets page, use the context menu (under three dots icon) and select Run App → Import. You find the list of Supervisely Apps that support project as an input and allow adding more content to it.
 
-Step 2. Find app [Import Images](https://app.supervisely.com/ecosystem/apps/import-images?id=147).
+## Example: add more images to a project
 
-![](run-app2.png)
+Step 1: Go to the Projects page
 
-Step 3. Change input type 
+Step 2: Select Run App → Import → Import Images
 
-![](step3.png)
+Step 3: Drag and drop additional images you want to add and click Run App button.
 
-Step 4. Select project
-
-![](select-project.png)
-
-Step 5. Drag & drop folder or images files, select options and press the Run button
-
-![](step5.png)
-
+Step 4: You will be redirected to the Tasks page where you can watch import progress. When it is done, you will see the link to your updated project (or find it at the Projects page).
 

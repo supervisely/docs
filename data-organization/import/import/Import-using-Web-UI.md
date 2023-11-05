@@ -1,60 +1,25 @@
 # Import using Web UI
 
+The most simple and straightforward method of importing is uploading your data using one of our Supervisely Apps. To start, open the Import page on the Start menu:
 
-To import data, go to the Import page
+![](import1.png)
 
-![](ecosystem.png)
+![](import2.png)
 
-![](import-apps.png)
+Next, select one of the Supervisely Apps and launch it with the Run button, read the description and follow the instructions.
 
-Select one of the applications and launch it with the Run button, read the description and follow the instructions
-
-![](run-app.png)
-
-## **Example 1: how to import pictures without annotations.**
-
-App can be launched from ecosystem, team files, images project and images dataset
-
-* [Running the app from ecosystem](https://app.supervisely.com/ecosystem/apps/import-images?id=147#run-from-ecosystem) you will be given options to create new project, upload images to existing project or existing dataset
-
-* [Running the app from team files](https://app.supervisely.com/ecosystem/apps/import-images?id=147#run-from-team-files) will result in new project
-
-* [Running the app from images project](https://app.supervisely.com/ecosystem/apps/import-images?id=147#run-from-images-project) will upload images to existing project, * from which it was launched
-* [Running the app from images dataset](https://app.supervisely.com/ecosystem/apps/import-images?id=147#run-from-images-dataset) will upload images to existing dataset, from which it was launched
-
-### Step-by-step guide
-Step 1. Run the app from Ecosystem
-
-![](run-app2.png)
-
-Step 2. Drag & drop folder or images files, select options and press the Run button
-
-![](use-app.png)
+## **Example: how to import images from your computer.**
 
 
-## **Example 2: How to import videos with annotations.**
+**Step 1.** Go to the Import page or Ecosystem and find the Import Images application. Hover your cursor over it and click the “Run app” button.
 
-### Step-by-step guide
-Step 1. Run the app from Ecosystem
+![](import-ecosystem.png)
 
-![](import-video.png)
+**Step 2.** In the modal window drag & drop a folder with images or images itself. Enter the name of the future project and click “Run”.
 
-Step 2. Drag & drop folder or video files, enter project name and press the Run button
+![](import-modal.png)
 
+**Step 3.** You will be redirected to the Tasks page where you can watch import progress. When it is done, you will see the link to your new project (or find it at the Projects page).
 
-![](import-video2.png)
-
-
-
-
-
-
-
-
-
-
-
-)
-
-
+![](import-image-task.png)
 

@@ -29,7 +29,7 @@
 
 * [Import](data-organization/import/import/import.md)
   * [Import using Web UI](data-organization/import/import/Import-using-Web-UI.md)
-    * [Import into an existing dataset](data-organization/import/import/exesting-dataset.md)
+  * [Import into an existing dataset](data-organization/import/import/exesting-dataset.md)
   * [Import using Team Files](data-organization/import/import/Import-Team-Files.md)
   * [Import from Cloud](data-organization/import/import/Import-from-Cloud.md)
   * [Import using API & SDK](data-organization/import/import/import-sdk-api.md)
