@@ -62,6 +62,7 @@
   * [Labeling Queues](labeling/jobs/Labeling-Queues.md)
   * [Labeling Consensus](labeling/jobs/Labeling-Consensus.md)
   * [Labeling Statistics](labeling/jobs/Labeling-Statistics.md)
+* [Labeling with AI-Assistance](labeling/AI-Labeling.md)
 
 ## 🤝 Collaboration
 
