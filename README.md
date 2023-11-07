@@ -6,7 +6,7 @@ Unlike other platforms, Supervisely is [built like OS](./ecosystem/ecosystem.md)
 
 Supervisely is available [online](https://app.supervisely.com/signup) for free, as well as an on-premise edition for enterprises.
 
-### With Supervisely you can
+## With Supervisely you can
 
 
 * [Label](labeling/Labeling-toolbox.md) **images**, **videos**, **3D point clouds**, **volumetric slices** and other data in the best labeling toolboxes.
@@ -21,7 +21,6 @@ Supervisely is available [online](https://app.supervisely.com/signup) for free, 
 * **Train** [neural networks](./neural-networks/overview/overview.md) on your custom datasets or use pre-trained models to speed up manual labeling.
 
 ![](assets/main-nntrain.png)
-
 
 * Use the best machine learning tools, visualize and improve your data with hundreds of applications from [Ecosystem](https://ecosystem.supervisely.com/)
 

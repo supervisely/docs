@@ -52,6 +52,6 @@ Now, let’s hover the cursor over any object on your image and make two clicks 
 
 You can also check our blog post on how to label with bounding boxes:
 
-{% embed url="<https://supervisely.com/blog/bounding-box-annotation-for-object-detection/>" %}{% endembed %}
+{% embed url="https://supervisely.com/blog/bounding-box-annotation-for-object-detection/" %}{% endembed %}
 
 You rock! Now, you can explore other labeling tools (such as [polygons](https://supervisely.com/blog/how-to-use-polygon-anotation-tool-for-image-segmentation/), masks or skeleton shapes), more advanced tools, such as video or 3D point clouds — or continue our journey and see how [collaboration](../collaboration/members.md) works in Supervisely.
