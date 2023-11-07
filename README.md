@@ -63,4 +63,3 @@ If you are interested in learning more about Supervisely, you may find those res
       </tr>
    </tbody>
 </table>
-

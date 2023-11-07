@@ -3,7 +3,7 @@ description: >-
   Learn how to use labeling toolboxes, create you first annotations and a little bit more
 ---
 
-#  How to annotate
+# How to annotate
 
 {% hint style="info" %}
 This 5-minute tutorial is a part of introduction to Supervisely series. You can complete them one-by-one, in random order, or jump to the rest of the documentation at any moment.
@@ -52,6 +52,6 @@ Now, let’s hover the cursor over any object on your image and make two clicks 
 
 You can also check our blog post on how to label with bounding boxes:
 
-{% embed url="https://supervisely.com/blog/bounding-box-annotation-for-object-detection/" %}{% endembed %} 
+{% embed url="<https://supervisely.com/blog/bounding-box-annotation-for-object-detection/>" %}{% endembed %}
 
 You rock! Now, you can explore other labeling tools (such as [polygons](https://supervisely.com/blog/how-to-use-polygon-anotation-tool-for-image-segmentation/), masks or skeleton shapes), more advanced tools, such as video or 3D point clouds — or continue our journey and see how [collaboration](../collaboration/members.md) works in Supervisely.

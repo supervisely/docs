@@ -8,3 +8,37 @@ A caption
 
 
 <table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Some text with no image</strong></td><td>asdfadfasdfasdfadsf</td><td></td><td><a href="./">.</a></td></tr></tbody></table>
+3x1
+
+
+<table data-view="cards">
+   <thead>
+      <tr>
+         <th></th>
+         <th></th>
+         <th data-hidden data-card-target data-type="content-ref"></th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td><strong>Supervisely Blog 📚</strong></td>
+         <td>Where we share tutorials and guides on the hottest topics in computer vision.</td>
+         <td><a href="https://supervisely.com/blog/">Blog</a></td>
+      </tr>
+      <tr>
+         <td><strong>Video Course 📽️</strong></td>
+         <td>Prefer video? Watch full video course on what is Sueprvisely in 50 chapters.</td>
+         <td><a href="https://supervisely.com/what-is-supervisely/">Video Course</a></td>
+      </tr>
+      <tr>
+         <td><strong>GitHub Page 🐙</strong></td>
+         <td>Want to contribute to Supervisely? Start with our GitHub page here.</td>
+         <td><a href="https://github.com/supervisely/supervisely">GitHub Page</a></td>
+      </tr>
+      <tr>
+         <td><strong>GitHub Page 🐙</strong></td>
+         <td>Want to contribute to Supervisely? Start with our GitHub page here.</td>
+         <td><a href="https://github.com/supervisely/supervisely">GitHub Page</a></td>
+      </tr>
+   </tbody>
+</table>
