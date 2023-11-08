@@ -42,6 +42,7 @@
   * [Import using Team Files](data-organization/import/import/Import-Team-Files.md)
   * [Import from Cloud](data-organization/import/import/Import-from-Cloud.md)
   * [Import using API & SDK](data-organization/import/import/import-sdk-api.md)
+  * [Import using agent](data-organization/import/import/import-using-agent/import-using-agent.md)
 * [Export](data-organization/import/export/export.md)
 * [Team Files](data-organization/team-files/README.md)
 * [Data usage & Cleanup](data-organization/storage/README.md)

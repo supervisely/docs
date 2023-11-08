@@ -6,4 +6,4 @@ But most importantly, a dataset is a unit of work. To start labeling, you need t
 
 You can also perform other actions on context menu datasets.
 
-![](datasets-menu.png)
+![Datasets context menu](datasets-menu.png)

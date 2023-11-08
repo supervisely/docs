@@ -1,4 +1,4 @@
-# Import using Team Files.
+# Import using Team Files
 
 In fact, when you drag and drop your files into the upload window, we upload them to an automatically created folder in Team Files, launch the application of choice, passing in the path to that folder, and then automatically delete it.
 
