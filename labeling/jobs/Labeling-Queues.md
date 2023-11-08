@@ -4,13 +4,11 @@ Labeling Queues is a systematic method for distributing and managing labeling pr
 
  ![](Labeling-Queues.png)
 
-
 {% hint style="info" %}
-Learn more about Labeling Queues in [Labeling Queues: Streamline Your Labeling Pipeline.](https://supervisely.com/blog/labeling-queues) 
+Learn more about Labeling Queues in [Labeling Queues: Streamline Your Labeling Pipeline.](https://supervisely.com/blog/labeling-queues)
 
 {% endhint %}
 
-
 ## Step-By-Step Guide
 
-{% embed url="https://www.youtube.com/watch?v=Pr7YFY_ntdM&ab_channel=Supervisely" %} Video guide {% endembed %}
+{% embed url="https://www.youtube.com/watch?v=Pr7YFY_ntdM&ab_channel=Supervisely" %}  {% endembed %}

@@ -36,11 +36,15 @@ Now, let’s go to the classes tab and click the “New” button. Let’s enter
 You can select “Any Shape” — that will allow to mark annotations of any shape with this class, so can have both “bounding box” and “mask” marked as this class at the same time. Be worried, that could potentially create issues when you try to train a neural network.
 {% endhint %}
 
+![Create Class](create-class2.png)
+
 Awesome! Now, switch back to the Datasets tab and click on any dataset. You will see a dialog window that will ask you to choose a labeling toolbox (yeah, we have many!). Choose an “Image labeling toolbox 2.0”. A new tab should appear with your dataset in the labeling toolbox.
 
 {% hint style="note" %}
 You can open only a single dataset or a portion of it in a labeling toolbox.
 {% endhint %}
+
+![Image labeling toolbox 2.0](select-toolbox.png)
 
 {% hint style="note" %}
 You can switch the dark theme to light or back at any time.
@@ -49,6 +53,8 @@ You can switch the dark theme to light or back at any time.
 From the left toolbar select a tool that corresponds to your class shape, in our case, Bounding Box Tool to create bounding boxes. You can hover your cursor over the particular tool button and check the description.
 
 Now, let’s hover the cursor over any object on your image and make two clicks to form a rectangle around it. You will see a new object in the right sidebar at the Objects tab. Done!
+
+![labeling Bounding Box](labelad-bbox.png)
 
 You can also check our blog post on how to label with bounding boxes:
 

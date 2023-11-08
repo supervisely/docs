@@ -9,6 +9,7 @@ Label hours-long videos without cutting them into images. In your browser, with 
 ![](video.gif)
 
 ## **Label video, not just bunch of images**
+
 Apart from many other labeling software, Supervisely lets you work with your video files without cropping them into images first.
 
 To archive this, we designed a video player, capable of handling hours-long videos, yet precisely switching between individual frames right in your web browser.
@@ -22,15 +23,14 @@ Video timeline panel provides overall structure, answers questions like what is 
 
 ![](Timeline-panel.png)
 
-##  **Speed up labeling with AI-assistance**
+## **Speed up labeling with AI-assistance**
 
 Video labeling toolbox has countless features, but most importantly, it provides integrations with the best AI models that dramatically improve your labeling performance. For example:
+
 - [MixFormer](https://ecosystem.supervisely.com/apps/mixformer/serve/serve?utm_source=blog) for bounding box detection and tracking
 - [RITM](https://ecosystem.supervisely.com/apps/ritm-interactive-segmentation/supervisely?utm_source=blog) and [SAM](https://ecosystem.supervisely.com/apps/serve-segment-anything-model?utm_source=blog) for mask segmentation and tracking
 - [TAP-Net](https://ecosystem.supervisely.com/apps/serve-tapnet/tapnet/supervisely/serve?utm_source=blog) for polygon segmentation and tracking
 
 You can check this short video to get an overview on AI capabilities in the video labeling toolbox:
 
-{% embed url="https://www.youtube.com/watch?v=7fc0JF_o5VM" %} Video guide {% endembed %}
-
-
+{% embed url="https://www.youtube.com/watch?v=7fc0JF_o5VM" %} {% endembed %}

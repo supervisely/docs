@@ -19,4 +19,4 @@ Learn more about Labeling Consensus in [How to use labeling consensus to get acc
 
 ## Step-By-Step Guide
 
-{% embed url="https://www.youtube.com/watch?v=a9psonpLPIw&ab_channel=Supervisely" %} Video guide {% endembed %}
+{% embed url="https://www.youtube.com/watch?v=a9psonpLPIw&ab_channel=Supervisely" %}  {% endembed %}

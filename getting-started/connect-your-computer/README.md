@@ -26,19 +26,19 @@ After you run Agent on your computer, Agent will automatically connect your serv
 
 ## Installation instructions for different operating systems:
 
-* [Unix-based](unix-based/unix-based.md)
-* [Windows WSL](windows-wsl/windows-wsl.md)
+- [Unix-based](unix-based/unix-based.md)
+- [Windows WSL](windows-wsl/windows-wsl.md)
 
 ## Agent
 
-Learn how Supervisely agent works and how to maintain it in the [Agent](agents/README.md) section.
+Learn how Supervisely agent works and how to maintain it in the [Agent](../../agents/README.md) section.
 
-* [About Supervisely Agent](agents/README.md)
-* [Adding, Restarting, and Deleting Nodes](agents/add_delete_node/add_delete_node.md)
-* [How the Agent Works](agents/agent/agent.md)
-* [Agent Storage](agents/agent-storage/agent-storage.md)
-* [Leveraging Amazon AMI for Agent Deployment](agents/ami/README.md)
-* [Efficient Cleanup and Resource Management](agents/clean_up/clean_up.md)
-* [Custom Docker Registry Integration](agents/custom-docker-registry/README.md)
-* [Management](agents/manage/manage.md)
-* [Status, and Troubleshooting](agents/status_and_troubleshooting/status.md)
+* [About Supervisely Agent](../../agents/README.md)
+* [Adding, Restarting, and Deleting Nodes](../../agents/add_delete_node/add_delete_node.md)
+* [How the Agent Works](../../agents/agent/agent.md)
+* [Agent Storage](../../agents/agent-storage/agent-storage.md)
+* [Leveraging Amazon AMI for Agent Deployment](../../agents/ami/README.md)
+* [Efficient Cleanup and Resource Management](../../agents/clean_up/clean_up.md)
+* [Custom Docker Registry Integration](../../agents/custom-docker-registry/README.md)
+* [Management](../../agents/manage/manage.md)
+* [Status, and Troubleshooting](../../agents/status_and_troubleshooting/status.md)
