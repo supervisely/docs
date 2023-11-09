@@ -132,3 +132,4 @@
 * [GitHub](https://github.com/supervisely/supervisely)
 * [Blog](https://supervisely.com/blog/)
 * [Ecosystem](https://ecosystem.supervisely.com/)
+* [test](assets/test-blogs.md)

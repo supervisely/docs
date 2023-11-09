@@ -1,5 +1,4 @@
-<!-- vscode-markdown-toc -->
-* 1. [Summary](#Summary)
+<!-- vscode-markdown-toc -->* 1. [Import using Web UI](../data-organization/import/import/Import-using-Web-UI.md)
 * 2. [Features](#Features)
 * 3. [Usage](#Usage)
 * 4. [Configuration](#Configuration)
