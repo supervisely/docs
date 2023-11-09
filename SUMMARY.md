@@ -9,9 +9,6 @@
 * [How to import](getting-started/How-to-import.md)
 * [How to annotate](getting-started/How-to-annotate.md)
 * [How to invite team members](getting-started/Invite-member.md)
-* [How to connect agents](getting-started/connect-your-computer/README.md)
-  * [Unix-based](getting-started/connect-your-computer/unix-based/unix-based.md)
-  * [Windows WSL](getting-started/connect-your-computer/windows-wsl/windows-wsl.md)
 * [How to train models](getting-started/how-to-train-models.md)
 
 

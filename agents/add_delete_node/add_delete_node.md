@@ -26,49 +26,8 @@ To connect the agent you can follow the steps as they described in the following
  
 
 ### Installation Instructions
-Open the Cluster section in Supervisely Dashboard. If you have no agents installed yet, you will see the following:
 
-![](01.png)
-
-Click "Connect your first node" button to open the Agent installation dialog window.
-
-![](agent_a.png)
-
-Copy the command you will see (you can click on the blue icon on the right to do it), paste it in the terminal on the computer (host) you want to use with Supervisely and run it.
-
-{% hint style="info" %}
-You can run only one agent per node. Don't worry — it's multithreading and runs tasks in separate docker containers.
-{% endhint %}
-
-It will run the Supervisely *agent* as a docker image with name "supervisely-agent/<token>".
-
-### Advanced configuration (optional)
-
-Before starting the Agent on you computer you can customize a few parameters.
-
-![](agent_adv_a.png)
-
-{% hint style="info" %}
-To apply changes in advanced settings to an already running agent you need to copy the resulting command and execute it on the same machine where the agent is currently running
-{% endhint %}
-
-- Use nvidia runtime: will add `--runtime-nvidia` flag to docker run to support GPU related taks
-- Registries: if you want to use your own private docker images for training and inference custom models, provide path, login and password.
-
-  
-{% hint style="info" %}
-We don't store your registry credentials. Your login and password will be passed to command as environment variables.
-{% endhint %}
-
-You should see the the following output in your terminal:
-
-![](../../../../assets/legacy/cluster/cmd.jpg)
-
-You can now close the terminal window.
-
-{% hint style="info" %}
-Supervisely agent runs with a `--restart=always` flag by default and will start again after reboot.
-{% endhint %}
+We have detailed instructions on how to connect an agent, you can see it [here](../../getting-started/connect-your-computer/README.md)
 
 ## Restarting and updating the agent
 
