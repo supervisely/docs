@@ -27,14 +27,8 @@
 * [Storage and cleanup](agents/agent-storage/agent-storage.md)
 * [Integration with Docker](agents/custom-docker-registry/README.md)
 
-## 📂 Data Organization
+## 🔁 Import and Export
 
-* [Core concepts](data-organization/overview.md)
-* [Projects](data-organization/project/projects.md)
-  * [Datasets](data-organization/project/datasets/datasets.md)
-  * [Classes](data-organization/project/classes/classes.md)
-  * [Tags](data-organization/project/tags/tags.md)
-  * [Statistics](data-organization/project/statistics/statistics.md)
 * [Import](data-organization/import/import/import.md)
   * [Import using Web UI](data-organization/import/import/Import-using-Web-UI.md)
   * [Import sample dataset](data-organization/import/import/Import-sample-dataset.md)
@@ -44,6 +38,16 @@
   * [Import using API & SDK](data-organization/import/import/import-sdk-api.md)
   * [Import using agent](data-organization/import/import/import-using-agent/import-using-agent.md)
 * [Export](data-organization/import/export/export.md)
+
+## 📂 Data Organization
+
+* [Core concepts](data-organization/overview.md)
+* [Projects](data-organization/project/projects.md)
+  * [Datasets](data-organization/project/datasets/datasets.md)
+  * [Classes](data-organization/project/classes/classes.md)
+  * [Tags](data-organization/project/tags/tags.md)
+  * [Statistics](data-organization/project/statistics/statistics.md)
+
 * [Team Files](data-organization/team-files/README.md)
 * [Data usage & Cleanup](data-organization/storage/README.md)
 * [Operations with Data](/data-organization/Operations-with-Data/README.md)

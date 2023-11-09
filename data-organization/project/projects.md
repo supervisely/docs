@@ -55,6 +55,34 @@ You can also find the list of your projects across all of your teams and workspa
 ## Trash Bin
 You can remove one or multiple projects and datasets by selecting them using checkboxes and clicking the “Move to Trash” button. This won’t delete your data immediately — you can learn more in the [Storage Cleanup](../storage/README.md) section.
 
-
-
-
+<table data-view="cards">
+   <thead>
+      <tr>
+         <th></th>
+         <th></th>
+         <th data-hidden data-card-target data-type="content-ref"></th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td><strong>Datasets</strong></td>
+         <td>Dataset is the second most important concept in Supervisely.</td>
+         <td><a href="datasets/datasets.md">Datasets</a></td>
+      </tr>
+      <tr>
+         <td><strong>Classes</strong></td>
+         <td>Classes are pre-defined types of your annotations.</td>
+         <td><a href="classes/classes.md">Classes</a></td>
+      </tr>
+        <tr>
+         <td><strong>Tags</strong></td>
+         <td>Sometime you need more than a bunch of marked pixels on an image.</td>
+         <td><a href="tags/tags.md">Tags</a></td>
+        </tr>
+        <tr>
+         <td><strong>Statistics</strong></td>
+         <td>Having entered the project, in the top menu we see the statistics section.</td>
+         <td><a href="statistics/statistics.md">Statistics</a></td>
+        </tr>
+   </tbody>
+</table>
