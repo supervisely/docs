@@ -1,4 +1,10 @@
-# Import 
+<!-- vscode-markdown-toc -->
+
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc --># Import 
 As you already know, we have a concept of [projects and datasets](../../overview.md). Now, how can you import your dataset to Supervisely?
 
 Dataset formats are very different (coco, cityscapes and others), and there are many more modalities (pictures, videos and others), and even just with pictures, there are many variations of file formats.
@@ -6,8 +12,6 @@ Dataset formats are very different (coco, cityscapes and others), and there are 
 We don’t want you to convert anything yourself, so, to deal with that, here at Supervisely we’ve put together a number of [Supervisely Apps](https://ecosystem.supervisely.com/import) for every format out there (and if we don’t have one, you can write an [app import yourself](https://supervisely.readthedocs.io/en/latest/sdk_packages.html) or use the [API](https://api.docs.supervisely.com/)).
 
 Using Supervisely Apps or API, you can turn your pictures, videos and annotations into Supervisely projects and datasets: they will be stored in the [Supervisely Format](../../supervisely-format.md) and at any time you can [download](../export/export.md) them in this or another format.
-
-
 
 Supervisely has three ways how to store your assets:
 
@@ -30,3 +34,32 @@ The hybrid approach that takes the best of both worlds. In this scenario, you st
 Supervisely calculate file hashes when you upload your assets: because of that, we do not store duplicates.
 
 {% endhint %}
+
+
+
+<table data-view="cards">
+   <thead>
+      <tr>
+         <th></th>
+         <th></th>
+         <th data-hidden data-card-target data-type="content-ref"></th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td><strong>Supervisely Blog 📚</strong></td>
+         <td>Where we share tutorials and guides on the hottest topics in computer vision.</td>
+         <td><a href="https://supervisely.com/blog/">Blog</a></td>
+      </tr>
+      <tr>
+         <td><strong>Video Course 📽️</strong></td>
+         <td>Prefer video? Watch full video course on what is Sueprvisely in 50 chapters.</td>
+         <td><a href="https://supervisely.com/what-is-supervisely/">Video Course</a></td>
+      </tr>
+      <tr>
+         <td><strong>GitHub Page 🐙</strong></td>
+         <td>Want to contribute to Supervisely? Start with our GitHub page here.</td>
+         <td><a href="https://github.com/supervisely/supervisely">GitHub Page</a></td>
+      </tr>
+   </tbody>
+</table>
