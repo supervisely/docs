@@ -14,18 +14,6 @@
   * [Windows WSL](getting-started/connect-your-computer/windows-wsl/windows-wsl.md)
 * [How to train models](getting-started/how-to-train-models.md)
 
-## 🖥 Agents
-
-* [Installation](getting-started/connect-your-computer/README.md)
-  * [Linux](getting-started/connect-your-computer/unix-based/unix-based.md)
-  * [Windows](getting-started/connect-your-computer/windows-wsl/windows-wsl.md)
-  * [AMI AWS](agents/ami/README.md)
-  * [Kubernetes](enterprise/kubernetes/installation.md)
-* [How agents work](agents/agent/agent.md)
-* [Restart and delete agents](agents/add_delete_node/add_delete_node.md)
-* [Status and monitoring](agents/status_and_troubleshooting/status.md)
-* [Storage and cleanup](agents/agent-storage/agent-storage.md)
-* [Integration with Docker](agents/custom-docker-registry/README.md)
 
 ## 🔁 Import and Export
 
@@ -83,6 +71,19 @@
 * [Guides & exams](labeling/exams/README.md)
 * [Activity log](collaboration/Activity-Log.md)
 * [Sharing](collaboration/sharing.md)
+
+## 🖥 Agents
+
+* [Installation](getting-started/connect-your-computer/README.md)
+  * [Linux](getting-started/connect-your-computer/unix-based/unix-based.md)
+  * [Windows](getting-started/connect-your-computer/windows-wsl/windows-wsl.md)
+  * [AMI AWS](agents/ami/README.md)
+  * [Kubernetes](enterprise/kubernetes/installation.md)
+* [How agents work](agents/agent/agent.md)
+* [Restart and delete agents](agents/add_delete_node/add_delete_node.md)
+* [Status and monitoring](agents/status_and_troubleshooting/status.md)
+* [Storage and cleanup](agents/agent-storage/agent-storage.md)
+* [Integration with Docker](agents/custom-docker-registry/README.md)
 
 ## 🔮 Neural Networks
 
