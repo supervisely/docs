@@ -20,7 +20,9 @@ If you need to load a large project or want to have access to files from your ho
 4. Go to "Team files"
 
 ![](tf-1.png)
+
 ![](tf-2.png)
+
 ![](tf-3.png)
 
 All files you place in the mounted folder will show up here.

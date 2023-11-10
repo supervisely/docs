@@ -42,3 +42,39 @@ Learn how Supervisely agent works and how to maintain it in the [Agent](../../ag
 * [Custom Docker Registry Integration](../../agents/custom-docker-registry/README.md)
 * [Management](../../agents/manage/manage.md)
 * [Status, and Troubleshooting](../../agents/status_and_troubleshooting/status.md)
+
+
+<table data-view="cards">
+   <thead>
+      <tr>
+         <th></th>
+         <th></th>
+         <th data-hidden data-card-target data-type="content-ref"></th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td><strong>Installation Linux</strong></td>
+         <td>Everything you need to know about deploying Supervisely agent on Unix-based operating systems.</td>
+         <td><a href="unix-based/unix-based.md">Installation Linux</a></td>
+      </tr>
+      <tr>
+         <td><strong>Installation Windows</strong></td>
+         <td>Everything you need to know about deploying Supervisely agent on Windows WSL.</td>
+         <td><a href="windows-wsl/windows-wsl.md">Installation Windows</a></td>
+      </tr>
+      <tr>
+         <td><strong>Installation AMI AWS</strong></td>
+         <td>If, for some reason, your computer doesn't meet the requirements, hardware (no GPU) or software (no CUDA or nvidia-docker), there is a quick way to try training & inference with Supervisely on Amazon EC2.
+         </td>
+         <td><a href="../../agents/ami/README.md">Installation AMI AWS</a></td>
+      </tr>
+      <tr>
+         <td><strong>Installation Kubernetes</strong></td>
+         <td>Follow these steps to deploy Supervisely in Kubernetes cluster
+         </td>
+         <td><a href="../../enterprise/kubernetes/installation.md">Installation Kubernetes</a></td>
+      </tr>
+
+   </tbody>
+</table>

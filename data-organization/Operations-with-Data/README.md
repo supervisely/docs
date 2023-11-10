@@ -7,3 +7,35 @@ It's also your hub for efficient data handling, from data import to export, anno
 Details about your data and the operations performed on it can be accessed by following our [link](https://app.supervisely.com/ecosystem/data-operations) and utilizing the tools within the "data operations" section. This section provides data management capabilities from import to export, annotation, and analysis. It empowers you to efficiently handle your data and enhance your data-driven workflows.
 
 ![](Operations-with-Data.png)
+
+<table data-view="cards">
+   <thead>
+      <tr>
+         <th></th>
+         <th></th>
+         <th data-hidden data-card-target data-type="content-ref"></th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td><strong>Data Filtration</strong></td>
+         <td>Understanding your data's characteristics is a key aspect of data analysis and preparation.</td>
+         <td><a href="data-filtration.md">Data Filtration</a></td>
+      </tr>
+      <tr>
+         <td><strong>Augmentations</strong></td>
+         <td>Data augmentation is a crucial step in preparing data for machine learning.</td>
+         <td><a href="Augmentations.md">Augmentations</a></td>
+      </tr>
+    <tr>
+         <td><strong>Converting & Splitting data</strong></td>
+         <td>Converting data into different formats and splitting it into training and testing sets are essential operations in data preparation.</td>
+         <td><a href="Converting-Splitdata.md">Converting & Splitting data</a></td>
+    </tr>
+    <tr>
+         <td><strong>Statistics</strong></td>
+         <td>Understanding your data's characteristics is a key aspect of data analysis and preparation.</td>
+         <td><a href="Statistics.md">Statistics</a></td>
+    </tr>
+   </tbody>
+</table>

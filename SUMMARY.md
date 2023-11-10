@@ -11,7 +11,6 @@
 * [How to invite team members](getting-started/Invite-member.md)
 * [How to train models](getting-started/how-to-train-models.md)
 
-
 ## 🔁 Import and Export
 
 * [Import](data-organization/import/import/import.md)

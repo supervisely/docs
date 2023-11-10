@@ -1,6 +1,6 @@
 # Clone Project Meta
 
-If you need to copy project meta (classes & tags) to other project this section will be useful for you
+If you need to copy project meta (classes & tags) to other project this section will be useful for you.
 
 ## Open projects panels
 

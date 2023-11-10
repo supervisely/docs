@@ -1,6 +1,6 @@
 # Data Filtration
 
-Understanding your data's characteristics is a key aspect of data analysis and preparation. The "Statistics" section provides tools for data analysis, computation of statistical metrics, and data visualization. We also offer a specialized data analysis application, making the process more intuitive and informative.
+In the Data Filtration section we provide tools for convenient management of your information. Filter, create datasets, and process information with confidence. Your data is always under your control. Using apps, you can set up filtering quickly and easily, ensuring accuracy when working with a variety of information.
 
 ## Example apps:
 * [Filter images.](https://app.supervisely.com/ecosystem/apps/filter-images?id=187) App filters images from a project and allows you to copy, move, delete images and assign or remove tags.

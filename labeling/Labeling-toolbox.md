@@ -29,3 +29,55 @@ When opening a labeling toolbox, you can only annotate a single dataset at a tim
 {% hint style="success" %}
 You can also open the labeling toolbox from a [Labeling Job](jobs/README.md) or the [Ecosystem](https://ecosystem.supervisely.com/annotation_tools/image-labeling-tool-v2) page.
 {% endhint %}
+
+<table data-view="cards">
+   <thead>
+      <tr>
+         <th></th>
+         <th></th>
+         <th data-hidden data-card-target data-type="content-ref"></th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td><strong>Images labeling toolbox</strong></td>
+         <td>The image labeling toolbox allows you to annotate one image at a time, such as .jpg, .png, .tiff, and many more formats you can import to Supervisely.</td>
+         <td><a href="images/README.md">Images labeling toolbox</a></td>
+      </tr>
+    <tr>
+         <td><strong>Multi-view images</strong></td>
+         <td>Create image groups inside your dataset by assigning a grouping tag.</td>
+         <td><a href="<images/Multi-view images/Multi-view-images.md>">Multi-view images</a></td>
+    </tr>
+    <tr>
+         <td><strong>Videos labeling toolbox</strong></td>
+         <td>Label hours-long videos without cutting them into images. In your browser, with multi-track timeline, built-in object tracking and segments tagging tools.</td>
+         <td><a href="videos/README.md">Videos labeling toolbox</a></td>
+    </tr>
+    <tr>
+         <td><strong>Video tracking</strong></td>
+         <td>The most simple and straightforward method of importing is uploading your data using one of our Supervisely Apps.</td>
+         <td><a href="videos/video-tracking.md">Video tracking</a></td>
+    </tr>
+    <tr>
+         <td><strong>3D Point Clouds</strong></td>
+         <td>Label comprehensive 3D scenes from LiDAR or RADAR sensors with additional photo and video context, AI object tracking and point cloud segmentation.</td>
+         <td><a href="3D-Point-Clouds/3D-Point-Clouds.md">3D Point Clouds</a></td>
+    </tr>
+    <tr>
+         <td><strong>3D Point Clouds Episodes</strong></td>
+         <td>Our toolbox for 3D Point Cloud labeling is a great solution for annotation a single point cloud at a time.</td>
+         <td><a href="3D-Point-Clouds/3D-Point-Clouds-episod.md">3D Point Clouds Episodes</a></td>
+    </tr>
+    <tr>
+         <td><strong>Sensor-fusion</strong></td>
+         <td>Additionally to a single point cloud and episodes point clouds toolboxes, Supervisely allows you to provide additional photo and video context for accurate labeling.</td>
+         <td><a href="3D-Point-Clouds/Sensor-fusion/Sensor-fusion.md">Sensor-fusion</a></td>
+    </tr>
+    <tr>
+         <td><strong>DICOM</strong></td>
+         <td>The most simple and straightforward method of importing is uploading your data using one of our Supervisely Apps.</td>
+         <td><a href="DICOM/DICOM.md">DICOM</a></td>
+    </tr>
+   </tbody>
+</table>

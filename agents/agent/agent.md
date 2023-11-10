@@ -85,4 +85,3 @@ To rename an agent or change the list of tasks that can be run on it, go to the 
 ![](agent_edit_a.png)
 
 ![](agent_edit_b.png)
-
