@@ -5,10 +5,10 @@ In Supervisely you can annotate data from several different mediums: images, vid
 **Table of Contents:**
 
 * [Project Structure in Supervisely Annotation Format](../../data-organization/Annotation-JSON-format/01_Project_Structure_new.md)
-* [Project Classes and Tags](02_Project_Classes_And_Tags.md)
-* [Tags](03_Supervisely_format_tags.md)
-* [Objects](04_Supervisely_Format_objects.md)
-* [Individual Image Annotations](05_Supervisely_format_images.md)
-* [Individual Video Annotations](05_Supervisely_format_images.md)
-* [Point Cloud Episodes](07_Supervisely_format_pointcloud_episode.md)
-* [Volumes Annotations](08_Supervisely_format_volume.md)
+* [Project Classes and Tags](../../data-organization/Annotation-JSON-format/02_Project_Classes_And_Tags.md)
+* [Tags](../../data-organization/Annotation-JSON-format/03_Supervisely_format_tags.md)
+* [Objects](../../data-organization/Annotation-JSON-format/04_Supervisely_Format_objects.md)
+* [Individual Image Annotations](../../data-organization/Annotation-JSON-format/05_Supervisely_format_images.md)
+* [Individual Video Annotations](../../data-organization/Annotation-JSON-format/05_Supervisely_format_images.md)
+* [Point Cloud Episodes](../../data-organization/Annotation-JSON-format/07_Supervisely_format_pointcloud_episode.md)
+* [Volumes Annotations](../../data-organization/Annotation-JSON-format/08_Supervisely_format_volume.md)
