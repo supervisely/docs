@@ -5,6 +5,7 @@ structure:
   summary: SUMMARY.md
 
 redirects:
+  data-organization/00_ann_format_navi: data-organization/Annotation-JSON-format/00_ann_format_navi.md
   getting-started/connect-your-computer/agents/ami: agents/ami/README.md
   getting-started/connect-your-computer/agents/add_delete_node: agents/add_delete_node/add_delete_node.md
   enterprise/installation: enterprise/installation/README.md

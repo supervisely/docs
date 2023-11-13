@@ -21,6 +21,11 @@
   * [Import from Cloud](data-organization/import/import/Import-from-Cloud.md)
   * [Import using API & SDK](data-organization/import/import/import-sdk-api.md)
   * [Import using agent](data-organization/import/import/import-using-agent/import-using-agent.md)
+* [Migrations](data-organization/import/migration/migrations.md)
+  * [Roboflow to Supervisely](data-organization/import/migration/roboflow/migration-roboflow.md)
+  * [Labelbox to Supervisely](data-organization/import/migration/labelbox/migration-labelbox.md)
+  * [V7 to Supervisely](data-organization/import/migration/v7/migration-v7.md)
+  * [CVAT to Supervisely](data-organization/import/migration/CVAT/migration-cvat.md)
 * [Export](data-organization/import/export/export.md)
 
 ## 📂 Data Organization
