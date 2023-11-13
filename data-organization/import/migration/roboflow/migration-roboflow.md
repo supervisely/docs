@@ -5,12 +5,11 @@ description: >-
 
 # Roboflow to Supervisely Migration Tool
 
+[This application](https://ecosystem.supervisely.com/apps/roboflow-to-sly) allows you to copy multiple projects from Roboflow instance to Supervisely instance, you can select which projects should be copied, labels and tags will be converted automatically. You can preview the results in the table, which will show URLs to corresponding projects in Roboflow and Supervisely.
+
 {% hint style="info" %}
 [Complete migration guide](https://ecosystem.supervisely.com/apps/roboflow-to-sly) from Roboflow to Supervisely.
 {% endhint %}
-
-This application allows you to copy multiple projects from Roboflow instance to Supervisely instance, you can select which projects should be copied, labels and tags will be converted automatically. You can preview the results in the table, which will show URLs to corresponding projects in Roboflow and Supervisely.
-
 
 ## Preparation
 
@@ -46,11 +45,4 @@ If everything was done correctly, you will see the following message in the app 
 
 - ✅ Successfully connected to https://api.roboflow.com.
 
-{% hint style="info" %}
 NOTE: The app will not save your API key, you will need to enter it every time you launch the app. To save your time you can use the team files to store your credentials.
-{% endhint %}
-
-
-{% hint style="info" %}
-[Complete migration guide](https://ecosystem.supervisely.com/apps/roboflow-to-sly) from Roboflow to Supervisely.
-{% endhint %}

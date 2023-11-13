@@ -43,3 +43,9 @@ The app will be launched with the API key from the .env file and you won't need 
 3. Press the Connect to V7 button.
 
 ![](migratin-v7.png)
+
+If everything was done correctly, you will see the following message in the app UI:
+
+- ✅ Successfully connected to V7.
+
+**NOTE:** The app will not save your API key, you will need to enter it every time you launch the app. To save your time you can use the team files to store your credentials.

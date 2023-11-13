@@ -5,10 +5,14 @@ description: >-
 
 # CVAT to Supervisely Migration Tool
 
-This application allows you to copy multiple projects from CVAT instance to Supervisely instance, you can select which projects should be copied, labels and tags will be converted automatically. You can preview the results in the table, which will show URLs to corresdponding projects in CVAT and Supervisely.
+[This application](https://ecosystem.supervisely.com/apps/cvat-to-sly/migration_tool) allows you to copy multiple projects from CVAT instance to Supervisely instance, you can select which projects should be copied, labels and tags will be converted automatically. You can preview the results in the table, which will show URLs to corresdponding projects in CVAT and Supervisely.
 
 {% hint style="info" %}
 If you want to upload data, which was already exported from CVAT instance, you can use this [Import CVAT](https://ecosystem.supervisely.com/apps/cvat-to-sly/import_cvat) app from Supervisely Ecosystem.
+{% endhint %}
+
+{% hint style="info" %}
+[Complete migration guide](https://ecosystem.supervisely.com/apps/cvat-to-sly/migration_tool) from CVAT to Supervisely.
 {% endhint %}
 
 ## Preparation
@@ -36,4 +40,12 @@ NOTE: you need to unzip the file before using it.
 The app will be launched with the credentials from the .env file and you won't need to enter it manually. If everything was done correctly, you will see the following message in the app UI:
 
 - ℹ️ Connection settings was loaded from .env file.
+- ✅ Successfully connected to `http:/192.168.1.100:8080` as `admin`.
+
+![](migratin-cvat.png)
+
+If everything was done correctly, you will see the following message in the app UI:
+
 - ✅ Successfully connected to `http://192.168.1.100:8080` as `admin`.
+
+NOTE: The app will not save your credentials, you will need to enter them every time you launch the app. To save your time you can use the team files to store your credentials.

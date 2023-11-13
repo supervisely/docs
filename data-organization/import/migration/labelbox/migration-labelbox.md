@@ -1,10 +1,10 @@
 # Labelbox to Supervisely Migration Tool
 
+[This application](https://ecosystem.supervisely.com/apps/labelbox-to-sly) allows you to copy multiple projects from Labelbox instance to Supervisely instance, you can select which projects should be copied. You can preview the results in the table, which will show URLs to corresponding projects in Labelbox and Supervisely.
+
 {% hint style="info" %}
 [Complete migration guide](https://ecosystem.supervisely.com/apps/labelbox-to-sly) from Labelbox to Supervisely.
 {% endhint %}
-
-[This application](https://ecosystem.supervisely.com/apps/labelbox-to-sly) allows you to copy multiple projects from Labelbox instance to Supervisely instance, you can select which projects should be copied. You can preview the results in the table, which will show URLs to corresponding projects in Labelbox and Supervisely.
 
 ## Preparation
 
