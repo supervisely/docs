@@ -46,6 +46,14 @@ POSTGRES_USER=supervisely
 POSTGRES_SSL=true
 ```
 
+After that you will need to redeploy Supervisely services:
+
+```bash
+sudo supervisely up -d
+```
+
+In case you get errors or "License not found", please contact Supervisely support and attach the [troubleshoot archive](../troubleshoot/generating_ts_archive.md)
+
 ### Database migration
 
 If you're migrating to Amazon RDS you can follow [this guide](https://docs.aws.amazon.com/dms/latest/sbs/chap-manageddatabases.postgresql-rds-postgresql-full-load-pd_dump.html) as well.
