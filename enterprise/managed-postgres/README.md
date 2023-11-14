@@ -40,7 +40,7 @@ In case you don't have POSTGRES_SSL in your configuration, you will have to [upg
 You will have to change the values of the variables to match your database configuration. For example, if you are using Amazon RDS, you will have to change the values to something like this:
 
 ```bash
-POSTGRES_DATABASE=supervisely
+POSTGRES_DATABASE=clicker
 POSTGRES_HOST=supervisely.123456789012.us-east-1.rds.amazonaws.com
 POSTGRES_USER=supervisely
 POSTGRES_SSL=true
@@ -71,5 +71,5 @@ sudo supervisely exec postgres pg_dump -U postgres -C clicker > supervisely_post
 2. Restore the database dump to your own database:
 
 ```bash
-PGPASSWORD=your_rds_password psql -h your_rds_endpoint -U your_rds_username -d your_rds_db_name -f /path/to/host/supervisely_postgres_dump.sql
+PGPASSWORD=your_rds_password psql -h your_rds_endpoint -U your_rds_username -f /path/to/host/supervisely_postgres_dump.sql
 ```
