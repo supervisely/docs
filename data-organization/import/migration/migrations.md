@@ -17,8 +17,7 @@ Supervisely provides user-friendly tools to easily move your projects and data. 
 - [CVAT](CVAT/migration-cvat.md)
 - [V7](v7/migration-v7.md)
   
-
-  <table data-view="cards">
+<table data-view="cards">
    <thead>
       <tr>
          <th></th>
