@@ -50,11 +50,54 @@ The core technology behind the Smart Tools is stunning — but it becomes an abs
 
 Another substantial thing about neural networks is that it's easy to adapt it to different modalities. That means, that the Smart Tools not only work on images, but on sequential frames, such as videos or multi-slice medial imaging and even 3D point clouds with more than two dimensions!
 
-<video controls width="500">
-  <source src="https://cdn.supervisely.com/videos/example-images.59184e0.webm" type="video/webm">
-</video>
+<table data-view="cards">
+   <thead>
+      <tr>
+         <th></th>
+         <th></th>
+         <th data-hidden data-card-target data-type="content-ref"></th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td><strong>Images</strong></td>
+         <td>![](ai-images.gif)</td>
+         <td><a href="Import-using-Web-UI.md">Images</a></td>
+      </tr>
+      <tr>
+         <td><strong>Import sample dataset</strong></td>
+         <td>Save valuable time by starting with already prepared datasets. We provide access to a variety of ready-made data to speed up your start.</td>
+         <td><a href="Import-sample-dataset.md">Import sample dataset</a></td>
+      </tr>
+
+   </tbody>
+</table>
 
 
-| {% embed url="https://cdn.supervisely.com/videos/example-images.59184e0.webm" %}{% endembed %}  |{% embed url="https://cdn.supervisely.com/videos/example-videos.ac40d63.webm" %}{% endembed %}   |
-|---|---|
-|{% embed url="https://cdn.supervisely.com/videos/example-3d.09aeca1.webm" %}{% endembed %}   |  {% embed url="https://cdn.supervisely.com/videos/example-dicom.4535cdc.webm" %}{% endembed %} |
+<table data-view="cards">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th data-hidden data-card-cover data-type="files"></th>
+            <th data-hidden data-card-target data-type="content-ref"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Images</strong></td>
+            <td>Lear more1</td>
+            <td></td>
+            <td><a href="ai-images.gif"></a></td>
+            <td><a href="images/README.md">https://supervisely.com</a></td>
+        </tr>
+        <tr>
+            <td><strong>Video</strong></td>
+            <td>sdfasdfasdfasdfasdfasdfasdfasdf</td>
+            <td>asdfsdf</td>
+            <td><a href="ai-video.gif"></a></td>
+            <td><a href="videos/README.md">https://supervisely.com</a></td>
+        </tr>
+    </tbody>
+</table>
