@@ -19,8 +19,8 @@ redirects:
   cluster/overview/: getting-started/connect-your-computer/README.md
   ann_format: data-organization/Annotation-JSON-format/00_ann_format_navi.md
   ann_format/: data-organization/Annotation-JSON-format/00_ann_format_navi.md
-  customization/agents/status: getting-started/connect-your-computer/agents/status_and_troubleshooting/status.md
-  customization/agents/status/: getting-started/connect-your-computer/agents/status_and_troubleshooting/status.md
+  customization/agents/status: agents/status_and_troubleshooting/status.md
+  customization/agents/status/: agents/status_and_troubleshooting/status.md
   customization/agents: getting-started/connect-your-computer/README.md
   customization/agents/: getting-started/connect-your-computer/README.md
   getting-started/first-steps: getting-started/How-to-import.md
