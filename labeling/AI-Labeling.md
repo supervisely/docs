@@ -54,8 +54,6 @@ Another substantial thing about neural networks is that it's easy to adapt it to
     <thead>
         <tr>
             <th></th>
-            <th></th>
-            <th></th>
             <th data-hidden data-card-cover data-type="files"></th>
             <th data-hidden data-card-target data-type="content-ref"></th>
         </tr>
@@ -63,17 +61,23 @@ Another substantial thing about neural networks is that it's easy to adapt it to
     <tbody>
         <tr>
             <td><strong>Images</strong></td>
-            <td>Lear more1</td>
-            <td></td>
             <td><a href="ai-images.gif">image</a></td>
             <td><a href="images/README.md">https://supervisely.com</a></td>
         </tr>
         <tr>
-            <td><a href="ai-video.gif">video</a></td>
             <td><strong>Video</strong></td>
-            <td>sdfasdfasdfasdfasdfasdfasdfasdf</td>
-            <td></td>
+            <td><a href="ai-video.gif">video</a></td>
             <td><a href="videos/README.md">https://supervisely.com</a></td>
+        </tr>
+         <tr>
+            <td><strong>3D Point Cloud</strong></td>
+            <td><a href="ai-pontcloud.gif">video</a></td>
+            <td><a href="3D-Point-Clouds/3D-Point-Clouds.md">https://supervisely.com</a></td>
+        </tr>
+         <tr>
+            <td><strong>DICOM</strong></td>
+            <td><a href="ai-dicom.gif">video</a></td>
+            <td><a href="DICOM/DICOM.md">https://supervisely.com</a></td>
         </tr>
     </tbody>
 </table>
