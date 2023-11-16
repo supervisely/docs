@@ -49,3 +49,12 @@ The core technology behind the Smart Tools is stunning — but it becomes an abs
 ## DIFFERENT MODALITIES
 
 Another substantial thing about neural networks is that it's easy to adapt it to different modalities. That means, that the Smart Tools not only work on images, but on sequential frames, such as videos or multi-slice medial imaging and even 3D point clouds with more than two dimensions!
+
+<video controls width="500">
+  <source src="https://cdn.supervisely.com/videos/example-images.59184e0.webm" type="video/webm">
+</video>
+
+
+| {% embed url="https://cdn.supervisely.com/videos/example-images.59184e0.webm" %}{% endembed %}  |{% embed url="https://cdn.supervisely.com/videos/example-videos.ac40d63.webm" %}{% endembed %}   |
+|---|---|
+|{% embed url="https://cdn.supervisely.com/videos/example-3d.09aeca1.webm" %}{% endembed %}   |  {% embed url="https://cdn.supervisely.com/videos/example-dicom.4535cdc.webm" %}{% endembed %} |
