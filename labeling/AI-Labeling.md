@@ -89,14 +89,14 @@ Another substantial thing about neural networks is that it's easy to adapt it to
             <td><strong>Images</strong></td>
             <td>Lear more1</td>
             <td></td>
-            <td><a href="ai-images.gif"></a></td>
+            <td><a href="ai-images.gif">image</a></td>
             <td><a href="images/README.md">https://supervisely.com</a></td>
         </tr>
         <tr>
             <td><strong>Video</strong></td>
             <td>sdfasdfasdfasdfasdfasdfasdfasdf</td>
             <td>asdfsdf</td>
-            <td><a href="ai-video.gif"></a></td>
+            <td><a href="ai-video.gif">video</a></td>
             <td><a href="videos/README.md">https://supervisely.com</a></td>
         </tr>
     </tbody>
