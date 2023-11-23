@@ -38,7 +38,7 @@ By default Supervisely exposes 2 ports on its host. Both ports are configurable.
 if you're using Supervisely's built-in HTTPS then port 443 will be exposed as well
 {% endhint %}
 
-`NET_SERVER_PORT` is used for WireGuard communication between the server and the Apps. Default to `51822`
+`NET_SERVER_PORT` is used for WireGuard communication between the server and the Apps. Default to `51822` UDP
 
 {% hint style="info" %}
 Make sure that the agent can reach the WireGuard server via `{SERVER_ADDRESS}:{NET_SERVER_PORT}`. Otherwise the GUI Apps won't work
