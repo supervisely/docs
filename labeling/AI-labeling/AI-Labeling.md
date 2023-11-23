@@ -38,8 +38,8 @@ _Note: Using a GPU Compute Agent is an important requirement for SmartTool model
 Apart from SmartTool, we have access to a variety of applications tailored for different data handling purposes:
 
 - **SmartTool:** Primarily used for image annotation and labeling.
-- **Apply NN to Images Project:** Enables the application of neural networks to image projects directly.
-- **NN Image Labeling**
+- [**Apply NN to Images Project:**](https://ecosystem.supervisely.com/apps/nn-image-labeling/project-dataset) Enables the application of neural networks to image projects directly.
+- [**NN Image Labeling:**](https://ecosystem.supervisely.com/apps/nn-image-labeling/annotation-tool) Any NN can be integrated into Labeling interface if it has properly implemented serving app (for example: Serve YOLOv5).
 
 **Moreover, we provide various training applications:**
 
@@ -51,7 +51,7 @@ Apart from SmartTool, we have access to a variety of applications tailored for d
 
 These tools use training of specific models like RITM, YOLOv8, UNet, and MMDetection, optimizing the image annotation process across diverse data types.
 
-## DIFFERENT MODALITIES
+## Different modalities
 
 Another substantial thing about neural networks is that it's easy to adapt it to different modalities. That means, that the Smart Tools not only work on images, but on sequential frames, such as videos or multi-slice medial imaging and even 3D point clouds with more than two dimensions!
 
