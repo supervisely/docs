@@ -3,7 +3,7 @@ description: >-
   Learn how to use Supervisely Apps to train custom AI models, deploy them on your GPU and use in the labeling toolboxes
 ---
 
-#  How to train models
+# How to train models
 
 {% hint style="info" %}
 This 5-minute tutorial is a part of introduction to Supervisely series. You can complete them one-by-one, in random order, or jump to the rest of the documentation at any moment.
@@ -23,6 +23,8 @@ If you are interested in learning more about the process of training models, the
 After [adding team members](Invite-member.md), you can start solving your problem. But sometimes ready-made neural network models cannot meet your tasks, so let's learn how to train models!
 
 Be in Supervisely and click the "Start" button. Select "[Ecosystem](https://ecosystem.supervisely.com/)" - you will see a list of all our applications.
+
+![](open-ecosystem.png)
 
 Type "train" in the search bar and you will see most of our applications related to model training.
 
