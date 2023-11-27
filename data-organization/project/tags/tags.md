@@ -4,16 +4,14 @@ Sometime you need more than a bunch of marked pixels on an image. You may need t
 
 A Tag defines a name, possible values for a tag instance and what types of things it can be attached to. Usually, you can't attach a particular Tag to a particular object multiple times. 
 
-
-                              
 ## Type
 
 You can tag the entire image or just one or a few objects
 
 ![](tags.png)
-                    
-You can also define tags with values, i.e. "number_of_wheels". We support values of the following types: Text, Number, and One of. You can, of course, select None and provide no value at all.               
-      
+
+You can also define tags with values, i.e. "number_of_wheels". We support values of the following types: Text, Number, and One of. You can, of course, select None and provide no value at all.
+
 ## Hotkey
 
 Optionally, you can assign a Hotkey for a tag to quickly select it during labeling. You can only set a single latin character (because other combinations may be unavailable).
