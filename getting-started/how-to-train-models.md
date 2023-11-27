@@ -47,5 +47,5 @@ We also have video guides or detailed posts on using some learning apps.
 - [How to train MMDetection models](https://www.youtube.com/watch?v=aYVutH46-Y4&ab_channel=Supervisely)
 
 Also, you can check the main section of the documentation on neural networks:
- 
+
 {% page-ref page="../neural-networks/overview/overview.md" %}
