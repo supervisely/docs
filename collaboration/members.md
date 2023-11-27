@@ -1,6 +1,6 @@
 # Members
 
-A user in a particular team is called "member". Every user can be a member of one, many or even zero teams, but a team cannot exist without at least one member. Members can leave the team at any moment, but only team's `admin` can remove other members from the team. 
+A user in a particular team is called "member". Every user can be a member of one, many or even zero teams, but a team cannot exist without at least one member. Members can leave the team at any moment, but only team's `admin` can remove other members from the team.
 
 ## Roles
 
@@ -122,4 +122,4 @@ Here is the full list of roles permissions:
 | &#8192;&#8192; Edit       | ✅             | ✅             | ✅             |               |               |
 | &#8192;&#8192; Remove own | ✅             | ✅             |               |               |               |
 | &#8192;&#8192; Remove all | ✅             |               |               |               |               |
-| &#8192;                   |               |               |               |  
+| &#8192;                   |               |               |               |

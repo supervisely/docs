@@ -19,4 +19,3 @@ If you don't want to constrain the shape, set it to **Any Shape** - this way you
 ## Hotkey
 
 Optionally, you can assign a Hotkey for a class to quickly select it during labeling. You can only set a single latin character (because other combinations may be unavailable).
-
