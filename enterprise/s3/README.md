@@ -158,6 +158,9 @@ If your files are protected, however, you will need to provide credentials in th
 ![](configure-cloud-2.png)
 
 
+#### Azure SAS Token minimal permissions
+![](azure_sas_permissions.png)
+
 ### File system provider
 
 If you want to use images from your host where supervisely instance running, you can use "File system" provider
@@ -192,6 +195,7 @@ my-boats-datasets:
   endpoint: https://<account name>.blob.core.windows.net
   access_key: <account name>
   secret_key: <secret key 88 chars long or so: aflmg+wg23fWA+6gAafWmgF4a>
+  secret_key: or you can also use SAS token here: ?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2020-10-10T00:00:00Z&st=2020-10-10T00:00:00Z&spr=https&sig=...
   # array of buckets
   buckets:
   - boats_bucket_2020_20_10
