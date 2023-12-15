@@ -106,7 +106,7 @@
 * Advanced Tuning
   * [HTTPS](enterprise/https/index.md)
   * [Remote Storage](enterprise/s3/README.md)
-  * [SSO](enterprise/sso/README.md)
+  * [Single Sign-On (SSO)](enterprise/sso/README.md)
   * [CDN](enterprise/cdn/README.md)
   * [Notifications](enterprise/notifications/README.md)
   * [Moving Instance](enterprise/moving/README.md)
