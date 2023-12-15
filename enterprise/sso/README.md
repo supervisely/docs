@@ -189,4 +189,14 @@ services:
 
 Beside SSO providers, such as OpenID and LDAP, you can configure more settings to control settings for both internal and external authorizations. Those settings include session lifetime, password requirements and more.
 
-To find those settings, login as "admin" user and select "Instance Settings" under the user menu in the top right corner of your screen. Scroll down to the Authorization section.
+To find the settings, login as "admin" user and select "Instance Settings" under the user menu in the top right corner of your screen. Scroll down to the Authorization section. Some of the noticeable options:
+
+### Disable built-in logins
+
+By default we allow to login both users created in Supervisely and outside of Supervisely in connected SSO. This could cause confusion with matching logins or violate security policies. You can enable this option and allow only external users validated via SSO.
+
+### Only allow existing users
+
+By default, when you sign into the platform using SSO and we detect that this login has not yet been used in Supervisely platform, we automatically create a new account on the platform with that login.
+
+You can disable this behavior using this option. This could be useful if you have lots of accounts in your SSO and you only want specific users to be allowed to login into Supervisely. In that case, you can use the "Users" page to manually provide logins that would be able to login into Supervisely via your SSO.
