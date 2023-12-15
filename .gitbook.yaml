@@ -16,7 +16,8 @@ redirects:
   enterprise-edition/installation/: enterprise/installation/README.md
   enterprise/post-installation: enterprise/post-installation/README.md
   enterprise/post-installation/: enterprise/post-installation/README.md
-  enterprise/advanced-tuning/index-1: enterprise/s3/README.md
+  enterprise/advanced-tuning/index-1: enterprise/sso/README.md
+  enterprise-edition/advanced-tuning/index-1: enterprise/sso/README.md
   cluster/overview: getting-started/connect-your-computer/README.md
   cluster/overview/: getting-started/connect-your-computer/README.md
   ann_format: data-organization/Annotation-JSON-format/00_ann_format_navi.md
