@@ -16,7 +16,7 @@ Login as "admin" user and select "Instance Settings" under the user menu in the 
 
 Click the "Add" button and provide credentials to your Open ID authorization provider.
 
-You may also consider switching "Disable built-in logins" and "Allow only existing users" (see below).
+You may also consider switching "Disable built-in logins" and "Allow only existing users" (see [here](#authorization-settings)).
 
 ![Configure OpenID at the Instance Settings page](./openid-modal.png)
 
@@ -131,7 +131,7 @@ Login as "admin" user and select "Instance Settings" under the user menu in the 
 
 ![Configure LDAP at the Instance Settings page](./ldap.png)
 
-Provide your credentials there. You may also consider switching "Disable built-in logins" and "Allow only existing users" (see below).
+Provide your credentials there. You may also consider switching "Disable built-in logins" and "Allow only existing users" (see [here](#authorization-settings)).
 
 Do not forget to click the "Save" button at the bottom to apply your changes.
 
