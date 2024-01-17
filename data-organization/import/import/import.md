@@ -20,7 +20,7 @@ The instance administrator can configure the Supervisely platform to upload and 
 
 **Store individual files remotely (“Import by Link”)**
 
-The hybrid approach that takes the best of both worlds. In this scenario, you store files locally (so that generated or uploaded manually files end up on a hard drive), but use [special Supervisely Apps](Import-from-Cloud.md) or API methods to add images or videos to datasets “by link”. That means, that instead of uploading the actual content of the file, you provide a resource url (such as “https://…” or “s3://…”) and Supervisely will not store the content on the platform — instead, it will load it from your remote provider on-fly. This method allows you to import huge datasets almost instantly, but you will have to manage the remote storage yourself.
+The hybrid approach that takes the best of both worlds. In this scenario, you don't store files locally (so that generated or uploaded manually files end up on a hard drive), but use [special Supervisely Apps](Import-from-Cloud.md) or API methods to add images or videos to datasets “by link”. That means, that instead of uploading the actual content of the file, you provide a resource url (such as “https://…” or “s3://…”) and Supervisely will not store the content on the platform — instead, it will load it from your remote provider on-fly. This method allows you to import huge datasets almost instantly, but you will have to manage the remote storage yourself.
 
 {% hint style="info" %}
 
