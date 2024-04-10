@@ -26,7 +26,7 @@
     - [PDF files to images](data-organization/import/import/supported-formats-images/pdf.md)
     - [Multi-view images](data-organization/import/import/supported-formats-images/multiview.md)
     - [Multispectral images](data-organization/import/import/supported-formats-images/multispectral.md)
-    - [Medical 2D](data-organization/import/import/supported-formats-images/medical2d.md)
+    - [Medical 2D images](data-organization/import/import/supported-formats-images/medical2d.md)
   - [Import using Web UI](data-organization/import/import/Import-using-Web-UI.md)
   - [Import sample dataset](data-organization/import/import/Import-sample-dataset.md)
   - [Import into an existing dataset](data-organization/import/import/exesting-dataset.md)
