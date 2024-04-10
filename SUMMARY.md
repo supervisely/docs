@@ -16,7 +16,7 @@
 * [Import](data-organization/import/import/import.md)
   * [Overview](data-organization/import/import/import.md)
   * Supported import formats (images)
-    * [![](data-organization/import/import/supported-formats-images/images/sly_logo.png) Supervisely](data-organization/import/import/supported-formats-images/supervisely.md)
+    * ![](data-organization/import/import/supported-formats-images/images/sly_logo.png)[Supervisely](data-organization/import/import/supported-formats-images/supervisely.md)
     * [COCO](data-organization/import/import/supported-formats-images/coco.md)
     * [Yolo](data-organization/import/import/supported-formats-images/yolo.md)
     * [Pascal VOC](data-organization/import/import/supported-formats-images/pascal.md)
