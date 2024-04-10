@@ -1,7 +1,7 @@
-
+<!-- 
 <h1 align="left" style="border-bottom: 0"> <img align="left" src="./images/multi_view_logo.png" width="80" style="padding-right: 20px;"> Multiview Labeling Format</h1>
 
-<br>
+<br> -->
 
 # Overview
 

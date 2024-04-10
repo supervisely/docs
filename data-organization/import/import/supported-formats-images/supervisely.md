@@ -1,15 +1,8 @@
-<div>
-    <table>
-    <tr style="width: 100%">
-        <td style="width:80px">
-        <img align="left" src="./images/sly_logo.png" style="padding-right: 20px;">
-        </td>
-        <td style="width:calc(100% - 100px)">
-        <h1 align="left" style="width:100%; border-bottom: 0">  Overview </h1>
-        </td>
-    </tr>
-    </table>
-</div>
+<!-- <div>
+    <img align="left" src="./images/sly_logo.png" style="padding-right: 20px; width: 50px; height: 50px"> | Supervisely format
+</div>  -->
+
+# Overview
 
 Easily import your images with annotations in the [Supervisely format](https://docs.supervise.ly/data-organization/00_ann_format_navi). The Supervisely json-based annotation format supports such figures: `rectangle`, `line (polyline)`, `polygon`, `point`, `bitmap` (`mask`), `graph` (`keypoints`). It is a universal format that supports various types of annotations and is used in the Supervisely platform.
 

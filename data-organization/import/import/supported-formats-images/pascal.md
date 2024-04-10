@@ -1,6 +1,6 @@
-<h1 align="left" style="border-bottom: 0"> <img align="left" src="./images/pascal_logo.png" width="80" style="padding-right: 20px;">Pascal VOC Format</h1>
+<!-- <h1 align="left" style="border-bottom: 0"> <img align="left" src="./images/pascal_logo.png" width="80" style="padding-right: 20px;">Pascal VOC Format</h1>
 
-<br>
+<br> -->
 
 # Overview
 

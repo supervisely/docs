@@ -1,6 +1,6 @@
-<h1 align="left" style="border-bottom: 0"> <img align="left" src="./images/masks_logo.png" width="80" style="padding-right: 20px;">Images with masks Format</h1>
+<!-- <h1 align="left" style="border-bottom: 0"> <img align="left" src="./images/masks_logo.png" width="80" style="padding-right: 20px;">Images with masks Format</h1>
 
-<br>
+<br> -->
 
 # Overview
 
