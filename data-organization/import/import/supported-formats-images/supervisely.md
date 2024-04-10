@@ -1,6 +1,6 @@
-<h1 style="display: flex; align-items: center">
+<!-- <h1 style="display: flex; align-items: center">
 <img alt="" src="./images/sly_logo.png" decoding="async" style="height: 40px; width: 40px; margin-right: 5px;"> <div>Supervisely format</div>
-</h1>
+</h1> -->
 
 # Overview
 
