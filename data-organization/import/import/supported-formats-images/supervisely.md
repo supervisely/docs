@@ -2,10 +2,10 @@
     <table>
     <tr style="width: 100%">
         <td style="width:80px">
-        <img align="left" src="./images/sly_logo.png" style="width:100%;" style="padding-right: 20px;">
+        <img align="left" src="./images/sly_logo.png" style="padding-right: 20px;">
         </td>
         <td>
-        <h1 align="left" style="border-bottom: 0">  Overview </h1>
+        <h1 align="left" style="width:100%; border-bottom: 0">  Overview </h1>
         </td>
     </tr>
     </table>
