@@ -5,7 +5,7 @@
 
 # Overview
 
-The Supervisely Image Labeling Tool streamlines the annotation process, allowing simultaneous annotation of multiple images on a single screen, saving time and effort in the quest for improved recognition accuracy to tackle everyday challenges efficiently. Can be useful to label objects from different perspectives, 3D reconstruction images, Autonomous vehicle camera views or depth estimation task images.
+Multi-view mode is a feature that allows you to view and annotate multiple images simultaneously. It is especially useful when you need to label objects from different perspectives, 3D reconstruction images, Autonomous vehicle camera views or depth estimation task images. Labeling in multi-view mode can significantly increase the speed of the labeling process (for example, you don't need to switch between images and select a desired class to label the same object)
 
 Just organize images into groups and drop them to the import. The app will do the rest: it will detect groups, tag images, and activate grouping and multi-view modes in the project settings.
 
