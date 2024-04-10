@@ -4,7 +4,7 @@
         <td style="width:80px">
         <img align="left" src="./images/sly_logo.png" style="padding-right: 20px;">
         </td>
-        <td>
+        <td style="width:calc(100% - 100px)">
         <h1 align="left" style="width:100%; border-bottom: 0">  Overview </h1>
         </td>
     </tr>
