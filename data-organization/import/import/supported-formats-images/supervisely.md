@@ -1,5 +1,5 @@
-<h1 style="display: flex; alingn-items: center">
-<img alt="" src="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F2ZRtnNbqSpWk5uCfyE1A%2Fuploads%2FscTeqCveQsQ6uQmNLGax%2Fsly_icon_svg.svg?alt=media&amp;token=2c1d0bf2-04bc-4892-afc3-4081584f3baa" decoding="async" style="height: 40px; width: auto; margin-right: 5px;"> <div>Supervisely format</div>
+<h1 style="display: flex; align-items: center">
+<img alt="" src="./images/sly_logo_mini.png" decoding="async" style="height: 40px; width: auto; margin-right: 5px;"> <div>Supervisely format</div>
 </h1>
 
 # Overview
