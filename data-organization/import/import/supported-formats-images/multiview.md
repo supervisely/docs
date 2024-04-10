@@ -72,7 +72,10 @@ This import organizes images into groups, adds grouping tags, and activates grou
   - Group directories must be populated with images and placed inside dataset directory. All images inside groups will be tagged with folder name value.
   - All images in the root dataset directory will be uploaded as a regular images and will not be tagged.
 
-  **Example Data**: [**IMAGES**](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/cars.catalog.zip) **|** [**NRRD**](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/research.zip)
+  You can download an example of data for import:
+
+  - images ([download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/cars.catalog.zip))
+  - NRRD ([download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/research.zip))
 
   Example data representation:
 

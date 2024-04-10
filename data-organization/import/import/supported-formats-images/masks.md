@@ -15,6 +15,8 @@ The converter supports both semantic and instance segmentation masks. All data w
 
 # Input files structure
 
+Example of data for import ([download ⬇️](https://github.com/supervisely-ecosystem/import-images-with-masks/releases/download/0.0.1/demo_project.zip)).
+
 Images should be in the folder `"img"` and masks should be in one (or more) of the following folders below:
 
 - `ann` - contains binary masks, you can place both semantic and instance segmentation here.

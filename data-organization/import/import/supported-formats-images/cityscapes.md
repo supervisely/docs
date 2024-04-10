@@ -19,7 +19,7 @@ This converter allows to import images with `.json` annotations in [Cityscapes](
 
 # Input files structure
 
-You can download an example of data for import [here](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14908276/sample_cityscapes.zip).<br>
+Example of data for import: ([download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14908276/sample_cityscapes.zip))<br>
 
 Recommended directory structure:
 

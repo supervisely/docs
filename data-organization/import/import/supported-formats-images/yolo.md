@@ -111,7 +111,7 @@ names:
 
 # Input files structure
 
-You can download an example of data for import [here](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14919196/sample_yolo.zip).<br>
+Example of data for import: ([download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14919196/sample_yolo.zip))<br>
 
 Recommended directory structure:
 
@@ -141,11 +141,12 @@ project name
 # Format Config File
 
 File `data_config.yaml` should contain the following keys:
-* `names` - a list of class names
-* `colors` - a list of class colors in RGB format
-* `nc` - the number of classes
-* `train` - the path to the train images
-* `val` - the path to the validation images
+
+- `names` - a list of class names
+- `colors` - a list of class colors in RGB format
+- `nc` - the number of classes
+- `train` - the path to the train images
+- `val` - the path to the validation images
 
 <details>
     <summary>📜data_config.yaml</summary>
@@ -186,5 +187,6 @@ The label file corresponding to the below image contains 2 persons (class 0) and
 ![Yolo coordinates explanation](./images/yolo_coords.png)
 
 # Useful links
+
 - [YOLO format](https://docs.ultralytics.com/datasets/detect/)
 - [[Supervisely Ecosystem] Convert YOLO v5 to Supervisely format](https://ecosystem.supervisely.com/apps/convert-yolov5-to-supervisely-format)

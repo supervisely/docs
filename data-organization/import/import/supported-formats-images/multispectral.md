@@ -18,7 +18,7 @@ Images will be grouped by directories, files from the "split" directory will be 
 
 # Input files structure
 
-You can download an example of data for import [here](https://github.com/supervisely-ecosystem/import-multispectral-images/files/13487269/demo_data.zip).<br>
+Example of data for import: ([download ⬇️](https://github.com/supervisely-ecosystem/import-multispectral-images/files/13487269/demo_data.zip))<br>
 
 Recommended directory structure:
 

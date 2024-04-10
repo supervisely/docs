@@ -21,8 +21,8 @@ Supervisely supports the following annotation types: instances, keypoints, capti
 
 You can download an example of data for import:
 
-- [instances](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918161/sample_coco.zip)
-- [keypoints](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918389/sample_coco_keypoints.zip)
+- instances ([download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918161/sample_coco.zip))
+- keypoints ([download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918389/sample_coco_keypoints.zip))
 
 Recommended directory structure:
 
@@ -145,6 +145,10 @@ As for other 2: you can specify label preferences in the modal window whether yo
 
 <details>
     <summary>Visibility flag example</summary>
+
+| Visibility = 1 | Visibility = 2 |
+| :------------: | :------------: |
+|                |                |
 
 <div>
     <table style="width: 100%">
