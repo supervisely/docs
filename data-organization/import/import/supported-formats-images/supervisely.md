@@ -1,6 +1,5 @@
 ---
 title: ![](./images/sly_logo.png) Supervisely Format
-site: bookdown::bookdown_site
 ---
 
 # Overview
