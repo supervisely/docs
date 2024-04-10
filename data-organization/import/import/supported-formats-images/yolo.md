@@ -8,7 +8,7 @@ This converter allows to import images with annotations in [YOLO](https://docs.u
 
 ⚠️ **Note:** If YOLO project do not contain `data_config.yaml` file, it will use default COCO class names.
 
-![yolo result](./images/yolo_res.png)
+![Import results example](./images/yolo_res.png)
 
 <details>
     <summary> Default COCO class names </summary>
@@ -183,7 +183,7 @@ The label file corresponding to the below image contains 2 persons (class 0) and
 27 0.364844 0.795833 0.078125 0.400000
 ```
 
-![yolo coordinates example](./images/yolo_coords.png)
+![Yolo coordinates explanation](./images/yolo_coords.png)
 
 # Useful links
 - [YOLO format](https://docs.ultralytics.com/datasets/detect/)

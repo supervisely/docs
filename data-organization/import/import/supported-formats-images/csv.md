@@ -14,6 +14,7 @@ You can import Images into Supervisely project using a `.csv`, `.tsv` or `.txt` 
 **Grouped by:** Not applicable<br>
 
 ## Key Features
+
 - Import Images from **Team Files**
 - Import Images by **URLs** from cloud storage or any accessible internet link
 - Supported file formats: `.csv`, `.tsv` or `.txt`
@@ -35,14 +36,15 @@ Yes, tags are optional for each image. If you choose not to assign tags to certa
 
 In the context of this importer, we use specific delimiters for different purposes in the `.csv` file:
 
-#### Column Delimiter 
- - `.csv` - A semicolon (`;`) is used to separate different columns. Each column represents a different attribute, such as the image path/url or the image tag.
+#### Column Delimiter
+
+- `.csv` - A semicolon (`;`) is used to separate different columns. Each column represents a different attribute, such as the image path/url or the image tag.
 - `.tsv` - A tab (`\t`) is used as a delimiter to separate different columns. Similar to the `.csv` format, each column represents a different attribute.
 - `.txt` - Multiple spaces (` `), tabs (`\t`), or a semicolon (`;`) can be used to separate different columns in a `.txt` file. Each column represents a different attribute, similar to the `.csv` and `.tsv` formats. Please note, ⚠️ a single space (` `) cannot be used as a delimiter.
 
 #### Tag Delimiter
 
- A comma (`,`) is used to separate different tags assigned to the same image for all file formats. This allows you to assign multiple tags to a single image.
+A comma (`,`) is used to separate different tags assigned to the same image for all file formats. This allows you to assign multiple tags to a single image.
 
 ### Examples
 
@@ -50,26 +52,37 @@ Regardless of the file format you choose (`.csv`, `.tsv`, or `.txt`), you can sp
 
 1. **Team Files**: Create a `.csv` file with columns for the relative path to the image and the image tag.
 
-    ```csv
-        path;tag
-        /dogs/img_01.jpeg;dog
-        /cats/img_02.jpeg;cat
-        /horses/img_01.jpeg;horse
-    ```
-2. **URLs**: Create a `.txt` file with columns for the full URL-link to the image and the image tag. In this example, tab (`\t`) delimiters are used.
+   ```csv
+       path;tag
+       /dogs/img_01.jpeg;dog
+       /cats/img_02.jpeg;cat
+       /horses/img_01.jpeg;horse
+   ```
 
-    ```text
-        url	tag
-        https://images.io/image_example_1.png	tag1,tag2
-        https://images.io/image_example_2.png	tag3
-        https://images.io/image_example_3.png
-    ```
-    
-    Cloud storage link example:
-    <img src="https://user-images.githubusercontent.com/57998637/229191946-d58f8da8-e03e-4e81-bcf2-4c8d804a9843.png" width="1198px">
+2. **URLs**:
 
+   - Create a `.txt` file with columns for the full URL-link to the image and the image tag. In this example, tab (`\t`) delimiters are used.
+
+     ```text
+         url	tag
+         https://images.io/image_example_1.png	tag1,tag2
+         https://images.io/image_example_2.png	tag3
+         https://images.io/image_example_3.png
+     ```
+
+   - Cloud storage link example:
+
+     link structure: `<provider name>://<bucket name>/<path to image>`
+
+     ```csv
+     url;tag
+     s3://remote-img-test/08. images YOLO masks, bboxes (mix)/ds1_IMG_0748.jpeg;1
+     azure://supervisely-test/TEST-NEW-IMPORT/01. images SLY (from export)/ds1/img/IMG_1836.jpeg
+     google://sly-dev-test/test_img_new/berries-02.jpeg;3
+     ```
 
 # Useful links
+
 - [[Supervisely Ecosystem] Import Images from CSV](https://ecosystem.supervise.ly/apps/import-images-from-csv)
 
-    <img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/import-images-from-csv" src="https://imgur.com/Cqe7fjv.png" width="450px" style='padding-bottom: 20px'/>  
+    <img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/import-images-from-csv" src="https://imgur.com/Cqe7fjv.png" width="450px" style='padding-bottom: 20px'/>

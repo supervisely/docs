@@ -8,7 +8,7 @@ This converter allows to import images with annotations in [COCO](https://cocoda
 
 Supervisely supports the following annotation types: instances, keypoints, captions.
 
-![coco_result](./images/coco_res.png)
+![Import results exmaple](./images/coco_res.png)
 
 # Format description
 

@@ -14,7 +14,7 @@ Each page of the `.PDF` file will be converted to a separate image. The images w
 **Supported annotation format:** No<br>
 **Grouped by:** Not Applicable<br>
 
-![pdf_result](./images/pdf_res.png)
+![PDF import results](./images/pdf_res.png)
 
 # Input files structure
 
