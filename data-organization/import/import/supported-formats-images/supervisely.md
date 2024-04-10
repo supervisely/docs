@@ -1,6 +1,9 @@
-<!-- <div>
-    <img align="left" src="./images/sly_logo.png" style="padding-right: 20px; width: 50px; height: 50px"> | Supervisely format
-</div>  -->
+---
+  title: |
+    ![](./images/sly_logo.png{height=50px}
+    site: bookdown::bookdown_site
+
+---
 
 # Overview
 
