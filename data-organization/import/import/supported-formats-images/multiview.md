@@ -5,7 +5,9 @@
 
 # Overview
 
-This import organizes images into groups, adds grouping tags, and activates grouping and multi-tag modes in the project settings.
+The Supervisely Image Labeling Tool streamlines the annotation process, allowing simultaneous annotation of multiple images on a single screen, saving time and effort in the quest for improved recognition accuracy to tackle everyday challenges efficiently. Can be useful to label objects from different perspectives, 3D reconstruction images, Autonomous vehicle camera views or depth estimation task images.
+
+Just organize images into groups and drop them to the import. The app will do the rest: it will detect groups, tag images, and activate grouping and multi-view modes in the project settings.
 
 # Format description
 
