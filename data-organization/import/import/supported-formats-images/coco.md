@@ -146,22 +146,22 @@ As for other 2: you can specify label preferences in the modal window whether yo
 <details>
     <summary>Visibility flag example</summary>
 
-    <div>
-        <table style="width: 100%">
-            <tr>
-                <th>Visibility = 1</th>
-                <th>Visibility = 2</th>
-            </tr>
-            <tr>
-                <td style="width:50%">
-                <img src="https://user-images.githubusercontent.com/48913536/215511152-c6d181be-9bb8-4b39-a43e-0b6ba9cdb3d6.png" style="max-width:100%;">
-                </td>
-                <td style="width:50%">
-                <img src="https://user-images.githubusercontent.com/48913536/215511138-d909dd0e-bf2d-4686-80c8-586ade92c271.png" style="max-width:100%;">
-                </td>
-            </tr>
-        </table>
-    </div>
+<div>
+    <table style="width: 100%">
+        <tr>
+            <th>Visibility = 1</th>
+            <th>Visibility = 2</th>
+        </tr>
+        <tr>
+            <td style="width:50%">
+            <img src="https://user-images.githubusercontent.com/48913536/215511152-c6d181be-9bb8-4b39-a43e-0b6ba9cdb3d6.png" style="max-width:100%;">
+            </td>
+            <td style="width:50%">
+            <img src="https://user-images.githubusercontent.com/48913536/215511138-d909dd0e-bf2d-4686-80c8-586ade92c271.png" style="max-width:100%;">
+            </td>
+        </tr>
+    </table>
+</div>
 </details>
 
 **Example:** 229, 256, 2 means there’s a keypoint at pixel x=229, y=256 and 2 indicates that it is a visible keypoint
