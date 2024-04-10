@@ -23,7 +23,7 @@
     * [Cityscapes](data-organization/import/import/supported-formats-images/cityscapes.md)
     * [Images with masks](data-organization/import/import/supported-formats-images/masks.md)
     * [links from .csv/.txt/.tsv](data-organization/import/import/supported-formats-images/csv.md)
-    * # ![CSV_logo](data-organization/import/import/supported-formats-images/images/csv_logo.png) [links from CSV, TSV and TXT](data-organization/import/import/supported-formats-images/csv.md)
+    * ![CSV_logo](data-organization/import/import/supported-formats-images/images/csv_logo.png) [links from CSV, TSV and TXT](data-organization/import/import/supported-formats-images/csv.md)
     * [PDF files](data-organization/import/import/supported-formats-images/pdf.md)
     * [Multi-view](data-organization/import/import/supported-formats-images/multiview.md)
     * [Multispectral](data-organization/import/import/supported-formats-images/multispectral.md)
