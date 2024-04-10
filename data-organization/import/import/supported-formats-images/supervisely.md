@@ -1,8 +1,6 @@
 ---
-  title: |
-    ![](./images/sly_logo.png{height=50px}
-    site: bookdown::bookdown_site
-
+title: ![](./images/sly_logo.png
+site: bookdown::bookdown_site
 ---
 
 # Overview
