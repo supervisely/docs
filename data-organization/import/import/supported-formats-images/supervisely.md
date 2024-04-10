@@ -1,8 +1,18 @@
-<h1 align="left" style="border-bottom: 0"> <img align="left" src="./images/sly_logo.png" width="80" style="padding-right: 20px;"> Supervisely Format </h1>
 
-<br>
-
-# Overview
+<div>
+    <table>
+    <tr style="width: 100%">
+        <td>
+        <img align="left" src="./images/sly_logo.png" width="80" style="padding-right: 20px;">
+        <!-- <img src="./images/multi_view_3.png" style="width:100%;"/> -->
+        </td>
+        <td>
+        <b>Synchronization ON</b>
+        <h1 align="left" style="border-bottom: 0">  Overview </h1>
+        </td>
+    </tr>
+    </table>
+</div>
 
 Easily import your images with annotations in the [Supervisely format](https://docs.supervise.ly/data-organization/00_ann_format_navi). The Supervisely json-based annotation format supports such figures: `rectangle`, `line (polyline)`, `polygon`, `point`, `bitmap` (`mask`), `graph` (`keypoints`). It is a universal format that supports various types of annotations and is used in the Supervisely platform.
 
@@ -15,15 +25,9 @@ Easily import your images with annotations in the [Supervisely format](https://d
 
 # Input files structure
 
-You can upload a directory or an archive. All images will be uploaded to a single dataset, so you don't have to worry about the full project structure in Supervisely format. All you need is to prepare images with annotations and `meta.json` file (recommended).
+Both directory and archive are supported.
 
-<!-- {% hint style="success" %} -->
-
-Items even can be placed in any subdirectories or the root directory. Just make sure that an annotation file names matche the image file names (e.g. annotaions file `image_1.jpg.json` is for the image `image_1.jpg`) and that the annotation file format is correct (we will provide an example in the next section). The application will do the rest.
-
-<!-- {% endhint %} -->
-
-Recommended directory structure:
+**Recommended directory structure:**
 
 ```text
 📦 input_folder
@@ -35,12 +39,21 @@ Recommended directory structure:
  ┃ ┃ ┣ 🏞️ IMG_0748.jpeg
  ┃ ┃ ┗ 🏞️ IMG_8144.jpeg
  ┃ ┗ 📂 meta (optional)
- ┃ ┃ ┣ 📄 IMG_0748.jpeg.json
- ┃ ┃ ┗ 📄 IMG_8144.jpeg.json
+ ┃   ┣ 📄 IMG_0748.jpeg.json
+ ┃   ┗ 📄 IMG_8144.jpeg.json
  ┗ 📄 meta.json
 ```
 
+{% hint style="success" %}
+
+**Struggled with the structure?** No worries!
+All images will be uploaded to a single dataset, so you don't have to worry about the full project structure in Supervisely format. All you need is to prepare images with annotations and `meta.json` file (recommended).
+
+Items even can be placed in any subdirectories or the root directory. Just make sure that an annotation file names matche the image file names (e.g. annotaions file `image_1.jpg.json` is for the image `image_1.jpg`) and that the annotation file format is correct (we will provide an example in the next section). The application will do the rest.
+
 Project meta file `meta.json` is recommended to be present in the project directory. It contains classes and tags definitions for the project. If it is not present, it will try to create it from the annotations. Learn more about the `meta.json` file [here](https://docs.supervisely.com/customization-and-integration/00_ann_format_navi/02_project_classes_and_tags).
+
+{% endhint %}
 
 # Individual Image Annotations
 
