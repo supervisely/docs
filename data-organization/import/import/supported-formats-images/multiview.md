@@ -74,8 +74,8 @@ This import organizes images into groups, adds grouping tags, and activates grou
 
   You can download an example of data for import:
 
-  - images ([download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/cars.catalog.zip))
-  - NRRD ([download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/research.zip))
+  - images – [download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/cars.catalog.zip)
+  - NRRD – [download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/research.zip)
 
   Example data representation:
 

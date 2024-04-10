@@ -49,7 +49,7 @@ Uses `.nrrd` extension.
 
 # Input files structure
 
-Example of data for import: ([download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14934438/sample_medical2d.zip))<br>
+Example of data for import: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14934438/sample_medical2d.zip)<br>
 
 Recommended directory structure:
 

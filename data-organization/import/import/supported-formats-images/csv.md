@@ -26,7 +26,7 @@ All images will be uploaded to a single dataset, so you don't have to worry abou
 
 ## Input files structure
 
-Example of data for import ([download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14934860/sample_csv.zip)).
+Example of data for import: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14934860/sample_csv.zip)
 
 In your input file, the first column is crucial as it contains either the paths or URLs to the images you want to import. This column is mandatory for the importer to function correctly.
 
