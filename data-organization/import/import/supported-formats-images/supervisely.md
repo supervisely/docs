@@ -15,7 +15,7 @@ All information about the Supervisely JSON format can be found [here](../../../A
 **Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, and `.jfif`.<br>
 **With annotations:** yes<br>
 **Supported annotation format:** `.json`.<br>
-**Grouped by:** any structure (uploaded to a single dataset)<br>
+**Grouped by:** any structure (will be uploaded to a single dataset)<br>
 
 # Input files structure
 
