@@ -1,13 +1,10 @@
-
 <div>
     <table>
     <tr style="width: 100%">
-        <td>
-        <img align="left" src="./images/sly_logo.png" width="80" style="padding-right: 20px;">
-        <!-- <img src="./images/multi_view_3.png" style="width:100%;"/> -->
+        <td style="width:80px">
+        <img align="left" src="./images/sly_logo.png" style="width:100%;" style="padding-right: 20px;">
         </td>
         <td>
-        <b>Synchronization ON</b>
         <h1 align="left" style="border-bottom: 0">  Overview </h1>
         </td>
     </tr>
