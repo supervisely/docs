@@ -6,46 +6,42 @@
 
 Medical 2D Converter allows to import 2D files with `.nrrd`, `.dcm`, `.nii` and `.nii.gz` extensions. Files with extensions different from `.nrrd` will be converted to `.nrrd`
 
-<details>
-<summary><b>What is DCM file?</b></summary>
 
- <br>
-
-`DCM` file is an image following Digital Imaging and Communications in Medicine (DICOM) format. Format is used to store various medical images like CT scans, MRIs, PET, ultrasound, etc.
-
-Uses `.dcm` and `.DICOM` extensions
-
-</details>
-
-<details>
-<summary><b>What is NII file?</b></summary>
-
- <br>
-
-`NII` format is commonly used to store magnetic resonance imaging (MRI) data.
-
-Uses `.nii` and `.nii.gz` extensions.
-
-</details>
-
-<details>
-<summary><b>What is NRRD file?</b></summary>
-
- <br>
-
-`NRRD` file is a medical imaging format. It is used to store 2D and 3D images along with metadata. It is commonly used in medical imaging.
-
-Uses `.nrrd` extension.
-
-</details>
-
-![Medical data import results](./images/medical2d_result.png)
+While this converter primarily supports 2D medical images, it is possible to import 3D files. However, please note that 3D files will be transposed and sliced along the axial plane. This process converts the 3D image into a series of 2D slices, which can then be viewed and analyzed individually.
 
 # Format description
 
 **Supported image formats:** `.nrrd`, `.dcm`, `.nii` and `.nii.gz`<br>
 **With annotations:** No<br>
 **Grouped by:** Not applicable (yet)<br>
+
+
+## Formats explained
+
+- **DCM**
+
+    `DCM` file is an image following Digital Imaging and Communications in Medicine (DICOM) format. Format is used to store various medical images like CT scans, MRIs, PET, ultrasound, etc.
+
+    Uses `.dcm` and `.DICOM` extensions
+  
+  ----
+
+- **NRRD**
+
+    `NRRD` file is a medical imaging format. It is used to store 2D and 3D images along with metadata. It is commonly used in medical imaging.
+
+    Uses `.nrrd` extension.        
+  
+  ----
+ 
+- **NII**
+
+    `NII` format is commonly used to store magnetic resonance imaging (MRI) data.
+
+    Uses `.nii` and `.nii.gz` extensions.
+        
+
+![Medical data import results](./images/medical2d_result.png)
 
 # Input files structure
 
@@ -66,4 +62,7 @@ Recommended directory structure:
 
 # Useful links
 
-- [[Supervisely Ecosystem] Import dicom studies](https://ecosystem.supervisely.com/apps/import-dicom-studies)
+- [[Supervisely Ecosystem] Import DICOM studies](https://ecosystem.supervisely.com/apps/import-dicom-studies)
+- [Nearly Raw Raster Data (NRRD): Format, Examples etc.](https://teem.sourceforge.net/nrrd/)
+- [Overview of The Content of The DICOM Standard](https://dicom.nema.org/medical/dicom/current/output/html/part01.html#chapter_6)
+- [Neuroimaging Informatics Technology Initiative (NIfTI)](https://nifti.nimh.nih.gov/)
