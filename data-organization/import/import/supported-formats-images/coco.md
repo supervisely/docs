@@ -4,11 +4,11 @@
 
 # Overview
 
-This converter allows to import images with annotations in [COCO](https://cocodataset.org/#home) format. COCO format have all annotations in one `.json` file, usually named `instances.json`.
+This converter allows to import images with annotations in [COCO](https://cocodataset.org/#home) format. COCO format has all annotations in one `.json` file, usually named `instances.json`.
 
 Supervisely supports the following annotation types: instances, keypoints, captions.
 
-![Import results exmaple](./images/coco_res.png)
+![Import results example](./images/coco_res.png)
 
 # Format description
 
@@ -42,13 +42,13 @@ Recommended directory structure:
 # COCO Annotation
 
 COCO format is a complex format that can contain multiple types of annotations. Supervisely import supports only `instances`, `keypoints`, and `captions`.
-The COCO dataset is formatted in `.json` and is a dictionary of keys `info`, `licenses`, `images`, `annotations`, `categories` (in most cases).
+The COCO dataset is formatted in `.json` and is a dictionary of keys `info`, `licenses`, `images`, `annotations`, and `categories` (in most cases).
 
-- `info` - contains high level information about the dataset
+- `info` - contains high-level information about the dataset
 - `licenses` - contains a list of image licenses that apply to images in the dataset.
 - `images` - contains the complete list of images in your dataset. Note that image ids need to be unique among other images.
 - `annotations` - contains a list of every individual object annotation from every image in the dataset.
-- `categories` - contains a list of categories (e.g. dog, boat) and each of those belongs to a supercategory (e.g. animal, vehicle). The original COCO dataset contains 90 categories. You can use the existing COCO categories or create an entirely new list of your own. Each category id must be unique among the rest of the categories.
+- `categories` - contains a list of categories (e.g. dog, boat) and each of those belongs to a supercategory (e.g. animal, vehicle). The original COCO dataset contains 90 categories. You can use the existing COCO categories or create an entirely new list of your own. Each category ID must be unique among the rest of the categories.
 
 ## Instances
 
@@ -143,14 +143,24 @@ Annotations for keypoints are just like in Object Detection (Segmentation) above
 All keypoints with 0 visibility are ignored and will not be presented in the project.
 As for other 2: you can specify label preferences in the modal window whether you want to include key points that are labeled, but not visible or import only clearly visible keypoints.
 
-<details>
-    <summary>Visibility flag example</summary>
+**Visibility flag example:**
 
-| Visibility = 1 | Visibility = 2 |
-| :------------: | :------------: |
-|<img src="https://user-images.githubusercontent.com/48913536/215511152-c6d181be-9bb8-4b39-a43e-0b6ba9cdb3d6.png" style="max-width:100%;">|<img src="https://user-images.githubusercontent.com/48913536/215511138-d909dd0e-bf2d-4686-80c8-586ade92c271.png" style="max-width:100%;">|
-
-</details>
+<div>
+    <table style="width: 100%">
+        <tr>
+            <th>Visibility = 1</th>
+            <th>Visibility = 2</th>
+        </tr>
+        <tr>
+            <td style="width:50%">
+            <img src="https://user-images.githubusercontent.com/48913536/215511152-c6d181be-9bb8-4b39-a43e-0b6ba9cdb3d6.png" style="max-width:100%;">
+            </td>
+            <td style="width:50%">
+            <img src="https://user-images.githubusercontent.com/48913536/215511138-d909dd0e-bf2d-4686-80c8-586ade92c271.png" style="max-width:100%;">
+            </td>
+        </tr>
+    </table>
+</div>
 
 **Example:** 229, 256, 2 means there’s a keypoint at pixel x=229, y=256 and 2 indicates that it is a visible keypoint
 
