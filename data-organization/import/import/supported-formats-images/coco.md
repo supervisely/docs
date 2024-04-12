@@ -27,16 +27,16 @@ You can download an example of data for import:
 Recommended directory structure:
 
 ```text
-📦 project name
- ┗ dataset
-   ┣ 📂annotations
-   ┃ ┗ 📜instances.json
-   ┗ 📂images
-     ┣ 🖼️0001.png
-     ┣ 🖼️0002.png
-     ┣ 🖼️0003.png
-     ┣ 🖼️0004.png
-     ┗ 🖼️0005.png
+    📦project name
+     ┗ 📂dataset
+        ┣ 📂annotations
+        ┃  ┗ 📜instances.json
+        ┗ 📂images
+           ┣ 🖼️0001.png
+           ┣ 🖼️0002.png
+           ┣ 🖼️0003.png
+           ┣ 🖼️0004.png
+           ┗ 🖼️0005.png
 ```
 
 # COCO Annotation

@@ -26,21 +26,21 @@ Images should be in the folder `"img"` and masks should be in one (or more) of t
 **Input data structure example:**
 
 ```text
-Drag & Drop
-├── obj_class_to_machine_color.json
-├── img
-│   ├── image_1.jpg
-│   └── image_2.jpg
-├── masks_instances
-│   ├── image_1
-│   │   ├── dog_1.png # <- `dog` class instance mask
-│   │   └── dog_2.png
-│   └── image_2
-│       ├── dog_1.png
-│       └── dog_2.png
-└── masks_machine
-    ├── image_1.png # <- class name for each pixel > 0 must be in the obj_class_to_machine_color.json
-    └── image_2.png
+   📦Drag & Drop
+    ┣ 📜obj_class_to_machine_color.json
+    ┣ 📂img
+    ┃  ┣ 🖼️image_1.jpg
+    ┃  ┗ 🖼️image_2.jpg
+    ┣ 📂masks_instances
+    ┃  ┣ 📂image_1
+    ┃  ┃  ┣ 🖼️dog_1.png # <- `dog` class instance mask
+    ┃  ┃  ┗ 🖼️dog_2.png
+    ┃  ┗ 📂image_2
+    ┃     ┣ 🖼️dog_1.png
+    ┃     ┗ 🖼️dog_2.png
+    ┗ 📂masks_machine
+        ┣ 🖼️image_1.png # <- class name for each pixel > 0 must be in the 
+        ┗ 🖼️image_2.png
 ```
 
 **`obj_class_to_machine_color.json`** example:

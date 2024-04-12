@@ -26,18 +26,18 @@ Both directory and archive are supported.
 **Recommended directory structure:**
 
 ```text
-📦 input_folder
- ┣ 📂 dataset_name_01
- ┃ ┣ 📂 ann
- ┃ ┃ ┣ 📄 IMG_0748.jpeg.json
- ┃ ┃ ┗ 📄 IMG_8144.jpeg.json
- ┃ ┣ 📂 img
- ┃ ┃ ┣ 🏞️ IMG_0748.jpeg
- ┃ ┃ ┗ 🏞️ IMG_8144.jpeg
- ┃ ┗ 📂 meta (optional)
- ┃   ┣ 📄 IMG_0748.jpeg.json
- ┃   ┗ 📄 IMG_8144.jpeg.json
- ┗ 📄 meta.json
+  📦input_folder
+   ┣ 📂dataset_name_01
+   ┃  ┣ 📂ann
+   ┃  ┃  ┣ 📄IMG_0748.jpeg.json
+   ┃  ┃  ┗ 📄IMG_8144.jpeg.json
+   ┃  ┣ 📂img
+   ┃  ┃  ┣ 🏞️IMG_0748.jpeg
+   ┃  ┃  ┗ 🏞️IMG_8144.jpeg
+   ┃  ┗ 📂meta (optional)
+   ┃     ┣ 📄IMG_0748.jpeg.json
+   ┃     ┗ 📄IMG_8144.jpeg.json
+   ┗ 📄meta.json
 ```
 
 {% hint style="success" %}

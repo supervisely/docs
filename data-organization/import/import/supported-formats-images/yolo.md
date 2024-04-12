@@ -116,26 +116,26 @@ Example of data for import: ([download ⬇️](https://github.com/supervisely-ec
 Recommended directory structure:
 
 ```text
-project name
- ┣ 📂images
- ┃ ┣ 📂train
- ┃ ┃ ┣ 🖼️IMG_0748.jpeg
- ┃ ┃ ┣ 🖼️IMG_1836.jpeg
- ┃ ┃ ┣ 🖼️IMG_2084.jpeg
- ┃ ┃ ┗ 🖼️IMG_3861.jpeg
- ┃ ┗ 📂val
- ┃ ┃ ┣ 🖼️IMG_4451.jpeg
- ┃ ┃ ┗ 🖼️IMG_8144.jpeg
- ┣ 📂labels
- ┃ ┣ 📂train
- ┃ ┃ ┣ 📜IMG_0748.txt
- ┃ ┃ ┣ 📜IMG_1836.txt
- ┃ ┃ ┣ 📜IMG_2084.txt
- ┃ ┃ ┗ 📜IMG_3861.txt
- ┃ ┗ 📂val
- ┃ ┃ ┣ 📜IMG_4451.txt
- ┃ ┃ ┗ 📜IMG_8144.txt
- ┗ 📜data_config.yaml
+  📂project name
+   ┣ 📂images
+   ┃  ┣ 📂train
+   ┃  ┃  ┣ 🖼️IMG_0748.jpeg
+   ┃  ┃  ┣ 🖼️IMG_1836.jpeg
+   ┃  ┃  ┣ 🖼️IMG_2084.jpeg
+   ┃  ┃  ┗ 🖼️IMG_3861.jpeg
+   ┃  ┗ 📂val
+   ┃     ┣ 🖼️IMG_4451.jpeg
+   ┃     ┗ 🖼️IMG_8144.jpeg
+   ┣ 📂labels
+   ┃  ┣ 📂train
+   ┃  ┃  ┣ 📜IMG_0748.txt
+   ┃  ┃  ┣ 📜IMG_1836.txt
+   ┃  ┃  ┣ 📜IMG_2084.txt
+   ┃  ┃  ┗ 📜IMG_3861.txt
+   ┃  ┗ 📂val
+   ┃     ┣ 📜IMG_4451.txt
+   ┃     ┗ 📜IMG_8144.txt
+   ┗ 📜data_config.yaml
 ```
 
 # Format Config File

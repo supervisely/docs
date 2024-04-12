@@ -50,14 +50,14 @@ Example of data for import: [download ⬇️](https://github.com/supervisely-eco
 Recommended directory structure:
 
 ```text
-📦project name
- ┣ 📜Image_1.dcm
- ┣ 📜Image_2.dcm
- ┣ 📜Image_3.dcm
- ┣ 📜Image_4.dcm
- ┣ 📜Image_5.DCM
- ┣ 📜Image_6.nrrd
- ┗ 📜Image_7.nii
+  📦project name
+  ┣ 📜Image_1.dcm
+  ┣ 📜Image_2.dcm
+  ┣ 📜Image_3.dcm
+  ┣ 📜Image_4.dcm
+  ┣ 📜Image_5.DCM
+  ┣ 📜Image_6.nrrd
+  ┗ 📜Image_7.nii
 ```
 
 # Useful links

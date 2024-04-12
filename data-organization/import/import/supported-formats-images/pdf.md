@@ -23,12 +23,12 @@ Example of data for import: ([download ⬇️](https://github.com/supervisely-ec
 Recommended directory structure:
 
 ```text
-📦project name
- ┣ 📜Demo_1.pdf
- ┣ 📜Demo_2.pdf
- ┣ 📜Demo_3.pdf
- ┣ 📜Demo_4.pdf
- ┗ 📜Demo_5.pdf
+  📦project name
+   ┣ 📜Demo_1.pdf
+   ┣ 📜Demo_2.pdf
+   ┣ 📜Demo_3.pdf
+   ┣ 📜Demo_4.pdf
+   ┗ 📜Demo_5.pdf
 ```
 
 # Useful links
