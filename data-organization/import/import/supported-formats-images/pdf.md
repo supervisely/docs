@@ -18,7 +18,7 @@ Each page of the `.PDF` file will be converted to a separate image. The images w
 
 # Input files structure
 
-Example of data for import: ([download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14905329/Sample_PDF.zip))<br>
+Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14905329/Sample_PDF.zip)<br>
 
 Recommended directory structure:
 

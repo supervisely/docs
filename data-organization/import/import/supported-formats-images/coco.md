@@ -19,10 +19,10 @@ Supervisely supports the following annotation types: instances, keypoints, capti
 
 # Input files structure
 
-You can download an example of data for import:
+You can download an example data:
 
-- instances – [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918161/sample_coco.zip)
-- keypoints – [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918389/sample_coco_keypoints.zip)
+- instances: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918161/sample_coco.zip)
+- keypoints: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918389/sample_coco_keypoints.zip)
 
 Recommended directory structure:
 

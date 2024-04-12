@@ -74,10 +74,10 @@ Just organize images into groups and drop them to the import. The app will do th
   - Group directories must be populated with images and placed inside dataset directory. All images inside groups will be tagged with folder name value.
   - All images in the root dataset directory will be uploaded as a regular images and will not be tagged.
 
-  You can download an example of data for import:
+  You can download an example data:
 
-  - images – [download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/cars.catalog.zip)
-  - NRRD – [download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/research.zip)
+  - images: [download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/cars.catalog.zip)
+  - NRRD: [download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/research.zip)
 
   Example data representation:
 

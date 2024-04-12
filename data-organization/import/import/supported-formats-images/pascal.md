@@ -15,7 +15,7 @@ This converter converts Pascal VOC format to Supervisely format. Learn more how 
 
 # Input files structure
 
-Example of data for import: [download ⬇️](https://github.com/supervisely-ecosystem/import-pascal-voc/files/12600118/sample_project.zip)
+Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-pascal-voc/files/12600118/sample_project.zip)
 
 Pascal VOC archive or directory must have the following structure:
 

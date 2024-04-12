@@ -19,7 +19,7 @@ All information about the Supervisely JSON format can be found [here](../../../A
 
 # Input files structure
 
-Example of data for import ([download ⬇️](https://github.com/supervisely-ecosystem/import-images-in-sly-format/files/12537201/robots_project.zip)).
+Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-images-in-sly-format/files/12537201/robots_project.zip).
 
 Both directory and archive are supported.
 

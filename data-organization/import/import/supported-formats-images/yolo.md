@@ -111,7 +111,7 @@ names:
 
 # Input files structure
 
-Example of data for import: ([download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14919196/sample_yolo.zip))<br>
+Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14919196/sample_yolo.zip)<br>
 
 Recommended directory structure:
 
