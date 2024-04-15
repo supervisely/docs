@@ -15,20 +15,19 @@ Welcome to Import Wizard, an all-in-one tool for effortlessly importing data int
 
 1. **Quick:**
    - Simply drag and drop images or labeled data from your local machine. Supervisely platform will try to automatically detect annotation format, saving you time and effort.
-   - List of available annotation formats:
-      * [Images in any directory structure]()
-      * [Supervisely (any Computer Vision task)]()
-      * [COCO (detection, semantic and instance segmentations, keypoints, captioning)]()
-      * [Pascal VOC (detection, semantic and instance segmentation)]()
-      * [YOLO (detection, instance segmentation or keypoints)]()
-      * [Images with masks (semantic or instance segmentation)]()
-      * [Multi-view images]()
-      * [Multispectral images]()
-      * [Medical 2D (single or multi-view) in DICOM, nrrd, nifti format]()
-      * [Cityscapes]()
-      * [Links from CSV or txt]()
-      * [Images with alpha channels LOW]()
-      * [Images extracted from PDFs]()
+   - List of available annotation formats for quick import:
+      * [Images in any directory structure](/data-organization/import/formats/images.md)
+      * [Supervisely (any Computer Vision task)](/data-organization/import/import/supported-formats-images/supervisely.md)
+      * [COCO (detection, semantic and instance segmentations, keypoints, captioning)](/data-organization/import/import/supported-formats-images/coco.md)
+      * [Pascal VOC (detection, semantic and instance segmentation)](/data-organization/import/import/supported-formats-images/pascal.md)
+      * [YOLO (detection, instance segmentation or keypoints)](/data-organization/import/import/supported-formats-images/yolo.md)
+      * [Images with masks (semantic or instance segmentation)](/data-organization/import/import/supported-formats-images/masks.md)
+      * [Multi-view images](/data-organization/import/import/supported-formats-images/multiview.md)
+      * [Multispectral images](/data-organization/import/import/supported-formats-images/multispectral.md)
+      * [Medical 2D (single or multi-view) in DICOM, nrrd, nifti format](/data-organization/import/import/supported-formats-images/medical2d.md)
+      * [Cityscapes](/data-organization/import/import/supported-formats-images/cityscapes.md)
+      * [Links from CSV or txt](/data-organization/import/import/supported-formats-images/csv.md)
+      * [Images extracted from PDFs](/data-organization/import/import/supported-formats-images/pdf.md)
 
 2. **Apps from Ecosystem:**
    - Explore and select from a diverse range of apps within the Ecosystem to seamlessly upload your data to Supervisely. Enjoy the flexibility of choosing the most suitable app for your specific needs.
