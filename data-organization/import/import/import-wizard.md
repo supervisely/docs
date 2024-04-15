@@ -7,7 +7,7 @@
 
 <br>
 
-Welcome to Import Wizard, an all-in-one tool for effortlessly importing data into Supervisely from a variety of sources. Whether you're an experienced user or just getting started, Import Wizard streamlines the import process, guiding you through each step to ensure smooth data import without the hassle.
+Welcome to Import Wizard, an all-in-one tool for importing data into Supervisely from a variety of sources. Whether you're an experienced user or just getting started, Import Wizard streamlines the import process, guiding you through each step to ensure smooth data import without the hassle.
 
 ![import-wizard-menu](import-wizard-menu.png)
 
