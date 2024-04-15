@@ -30,7 +30,7 @@ Welcome to Import Wizard, an all-in-one tool for effortlessly importing data int
       * [Images extracted from PDFs](/data-organization/import/import/supported-formats-images/pdf.md)
 
 2. **Apps from Ecosystem:**
-   - Explore and select from a diverse range of apps within the Ecosystem to seamlessly upload your data to Supervisely. Enjoy the flexibility of choosing the most suitable app for your specific needs.
+   - Explore and select from a diverse range of apps within the Ecosystem to seamlessly upload your data to Supervisely. Enjoy the flexibility of choosing the most suitable app for your specific needs. You can find the list of available import apps in the [Ecosystem](https://ecosystem.supervisely.com/import).
 
 3. **Links:**
    - Skip the file upload process entirely by importing data directly from external links. Your images stored in various storage platforms are seamlessly streamed to the Supervisely platform for immediate use.
@@ -39,16 +39,16 @@ Welcome to Import Wizard, an all-in-one tool for effortlessly importing data int
    - Import data from your connected cloud storage services such as AWS S3, Google Cloud Storage, and Azure. Enjoy the convenience of accessing your data directly from the cloud.
 
 5. **Command Line Interface (CLI):**
-   - Harness the power of the Command Line Interface (CLI) to upload your data to Supervisely right from your console. Streamline your workflow with efficient, command-based imports.
+   - Harness the power of the Command Line Interface (CLI) to upload your data to Supervisely right from your console. Streamline your workflow with efficient, command-based imports. Learn more about how to use CLI on Supervisely developer portal [here](https://developer.supervisely.com/getting-started/command-line-interface/sdk-cli).
 
-6. **Python SDK Integration:**
-   - Automate and streamline processes using the Supervisely SDK. Seamlessly integrate data import tasks into your Python scripts for enhanced efficiency and productivity.
+6. **Python SDK:**
+   - Automate and streamline processes using the Supervisely SDK. Seamlessly integrate data import tasks into your Python scripts for enhanced efficiency and productivity. Read more about how to use Supervisely SDK [here](/data-organization/import/import/import-sdk-api.md#how-to-use-the-software-development-kit-sdk).
 
 7. **REST API:**
-   - Utilize the Supervisely REST API to interact with the platform and perform a wide range of actions programmatically. Enjoy the flexibility of integrating Supervisely functionalities into your applications and workflows.
+   - Utilize the Supervisely REST API to interact with the platform and perform a wide range of actions programmatically. Enjoy the flexibility of integrating Supervisely functionalities into your applications and workflows. Read more about import data using REST API [here](/data-organization/import/import/import-sdk-api.md#how-to-import-through-apis).
 
 8. **Supervisely Agent:**
-   - Import data to Supervisely directly from your agent, whether it's your local machine, a server, or any other device.
+   - Import data to Supervisely directly from your agent, whether it's your local machine, a server, or any other device. Learn how to connect your Supervisely agent [here](/getting-started/connect-your-computer/README.md).
 
 9. **Team Files:**
    - Effortlessly import data from Team Files directly into your project. Enjoy streamlined collaboration and data sharing within your Supervisely team environment.
