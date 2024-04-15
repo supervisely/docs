@@ -15,6 +15,7 @@
 
 - [Import](data-organization/import/import/import.md)
   - [Overview](data-organization/import/import/import.md)
+  - [Import Wizard](data-organization/import/import/import-wizard.md)
   - Supported import formats (images)
     - [Supervisely](data-organization/import/import/supported-formats-images/supervisely.md)
     - [COCO](data-organization/import/import/supported-formats-images/coco.md)
