@@ -15,6 +15,20 @@ Welcome to Import Wizard, an all-in-one tool for effortlessly importing data int
 
 1. **Quick:**
    - Simply drag and drop images or labeled data from your local machine. Supervisely platform will try to automatically detect annotation format, saving you time and effort.
+   - List of available annotation formats:
+      * [Images in any directory structure]()
+      * [Supervisely (any Computer Vision task)]()
+      * [COCO (detection, semantic and instance segmentations, keypoints, captioning)]()
+      * [Pascal VOC (detection, semantic and instance segmentation)]()
+      * [YOLO (detection, instance segmentation or keypoints)]()
+      * [Images with masks (semantic or instance segmentation)]()
+      * [Multi-view images]()
+      * [Multispectral images]()
+      * [Medical 2D (single or multi-view) in DICOM, nrrd, nifti format]()
+      * [Cityscapes]()
+      * [Links from CSV or txt]()
+      * [Images with alpha channels LOW]()
+      * [Images extracted from PDFs]()
 
 2. **Apps from Ecosystem:**
    - Explore and select from a diverse range of apps within the Ecosystem to seamlessly upload your data to Supervisely. Enjoy the flexibility of choosing the most suitable app for your specific needs.
