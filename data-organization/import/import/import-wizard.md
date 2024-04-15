@@ -14,9 +14,9 @@ Welcome to Import Wizard, an all-in-one tool for effortlessly importing data int
 ### Features:
 
 1. **Quick:**
-   - Simply drag and drop images or labeled data from your local machine. Supervisely platform will try to automatically detect annotation format, saving you time and effort.
+   - Simply drag and drop images or labeled data from your local machine. Supervisely platform will try to automatically detect annotation format, saving you time and effort. If no annotation format is detected, only images will be imported.
    - List of available annotation formats for quick import:
-      * [Images in any directory structure](/data-organization/import/formats/images.md)
+      * Images in any directory structure
       * [Supervisely (any Computer Vision task)](/data-organization/import/import/supported-formats-images/supervisely.md)
       * [COCO (detection, semantic and instance segmentations, keypoints, captioning)](/data-organization/import/import/supported-formats-images/coco.md)
       * [Pascal VOC (detection, semantic and instance segmentation)](/data-organization/import/import/supported-formats-images/pascal.md)
