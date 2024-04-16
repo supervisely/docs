@@ -24,7 +24,7 @@ No matter which method you choose, you have the option to import files by links,
 
 ## Import images **with** labels from S3, Google Cloud, Azure and others
 
-[This app](https://ecosystem.supervisely.com/apps/import-images-in-sly-format-from-cloud-storage) enables the straightforward import of images with associated annotations from various cloud storage services like S3, Google Cloud, Azure, and others. It provides a convenient way to handle annotated images, facilitating effective data management for various purposes. You can learn about Supervisely format[here](../../Annotation-JSON-format/01_Project_Structure_new.md).
+[This app](https://ecosystem.supervisely.com/apps/import-images-in-sly-format-from-cloud-storage) enables the straightforward import of images with associated annotations from various cloud storage services like S3, Google Cloud, Azure, and others. It provides a convenient way to handle annotated images, facilitating effective data management for various purposes. You can learn about Supervisely format [here](../../Annotation-JSON-format/01_Project_Structure_new.md).
 
 ## Import videos, point clouds and other from S3, Google Cloud, Azure
 

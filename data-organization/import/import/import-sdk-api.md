@@ -2,7 +2,6 @@
 
 Our software provides you with a Software Development Kit (SDK), which equips you with tools and resources to optimize data import processes. With the SDK, you can create custom solutions that best suit your needs.
 
-
 ## **How to Use the Software Development Kit (SDK):**
 
 1. Access the SDK for our system and its [documentation](https://supervisely.readthedocs.io/en/latest/sdk_packages.html).
