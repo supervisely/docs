@@ -34,11 +34,3 @@ Recommended directory structure:
 # Useful links
 
 - [[Supervisely Ecosystem] Import PDF as Images](https://ecosystem.supervisely.com/apps/import-pdf-as-images)
-
-# Python SDK example
-
-You can also use Supervisely Python SDK to import `.PDF` files. Here's an example of how to do it:
-
-```python
-# TBD after converter release
-```

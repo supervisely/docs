@@ -79,29 +79,6 @@ Just organize images into groups and drop them to the import. The app will do th
   - images: [download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/cars.catalog.zip)
   - NRRD: [download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/research.zip)
 
-  Example data representation:
-
-  - **Dataset name:** ds0
-  - **Images:**
-
-    |    Image name     |        Tag         |
-    | :---------------: | :----------------: |
-    | car_105_front.jpg | `multiview`: `105` |
-    |  car_105_top.jpg  | `multiview`: `105` |
-    | car_202_front.jpg | `multiview`: `202` |
-    |  car_202_top.jpg  | `multiview`: `202` |
-    | car_357_front.jpg | `multiview`: `357` |
-    |  car_357_top.jpg  | `multiview`: `357` |
-    | car_401_front.jpg |
-    |  car_401_top.jpg  |
-    | car_401_side.jpg  |
-
-#### 2. Drop to Import
-
-#### 3. Open imported project using Toolbox 2.0
-
-#### 4. Configure additional Settings after import
-
 - To display single images switch off `Images Grouping` setting.
 
   ![Switch off multi view mode](./images/multi_view_toggle.gif)
