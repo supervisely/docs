@@ -11,7 +11,7 @@ Welcome to Import Wizard, an all-in-one tool for importing data into Supervisely
 
 ![import-wizard-menu](import-wizard-menu.png)
 
-### Features:
+### Features
 
 1. **Quick:**
    - Simply drag and drop images or labeled data from your local machine. Supervisely platform will try to automatically detect annotation format, saving you time and effort. If no annotation format is detected, only images will be imported.
@@ -59,7 +59,7 @@ Welcome to Import Wizard, an all-in-one tool for importing data into Supervisely
 11. **Custom Import Applications:**
     - Develop custom import applications tailored to your unique requirements. Utilize your logic and workflows to seamlessly upload data to the Supervisely platform, ensuring a perfect fit for your specific needs.
 
-### Getting Started:
+### Getting Started
 
 To start using Import Wizard, simply follow these steps:
 
