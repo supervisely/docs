@@ -8,6 +8,7 @@ Supervisely Annotation Format supports the following figures:
 - polygon
 - line / polyline 
 - bitmap
+- alpha_mask
 - keypoint structures 
 - cuboid
 - mask_3d
@@ -343,6 +344,107 @@ Program output after executing the code:
 [[ True  True  True]
  [ True False False]
  [ True  True  True]]
+```
+
+## Alpha Mask
+
+Alpha Mask is a figure that is described by a point of "origin"(upper left corner), which defines the location of the alpha mask within the image and a "data" - grayscale matrix encoded into a string, which defines each pixel of the alpha mask.
+
+Example:
+
+![alpha mask example](./figures_images/alpha_mask.jpg)
+
+```json
+{
+    "id": 497489556,
+    "classId": 1661459,
+    "labelerLogin": "almaz",
+    "createdAt": "2024-05-29T09:35:38.212Z",
+    "updatedAt": "2024-05-29T09:45:14.543Z",
+    "description": "",
+    "geometryType": "alpha_mask",
+    "tags": [],
+    "classTitle": "dog",
+    "bitmap": {
+        "data": "eNpk ... Q08=",
+        "origin": [535, 66]
+    }
+}
+```
+
+Fields description:
+
+- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
+- `description` - string - text description (optional)
+- `geometryType: "alpha_mask"` - class shape
+- `tags` - list of tags assigned to the current object 
+- `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file 
+- `bitmap` - object with two fields:
+  - `origin` - points (`x` and `y` coordinates) of the top left corner of the alpha mask, i.e. the position of the alpha mask within the image
+  - `data` - string - encoded representation of a string
+
+  
+
+A few words about `bitmap` → `data`. You can use these two Python methods to convert a base64 encoded string to NumPy and vice versa.
+
+```python
+def base64_2_mask(s):
+    z = zlib.decompress(base64.b64decode(s))
+    n = np.frombuffer(z, np.uint8)
+    mask = cv2.imdecode(n, cv2.IMREAD_GRAYSCALE)  # pylint: disable=no-member
+    return mask
+
+def mask_2_base64(mask):
+    img_pil = Image.fromarray(np.array(mask, dtype=np.uint8), mode="L")
+    bytes_io = io.BytesIO()
+    img_pil.save(bytes_io, format="PNG", transparency=0, optimize=0)
+    bytes_enc = bytes_io.getvalue()
+    return base64.b64encode(zlib.compress(bytes_enc)).decode("utf-8")
+```
+
+Example:
+
+```python
+import numpy as np
+import cv2, zlib, base64, io
+from PIL import Image
+
+def base64_2_mask(s):
+    z = zlib.decompress(base64.b64decode(s))
+    n = np.frombuffer(z, np.uint8)
+    mask = cv2.imdecode(n, cv2.IMREAD_GRAYSCALE)  # pylint: disable=no-member
+    return mask
+
+def mask_2_base64(mask):
+    img_pil = Image.fromarray(np.array(mask, dtype=np.uint8), mode="L")
+    bytes_io = io.BytesIO()
+    img_pil.save(bytes_io, format="PNG", transparency=0, optimize=0)
+    bytes_enc = bytes_io.getvalue()
+    return base64.b64encode(zlib.compress(bytes_enc)).decode("utf-8")
+
+example_np = np.ones((3, 3), dtype=np.uint8)
+example_np[1][1] = 255
+example_np[1][2] = 0
+example_np[0][1] = 122
+print(example_np)
+
+encoded_string = mask_2_base64(example_np)
+print(encoded_string)
+print(base64_2_mask(encoded_string))
+```
+
+Program output after executing the code:
+
+```python
+[[  1 122   1]
+ [  1 255   0]
+ [  1   1   1]]
+
+"eJzrDPBz5+WS4mJgYOD19HAJAtLMIMwBJBiKnV8lAymmkiC/YAaGsslnLYA8EU8Xx5CKOckJa5JSEv6cP3DixAEGBq43jPUMLJK+IF2ern4u65wSmgBoaRby"
+
+[[  1 122   1]
+ [  1 255   0]
+ [  1   1   1]]
 ```
 
 ## Keypoint structure
