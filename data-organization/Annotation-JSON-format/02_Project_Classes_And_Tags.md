@@ -32,6 +32,14 @@ Each project in Supervisely has a set of predetermined classes and tags. This in
             "geometry_config": {},
             "id": 6509777,
             "hotkey": ""            
+        },
+        {
+            "title": "dog",
+            "shape": "alpha_mask",
+            "color": "#C4D68A",
+            "geometry_config": {},
+            "id": 6509789,
+            "hotkey": ""            
         }
     ],
     "tags": [
