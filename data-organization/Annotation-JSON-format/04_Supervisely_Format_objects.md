@@ -352,7 +352,7 @@ Alpha Mask is a figure that is described by a point of "origin"(upper left corne
 
 Example:
 
-![bitmap example](./figures_images/alpha_mask.jpg)
+![alpha mask example](./figures_images/alpha_mask.jpg)
 
 ```json
 {
