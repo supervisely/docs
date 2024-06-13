@@ -1,6 +1,5 @@
 ---
-description: >-
-  Learn how to import images and a little bit more
+description: Learn how to import images and a little bit more
 ---
 
 # How to import
@@ -8,17 +7,15 @@ description: >-
 {% hint style="info" %}
 This 5-minute tutorial is a part of introduction to Supervisely series. You can complete them one-by-one, in random order, or jump to the rest of the documentation at any moment.
 
-- How to import **(you are here)**
-- [How to annotate](How-to-annotate.md)
-- [How to invite team members](Invite-member.md)
-- [How to connect agents](connect-your-computer/README.md)
-- [How to train models](how-to-train-models.md)
-
+* How to import **(you are here)**
+* [How to annotate](How-to-annotate.md)
+* [How to invite team members](Invite-member.md)
+* [How to connect agents](connect-your-computer/)
+* [How to train models](how-to-train-models.md)
 {% endhint %}
 
 {% hint style="success" %}
-You can learn more about Import, such as importing different formats, import from the cloud or adding data to existing datasets in [this section.](../data-organization/import/import/import.md)
-
+You can learn more about Import, such as importing different formats, import from the cloud or adding data to existing datasets in [this section.](broken-reference)
 {% endhint %}
 
 Let's start our journey with Supervisely by uploading our very first image. Of course, you can import more complex dataset formats like COCO, or modalities, such as DICOM, connect a S3 cloud and much more, but let’s begin with a simple one.
@@ -31,12 +28,11 @@ First thing you will see after you login to Supervisely, is your [Projects](../d
 
 Click the Start button at the very top left corner of the page and click Import. You will see a selection of [Supervisely Apps](https://ecosystem.supervisely.com/import/apps) that allows you to import data to Supervisely.
 
-
-Hover your cursor over the card “Import Images“ in the Essentials section and click Run App. This is how you run *Supervisely Apps* — there are many more of them! Some will let you label your data, train neural networks or perform data operations. And most of them are [open-source](https://github.com/supervisely-ecosystem)!
+Hover your cursor over the card “Import Images“ in the Essentials section and click Run App. This is how you run _Supervisely Apps_ — there are many more of them! Some will let you label your data, train neural networks or perform data operations. And most of them are [open-source](https://github.com/supervisely-ecosystem)!
 
 ![Import page](import-apps.png)
 
-Anyway, here, in the modal window, drag and drop one or more images in one of the supported formats, such as .jpg, .png, .webp and so on (you can find supported formats and other information about any application by clicking at the “Learn step-by-step guide, videos, screenshots” link). You will see uploading progress (your files are actually being uploaded to your [Team Files](../data-organization/team-files/README.md)).
+Anyway, here, in the modal window, drag and drop one or more images in one of the supported formats, such as .jpg, .png, .webp and so on (you can find supported formats and other information about any application by clicking at the “Learn step-by-step guide, videos, screenshots” link). You will see uploading progress (your files are actually being uploaded to your [Team Files](../data-organization/team-files/)).
 
 ![Did you know that you can leave project name empty?](../ecosystem/ecosystem-import-modal.png)
 
@@ -63,5 +59,3 @@ Once the import is finished, you will see the link to your new project in the Ou
 ![Your very first project! We're so proud of you 🥹](project.png)
 
 All set! Now, in the [next section](How-to-annotate.md), let’s annotate your uploaded images.
-
-

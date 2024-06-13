@@ -37,14 +37,13 @@
   * [Classes](data-organization/project/classes/classes.md)
   * [Tags](data-organization/project/tags/tags.md)
   * [Statistics](data-organization/project/statistics/statistics.md)
-
 * [Team Files](data-organization/team-files/README.md)
 * [Data usage & Cleanup](data-organization/storage/README.md)
-* [Operations with Data](/data-organization/Operations-with-Data/README.md)
-  * [Data Filtration](/data-organization/Operations-with-Data/data-filtration.md)
-  * [Augmentations](/data-organization/Operations-with-Data/Augmentations.md)
-  * [Converting & Splitting data](/data-organization/Operations-with-Data/Converting-Splitdata.md)
-  * [Statistics](/data-organization/Operations-with-Data/Statistics.md)
+* [Operations with Data](data-organization/Operations-with-Data/README.md)
+  * [Data Filtration](data-organization/Operations-with-Data/data-filtration.md)
+  * [Augmentations](data-organization/Operations-with-Data/Augmentations.md)
+  * [Converting & Splitting data](data-organization/Operations-with-Data/Converting-Splitdata.md)
+  * [Statistics](data-organization/Operations-with-Data/Statistics.md)
 * [Data Commander](data-organization/data-commander/README.md)
   * [Clone Project Meta](data-organization/data-commander/clone-meta.md)
 
@@ -74,7 +73,7 @@
 * [Activity log](collaboration/Activity-Log.md)
 * [Sharing](collaboration/sharing.md)
 
-## 🖥 Agents
+## 🖥️ Agents
 
 * [Installation](getting-started/connect-your-computer/README.md)
   * [Linux](getting-started/connect-your-computer/unix-based/unix-based.md)
@@ -82,8 +81,8 @@
   * [AMI AWS](agents/ami/README.md)
   * [Kubernetes](enterprise/kubernetes/installation.md)
 * [How agents work](agents/agent/agent.md)
-* [Restart and delete agents](agents/add_delete_node/add_delete_node.md)
-* [Status and monitoring](agents/status_and_troubleshooting/status.md)
+* [Restart and delete agents](agents/add\_delete\_node/add\_delete\_node.md)
+* [Status and monitoring](agents/status\_and\_troubleshooting/status.md)
 * [Storage and cleanup](agents/agent-storage/agent-storage.md)
 * [Integration with Docker](agents/custom-docker-registry/README.md)
 
@@ -95,23 +94,23 @@
 
 ## 👔 Enterprise Edition
 
-* Get Supervisely
+* [Get Supervisely](enterprise-edition/get-supervisely/README.md)
   * [Installation](enterprise/installation/README.md)
   * [Post-installation](enterprise/post-installation/README.md)
   * [Upgrade](enterprise/update/upgrade.md)
   * [License Update](enterprise/updating-the-license/README.md)
-* Kubernetes
+* [Kubernetes](enterprise-edition/kubernetes/README.md)
   * [Overview](enterprise/kubernetes/overview.md)
   * [Installation](enterprise/kubernetes/installation.md)
   * [Connect cluster](enterprise/kubernetes/agent.md)
-* Advanced Tuning
+* [Advanced Tuning](enterprise-edition/advanced-tuning/README.md)
   * [HTTPS](enterprise/https/index.md)
   * [Remote Storage](enterprise/s3/README.md)
   * [Single Sign-On (SSO)](enterprise/sso/README.md)
   * [CDN](enterprise/cdn/README.md)
   * [Notifications](enterprise/notifications/README.md)
   * [Moving Instance](enterprise/moving/README.md)
-  * [Generating Troubleshoot Archive](enterprise/troubleshoot/generating_ts_archive.md)
+  * [Generating Troubleshoot Archive](enterprise/troubleshoot/generating\_ts\_archive.md)
   * [Storage Cleanup](enterprise/cleanup/README.md)
   * [Private Apps](enterprise/private-apps/README.md)
   * [Data Folder](enterprise/data-folder/README.md)
@@ -123,19 +122,19 @@
 
 ## 🔧 Customization and Integration
 
-* [Supervisely .JSON Format](data-organization/Annotation-JSON-format/00_ann_format_navi.md)
-  * [Project Structure](data-organization/Annotation-JSON-format/01_Project_Structure_new.md)
-  * [Project Classes and Tags](data-organization/Annotation-JSON-format/02_Project_Classes_And_Tags.md)
-  * [Tags](data-organization/Annotation-JSON-format/03_Supervisely_format_tags.md)
-  * [Objects](data-organization/Annotation-JSON-format/04_Supervisely_Format_objects.md)
-  * [Individual Image Annotations](data-organization/Annotation-JSON-format/05_Supervisely_format_images.md)
-  * [Individual Video Annotations](data-organization/Annotation-JSON-format/06_Supervisely_format_videos.md)
-  * [Point Cloud Episodes](data-organization/Annotation-JSON-format/07_Supervisely_format_pointcloud_episode.md)
-  * [Volumes Annotation](data-organization/Annotation-JSON-format/08_Supervisely_format_volume.md)
+* [Supervisely .JSON Format](data-organization/Annotation-JSON-format/00\_ann\_format\_navi.md)
+  * [Project Structure](data-organization/Annotation-JSON-format/01\_Project\_Structure\_new.md)
+  * [Project Classes and Tags](data-organization/Annotation-JSON-format/02\_Project\_Classes\_And\_Tags.md)
+  * [Tags](data-organization/Annotation-JSON-format/03\_Supervisely\_format\_tags.md)
+  * [Objects](data-organization/Annotation-JSON-format/04\_Supervisely\_Format\_objects.md)
+  * [Individual Image Annotations](data-organization/Annotation-JSON-format/05\_Supervisely\_format\_images.md)
+  * [Individual Video Annotations](data-organization/Annotation-JSON-format/06\_Supervisely\_format\_videos.md)
+  * [Point Cloud Episodes](data-organization/Annotation-JSON-format/07\_Supervisely\_format\_pointcloud\_episode.md)
+  * [Volumes Annotation](data-organization/Annotation-JSON-format/08\_Supervisely\_format\_volume.md)
 * [Developer Portal](https://developer.supervisely.com/)
-* [SDK](https://supervisely.readthedocs.io/en/latest/sdk_packages.html)
+* [SDK](https://supervisely.readthedocs.io/en/latest/sdk\_packages.html)
 * [API](https://api.docs.supervisely.com)
-  
+
 ## 💡 Resources
 
 * [Changelog](https://app.supervisely.com/changelog)

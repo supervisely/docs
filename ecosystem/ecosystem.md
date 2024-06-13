@@ -1,9 +1,10 @@
 ---
 description: >-
-  How Supervisely is different from others and what are the Ecosystem and Supervisely Apps?
+  How Supervisely is different from others and what are the Ecosystem and
+  Supervisely Apps?
 ---
 
-# 🚀Ecosystem of Supervisely Apps
+# 🚀 Ecosystem of Supervisely Apps
 
 ![](ecosystem-main.png)
 
@@ -19,7 +20,7 @@ You can think of Supervisely as an Operating System available via your web brows
 
 ![](main-ecosystem.png)
 
-{% embed url="https://ecosystem.supervisely.com" %}{% endembed %} 
+{% embed url="https://ecosystem.supervisely.com" %}
 
 The simplicity of creating Supervisely Apps has already led to the development of [hundreds of applications](https://ecosystem.supervisely.com/), ready to be run within a single click in a web browser and get the job done.
 
@@ -29,14 +30,10 @@ Label your data, perform quality assurance, inspect every aspect of your data, c
 
 ![](ecsystem-scripts.png)
 
-{% embed url="https://developer.supervisely.com" %}{% endembed %} 
+{% embed url="https://developer.supervisely.com" %}
 
 Feel free to join the development of Supervisely and start building your own Supervisely Apps. You can integrate your favorite GitHub repository, machine learning model, create an import or export of a custom data format or anything in between!
 
 We welcome you at our [Developer Portal](https://developer.supervisely.com/) where you can find all the necessary information and examples on how to develop and integrate your own Supervisely Apps.
 
 Got any questions or suggestions? Feel free to chat with us in our [Supervisely Slack.](https://supervisely.com/slack)
-
-
-
-
