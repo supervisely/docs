@@ -4,24 +4,24 @@ One of the important clarifications. [Team Files](../team-files/) is an exceptio
 
 ### Disk usage
 
-To view disk usage in current team you can visit "Disk usage" page.
+To view disk usage in current team you can visit **Disk usage** page.
 
-![](<disk-usage-menu (1).png>)
+<figure><img src="../../.gitbook/assets/disk-usage.png" alt=""><figcaption></figcaption></figure>
 
 Here you can see Projects from all Workspaces in current Team.
 
-![](<disk-usage (1).png>)
+<figure><img src="../../.gitbook/assets/disk-usage-2.png" alt=""><figcaption></figcaption></figure>
 
 ### Cleanup
 
 When you remove Projects they will be moved to Trash Bin.
 
-![](<trash-bin-menu (1).png>)
+<figure><img src="../../.gitbook/assets/trash-bin.png" alt=""><figcaption></figcaption></figure>
 
 All removed Projects from current Team are located here.
 
-![](<trash-bin (1).png>)
+<figure><img src="../../.gitbook/assets/trash-bin-2.png" alt=""><figcaption></figcaption></figure>
 
-To delete or restore an item you need to select it by clicking the check mark next to it. Then click "Delete forever" or "Restore"
+To delete or restore an item you need to select it by clicking the check mark next to it. Then click `Delete forever` or `Restore`
 
-![](<trash-bin-restore (1).png>)
+<figure><img src="../../.gitbook/assets/delete-restore.png" alt=""><figcaption></figcaption></figure>

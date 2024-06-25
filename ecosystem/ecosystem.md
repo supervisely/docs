@@ -18,7 +18,7 @@ You can think of Supervisely as an Operating System available via your web brows
 
 ## Ecosystem
 
-![](main-ecosystem.png)
+<figure><img src="../.gitbook/assets/ecosystem (1).jpg" alt=""><figcaption></figcaption></figure>
 
 {% embed url="https://ecosystem.supervisely.com" %}
 

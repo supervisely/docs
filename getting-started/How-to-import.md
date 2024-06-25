@@ -24,38 +24,42 @@ We assume that you have already created an account in Supervisely. If not, you c
 
 First thing you will see after you login to Supervisely, is your [Projects](../data-organization/project/projects.md) page where you can find your data. But there is nothing here yet — let’s fix that!
 
-![So empty 😔](clear-project.png)
+<figure><img src="../.gitbook/assets/import-project.png" alt=""><figcaption></figcaption></figure>
 
-Click the Start button at the very top left corner of the page and click Import. You will see a selection of [Supervisely Apps](https://ecosystem.supervisely.com/import/apps) that allows you to import data to Supervisely.
+1. Click the `Import Data` button. Enter a unique name for the project, keeping in mind that it must be unique in the workspace and case-sensitive. You can also add a description of the project to provide additional information or to track project updates.
+2. Next, select the P`roject type` by defining the content modality: images, videos, point clouds, or DICOM 3D volumes.&#x20;
 
-Hover your cursor over the card “Import Images“ in the Essentials section and click Run App. This is how you run _Supervisely Apps_ — there are many more of them! Some will let you label your data, train neural networks or perform data operations. And most of them are [open-source](https://github.com/supervisely-ecosystem)!
-
-![Import page](import-apps.png)
-
-Anyway, here, in the modal window, drag and drop one or more images in one of the supported formats, such as .jpg, .png, .webp and so on (you can find supported formats and other information about any application by clicking at the “Learn step-by-step guide, videos, screenshots” link). You will see uploading progress (your files are actually being uploaded to your [Team Files](../data-organization/team-files/)).
-
-![Did you know that you can leave project name empty?](../ecosystem/ecosystem-import-modal.png)
-
-Once the uploading is finished, enter a name in the “Result Project Name” field and click the “Run” button at the bottom of the modal window (you might need to scroll down a bit).
-
-{% hint style="info" %}
-You can actually click the "Run" button even before uploading is done — we will wait take it from there.
+{% hint style="warning" %}
+Note that you can't mix multiple content types in the same project, and this setting can't be changed later.
 {% endhint %}
 
-You will be redirected to the tasks page where you can watch the progress of the application. You can click “three dots” (⋮) icon and check the application logs.
+3. Choose one of the available interfaces for labeling images (or other data modality). Our interfaces are designed for different industries and annotation scenarios.
+4. After completing all required fields and selecting options, click `Create` to complete the project and begin uploading data.
 
-![Tasks page](tasks.png)
+<figure><img src="../.gitbook/assets/create-project-easy.png" alt=""><figcaption></figcaption></figure>
+
+5. In the modal window, drag and drop one or more images in one of the supported formats, such as .jpg, .jpeg, .mpo, .bmp, .png, .webp, .tiff, .tif, .nrrd, .jfif, .avif, .heic, NIfTI, DICOM . You can also check out the supported annotation formats.&#x20;
+
+🤗 Congratulations, the hardest part is over!
+
+<figure><img src="../.gitbook/assets/drag-and-drop.png" alt=""><figcaption></figcaption></figure>
+
+You will be redirected to the Tasks page where you can watch the progress of the application (your files are actually being uploaded to your [Team Files](https://docs.supervisely.com/data-organization/team-files)).&#x20;
+
+You can click **three dots (⋮)** icon and check the application logs.
+
+<figure><img src="../.gitbook/assets/tasks.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 🤓 **Nerd alert! Skip this section if you aren't interested how Supervisely works inside.**
 
-So what is going on here? First, Supervisely will choose one of the connected Agents and ask it to run the “Import Images'' application. It will spawn a Docker container that will download the GitHub repository with the application code and run python code written with Supervisely SDK.
+So what is going on here? First, Supervisely will choose one of the connected Agents and ask it to run the “Auto Import'' application. It will spawn a Docker container that will download the GitHub repository with the application code and run python code written with Supervisely SDK.
 
 It will pull your images uploaded to the Team Files in the modal window, convert them, if needed (this particular application maybe does little, but others, like Import COCO format, will transform a lot) and use API to create a Project and add images to it.
 {% endhint %}
 
-Once the import is finished, you will see the link to your new project in the Output column of the table.
+Once the import is finished, you will see the link to your new project in the `Output` column of the table.
 
-![Your very first project! We're so proud of you 🥹](project.png)
+<figure><img src="../.gitbook/assets/projects.png" alt=""><figcaption></figcaption></figure>
 
 All set! Now, in the [next section](How-to-annotate.md), let’s annotate your uploaded images.

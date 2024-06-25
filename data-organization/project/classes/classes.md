@@ -2,13 +2,13 @@
 
 Classes are pre-defined types of your annotations (i.e. "Background" or "Tumor"). Thus, every labeled object on image or video frame has exactly one class associated.
 
-![](classes.png)
+<figure><img src="../../../.gitbook/assets/classes.png" alt=""><figcaption></figcaption></figure>
 
 Usually, you define classes before labeling starts, but you can add new classes in the labelling interface on-fly (if you have enough permissions, of course).
 
-If you delete the class, then the objects drawn by this class are disabled, and they can later be restored using the restore mod function
+If you delete the class, then the objects drawn by this class are disabled, and they can later be restored using the restore mode function.
 
-![](restore-mode.png)
+<figure><img src="../../../.gitbook/assets/restore-mode.png" alt=""><figcaption></figcaption></figure>
 
 ## Shape
 
@@ -19,4 +19,3 @@ If you don't want to constrain the shape, set it to **Any Shape** - this way you
 ## Hotkey
 
 Optionally, you can assign a Hotkey for a class to quickly select it during labeling. You can only set a single latin character (because other combinations may be unavailable).
-

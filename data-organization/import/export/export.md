@@ -10,13 +10,13 @@ You can export data in different ways: from the context menu of a project or a d
 
 The best way to export and download your dataset from Supervisely is by saving it to the [Supervisely Format.](../../supervisely-format.md) Since it has the full support of every capability available on the platform, no matter how complex your annotations and data are (for example, 3D labels of cloud point episodes with photo context), you can be 100% sure that all the information is saved in the convenient .json-based format.
 
-To download a project or dataset in Supervisely format, select Download via App in the context menu and choose Export in Supervisely Format.
+To download a project or dataset in `Supervisely format`, select Download in the context menu by **three dots icon (⋮)** and choose **Export in Supervisely Format**.
 
-![](export-context-menu.png)
+<figure><img src="../../../.gitbook/assets/export.png" alt=""><figcaption></figcaption></figure>
 
-The appropriate Supervisely App will generate an archive, save it to your Team Files and provide you a download link at the Workspace Tasks page.
+The appropriate Supervisely App will generate an archive, save it to your Files and provide you a download link at the **Tasks** page.
 
-![](export-task.png)
+<figure><img src="../../../.gitbook/assets/tar.png" alt=""><figcaption></figcaption></figure>
 
 ### **Export to other Formats**
 
@@ -27,8 +27,9 @@ Of course, there are countless other Supervisely Apps that will help download yo
 * [Export activity as csv](https://app.supervisely.com/ecosystem/apps/export-activity-as-csv?id=86)
 * [Export to YOLOv8 format](https://app.supervisely.com/ecosystem/apps/export-to-yolov8?id=252)
 * [Export to DOTA](https://app.supervisely.com/ecosystem/apps/export-to-dota?id=205)
+* [Export to Cityscapes](https://app.supervisely.com/ecosystem/apps/export-to-cityscapes)
 
-Explore more [export applications](https://ecosystem.supervisely.com/export) in the Ecosystem.
+Explore more [export applications](https://app.supervisely.com/ecosystem/export) in the Ecosystem.
 
 ### **Export only certain items**
 
@@ -49,7 +50,7 @@ For example, [Export to cloud storage](https://ecosystem.supervisely.com/apps/ex
 For developers: you can use the sources of this app as a starting point for your custom export to cloud.
 {% endhint %}
 
-![](Export-cloud-storage.png)
+<figure><img src="../../../.gitbook/assets/export-to-cloud-st.png" alt=""><figcaption></figcaption></figure>
 
 ## **Export via SDK**
 
