@@ -28,6 +28,8 @@
     - [Multi-view images](data-organization/import/import/supported-formats-images/multiview.md)
     - [Multispectral images](data-organization/import/import/supported-formats-images/multispectral.md)
     - [Medical 2D images](data-organization/import/import/supported-formats-images/medical2d.md)
+    - [LabelMe](data-organization/import/import/supported-formats-images/labelme.md)
+    - [LabelStudio](data-organization/import/import/supported-formats-images/label_studio.md)
   - [Import using Web UI](data-organization/import/import/Import-using-Web-UI.md)
   - [Import sample dataset](data-organization/import/import/Import-sample-dataset.md)
   - [Import into an existing dataset](data-organization/import/import/exesting-dataset.md)
