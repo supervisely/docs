@@ -4,7 +4,7 @@ Supervisely has a built-in mechanism to keep your server clean from unused files
 
 ## Manual storage cleanup
 
-To remove projects or models you don't need anymore, please use [Disk Usage](/data-organization/storage) page. Do not forget to visit Server Cleanup page as an admin to provide a final confirmation to permanently remove those files from the storage.
+To remove projects or models you don't need anymore, please use [Disk Usage](../../data-organization/storage/) page. Do not forget to visit Server Cleanup page as an admin to provide a final confirmation to permanently remove those files from the storage.
 
 ## Automatic storage cleanup
 
@@ -20,7 +20,7 @@ CLEANUP_DOCKER_UNTIL=24h
 
 ## Manual agent cleanup
 
-At the Cluster section for each agent you can [monitor storage](../../getting-started/connect-your-computer/agents/status_and_troubleshooting/status.md) in real time. You will find there a few buttons that clean agent cache.
+At the Cluster section for each agent you can [monitor storage](broken-reference) in real time. You will find there a few buttons that clean agent cache.
 
 ## Automatic agent cleanup
 
@@ -30,7 +30,7 @@ There is no automatic agent cleanup at this moment.
 
 Usually, a combination of manual and automatic cleanup procedures keep your instance from bloating, but, if for some reason you can see that occupied disk space keeps growing or you have run into a situation when you have zero free drive space on a system disk and cannot use web interface, check the following folders and run cleanup commands below.
 
-We suggest installing `ncdu` command  if possible and use it as `sudo ncdu <folder>` or use `sudo du -sh <folder>`.
+We suggest installing `ncdu` command if possible and use it as `sudo ncdu <folder>` or use `sudo du -sh <folder>`.
 
 ### Clean docker images and volumes
 
@@ -43,4 +43,3 @@ We suggest installing `ncdu` command  if possible and use it as `sudo ncdu <fold
 **Bloated folder**: `~/.supervisely-agent/<agent-token>/`
 
 **Solution**: Run `sudo rm -rf ~/.supervisely-agent/<agent-token>/*`. This will clean up agents' cache. Please note that this would also remove neural network weights checkpoints obtained during training that were not uploaded to the storage.
-
