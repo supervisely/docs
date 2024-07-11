@@ -15,8 +15,8 @@
 
 - [Import](data-organization/import/import/import.md)
   - [Overview](data-organization/import/import/import.md)
-  - [Import Wizard](data-organization/import/import/import-wizard.md)
-  - Supported import formats (images)
+  - [Import using Web UI](data-organization/import/import/Import-using-Web-UI.md)
+  - Supported annotation formats (images)
     - [Supervisely](data-organization/import/import/supported-formats-images/supervisely.md)
     - [COCO](data-organization/import/import/supported-formats-images/coco.md)
     - [Yolo](data-organization/import/import/supported-formats-images/yolo.md)
@@ -30,7 +30,6 @@
     - [Medical 2D images](data-organization/import/import/supported-formats-images/medical2d.md)
     - [LabelMe](data-organization/import/import/supported-formats-images/labelme.md)
     - [LabelStudio](data-organization/import/import/supported-formats-images/label_studio.md)
-  - [Import using Web UI](data-organization/import/import/Import-using-Web-UI.md)
   - [Import sample dataset](data-organization/import/import/Import-sample-dataset.md)
   - [Import into an existing dataset](data-organization/import/import/exesting-dataset.md)
   - [Import using Team Files](data-organization/import/import/Import-Team-Files.md)
