@@ -5,9 +5,9 @@ Images will be grouped by directories, files from the "split" directory will be 
 
 {% hint style="info" %}
 Note: To use the multispectral import feature, you need to create a project with the `Multispectral image annotation` setting enabled. You can also enable this setting in the project settings after the import. Here is a illustration of how to upload multispectral images:
+{% endhint %}
 
 ![Import Multispectral images](https://github.com/supervisely-ecosystem/import-wizard-docs/assets/79905215/5571a96b-9c2f-42cd-abed-904acec3d625)
-{% endhint %}
 
 Result of the import:
 
@@ -63,8 +63,6 @@ pip install supervisely
 ```
 
 You can learn more about it in our [Developer Portal](https://developer.supervisely.com/getting-started/python-sdk-tutorials/images/multispectral-images), but here we'll just show how you can upload your multispectral images with just a few lines of code.
-
-
 
 ```python
 # Setting multispectral settings for the project.

@@ -6,9 +6,9 @@ Just organize images into groups and drop them to the import. The app will do th
 
 {% hint style="info" %}
 Note: To use the multi-view import feature, you need to create a project with the `Multi-view image annotation` setting enabled. You can also enable this setting in the project settings after the import. Here is an illustration of how to upload multi-view images:
+{% endhint %}
 
 ![Import Multi-view images](https://github.com/supervisely-ecosystem/import-wizard-docs/assets/79905215/81e7c8d1-dc38-4baf-bcef-165521a33c2a)
-{% endhint %}
 
 # Format description
 
