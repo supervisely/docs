@@ -1,6 +1,3 @@
-<!-- <h1 align="left" style="border-bottom: 0"> <img align="left" src="./images/pascal_logo.png" width="80" style="padding-right: 20px;">Pascal VOC Format</h1>
-
-<br> -->
 
 # Overview
 
@@ -9,13 +6,16 @@ This converter converts Pascal VOC format to Supervisely format. Learn more how 
 
 # Format description
 
-**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, and `.jfif`.<br>
-**With annotations:** yes<br>
+**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`<br>
+**With annotations:** Yes<br>
 **Supported annotation format:** `.xml` (bounding boxes), `.png` (segmentation masks)<br>
+**Grouped by:** Any structure (will be uploaded as a single dataset)<br>
 
 # Input files structure
 
+{% hint style="success" %}
 Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-pascal-voc/files/12600118/sample_project.zip)
+{% endhint %}
 
 Pascal VOC archive or directory must have the following structure:
 

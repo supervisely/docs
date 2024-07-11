@@ -1,27 +1,28 @@
-<!--
-<h1 align="left" style="border-bottom: 0"> <img align="left" src="./images/multi_view_logo.png" width="80" style="padding-right: 20px;"> Multiview Labeling Format</h1>
-
-<br> -->
-
 # Overview
 
 Multi-view mode is a feature that allows you to view and annotate multiple images simultaneously. It is especially useful when you need to label objects from different perspectives, 3D reconstruction images, Autonomous vehicle camera views or depth estimation task images. Labeling in multi-view mode can significantly increase the speed of the labeling process (for example, you don't need to switch between images and select a desired class to label the same object)
 
 Just organize images into groups and drop them to the import. The app will do the rest: it will detect groups, tag images, and activate grouping and multi-view modes in the project settings.
 
+{% hint style="info" %}
+Note: To use the multi-view import feature, you need to create a project with the `Multi-view image annotation` setting enabled. You can also enable this setting in the project settings after the import. Here is an illustration of how to upload multi-view images:
+
+![Import Multi-view images](https://github.com/supervisely-ecosystem/import-wizard-docs/assets/79905215/81e7c8d1-dc38-4baf-bcef-165521a33c2a)
+{% endhint %}
+
 # Format description
 
-**Supported format:** structured catalogs<br>
-**With annotations:** yes<br>
-**Annotation types:** tags <br>
-**Grouped by:** tag values<br>
+**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`<br>
+**With annotations:** Yes<br>
+**Annotation types:** Tags in Supervisely format<br>
+**Grouped by:** Folders (corresponding tags will be assigned to images)<br>
 
 ## Key Features
 
 - All images in groups in the created project will be tagged
 - `Images Grouping` option will be turned on by default in the created project
 - Images will be grouped by tag's value
-- Tag value is defined by group directory name
+- Tag value is defined by the group directory name
 - Works with `.nrrd` image format (2D only)
 
 ## How to Use
@@ -69,15 +70,17 @@ Just organize images into groups and drop them to the import. The app will do th
 
   #### Structure explained:
 
-  - Archive must contain only 1 project directory.
-  - Inside project directory must be 1 dataset directory.
-  - Group directories must be populated with images and placed inside dataset directory. All images inside groups will be tagged with folder name value.
-  - All images in the root dataset directory will be uploaded as a regular images and will not be tagged.
+  - An archive must contain only 1 project directory.
+  - Inside the project directory must be 1 dataset directory.
+  - Group directories must be populated with images and placed inside the dataset directory. All images inside the group will be tagged with folder name value.
+  - All images in the root dataset directory will be uploaded as regular images and will not be tagged.
 
+{% hint style="success" %}
   You can download an example data:
 
   - images: [download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/cars.catalog.zip)
   - NRRD: [download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/research.zip)
+{% endhint %}
 
 - To display single images switch off `Images Grouping` setting.
 
@@ -112,8 +115,32 @@ Just organize images into groups and drop them to the import. The app will do th
 
 - [[Supervisely Ecosystem] Group Images for Multiview Labeling](https://ecosystem.supervisely.com/apps/group-images-for-multiview-labeling)
 
-    <img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/import-images-groups" src="https://github.com/supervisely-ecosystem/group-images-for-multiview-labeling/assets/57998637/823cf901-8d8c-4a64-b884-c59f5ff83e93" width="70%"/>
+    <img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/import-images-groups" src="https://github.com/supervisely-ecosystem/group-images-for-multiview-labeling/assets/57998637/823cf901-8d8c-4a64-b884-c59f5ff83e93" width="350px" style='padding-bottom: 10px'/>
 
 - [[Supervisely Ecosystem] Import images groups](https://ecosystem.supervisely.com/apps/import-images-groups)
 
-    <img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/import-images-groups" src="https://i.imgur.com/wAiE0ld.png" width="70%"/>
+    <img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/import-images-groups" src="https://i.imgur.com/wAiE0ld.png" width="350px" style='padding-bottom: 10px'/>
+
+# Easy integration for Python developers
+
+Automate processes with multi-view images using Supervisely Python SDK.
+
+```bash
+pip install supervisely
+```
+
+You can learn more about it in our [Developer Portal](https://developer.supervisely.com/getting-started/python-sdk-tutorials/images/multiview-images), but here we'll just show how you can upload your multi-view images with just a few lines of code.
+
+
+
+```python
+# enable multi-view display in project settings
+api.project.set_multiview_settings(project_id)
+
+images_paths = ['path/to/audi_01.png', 'path/to/audi_02.png']
+
+# upload group of images
+api.image.upload_multiview_images(dataset_id, "audi", images_paths)
+```
+
+In the example above we uploaded two groups of multi-view images. Before or after uploading images, we also need to enable image grouping in the project settings.<br>

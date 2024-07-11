@@ -1,25 +1,23 @@
-<!-- <h1 style="display: flex; align-items: center">
-<img alt="" src="./images/sly_logo.png" decoding="async" style="height: 40px; width: 40px; margin-right: 5px;"> <div>Supervisely format</div>
-</h1> -->
-
 # Overview
 
-Easily import your images with annotations in the Supervisely format. The Supervisely json-based annotation format supports such figures: `rectangle`, `line (polyline)`, `polygon`, `point`, `bitmap` (`mask`), `graph` (`keypoints`). It is a universal format that supports various types of annotations and is used in the Supervisely platform.
+Easily import your images with annotations in the Supervisely format. The Supervisely json-based annotation format supports such figures: `rectangle`, `line (polyline)`, `polygon`, `point`, `bitmap` (`mask`), `graph` (`keypoints`), `alpha mask`, `2D cuboid`. It is a universal format that supports various types of annotations and is used in the Supervisely platform.
+
+# Format description
+
+**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`<br>
+**With annotations:** Yes<br>
+**Supported annotation format:** `.json`.<br>
+**Grouped by:** Any structure (will be uploaded as a single dataset)<br>
 
 {% hint style="info" %}
 All information about the Supervisely JSON format can be found [here](../../../Annotation-JSON-format/00_ann_format_navi.md)
 {% endhint %}
 
-# Format description
-
-**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, and `.jfif`.<br>
-**With annotations:** yes<br>
-**Supported annotation format:** `.json`.<br>
-**Grouped by:** any structure (will be uploaded to a single dataset)<br>
-
 # Input files structure
 
+{% hint style="success" %}
 Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-images-in-sly-format/files/12537201/robots_project.zip).
+{% endhint %}
 
 Both directory and archive are supported.
 

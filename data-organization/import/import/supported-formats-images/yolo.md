@@ -1,12 +1,16 @@
-<!-- <h1 align="left" style="border-bottom: 0"> <img align="left" src="./images/yolo_logo.png" width="80" style="padding-right: 20px;"> YOLO Format </h1>
-
-<br> -->
-
 # Overview
 
-This converter allows to import images with annotations in [YOLO](https://docs.ultralytics.com/datasets/detect/) format. YOLO format has a config `.yaml` file that contains information about classes and datasets, usually named `data_config.yaml` . Each image should have a corresponding `.txt` file with the same name, which contains information about objects in the image.
+This converter allows to import images with annotations in [YOLO](https://docs.ultralytics.com/datasets/detect/) format for **segmentation**, **detection** and **pose estimation** tasks.
 
-⚠️ **Note:** If YOLO project do not contain `data_config.yaml` file, it will use default COCO class names.
+Each image should have a corresponding `.txt` file with the same name, which contains information about objects in the image. 
+
+- Segmentation labels will be converted to polygons. Labels format: `<class-index> <x1> <y1> <x2> <y2> ... <xn> <yn>`
+- Detection labels will be converted to rectangles. Labels format: `<class-index> <x_center> <y_center> <width> <height>`
+- Pose estimation labels will be converted to keypoints. Labels format: `<class-index> <x> <y> <width> <height> <px1> <py1> <px2> <py2> ... <pxn> <pyn>` for Dim=2 and `<class-index> <x> <y> <width> <height> <px1> <py1> <p1-visibility> <px2> <py2> <p2-visibility> <pxn> <pyn> <p2-visibility>` for Dim=3.
+
+YOLO format data should have a specific configuration file that contains information about classes and datasets, usually named `data_config.yaml`.
+
+⚠️ **Note:** If the input data does not contain `data_config.yaml` file, it will use default COCO class names.
 
 ![Import results example](./images/yolo_res.png)
 
@@ -104,14 +108,16 @@ names:
 
 # Format description
 
-**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, and `.jfif`.<br>
-**With annotations:** yes<br>
+**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`<br>
+**With annotations:** Yes<br>
 **Supported annotation format:** `.txt`.<br>
-**Grouped by:** any structure (uploaded to a single dataset)<br>
+**Grouped by:** Any structure (will be uploaded as a single dataset)<br>
 
 # Input files structure
 
+{% hint style="success" %}
 Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14919196/sample_yolo.zip)<br>
+{% endhint %}
 
 Recommended directory structure:
 
@@ -157,26 +163,59 @@ colors: [[255, 1, 1], [1, 255, 1]] # class colors
 nc: 2 # number of classes
 train: ../lemons/images/train # path to train imgs (or "images/train")
 val: ../lemons/images/val # path to val imgs (or "images/val")
+
+# Keypoints (for pose estimation)
+kpt_shape: [17, 3]  # number of keypoints, number of dims (2 for x,y or 3 for x,y,visible)
 ```
 
 </details>
 
 # Individual Image Annotations
 
-Annotation files are in `.txt` format and should contain object labels on each line.
-Box coordinates must be in normalized xywh format (from 0 to 1).
-If your boxes are in pixels, you should divide x_center and width by image width, and y_center and height by image height.
-Class numbers should be zero-indexed (start with 0).
+Annotation files are in `.txt` format and should contain object labels on each line:
 
-The Annotation `.txt` file should be formatted with one row per object in:
+- Class numbers that correspond to the class names in the `data_config.yaml` file.
+- Label coordinates must be in normalized format (from 0 to 1).
+
+**1. Segmentation**
+
+Labels should be formatted with one row per object in:
 
 ```text
-class_id x_center y_center width height
+<class-index> <x1> <y1> <x2> <y2> ... <xn> <yn>
 ```
+
+**2. Detection:**
+
+Labels should be formatted with one row per object in:
+
+```text
+<class-index> <x_center> <y_center> <width> <height>
+```
+
+If your boxes are in pixels, you should divide x_center and width by image width, and y_center and height by image height.
+
+**3. Pose Estimation:**
+
+Labels should be formatted with one row per object. 
+
+For Dim=2:
+
+```text
+<class-index> <x> <y> <width> <height> <px1> <py1> <px2> <py2> ... <pxn> <pyn>
+```
+
+For Dim=3:
+
+```text
+<class-index> <x> <y> <width> <height> <px1> <py1> <p1-visibility> <px2> <py2> <p2-visibility> ... <pxn> <pyn> <pn-visibility>
+```
+
+**Example:**
 
 The label file corresponding to the below image contains 2 persons (class 0) and a tie (class 27) from original COCO classes.
 
-📜zidan.txt
+📜zidan.txt:
 
 ```text
 0 0.481719 0.634028 0.690625 0.713278

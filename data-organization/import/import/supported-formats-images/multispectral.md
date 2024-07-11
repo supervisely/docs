@@ -1,24 +1,30 @@
-<!-- <h1 align="left" style="border-bottom: 0"> <img align="left" src="./images/multispectral_logo.png" width="80" style="padding-right: 20px;"> Multispectral Images Format </h1>
-
-<br> -->
-
 # Overview
 
 This converter allows to import of multispectral images as channels or as separate images without annotations.<br>
 Images will be grouped by directories, files from the "split" directory will be split into separate images by channels and the files from the "images" directory will be uploaded as they are.<br>
 
+{% hint style="info" %}
+Note: To use the multispectral import feature, you need to create a project with the `Multispectral image annotation` setting enabled. You can also enable this setting in the project settings after the import. Here is a illustration of how to upload multispectral images:
+
+![Import Multispectral images](https://github.com/supervisely-ecosystem/import-wizard-docs/assets/79905215/5571a96b-9c2f-42cd-abed-904acec3d625)
+{% endhint %}
+
+Result of the import:
+
 ![Result of the import](./images/multispectral_res.png)
 
 # Format description
 
-**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, and `.jfif`.<br>
+**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`<br>
 **With annotations:** No<br>
 **Supported annotation format:** Not applicable <br>
-**Grouped by:** folders<br>
+**Grouped by:** Folders (corresponding tags will be assigned to images)<br>
 
 # Input files structure
 
+{% hint style="success" %}
 Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-multispectral-images/files/13487269/demo_data.zip)<br>
+{% endhint %}
 
 Recommended directory structure:
 
@@ -48,44 +54,32 @@ In this example, we have 3 groups with images. In the first group, we have one i
 - [[Supervisely Blog] How to Annotate Multispectral Images for Computer Vision Models](https://supervisely.com/blog/labeling-multispectral-images/)
 - [[Supervisely Ecosystem] Import Multispectral Images](https://ecosystem.supervisely.com/apps/import-multispectral-images)
 
-# Python SDK example
+# Easy integration for Python developers
 
-You can also use Supervisely Python SDK to import multispectral images. Here's an example of how to do it:
+Automate processes with multi-view images using Supervisely Python SDK.
+
+```bash
+pip install supervisely
+```
+
+You can learn more about it in our [Developer Portal](https://developer.supervisely.com/getting-started/python-sdk-tutorials/images/multispectral-images), but here we'll just show how you can upload your multispectral images with just a few lines of code.
+
+
 
 ```python
-# Import required libraries.
-import cv2
-import os
-import supervisely as sly
-from dotenv import load_dotenv
-
-# Paste your team_id and workspace_id here.
-team_id = 448
-workspace_id = 690
-
-# Load .env file with your API token and the server address.
-load_dotenv(os.path.expanduser("~/supervisely.env"))
-
-# Initialize the API.
-api = sly.Api.from_env()
-
-# Create a new project and dataset.
-project = api.project.create(workspace_id, "Multispectral images", change_name_if_conflict=True)
-dataset = api.dataset.create(project.id, "ds0")
-
-# Set the multispectral settings for the project.
+# Setting multispectral settings for the project.
 api.project.set_multispectral_settings(project.id)
 
-# Upload RGB image, thermal image, and channels of thermal image.
+# Preparing images for upload.
 image_name = "demo7.png"
 images = ["demo_data/demo7-rgb.png", "demo_data/demo7-thermal.png"]
 
+# Reading thermal image and extracting its channels as 2d numpy arrays.
 image = cv2.imread(images[1])
-
-# Extract channels as 2d numpy arrays: channels = [a, b, c]
 channels = [image[:, :, i] for i in range(image.shape[2])]
 
+# Uploading images.
 image_infos = api.image.upload_multispectral(dataset.id, image_name, channels, images)
 ```
 
-This code will create a new project and dataset, set the multispectral settings for the project, and upload the RGB image, thermal image, and channels of the thermal image into one group.<br>
+In the example above we uploaded two images as they are and also split a thermal image into separate channels<br>

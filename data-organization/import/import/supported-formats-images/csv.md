@@ -1,22 +1,20 @@
-<!-- <h1 align="left" style="border-bottom: 0"> <img align="left" src="./images/csv_logo.png" width="80" style="padding-right: 20px;"> CSV, TSV and TXT Format </h1>
-
-<br> -->
-
 # Overview
 
-You can import Images into Supervisely project using a `.csv`, `.tsv` or `.txt` file. Converter supports importing images from **Team Files** and by **URLs**. It also allows you to automatically assign tags to each image.
+You can import Images into Supervisely project using a `.csv`, `.tsv` or `.txt` file. This import converter is designed to help you quickly upload images to Supervisely from a file containing image paths from **Team Files** or URLs from cloud storage or any accessible internet link (✨ **Available only in Enterprise Edition**).
+
+Additionally, you can assign tags to each image by providing a tag column in the input file. This feature is optional, and you can choose to import images without any tags.
 
 # Format description
 
 **Supported file formats:** `.csv`, `.tsv`, and `.txt`.<br>
 **With annotations:** yes (optional)<br>
 **Supported annotation types:** tags <br>
-**Grouped by:** Not applicable<br>
+**Grouped by:** Any structure (will be uploaded as a single dataset)<br>
 
 ## Key Features
 
 - Import Images from **Team Files**
-- Import Images by **URLs** from cloud storage or any accessible internet link
+- Import Images by **URLs** from cloud storage or any accessible internet link (✨ **Available only in Enterprise Edition**)
 - Supported file formats: `.csv`, `.tsv` or `.txt`
 - Automatically **assign Tags** to each Image (_optional_)
 
@@ -26,7 +24,9 @@ All images will be uploaded to a single dataset, so you don't have to worry abou
 
 ## Input files structure
 
+{% hint style="success" %}
 Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14934860/sample_csv.zip)
+{% endhint %}
 
 In your input file, the first column is crucial as it contains either the paths or URLs to the images you want to import. This column is mandatory for the importer to function correctly.
 
@@ -62,6 +62,10 @@ Regardless of the file format you choose (`.csv`, `.tsv`, or `.txt`), you can sp
    ```
 
 2. **URLs**:
+
+{% hint style="info" %}
+✨ Importing images by URLs is available only in <a href="https://supervisely.com/enterprise/" target="_blank">the Enterprise Edition</a>.
+{% endhint %}
 
    - Create a `.txt` file with columns for the full URL-link to the image and the image tag. In this example, tab (`\t`) delimiters are used.
 

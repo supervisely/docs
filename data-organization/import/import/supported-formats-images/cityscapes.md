@@ -1,25 +1,23 @@
-<!-- <h1 align="left" style="border-bottom: 0"> <img align="left" src="./images/cityscapes_logo.png" width="80" style="padding-right: 20px;"> Cityscapes Format </h1>
-
-<br> -->
-
 # Overview
 
 This converter allows to import images with `.json` annotations in [Cityscapes](https://github.com/mcordts/cityscapesScripts) format.
 
-⚠️ **Note:** images must have suffix `_leftImg8bit` and annotations suffix `_gtFine_polygons` and `.json` extension.
+⚠️ **Note:** images must have suffix `_leftImg8bit` and annotations suffix `_gtFine_polygons` and `.json` extension. Check the example of the file structure below.
 
 ![cityscapes_result](./images/cityscapes_res.png)
 
 # Format description
 
-**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, and `.jfif`.<br>
+**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`<br>
 **With annotations:** yes<br>
 **Supported annotation format:** `.json`.<br>
 **Grouped by:** any structure (uploaded to a single dataset)<br>
 
 # Input files structure
 
+{% hint style="success" %}
 Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14908276/sample_cityscapes.zip)<br>
+{% endhint %}
 
 Recommended directory structure:
 
