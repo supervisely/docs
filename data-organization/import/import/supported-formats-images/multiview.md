@@ -76,7 +76,7 @@ Note: To use the multi-view import feature, you need to create a project with th
   - All images in the root dataset directory will be uploaded as regular images and will not be tagged.
 
 {% hint style="success" %}
-  You can download an example data:
+  We prepared sample datasets for you to try the import process:
 
   - images: [download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/cars.catalog.zip)
   - NRRD: [download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/research.zip)

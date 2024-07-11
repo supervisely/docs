@@ -18,7 +18,7 @@ Autoimport supports the following COCO annotation types: **instances**, **keypoi
 Use this option **if you have images and annotations in COCO format** and you want to upload them together to Supervisely.
 
 {% hint style="success" %}
-You can download an example data:
+We prepared sample datasets in COCO format for you to try the import process:
 
 - instances: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918161/sample_coco.zip)
 - keypoints: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918389/sample_coco_keypoints.zip)

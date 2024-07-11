@@ -43,7 +43,9 @@ kiwi 255 0 0
 lemon 81 198 170
 ```
 
-**Action and Layout Classification Image Sets are not supported by import application.**
+{% hint style="info" %}
+Action and Layout Classification Image Sets are not supported by import application.
+{% endhint %}
 
 # Useful links
 

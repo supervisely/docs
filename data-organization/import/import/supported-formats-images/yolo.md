@@ -211,7 +211,7 @@ For Dim=3:
 <class-index> <x> <y> <width> <height> <px1> <py1> <p1-visibility> <px2> <py2> <p2-visibility> ... <pxn> <pyn> <pn-visibility>
 ```
 
-**Example:**
+**Yolo coordinates explanation:**
 
 The label file corresponding to the below image contains 2 persons (class 0) and a tie (class 27) from original COCO classes.
 
