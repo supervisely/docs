@@ -43,11 +43,11 @@ Both directory and archive are supported.
 **Struggled with the structure?** No worries!
 All images will be uploaded to a single dataset, so you don't have to worry about the full project structure in Supervisely format. All you need is to prepare images with annotations and `meta.json` file (recommended).
 
-Items even can be placed in any subdirectories or the root directory. Just make sure that an annotation file names match the image file names (e.g. annotaions file `image_1.jpg.json` is for the image `image_1.jpg`) and that the annotation file format is correct (we will provide an example in the next section). The application will do the rest.
+Items even can be placed in any subdirectories or the root directory. Just make sure that an annotation file names match the image file names (e.g. annotaions file `image_1.jpg.json` is for the image `image_1.jpg`) and that the annotation file format is correct (look at the example above).
 
 Project meta file `meta.json` is recommended to be present in the project directory. It contains classes and tags definitions for the project. If it is not present, it will try to create it from the annotations. Learn more about the `meta.json` file [here](https://docs.supervisely.com/customization-and-integration/00_ann_format_navi/02_project_classes_and_tags).
 
-{% hint style="success" %}
+{% hint style="info" %}
 If you want to preserve the project structure with multiple datasets, you can use the [Import images in Supervisely format](https://ecosystem.supervisely.com/apps/import-images-in-sly-format) app.
 {% endhint %}
 
