@@ -1,17 +1,18 @@
 # Overview
 
-Easily import your images with annotations in the Supervisely format. The Supervisely json-based annotation format supports such figures: `rectangle`, `line (polyline)`, `polygon`, `point`, `bitmap` (`mask`), `graph` (`keypoints`), `alpha mask`, `2D cuboid`. It is a universal format that supports various types of annotations and is used in the Supervisely platform.
+{% hint style="success" %}
+Easiest way to import your images with annotations is to use the Supervisely format.
+Check out the [Supervisely JSON format](../../../Annotation-JSON-format//00_ann_format_navi.md) documentation for more details.
+{% endhint %}
+
+The Supervisely json-based annotation format supports such figures: `rectangle`, `line (polyline)`, `polygon`, `point`, `bitmap` (`mask`), `graph` (`keypoints`), `alpha mask`, `2D cuboid`. It is a universal format for various task types and is used in the Supervisely platform.
 
 # Format description
 
 **Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`<br>
 **With annotations:** Yes<br>
-**Supported annotation format:** `.json`.<br>
+**Supported annotation file extension:** `.json`.<br>
 **Grouped by:** Any structure (will be uploaded as a single dataset)<br>
-
-{% hint style="info" %}
-All information about the Supervisely JSON format can be found [here](../../../Annotation-JSON-format/00_ann_format_navi.md)
-{% endhint %}
 
 # Input files structure
 
@@ -38,7 +39,6 @@ Both directory and archive are supported.
    ┗ 📄meta.json
 ```
 
-{% hint style="success" %}
 
 **Struggled with the structure?** No worries!
 All images will be uploaded to a single dataset, so you don't have to worry about the full project structure in Supervisely format. All you need is to prepare images with annotations and `meta.json` file (recommended).
@@ -47,6 +47,8 @@ Items even can be placed in any subdirectories or the root directory. Just make 
 
 Project meta file `meta.json` is recommended to be present in the project directory. It contains classes and tags definitions for the project. If it is not present, it will try to create it from the annotations. Learn more about the `meta.json` file [here](https://docs.supervisely.com/customization-and-integration/00_ann_format_navi/02_project_classes_and_tags).
 
+{% hint style="success" %}
+If you want to preserve the project structure with multiple datasets, you can use the [Import images in Supervisely format](https://ecosystem.supervisely.com/apps/import-images-in-sly-format) app.
 {% endhint %}
 
 # Individual Image Annotations

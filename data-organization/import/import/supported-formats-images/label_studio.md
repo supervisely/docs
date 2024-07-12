@@ -9,7 +9,7 @@ Supported LabelStuidio format geometry types: `polygonlabels` (`polygon`), `rect
 
 **Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`<br>
 **With annotations:** yes<br>
-**Supported annotation format:** `.json`.<br>
+**Supported annotation file extension:** `.json`.<br>
 **Grouped by:** Any structure (will be uploaded as a single dataset)<br>
 
 # Input files structure

@@ -2,7 +2,7 @@
 
 This converter allows to import images with annotations in [YOLO](https://docs.ultralytics.com/datasets/detect/) format for **segmentation**, **detection** and **pose estimation** tasks.
 
-Each image should have a corresponding `.txt` file with the same name, which contains information about objects in the image. 
+Each image should have a corresponding `.txt` file with the same name, which contains information about objects in the image.
 
 - Segmentation labels will be converted to polygons. Labels format: `<class-index> <x1> <y1> <x2> <y2> ... <xn> <yn>`
 - Detection labels will be converted to rectangles. Labels format: `<class-index> <x_center> <y_center> <width> <height>`
@@ -110,7 +110,7 @@ names:
 
 **Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`<br>
 **With annotations:** Yes<br>
-**Supported annotation format:** `.txt`.<br>
+**Supported annotation file extension:** `.txt`.<br>
 **Grouped by:** Any structure (will be uploaded as a single dataset)<br>
 
 # Input files structure
@@ -165,7 +165,7 @@ train: ../lemons/images/train # path to train imgs (or "images/train")
 val: ../lemons/images/val # path to val imgs (or "images/val")
 
 # Keypoints (for pose estimation)
-kpt_shape: [17, 3]  # number of keypoints, number of dims (2 for x,y or 3 for x,y,visible)
+kpt_shape: [17, 3] # number of keypoints, number of dims (2 for x,y or 3 for x,y,visible)
 ```
 
 </details>
@@ -197,7 +197,7 @@ If your boxes are in pixels, you should divide x_center and width by image width
 
 **3. Pose Estimation:**
 
-Labels should be formatted with one row per object. 
+Labels should be formatted with one row per object.
 
 For Dim=2:
 

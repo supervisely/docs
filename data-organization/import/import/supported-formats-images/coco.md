@@ -10,7 +10,7 @@ Autoimport supports the following COCO annotation types: **instances**, **keypoi
 
 **Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`<br>
 **With annotations:** yes<br>
-**Supported annotation format:** `.json`.<br>
+**Supported annotation file extension:** `.json`.<br>
 **Grouped by:** any structure (will be uploaded as a single dataset)<br>
 
 # Default option: Import images and annotations together
@@ -22,7 +22,7 @@ We prepared sample datasets in COCO format for you to try the import process:
 
 - instances: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918161/sample_coco.zip)
 - keypoints: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918389/sample_coco_keypoints.zip)
-{% endhint %}
+  {% endhint %}
 
 Recommended directory structure:
 
@@ -153,7 +153,6 @@ Annotations for keypoints are just like in Object Detection (Segmentation) above
 
 - **x** and **y** indicate pixel positions in the image.
 - **v** indicates visibility — v=0: not labeled (in which case x=y=0), v=1: labeled but not visible (behind an object for example), and v=2: labeled and visible. Only keypoints with v=2 will be uploaded to the project.
-
 
 Example of the annotation file with keypoints:
 

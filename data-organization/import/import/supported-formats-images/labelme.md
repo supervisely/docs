@@ -9,7 +9,7 @@ Supported LabelMe format geometry types: `polygon`, `rectangle`, `circle`, `poin
 
 **Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`<br>
 **With annotations:** yes<br>
-**Supported annotation format:** `.json`.<br>
+**Supported annotation file extension:** `.json`.<br>
 **Grouped by:** Any structure (will be uploaded as a single dataset)<br>
 
 # Input files structure
@@ -145,7 +145,6 @@ Example of the annotation file:
   "imageHeight": 3382,
   "imageWidth": 2536
 }
-
 ```
 
 </details>

@@ -1,4 +1,3 @@
-
 # Overview
 
 The Pascal VOC (Visual Object Classes) format stands as one of the benchmarks established relatively early for object classification, segmentation and detection. It furnishes a standardized dataset for identifying object classes, utilizing an XML-based export format that enjoys widespread adoption in computer vision tasks.
@@ -8,7 +7,7 @@ This converter converts Pascal VOC format to Supervisely format. Learn more how 
 
 **Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`<br>
 **With annotations:** Yes<br>
-**Supported annotation format:** `.xml` (bounding boxes), `.png` (segmentation masks)<br>
+**Supported annotation files extensions:** `.xml` (bounding boxes), `.png` (segmentation masks)<br>
 **Grouped by:** Any structure (will be uploaded as a single dataset)<br>
 
 # Input files structure
