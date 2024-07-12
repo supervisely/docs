@@ -1,48 +1,48 @@
 # Table of contents
 
-- [🤖 What's Supervisely](README.md)
-- [🚀 Ecosystem of Supervisely Apps](ecosystem/ecosystem.md)
-- [💡 FAQ](getting-started/faq.md)
+* [🤖 What's Supervisely](README.md)
+* [🚀 Ecosystem of Supervisely Apps](ecosystem/ecosystem.md)
+* [💡 FAQ](getting-started/faq.md)
 
 ## 📌 Getting started
 
-- [How to import](getting-started/How-to-import.md)
-- [How to annotate](getting-started/How-to-annotate.md)
-- [How to invite team members](getting-started/Invite-member.md)
-- [How to train models](getting-started/how-to-train-models.md)
+* [How to import](getting-started/How-to-import.md)
+* [How to annotate](getting-started/How-to-annotate.md)
+* [How to invite team members](getting-started/Invite-member.md)
+* [How to train models](getting-started/how-to-train-models.md)
 
 ## 🔁 Import and Export
 
-- [Import](data-organization/import/import/import.md)
-  - [Overview](data-organization/import/import/import.md)
-  - [Import using Web UI](data-organization/import/import/Import-using-Web-UI.md)
-  - Supported annotation formats
-    - Images
-      - [Supervisely](data-organization/import/import/supported-formats-images/supervisely.md)
-      - [COCO](data-organization/import/import/supported-formats-images/coco.md)
-      - [Yolo](data-organization/import/import/supported-formats-images/yolo.md)
-      - [Pascal VOC](data-organization/import/import/supported-formats-images/pascal.md)
-      - [Cityscapes](data-organization/import/import/supported-formats-images/cityscapes.md)
-      - [Images with PNG masks](data-organization/import/import/supported-formats-images/masks.md)
-      - [Links from CSV, TXT and TSV](data-organization/import/import/supported-formats-images/csv.md)
-      - [PDF files to images](data-organization/import/import/supported-formats-images/pdf.md)
-      - [Multi-view images](data-organization/import/import/supported-formats-images/multiview.md)
-      - [Multispectral images](data-organization/import/import/supported-formats-images/multispectral.md)
-      - [Medical 2D images](data-organization/import/import/supported-formats-images/medical2d.md)
-      - [LabelMe](data-organization/import/import/supported-formats-images/labelme.md)
-      - [LabelStudio](data-organization/import/import/supported-formats-images/label_studio.md)
-  - [Import sample dataset](data-organization/import/import/Import-sample-dataset.md)
-  - [Import into an existing dataset](data-organization/import/import/exesting-dataset.md)
-  - [Import using Team Files](data-organization/import/import/Import-Team-Files.md)
-  - [Import from Cloud](data-organization/import/import/Import-from-Cloud.md)
-  - [Import using API & SDK](data-organization/import/import/import-sdk-api.md)
-  - [Import using agent](data-organization/import/import/import-using-agent/import-using-agent.md)
-- [Migrations](data-organization/import/migration/migrations.md)
-  - [Roboflow to Supervisely](data-organization/import/migration/roboflow/migration-roboflow.md)
-  - [Labelbox to Supervisely](data-organization/import/migration/labelbox/migration-labelbox.md)
-  - [V7 to Supervisely](data-organization/import/migration/v7/migration-v7.md)
-  - [CVAT to Supervisely](data-organization/import/migration/CVAT/migration-cvat.md)
-- [Export](data-organization/import/export/export.md)
+* [Import](data-organization/import/import/import.md)
+  * [Overview](data-organization/import/import/import.md)
+  * [Import using Web UI](data-organization/import/import/Import-using-Web-UI.md)
+  * Supported annotation formats
+    * Images
+      * [Supervisely](data-organization/import/import/supported-formats-images/supervisely.md)
+      * [COCO](data-organization/import/import/supported-formats-images/coco.md)
+      * [Yolo](data-organization/import/import/supported-formats-images/yolo.md)
+      * [Pascal VOC](data-organization/import/import/supported-formats-images/pascal.md)
+      * [Cityscapes](data-organization/import/import/supported-formats-images/cityscapes.md)
+      * [Images with PNG masks](data-organization/import/import/supported-formats-images/masks.md)
+      * [Links from CSV, TXT and TSV](data-organization/import/import/supported-formats-images/csv.md)
+      * [PDF files to images](data-organization/import/import/supported-formats-images/pdf.md)
+      * [Multi-view images](data-organization/import/import/supported-formats-images/multiview.md)
+      * [Multispectral images](data-organization/import/import/supported-formats-images/multispectral.md)
+      * [Medical 2D images](data-organization/import/import/supported-formats-images/medical2d.md)
+      * [LabelMe](data-organization/import/import/supported-formats-images/labelme.md)
+      * [LabelStudio](data-organization/import/import/supported-formats-images/label_studio.md)
+  * [Import sample dataset](data-organization/import/import/Import-sample-dataset.md)
+  * [Import into an existing dataset](data-organization/import/import/exesting-dataset.md)
+  * [Import using Team Files](data-organization/import/import/Import-Team-Files.md)
+  * [Import from Cloud](data-organization/import/import/Import-from-Cloud.md)
+  * [Import using API & SDK](data-organization/import/import/import-sdk-api.md)
+  * [Import using agent](data-organization/import/import/import-using-agent/import-using-agent.md)
+* [Migrations](data-organization/import/migration/migrations.md)
+  * [Roboflow to Supervisely](data-organization/import/migration/roboflow/migration-roboflow.md)
+  * [Labelbox to Supervisely](data-organization/import/migration/labelbox/migration-labelbox.md)
+  * [V7 to Supervisely](data-organization/import/migration/v7/migration-v7.md)
+  * [CVAT to Supervisely](data-organization/import/migration/CVAT/migration-cvat.md)
+* [Export](data-organization/import/export/export.md)
 
 ## 📂 Data Organization
 
@@ -64,29 +64,29 @@
 
 ## 📝 Labeling
 
-- [Labeling Toolboxes](labeling/Labeling-toolbox.md)
-  - [Images](labeling/images/README.md)
-  - [Multi-view images](<labeling/images/Multi-view images/Multi-view-images.md>)
-  - [Videos](labeling/videos/README.md)
-  - [Video tracking](labeling/videos/video-tracking.md)
-  - [3D Point Clouds](labeling/3D-Point-Clouds/3D-Point-Clouds.md)
-  - [3D Point Clouds Episodes](labeling/3D-Point-Clouds/3D-Point-Clouds-episod.md)
-  - [Sensor-fusion](labeling/3D-Point-Clouds/Sensor-fusion/Sensor-fusion.md)
-  - [DICOM](labeling/DICOM/DICOM.md)
-- [Labeling Jobs](labeling/jobs/README.md)
-  - [Labeling Queues](labeling/jobs/Labeling-Queues.md)
-  - [Labeling Consensus](labeling/jobs/Labeling-Consensus.md)
-  - [Labeling Statistics](labeling/jobs/Labeling-Statistics.md)
-- [Labeling with AI-Assistance](labeling/AI-labeling/AI-Labeling.md)
+* [Labeling Toolboxes](labeling/Labeling-toolbox.md)
+  * [Images](labeling/images/README.md)
+  * [Multi-view images](<labeling/images/Multi-view images/Multi-view-images.md>)
+  * [Videos](labeling/videos/README.md)
+  * [Video tracking](labeling/videos/video-tracking.md)
+  * [3D Point Clouds](labeling/3D-Point-Clouds/3D-Point-Clouds.md)
+  * [3D Point Clouds Episodes](labeling/3D-Point-Clouds/3D-Point-Clouds-episod.md)
+  * [Sensor-fusion](labeling/3D-Point-Clouds/Sensor-fusion/Sensor-fusion.md)
+  * [DICOM](labeling/DICOM/DICOM.md)
+* [Labeling Jobs](labeling/jobs/README.md)
+  * [Labeling Queues](labeling/jobs/Labeling-Queues.md)
+  * [Labeling Consensus](labeling/jobs/Labeling-Consensus.md)
+  * [Labeling Statistics](labeling/jobs/Labeling-Statistics.md)
+* [Labeling with AI-Assistance](labeling/AI-labeling/AI-Labeling.md)
 
 ## 🤝 Collaboration
 
-- [Teams & workspaces](collaboration/teams.md)
-- [Members](collaboration/members.md)
-- [Issues](labeling/issues/README.md)
-- [Guides & exams](labeling/exams/README.md)
-- [Activity log](collaboration/Activity-Log.md)
-- [Sharing](collaboration/sharing.md)
+* [Teams & workspaces](collaboration/teams.md)
+* [Members](collaboration/members.md)
+* [Issues](labeling/issues/README.md)
+* [Guides & exams](labeling/exams/README.md)
+* [Activity log](collaboration/Activity-Log.md)
+* [Sharing](collaboration/sharing.md)
 
 ## 🖥️ Agents
 
@@ -103,9 +103,9 @@
 
 ## 🔮 Neural Networks
 
-- [Starting with Neural Networks](neural-networks/overview/overview.md)
-- [Train custom Neural Networks](neural-networks/custom-nn/custom-nn.md)
-- [Run pre-trained models](neural-networks/pre-trained-models.md)
+* [Starting with Neural Networks](neural-networks/overview/overview.md)
+* [Train custom Neural Networks](neural-networks/custom-nn/custom-nn.md)
+* [Run pre-trained models](neural-networks/pre-trained-models.md)
 
 ## 👔 Enterprise Edition
 
@@ -152,7 +152,7 @@
 
 ## 💡 Resources
 
-- [Changelog](https://app.supervisely.com/changelog)
-- [GitHub](https://github.com/supervisely/supervisely)
-- [Blog](https://supervisely.com/blog/)
-- [Ecosystem](https://ecosystem.supervisely.com/)
+* [Changelog](https://app.supervisely.com/changelog)
+* [GitHub](https://github.com/supervisely/supervisely)
+* [Blog](https://supervisely.com/blog/)
+* [Ecosystem](https://ecosystem.supervisely.com/)

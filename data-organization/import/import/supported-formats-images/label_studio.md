@@ -3,7 +3,7 @@
 This converter allows to import images with `.json` annotations in <a href="https://labelstud.io/guide/export#Label-Studio-JSON-format-of-annotated-tasks" target="_blank">LabelStudio</a> format.
 Supported LabelStuidio format geometry types: `polygonlabels` (`polygon`), `rectanglelabels` (`rectangle`), `brushlabels` (RLE masks), and `choices` (`tags`)
 
-![labelstudio_result](./images/labelstudio_res.png)
+![Result of the import](./images/labelstudio_res.png)
 
 # Format description
 

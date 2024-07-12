@@ -3,7 +3,7 @@
 This converter allows to import images with `.json` annotations in <a href="https://github.com/labelmeai/labelme?tab=readme-ov-file" target="_blank">LabelMe</a> format.
 Supported LabelMe format geometry types: `polygon`, `rectangle`, `circle`, `point`, `linestring`, `mask`, `line`.
 
-![labelme_result](./images/labelme_res.png)
+![Result of the import](./images/labelme_res.png)
 
 # Format description
 

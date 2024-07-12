@@ -4,7 +4,7 @@ This converter allows to import images with annotations in [COCO](https://cocoda
 
 Autoimport supports the following COCO annotation types: **instances**, **keypoints**, **captions**.
 
-<!-- ![coco_result](https://github.com/supervisely-ecosystem/import-wizard-docs/assets/48913536/7e481382-5d85-4283-8d12-9ffb1418b173) -->
+![Result of the import](./images/coco_res.png)
 
 # Format description
 

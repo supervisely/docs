@@ -4,7 +4,7 @@ This converter allows to import images with `.json` annotations in [Cityscapes](
 
 ⚠️ **Note:** images must have suffix `_leftImg8bit` and annotations suffix `_gtFine_polygons` and `.json` extension. Check the example of the file structure below.
 
-![cityscapes_result](./images/cityscapes_res.png)
+![Result of the import](./images/cityscapes_res.png)
 
 # Format description
 

@@ -12,7 +12,7 @@ YOLO format data should have a specific configuration file that contains informa
 
 ⚠️ **Note:** If the input data does not contain `data_config.yaml` file, it will use default COCO class names.
 
-![Import results example](./images/yolo_res.png)
+![Result of the import](./images/yolo_res.png)
 
 <details>
     <summary> Default COCO class names </summary>
