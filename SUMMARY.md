@@ -18,7 +18,7 @@
   * [Import using Web UI](data-organization/import/import/Import-using-Web-UI.md)
   * Supported annotation formats
     * Images
-      * [Supervisely](data-organization/import/import/supported-formats-images/supervisely.md)
+      * [🤖 Supervisely](data-organization/import/import/supported-formats-images/supervisely.md)
       * [COCO](data-organization/import/import/supported-formats-images/coco.md)
       * [Yolo](data-organization/import/import/supported-formats-images/yolo.md)
       * [Pascal VOC](data-organization/import/import/supported-formats-images/pascal.md)
