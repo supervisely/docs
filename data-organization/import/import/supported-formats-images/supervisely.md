@@ -51,7 +51,7 @@ Just make sure that:
 - Annotation files are in the `.json` format.
 - Annotation files have the corresponding file name to the image file name (e.g. `image_1.jpg.json` is for the image `image_1.jpg`).
 - Annotation files have the correct format (look at the example below).
-- Image files are in the supported formats.
+- Image files are in the supported formats (provided above).
 - Image and annotation files can be placed in any subdirectories or the root directory.
 
 {% endhint %}
