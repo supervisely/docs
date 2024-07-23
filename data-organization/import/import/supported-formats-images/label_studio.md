@@ -1,28 +1,30 @@
-# Overview
+# LabelStudio
 
-This converter allows to import images with `.json` annotations in <a href="https://labelstud.io/guide/export#Label-Studio-JSON-format-of-annotated-tasks" target="_blank">LabelStudio</a> format.
-Supported LabelStuidio format geometry types: `polygonlabels` (`polygon`), `rectanglelabels` (`rectangle`), `brushlabels` (RLE masks), and `choices` (`tags`)
+## Overview
 
-![Result of the import](./images/labelstudio_res.png)
+This converter allows to import images with `.json` annotations in [LabelStudio](https://labelstud.io/guide/export#Label-Studio-JSON-format-of-annotated-tasks) format. Supported LabelStuidio format geometry types: `polygonlabels` (`polygon`), `rectanglelabels` (`rectangle`), `brushlabels` (RLE masks), and `choices` (`tags`)
 
-# Format description
+![Result of the import](images/labelstudio\_res.png)
 
-**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`<br>
-**With annotations:** yes<br>
-**Supported annotation file extension:** `.json`.<br>
-**Grouped by:** Any structure (will be uploaded as a single dataset)<br>
+## Format description
 
-# Input files structure
+**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`\
+**With annotations:** yes\
+**Supported annotation file extension:** `.json`.\
+**Grouped by:** Any structure (will be uploaded as a single dataset)\
+
+
+## Input files structure
 
 {% hint style="success" %}
-Example data: [download ⬇️](https://github.com/user-attachments/files/16183688/label_studio_demo.zip)
+Example data: [download ⬇️](https://github.com/user-attachments/files/16183688/label\_studio\_demo.zip)
 {% endhint %}
 
 ⚠️ **Note:** image names should correspond to the names in the annotation files (`data` > `image` field in the JSON file).
 
 Example directory structure:
 
-```text
+```
   📦input_folder
    ┣ 📂ann
    ┃  ┣ 📄annotation_1.json
@@ -33,26 +35,27 @@ Example directory structure:
 
 ```
 
-# Individual Image Annotations (JSON)
+## Individual Image Annotations (JSON)
 
 An annotation file should contain the following fields:
 
-- `annotations` or `predictions` - a list of dictionaries, each containing annotation for single image
-  - `result` - list of dictionaries, each containing information about the objects
-    - `original_width` - the width of the original image
-    - `original_height` - the height of the original image
-    - `value` - a dictionary containing information about the object
-      - `polygonlabels`/`rectanglelabels`/`brushlabels`/`choices` - field with the object class name
-      - `points` - a list of points of the object (for `polygonlabels` and `rectanglelabels` shape types)
-      - `rle` and `format` - a base64 encoded mask of the object (for `mask` shape type)
-    - `type` - the type of the object (one of the following: `polygonlabels`, `rectanglelabels`, `brushlabels`, `choices`, `relation`)
-- `data` - a dictionary containing information about the image
-  - `image` - the path to the image
+* `annotations` or `predictions` - a list of dictionaries, each containing annotation for single image
+  * `result` - list of dictionaries, each containing information about the objects
+    * `original_width` - the width of the original image
+    * `original_height` - the height of the original image
+    * `value` - a dictionary containing information about the object
+      * `polygonlabels`/`rectanglelabels`/`brushlabels`/`choices` - field with the object class name
+      * `points` - a list of points of the object (for `polygonlabels` and `rectanglelabels` shape types)
+      * `rle` and `format` - a base64 encoded mask of the object (for `mask` shape type)
+    * `type` - the type of the object (one of the following: `polygonlabels`, `rectanglelabels`, `brushlabels`, `choices`, `relation`)
+* `data` - a dictionary containing information about the image
+  * `image` - the path to the image
 
 Example of the annotation file:
 
 <details>
-    <summary>📄 annotation_1.json</summary>
+
+<summary>📄 annotation_1.json</summary>
 
 ```json
 [
@@ -126,7 +129,7 @@ Example of the annotation file:
 
 </details>
 
-# Useful links
+## Useful links
 
-- <a href="https://github.com/HumanSignal/label-studio?tab=readme-ov-file#try-out-label-studio" target="_blank">LabelStudio GitHub page</a>
-- <a href="https://labelstud.io/" target="_blank">LabelStudio website</a>
+* [LabelStudio GitHub page](https://github.com/HumanSignal/label-studio?tab=readme-ov-file#try-out-label-studio)
+* [LabelStudio website](https://labelstud.io/)

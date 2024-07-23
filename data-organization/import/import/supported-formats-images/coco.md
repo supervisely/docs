@@ -1,32 +1,35 @@
-# Overview
+# COCO
+
+## Overview
 
 This converter allows to import images with annotations in [COCO](https://cocodataset.org/#home) format. COCO format has all annotations in one `.json` file.
 
 Autoimport supports the following COCO annotation types: **instances**, **keypoints**, **captions**.
 
-![Result of the import](./images/coco_res.png)
+![Result of the import](images/coco\_res.png)
 
-# Format description
+## Format description
 
-**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`<br>
-**With annotations:** yes<br>
-**Supported annotation file extension:** `.json`.<br>
-**Grouped by:** any structure (will be uploaded as a single dataset)<br>
+**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`\
+**With annotations:** yes\
+**Supported annotation file extension:** `.json`.\
+**Grouped by:** any structure (will be uploaded as a single dataset)\
 
-# Default option: Import images and annotations together
+
+## Default option: Import images and annotations together
 
 Use this option **if you have images and annotations in COCO format** and you want to upload them together to Supervisely.
 
 {% hint style="success" %}
 We prepared sample datasets in COCO format for you to try the import process:
 
-- instances: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918161/sample_coco.zip)
-- keypoints: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918389/sample_coco_keypoints.zip)
-  {% endhint %}
+* instances: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918161/sample\_coco.zip)
+* keypoints: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918389/sample\_coco\_keypoints.zip)
+{% endhint %}
 
 Recommended directory structure:
 
-```text
+```
     📦project name
      ┗ 📂dataset
         ┣ 📂annotations
@@ -39,7 +42,7 @@ Recommended directory structure:
            ┗ 🖼️0005.png
 ```
 
-# Advanced option: how to speed up the import process
+## Advanced option: how to speed up the import process
 
 🏋️‍♂️ Use this option **if you have a large dataset already uploaded to Supervisely** and you don't want to upload images again (for example, you have a dataset with images and you want to upload annotations only).
 
@@ -47,31 +50,29 @@ All you need to do is upload the JSON file with annotations in COCO format. The 
 
 Key points:
 
-- **Press `+ Import data` button inside the dataset**: you need to run the import process from the dataset that contains the images.
+* **Press `+ Import data` button inside the dataset**: you need to run the import process from the dataset that contains the images.
+* **Image names**: the application will match the annotations with the images by their names. So, make sure that the names of the images in the dataset match the names of the images in the COCO annotations file.
+* **Impact on existing annotations**: new annotations will be merged with the existing ones. If you want to keep the original annotations, clone the dataset before importing new annotations.
 
-- **Image names**: the application will match the annotations with the images by their names. So, make sure that the names of the images in the dataset match the names of the images in the COCO annotations file.
+## COCO Annotation
 
-- **Impact on existing annotations**: new annotations will be merged with the existing ones. If you want to keep the original annotations, clone the dataset before importing new annotations.
+COCO format is a complex format that can contain multiple types of annotations. Supervisely import supports only `instances`, `keypoints`, and `captions`. The COCO dataset is formatted in `.json` and is a dictionary of keys `info`, `licenses`, `images`, `annotations`, and `categories` (in most cases).
 
-# COCO Annotation
+* `info` - contains high-level information about the dataset
+* `licenses` - contains a list of image licenses that apply to images in the dataset.
+* `images` - contains the complete list of images in your dataset. Note that image ids need to be unique among other images.
+* `annotations` - contains a list of every individual object annotation from every image in the dataset.
+* `categories` - contains a list of categories (e.g. dog, boat) and each of those belongs to a supercategory (e.g. animal, vehicle). The original COCO dataset contains 90 categories. You can use the existing COCO categories or create an entirely new list of your own. Each category ID must be unique among the rest of the categories.
 
-COCO format is a complex format that can contain multiple types of annotations. Supervisely import supports only `instances`, `keypoints`, and `captions`.
-The COCO dataset is formatted in `.json` and is a dictionary of keys `info`, `licenses`, `images`, `annotations`, and `categories` (in most cases).
-
-- `info` - contains high-level information about the dataset
-- `licenses` - contains a list of image licenses that apply to images in the dataset.
-- `images` - contains the complete list of images in your dataset. Note that image ids need to be unique among other images.
-- `annotations` - contains a list of every individual object annotation from every image in the dataset.
-- `categories` - contains a list of categories (e.g. dog, boat) and each of those belongs to a supercategory (e.g. animal, vehicle). The original COCO dataset contains 90 categories. You can use the existing COCO categories or create an entirely new list of your own. Each category ID must be unique among the rest of the categories.
-
-## Instances
+### Instances
 
 Regions of interest indicated by these annotations are specified by `segmentations`, which are usually a list of polygon vertices around the object, but can also be a run-length-encoded (RLE) bit mask. Typically, RLE is used for groups of objects (like a large stack of books).
 
 Example annotation for instances for one image in COCO format:
 
 <details>
-    <summary>📜 instances.json</summary>
+
+<summary>📜 instances.json</summary>
 
 ```json
 {
@@ -147,17 +148,18 @@ Example annotation for instances for one image in COCO format:
 
 </details>
 
-## Keypoints
+### Keypoints
 
 Annotations for keypoints are just like in Object Detection (Segmentation) above, except a number of keypoints is specified in sets of 3, (x, y, v).
 
-- **x** and **y** indicate pixel positions in the image.
-- **v** indicates visibility — v=0: not labeled (in which case x=y=0), v=1: labeled but not visible (behind an object for example), and v=2: labeled and visible. Only keypoints with v=2 will be uploaded to the project.
+* **x** and **y** indicate pixel positions in the image.
+* **v** indicates visibility — v=0: not labeled (in which case x=y=0), v=1: labeled but not visible (behind an object for example), and v=2: labeled and visible. Only keypoints with v=2 will be uploaded to the project.
 
 Example of the annotation file with keypoints:
 
 <details>
-    <summary>📜 instances.json with keypoints</summary>
+
+<summary>📜 instances.json with keypoints</summary>
 
 ```json
 {
@@ -252,12 +254,13 @@ Example of the annotation file with keypoints:
 
 </details>
 
-## Captions
+### Captions
 
 Image caption annotations are pretty simple. There are no categories in this `.json` file, just annotations with caption descriptions.
 
 <details>
-    <summary>📜 instances.json with captions</summary>
+
+<summary>📜 instances.json with captions</summary>
 
 ```json
 {
@@ -299,8 +302,8 @@ Image caption annotations are pretty simple. There are no categories in this `.j
 
 </details>
 
-# Useful links
+## Useful links
 
-- [COCO dataset](https://cocodataset.org/#home)
-- [COCO annotation structure](https://www.immersivelimit.com/tutorials/create-coco-annotations-from-scratch)
-- [[Supervisely Ecosystem] Import COCO](https://ecosystem.supervisely.com/apps/import-coco)
+* [COCO dataset](https://cocodataset.org/#home)
+* [COCO annotation structure](https://www.immersivelimit.com/tutorials/create-coco-annotations-from-scratch)
+* [\[Supervisely Ecosystem\] Import COCO](https://ecosystem.supervisely.com/apps/import-coco)

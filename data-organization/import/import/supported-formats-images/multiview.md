@@ -1,4 +1,6 @@
-# Overview
+# Multi-view images
+
+## Overview
 
 Multi-view mode is a feature that allows you to view and annotate multiple images simultaneously. It is especially useful when you need to label objects from different perspectives, 3D reconstruction images, Autonomous vehicle camera views or depth estimation task images. Labeling in multi-view mode can significantly increase the speed of the labeling process (for example, you don't need to switch between images and select a desired class to label the same object)
 
@@ -10,118 +12,102 @@ Note: To use the multi-view import feature, you need to create a project with th
 
 ![Import Multi-view images](https://github.com/supervisely-ecosystem/import-wizard-docs/assets/79905215/81e7c8d1-dc38-4baf-bcef-165521a33c2a)
 
-# Format description
+## Format description
 
-**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`<br>
-**With annotations:** Yes<br>
-**Annotation types:** Tags in Supervisely format<br>
-**Grouped by:** Folders (corresponding tags will be assigned to images)<br>
+**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`\
+**With annotations:** Yes\
+**Annotation types:** Tags in Supervisely format\
+**Grouped by:** Folders (corresponding tags will be assigned to images)\
 
-## Key Features
 
-- All images in groups in the created project will be tagged
-- `Images Grouping` option will be turned on by default in the created project
-- Images will be grouped by tag's value
-- Tag value is defined by the group directory name
-- Works with `.nrrd` image format (2D only)
+### Key Features
 
-## How to Use
+* All images in groups in the created project will be tagged
+* `Images Grouping` option will be turned on by default in the created project
+* Images will be grouped by tag's value
+* Tag value is defined by the group directory name
+* Works with `.nrrd` image format (2D only)
 
-#### 1. Prepare structure:
+### How to Use
 
-- **Archive** `zip`, `tar`, `tar.xz`, `tar.gz`
+**1. Prepare structure:**
 
-  ```text
-    📦 my_project.zip
-     ┗ 📂 cars catalog
-        ┗ 📂 used cars
-           ┣ 📂 105
-           ┃  ┣ 🏞️ car_105_front.jpg
-           ┃  ┗ 🏞️ car_105_top.jpg
-           ┣ 📂 202
-           ┃  ┣ 🏞️ car_202_front.jpg
-           ┃  ┗ 🏞️ car_202_top.jpg
-           ┣ 📂 357
-           ┃  ┣ 🏞️ car_357_front.jpg
-           ┃  ┗ 🏞️ car_357_top.jpg
-           ┣ 🏞️ car_401_front.jpg
-           ┣ 🏞️ car_401_top.jpg
-           ┗ 🏞️ car_401_side.jpg
-  ```
+*   **Archive** `zip`, `tar`, `tar.xz`, `tar.gz`
 
-- **Folder**
+    ```
+      📦 my_project.zip
+       ┗ 📂 cars catalog
+          ┗ 📂 used cars
+             ┣ 📂 105
+             ┃  ┣ 🏞️ car_105_front.jpg
+             ┃  ┗ 🏞️ car_105_top.jpg
+             ┣ 📂 202
+             ┃  ┣ 🏞️ car_202_front.jpg
+             ┃  ┗ 🏞️ car_202_top.jpg
+             ┣ 📂 357
+             ┃  ┣ 🏞️ car_357_front.jpg
+             ┃  ┗ 🏞️ car_357_top.jpg
+             ┣ 🏞️ car_401_front.jpg
+             ┣ 🏞️ car_401_top.jpg
+             ┗ 🏞️ car_401_side.jpg
+    ```
+*   **Folder**
 
-  ```text
-    📂 cars catalog
-     ┗ 📂 used cars
-        ┣ 📂 car_id_105
-        ┃  ┣ 🏞️ car_105_front.jpg
-        ┃  ┗ 🏞️ car_105_top.jpg
-        ┣ 📂 car_id_202
-        ┃  ┣ 🏞️ car_202_front.jpg
-        ┃  ┗ 🏞️ car_202_top.jpg
-        ┣ 📂 car_id_357
-        ┃  ┣ 🏞️ car_357_front.jpg
-        ┃  ┗ 🏞️ car_357_top.jpg
-        ┣ 🏞️ car_401_front.jpg
-        ┣ 🏞️ car_401_top.jpg
-        ┗ 🏞️ car_401_side.jpg
-  ```
+    ```
+      📂 cars catalog
+       ┗ 📂 used cars
+          ┣ 📂 car_id_105
+          ┃  ┣ 🏞️ car_105_front.jpg
+          ┃  ┗ 🏞️ car_105_top.jpg
+          ┣ 📂 car_id_202
+          ┃  ┣ 🏞️ car_202_front.jpg
+          ┃  ┗ 🏞️ car_202_top.jpg
+          ┣ 📂 car_id_357
+          ┃  ┣ 🏞️ car_357_front.jpg
+          ┃  ┗ 🏞️ car_357_top.jpg
+          ┣ 🏞️ car_401_front.jpg
+          ┣ 🏞️ car_401_top.jpg
+          ┗ 🏞️ car_401_side.jpg
+    ```
 
-  #### Structure explained:
+    **Structure explained:**
 
-  - An archive must contain only 1 project directory.
-  - Inside the project directory must be 1 dataset directory.
-  - Group directories must be populated with images and placed inside the dataset directory. All images inside the group will be tagged with folder name value.
-  - All images in the root dataset directory will be uploaded as regular images and will not be tagged.
+    * An archive must contain only 1 project directory.
+    * Inside the project directory must be 1 dataset directory.
+    * Group directories must be populated with images and placed inside the dataset directory. All images inside the group will be tagged with folder name value.
+    * All images in the root dataset directory will be uploaded as regular images and will not be tagged.
 
 {% hint style="success" %}
-  We prepared sample datasets for you to try the import process:
+We prepared sample datasets for you to try the import process:
 
-  - images: [download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/cars.catalog.zip)
-  - NRRD: [download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/research.zip)
+* images: [download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/cars.catalog.zip)
+* NRRD: [download ⬇️](https://github.com/supervisely-ecosystem/import-images-groups/releases/download/v0.0.1/research.zip)
 {% endhint %}
 
-- To display single images switch off `Images Grouping` setting.
+*   To display single images switch off `Images Grouping` setting.
 
-  ![Switch off multi view mode](./images/multi_view_toggle.gif)
+    ![Switch off multi view mode](images/multi\_view\_toggle.gif)
+*   If you want to disable images grouping for the whole project, go to `Project` → `Settings` → `Visuals` and uncheck
 
-- If you want to disable images grouping for the whole project, go to `Project` → `Settings` → `Visuals` and uncheck
+    ![Disable multi view in project settings](images/multi\_view\_1.png)
+*   Windowing tool is available when working with `.nrrd` files. It helps to filter pixels to see bones, air, liquids etc.
 
-  ![Disable multi view in project settings](./images/multi_view_1.png)
+    ![Nrrd windowing tool](images/multi\_view\_2.png)
+*   Images view synchronization
 
-- Windowing tool is available when working with `.nrrd` files. It helps to filter pixels to see bones, air, liquids etc.
+    | Synchronization OFF ![](images/multi\_view\_3.png) | Synchronization ON ![](images/multi\_view\_4.png) |
+    | -------------------------------------------------- | ------------------------------------------------- |
 
-  ![Nrrd windowing tool](./images/multi_view_2.png)
+## Useful links
 
-- Images view synchronization
+*   [\[Supervisely Ecosystem\] Group Images for Multiview Labeling](https://ecosystem.supervisely.com/apps/group-images-for-multiview-labeling)
 
-  <div>
-    <table>
-      <tr style="width: 100%">
-    <td>
-    <b>Synchronization OFF</b>
-    <img src="./images/multi_view_3.png" style="width:100%;"/>
-    </td>
-    <td>
-    <b>Synchronization ON</b>
-    <img src="./images/multi_view_4.png" style="width:100%;"/>
-    </td>
-      </tr>
-    </table>
-  </div>
+    ![](https://github.com/supervisely-ecosystem/group-images-for-multiview-labeling/assets/57998637/823cf901-8d8c-4a64-b884-c59f5ff83e93)
+*   [\[Supervisely Ecosystem\] Import images groups](https://ecosystem.supervisely.com/apps/import-images-groups)
 
-# Useful links
+    ![](https://i.imgur.com/wAiE0ld.png)
 
-- [[Supervisely Ecosystem] Group Images for Multiview Labeling](https://ecosystem.supervisely.com/apps/group-images-for-multiview-labeling)
-
-    <img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/import-images-groups" src="https://github.com/supervisely-ecosystem/group-images-for-multiview-labeling/assets/57998637/823cf901-8d8c-4a64-b884-c59f5ff83e93" width="350px" style='padding-bottom: 10px'/>
-
-- [[Supervisely Ecosystem] Import images groups](https://ecosystem.supervisely.com/apps/import-images-groups)
-
-    <img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/import-images-groups" src="https://i.imgur.com/wAiE0ld.png" width="350px" style='padding-bottom: 10px'/>
-
-# Easy integration for Python developers
+## Easy integration for Python developers
 
 Automate processes with multi-view images using Supervisely Python SDK.
 
@@ -130,8 +116,6 @@ pip install supervisely
 ```
 
 You can learn more about it in our [Developer Portal](https://developer.supervisely.com/getting-started/python-sdk-tutorials/images/multiview-images), but here we'll just show how you can upload your multi-view images with just a few lines of code.
-
-
 
 ```python
 # enable multi-view display in project settings
@@ -143,4 +127,4 @@ images_paths = ['path/to/audi_01.png', 'path/to/audi_02.png']
 api.image.upload_multiview_images(dataset_id, "audi", images_paths)
 ```
 
-In the example above we uploaded two groups of multi-view images. Before or after uploading images, we also need to enable image grouping in the project settings.<br>
+In the example above we uploaded two groups of multi-view images. Before or after uploading images, we also need to enable image grouping in the project settings.\

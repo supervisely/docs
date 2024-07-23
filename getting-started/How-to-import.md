@@ -1,5 +1,8 @@
 ---
-description: Learn how to import images and a little bit more
+description: >-
+  Explore various import methods on the Supervisely Platform, including
+  importing different formats and modalities, importing from the cloud or via
+  Ecosystem apps.
 ---
 
 # How to import
@@ -18,7 +21,46 @@ This 5-minute tutorial is a part of introduction to Supervisely series. You can 
 You can learn more about Import, such as importing different formats, import from the cloud or adding data to existing datasets in [this section.](broken-reference)
 {% endhint %}
 
-Let's start our journey with Supervisely by uploading our very first image. Of course, you can import more complex dataset formats like COCO, or modalities, such as DICOM, connect a S3 cloud and much more, but let’s begin with a simple one.
+### Supported Formats and Modalities
+
+**Image Datasets:**&#x20;
+
+* Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/supervisely.md), [COCO](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/coco.md), [YOLO](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/yolo.md), [Pascal VOC](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/pascal.md), [Cityscapes](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/cityscapes.md), [Images with PNG masks formats](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/masks.md).&#x20;
+* Import images for [Multi-view](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/multiview.md), [Multispectral](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/multispectral.md), [Medical 2D (single)](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/medical\_2d.md) labeling.&#x20;
+* Upload images as [links from CSV or TXT files](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/csv.md) or [convert PDF pages to images](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/pdf.md).
+* Images in any directory structure without annotations.
+* **Supported image formats:** `.jpg`, `.jpeg`, `jpe`, `.bmp`, `.png`, `.webp`, `.mpo`, `.tiff`, `.nrrd`, `.jfif`, `.avif`, `.heic`.
+
+**Video Datasets:**
+
+* Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/videos/supervisely.md), DAVIS (coming soon), MOT (coming soon) formats.&#x20;
+* Videos in any directory structure without annotations.
+* **Supported video formats:** `.avi`, `.mov`, `.wmv`, `.webm`, `.3gp`, `.mp4`, `.flv`. ⚠️ All videos will be converted to `.mp4` format during import.
+
+**Point Cloud Datasets:**
+
+* &#x20;Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/point\_cloud/supervisely.md) format.
+* &#x20;Point clouds in any directory structure without annotations in `PCD`, `LAS`, `LAZ`, `PLY` formats.
+
+**Point Cloud Episode Datasets:**&#x20;
+
+* Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/point\_cloud\_episodes/supervisely.md) format.&#x20;
+* Point cloud episodes without annotations in `PCD` format.
+
+**Volume Datasets:**
+
+* Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/volumes/supervisely.md) format.
+* Volumes in any directory structure without annotations in `DICOM`, `NRRD` formats.
+
+You can always use applications to import different modalities from our [Ecosystem](https://ecosystem.supervisely.com/):
+
+[Import Images](https://ecosystem.supervisely.com/apps/import-images) | [Import Videos](https://ecosystem.supervisely.com/apps/import-videos-supervisely) | [Import Pointclouds](https://ecosystem.supervisely.com/apps/import-pointcloud-pcd) | [Import Pointcloud Episodes](https://ecosystem.supervisely.com/apps/import-pointcloud-episode) |  [Import DICOM Volumes](https://ecosystem.supervisely.com/apps/import-dicom-volumes) | [Import COCO Keypoints](https://ecosystem.supervisely.com/apps/import-coco-keypoints) | [Import Volumes in Supervisely format](https://ecosystem.supervisely.com/apps/import-volumes-with-anns) | [Import KITTI-360](https://ecosystem.supervisely.com/apps/import-kitti-360/supervisely\_app) | [Import Multispectral Images](https://ecosystem.supervisely.com/apps/import-multispectral-images) | and [many other formats](https://ecosystem.supervisely.com/import).
+
+🪄 Here we will look at the fastest and easiest import option!
+
+***
+
+Let's start our journey with Supervisely by uploading our very first image. Of course, like we said before, you can import more complex dataset formats like [COCO](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/coco.md), or modalities, such as DICOM, connect a S3 cloud and much more, but let’s begin with a simple one.
 
 We assume that you have already created an account in Supervisely. If not, you can create a free account in our Community Edition [here.](https://app.supervisely.com/signup)
 
@@ -27,7 +69,7 @@ First thing you will see after you login to Supervisely, is your [Projects](../d
 <figure><img src="../.gitbook/assets/import-project.png" alt=""><figcaption></figcaption></figure>
 
 1. Click the `Import Data` button. Enter a unique name for the project, keeping in mind that it must be unique in the workspace and case-sensitive. You can also add a description of the project to provide additional information or to track project updates.
-2. Next, select the P`roject type` by defining the content modality: images, videos, point clouds, or DICOM 3D volumes.&#x20;
+2. Next, select the `Project type` by defining the content modality: images, videos, point clouds, or DICOM 3D volumes.&#x20;
 
 {% hint style="warning" %}
 Note that you can't mix multiple content types in the same project, and this setting can't be changed later.
@@ -38,7 +80,7 @@ Note that you can't mix multiple content types in the same project, and this set
 
 <figure><img src="../.gitbook/assets/create-project-easy.png" alt=""><figcaption></figcaption></figure>
 
-5. In the modal window, drag and drop one or more images in one of the supported formats, such as .jpg, .jpeg, .mpo, .bmp, .png, .webp, .tiff, .tif, .nrrd, .jfif, .avif, .heic, NIfTI, DICOM . You can also check out the supported annotation formats.&#x20;
+5. In the modal window, drag and drop one or more images in one of the supported formats, such as `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.nrrd`, `.jfif`, `.avif`, `.heic`, `NIfTI`, `DICOM` . You can also check out the supported annotation formats.&#x20;
 
 🤗 Congratulations, the hardest part is over!
 

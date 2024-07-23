@@ -16,8 +16,8 @@
 * [Import](data-organization/import/import/import.md)
   * [Overview](data-organization/import/import/import.md)
   * [Import using Web UI](data-organization/import/import/Import-using-Web-UI.md)
-  * Supported annotation formats
-    * Images
+  * [Supported annotation formats](import-and-export/import/supported-annotation-formats/README.md)
+    * [Images](import-and-export/import/supported-annotation-formats/images/README.md)
       * [🤖 Supervisely JSON](data-organization/import/import/supported-formats-images/supervisely.md)
       * [COCO](data-organization/import/import/supported-formats-images/coco.md)
       * [Yolo](data-organization/import/import/supported-formats-images/yolo.md)
@@ -30,7 +30,7 @@
       * [Multispectral images](data-organization/import/import/supported-formats-images/multispectral.md)
       * [Medical 2D images](data-organization/import/import/supported-formats-images/medical2d.md)
       * [LabelMe](data-organization/import/import/supported-formats-images/labelme.md)
-      * [LabelStudio](data-organization/import/import/supported-formats-images/label_studio.md)
+      * [LabelStudio](data-organization/import/import/supported-formats-images/label\_studio.md)
   * [Import sample dataset](data-organization/import/import/Import-sample-dataset.md)
   * [Import into an existing dataset](data-organization/import/import/exesting-dataset.md)
   * [Import using Team Files](data-organization/import/import/Import-Team-Files.md)
@@ -51,14 +51,14 @@
   * [Datasets](data-organization/project/datasets/datasets.md)
   * [Classes](data-organization/project/classes/classes.md)
   * [Tags](data-organization/project/tags/tags.md)
-  * [Statistics](data-organization/project/statistics/statistics.md)
 * [Team Files](data-organization/team-files/README.md)
-* [Data usage & Cleanup](data-organization/storage/README.md)
+* [Disk usage & Cleanup](data-organization/storage/README.md)
+* [Quality Assurance & Statistics](data-organization/quality-assurance-and-statistics.md)
 * [Operations with Data](data-organization/Operations-with-Data/README.md)
   * [Data Filtration](data-organization/Operations-with-Data/data-filtration.md)
+  * [Pipelines](data-organization/operations-with-data/pipelines.md)
   * [Augmentations](data-organization/Operations-with-Data/Augmentations.md)
   * [Converting & Splitting data](data-organization/Operations-with-Data/Converting-Splitdata.md)
-  * [Statistics](data-organization/Operations-with-Data/Statistics.md)
 * [Data Commander](data-organization/data-commander/README.md)
   * [Clone Project Meta](data-organization/data-commander/clone-meta.md)
 
@@ -106,6 +106,7 @@
 * [Starting with Neural Networks](neural-networks/overview/overview.md)
 * [Train custom Neural Networks](neural-networks/custom-nn/custom-nn.md)
 * [Run pre-trained models](neural-networks/pre-trained-models.md)
+* [Video Object Tracking](neural-networks/video-object-tracking.md)
 
 ## 👔 Enterprise Edition
 

@@ -1,26 +1,28 @@
-# Overview
+# LabelMe
 
-This converter allows to import images with `.json` annotations in <a href="https://github.com/labelmeai/labelme?tab=readme-ov-file" target="_blank">LabelMe</a> format.
-Supported LabelMe format geometry types: `polygon`, `rectangle`, `circle`, `point`, `linestring`, `mask`, `line`.
+## Overview
 
-![Result of the import](./images/labelme_res.png)
+This converter allows to import images with `.json` annotations in [LabelMe](https://github.com/labelmeai/labelme?tab=readme-ov-file) format. Supported LabelMe format geometry types: `polygon`, `rectangle`, `circle`, `point`, `linestring`, `mask`, `line`.
 
-# Format description
+![Result of the import](images/labelme\_res.png)
 
-**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`<br>
-**With annotations:** yes<br>
-**Supported annotation file extension:** `.json`.<br>
-**Grouped by:** Any structure (will be uploaded as a single dataset)<br>
+## Format description
 
-# Input files structure
+**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`\
+**With annotations:** yes\
+**Supported annotation file extension:** `.json`.\
+**Grouped by:** Any structure (will be uploaded as a single dataset)\
+
+
+## Input files structure
 
 {% hint style="success" %}
-Example data: [download ⬇️](https://github.com/user-attachments/files/16179633/labelme_demo.zip)
+Example data: [download ⬇️](https://github.com/user-attachments/files/16179633/labelme\_demo.zip)
 {% endhint %}
 
 Example directory structure:
 
-```text
+```
   📦input_folder
    ┣ 📂ann
    ┃  ┣ 📄IMG_0748.json
@@ -31,22 +33,23 @@ Example directory structure:
 
 ```
 
-# Individual Image Annotations (JSON)
+## Individual Image Annotations (JSON)
 
 An annotation file should contain the following fields:
 
-- `shapes` - a list of dictionaries, each containing information about the object
-  - `label` - the name of the class
-  - `points` - a list of points of the object
-  - `mask` - a base64 encoded mask of the object (for `mask` shape type)
-  - `shape_type` - the type of the object (one of the following: `polygon`, `rectangle`, `circle`, `point`, `linestring`, `mask`, `line`)
-- `imageHeight` - the height of the image
-- `imageWidth` - the width of the image
+* `shapes` - a list of dictionaries, each containing information about the object
+  * `label` - the name of the class
+  * `points` - a list of points of the object
+  * `mask` - a base64 encoded mask of the object (for `mask` shape type)
+  * `shape_type` - the type of the object (one of the following: `polygon`, `rectangle`, `circle`, `point`, `linestring`, `mask`, `line`)
+* `imageHeight` - the height of the image
+* `imageWidth` - the width of the image
 
 Example of the annotation file:
 
 <details>
-    <summary>📄IMG_0748.json</summary>
+
+<summary>📄IMG_0748.json</summary>
 
 ```json
 {
@@ -149,6 +152,6 @@ Example of the annotation file:
 
 </details>
 
-# Useful links
+## Useful links
 
-- <a href="https://github.com/labelmeai/labelme?tab=readme-ov-file" target="_blank">LabelMe page</a>
+* [LabelMe page](https://github.com/labelmeai/labelme?tab=readme-ov-file)

@@ -1,27 +1,31 @@
-# Overview
+# Cityscapes
+
+## Overview
 
 This converter allows to import images with `.json` annotations in [Cityscapes](https://github.com/mcordts/cityscapesScripts) format.
 
 ⚠️ **Note:** images must have suffix `_leftImg8bit` and annotations suffix `_gtFine_polygons` and `.json` extension. Check the example of the file structure below.
 
-![Result of the import](./images/cityscapes_res.png)
+![Result of the import](images/cityscapes\_res.png)
 
-# Format description
+## Format description
 
-**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`<br>
-**With annotations:** yes<br>
-**Supported annotation file extension:** `.json`.<br>
-**Grouped by:** any structure (uploaded to a single dataset)<br>
+**Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`\
+**With annotations:** yes\
+**Supported annotation file extension:** `.json`.\
+**Grouped by:** any structure (uploaded to a single dataset)\
 
-# Input files structure
+
+## Input files structure
 
 {% hint style="success" %}
-Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14908276/sample_cityscapes.zip)<br>
+Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14908276/sample\_cityscapes.zip)\
+
 {% endhint %}
 
 Recommended directory structure:
 
-```text
+```
 📦project name
  ┣ 📂gtFine
  ┃ ┣ 📂test
@@ -52,18 +56,17 @@ Recommended directory structure:
  ┗ 📜class_to_id.json
 ```
 
-# Format Config File
+## Format Config File
 
-In order to import custom annotations for the images, you need to provide a `class_to_id.json` file.
-This file should contain a list with dictionaries.
-Each dictionary should contain information about the class with the following fields:
+In order to import custom annotations for the images, you need to provide a `class_to_id.json` file. This file should contain a list with dictionaries. Each dictionary should contain information about the class with the following fields:
 
-- `name` - the name of the class. It should be unique.
-- `id` - the ID of the class. From 1 to N-1, where N is the number of classes.
-- `color` - the color of the class in RGB format. If not specified, the color will be generated randomly
+* `name` - the name of the class. It should be unique.
+* `id` - the ID of the class. From 1 to N-1, where N is the number of classes.
+* `color` - the color of the class in RGB format. If not specified, the color will be generated randomly
 
 <details>
-    <summary>📜class_to_id.json</summary>
+
+<summary>📜class_to_id.json</summary>
 
 ```json
 [
@@ -82,20 +85,21 @@ Each dictionary should contain information about the class with the following fi
 
 </details>
 
-# Individual Image Annotations
+## Individual Image Annotations
 
 Annotation file should contain the following fields:
 
-- `imgHeight` - the height of the image
-- `imgWidth` - the width of the image
-- `objects` - a list of dictionaries, each containing information about the object
-  - `label` - the name of the class
-  - `polygon` - a list of points that form the polygon of the object
+* `imgHeight` - the height of the image
+* `imgWidth` - the width of the image
+* `objects` - a list of dictionaries, each containing information about the object
+  * `label` - the name of the class
+  * `polygon` - a list of points that form the polygon of the object
 
 Example of the annotation file from provided sample data:
 
 <details>
-    <summary>📜IMG_1836_gtFine_polygons.json</summary>
+
+<summary>📜IMG_1836_gtFine_polygons.json</summary>
 
 ```json
 {
@@ -138,7 +142,7 @@ Example of the annotation file from provided sample data:
 
 </details>
 
-# Useful links
+## Useful links
 
-- [Cityscapes format](https://github.com/mcordts/cityscapesScripts)
-- [[Supervisely Ecosystem] Import Cityscapes](https://ecosystem.supervisely.com/apps/import-cityscapes)
+* [Cityscapes format](https://github.com/mcordts/cityscapesScripts)
+* [\[Supervisely Ecosystem\] Import Cityscapes](https://ecosystem.supervisely.com/apps/import-cityscapes)
