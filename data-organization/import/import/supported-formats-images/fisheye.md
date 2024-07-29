@@ -4,7 +4,7 @@
 
 Annotate fisheye images with ease using the fisheye labeling interface in Supervisely.
 
-[](./images/fisheye_interface.jpg)
+[](./images/fisheye_interface-frame.jpg)
 
 Fisheye images are a special type of images that are captured with a ultra-wide-angle lens (a.k.a. fisheye lens). The fisheye lens produces strong visual distortion intended to create a wide panoramic or hemispherical image. It is a popular choice for many applications, such as surveillance, automotive, and VR/AR. However, the fisheye distortion can make it challenging to annotate objects accurately.
 
