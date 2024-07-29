@@ -1,5 +1,7 @@
 # Fisheye labeling interface
 
+## Overview
+
 Annotate fisheye images with ease using the fisheye labeling interface in Supervisely.
 
 ![](Fisheye-Interface-frame.jpg)
@@ -15,7 +17,7 @@ To use the fisheye labeling interface, you need to:
 3. import fisheye images with the calibration parameters and annotations (optional).
 
 {% hint style="info" %}
-To correctly import fisheye images, all metadata files should be placed **in the directory with the `meta` name**.
+**To correctly import fisheye images, all metadata files should be placed in the directory with the `meta` name**.
 {% endhint %}
 
 ## Data structure
@@ -41,11 +43,13 @@ _Optional_: The `ann` folder contains annotation files in the Supervisely format
 
 ## Fisheye Lens Calibration Metadata
 
-Key points:
+It is essential to provide calibration data for fisheye images to allow the fisheye labeling interface to correct the distortion. The calibration data is stored in metadata files in JSON format.
+
+Here are the key points and fields descriptions:
 
 - Extrinsic calibration data is used to describe the coordinate transformation from the camera coordinate system to the vehicle coordinate system.
 - The vehicle coordinate system, which follows the ISO 8855 convention, is anchored to the ground below the midpoint of the rear axle. The X-axis points in the driving direction, the Y-axis points to the left side of the vehicle and the Z-axis points up from the ground.
-- The camera sensor's coordinate system is based on OpenCV. The X axis points to the right along the horizontal sensor axis, the Y axis points downwards along the vertical sensor axis and the Z axis points in viewing direction along the optical axis to maintain the right-handed system.
+- The camera sensor's coordinate system is based on OpenCV. The X axis points to the right along the horizontal sensor axis, the Y axis points downwards along the vertical sensor axis and the Z-axis points in viewing direction along the optical axis to maintain the right-handed system.
 - The values of the translation are given in meters and the rotation is given as a quaternion.
 - The intrinsic calibration is given in a calibration model that describes the radial distortion using an Nth-order polynomial. The radial distortion is given by the formula: `rho(theta) = k1 * theta + k2 * theta ** 2 + ... + kN * theta ** N`
 
@@ -96,12 +100,13 @@ Key points:
 
 </details>
 
-## New `Cuboid` tool
+## Special Tool for Fisheye Images: Cuboid
 
 The `Fisheye` labeling interface includes a new 2D `Cuboid` tool that allows you to annotate objects with a cuboid shape. The `Cuboid` tool is designed to annotate objects in fisheye images with a 3D-like shape, such as cars, buildings, or other objects.
 
 On the left (original) side of the interface, you can see the fisheye image with the distortion. On the right (corrected) side, you can see the image with the distortion corrected. The `Cuboid` shape objects also appear in 3D-like form on the corrected side.
 
+Check out the [Cuboid](../../../data-organization/Annotation-JSON-format/04_Supervisely_Format_objects.md#cuboids-2d-annotation) section of the documentation to learn more about the `Cuboid` tool.
+
 ![](Fisheye-Cuboid-Tool.jpg)
 
-Check out the [Cuboid](../../../data-organization/Annotation-JSON-format/04_Supervisely_Format_objects.md#cuboids-2d-annotation) section of the documentation to learn more about the `Cuboid` tool.
