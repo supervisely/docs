@@ -1,30 +1,4 @@
----
-description: >-
-  Learn how to run model training or heavy processing on any computer in a
-  single click
----
-
 # Installation
-
-{% hint style="info" %}
-This 5-minute tutorial is a part of introduction to Supervisely series. You can complete them one-by-one, in random order, or jump to the rest of the documentation at any moment.
-
-* [How to import](../How-to-import.md)
-* [How to annotate](../How-to-annotate.md)
-* [How to invite team members](../Invite-member.md)
-* How to connect agents **(you are here)**
-* [How to train models](../how-to-train-models.md)
-{% endhint %}
-
-Supervisely Agent is a tiny docker container that allows you to connect your computational resources (cloud server or PC) to the platform. You can run any task from web interface (for example Neural Network training/inference/deploy). Running tasks with GPU will enhance performance and efficiency for your computer vision and deep learning projects.
-
-After you run Agent on your computer, Agent will automatically connect your server to Supervisely platform. You will see this information on the "Team Cluster" page.
-
-{% hint style="info" %}
-Only you and your team members have access to your agents. So only tasks that you explicitly started yourself run on them. We will never use your nodes for our own benefit or the benefit of other users.
-{% endhint %}
-
-<figure><img src="../../.gitbook/assets/cluster.png" alt=""><figcaption></figcaption></figure>
 
 ## Installation instructions for different operating systems:
 

@@ -14,18 +14,24 @@ Supervisely is excited to introduce advanced interactive statistics designed to 
 * Improve data acquisition methods, draw the right conclusions on annotation distributions.
 * Enhance neural network performance and much more.
 
-<figure><img src="../.gitbook/assets/stats-tab-frame.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/stats-tab-frame.jpg" alt=""><figcaption></figcaption></figure>
 
 **Discover the best interactive dataset statistics such as:**
 
-1. [Class balance:](quality-assurance-and-statistics.md#class-balance) Find out the distribution of classes in your dataset.
-2. [Co-occurrence matrix:](quality-assurance-and-statistics.md#co-occurrence-matrix) Explore the relationships between classes.
-3. [Image statistics:](quality-assurance-and-statistics.md#per-image-statistics) Get detailed information about image characteristics and its objects.
-4. [Object distribution: ](quality-assurance-and-statistics.md#object-distribution-heatmap)Analyze the localization of objects in images with their properties.
-5. [Class sizes:](quality-assurance-and-statistics.md#object-class-sizes-and-overall-properties) Analyze the sizes of objects of all annotation classes in your dataset.
-6. [Spatial heatmap:](quality-assurance-and-statistics.md#spatial-heatmap) Visualize the most frequent spatial location of objects and placement patterns in images.
-7. Object statistics: Compare the characteristics of individual objects.
-8. Other statistical measures: Explore additional properties and metrics specific to your dataset.
+1. [Class balance:](./#class-balance) Find out the distribution of classes in your dataset.
+2. [Co-occurrence matrix:](./#co-occurrence-matrix) Explore the relationships between classes.
+3. [Image statistics:](./#per-image-statistics) Get detailed information about image characteristics and its objects.
+4. [Object distribution: ](./#object-distribution-heatmap)Analyze the localization of objects in images with their properties.
+5. [Class sizes:](./#object-class-sizes-and-overall-properties) Analyze the sizes of objects of all annotation classes in your dataset.
+6. [Spatial heatmap:](./#spatial-heatmap) Visualize the most frequent spatial location of objects and placement patterns in images.
+7. [Objects properties](./#objects-properties): Compare the characteristics of individual objects.
+8. [Image tags co-occurrence: ](./#image-tags-co-occurrence)Analyze the relationships between different tags and attributes associated with images.
+9. [Objects tags co-occurrence:](./#objects-tags-co-occurrence) Explore the co-occurrence of various tags associated with objects to uncover potential correlations.
+10. [Class to tags co-occurrence:](./#class-to-tags-co-occurrence) Understand the associations between different classes and the tags assigned to their objects.
+11. [Categorical tags distribution:](./#categorical-tags-distribution) View the occurrence of each value for categorical (OneOf) key-value tags in the dataset.
+12. [Other statistic:](./#other-statistic) Explore additional properties and metrics specific to your dataset.
+13. [Actions with the filtered data:](./#actions-with-the-filtered-data) Perform actions like copy, move, delete, and create labeling jobs based on specific data filters.
+14. [Example apps:](./#example-apps) Use applications such as Classes Stats for Images, Labeling Jobs Stats, and Object Size Stats to gain deeper insight into your data.
 
 ***
 
@@ -41,7 +47,7 @@ Class imbalance table helps you to adjust and modify data sampling algorithms du
 * Use the search function to quickly filter and find specific classes.
 * Sort by specific columns to identify the rarest or most frequent classes.
 
-<figure><img src="../.gitbook/assets/class-balance-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/class-balance-frame.png" alt=""><figcaption></figcaption></figure>
 
 **Components**:
 
@@ -67,7 +73,7 @@ In case of analyzing custom neural network performance, this matrix is called **
 
 * Click on any cell in the matrix to access corresponding annotated images containing objects from both classes. This feature facilitates understanding of class interactions by allowing users to explore visual examples of identified relationships.
 
-<figure><img src="../.gitbook/assets/co-occurrence-matrix-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/co-occurrence-matrix-frame.png" alt=""><figcaption></figcaption></figure>
 
 **Components**:
 
@@ -83,7 +89,7 @@ Analyzing images in the dataset based on the number of annotations for each clas
 * Quickly locate specific images or classes of interest within the dataset.
 * Clicking on any row in the table allows users to preview the selected image with labels, allowing them to instantly locate an object or class of interest in the dataset.
 
-<figure><img src="../.gitbook/assets/images-statistic-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/images-statistic-frame.png" alt=""><figcaption></figcaption></figure>
 
 **Components**:\
 \
@@ -110,7 +116,7 @@ Clicking on that cell would display a list of all images in your dataset that co
 * Clicking on a cell in the heatmap displays a list of images containing the specified number of objects for the selected class. This feature allows users to explore specific object distributions and analyze the corresponding images in detail in a thumbnail preview mode or open them in the image annotation toolbox.
 * Users have the option to download the heatmap chart in various formats, including `SVG`, `PNG`, and `CSV`, for further analysis or documentation purposes.
 
-<figure><img src="../.gitbook/assets/object-distr-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/object-distr-frame.png" alt=""><figcaption></figcaption></figure>
 
 **Components**:
 
@@ -127,7 +133,7 @@ The Class Sizes table provides detailed size properties of objects for each clas
 * Clicking on a row allows users to view images with all object annotations of the selected class, simplifying visual examination, analysis or correction.
 * Sortable columns enable users to identify classes with the smallest or largest objects, as well as understand size differences between classes.
 
-<figure><img src="../.gitbook/assets/class-sizes-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/class-sizes-frame.png" alt=""><figcaption></figcaption></figure>
 
 **Components**:
 
@@ -154,7 +160,7 @@ The Class Area Sizes Treemap offers an alternative visualization method for unde
 * Hovering on rectangles show the tooltip for easier understanding.
 * Users can download the Treemap chart in various formats, including `SVG`, `PNG`, and `CSV`, for further analysis, sharing or documentation purposes.
 
-<figure><img src="../.gitbook/assets/treemap-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/treemap-frame.png" alt=""><figcaption></figcaption></figure>
 
 **Components**:
 
@@ -175,7 +181,7 @@ These statistics are mostly relevant for spatial datasets for such Computer Visi
 * Hovering on heatmap provides detailed insights into spatial object distribution.
 * Export options allows downloading of heatmaps for detailed study and presentations.
 
-<figure><img src="../.gitbook/assets/heatmap-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/heatmap-frame.png" alt=""><figcaption></figcaption></figure>
 
 ## Objects Properties
 
@@ -185,7 +191,7 @@ The Objects table contains all objects and their geometrical properties. Users c
 * Use the search function to quickly locate specific objects or classes of interest in a dataset.
 * Sortable columns allow users to identify outliers or patterns in object characteristics, such as extreme height or width values. For example, user can find and inspect the largest and the smallest objects in the entire dataset.
 
-<figure><img src="../.gitbook/assets/objects-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/objects-frame.png" alt=""><figcaption></figcaption></figure>
 
 **Components**:
 
@@ -215,7 +221,7 @@ Also it help to find the images that have both tab "A" and "B". It help on analy
 * Hovering over a cell provides a tooltip that shows the degree of co-occurrence between the tags (total number of images).
 * Clicking on any cell in the matrix allows users to view corresponding images containing the selected pair of attributes.
 
-<figure><img src="../.gitbook/assets/co-occurrence-matrix-tags-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/co-occurrence-matrix-tags-frame.png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -244,13 +250,13 @@ Analyze occurrences of categorical key-value tags (OneOf) assigned to images or 
 
 Note that you can always change the applicability of tags (images or objects) in the `Tags` tab.
 
-<figure><img src="../.gitbook/assets/categorical-tags-distr.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/categorical-tags-distr.png" alt=""><figcaption></figcaption></figure>
 
 ## Other Statistic
 
 Additionally, apart from the tables mentioned earlier, data scientists can easily spot some basic stats for training data, covering Datasets, Images, Image Tags, Object Tags, Objects, and Object Area. These basic statistics shows general characteristics of the data and annotations.
 
-<figure><img src="../.gitbook/assets/other-statistics-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/other-statistics-frame.png" alt=""><figcaption></figcaption></figure>
 
 ## Actions with the filtered data <a href="#actions-with-the-filtered-data" id="actions-with-the-filtered-data"></a>
 
@@ -264,7 +270,7 @@ These quality assurance tools can be used as a specific advanced visual filters 
 
 streamline data management and labeling workflows, facilitate user collaboration and boost the speed of the data labeling, data review and model training loops. As a result, custom pipelines for Active Learning and Continuous Model Improvement can be organized smoothly.
 
-## Example apps:
+## Example apps
 
 *   [Classes stats for images.](https://app.supervisely.com/ecosystem/apps/classes-stats-for-images?id=16) Data Exploration for Segmentation and Detection tasks is underestimated by many researchers. The accuracy of your models highly depends on how good you understand data.
 

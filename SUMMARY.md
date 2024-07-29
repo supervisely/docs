@@ -9,6 +9,7 @@
 * [How to import](getting-started/How-to-import.md)
 * [How to annotate](getting-started/How-to-annotate.md)
 * [How to invite team members](getting-started/Invite-member.md)
+* [How to connect agents](getting-started/connect-your-computer.md)
 * [How to train models](getting-started/how-to-train-models.md)
 
 ## 🔁 Import and Export
@@ -53,7 +54,8 @@
   * [Tags](data-organization/project/tags/tags.md)
 * [Team Files](data-organization/team-files/README.md)
 * [Disk usage & Cleanup](data-organization/storage/README.md)
-* [Quality Assurance & Statistics](data-organization/quality-assurance-and-statistics.md)
+* [Quality Assurance & Statistics](data-organization/quality-assurance-and-statistics/README.md)
+  * [Practical applications of statistics](data-organization/quality-assurance-and-statistics/practical-applications-of-statistics.md)
 * [Operations with Data](data-organization/Operations-with-Data/README.md)
   * [Data Filtration](data-organization/Operations-with-Data/data-filtration.md)
   * [Pipelines](data-organization/operations-with-data/pipelines.md)
