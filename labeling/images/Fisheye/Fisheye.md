@@ -42,7 +42,7 @@ Here are the key points and fields descriptions:
 
 <div align="center p-2">
 
-<img src="./Formula.svg" width="400" alt="`rho(theta) = k1 * theta + k2 * theta^2 + ... + kN * theta^N`">
+<img src="./Formula.svg" width="400" alt="">
 
 </div>
 
