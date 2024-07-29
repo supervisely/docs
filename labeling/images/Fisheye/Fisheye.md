@@ -8,16 +8,15 @@ Challenging to annotate images with fisheye distortion? Activate the **fisheye l
 
 Fisheye images are a special type of images that are captured with an ultra-wide-angle lens (a.k.a. fisheye lens). The fisheye lens produces strong visual distortion intended to create a wide panoramic or hemispherical image. It is a popular choice for many applications, such as surveillance, automotive, and VR/AR.
 
-In the illustrations, you can see the fisheye labeling interface in Supervisely. 
+In the illustrations, you can see the fisheye labeling interface in Supervisely.
 
 Left side – original fisheye image with distortion. The image on the right side is the corrected image with cylindrical projection applied. As you can see, the object on the right side is projected to the cylindrical coordinates, which corrects the distortion and makes the object look more natural (it is a 2D object with a 3D-like appearance only).
 
 ![](Cuboid-frame.gif)
 
 {% hint style="info" %}
-Currently, the Labeling Toolbox supports projection to cylindrical coordinates only. 
+Currently, the Labeling Toolbox supports projection to cylindrical coordinates only.
 {% endhint %}
-
 
 To use the fisheye labeling interface, follow these steps:
 
@@ -39,9 +38,11 @@ Here are the key points and fields descriptions:
 - The vehicle coordinate system, which follows the ISO 8855 convention, is anchored to the ground below the midpoint of the rear axle. The X-axis points in the driving direction, the Y-axis points to the left side of the vehicle and the Z-axis points up from the ground.
 - The camera sensor's coordinate system is based on OpenCV. The X axis points to the right along the horizontal sensor axis, the Y axis points downwards along the vertical sensor axis and the Z-axis points in viewing direction along the optical axis to maintain the right-handed system.
 - The values of the translation are given in meters and the rotation is given as a quaternion.
-- The intrinsic calibration is given in a calibration model that describes the radial distortion using an Nth-order polynomial. The radial distortion is given by the formula: `rho(theta) = k1 * theta + k2 * theta^2 + ... + kN * theta^N`
+- The intrinsic calibration is given in a calibration model that describes the radial distortion using an Nth-order polynomial. The radial distortion is given by the formula:
 
-  - `theta` is the angle of incidence with respect to the optical axis and rho is the distance between the image center and projected point - focal distance.
+<figure><img src="./Formula.svg" width="400" alt="`rho(theta) = k1 * theta + k2 * theta^2 + ... + kN * theta^N`"><figcaption></figcaption></figure>
+
+- `theta` is the angle of incidence with respect to the optical axis and rho is the distance between the image center and projected point - focal distance.
 
 - Offsets (cx, cy) of the principal point are given in pixels.
 
