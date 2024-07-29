@@ -20,6 +20,8 @@ Supervisely Agent is a tiny docker container that allows you to connect your com
 
 After you run Agent on your computer, Agent will automatically connect your server to Supervisely platform. You will see this information on the "Team Cluster" page.
 
+<figure><img src="../.gitbook/assets/cluster.png" alt=""><figcaption></figcaption></figure>
+
 {% hint style="info" %}
 Only you and your team members have access to your agents. So only tasks that you explicitly started yourself run on them. We will never use your nodes for our own benefit or the benefit of other users.
 {% endhint %}
