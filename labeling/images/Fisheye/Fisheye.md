@@ -10,6 +10,20 @@ Fisheye images are a special type of images that are captured with an ultra-wide
 
 Challenging to annotate images with fisheye distortion? Activate the fisheye labeling interface in Supervisely to correct the distortion and annotate objects with ease.
 
+In the illustrations, you can see the fisheye labeling interface in Supervisely. 
+
+Left side – original fisheye image with distortion. The image on the right side is the corrected image with cylindrical projection applied. 
+
+As you can see, the object on the right side is projected to the cylindrical coordinates, which corrects the distortion and makes the object look more natural (it is a 2D object with a 3D-like appearance only).
+
+{% hint style="info" %}
+Currently, Labeling Toolbox supports projection to cylindrical coordinates only. 
+{% endhint %}
+
+![](Cuboid-frame.gif)
+
+
+
 To use the fisheye labeling interface, you need to:
 
 1. create a project with the `Fisheye` labeling interface enabled.
@@ -30,7 +44,7 @@ Here are the key points and fields descriptions:
 - The vehicle coordinate system, which follows the ISO 8855 convention, is anchored to the ground below the midpoint of the rear axle. The X-axis points in the driving direction, the Y-axis points to the left side of the vehicle and the Z-axis points up from the ground.
 - The camera sensor's coordinate system is based on OpenCV. The X axis points to the right along the horizontal sensor axis, the Y axis points downwards along the vertical sensor axis and the Z-axis points in viewing direction along the optical axis to maintain the right-handed system.
 - The values of the translation are given in meters and the rotation is given as a quaternion.
-- The intrinsic calibration is given in a calibration model that describes the radial distortion using an Nth-order polynomial. The radial distortion is given by the formula: `rho(theta) = k1 * theta + k2 * theta ** 2 + ... + kN * theta ** N`
+- The intrinsic calibration is given in a calibration model that describes the radial distortion using an Nth-order polynomial. The radial distortion is given by the formula: `rho(theta) = k1 * theta + k2 * theta^2 + ... + kN * theta^N`
 
   - `theta` is the angle of incidence with respect to the optical axis and rho is the distance between the image center and projected point - focal distance.
 
@@ -85,8 +99,4 @@ The `Fisheye` labeling interface includes a new 2D `Cuboid` tool that allows you
 
 <figure><img src="./Cuboid-2d-frame.jpg" width="350" alt=""><figcaption></figcaption></figure>
 
-Check out the [Cuboid](../../../data-organization/Annotation-JSON-format/04_Supervisely_Format_objects.md#cuboids-2d-annotation) section of the documentation to learn more about the `Cuboid` tool.
-
-On the left (original) side of the interface, you can see the fisheye image with the distortion. On the right (corrected) side, you can see the image with the distortion corrected. The Cuboid-shaped objects also have a 3D-like appearance in the corrected image (it is not a real 3D object, but it looks like one).
-
-![](Cuboid-frame.gif)
+Check out the [Cuboid](../../../data-organization/Annotation-JSON-format/04_Supervisely_Format_objects.md#cuboids-2d-annotation) section of the documentation to learn more about the 2D `Cuboid` geometry JSON format.
