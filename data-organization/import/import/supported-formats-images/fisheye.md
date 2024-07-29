@@ -2,23 +2,28 @@
 
 ## Overview
 
+Annotate fisheye images with ease using the fisheye labeling interface in Supervisely.
+
+[](./images/fisheye_interface.jpg)
+
 Fisheye images are a special type of images that are captured with a ultra-wide-angle lens (a.k.a. fisheye lens). The fisheye lens produces strong visual distortion intended to create a wide panoramic or hemispherical image. It is a popular choice for many applications, such as surveillance, automotive, and VR/AR. However, the fisheye distortion can make it challenging to annotate objects accurately.
 
 Activating the fisheye labeling interface in Supervisely allows you to correct the fisheye distortion and annotate objects with ease.
 
 To use the fisheye labeling interface, you need to:
 
-- create a project with the `Fisheye` labeling interface enabled in the project settings.
-- provide metadata about the fisheye lens used to capture the images. Check out the [Fisheye Lens Metadata](#fisheye-lens-metadata) section for more details.
+1. create a project with the `Fisheye` labeling interface enabled.
+2. prepare calibration files with parameters for fisheye images (metadata files). Check out the [Fisheye Lens Metadata](#fisheye-lens-metadata) section for more details.
+3. import fisheye images with the calibration parameters and annotations (optional).
 
 {% hint style="info" %}
-To correctly import fisheye images, all metadata files should be placed in the directory with the `meta` name.
+To correctly import fisheye images, all metadata files should be placed **in the directory with the `meta` name**.
 {% endhint %}
 
 ## Description
 
 **Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`\
-**With annotations:** supported\
+**With annotations:** supported
 
 ## Data structure
 
@@ -84,6 +89,8 @@ Extrinsic calibration data is used to describe the coordinate transformation fro
 }
 ```
 
+</details>
+
 Key points:
 
 - Extrinsic calibration data is used to describe the coordinate transformation from the camera coordinate system to the vehicle coordinate system
@@ -100,5 +107,3 @@ where theta is the angle of incidence with respect to the optical axis and rho i
 - Offsets (cx, cy) of the principal point are given in pixels.
 
 - VFov is the vertical field of view of the camera in degrees and the aspect ratio is the ratio of the width to the height of the image
-
-</details>
