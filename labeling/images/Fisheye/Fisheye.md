@@ -2,29 +2,24 @@
 
 ## Overview
 
-Annotate fisheye images with ease using the fisheye labeling interface in Supervisely.
+Challenging to annotate images with fisheye distortion? Activate the **fisheye labeling interface** in Supervisely to correct the distortion and annotate objects with ease in Supervisely.
 
 ![](Fisheye-Interface-frame.jpg)
 
 Fisheye images are a special type of images that are captured with an ultra-wide-angle lens (a.k.a. fisheye lens). The fisheye lens produces strong visual distortion intended to create a wide panoramic or hemispherical image. It is a popular choice for many applications, such as surveillance, automotive, and VR/AR.
 
-Challenging to annotate images with fisheye distortion? Activate the fisheye labeling interface in Supervisely to correct the distortion and annotate objects with ease.
-
 In the illustrations, you can see the fisheye labeling interface in Supervisely. 
 
-Left side – original fisheye image with distortion. The image on the right side is the corrected image with cylindrical projection applied. 
-
-As you can see, the object on the right side is projected to the cylindrical coordinates, which corrects the distortion and makes the object look more natural (it is a 2D object with a 3D-like appearance only).
-
-{% hint style="info" %}
-Currently, Labeling Toolbox supports projection to cylindrical coordinates only. 
-{% endhint %}
+Left side – original fisheye image with distortion. The image on the right side is the corrected image with cylindrical projection applied. As you can see, the object on the right side is projected to the cylindrical coordinates, which corrects the distortion and makes the object look more natural (it is a 2D object with a 3D-like appearance only).
 
 ![](Cuboid-frame.gif)
 
+{% hint style="info" %}
+Currently, the Labeling Toolbox supports projection to cylindrical coordinates only. 
+{% endhint %}
 
 
-To use the fisheye labeling interface, you need to:
+To use the fisheye labeling interface, follow these steps:
 
 1. create a project with the `Fisheye` labeling interface enabled.
 2. prepare calibration files with parameters for fisheye images (metadata files). Check out the [Fisheye Lens Metadata](#fisheye-lens-metadata) section for more details.
@@ -95,7 +90,7 @@ Here are the key points and fields descriptions:
 
 ## Special Tool for Fisheye Images: 2D Cuboid
 
-The `Fisheye` labeling interface includes a new 2D `Cuboid` tool that allows you to annotate objects with a cuboid shape. The `Cuboid` tool is designed to annotate objects in fisheye images with a 3D-like shape, such as cars, buildings, or other objects.
+The `Fisheye` labeling interface includes a new `Cuboid` tool that allows you to annotate objects with the 2D cuboid shape. The `Cuboid` tool is designed to annotate objects in fisheye images with a 3D-like shape, such as cars, buildings, or other objects (it is a 2D object with a 3D-like appearance only).
 
 <figure><img src="./Cuboid-2d-frame.jpg" width="350" alt=""><figcaption></figcaption></figure>
 
