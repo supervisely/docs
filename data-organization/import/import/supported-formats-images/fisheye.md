@@ -98,10 +98,17 @@ Here are the key points and fields descriptions:
 - The vehicle coordinate system, which follows the ISO 8855 convention, is anchored to the ground below the midpoint of the rear axle. The X-axis points in the driving direction, the Y-axis points to the left side of the vehicle and the Z-axis points up from the ground.
 - The camera sensor's coordinate system is based on OpenCV. The X axis points to the right along the horizontal sensor axis, the Y axis points downwards along the vertical sensor axis and the Z-axis points in viewing direction along the optical axis to maintain the right-handed system.
 - The values of the translation are given in meters and the rotation is given as a quaternion.
-- The intrinsic calibration is given in a calibration model that describes the radial distortion using an Nth-order polynomial. The radial distortion is given by the formula: `rho(theta) = k1 * theta + k2 * theta^2 + ... + kN * theta^N`
+- The intrinsic calibration is given in a calibration model that describes the radial distortion using an Nth-order polynomial. The radial distortion is given by the formula:
 
-  - `theta` is the angle of incidence with respect to the optical axis and rho is the distance between the image center and projected point - focal distance.
+<div align="center p-2">
 
-- Offsets (cx, cy) of the principal point are given in pixels.
+<img src="./images/formula.svg" width="550" alt="">
 
-- `VFov` is the vertical field of view of the camera in degrees and the aspect ratio is the ratio of the width to the height of the image.
+</div>
+
+
+- Formula: `theta` is the angle of incidence with respect to the optical axis and rho is the distance between the image center and projected point - focal distance.
+
+- Offsets (`cxOffset`, `cyOffset`) of the principal point are given in pixels.
+
+- `vfov` is the vertical field of view of the camera in degrees and the aspect ratio is the ratio of the width to the height of the image.

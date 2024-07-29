@@ -42,17 +42,16 @@ Here are the key points and fields descriptions:
 
 <div align="center p-2">
 
-<img src="./Formula.svg" width="400" alt="">
+<img src="./Formula.svg" width="550" alt="">
 
 </div>
 
-where:
 
-- `theta` is the angle of incidence with respect to the optical axis and rho is the distance between the image center and projected point - focal distance.
+- Formula: `theta` is the angle of incidence with respect to the optical axis and rho is the distance between the image center and projected point - focal distance.
 
-- Offsets (cx, cy) of the principal point are given in pixels.
+- Offsets (`cxOffset`, `cyOffset`) of the principal point are given in pixels.
 
-- `VFov` is the vertical field of view of the camera in degrees and the aspect ratio is the ratio of the width to the height of the image.
+- `vfov` is the vertical field of view of the camera in degrees and the aspect ratio is the ratio of the width to the height of the image.
 
 <details>
 
