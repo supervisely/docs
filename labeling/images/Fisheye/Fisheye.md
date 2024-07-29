@@ -40,7 +40,11 @@ Here are the key points and fields descriptions:
 - The values of the translation are given in meters and the rotation is given as a quaternion.
 - The intrinsic calibration is given in a calibration model that describes the radial distortion using an Nth-order polynomial. The radial distortion is given by the formula:
 
-![`rho(theta) = k1 * theta + k2 * theta^2 + ... + kN * theta^N`](Formula.svg)
+<div align="center p-2">
+
+<img src="./Formula.svg" width="400" alt="`rho(theta) = k1 * theta + k2 * theta^2 + ... + kN * theta^N`">
+
+</div>
 
 where:
 
