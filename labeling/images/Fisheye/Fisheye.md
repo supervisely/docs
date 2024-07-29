@@ -20,27 +20,6 @@ To use the fisheye labeling interface, you need to:
 **To correctly import fisheye images, all metadata files should be placed in the directory with the `meta` name**.
 {% endhint %}
 
-## Data structure
-
-- **Folder** or **Archive** (`zip`, `tar`)
-
-```
-📦 my_project.zip or 📂 my_project
-    ┣ 📂 img
-    ┃  ┣ 🏞️ car_105.jpg
-    ┃  ┗ 🏞️ car_202.jpg
-    ┣ 📂 meta
-    ┃  ┣ 📄 car_105.jpg.json     ⬅️ calibration parameters
-    ┃  ┗ 📄 car_202.jpg.json     ⬅️ calibration parameters
-    ┗ 📂 ann
-    ┣ 📄 car_105.jpg.json        ⬅️ annotation files (optional)
-    ┗ 📄 car_202.jpg.json        ⬅️ annotation files (optional)
-```
-
-The `meta` folder contains metadata files for fisheye images with the calibration parameters. Each metadata file should have the same name as the corresponding image file + `.json` extension.
-
-_Optional_: The `ann` folder contains annotation files in the Supervisely format. Each annotation file should have the same name as the corresponding image file + `.json` extension.
-
 ## Fisheye Lens Calibration Metadata
 
 It is essential to provide calibration data for fisheye images to allow the fisheye labeling interface to correct the distortion. The calibration data is stored in metadata files in JSON format.
@@ -100,13 +79,16 @@ Here are the key points and fields descriptions:
 
 </details>
 
-## Special Tool for Fisheye Images: Cuboid
+## Special Tool for Fisheye Images: 2D Cuboid
 
 The `Fisheye` labeling interface includes a new 2D `Cuboid` tool that allows you to annotate objects with a cuboid shape. The `Cuboid` tool is designed to annotate objects in fisheye images with a 3D-like shape, such as cars, buildings, or other objects.
 
-On the left (original) side of the interface, you can see the fisheye image with the distortion. On the right (corrected) side, you can see the image with the distortion corrected. The `Cuboid` shape objects also appear in 3D-like form on the corrected side.
+![](Cuboid-2d-frame.jpg)
+
+<figure><img src="./Cuboid-2d-frame.jpg" width="500" alt=""><figcaption></figcaption></figure>
 
 Check out the [Cuboid](../../../data-organization/Annotation-JSON-format/04_Supervisely_Format_objects.md#cuboids-2d-annotation) section of the documentation to learn more about the `Cuboid` tool.
 
-![](Fisheye-Cuboid-Tool.jpg)
+On the left (original) side of the interface, you can see the fisheye image with the distortion. On the right (corrected) side, you can see the image with the distortion corrected. The `Cuboid-shaped objects also have a 3D-like appearance in the corrected image (it is not a real 3D object, but it looks like one).
 
+![](Cuboid-frame.gif)

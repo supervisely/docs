@@ -495,7 +495,7 @@ Fields definitions:
 
 Example:
 
-![cuboid 2d example](./figures_images/cuboid_2D.png)
+![cuboid 2d example](./figures_images/cuboid_2D_new.jpg)
 
 ```json
 {

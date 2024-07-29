@@ -4,7 +4,7 @@
 
 Annotate fisheye images with ease using the fisheye labeling interface in Supervisely.
 
-[](./images/fisheye_interface-frame.jpg)
+![](./images/fisheye_interface-frame.jpg)
 
 Fisheye images are a special type of images that are captured with a ultra-wide-angle lens (a.k.a. fisheye lens). The fisheye lens produces strong visual distortion intended to create a wide panoramic or hemispherical image. It is a popular choice for many applications, such as surveillance, automotive, and VR/AR. However, the fisheye distortion can make it challenging to annotate objects accurately.
 
@@ -19,6 +19,8 @@ To use the fisheye labeling interface, you need to:
 {% hint style="info" %}
 To correctly import fisheye images, all metadata files should be placed **in the directory with the `meta` name**.
 {% endhint %}
+
+The `Fisheye` labeling interface in Supervisely provides the new labeling tool 2D Cuboid for annotating objects like cars, pedestrians, and other objects in fisheye images. Learn more about the 2D Cuboid annotation format in the [documentation](../../../Annotation-JSON-format/04_Supervisely_Format_objects.md#cuboids-2d-annotation).
 
 ## Description
 
