@@ -21,36 +21,80 @@ This 5-minute tutorial is a part of introduction to Supervisely series. You can 
 You can learn more about Import, such as importing different formats, import from the cloud or adding data to existing datasets in [this section.](broken-reference)
 {% endhint %}
 
-### Supported Formats and Modalities
+### Supported formats and modalities
 
-**Image Datasets:**&#x20;
+<details>
+
+<summary><strong>Image Datasets</strong></summary>
 
 * Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/supervisely.md), [COCO](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/coco.md), [YOLO](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/yolo.md), [Pascal VOC](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/pascal.md), [Cityscapes](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/cityscapes.md), [Images with PNG masks formats](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/masks.md).&#x20;
+
+<!---->
+
 * Import images for [Multi-view](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/multiview.md), [Multispectral](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/multispectral.md), [Medical 2D (single)](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/medical\_2d.md) labeling.&#x20;
+
+<!---->
+
 * Upload images as [links from CSV or TXT files](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/csv.md) or [convert PDF pages to images](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/pdf.md).
+
+<!---->
+
 * Images in any directory structure without annotations.
+
+<!---->
+
 * **Supported image formats:** `.jpg`, `.jpeg`, `jpe`, `.bmp`, `.png`, `.webp`, `.mpo`, `.tiff`, `.nrrd`, `.jfif`, `.avif`, `.heic`.
 
-**Video Datasets:**
+</details>
+
+<details>
+
+<summary><strong>Video Datasets</strong></summary>
 
 * Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/videos/supervisely.md), DAVIS (coming soon), MOT (coming soon) formats.&#x20;
+
+<!---->
+
 * Videos in any directory structure without annotations.
+
+<!---->
+
 * **Supported video formats:** `.avi`, `.mov`, `.wmv`, `.webm`, `.3gp`, `.mp4`, `.flv`. ⚠️ All videos will be converted to `.mp4` format during import.
 
-**Point Cloud Datasets:**
+</details>
+
+<details>
+
+<summary><strong>Point Cloud Datasets</strong></summary>
 
 * &#x20;Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/point\_cloud/supervisely.md) format.
+
+<!---->
+
 * &#x20;Point clouds in any directory structure without annotations in `PCD`, `LAS`, `LAZ`, `PLY` formats.
 
-**Point Cloud Episode Datasets:**&#x20;
+</details>
+
+<details>
+
+<summary><strong>Point Cloud Episode Datasets</strong></summary>
 
 * Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/point\_cloud\_episodes/supervisely.md) format.&#x20;
 * Point cloud episodes without annotations in `PCD` format.
 
-**Volume Datasets:**
+</details>
+
+<details>
+
+<summary><strong>Volume Datasets</strong></summary>
 
 * Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/volumes/supervisely.md) format.
+
+<!---->
+
 * Volumes in any directory structure without annotations in `DICOM`, `NRRD` formats.
+
+</details>
 
 You can always use applications to import different modalities from our [Ecosystem](https://ecosystem.supervisely.com/):
 
