@@ -83,12 +83,10 @@ Here are the key points and fields descriptions:
 
 The `Fisheye` labeling interface includes a new 2D `Cuboid` tool that allows you to annotate objects with a cuboid shape. The `Cuboid` tool is designed to annotate objects in fisheye images with a 3D-like shape, such as cars, buildings, or other objects.
 
-![](Cuboid-2d-frame.jpg)
-
-<figure><img src="./Cuboid-2d-frame.jpg" width="500" alt=""><figcaption></figcaption></figure>
+<figure><img src="./Cuboid-2d-frame.jpg" width="350" alt=""><figcaption></figcaption></figure>
 
 Check out the [Cuboid](../../../data-organization/Annotation-JSON-format/04_Supervisely_Format_objects.md#cuboids-2d-annotation) section of the documentation to learn more about the `Cuboid` tool.
 
-On the left (original) side of the interface, you can see the fisheye image with the distortion. On the right (corrected) side, you can see the image with the distortion corrected. The `Cuboid-shaped objects also have a 3D-like appearance in the corrected image (it is not a real 3D object, but it looks like one).
+On the left (original) side of the interface, you can see the fisheye image with the distortion. On the right (corrected) side, you can see the image with the distortion corrected. The Cuboid-shaped objects also have a 3D-like appearance in the corrected image (it is not a real 3D object, but it looks like one).
 
 ![](Cuboid-frame.gif)
