@@ -16,8 +16,8 @@ To use the fisheye labeling interface, you need to:
 2. prepare calibration files with parameters for fisheye images (metadata files). Check out the [Fisheye Lens Metadata](#fisheye-lens-metadata) section for more details.
 3. import fisheye images with the calibration parameters and annotations (optional).
 
-{% hint style="info" %}
-**To correctly import fisheye images, all metadata files should be placed in the directory with the `meta` name**.
+{% hint style="success" %}
+Check out the [Import Fisheye Images](../../../data-organization/import/import/supported-formats-images/fisheye.md) page to learn how to structure and import fisheye images with calibration parameters to Supervisely.
 {% endhint %}
 
 ## Fisheye Lens Calibration Metadata
