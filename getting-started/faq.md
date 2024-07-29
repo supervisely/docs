@@ -6,7 +6,7 @@
 
 Supervisely offers a free version with certain limitations, which is ideal for open-source projects, individuals, ML researchers, and small teams. If you need more advanced features or are working on a commercial project, you can upgrade to the Pro subscription. For more detailed information about the pricing, limitations and features, visit our [Pricing page](https://supervisely.com/pricing/).
 
-If you want to launch a commercial for your company, please contact us at [hello@supervisely.com](mailto:hello@supervisely.com).
+If you are interested in an self-hosted or cloud solution for companies of any size without any limitations, please [contact us](https://supervisely.com/contact-us/).
 
 </details>
 
