@@ -57,26 +57,26 @@ Steps to solve Using Object Distribution and Co-Occurrence Matrix
 
 Steps to Solve Using Co-Occurrence Matrix and Spatial Heatmap
 
-#### **Step 1. Co-Occurrence Matrix Analysis**:
+#### **Step 1. Co-Occurrence Matrix Analysis**
 
 1. Use the co-occurrence matrix to identify unusual pairs of predicted and actual classes, such as a high frequency of "horse" and "chair" co-occurrences which may not make semantic sense.
 2. Pinpoint cells in the confusion matrix where the model frequently confuses certain classes, indicating potential issues in the training data or model architecture.
 
-#### **Step 2. Spatial Heatmap**:
+#### **Step 2. Spatial Heatmap**
 
 1. Examine the spatial heatmap to understand where objects are typically located in the images. This can reveal biases in the model’s learning, such as consistently predicting objects in certain areas.
 
-#### **Step 3. Data Analysis and Augmentation**:
+#### **Step 3. Data Analysis and Augmentation**
 
 1. &#x20;Use the insights from the matrices to review the training data for underrepresented classes or missing annotations.
 2. Plan data augmentation techniques to address class imbalance or introduce variability in object locations to improve model generalization.
 
-#### **Step 4. Model Retraining and Evaluation**:
+#### **Step 4. Model Retraining and Evaluation**
 
 1. Based on the analysis, augment the dataset or collect additional data to balance class representation.
 2. Train the model with the updated dataset and evaluate its performance using standard metrics like precision, recall, and F1-score.
 
-#### **Step 5. Continuous Monitoring**:
+#### **Step 5. Continuous Monitoring**
 
 1. Regularly review the co-occurrence matrix and other statistics to identify and rectify new issues, ensuring ongoing model robustness and accuracy.
 

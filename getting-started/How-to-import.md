@@ -96,7 +96,7 @@ You can learn more about Import, such as importing different formats, import fro
 
 </details>
 
-You can always use applications to import different modalities from our [Ecosystem](https://ecosystem.supervisely.com/):
+You can always use applications to import different formats and modalities from our [Ecosystem](https://ecosystem.supervisely.com/):
 
 [Import Images](https://ecosystem.supervisely.com/apps/import-images) | [Import Videos](https://ecosystem.supervisely.com/apps/import-videos-supervisely) | [Import Pointclouds](https://ecosystem.supervisely.com/apps/import-pointcloud-pcd) | [Import Pointcloud Episodes](https://ecosystem.supervisely.com/apps/import-pointcloud-episode) |  [Import DICOM Volumes](https://ecosystem.supervisely.com/apps/import-dicom-volumes) | [Import COCO Keypoints](https://ecosystem.supervisely.com/apps/import-coco-keypoints) | [Import Volumes in Supervisely format](https://ecosystem.supervisely.com/apps/import-volumes-with-anns) | [Import KITTI-360](https://ecosystem.supervisely.com/apps/import-kitti-360/supervisely\_app) | [Import Multispectral Images](https://ecosystem.supervisely.com/apps/import-multispectral-images) | and [many other formats](https://ecosystem.supervisely.com/import).
 
