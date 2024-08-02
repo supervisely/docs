@@ -88,7 +88,7 @@ Yes, Supervisely offers integrations with various tools and platforms, including
 
 <summary>How can I import/export data in Supervisely? </summary>
 
-Supervisely allows you to easily import data in various formats such as COCO, Pascal VOC, Cityscapes and more. Exporting your annotated data is also easy and supports formats compatible with many machine learning frameworks. Detailed guides for importing and exporting data are available in our documentation.
+Supervisely allows you to easily import data in various formats such as COCO, Pascal VOC, Cityscapes and more. Exporting your annotated data is also easy and supports formats compatible with many machine learning frameworks. You can also customize the export settings to include specific metadata or annotation details as needed. Detailed guides for importing and exporting data are available in our documentation.
 
 </details>
 
@@ -112,7 +112,7 @@ We are always working to improve Supervisely and regularly release updates with 
 
 <summary>What types of annotation tools does Supervisely offer?</summary>
 
-Supervisely provides a variety of annotation tools tailored for different data types, including bounding boxes, polygons, points, lines, masks and keypoints. Additionally, there are specialized tools for video frame annotation, 3D point cloud labeling, and more.
+Supervisely provides a variety of annotation tools tailored for different data types, including bounding boxes, polygons, points, lines, masks and keypoints. Additionally, there are specialized tools for video frame annotation, 3D point cloud labeling and more.
 
 </details>
 
@@ -120,7 +120,7 @@ Supervisely provides a variety of annotation tools tailored for different data t
 
 <summary>How does Supervisely help me collaborate?</summary>
 
-Supervisely provides powerful collaboration features, including teams, shared workspaces, project sharing, role-based access control, and tools for quality assurance and data statistics. Team members can create labeling jobs, leave issues, make and review annotations, and track annotation updates in real time. The platform also supports versioning in the Pro and Enterprise editions, so you can track the history of annotations made to your data. For more information, see our Collaboration section.
+Supervisely provides powerful collaboration features, including teams, shared workspaces, project sharing, role-based access control, and tools for quality assurance and data statistics. Team members can create labeling jobs, leave issues, make and review annotations, and track annotation updates in real time. The platform also supports versioning in the Pro and Enterprise editions, so you can track the history of annotations made to your data. For more information, see our [Collaboration](broken-reference) section.
 
 </details>
 
@@ -129,14 +129,6 @@ Supervisely provides powerful collaboration features, including teams, shared wo
 <summary>Can I train machine learning models directly in Supervisely?</summary>
 
 Supervisely provides built-in machine learning tools that allow you to train models directly on the platform. You can use our predefined models or bring in your own to fine-tune on your annotated datasets. In addition, the platform supports evaluation metrics and visualization tools to help you assess model performance.
-
-</details>
-
-<details>
-
-<summary>How can I export my data from Supervisely?</summary>
-
-Data can be exported from Supervisely in various formats compatible with different machine learning frameworks, including COCO, Pascal VOC, YOLO, and more. You can also customize the export settings to include specific metadata or annotation details as needed.
 
 </details>
 

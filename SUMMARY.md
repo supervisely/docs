@@ -70,7 +70,7 @@
 * [Labeling Toolboxes](labeling/Labeling-toolbox.md)
   * [Images](labeling/images/README.md)
   * [Multi-view images](<labeling/images/Multi-view images/Multi-view-images.md>)
-  * [Fisheye](<labeling/images/Fisheye/Fisheye.md>)
+  * [Fisheye](labeling/images/Fisheye/Fisheye.md)
   * [Videos](labeling/videos/README.md)
   * [Video tracking](labeling/videos/video-tracking.md)
   * [3D Point Clouds](labeling/3D-Point-Clouds/3D-Point-Clouds.md)
@@ -110,7 +110,7 @@
 * [Starting with Neural Networks](neural-networks/overview/overview.md)
 * [Train custom Neural Networks](neural-networks/custom-nn/custom-nn.md)
 * [Run pre-trained models](neural-networks/pre-trained-models.md)
-* [Video Object Tracking](neural-networks/video-object-tracking.md)
+* [Automated video object tracking and segmentation](neural-networks/video-object-tracking.md)
 
 ## 👔 Enterprise Edition
 
