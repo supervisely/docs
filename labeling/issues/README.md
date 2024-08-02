@@ -8,7 +8,7 @@ Every annotation team needs to organize its work, but no one wants to stop worki
 
 Data Labeling is about collaboration at scale: managers, domain experts, data scientists, inhouse labelers and dedicated external labeling teams. Hundreds of people are involved in. Also, this complicated process requires multi-stage reviewing and correction to **guarantee quality**. And it is hard to organize the entire process without specially designed tools.
 
-Supervisely Issues are built in cooperation with professional labeling teams and help to:
+#### Supervisely Issues are built in cooperation with professional labeling teams and help to:
 
 * **create**, **organize** and **inspect** issues on invalid images and objects.
 * **share**, **discuss**, **resolve** them with your labeling team
@@ -33,7 +33,7 @@ A typical issue looks like this:
 
 ![](1\_YF1U4Wl\_1SxKOdVXQexmXg.png)
 
-Issue page
+#### Issue page
 
 * **Title** and **description** describe what the issue is all about
 * **Links** associate your issues with any Supervisely entities like projects, labeling jobs, neural networks and so on and help you categorize and filter your issues based on that
@@ -43,7 +43,7 @@ Issue page
 
 ## Assignees + Links
 
-Once a lot of issues are collected, it is hard to find the ones you care about. **Assignees** and **Links** sections are used to categorize and filter issues. To assign users just click the corresponding gear in the sidebar on the right. To attach links, just copy and paste URLs into the comment text block, they will be automatically parsed.
+Once a lot of issues are collected, it is hard to find the ones you care about. **Assignees** and **Links** sections are used to categorize and filter issues. To assign users just click the corresponding gear in the sidebar on the right. To attach links, just copy and paste `URLs` into the comment text block, they will be automatically parsed.
 
 <figure><img src="../../.gitbook/assets/assignees.png" alt=""><figcaption></figcaption></figure>
 
@@ -60,6 +60,15 @@ Integration into labeling interfaces is an essential part of the effective label
 * **filter images** with issues on the right panel
 * **change issue positions** or **move discussion popup** so that their placement makes sense
 * **resolve issues** from labeling interface, cause no one wants to stop working in order to track work
+
+## Creation of issues in the annotation tool
+
+Create new or apply already created issues to annotations directly in the labeling tool main scene.
+
+* If you notice an invalid object/image annotation during the annotation process, you can create a new issue with its title and description so that other annotators or project managers can easily identify and fix it.&#x20;
+* If the issue has been reported previously, you can apply it to the current annotation. It helps unify the labeling or review process and makes it easier to track and fix repeated mistakes.
+
+<figure><img src="../../.gitbook/assets/create-issue.png" alt=""><figcaption></figcaption></figure>
 
 ## Items to resolve
 
