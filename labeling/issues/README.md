@@ -1,6 +1,11 @@
-# Issues
+---
+description: >-
+  Every annotation team needs to organize its work, but no one wants to stop
+  working in order to track work. Supervisely Issues allow keeping the work of a
+  huge labeling workforce all in one place.
+---
 
-Every annotation team needs to organize its work, but no one wants to stop working in order to track work. Supervisely Issues allow keeping the work of a huge labeling workforce all in one place.
+# Issues
 
 ![](1\_vcZ1gdoUaVT6J\_uJ5q4x0w.jpeg)
 
@@ -61,7 +66,7 @@ Integration into labeling interfaces is an essential part of the effective label
 * **change issue positions** or **move discussion popup** so that their placement makes sense
 * **resolve issues** from labeling interface, cause no one wants to stop working in order to track work
 
-## Creation of issues in the annotation tool
+### Creation of issues in the annotation tool
 
 Create new or apply already created issues to annotations directly in the labeling tool main scene.
 

@@ -58,7 +58,8 @@
 * [Quality Assurance & Statistics](data-organization/quality-assurance-and-statistics/README.md)
   * [Practical applications of statistics](data-organization/quality-assurance-and-statistics/practical-applications-of-statistics.md)
 * [Operations with Data](data-organization/Operations-with-Data/README.md)
-  * [Data Filtration](data-organization/Operations-with-Data/data-filtration.md)
+  * [Data Filtration](data-organization/operations-with-data/data-filtration/README.md)
+    * [How to use advanced filters](data-organization/operations-with-data/data-filtration/how-to-use-advanced-filters.md)
   * [Pipelines](data-organization/operations-with-data/pipelines.md)
   * [Augmentations](data-organization/Operations-with-Data/Augmentations.md)
   * [Converting & Splitting data](data-organization/Operations-with-Data/Converting-Splitdata.md)
@@ -110,7 +111,6 @@
 * [Starting with Neural Networks](neural-networks/overview/overview.md)
 * [Train custom Neural Networks](neural-networks/custom-nn/custom-nn.md)
 * [Run pre-trained models](neural-networks/pre-trained-models.md)
-* [Automated video object tracking and segmentation](neural-networks/video-object-tracking.md)
 
 ## 👔 Enterprise Edition
 

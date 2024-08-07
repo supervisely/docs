@@ -10,7 +10,11 @@ In this guide, we explore how to leverage best-in-class quality assurance and in
 
 ## Use Case 1: Missing or misclassified annotations
 
-Steps to solve using Class Balance and Image Statistics
+When analyzing the class `dog`, it is found that the selected class is presented on 12 images. However, when reviewing these images, it is found that there are no actual objects related to this class in one image. This may indicate problems with the clarity of the annotation or insufficient quality of the data labeling - annotators put the bounding box of class "dog" but there are no dogs on the image.
+
+<figure><img src="../../.gitbook/assets/objects-absence-frame.png" alt=""><figcaption></figcaption></figure>
+
+Steps to solve using Class Balance and Image Statistics 👇
 
 #### **Step 1. Class Balance Analysis**
 
@@ -33,7 +37,11 @@ Steps to solve using Class Balance and Image Statistics
 
 ## Use Case 2: Mismatch in the number of objects
 
-Steps to solve Using Object Distribution and Co-Occurrence Matrix
+When sorting the images by the Object Distribution for the class `skis`, it is found that all of images have 4 objects in this class. However, a detailed view of some images reveals that they do not contain such a large number of objects of the class `skis`. This may indicate errors in objects segmentation (one object is partially covered and labeled as two separate masks), objects duplication or a mismatch between the actual content of the images and their annotations.
+
+<figure><img src="../../.gitbook/assets/mismatch-frame.png" alt=""><figcaption></figcaption></figure>
+
+Steps to solve Using Object Distribution and Co-Occurrence Matrix 👇
 
 #### **Step 1. Object Distribution Heatmap**
 
@@ -55,7 +63,13 @@ Steps to solve Using Object Distribution and Co-Occurrence Matrix
 
 ## Use Case 3: Errors in model predictions
 
-Steps to Solve Using Co-Occurrence Matrix and Spatial Heatmap
+Quality assurance tools can be used to quickly expose and review anomalies in model predictions. When reviewing objects co-occurrence matrix, data scientists can investigate unusual object pairs: for example `horse` and `chair` are presented on the image at the same time. It may help to find errors in training data. Or this may indicate that the model is not working properly or that there is a lack of training data for certain classes.
+
+The purpose of analyzing the statistics for model predictions is to debug model mistakes and to determine what data needs to be added to training dataset of how training data augmentations can be improved. For example, having found a lack of images with objects of the class `chair`, a decision can be made to expand the training dataset by acquiring and labeling more images for this class to achieve a better class balance distribution and quality of the model.
+
+<figure><img src="../../.gitbook/assets/model-predictions-errors-frame.jpg" alt=""><figcaption><p>Green arrow - model correctly detected the chair on the left image. Yellow arrows - errors in predictions, objects are not chairs on the right image.</p></figcaption></figure>
+
+Steps to Solve Using Co-Occurrence Matrix and Spatial Heatmap 👇
 
 #### **Step 1. Co-Occurrence Matrix Analysis**
 

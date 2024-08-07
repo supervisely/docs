@@ -18,13 +18,7 @@ Advanced filters are designed to improve the management, searching, and querying
 6. **Predefined presets:** Quickstart with predefined filters for common tasks.
 7. **Actionable results:** Perform actions on filtered results such as copy, move, delete, create labeling jobs, and annotate.
 
-## How to use Advanced Filters
-
-First, you need to access **Filters**! Navigate to the project you are working on. Then locate and click the **Filters** tab to begin configuring your filters.
-
-<figure><img src="../../.gitbook/assets/filters.png" alt=""><figcaption></figcaption></figure>
-
-### Sorting and Filtering
+<figure><img src="../../../.gitbook/assets/filters.png" alt=""><figcaption></figcaption></figure>
 
 **Sort by Last Update:** Identify recently modified images.
 
@@ -34,16 +28,9 @@ First, you need to access **Filters**! Navigate to the project you are working o
 
 **Search by Name:** Use regular expressions to search for images by name.
 
-#### Now let's create Custom Filters
-
-1. **Open filter configuration**: Click the `Filter` button to open the filter configuration modal.
-2. **Set criteria**: Choose criteria based on datasets, names, image tags, object classes, assignees, issues, or labeling job status.
-3. **Fine-tune filters:** Include or exclude specific conditions, such as the number of objects within a specified range.
-4. **Apply filters:** Click the `Apply` button to retrieve and preview the data that meets your specified conditions.
-
-<figure><img src="../../.gitbook/assets/custom-filters.png" alt=""><figcaption></figcaption></figure>
-
 ## What do filters include?
+
+<figure><img src="../../../.gitbook/assets/custom-filters.png" alt=""><figcaption></figcaption></figure>
 
 ### Custom Filters
 
@@ -76,14 +63,6 @@ First, you need to access **Filters**! Navigate to the project you are working o
 **Has Issues:** Find images with annotation problems.
 
 **Labeled by Me:** Find images labeled by the current user.
-
-***
-
-### Data Operations
-
-**Copy and Move:** Transfer images with annotations to other datasets.
-
-**Labeling Job Management:** Create labeling jobs or delete unnecessary data.
 
 ***
 
