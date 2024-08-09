@@ -234,10 +234,4 @@ Our benchmark aims to assess the following capabilities of a model:
 
 * **Preprocess:** The stage where images are prepared for input into the model. This includes image reading, resizing, and any necessary transformations.
 * **Inference:** The main computation phase where the forward pass of the model is running.
-* **Postprocess:** This stage includes tasks such as NMS (Non-maximal suppression), resizing output masks, aligning predictions with the input image, converting bounding boxes into a specific format or filtering out low-confidence detections.\
-
-
-\
-\
-\
-\
+* **Postprocess:** This stage includes tasks such as NMS (Non-maximal suppression), resizing output masks, aligning predictions with the input image, converting bounding boxes into a specific format or filtering out low-confidence detections.
