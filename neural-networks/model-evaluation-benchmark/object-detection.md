@@ -44,11 +44,9 @@ _<mark style="color:green;">Higher recall values are better.</mark>_
 
 Recall for a given class is calculated as the proportion of correct predictions (true positives) to the total number of objects in that class (true positives + false negatives).
 
-```latex
-$$
-\text{Recall (for a class)} = \frac{TP}{TP + FN}
-$$
-```
+
+$$\text{Recall (for a class)} = \frac{TP}{TP + FN}$$
+
 
 The overall recall is the average recall across all classes.
 
