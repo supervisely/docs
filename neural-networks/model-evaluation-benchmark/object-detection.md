@@ -44,7 +44,7 @@ _<mark style="color:green;">Higher recall values are better.</mark>_
 
 Recall for a given class is calculated as the proportion of correct predictions (true positives) to the total number of objects in that class (true positives + false negatives).
 
-```
+```latex
 \[ \text{Recall (for a class)} = \frac{TP}{TP + FN} \]
 ```
 
@@ -60,7 +60,7 @@ _<mark style="color:green;">Higher precision values are better.</mark>_
 
 Precision for a specific class is calculated as the ratio of correct predictions (true positives) to the total number of predictions made for that class (true positives + false positives).
 
-```
+```latex
 \[ \text{Precision (for a class)} = \frac{TP}{TP + FP} \]
 ```
 
@@ -74,7 +74,7 @@ The f1-score is a useful metric that combines both precision and recall into a s
 
 The formula for the F1-score:
 
-```
+```latex
 \[ F1 = 2 \cdot \frac{\text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}} \]
 ```
 
@@ -118,7 +118,7 @@ We also measure the classification accuracy of our detectors. This metric repres
 
 The formula for classification accuracy is:
 
-```
+```latex
 \[ \text{Classification accuracy} = \frac{\text{TP}}{\text{TP} + \text{Miss-label}} \]
 ```
 
@@ -147,7 +147,7 @@ _<mark style="color:green;">Lower probabilities of confusion are better.</mark>_
 
 The probability of confusion between classes A and B is calculated as:
 
-```
+```latex
 \[ \text{probability of confusion (A, B)} = \frac{(\text{predicted (A)} \cap \text{actually (B)} + \text{predicted (B)} \cap \text{actually (A)})}{(\text{predicted (A)} + \text{predicted (B)})} \]
 ```
 
@@ -235,7 +235,7 @@ Our benchmark aims to assess the following capabilities of a model:
 
 1. **Real-time inference** with batch size is set to 1. This is suitable for processing a stream of images or for real-time video capture. It is a crucial benchmark for real-time object detectors, such as YOLO and RT-DETR.
 2. **Batch processing.** This is a common scenario where the model can process a batch of images. We also assess the scalability of model efficiency with increasing batch size, conducting tests with various batch sizes (i.e, setting batch size to 1, 8, 16).
-3. **Runtime environments.** We provide benchmarks in both the original python environment and in optimized runtimes, such as ONNXRuntime and TensorRT. This is important because python code can be suboptimal, and this level of optimization provides significant performance improvements. _<mark style="color:red;">hardware</mark>_
+3. **Runtime environments.** We provide benchmarks in both the original python environment and in optimized runtimes, such as ONNXRuntime and TensorRT. This is important because python code can be suboptimal, and this level of optimization provides significant performance improvements.
 
 ### Methodology:
 
