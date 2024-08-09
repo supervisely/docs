@@ -111,6 +111,8 @@
 * [Starting with Neural Networks](neural-networks/overview/overview.md)
 * [Train custom Neural Networks](neural-networks/custom-nn/custom-nn.md)
 * [Run pre-trained models](neural-networks/pre-trained-models.md)
+* [Model Evaluation Benchmark](neural-networks/model-evaluation-benchmark/README.md)
+  * [Object Detection](neural-networks/model-evaluation-benchmark/object-detection.md)
 
 ## 👔 Enterprise Edition
 

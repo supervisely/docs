@@ -47,7 +47,7 @@ Users can easily copy or move images with annotations from filtering results to 
 
 Explore some illustrative examples and common use cases of how filters can be used in real projects.
 
-### Find unique data with custom filters
+### 1. Find unique data with custom filters
 
 You can easily find unique data by combining different filters. Let's look at an example using the [Pascal VOC dataset](https://datasetninja.com/pascal-voc-2012). Suppose we need to find images from the "train" dataset that contain both _buses_ and _cars_. The number of _buses_ in the image should not exceed 5, and the number of _cars_ should be 1 or more. Here are the steps you can follow:
 
