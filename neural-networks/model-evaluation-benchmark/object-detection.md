@@ -189,7 +189,7 @@ _<mark style="color:green;">Lower ECE values are better.</mark>_
 
 **ECE** is calculated by partitioning predictions into M equally-spaced bins (similar to the reliability diagrams) and taking a weighted average of the bins’ accuracy/confidence difference.
 
-<img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXefLOQeFfkp8mxsl3ssvTEBqK3IG7MdDQlJCAdci0lUWvEOOi_2RQiM2YROeY04SW-omZhaMVjSwMe4ENo1FPNSjY6sJKP3t2j7YoDv9ZLHoASihRG7rmzfVUNwfQ-KrMgFFsKPwa_vUCUnNFI142DBpiNR?key=zVIo5rMFZhwTWQzujHFzqQ" alt="" data-size="original">
+$$\text{ECE} = \sum_{m=1}^{M} \frac{|B_m|}{n} \cdot \left| \text{acc}(B_m) - \text{conf}(B_m) \right|$$
 
 where _**n**_ is the number of samples, _**M**_ is the number of bins. The difference between acc(Bm) and conf(Bm) is a difference between precision and average confidence in the bin **m**.
 
