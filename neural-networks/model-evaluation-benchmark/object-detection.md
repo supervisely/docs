@@ -60,9 +60,8 @@ _<mark style="color:green;">Higher precision values are better.</mark>_
 
 Precision for a specific class is calculated as the ratio of correct predictions (true positives) to the total number of predictions made for that class (true positives + false positives).
 
-```latex
-\[ \text{Precision (for a class)} = \frac{TP}{TP + FP} \]
-```
+
+$$\[ \text{Precision (for a class)} = \frac{TP}{TP + FP} \]$$
 
 The overall precision is the average precision across all classes.
 
@@ -74,11 +73,8 @@ The f1-score is a useful metric that combines both precision and recall into a s
 
 The formula for the F1-score:
 
-```latex
-\[ F1 = 2 \cdot \frac{\text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}} \]
-```
+$$\[ F1 = 2 \cdot \frac{\text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}} \]$$
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD\_4nXf3t6JzpI\_uJSuwT2tP4Zzp8B\_ilR69jrJi8iFYypeMrw8VTtxtEEMZQgR9t4bkAv25seqsHPANSrgYgHKJ2VGIwVL1XUxoF2LyL1eO47D7jWBynlDDWE5KpjQCO\_0Z7NdP5bXMm8uiY3ex7WYBt2Jgxsk?key=zVIo5rMFZhwTWQzujHFzqQ)
 
 ## mAP & Precision-Recall Curve
 
@@ -118,9 +114,7 @@ We also measure the classification accuracy of our detectors. This metric repres
 
 The formula for classification accuracy is:
 
-```latex
-\[ \text{Classification accuracy} = \frac{\text{TP}}{\text{TP} + \text{Miss-label}} \]
-```
+$$\[ \text{Classification accuracy} = \frac{\text{TP}}{\text{TP} + \text{Miss-label}} \]$$
 
 Here, TP (True Positives) are correctly labeled instances, and Miss-label refers to cases where the IoU between the ground truth and prediction is higher than 0.5, but the predicted class does not match the actual class.
 
@@ -147,11 +141,7 @@ _<mark style="color:green;">Lower probabilities of confusion are better.</mark>_
 
 The probability of confusion between classes A and B is calculated as:
 
-```latex
-\[ \text{probability of confusion (A, B)} = \frac{(\text{predicted (A)} \cap \text{actually (B)} + \text{predicted (B)} \cap \text{actually (A)})}{(\text{predicted (A)} + \text{predicted (B)})} \]
-```
-
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdpfx93ZCqFs7OhutDOVLeQxuLQHnKIaQNqZDuI-WYo9Bljrg2DQycPFBU4Y92KeQjGHMafaMmHPkgw9N-IGfR2p-WPFKaxpwmzveHx9iHQIzILQZHANQIMshptBPIKwIC84VqCwSOo_0QVoIh0P3OR18M?key=zVIo5rMFZhwTWQzujHFzqQ" alt=""><figcaption></figcaption></figure>
+$$\[ \text{probability of confusion (A, B)} = \frac{(\text{predicted (A)} \cap \text{actually (B)} + \text{predicted (B)} \cap \text{actually (A)})}{(\text{predicted (A)} + \text{predicted (B)})} \]$$
 
 probability of confusion (A, B) = (predicted (A) ∩ actually (B) + predicted (B) ∩ actually (A)) / (predicted (A) + predicted (B))
 
