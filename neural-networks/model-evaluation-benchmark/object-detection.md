@@ -61,7 +61,7 @@ _<mark style="color:green;">Higher precision values are better.</mark>_
 Precision for a specific class is calculated as the ratio of correct predictions (true positives) to the total number of predictions made for that class (true positives + false positives).
 
 
-$$\[ \text{Precision (for a class)} = \frac{TP}{TP + FP} \]$$
+$$\text{Precision (for a class)} = \frac{TP}{TP + FP}$$
 
 The overall precision is the average precision across all classes.
 
@@ -73,7 +73,7 @@ The f1-score is a useful metric that combines both precision and recall into a s
 
 The formula for the F1-score:
 
-$$\[ F1 = 2 \cdot \frac{\text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}} \]$$
+$$F1 = 2 \cdot \frac{\text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}}$$
 
 
 ## mAP & Precision-Recall Curve
@@ -114,9 +114,9 @@ We also measure the classification accuracy of our detectors. This metric repres
 
 The formula for classification accuracy is:
 
-$$\[ \text{Classification accuracy} = \frac{\text{TP}}{\text{TP} + \text{Miss-label}} \]$$
+$$\text{Classification accuracy} = \frac{\text{TP}}{\text{TP} + \text{Mislabel}}$$
 
-Here, TP (True Positives) are correctly labeled instances, and Miss-label refers to cases where the IoU between the ground truth and prediction is higher than 0.5, but the predicted class does not match the actual class.
+Here, TP (True Positives) are correctly labeled instances, and Mislabel refers to cases where the IoU between the ground truth and prediction is higher than 0.5, but the predicted class does not match the actual class.
 
 ## Confusion Matrix
 
@@ -141,9 +141,8 @@ _<mark style="color:green;">Lower probabilities of confusion are better.</mark>_
 
 The probability of confusion between classes A and B is calculated as:
 
-$$\[ \text{probability of confusion (A, B)} = \frac{(\text{predicted (A)} \cap \text{actually (B)} + \text{predicted (B)} \cap \text{actually (A)})}{(\text{predicted (A)} + \text{predicted (B)})} \]$$
+$$\text{probability of confusion (A, B)} = \frac{(\text{predicted (A)} \cap \text{actually (B)} + \text{predicted (B)} \cap \text{actually (A)})}{(\text{predicted (A)} + \text{predicted (B)})}$$
 
-probability of confusion (A, B) = (predicted (A) ∩ actually (B) + predicted (B) ∩ actually (A)) / (predicted (A) + predicted (B))
 
 **Numerator:**
 
