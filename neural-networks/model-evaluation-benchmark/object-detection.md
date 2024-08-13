@@ -4,7 +4,7 @@
 
 We use pycocotools to compute basic metrics such as mAP, precision, and recall. Additionally, we utilize algorithms from pycocotools for object matching based on IoU. This approach allows us to adhere to the original algorithm for calculating the mAP metric, as different implementations can yield slightly varying results. Moreover, pycocotools is a C++ library with Python bindings, which ensures fast and efficient calculations.
 
-## Matching Algorithm from pycocotools
+#### Matching Algorithm from pycocotools
 
 To calculate any metrics, we must match the predicted bounding boxes with the actual ones. After matching, all instances are categorized into one of three outcomes: true positives, false positives, and false negatives. These categories are essential for calculating precision, recall, and mAP.
 
@@ -24,7 +24,7 @@ After the matching procedure, we can calculate precision, recall, mAP, and other
 
 Outcome Counts provides a quick assessment of model accuracy at a glance. It offers a general overview of how many instances the model correctly detected (True Positive), how many it missed (False Negative), and how many predictions were incorrect (False Positive).
 
-### How to use
+#### How to use
 
 The larger the green bar for true positive outcomes, and the smaller the red bars for false negative and false positive outcomes, the better the model's predictions. This chart helps to compare and understand the balance between false negatives and false positives, thus identifying which type of error is more prevalent in the model given the current confidence threshold.
 
@@ -32,7 +32,9 @@ The larger the green bar for true positive outcomes, and the smaller the red bar
 Remember, the ratio between false negatives and false positives depends on the confidence threshold.
 {% endhint %}
 
-**Calculating Outcome Counts**: To calculate Outcome Counts, we use the results from the matching procedure and count the instances of TP, FP, and FN across the entire dataset.
+#### Calculating
+
+To calculate Outcome Counts, we use the results from the matching procedure and count the instances of TP, FP, and FN across the entire dataset.
 
 ## Recall
 
@@ -40,7 +42,7 @@ Recall measures the completeness of the model predictions. It answers the questi
 
 _<mark style="color:green;">Higher recall values are better.</mark>_
 
-### Calculating recall
+#### Calculating recall
 
 Recall for a given class is calculated as the proportion of correct predictions (true positives) to the total number of objects in that class (true positives + false negatives).
 
@@ -56,7 +58,7 @@ Precision evaluates the accuracy of a model by answering the question: Out of al
 
 _<mark style="color:green;">Higher precision values are better.</mark>_
 
-### Calculating precision
+#### Calculating precision
 
 Precision for a specific class is calculated as the ratio of correct predictions (true positives) to the total number of predictions made for that class (true positives + false positives).
 
@@ -69,7 +71,7 @@ The overall precision is the average precision across all classes.
 
 The f1-score is a useful metric that combines both precision and recall into a single measure. As the harmonic mean of precision and recall, the f1-score provides a balanced representation of both metrics in one value. F1-score ranges from 0 to 1, with a higher score indicating better model performance.
 
-### Calculating f1-score
+#### Calculating f1-score
 
 The formula for the F1-score:
 
@@ -82,7 +84,7 @@ $$F1 = 2 \cdot \frac{\text{precision} \cdot \text{recall}}{\text{precision} + \t
 
 **Mean Average Precision (mAP)** is a comprehensive metric used to evaluate detection performance. It calculates the average precision at various recall levels and IoU thresholds for all classes within a dataset. Our benchmark includes a visualization of the Precision-Recall curve, from which the resulting mAP is derived (since mAP is the area under this curve).
 
-#### Understanding the Precision-Recall Tradeoff
+#### Understanding Precision-Recall Tradeoff
 
 * A system with high recall but low precision generates many results, but most of its predictions are incorrect or redundant (false positives).
 * Conversely, a system with high precision but low recall produces very few results, but most of its predictions are accurate.
@@ -94,21 +96,23 @@ A high-quality model should sustain strong precision as recall increases. This i
 
 _<mark style="color:green;">A larger area under the Precision-Recall curve indicates better performance.</mark>_
 
-#### Technical details
+### Calculating mAP
 
-To construct the PR-curve, follow these steps:
+To calculate mAP, we first construct the Precision-recall curve following these steps:
 
 1. **Sort predictions:** Arrange all the bounding box predictions by their confidence scores in descending order.
 2. **Classify outcomes:** For each prediction, determine if it is a true positive (TP) or a false positive (FP) and record these classifications in a table.
 3. **Calculate cumulative metrics:** As you move through each prediction, calculate the cumulative precision and recall. Add these values to the table.
 4. **Plot points:** Each row in the table now represents a point on a graph, with cumulative recall on the x-axis and cumulative precision on the y-axis. Initially, this creates a zig-zag line because of variations between predictions.
-5. **Smooth the curve:** The actual PR-curve is derived by plotting the maximum precision value for each level of recall across all thresholds. This involves connecting only the highest precision points for each segment of recall, smoothing out the zig-zags and forming a curve that typically slopes downward as recall increases.
+5. **Interpolation to 101 recall levels:** The actual PR-curve is derived by plotting only maximum precision values for each recall level. This involves connecting only the highest precision points for each segment of recall, smoothing out the zig-zags and forming a curve that slopes downward as recall increases. This interpolates the curve to evenly spaced recall intervals, which are ranging from 0 to 1 with step of 0.01 (e.g., 0.0, 0.01, 0.02, ..., 1.0), giving 101 recall levels.
+6. **Calculating AP:** We then calculate Average Precision (AP) by averaging precision values across 101 recall levels.
+7. **Calculating mAP:** Now, imagine the above steps were performed only for one class, and the IoU threshold was set to 0.5. Then, the actual mAP is just an average of APs (average precisions), that were calculated for each class in the dataset and for each IoU threshold. IoU thresholds, similarly to recall levels, are ranging from 0.5 to 0.95 with the step of 0.05 (i.e, 0.5, 0.55, 0.6, ..., 0.95).
 
 {% hint style="success" %}
 We leverage pycocotools for fast calculating of mAP and precision-recall curves.
 {% endhint %}
 
-### Classification Accuracy
+## Classification Accuracy
 
 We also measure the classification accuracy of our detectors. This metric represents the percentage of correctly labeled instances among all correctly localized bounding boxes (where the IoU for each box is greater than 0.5, regardless of class). Classification accuracy tells us: If the model correctly identifies the location of objects in an image, how often does it assign the right label to them?
 
@@ -120,9 +124,9 @@ Here, TP (True Positives) are correctly labeled instances, and Mislabel refers t
 
 ## Confusion Matrix
 
-The confusion matrix helps to identify which classes a model frequently confuses.
+The confusion matrix reveals which classes the model commonly confuses with each other.
 
-### How to use
+#### How to use
 
 * **Each row** of the matrix corresponds to the actual instances of a class.
 * **Each column** corresponds to the instances as predicted by the model.
@@ -137,7 +141,7 @@ This chart complements the confusion matrix, visualizing the most frequently con
 
 _<mark style="color:green;">Lower probabilities of confusion are better.</mark>_
 
-#### Technical details
+#### Calculating probability of confusion
 
 The probability of confusion between classes A and B is calculated as:
 
@@ -156,7 +160,7 @@ $$\text{probability of confusion (A, B)} = \frac{(\text{predicted (A)} \cap \tex
 
 The formula provides symmetry for classes A and B. For example, the probability of confusing a car with a truck is the same as the probability of confusing a truck with a car. This symmetry helps identify pairs of commonly confused classes within a dataset.
 
-### Localization accuracy (IoU)
+## Localization accuracy (IoU)
 
 We assess localization accuracy of an object detector by calculating average IoU and visualizing histogram of IoU scores.
 
@@ -171,7 +175,7 @@ We assess localization accuracy of an object detector by calculating average IoU
 
 Calibration curve, also known as a reliability diagram, helps in understanding whether the confidence scores of a detector accurately represent the true probability of a correct detection. A well-calibrated model means that when it predicts a detection with, say, 80% confidence, approximately 80% of those predictions should actually be correct.
 
-### How to use
+#### How to use
 
 We are looking at how much the model’s calibration curve diverges from a perfectly calibrated line.
 
@@ -180,7 +184,7 @@ We are looking at how much the model’s calibration curve diverges from a perfe
 
 The reliability diagram shows how often predictions with the given confidence turn out to be correct. In other words, the reliability diagram indicates **precision** in each bin of confidence range.
 
-### Expected Calibration Error (ECE)
+## Expected Calibration Error (ECE)
 
 Intuitively, ECE can be viewed as a measure of deviation of the model’s calibration curve from a perfectly calibrated line.
 
@@ -200,21 +204,23 @@ Confidence Score Profile is a comprehensive view of a model's confidence scores.
 
 Confidence Profile has a notable feature, if you pick a confidence value on the X-axis, you can see what the resulting metrics will be (Y-axis). If you’d set this value as a confidence threshold while evaluating the model, you get exactly these results for precision, recall and f1.
 
-### How to build this plot
+#### How to build this plot
 
 First, we sort all predictions by confidence in descending order. Like in mAP calculation, we calculate cumulative metrics (precision, recall, f1) for each prediction in the dataset. Then we plot predictions as points where the X-axis is for confidence score, and Y-axis for a metric value.
 
-### F1-optimal confidence threshold
+#### F1-optimal confidence threshold
 
 We automatically find the f1-optimal confidence threshold. It is equal to the argmax of the f1 confidence profile. For example, if we get a maximal f1-score on the confidence profile line (maximum on Y-axis), then the best confidence threshold will lie under this point on X-axis.
 
-## Confidence Profile at Different IoU thresholds
+### Confidence Profile at Different IoU thresholds
 
 This is an extended version of the confidence profile used for validation confidence scores at different IoU thresholds. In COCO evaluation you can pick various IoU thresholds above which a prediction will be considered correct. Aforementioned F1-optimal confidence threshold is derived with IoU threshold set to 0.5 (default in COCO). In this chart, you can view F1 profiles for different IoU thresholds (from 0.5 to 0.95).
 
-## Confidence Distribution
+### Confidence Distribution
 
 This graph helps to assess whether high confidence scores correlate with correct detections (true positives) and the low confidence scores correlate with incorrect ones (false positives). It consists of two histograms, one for true positive predictions filled with green, and one for false positives filled with red.
+
+---
 
 ## Inference speed
 
@@ -226,7 +232,7 @@ Our benchmark aims to assess the following capabilities of a model:
 2. **Batch processing.** This is a common scenario where the model can process a batch of images. We also assess the scalability of model efficiency with increasing batch size, conducting tests with various batch sizes (i.e, setting batch size to 1, 8, 16).
 3. **Runtime environments.** We provide benchmarks in both the original python environment and in optimized runtimes, such as ONNXRuntime and TensorRT. This is important because python code can be suboptimal, and this level of optimization provides significant performance improvements.
 
-### Methodology:
+#### Methodology
 
 1. We use **consistent hardware** between tests for a fair model comparison.
 2. We run a model on a constant set of 100 images from the COCO dataset with a resolution of 640x640 (most models can process this resolution, but if not, we add a note about resolution).
