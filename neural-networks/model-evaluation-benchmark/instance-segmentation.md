@@ -16,11 +16,11 @@ To calculate any metrics, we must match the predicted instances (masks) with the
 
 During the matching stage, we align the actual instances with the predicted ones, assigning each instance an outcome: **True Positive**, **False Positive**, or **False Negative**. An instance considered **matched** if its mask overlaps with an actual instance with [IoU](https://en.wikipedia.org/wiki/Jaccard\_index) greater than or equal to 0.5.
 
-**True Positive (TP)** predictions are those that have matched with a ground truth bounding box and share the same class.
+**True Positive (TP)** predictions are those that have matched with a ground truth segmentation mask and share the same class.
 
-**False Positive (FP)** occurs when the model predicts an object that is not actually present in the image. For example, if the model detects a car in the image but no car is annotated. A false positive detection happens when a ground truth counterpart is not found, the IoU is less than 0.5, or their classes do not match.
+**False Positive (FP)** occurs when the model predicts an object that is not actually present in the image. For example, if the model detects a car in the image but no car is annotated. A false positive detection happens when a ground truth counterpart is not found, the IoU of the predicted mask is less than 0.5 with any ground truth mask, or their classes do not match.
 
-**False Negative (FN)** happens when the model fails to detect an object that is present in the image. For instance, if the model does not detect a car that is actually in the ground truth. A false negative detection occurs when a ground truth bounding box has no matching predicted bounding box with an IoU greater than 0.5, or their classes do not match.
+**False Negative (FN)** happens when the model fails to detect an object that is present in the image. For instance, if the model does not detect a car that is actually in the ground truth. A false negative detection occurs when a ground truth segmentation mask has no matching predicted mask with an IoU greater than 0.5, or their classes do not match.
 
 After the matching procedure, we can calculate precision, recall, mAP, and other common metrics.
 
@@ -102,7 +102,7 @@ _<mark style="color:green;">A larger area under the Precision-Recall curve indic
 
 To construct the PR-curve, follow these steps:
 
-1. **Sort predictions:** Arrange all the bounding box predictions by their confidence scores in descending order.
+1. **Sort predictions:** Arrange all predicted instances by their confidence scores in descending order.
 2. **Classify outcomes:** For each prediction, determine if it is a true positive (TP) or a false positive (FP) and record these classifications in a table.
 3. **Calculate cumulative metrics:** As you move through each prediction, calculate the cumulative precision and recall. Add these values to the table.
 4. **Plot points:** Each row in the table now represents a point on a graph, with cumulative recall on the x-axis and cumulative precision on the y-axis. Initially, this creates a zig-zag line because of variations between predictions.
@@ -114,7 +114,7 @@ We leverage pycocotools for fast calculating of mAP and precision-recall curves.
 
 ### Classification Accuracy
 
-We also measure the classification accuracy of instance segmentation models. This metric represents the percentage of correctly labeled instances among all correctly localized bounding boxes (where the IoU for each box is greater than 0.5, regardless of class). Classification accuracy tells us: If the model correctly identifies the location of objects in an image, how often does it assign the right label to them?
+We also measure the classification accuracy of instance segmentation models. This metric represents the percentage of correctly labeled instances among all instances where the predicted segmentation masks accurately match the ground truth masks (with an IoU greater than 0.5, regardless of class). Classification accuracy tells us: If the model correctly identifies the shape and location of objects in an image, how often does it assign the right label to them?
 
 The formula for classification accuracy is:
 
@@ -160,7 +160,7 @@ $$\text{probability of confusion (A, B)} = \frac{(\text{predicted (A)} \cap \tex
 
 The formula provides symmetry for classes A and B. For example, the probability of confusing a car with a truck is the same as the probability of confusing a truck with a car. This symmetry helps identify pairs of commonly confused classes within a dataset.
 
-### Localization accuracy (IoU)
+### Segmentation accuracy (IoU)
 
 We assess how accurately predicted masks match the actual shapes of ground truth instances. We calculate the average IoU score of predictions and visualize a histogram of IoU scores.
 
@@ -179,8 +179,8 @@ Calibration curve, also known as a reliability diagram, helps in understanding w
 
 We are looking at how much the model’s calibration curve diverges from a perfectly calibrated line.
 
-1. **If the curve is above the perfect line (Underconfidence):** If the calibration curve is consistently above the perfect line, this indicates underconfidence. The model’s predictions are more correct than the confidence scores suggest. For example, if the model predicts a set of bounding boxes with 70% confidence but, empirically, 90% of such detections are correct, the model is underconfident.
-2. **The curve is below the perfect line (Overconfidence):** If the calibration curve is below the perfect line, the model exhibits overconfidence. This means it is too sure of its predictions. For instance, if the model predicts bounding boxes with 80% confidence but only 40% of these predictions are correct, it is overconfident.
+1. **If the curve is above the perfect line (Underconfidence):** If the calibration curve is consistently above the perfect line, this indicates underconfidence. The model’s predictions are more correct than the confidence scores suggest. For example, if the model assigns 70% confidence to some predictions but, empirically, 90% of these detections are correct, the model is underconfident.
+2. **The curve is below the perfect line (Overconfidence):** If the calibration curve is below the perfect line, the model exhibits overconfidence. This means it is too sure of its predictions. For example, if the model assigns 80% confidence to some predictions, but only 40% of these predictions are correct, the model is overconfident.
 
 The reliability diagram shows how often predictions with the given confidence turn out to be correct. In other words, the reliability diagram indicates **precision** in each bin of confidence range.
 
