@@ -113,6 +113,7 @@
 * [Run pre-trained models](neural-networks/pre-trained-models.md)
 * [Model Evaluation Benchmark](neural-networks/model-evaluation-benchmark/README.md)
   * [Object Detection](neural-networks/model-evaluation-benchmark/object-detection.md)
+  * [Instance Segmentation](neural-networks/model-evaluation-benchmark/instance-segmentation.md)
 
 ## 👔 Enterprise Edition
 
