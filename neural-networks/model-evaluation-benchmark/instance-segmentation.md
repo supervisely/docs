@@ -224,6 +224,20 @@ This is an extended version of the confidence profile used for validation confid
 
 This graph helps to assess whether high confidence scores correlate with correct predictions (true positives) and the low confidence scores correlate with incorrect ones (false positives). It consists of two histograms, one for true positive predictions filled with green, and one for false positives filled with red.
 
+## Outcome Counts by Class
+
+This chart breaks down all predictions into True Positives (TP), False Positives (FP), and False Negatives (FN) by classes. This helps to visually assess the type of errors the model often encounters for each class.
+
+You can choose whether to normalize outcome counts.
+
+**Absolute counts:**
+
+If normalization is off, the chart will display the total count of instances that correspond to outcome type (one of TP, FP or FN). This is identical to the main Outcome Counts graph on the top of the page. However, when normalization is off, you may encounter a class imbalance problem. Visually, bars that correspond to classes with many instances in the dataset will be much larger than others. This complicates the visual analysis.
+
+**Normalized counts:**
+
+Normalization is used for better intraclass comparison. If the normalization is on, the total outcome counts are divided by the number of ground truth instances of the corresponding class. This is useful, because on the chart, the sum of TP and FN bars will always result in 1.0, representing the full set of ground truth instances in the dataset for a class. This provides a clear visual understanding of how many instances the model correctly detected, how many it missed, and how many were false positives. For example, if a green bar (TP outcomes) reaches 1.0, this means the model has managed to predict all objects for the class without false negatives. Everything that is higher than 1.0 corresponds to False Positives, i.e, redundant predictions that the model should not predict. You can turn off the normalization, switching to absolute counts.
+
 ---
 
 ## Inference speed
@@ -236,7 +250,7 @@ Our benchmark aims to assess the following capabilities of a model:
 2. **Batch processing.** This is a common scenario where the model can process a batch of images. We also assess the scalability of model efficiency with increasing batch size, conducting tests with various batch sizes (i.e, setting batch size to 1, 8, 16).
 3. **Runtime environments.** We provide benchmarks in both the original python environment and in optimized runtimes, such as ONNXRuntime and TensorRT. This is important because python code can be suboptimal, and this level of optimization provides significant performance improvements.
 
-#### Methodology:
+#### Methodology
 
 1. We use **consistent hardware** between tests for a fair model comparison.
 2. We run a model on a constant set of 100 images from the COCO dataset with a resolution of 640x640 (most models can process this resolution, but if not, we add a note about resolution).

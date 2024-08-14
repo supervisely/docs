@@ -10,7 +10,7 @@ To calculate any metrics, we must match the predicted bounding boxes with the ac
 
 <figure><img src="../../.gitbook/assets/truth_vs_prediction.jpg" alt=""><figcaption></figcaption></figure>
 
-During the matching stage, we align the actual bounding boxes with the predicted ones, assigning each box an outcome: **True Positive**, **False Positive**, or **False Negative**. A predicted bounding box is considered **matched** if it overlaps with an actual bounding box with an [IoU ](https://en.wikipedia.org/wiki/Jaccard\_index)greater than or equal to 0.5.
+During the matching stage, we align the actual bounding boxes with the predicted ones, assigning each box an outcome: **True Positive**, **False Positive**, or **False Negative**. A predicted bounding box is considered **matched** if it overlaps with an actual bounding box with an [IoU](https://en.wikipedia.org/wiki/Jaccard\_index) greater than or equal to 0.5.
 
 **True Positive (TP)** predictions are those that have matched with a ground truth bounding box and share the same class.
 
@@ -219,6 +219,20 @@ This is an extended version of the confidence profile used for validation confid
 ### Confidence Distribution
 
 This graph helps to assess whether high confidence scores correlate with correct detections (true positives) and the low confidence scores correlate with incorrect ones (false positives). It consists of two histograms, one for true positive predictions filled with green, and one for false positives filled with red.
+
+## Outcome Counts by Class
+
+This chart breaks down all predictions into True Positives (TP), False Positives (FP), and False Negatives (FN) by classes. This helps to visually assess the type of errors the model often encounters for each class.
+
+You can choose whether to normalize outcome counts.
+
+**Absolute counts:**
+
+If normalization is off, the chart will display the total count of instances that correspond to outcome type (one of TP, FP or FN). This is identical to the main Outcome Counts graph on the top of the page. However, when normalization is off, you may encounter a class imbalance problem. Visually, bars that correspond to classes with many instances in the dataset will be much larger than others. This complicates the visual analysis.
+
+**Normalized counts:**
+
+Normalization is used for better intraclass comparison. If the normalization is on, the total outcome counts are divided by the number of ground truth instances of the corresponding class. This is useful, because on the chart, the sum of TP and FN bars will always result in 1.0, representing the full set of ground truth instances in the dataset for a class. This provides a clear visual understanding of how many instances the model correctly detected, how many it missed, and how many were false positives. For example, if a green bar (TP outcomes) reaches 1.0, this means the model has managed to predict all objects for the class without false negatives. Everything that is higher than 1.0 corresponds to False Positives, i.e, redundant predictions that the model should not predict. You can turn off the normalization, switching to absolute counts.
 
 ---
 
