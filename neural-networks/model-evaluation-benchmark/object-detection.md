@@ -214,7 +214,9 @@ We automatically find the f1-optimal confidence threshold. It is equal to the ar
 
 ### Confidence Profile at Different IoU thresholds
 
-This is an extended version of the confidence profile used for validation confidence scores at different IoU thresholds. In COCO evaluation you can pick various IoU thresholds above which a prediction will be considered correct. Aforementioned F1-optimal confidence threshold is derived with IoU threshold set to 0.5 (default in COCO). In this chart, you can view F1 profiles for different IoU thresholds (from 0.5 to 0.95).
+This is an extended version of the confidence profile used for validation confidence scores at different IoU thresholds. In COCO evaluation you can set an IoU threshold above which a prediction will be considered correct. The above F1-optimal confidence threshold is derived with IoU threshold set to 0.5 (default in COCO), while in this chart, you can derive various F1-optimal thresholds depending on IoU threshold defined for evaluation. The IoU thresholds are ranging from 0.5 to 0.95.
+
+**What is IoU threshold:** The IoU threshold is a predefined value (set to 0.5 in many benchmarks) that determines the minimum acceptable IoU score for a predicted bounding box to be considered a correct prediction. When the IoU of a predicted box and actual box is higher than this IoU threshold, the prediction is considered correct.
 
 ### Confidence Distribution
 

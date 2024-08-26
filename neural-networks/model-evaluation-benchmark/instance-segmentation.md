@@ -18,9 +18,9 @@ During the matching stage, we align the actual instances with the predicted ones
 
 **True Positive (TP)** predictions are those that have matched with a ground truth segmentation mask and share the same class.
 
-**False Positive (FP)** occurs when the model predicts an object that is not actually present in the image. For example, if the model detects a car in the image but no car is annotated. A false positive detection happens when a ground truth counterpart is not found, the IoU of the predicted mask is less than 0.5 with any ground truth mask, or their classes do not match.
+**False Positive (FP)** occurs when the model predicts an object that is not actually present in the image. For example, the model predicted a car, but no car is annotated. A false positive detection happens when a ground truth counterpart is not found for a prediction (i.e, IoU of the predicted mask is less than 0.5 with any ground truth mask), or the model predicted incorrect class for an object.
 
-**False Negative (FN)** happens when the model fails to detect an object that is present in the image. For instance, if the model does not detect a car that is actually in the ground truth. A false negative detection occurs when a ground truth segmentation mask has no matching predicted mask with an IoU greater than 0.5, or their classes do not match.
+**False Negative (FN)** happens when the model fails to detect an object that is present in the image. For example, the model does not detect a car that is actually in the ground truth. A false negative detection occurs when a ground truth segmentation mask has no any predicted mask with IoU greater than 0.5, or their classes do not match.
 
 After the matching procedure, we can calculate precision, recall, mAP, and other common metrics.
 
@@ -218,7 +218,9 @@ We automatically find the f1-optimal confidence threshold. It is equal to the ar
 
 ### Confidence Profile at Different IoU thresholds
 
-This is an extended version of the confidence profile used for validation confidence scores at different IoU thresholds. In COCO evaluation you can pick various IoU thresholds above which a prediction will be considered correct. Aforementioned F1-optimal confidence threshold is derived with IoU threshold set to 0.5 (default in COCO). In this chart, you can view F1 profiles for different IoU thresholds (from 0.5 to 0.95).
+This is an extended version of the confidence profile used for validation confidence scores at different IoU thresholds. In COCO evaluation you can set an IoU threshold above which a prediction will be considered correct. The above F1-optimal confidence threshold is derived with IoU threshold set to 0.5 (default in COCO), while in this chart, you can derive various F1-optimal thresholds depending on IoU threshold defined for evaluation. The IoU thresholds are ranging from 0.5 to 0.95.
+
+**What is IoU threshold:** The IoU threshold is a predefined value (set to 0.5 in many benchmarks) that determines the minimum acceptable IoU score for a predicted mask to be considered a correct prediction. When the IoU of a predicted mask and actual mask is higher than this IoU threshold, the prediction is considered correct.
 
 ### Confidence Distribution
 
