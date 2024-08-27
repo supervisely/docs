@@ -118,7 +118,7 @@ We leverage pycocotools for fast calculating of mAP and precision-recall curves.
 
 ## Classification Accuracy
 
-We also measure the classification accuracy of instance segmentation models. This metric represents the percentage of correctly labeled instances among all instances where the predicted segmentation masks accurately match the ground truth masks (with an IoU greater than 0.5, regardless of class). Classification accuracy tells us: If the model correctly identifies the shape and location of objects in an image, how often does it assign the right label to them?
+We additionally measure the classification accuracy of an instance segmentation model. This metric represents the percentage of correctly labeled instances among all instances where the predicted segmentation masks accurately match the ground truth masks (with an IoU greater than 0.5, regardless of class). Classification accuracy tells us: When a model correctly identifies the shape and location of objects in an image, how often does it assign the right label to these objects?
 
 The formula for classification accuracy is:
 
@@ -164,7 +164,7 @@ $$\text{probability of confusion (A, B)} = \frac{(\text{predicted (A)} \cap \tex
 
 The formula provides symmetry for classes A and B. For example, the probability of confusing a car with a truck is the same as the probability of confusing a truck with a car. This symmetry helps identify pairs of commonly confused classes within a dataset.
 
-## Segmentation accuracy (IoU)
+## Mask accuracy (IoU)
 
 We assess how accurately predicted masks match the actual shapes of ground truth instances. We calculate the average IoU score of predictions and visualize a histogram of IoU scores.
 
@@ -172,7 +172,7 @@ We assess how accurately predicted masks match the actual shapes of ground truth
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-08-09 at 11.16.03.png" alt=""><figcaption></figcaption></figure>
 
-**IoU histogram** represents the distribution of IoU scores among all predictions. This gives a sense of how accurate the model is in generating masks of the objects. Ideally, the rightmost bars (from 0.9 to 1.0 IoU) should be much higher than others.\
+**IoU histogram** represents the distribution of IoU scores among all predictions. This gives a sense of how accurate the model is in generating masks of the objects. Ideally, the rightmost bars (from 0.9 to 1.0 IoU) should be much higher than others.
 
 
 ## Calibration Curve
@@ -238,7 +238,7 @@ If normalization is off, the chart will display the total count of instances tha
 
 **Normalized counts:**
 
-Normalization is used for better intraclass comparison. If the normalization is on, the total outcome counts are divided by the number of ground truth instances of the corresponding class. This is useful, because on the chart, the sum of TP and FN bars will always result in 1.0, representing the full set of ground truth instances in the dataset for a class. This provides a clear visual understanding of how many instances the model correctly detected, how many it missed, and how many were false positives. For example, if a green bar (TP outcomes) reaches 1.0, this means the model has managed to predict all objects for the class without false negatives. Everything that is higher than 1.0 corresponds to False Positives, i.e, redundant predictions that the model should not predict. You can turn off the normalization, switching to absolute counts.
+Normalization is used for better interclass comparison. If the normalization is on, the total outcome counts are divided by the number of ground truth instances of the corresponding class. This is useful, because on the chart, the sum of TP and FN bars will always result in 1.0, representing the full set of ground truth instances in the dataset for a class. This provides a clear visual understanding of how many instances the model correctly detected, how many it missed, and how many were false positives. For example, if a green bar (TP outcomes) reaches 1.0, this means the model has managed to predict all objects for the class without false negatives. Everything that is higher than 1.0 corresponds to False Positives, i.e, redundant predictions that the model should not predict. You can turn off the normalization, switching to absolute counts.
 
 ---
 

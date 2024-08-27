@@ -114,7 +114,7 @@ We leverage pycocotools for fast calculating of mAP and precision-recall curves.
 
 ## Classification Accuracy
 
-We also measure the classification accuracy of our detectors. This metric represents the percentage of correctly labeled instances among all correctly localized bounding boxes (where the IoU for each box is greater than 0.5, regardless of class). Classification accuracy tells us: If the model correctly identifies the location of objects in an image, how often does it assign the right label to them?
+We additionally measure the classification accuracy of an object detection model. This metric represents the percentage of correctly labeled instances among all correctly localized bounding boxes (where the IoU for each box is greater than 0.5, regardless of class). Classification accuracy tells us: When a model correctly identifies the location of objects in an image, how often does it assign the right label to these objects?
 
 The formula for classification accuracy is:
 
@@ -168,7 +168,7 @@ We assess localization accuracy of an object detector by calculating average IoU
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-08-09 at 11.16.03.png" alt=""><figcaption></figcaption></figure>
 
-**IoU histogram** represents the distribution of IoU scores among all predictions. This gives a sense of how well the model aligns bounding boxes. Ideally, if the model aligns boxes very well, the rightmost bars (from 0.9 to 1.0 IoU) should be much higher than others.\
+**IoU histogram** represents the distribution of IoU scores among all predictions. This gives a sense of how well the model aligns bounding boxes. Ideally, if the model aligns boxes very well, the rightmost bars (from 0.9 to 1.0 IoU) should be much higher than others.
 
 
 ## Calibration Curve
@@ -234,7 +234,7 @@ If normalization is off, the chart will display the total count of instances tha
 
 **Normalized counts:**
 
-Normalization is used for better intraclass comparison. If the normalization is on, the total outcome counts are divided by the number of ground truth instances of the corresponding class. This is useful, because on the chart, the sum of TP and FN bars will always result in 1.0, representing the full set of ground truth instances in the dataset for a class. This provides a clear visual understanding of how many instances the model correctly detected, how many it missed, and how many were false positives. For example, if a green bar (TP outcomes) reaches 1.0, this means the model has managed to predict all objects for the class without false negatives. Everything that is higher than 1.0 corresponds to False Positives, i.e, redundant predictions that the model should not predict. You can turn off the normalization, switching to absolute counts.
+Normalization is used for better interclass comparison. If the normalization is on, the total outcome counts are divided by the number of ground truth instances of the corresponding class. This is useful, because on the chart, the sum of TP and FN bars will always result in 1.0, representing the full set of ground truth instances in the dataset for a class. This provides a clear visual understanding of how many instances the model correctly detected, how many it missed, and how many were false positives. For example, if a green bar (TP outcomes) reaches 1.0, this means the model has managed to predict all objects for the class without false negatives. Everything that is higher than 1.0 corresponds to False Positives, i.e, redundant predictions that the model should not predict. You can turn off the normalization, switching to absolute counts.
 
 ---
 
