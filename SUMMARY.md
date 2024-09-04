@@ -78,6 +78,8 @@
   * [3D Point Clouds Episodes](labeling/3D-Point-Clouds/3D-Point-Clouds-episod.md)
   * [Sensor-fusion](labeling/3D-Point-Clouds/Sensor-fusion/Sensor-fusion.md)
   * [DICOM](labeling/DICOM/DICOM.md)
+* [Labeling Tools](labeling/labeling-tools/README.md)
+  * [Bounding Box (Rectangle) Tool](labeling/labeling-tools/bounding-box-rectangle-tool.md)
 * [Labeling Jobs](labeling/jobs/README.md)
   * [Labeling Queues](labeling/jobs/Labeling-Queues.md)
   * [Labeling Consensus](labeling/jobs/Labeling-Consensus.md)
