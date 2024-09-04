@@ -23,18 +23,19 @@ Watch our 5-minute video tutorial that provides clear and simple instructions on
 
 {% embed url="https://youtu.be/X2qbm0FxN_4?si=AEONjOp4fhJmTzY6" %}
 
-## How to use Bounding Boxes
+## How to use Bounding Box
 
 We'll explore how to manually draw bounding boxes, including feutures and tips for efficiency and accuracy
 
-### Create Bounding Box
+### How to create a Bounding Box
 
 You can create a new class directly from the [Annotation Toolbox](https://app.supervisely.com/ecosystem/annotation\_tools/image-labeling-tool-v2?). To do this:
 
-1. Click on the **Rectangle Icon** in the toolbar of the labeling interface or **Add new class definition**.
-2. A modal window will appear prompting you to enter the details of the new class.
-3. **Enter the Class Name, select Bounding Box shape** and configure any additional settings, such as color or hotkey.
-4. Click the `Create` button to add the new bounding box class to the Definitions list.
+1. Click the **Rectangle Icon** in the toolbar of the labeling interface.
+2. **Or** select an existing object class or add a new class by clicking **Add new class definition**.
+3. In the modal window, enter the class name, choose the bounding box shape, and configure additional settings (e.g., color, hotkeys).
+4. Click the `Create` button to add the new class to the definitions list.
+5. Select the newly created class and put a bounding box around the object in the image or video.
 
 <div>
 
@@ -46,9 +47,12 @@ You can create a new class directly from the [Annotation Toolbox](https://app.su
 
 </div>
 
-### Manual Annotation
+### Manual Annotation Guide
 
-To create a bounding box, select the object of interest in the image or video and place a rectangle around it. The fewer clicks required, the more efficient the annotation process will be. You don't have to finish labeling the previous object by pressing `SPACE` to move on to the next one; simply set new points.&#x20;
+1. Select the object of interest in the image or video and place a rectangle around it.
+2. Click to set the first point (top-left corner), then drag the rectangle to the bottom-right corner.
+3. To edit the bounding box, drag its edges or use hotkeys for precise positioning.
+4. You can quickly move to the next object without pressing the SPACE bar to finish annotating the previous object; just set new points.
 
 {% hint style="info" %}
 Always aim to create bounding boxes that tightly fit around the object to minimize background noise and enhance model performance.
