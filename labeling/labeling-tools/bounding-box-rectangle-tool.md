@@ -54,6 +54,8 @@ To create a bounding box, select the object of interest in the image or video an
 Always aim to create bounding boxes that tightly fit around the object to minimize background noise and enhance model performance.
 {% endhint %}
 
+<figure><img src="../../.gitbook/assets/bbox-place.gif" alt=""><figcaption></figcaption></figure>
+
 ### Tips
 
 * Use **Auto-select** to switch between classes by hovering over the desired object. Also easily edit existing bounding boxes, including those predicted by Neural Networks.
