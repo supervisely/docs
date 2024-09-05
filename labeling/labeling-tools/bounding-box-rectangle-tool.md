@@ -1,8 +1,8 @@
 ---
 description: >-
-  In this guide, you'll learn how to use bounding boxes in the Supervisely
-  annotation toolboxes and explore additional features that can help streamline
-  your annotation experience.
+  In this guide, you'll learn how to use bounding boxe tool in the Supervisely
+  image labeling toolbox and explore additional features that can help
+  streamline your annotation experience.
 ---
 
 # Bounding Box (Rectangle) Tool
@@ -25,7 +25,7 @@ Watch our 5-minute video tutorial that provides clear and simple instructions on
 
 ## How to use Bounding Box
 
-We'll explore how to manually draw bounding boxes, including feutures and tips for efficiency and accuracy
+We'll explore how to create and manually apply bounding boxes, including advanced features and tips for efficient and accurate labeling.
 
 ### How to create a Bounding Box
 
