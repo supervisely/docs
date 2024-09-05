@@ -1,11 +1,16 @@
+---
+description: >-
+  Learn how to use the Polygon Tool for precise object annotation in semantic
+  and instance segmentation tasks with Supervisely.
+---
+
 # Polygon Tool
 
 ## What is Polygon Annotation Tool?
 
 The **Polygon** is a powerful tool for outlining the boundaries of objects in images or other data. It works by connecting a series of points to create polygonal figures that accurately represent the shape of an object. Usually, Polygon annotation is used to address semantic segmentation and instance segmentation tasks in computer vision.&#x20;
 
-* Unlike bounding boxes, which use rectangles to enclose objects, polygons provide flexibility by using any number of points to follow an object's exact shape.
-* Ideal for complex or irregular shapes where precise object boundaries are necessary.
+Unlike bounding boxes, which use rectangles to enclose objects, polygons offer greater flexibility by allowing any number of points to closely follow an object’s exact shape. This tool is ideal for complex or irregular shapes where precise object boundaries are necessary.
 
 <figure><img src="../../.gitbook/assets/poly.png" alt=""><figcaption></figcaption></figure>
 
@@ -17,29 +22,44 @@ Take a moment to watch our comprehensive 5-minute video tutorial, which provides
 
 ## How to use Polygon
 
+Below are step-by-step instructions for creating a polygon class, manually annotating objects, refining annotations, working with holes, and other advanced features to improve your annotation process.
+
 ### Create class with Polygon shape
 
 You can create a new class directly from the [Annotation Toolbox](https://app.supervisely.com/ecosystem/annotation\_tools/image-labeling-tool-v2?). To do this:
 
-1. Click on the **Polygon Icon** in the toolbar of the labeling interface or **Add new class definition**.
-2. A modal window will appear prompting you to enter the details of the new class.
-3. **Enter the Class Name, select Polygon shape** and configure any additional settings, such as color or hotkey.
-4. Click the `Create` button to add the new bounding box class to the Definitions list.
+1. Click the **Polygon Icon** in the toolbar of the labeling interface.
+2. **Or** select an existing object class or add a new class by clicking **Add new class definition**.
+3. In the modal window, enter the class name, choose the Polygon or Any shape, and configure additional settings (e.g., color, hotkeys).
+4. Click the `Create` button to add the new class to the definitions list.
+5. Select the newly created class and draw a polygon around the object boundaries in the image or video.
 
 <figure><img src="../../.gitbook/assets/create-polygon.png" alt=""><figcaption></figcaption></figure>
 
 ### Manual Annotation
 
-Click along the outline of the object to add points. Each click creates a new point connected by a line. To complete the figure, press `SPACE` or return to the starting 🟢 point.&#x20;
-
-* You can easily adjust existing polygons by moving, adding or removing points as needed. Just `CLICK + DRAG` any existing point to move it and adjust the shape.&#x20;
-* Click on the edges of the polygon to add new points or `SHIFT + CLICK` on a point to remove it.
+1. Click along the outline of the object to add points. Each click creates a new point connected by a line.
+2. To complete the shape, press `SPACE` or return to the starting point.
+3. You can easily adjust existing polygons by moving, adding, or removing points as needed. Just `CLICK + DRAG` any existing point to change its position and adjust the shape.
+4. Click on the edges of the polygon to add new points or `SHIFT + CLICK` on a point to remove it.
 
 <figure><img src="../../.gitbook/assets/polygon.gif" alt=""><figcaption></figcaption></figure>
 
-* To correct or refine an annotation, you can add new areas by clicking along the object's edge or remove unwanted sections by specifying new connecting points on the shape.
-* Automatically link objects without the need for precise alignment to individual object boundaries. To use this feature, move the pointer over a labeled object and click the nearest point. Then click subsequent points along the boundary to automatically link shapes.
-* Simply hold the `SHIFT` key and drag your cursor along the object to automatically set points, making it perfect for objects with smooth and non-linear contours. To add or remove a labeled area, first select or place a starting point, then continue by holding `SHIFT` to segment the area, and finish the path at any existing point.
+**Correcting and refining annotations**
+
+To correct or refine an annotation, you can add new areas by clicking along the object's edge or remove unwanted sections by specifying new connecting points on the shape.
+
+**Automatic object linking**
+
+Automatically link objects without the need for precise alignment to individual object boundaries. To use this feature, move the pointer over a labeled object and click the nearest point. Then click subsequent points along the boundary to automatically link shapes.
+
+**Auto-placement points**
+
+Simply hold the `SHIFT` key and drag your cursor along the object to automatically set points, making it perfect for objects with smooth and non-linear contours. To add or remove a labeled area, first select or place a starting point, then continue by holding `SHIFT` to segment the area, and finish the path at any existing point.
+
+**Holes creation**
+
+To create a hole in a polygon, hold `SHIFT` and click to define it. You can then hover over the hole and edit it just like any other polygon. To remove a hole, move the cursor over it and press `DELETE`.
 
 <div>
 
@@ -60,7 +80,7 @@ Click along the outline of the object to add points. Each click creates a new po
 * Turn on the **Auto-Select** feature and hover over any polygon to automatically select it for editing. This feature makes it easier to modify existing annotations without manually selecting each shape.
 * Use the **Object Color Randomizer** to instantly change the color of any object with a single click, as often as you like. This is particularly useful if you have many objects of the same class, or if they are close together, so you can easily differentiate between polygons.
 
-Learn more about the advanced capabilities of the Polygon tool, including its effective use in scenarios and domains for semantic and instance segmentation, in [our comprehensive blog post](https://supervisely.com/blog/how-to-use-polygon-anotation-tool-for-image-segmentation/):
+Learn more about the advanced capabilities of the Polygon tool and its effective use for semantic and instance segmentation tasks in [our comprehensive blog post](https://supervisely.com/blog/how-to-use-polygon-anotation-tool-for-image-segmentation/):
 
 {% embed url="https://supervisely.com/blog/how-to-use-polygon-anotation-tool-for-image-segmentation/" %}
 
@@ -99,6 +119,3 @@ Learn more about the advanced capabilities of the Polygon tool, including its ef
 | Scene Navigation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Zoom with Mouse wheel. Hold <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiB3aWR0aD0iMTAwLjAwMDAwMHB0IiBoZWlnaHQ9IjEwMC4wMDAwMDBwdCIgdmlld0JveD0iMCAwIDEwMC4wMDAwMDAgMTAwLjAwMDAwMCIKIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgoKPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsMTAwLjAwMDAwMCkgc2NhbGUoMC4xMDAwMDAsLTAuMTAwMDAwKSIgc3Ryb2tlPSJub25lIj4KPHBhdGggZD0iTTQzMiA5MTAgYy0xMDUgLTIyIC0yMDQgLTEwNyAtMjQyIC0yMDYgLTI5IC04MCAtMjkgLTMyOCAwIC00MDggMjkKLTc2IDg4IC0xMzkgMTY2IC0xNzcgNTcgLTI4IDc2IC0zMyAxNDQgLTMzIDY4IDAgODcgNSAxNDQgMzMgNzggMzggMTM3IDEwMQoxNjYgMTc3IDI5IDgwIDI5IDMyOCAwIDQwOCAtNTUgMTQ1IC0yMjQgMjM4IC0zNzggMjA2eiBtMjggLTIwNSBsMCAtMTI1IC0xMDYKMCAtMTA3IDAgNyA0MSBjOSA1OSA0MCAxMTMgODUgMTUwIDMzIDI4IDg2IDU1IDExNCA1OCA0IDEgNyAtNTUgNyAtMTI0eiBtMjg4Ci0yODIgYy02IC05NCAtMjkgLTE0NSAtOTAgLTE5NyAtODkgLTc3IC0yMjcgLTc3IC0zMTYgMCAtNjEgNTIgLTg0IDEwMyAtOTAKMTk3IGwtNSA3NyAyNTMgMCAyNTMgMCAtNSAtNzd6Ii8+CjwvZz4KPC9zdmc+Cg==" alt="" data-size="line"> to move scene. |
-
-
-

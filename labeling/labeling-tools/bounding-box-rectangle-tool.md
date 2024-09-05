@@ -1,6 +1,6 @@
 ---
 description: >-
-  In this guide, you'll learn how to use bounding boxe tool in the Supervisely
+  In this guide, you'll learn how to use bounding box tool in the Supervisely
   image labeling toolbox and explore additional features that can help
   streamline your annotation experience.
 ---
@@ -33,19 +33,11 @@ You can create a new class directly from the [Annotation Toolbox](https://app.su
 
 1. Click the **Rectangle Icon** in the toolbar of the labeling interface.
 2. **Or** select an existing object class or add a new class by clicking **Add new class definition**.
-3. In the modal window, enter the class name, choose the bounding box shape, and configure additional settings (e.g., color, hotkeys).
+3. In the modal window, enter the class name, choose the Bounding Box or Any shape, and configure additional settings (e.g., color, hotkeys).
 4. Click the `Create` button to add the new class to the definitions list.
 5. Select the newly created class and put a bounding box around the object in the image or video.
 
-<div>
-
-<figure><img src="../../.gitbook/assets/create-from-labeling-toolbox.png" alt=""><figcaption></figcaption></figure>
-
- 
-
-<figure><img src="../../.gitbook/assets/create.png" alt=""><figcaption></figcaption></figure>
-
-</div>
+<figure><img src="../../.gitbook/assets/create-bbox.png" alt=""><figcaption></figcaption></figure>
 
 ### Manual Annotation Guide
 
