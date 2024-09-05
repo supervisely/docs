@@ -27,7 +27,7 @@ Watch our 5-minute video tutorial that provides clear and simple instructions on
 
 We'll explore how to create and manually apply bounding boxes, including advanced features and tips for efficient and accurate labeling.
 
-### How to create a Bounding Box
+### Create class with Bounding Box shape
 
 You can create a new class directly from the [Annotation Toolbox](https://app.supervisely.com/ecosystem/annotation\_tools/image-labeling-tool-v2?). To do this:
 
