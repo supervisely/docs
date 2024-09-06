@@ -23,7 +23,7 @@ Watch our 5-minute video tutorial that provides clear and simple instructions on
 
 {% embed url="https://youtu.be/X2qbm0FxN_4?si=AEONjOp4fhJmTzY6" %}
 
-## How to use Bounding Box
+## How to use the Bounding Box
 
 We'll explore how to create and manually apply bounding boxes, including advanced features and tips for efficient and accurate labeling.
 

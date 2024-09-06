@@ -20,7 +20,7 @@ Take a moment to watch our comprehensive 5-minute video tutorial, which provides
 
 {% embed url="https://youtu.be/_tJGQfHOOg0?si=TEWoNvM1usNVl17v" %}
 
-## How to use Polygon
+## How to use the Polygon Tool
 
 Below are step-by-step instructions for creating a polygon class, manually annotating objects, refining annotations, working with holes, and other advanced features to improve your annotation process.
 
@@ -36,7 +36,7 @@ You can create a new class directly from the [Annotation Toolbox](https://app.su
 
 <figure><img src="../../.gitbook/assets/create-polygon.png" alt=""><figcaption></figcaption></figure>
 
-### Manual Annotation
+### Manual Annotation Guide
 
 1. Click along the outline of the object to add points. Each click creates a new point connected by a line.
 2. To complete the shape, press `SPACE` or return to the starting point.
