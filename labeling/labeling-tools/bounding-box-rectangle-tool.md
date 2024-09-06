@@ -7,7 +7,7 @@ description: >-
 
 # Bounding Box (Rectangle) Tool
 
-## What is a Bounding Box?
+## What is Bounding Box Annotation Tool?
 
 The[ Bounding Box](https://supervisely.com/blog/bounding-box-annotation-for-object-detection/#what-is-object-detection) is a fundamental tool in Computer Vision used for image annotation, object detection and tracking tasks.&#x20;
 

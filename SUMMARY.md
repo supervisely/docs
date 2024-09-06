@@ -82,6 +82,7 @@
   * [Bounding Box (Rectangle) Tool](labeling/labeling-tools/bounding-box-rectangle-tool.md)
   * [Polygon Tool](labeling/labeling-tools/polygon-tool.md)
   * [Brush Tool](labeling/labeling-tools/brush-tool.md)
+  * [Mask Pen Tool](labeling/labeling-tools/mask-pen-tool.md)
 * [Labeling Jobs](labeling/jobs/README.md)
   * [Labeling Queues](labeling/jobs/Labeling-Queues.md)
   * [Labeling Consensus](labeling/jobs/Labeling-Consensus.md)
