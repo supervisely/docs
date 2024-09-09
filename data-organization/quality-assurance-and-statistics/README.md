@@ -191,7 +191,7 @@ The Objects table contains all objects and their geometrical properties. Users c
 * Use the search function to quickly locate specific objects or classes of interest in a dataset.
 * Sortable columns allow users to identify outliers or patterns in object characteristics, such as extreme height or width values. For example, user can find and inspect the largest and the smallest objects in the entire dataset.
 
-<figure><img src="../../.gitbook/assets/objects-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/objects-frame (1).png" alt=""><figcaption></figcaption></figure>
 
 **Components**:
 

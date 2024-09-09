@@ -1,80 +1,219 @@
+---
+description: >-
+  The image labeling toolbox allows you to annotate one image at a time, such as
+  .jpg, .png, .tiff, and many more formats you can import to Supervisely.
+---
+
 # Images
 
-The image labeling toolbox allows you to annotate one image at a time, such as .jpg, .png, .tiff, and many more formats you can [import](broken-reference) to Supervisely.
+This documentation provides an in-depth guide to using the Supervisely Image Annotation Tool, covering its features, functionalities, tools, and best practices for effective image annotation. This tool is developed for a range of computer vision applications.
 
-### Classic vs Version 2.0
-
-We have two versions of the image labeling toolbox: the time proven classic version and it’s successor: the most advanced image labeling toolbox 2.0. By default, we suggest annotating the version 2.0 which has much more functionality and provides better performance and only consider the classic version in case you have a valid reason for that, such as your team got used to it and loves it so much 🙂
-
-Learn more about the updates to our new i**mage annotation tool** in this comprehensive blog post:
-
-{% embed url="https://supervisely.com/blog/releasing-new-image-annotation-tool/#foreword" %}
-
-## Overview
-
-<figure><img src="../../.gitbook/assets/image-toolbox.png" alt=""><figcaption></figcaption></figure>
-
-1. **Home button** — returns user to the main menu (`Projects` page)
-2. **Additional controls** — basic settings, such as history of operations, theme, a hotkeys map and more useful features.
-3. **Main scene** — annotation area for current image and its labels.
-4. **Objects panel** — list of figures on the current image with additional information like classes and tags.
-5. **Images/Apps/Settings panel** — list of images in your dataset, list of additional apps you can embed into the labeling toolbox, visualization and other settings.
-6. **Instruments panel** — annotation tools used to create annotations.
-
-The **Instruments panel** offering essential tools for completing different annotation tasks:
-
-* [Bounding Box](https://supervisely.com/blog/bounding-box-annotation-for-object-detection/): Best for object detection tasks.
-* [Polygon Tool](https://supervisely.com/blog/how-to-use-polygon-anotation-tool-for-image-segmentation/): Ideal for irregular and complex shapes.
-* [Brush and Eraser Tool](https://supervisely.com/blog/brush/): Flexible for both polygonal and free-form masks.
-* [Mask Pen Tool](https://supervisely.com/blog/mask-pen-tool/): Great for segmenting diverse objects with varying shapes.
-* [Smart Tool](https://supervisely.com/blog/smarttool-annotation/): Efficient for quick, AI-assisted segmentation.
-* [Graph (Keypoins) Tool](https://supervisely.com/blog/human-pose-estimation/): Best for pose-estimation tasks.
-
-## **Key features of Image Labeling Toolbox Version 2.0**
+The Supervisely Image Annotation Tool is a web-based image annotation toolbox specifically developed to address the needs of computer vision projects. It is fully web-based, allowing users to access and use the tool from any browser without the need for local installations. The platform provides powerful tools for annotating different types of images, supports different formats, and integrates neural networks to increase the speed and accuracy of annotation tasks.
 
 1. Web-based interfaces — you just need a browser.
 2. Fully customizable interface with easy-to-tune visualization settings: light and dark theme, flexible layout, multiple image view modes, multi-spectral view and grid.
 3. Supports complex image formats: high-resolution images, high-color depth images with 16-bit per pixel or more, customizable image visualization settings, filter images with conditions, additional image metadata, restore mode and undo/redo functionality.
-4. Advanced labeling capabilities: multiple annotation tools - [Bounding Box](https://supervisely.com/blog/bounding-box-annotation-for-object-detection/), [Polygon Tool](https://supervisely.com/blog/how-to-use-polygon-anotation-tool-for-image-segmentation/), [Brush and Eraser Tool](https://supervisely.com/blog/brush/), [Mask Pen Tool](https://supervisely.com/blog/mask-pen-tool/), [Smart Tool](https://supervisely.com/blog/smarttool-annotation/), [Graph (Keypoins) Tool](https://supervisely.com/blog/animal-pose-estimation/), effectively supports 1000+ objects per image, image and object tags and attributes, customizable hotkeys.
+4. Advanced labeling capabilities: multiple annotation tools -[ Bounding Box](https://supervisely.com/blog/bounding-box-annotation-for-object-detection/),[ Polygon Tool](https://supervisely.com/blog/how-to-use-polygon-anotation-tool-for-image-segmentation/),[ Brush and Eraser Tool](https://supervisely.com/blog/brush/),[ Mask Pen Tool](https://supervisely.com/blog/mask-pen-tool/),[ Smart Tool](https://supervisely.com/blog/smarttool-annotation/),[ Graph (Keypoins) Tool](https://supervisely.com/blog/animal-pose-estimation/), effectively supports 1000+ objects per image, image and object tags and attributes, customizable hotkeys.
 5. Collaboration and workflow management features for large annotation teams.
 6. Integration with various Neural Networks and AI-assisted annotation tools.
 7. Effortless data import and export for seamless sharing across platforms.
 8. Compatible with medical, NRRD, NiFTI data.
 
-... and many other cool futures described in [this](https://supervisely.com/blog/releasing-new-image-annotation-tool/#foreword) post!
+## Overview
 
-## Tips for powerful labeling
+<figure><img src="../../.gitbook/assets/interface.png" alt=""><figcaption></figcaption></figure>
 
-**Use hotkeys:** check it out and customize hotkeys to switch tools, manipulate objects, and adjust visualization settings, quickly.&#x20;
+1. **Home button** — returns user to the main menu (`Projects` page)
+2. [**Basic interface elements**](./#explore-basic-interface-elements) — basic settings, such as history of operations, theme, a hotkeys map and more useful features.
+3. [**Main scene & labeling scene settings**](./#main-scene-and-labeling-scene-settings)— annotation area for current image and its labels.
+4. [**Definitions panel**](./#definitions-panel) **-** create and manage classes and tags
+5. [**Instruments panel**](./#instruments-panel) — annotation tools used to create annotations.
+6. [**Objects panel**](./#objects-panel) — list of figures on the current image with additional information like classes and tags.
+7. [**Images/Apps/Settings panel**](./#images-panel) — list of images in your dataset, list of additional apps you can embed into the labeling toolbox, visualization and other settings.
 
-**Object tags and attributes:** tagging simplifies image and object classification and improves neural network training by accounting for complex patterns and details.
+***
 
-**Utilize AI assistance:** use AI models to pre-label data and save time on manual corrections.&#x20;
+## Basic interface elements <a href="#explore-basic-interface-elements" id="explore-basic-interface-elements"></a>
 
-**Organize your workspace:** customize the layout and use the multi-image view to handle large datasets.
+The top toolbar contains options for viewing and managing image annotations, as well as accessing settings for annotation display and behavior.
 
-## Productivity-improving features
+<figure><img src="../../.gitbook/assets/gui-frame.png" alt=""><figcaption></figcaption></figure>
 
-### Auto-Object Selection
+**Image navigation arrows (next, previous):** Allow users to move between images in the dataset.
 
-The auto-selection feature that selects objects when hovering over them optimizes the number of clicks needed for annotation, making the process faster and more convenient. This is especially useful when working with images containing many objects.
+**Undo and redo buttons:** Undo or redo the most recent annotation action.
 
-### Multi-Image Viewing Mode
+**Select theme (dark or light):** Ability to switch between light and dark interface themes, especially useful for those who prefer to work at night.
 
-The multi-image viewing mode allows you to view multiple images on the scene simultaneously, making it easier to compare annotation results or annotate images together.
+**Hotkeys:** A list of hotkeys for quick access to tools.
 
-### Conditional Image Filtering
+**More options:**&#x20;
 
-Supervisely provides an extensive set of filters for searching images and objects. These filters allow users to fine-tune search criteria and find the necessary images and objects in large datasets.
+* **Enter fullscreen** - this option allows the user to switch the interface to fullscreen mode, maximizing the workspace area. It hides browser toolbars and other elements
+* **Screenshot** - the screenshot function enables users to take a snapshot of the current workspace, including the image and any annotations displayed. This can be useful for documentation, sharing progress, or reviewing annotations with team members.
+* **Enter restore mode** - enter restore mode provides tools to recover lost or corrupted annotations. When enabled, it offers options to revert changes to a previous state or repair specific parts of the annotation dataset.
+* **Restore default layout** - this function resets the interface layout to its default configuration. It is useful when the layout has been modified (e.g., panels moved or resized) and the user wants to return to the original setup.&#x20;
+* **Multiple image views mode** - multiple image views mode allows users to view and annotate multiple images simultaneously. This feature is particularly useful for comparing images side-by-side, annotating similar objects across different images, or analyzing changes in a sequence of images. Users can customize the arrangement and number of views according to their needs.
 
-### Metadata
+***
 
-The Supervisely platform allows viewing and editing metadata and custom data. This is useful for creating more informative and structured datasets, especially when integrating Supervisely with internal systems.
+## **Main scene & display toolbar** settings
 
-### Grid
+This is the central area. It displays the image to be annotated, with various display controls that the user can hide or show in the panel as needed. It contains:
 
-The grid feature helps organize the annotation process by dividing the image into uniform areas. This is especially useful when labeling high-resolution images with many small objects.
+**Current image view:** shows the image currently being worked on. Users can interact directly with this area using the annotation tools from the sidebar.
 
-### Tips and Instructions
+**Mini-map (top-right corner):** Displays a smaller version of the entire image to help navigate quickly, especially when zoomed in on specific areas.
 
-The toolbar now includes interactive tips and GIF animations that explain the functionality of each tool. These tips significantly simplify mastering various annotation tools.
+<figure><img src="../../.gitbook/assets/main-scene-controls.png" alt=""><figcaption></figcaption></figure>
+
+### Annotation display settings <a href="#annotation-display-settings" id="annotation-display-settings"></a>
+
+**Opacity:** To modify the transparency of objects, hold and drag the cursor left or right. This allows for a more nuanced view of the objects' layers. Additionally, you can hold the SHIFT key and scroll the mouse wheel to adjust the opacity conveniently from anywhere on the screen.
+
+**Border:** Enhance the visibility of object boundaries by holding and dragging the cursor left or right. This action changes the width of the objects' borders, allowing for clearer demarcation. Useful when working with huge resolutions or with large number of small objects
+
+**Point:** Adjust the radius of object points by holding and dragging the cursor left or right.
+
+**Default color:** Paint objects with their original colors as defined in class settings. This is the default setting and helps maintain consistency and recognition. So the objects of different classes are visually distinguishable.
+
+**Randomize color:** Randomize object colors to distinguish between objects of the same class. A simple click, followed by `SHIFT+H`, randomizes the object's colors. Can be used in Instance Segmentation Computer Vision task to highlight visual distinction of all objects of the same class on an image.
+
+<figure><img src="../../.gitbook/assets/settings-opacity.png" alt=""><figcaption></figcaption></figure>
+
+### Attribute display settings for clearer context <a href="#attribute-display-settings-for-clearer-context" id="attribute-display-settings-for-clearer-context"></a>
+
+**ID:** Toggle the visibility of object IDs near the objects on the scene. This is essential for identifying and referring to specific objects.
+
+**Bindings:** Show or hide bindings near objects to understand how various elements are connected to each other. [Objects can be combined into groups](https://developer.supervisely.com/advanced-user-guide/objects-binding).
+
+**Tags:** Display tags near objects to provide additional context or categorization.
+
+**Classes:** Enable visibility of the classes assigned to each object, helping in the classification and organization of scene elements.
+
+**Author:** Display the creator's name near the objects to acknowledge object authorship.
+
+**Change Visibility Mode:** This option allows users to switch between different visibility modes, optimizing the scene display as per the user's preference. You can choose how to show the attributes:
+
+* **Always** | Users can select full tag display, which means that the information will be visible directly on Objects or Images in the project.
+* **Show on hover** | Tags are only displayed when the cursor is hovered over the annotated object.
+* **Show when selected** | The ability to hide Tags until the Object is selected provides a cleaner look and feel to the interface and prevents information overload when working with a project.
+
+<figure><img src="../../.gitbook/assets/attr-frame.png" alt=""><figcaption></figcaption></figure>
+
+### Advanced interaction with scene objects <a href="#advanced-interaction-with-scene-objects" id="advanced-interaction-with-scene-objects"></a>
+
+**Auto-select:** Automatically select objects of the current shape when hovering the cursor over them.
+
+<figure><img src="../../.gitbook/assets/auto-select-frame.png" alt=""><figcaption></figcaption></figure>
+
+### Customizing image display settings <a href="#customizing-image-display-settings" id="customizing-image-display-settings"></a>
+
+**Scene display settings:** Adjust scene display settings like brightness or contrast to suit different viewing conditions or preferences. For example, you can use them while annotation dark or low-contrast images.
+
+**Grid:** A grid helps organize the navigation on the images with high resolutions and large number of small objects.
+
+<figure><img src="../../.gitbook/assets/image-vision-frame.png" alt=""><figcaption></figcaption></figure>
+
+### Visibility and image sizing <a href="#visibility-and-image-sizing" id="visibility-and-image-sizing"></a>
+
+The ability to hide annotation settings declutters the workspace, focusing attention on the task at hand.
+
+Real-time image resizing adapts to various project needs, ensuring optimal viewing and editing conditions. Just zoom-in or out on the images to see object details and perform precise labeling of object boundaries.
+
+<figure><img src="../../.gitbook/assets/im-set-frame.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+## Definitions panel
+
+The Definitions panel provides a simple interface for creating and managing classes and tags in a project. It helps users organize and control annotations.
+
+### Classes
+
+Class may be assigned only to an object and represent a clear category to which the object in the image belongs. For example, a classification of vehicles in an image might include the classes "car", "truck", and "bus".
+
+Definitions panel displays the list of annotation classes (e.g., "person", "road sign", "vehicle"). Each class has a unique name, color and shape to identify between different types of objects.
+
+* Add new class definitions using the **add new class definition** option.
+* **Organize classes** in the definitions list to improve navigation.&#x20;
+
+### Tags
+
+Tags are used to add additional information to images, objects, or other data. Tags can describe context, object properties, or other parameters that can be useful for data analysis and model training.
+
+Definitions panel shows tags associated with the current image. Tags are metadata that help to categorize or add additional information to images (e.g., weather conditions, time of day).
+
+* Use the **add project tags definitions** feature to create and manage tags at the project level.
+* **Tag removal:** You can configure the system to ask for confirmation when tags are removed.
+* **Attaching a single tag multiple times:** You can enable or disable the ability to attach a single tag multiple times to an object. This setting can be adjusted by editing `Project → Settings → Tags → Multiple Tags Mode` in the Dashboard.
+* **Removing tags with hotkeys:** You can enable or disable the feature that allows a tag to be removed when pressing the corresponding hotkey again.
+
+<figure><img src="../../.gitbook/assets/definitions.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+## **Instruments panel**
+
+**Pan & Move Scene Tool:** Quickly navigate around the image without modifying annotations.
+
+**Select Figure**: Select and modify existing annotations; essential for refining objects.
+
+**Drag Figure:** Reposition annotations without altering their size or shape.
+
+**Issues:** Manage and report issues related to annotations; improves collaboration.
+
+**Point Tool:** Label specific points or small objects precisely.
+
+[**Bounding Box:**](../labeling-tools/bounding-box-rectangle-tool.md) Best for object detection tasks.
+
+**Polyline Tool:** Annotate linear objects or edges with multiple connected line segments.
+
+[**Polygon Tool:**](../labeling-tools/polygon-tool.md) Ideal for irregular and complex shapes.
+
+[**Brush and Eraser Tool:**](../labeling-tools/brush-tool.md) Flexible for both polygonal and free-form masks.
+
+[**Mask Pen Tool:**](../labeling-tools/mask-pen-tool.md) Great for segmenting diverse objects with varying shapes.
+
+**Smart Tool:** Efficient for quick, AI-assisted segmentation.
+
+**Graph (Keypoins) Tool:** For pose-estimation tasks.
+
+<figure><img src="../../.gitbook/assets/annotation-tools-frame.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+## Objects Panel
+
+The Objects Panel is a dynamic space dedicated to showcasing and managing objects tags, attributes and metadata. Here are some of the features it offers:
+
+* **Clone Objects** - Easily replicate selected objects to the next image with a simple right arrow key press or bring objects from the previous image.
+* **Filter and Manage** - Quickly filter objects, remove all from the image, or toggle their visibility according to your needs. For example you can hide all objects except of the specific class.
+* **Advanced Interactions** - Select, delete, hide, merge objects, or adjust their layering. Additionally, you can modify metadata and assign or manage tags right from this window, enhancing the object's data with minimal effort.
+
+<figure><img src="../../.gitbook/assets/objects-frame.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+## Images Panel
+
+The Images Window provides a comprehensive view of all the images within a selected dataset. Key functionalities include:
+
+* **Tag Management** - Clone tags from the previous image, assign new ones, or modify existing tags to maintain consistency and organization.
+* **Filter and Manage** - View and edit metadata details or filter through images to find exactly what you need.
+* **Image Operations** - Delete images, download them individually, or download annotations for external use.
+
+***
+
+## Apps Panel: expand your capabilities
+
+In an ever-evolving ML landscape, the Apps Panel serves as a portal to a wide range of applications from the [Computer Vision Ecosystem](https://ecosystem.supervisely.com/), enhancing the functionality of your workspace. This window allows you to run and open the public or private apps and extend the Labeling Toolbox with custom UI and functionality.
+
+***
+
+## Settings Panel
+
+The Settings Panel is the control center for personalizing the interface. It houses various options allowing users to tweak the interface to match their workflow, preferences, and project requirements.\
+
+
+<figure><img src="../../.gitbook/assets/windows-frame.png" alt=""><figcaption></figcaption></figure>
