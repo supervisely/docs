@@ -181,7 +181,7 @@ Definitions panel shows tags associated with the current image. Tags are metadat
 
 ***
 
-## Objects Panel
+## Objects panel
 
 The Objects Panel is a dynamic space dedicated to showcasing and managing objects tags, attributes and metadata. Here are some of the features it offers:
 
@@ -193,7 +193,7 @@ The Objects Panel is a dynamic space dedicated to showcasing and managing object
 
 ***
 
-## Images Panel
+## Images panel
 
 The Images Window provides a comprehensive view of all the images within a selected dataset. Key functionalities include:
 
@@ -203,13 +203,13 @@ The Images Window provides a comprehensive view of all the images within a selec
 
 ***
 
-## Apps Panel: expand your capabilities
+## Apps panel: expand your capabilities
 
 In an ever-evolving ML landscape, the Apps Panel serves as a portal to a wide range of applications from the [Computer Vision Ecosystem](https://ecosystem.supervisely.com/), enhancing the functionality of your workspace. This window allows you to run and open the public or private apps and extend the Labeling Toolbox with custom UI and functionality.
 
 ***
 
-## Settings Panel
+## Settings panel
 
 The Settings Panel is the control center for personalizing the interface. It houses various options allowing users to tweak the interface to match their workflow, preferences, and project requirements.\
 
