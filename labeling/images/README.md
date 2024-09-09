@@ -6,8 +6,6 @@ description: >-
 
 # Images
 
-This documentation provides an in-depth guide to using the Supervisely Image Annotation Tool, covering its features, functionalities, tools, and best practices for effective image annotation. This tool is developed for a range of computer vision applications.
-
 The Supervisely Image Annotation Tool is a web-based image annotation toolbox specifically developed to address the needs of computer vision projects. It is fully web-based, allowing users to access and use the tool from any browser without the need for local installations. The platform provides powerful tools for annotating different types of images, supports different formats, and integrates neural networks to increase the speed and accuracy of annotation tasks.
 
 1. Web-based interfaces — you just need a browser.
