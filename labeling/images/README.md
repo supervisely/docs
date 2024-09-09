@@ -24,7 +24,7 @@ The Supervisely Image Annotation Tool is a web-based image annotation toolbox sp
 1. **Home button** — returns user to the main menu (`Projects` page)
 2. [**Basic interface elements**](./#explore-basic-interface-elements) — basic settings, such as history of operations, theme, a hotkeys map and more useful features.
 3. [**Main scene & labeling scene settings**](./#main-scene-and-labeling-scene-settings)— annotation area for current image and its labels.
-4. [**Definitions panel**](./#definitions-panel) **-** create and manage classes and tags
+4. [**Definitions panel**](./#definitions-panel) — make it easy to create and manage classes and tags.
 5. [**Instruments panel**](./#instruments-panel) — annotation tools used to create annotations.
 6. [**Objects panel**](./#objects-panel) — list of figures on the current image with additional information like classes and tags.
 7. [**Images/Apps/Settings panel**](./#images-panel) — list of images in your dataset, list of additional apps you can embed into the labeling toolbox, visualization and other settings.
