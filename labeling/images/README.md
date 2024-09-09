@@ -125,7 +125,15 @@ Real-time image resizing adapts to various project needs, ensuring optimal viewi
 
 ## Definitions panel
 
-The Definitions panel provides a simple interface for creating and managing classes and tags in a project. It helps users organize and control annotations.
+The Definitions panel provides a simple interface for creating and managing classes and tags in a project. It helps users organize and control annotations.&#x20;
+
+Instead of choosing a tool first, you can now click on the desired class from the Definitions Panel. The associated tool will be automatically selected, allowing you to start labeling immediately. To start a new label, simply click on any class (including the currently selected one) in the Definitions Panel.
+
+If you want to change the class of the selected object, you can click the small icon on the right, which appears only if the new class shape matches the currently selected object. Tags are also present on the same panel. If no object is selected, image tags are shown. You can check the desired tag or hover the cursor and start typing a tag value or select it from a dropdown, which will automatically assign it.
+
+**Improved Search:** To find classes or tags more easily in a long list, click the magnifying glass icon in the top right corner of the panel. Type your query and select the desired class or tag to continue your workflow
+
+<figure><img src="../../.gitbook/assets/search.png" alt=""><figcaption></figcaption></figure>
 
 ### Classes
 
@@ -148,6 +156,10 @@ Definitions panel shows tags associated with the current image. Tags are metadat
 * **Removing tags with hotkeys:** You can enable or disable the feature that allows a tag to be removed when pressing the corresponding hotkey again.
 
 <figure><img src="../../.gitbook/assets/definitions.png" alt=""><figcaption></figcaption></figure>
+
+Learn more about the definitions panel from our [blog post](https://supervisely.com/blog/definitions-panel/):
+
+{% embed url="https://supervisely.com/blog/definitions-panel/" %}
 
 ***
 
