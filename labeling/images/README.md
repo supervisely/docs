@@ -33,7 +33,7 @@ The Supervisely Image Annotation Tool is a web-based image annotation toolbox sp
 
 ## Basic interface elements <a href="#explore-basic-interface-elements" id="explore-basic-interface-elements"></a>
 
-The top toolbar contains options for viewing and managing image annotations, as well as accessing settings for annotation display and behavior.
+The top toolbar contains options for personalizing the interface and managing data and its annotations.
 
 <figure><img src="../../.gitbook/assets/gui-frame.png" alt=""><figcaption></figcaption></figure>
 
@@ -67,7 +67,7 @@ This is the central area. It displays the image to be annotated, with various di
 
 ### Annotation display settings <a href="#annotation-display-settings" id="annotation-display-settings"></a>
 
-**Opacity:** To modify the transparency of objects, hold and drag the cursor left or right. This allows for a more nuanced view of the objects' layers. Additionally, you can hold the SHIFT key and scroll the mouse wheel to adjust the opacity conveniently from anywhere on the screen.
+**Opacity:** To modify the transparency of objects, hold and drag the cursor left or right. This allows for a more nuanced view of the objects' layers. Additionally, you can hold the `SHIFT` key and scroll the mouse wheel to adjust the opacity conveniently from anywhere on the screen.
 
 **Border:** Enhance the visibility of object boundaries by holding and dragging the cursor left or right. This action changes the width of the objects' borders, allowing for clearer demarcation. Useful when working with huge resolutions or with large number of small objects
 
