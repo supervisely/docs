@@ -185,9 +185,9 @@ Learn more about the definitions panel from our [blog post](https://supervisely.
 
 [**Mask Pen Tool:**](../labeling-tools/mask-pen-tool.md) Great for segmenting diverse objects with varying shapes.
 
-**Smart Tool:** Efficient for quick, AI-assisted segmentation.
+[**Smart Tool:**](../labeling-tools/smart-tool.md) Efficient for quick, AI-assisted segmentation.
 
-**Graph (Keypoins) Tool:** For pose-estimation tasks.
+[**Graph (Keypoins) Tool:**](../labeling-tools/graph-keypoints-tool.md) For pose-estimation tasks.
 
 <figure><img src="../../.gitbook/assets/annotation-tools-frame.png" alt=""><figcaption></figcaption></figure>
 
@@ -207,7 +207,7 @@ The Objects Panel is a dynamic space dedicated to showcasing and managing object
 
 ## Images panel
 
-The Images Window provides a comprehensive view of all the images within a selected dataset. Key functionalities include:
+The Images Panel provides a comprehensive view of all the images within a selected dataset. Key functionalities include:
 
 * **Tag Management** - Clone tags from the previous image, assign new ones, or modify existing tags to maintain consistency and organization.
 * **Filter and Manage** - View and edit metadata details or filter through images to find exactly what you need.

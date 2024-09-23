@@ -97,7 +97,7 @@ Draw the first segment of the object by clicking and dragging over the area you 
 
 </div>
 
-### Tips <a href="#tips" id="tips"></a>
+### Pro Tips <a href="#tips" id="tips"></a>
 
 * Use the **Object Color Randomizer** to instantly change the color of any object with a single click, as often as you like. This is particularly useful if you have many objects of the same class, or if they are close together, so you can easily differentiate between masks.
 

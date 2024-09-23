@@ -31,8 +31,8 @@ description: >-
 4. [Timeline and track controls](./#timeline-and-track-controls) —  video timeline and controls for managing tracks and frames.
 5. [Definitions panel](./#definitions-panel) — make it easy to create and manage classes and tags.
 6. [Instruments panel](./#instruments-panel) — annotation tools used to create annotations.
-7. [Objects panel](../../data-organization/Annotation-JSON-format/04\_Supervisely\_Format\_objects.md) — list of figures on the current video with additional information like classes and tags.
-8. [Videos/Apps/Settings panel](./) — list of videos in your dataset, list of additional apps you can embed into the labeling toolbox, visualization and other settings.
+7. [Objects panel](./#objects-panel) — list of figures on the current video with additional information like classes and tags.
+8. [Videos/Apps/Settings panel](./#images-panel) — list of videos in your dataset, list of additional apps you can embed into the labeling toolbox, visualization and other settings.
 
 ***
 
@@ -349,9 +349,9 @@ Definitions panel shows tags associated with the current image. Tags are metadat
 
 [**Mask Pen Tool:**](../labeling-tools/mask-pen-tool.md) Great for segmenting diverse objects with varying shapes.
 
-**Smart Tool:** Efficient for quick, AI-assisted segmentation.
+[**Smart Tool:**](../labeling-tools/smart-tool.md) Efficient for quick, AI-assisted segmentation.
 
-**Graph (Keypoins) Tool:** For pose-estimation tasks.
+[**Graph (Keypoins) Tool:**](../labeling-tools/graph-keypoints-tool.md) For pose-estimation tasks.
 
 <figure><img src="../../.gitbook/assets/annotation-tools-frame.png" alt=""><figcaption></figcaption></figure>
 
@@ -359,10 +359,10 @@ Definitions panel shows tags associated with the current image. Tags are metadat
 
 ## Objects panel <a href="#objects-panel" id="objects-panel"></a>
 
-The objects panel is a dynamic space dedicated to showcasing and managing objects tags, attributes and metadata. Here are some of the features it offers:
+The Objects panel displays key properties and parameters of objects that can be tracked on the timeline. It is a dynamic space for showcasing and managing object tags, attributes, and metadata. Some of the features it offers include:
 
-* **Clone Objects** - Easily replicate selected objects to the next image with a simple right arrow key press or bring objects from the previous image.
-* **Filter and Manage** - Quickly filter objects, remove all from the image, or toggle their visibility according to your needs. For example you can hide all objects except of the specific class.
+* **Clone Objects** - Easily replicate selected objects to the next frame with a simple right arrow key press ( ->).&#x20;
+* **Filter and Manage** - Quickly filter objects, remove all from the video, or toggle their visibility according to your needs. For example you can hide all objects except of the specific class.
 * **Advanced Interactions** - Select, delete, hide, merge objects, or adjust their layering. Additionally, you can modify metadata and assign or manage tags right from this window, enhancing the object's data with minimal effort.
 
 <figure><img src="../../.gitbook/assets/objects-video.png" alt=""><figcaption></figcaption></figure>
@@ -390,6 +390,44 @@ In an ever-evolving ML landscape, the apps panel serves as a portal to a wide ra
 The settings panel is the control center for personalizing the interface. It houses various options allowing users to tweak the interface to match their workflow, preferences, and project requirements.
 
 <figure><img src="../../.gitbook/assets/apps, settings.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+## **How to use tags in Video Annotation Tool**
+
+Step 1. Use the Definitions panel to search for or create tags:
+
+* Below the classes are sections for **object property tags** and **object frame tags**. These sections are used to tag entire objects (such as a skier or snowboarder) or specific frames for specific attributes or actions.
+* The **tags available** section displays all tags that can be used in the video annotation. You can create new tags, search for tags using the search bar, or select directly from the available list.
+* Video Property Tags: This section, found in the right panel, allows you to assign tags that describe general properties of the entire video, such as "on the move." Use the `+` button next to this section to add tags that describe overarching elements of the video, like the weather, location, or ongoing action throughout the entire clip.
+*   Video Frame Tags: This section, also in the right panel, helps in tagging specific moments or events within the video. If an event (like a skier jumping) occurs at a particular frame, you can tag that frame using this section.
+
+
+
+Step 2. Applying tags to Frames:
+
+* To apply a tag to a specific frame, click on the `MARK FRAMES` button next to the tag in the tags available section. This action allows you to select frames to which you want to apply the selected tag.&#x20;
+
+Navigation and Tagging Controls:
+
+* The bottom of the interface contains playback controls and a timeline slider.
+* Use these controls to navigate through the video frames (e.g., go frame by frame, play, pause) and select the frames you want to tag.
+* The "TAG," "UNTAG," and "CHANGE VALUE" buttons below the timeline slider allow you to apply, remove, or modify tags for the selected frames or objects.
+
+Filter and Manage Tracks:
+
+* The Manage tracks dropdown menu lets you control which tags are visible and which types of tags you want to manage. You can filter by different tag categories, such as "Figures," "Video Tags," "Object Tags," etc., to simplify your view and focus on specific elements.
+* The Filter icon next to each section helps narrow down what is displayed, making it easier to manage large amounts of tagged data.
+
+#### Practical Example: Tagging a skier's motion
+
+1. Select the Skier Class: Ensure that the "skier" class is selected in the Definitions panel.
+2. Choose a Tag: Decide which tag to apply (e.g., "on the move").
+3. Mark Frames: Click on the `MARK FRAMES` button next to the tag "on the move."
+4. Select Frames: Use the video timeline slider to navigate to the frames where the skier is moving and apply the tag.
+5. Confirm Tagging: The selected frames will now be tagged with "on the move," and you can see the tag applied in the Video Frame Tags or Object Frame Tags sections.
+
+
 
 ***
 

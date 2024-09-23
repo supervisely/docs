@@ -75,7 +75,7 @@ To create a hole in a polygon, hold `SHIFT` and click to define it. You can then
 
 </div>
 
-### Tips <a href="#tips" id="tips"></a>
+### Pro Tips <a href="#tips" id="tips"></a>
 
 * Turn on the **Auto-Select** feature and hover over any polygon to automatically select it for editing. This feature makes it easier to modify existing annotations without manually selecting each shape.
 * Use the **Object Color Randomizer** to instantly change the color of any object with a single click, as often as you like. This is particularly useful if you have many objects of the same class, or if they are close together, so you can easily differentiate between polygons.

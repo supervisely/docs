@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Video tracking
 
 One of the most common tasks in the video labeling toolbox is the video tracking. Supervisely has the top AI models and automatic video annotation tools you can use to efficiently track objects on videos.

@@ -49,6 +49,7 @@
 ## 📂 Data Organization
 
 * [Core concepts](data-organization/overview.md)
+* [MLOps Workflow](data-organization/mlops-workflow.md)
 * [Projects](data-organization/project/projects.md)
   * [Datasets](data-organization/project/datasets/datasets.md)
   * [Classes](data-organization/project/classes/classes.md)
@@ -79,10 +80,15 @@
   * [Sensor-fusion](labeling/3D-Point-Clouds/Sensor-fusion/Sensor-fusion.md)
   * [DICOM](labeling/DICOM/DICOM.md)
 * [Labeling Tools](labeling/labeling-tools/README.md)
+  * [Navigation & Selection Tools](labeling/labeling-tools/navigation-and-selection-tools.md)
+  * [Point Tool](labeling/labeling-tools/point-tool.md)
   * [Bounding Box (Rectangle) Tool](labeling/labeling-tools/bounding-box-rectangle-tool.md)
+  * [Polyline Tool](labeling/labeling-tools/polyline-tool.md)
   * [Polygon Tool](labeling/labeling-tools/polygon-tool.md)
   * [Brush Tool](labeling/labeling-tools/brush-tool.md)
   * [Mask Pen Tool](labeling/labeling-tools/mask-pen-tool.md)
+  * [Smart Tool](labeling/labeling-tools/smart-tool.md)
+  * [Graph (Keypoints) Tool](labeling/labeling-tools/graph-keypoints-tool.md)
 * [Labeling Jobs](labeling/jobs/README.md)
   * [Labeling Queues](labeling/jobs/Labeling-Queues.md)
   * [Labeling Consensus](labeling/jobs/Labeling-Consensus.md)
