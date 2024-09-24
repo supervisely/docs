@@ -85,7 +85,7 @@ When all requirements above have been installed, you can deploy Supervisely. Ple
 
 ### Step 1. Get your unique key from us
 
-Before the installation we will send you a license key and a `supervise-cli` installation command. Please run it on the machine where you want to install Supervisely.
+Before the installation we will send you a license key and a `supervisely-cli` installation command. Please run it on the machine where you want to install Supervisely.
 
 ### Step 2. Install pre-requirements
 
@@ -93,8 +93,8 @@ Run `sudo supervisely install-all` in your terminal. We will detect the necessar
 
 - [Docker CE](https://docs.docker.com/engine/installation/)
 - [Docker Compose](https://github.com/docker/compose/releases)
-- [NVIDIA Driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver) (for Training Module)
-- [NVIDIA Container Runtime](https://github.com/NVIDIA/nvidia-docker#quickstart) (for Training Module)
+- [NVIDIA Driver](https://developer.nvidia.com/cuda-downloads)
+- [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) (for Training Module)
 
 If you don't have NVIDIA drivers, you will be asked if you need to install it. Choose `y` if you have GPU on your server. Your computer will be rebooted during the installation of the NVIDIA driver.
 
