@@ -93,7 +93,7 @@ Run `sudo supervisely install-all` in your terminal. We will detect the necessar
 
 - [Docker CE](https://docs.docker.com/engine/installation/)
 - [Docker Compose](https://github.com/docker/compose/releases)
-- [NVIDIA Driver](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/#driver-installation)
+- [NVIDIA Driver](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/#driver-installation) (for Training Module)
 - [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) (for Training Module)
 
 If you don't have NVIDIA drivers, you will be asked if you need to install it. Choose `y` if you have GPU on your server. Your computer will be rebooted during the installation of the NVIDIA driver.
