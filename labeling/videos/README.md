@@ -329,19 +329,17 @@ Definitions panel shows tags associated with the current image. Tags are metadat
 
 ## **Instruments panel**
 
-**Pan & Move Scene Tool:** Quickly navigate around the image without modifying annotations.
+[**Pan & Move Scene Tool:**](./#basic-interface-elements) Quickly navigate around the image without modifying annotations.
 
-**Select Figure**: Select and modify existing annotations; essential for refining objects.
+[**Select Figure**:](../labeling-tools/navigation-and-selection-tools.md) Select and modify existing annotations; essential for refining objects.
 
-**Drag Figure:** Reposition annotations without altering their size or shape.
+[**Drag Figure:**](../labeling-tools/navigation-and-selection-tools.md) Reposition annotations without altering their size or shape.
 
-**Issues:** Manage and report issues related to annotations; improves collaboration.
-
-**Point Tool:** Label specific points or small objects precisely.
+[**Point Tool:**](../labeling-tools/point-tool.md) Label specific points or small objects precisely.
 
 [**Bounding Box:**](../labeling-tools/bounding-box-rectangle-tool.md) Best for object detection tasks.
 
-**Polyline Tool:** Annotate linear objects or edges with multiple connected line segments.
+[**Polyline Tool:**](../labeling-tools/polyline-tool.md) Annotate linear objects or edges with multiple connected line segments.
 
 [**Polygon Tool:**](../labeling-tools/polygon-tool.md) Ideal for irregular and complex shapes.
 

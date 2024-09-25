@@ -17,21 +17,15 @@ Check out our comprehensive guide on uploading and annotating multi-view images 
 
 ## Key Features
 
-* Synchronized Views: Annotate objects on multiple images simultaneously, ideal for multi-spectral images.
-* Flexible Grouping: Group images by various criteria (e.g., camera angles, object classes) to suit your needs.
-* Manual Tools: Use bounding boxes, polygons, masks, brushes, polylines, and keypoints for precise annotations.
-* AI-Assisted Segmentation: Speed up labeling with the Smart Tool, leveraging pre-trained models.
-* Python SDK: Automate annotation tasks and integrate them into your workflow.
+**Synchronized Views:** Annotate objects on multiple images simultaneously, ideal for multi-spectral images.
 
-## Multi-View Image Annotation Use-Cases
+**Flexible Grouping:** Group images by various criteria (e.g., camera angles, object classes) to suit your needs.
 
-Multi-view image annotation is beneficial across various industries:
+**Manual Tools:** Use bounding boxes, polygons, masks, brushes, polylines, and keypoints for precise annotations.
 
-* Multispectral Imaging: Essential for agriculture, environmental monitoring, etc.
-* Depth Estimation & 3D Reconstruction: Enhances object depth understanding and 3D modeling.
-* Autonomous Vehicles & Traffic Monitoring: Improves model training for object detection and navigation.
-* 3D Mapping & GEO Localization: Assists in drone-based navigation and other spatial tasks.
-* Medical Imaging & Agriculture: Facilitates precise analysis of complex structures.
+**AI-Assisted Segmentation:** Speed up labeling with the Smart Tool, leveraging pre-trained models.
+
+**Python SDK:** Automate annotation tasks and integrate them into your workflow.
 
 ## How to Annotate Multi-View Images in Supervisely
 

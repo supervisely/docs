@@ -49,13 +49,15 @@ The **Volume Interpolation** app uses an [ITK-based implementation](https://gith
 * **Enter restore mode** - enter restore mode provides tools to recover lost or corrupted annotations. When enabled, it offers options to revert changes to a previous state or repair specific parts of the annotation dataset.
 * **Restore default layout** - this function resets the interface layout to its default configuration. It is useful when the layout has been modified (e.g., panels moved or resized) and the user wants to return to the original setup.&#x20;
 
-
+<figure><img src="../../.gitbook/assets/basic-interface-elements-dicom.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
 ## **Main scene**&#x20;
 
 The DICOM Labeling Tool main stage presents several windows that display different projections of medical images.
+
+<figure><img src="../../.gitbook/assets/main-scene-dicom.png" alt=""><figcaption></figcaption></figure>
 
 ### Projections
 
@@ -76,12 +78,32 @@ In the **PERSPECTIVE** view, colored dots represent the different slices in vari
 * **Green**: Sagittal slice.
 * **Blue**: Coronal slice.
 * **Red**: Axial slice.
+* You can **toggle the visibility** of these slices by clicking the "eye" button, showing or hiding that specific plane in the 3D view.
+* Moving a point along the line adjusts the position of that slice in all views. For example, moving the slider on the green dot line will move the sagittal slice, and the image in the sagittal window will update accordingly to reflect the new position.
 
-You can **toggle the visibility** of these slices by clicking the "eye" button, showing or hiding that specific plane in the 3D view.
+#### **Orientation Letters (R, A, P, L, S, I)**
 
-Moving a point along the line adjusts the position of that slice in all views. For example, moving the slider on the green dot line will move the sagittal slice, and the image in the sagittal window will update accordingly to reflect the new position.
+The letters on the images (**R**, **A**, **P**, **L**, **S**, **I**) represent anatomical directions and help orient the viewer:
+
+* **R**: Right side of the body.
+* **L**: Left side of the body.
+* **A**: Anterior (front) of the body.
+* **P**: Posterior (back) of the body.
+* **S**: Superior (towards the head).
+* **I**: Inferior (towards the feet).
+
+#### **Detailed info**
+
+All image information is displayed in the right corner:
+
+* **Image size:** 512 x 512.&#x20;
+* **W and C:** Window Width (W) and Window Center (C), which control the brightness and contrast of the image.&#x20;
+* **Position IJK and Position RAS:** These are coordinates in different reference systems (IJK refers to the image index, while RAS is a real anatomical coordinate system).&#x20;
+* **Pixel value:** The current pixel value at the annotated location.&#x20;
 
 ### Navigation/Controls/Settings
+
+<figure><img src="../../.gitbook/assets/settings-layout-dicom.png" alt=""><figcaption></figcaption></figure>
 
 **Layout Customization**: You can customize the **layout** of the scene, allowing for arrangements other than the default **2x2 grid**. You can create layouts up to **4x4** and arrange them as you prefer, such as **3x2** or any combination that suits your annotation workflow.&#x20;
 
@@ -110,37 +132,15 @@ In the **PERSPECTIVE** view, the only available setting is **Invert Colors**, wh
 * **Line Indicator**: Displays the current position within the series of slices or frames.
 * **Total Frames**: Shows the total number of slices or frames, such as "70/139," indicating you're on the 70th frame of 139.
 
-#### **Orientation Letters (R, A, P, L, S, I)**
-
-The letters on the images (**R**, **A**, **P**, **L**, **S**, **I**) represent anatomical directions and help orient the viewer:
-
-* **R**: Right side of the body.
-* **L**: Left side of the body.
-* **A**: Anterior (front) of the body.
-* **P**: Posterior (back) of the body.
-* **S**: Superior (towards the head).
-* **I**: Inferior (towards the feet).
-
-#### **Detailed info**
-
-All image information is displayed in the right corner:
-
-* **Image size:** 512 x 512.&#x20;
-* **W and C:** Window Width (W) and Window Center (C), which control the brightness and contrast of the image.&#x20;
-* **Position IJK and Position RAS:** These are coordinates in different reference systems (IJK refers to the image index, while RAS is a real anatomical coordinate system).&#x20;
-* **Pixel value:** The current pixel value at the annotated location.&#x20;
-
-
-
 ***
 
 ## **Instruments panel**
 
 Full variety of instruments from our best-in-class [image labeling toolbox](../images/) — plus, extra tools for medical imaging, like window adjustments.
 
-**Pan & Move Scene Tool:** Quickly navigate around the image without modifying annotations.
+[**Pan & Move Scene Tool:**](../labeling-tools/navigation-and-selection-tools.md) Quickly navigate around the image without modifying annotations.
 
-**Select Figure**: Select and modify existing annotations; essential for refining objects.
+[**Select Figure**:](../labeling-tools/navigation-and-selection-tools.md) Select and modify existing annotations; essential for refining objects.
 
 [**Bounding Box:**](../labeling-tools/bounding-box-rectangle-tool.md) Best for object detection tasks.
 
@@ -160,11 +160,11 @@ Medical images usually consist of thousands of levels of gray, while standard co
 
 This **Windowing feature** adjusts image contrast and offers not only manual adjustment but also various presets and allows you to fine-tune the visualization of medical images, making various tissues and structures more visible and distinguishable.
 
+
+
 **Crosshair Tool**
 
 If you need to select a specific image area in all planes, you don't have to do it individually for each plane. The **Crosshair Tool** allows in one click jump to any point of interest on all planes. By holding the selection point and moving the crosshair across the plane, you can observe real-time changes in the other planes and 3D perspective.
-
-
 
 ***
 
@@ -179,4 +179,6 @@ The Volumes Panel provides a comprehensive view of all the images within a selec
 ## Settings panel
 
 The Settings Panel is the control center for personalizing the interface. It houses various options allowing users to tweak the interface to match their workflow, preferences, and project requirements.
+
+
 
