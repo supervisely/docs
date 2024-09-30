@@ -126,6 +126,6 @@ The confusion matrix reveals which classes the model commonly confuses with each
 
 ## Acknowledgement
 
-[1] Maximilian Bernhard, Roberto Amoroso, Yannic Kindermann, Lorenzo Baraldi, Rita Cucchiara, Volker Tresp, Matthias Schubert. What’s Outside the Intersection? Fine-grained Error Analysis for Semantic Segmentation Beyond IoU. In Proceedings of the IEEE / CVF Conference on Computer Vision and Pattern Recognition, pages 969 - 977, 2024.
+[1] Maximilian Bernhard, Roberto Amoroso, Yannic Kindermann, Lorenzo Baraldi, Rita Cucchiara, Volker Tresp, Matthias Schubert. [What’s Outside the Intersection? Fine-grained Error Analysis for Semantic Segmentation Beyond IoU](https://openaccess.thecvf.com/content/WACV2024/html/Bernhard_Whats_Outside_the_Intersection_Fine-Grained_Error_Analysis_for_Semantic_Segmentation_WACV_2024_paper.html). In Proceedings of the IEEE / CVF Conference on Computer Vision and Pattern Recognition, pages 969 - 977, 2024.
 
-[2] Bowen Cheng, Ross Girshick, Piotr Dollar, Alexander C. Berg, Alexander Kirillov. Boundary IoU: Improving object-centric image segmentation evaluation. In Proceedings of the IEEE / CVF Conference on Computer Vision and Pattern Recognition, pages 15334 - 15342, 2021.
+[2] Bowen Cheng, Ross Girshick, Piotr Dollar, Alexander C. Berg, Alexander Kirillov. [Boundary IoU: Improving object-centric image segmentation evaluation](https://arxiv.org/abs/2103.16562). In Proceedings of the IEEE / CVF Conference on Computer Vision and Pattern Recognition, pages 15334 - 15342, 2021.
