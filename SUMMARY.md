@@ -125,6 +125,7 @@
 * [Model Evaluation Benchmark](neural-networks/model-evaluation-benchmark/README.md)
   * [Object Detection](neural-networks/model-evaluation-benchmark/object-detection.md)
   * [Instance Segmentation](neural-networks/model-evaluation-benchmark/instance-segmentation.md)
+  * [Semantic Segmentation](neural-networks/model-evaluation-benchmark/semantic-segmentation.md)
 
 ## 👔 Enterprise Edition
 
