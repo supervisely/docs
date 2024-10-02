@@ -258,6 +258,9 @@ The code snippet:
 
 #### Function to use in your code: `migrate_project(...)`
 
+<details>
+
+<summary>Click to see the code snippet</summary>
 
 ```python
 
@@ -501,6 +504,8 @@ def migrate_project(project: Union[sly.ProjectInfo, int]):
         )
 
 ```
+
+</details>
 
 ### If you need to keep the nested dataset structure in remote storage
 
