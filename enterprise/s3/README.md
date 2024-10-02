@@ -507,13 +507,13 @@ def migrate_project(project: Union[sly.ProjectInfo, int]):
 You can modify the script to create nested directories in the remote storage.
 To do this, you need to change the remote path of the entity to include the dataset name.
 For that, you can use `api.dataset.get_tree(...)` instead of `api.dataset.get_list(...)` and iterate over the tree.
-Then, you can modify the remote path of the entity to include the nested dataset name.
+Then, you can modify the remote path of the entity to include the nested dataset ID.
 
 ### If you have already uploaded entities to remote storage
 You will be able just set remote links for them. There are two ways: 
-1. To create your own `entities_map`, that corresponds to the structure used in code above and redefine in **Global Variables'** section
-2. Use SDK API methods with the lists of entity IDs and remote links:
+1. To create your own `entities_map`, that corresponds to the structure used in code above and redefine in section **Global Variables**
+2. To use SDK API methods with the lists of entity IDs and remote links:
    - `api.image.set_remote(...)`
    - `api.video.set_remote(...)` 
   <br>For better performance, you can use the function `sly.batched` to split the list of entities and remote links into batches.
-  It is recommended to batch the list of entities and remote links not more than `1000` items per batch.
+  It is recommended to create batches not more than `1000` items per batch.
