@@ -256,7 +256,11 @@ The code snippet:
 - Save nested datasets in remote storage as a flat structure. All datasets will be placed in the project directory. 
 - Will not delete entities from Supervisely storage after migration.
 
-#### Function to use in your code: `migrate_project(...)`
+#### Function to use in your code: `migrate_project(project: Union[sly.ProjectInfo, int])`
+
+{% hint style="info" %}
+Remember to configure the `REMOTE_BUCKET` and `MIGRATION_DIR` constants in the code snippet before use.
+{% endhint %}
 
 <details>
 
@@ -440,6 +444,12 @@ def set_remote_with_retries(entity_api: Union[ImageApi, VideoApi], e_list: list,
 
 
 def migrate_project(project: Union[sly.ProjectInfo, int]):
+    """ 
+    This main function migrates entities of the project to remote storage. 
+    
+    :param project: Project ID or ProjectInfo object 
+    :type project: Union[sly.ProjectInfo, int]
+    """
     global api, entity_api, download_api_url, entities_map
     
     # -------------------------------- Collecting Entities Information ------------------------------- #
