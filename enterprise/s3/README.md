@@ -245,7 +245,7 @@ services:
 ```
 
 
-## Migrating Existing Projects to Cloud Storage
+## Migrating existing projects to Cloud Storage
 
 If you want to migrate only some of the projects that exist in the Supervisely storage to the linked cloud, you can achieve this using the following code snippet. 
 
