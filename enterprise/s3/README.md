@@ -243,3 +243,277 @@ services:
     volumes:
     - <path to the secret file>:/secret_planes.json:ro
 ```
+
+
+## Migrating Existing Projects to Cloud Storage
+
+If you want to migrate only some of the projects that exist in the Supervisely storage to the linked cloud, you can achieve this using the following code snippet. 
+
+The code snippet:
+- Is designed to change links only for entities that are not linked yet, it means they are stored in Supervisely storage.
+- Will change links only when all entities are uploaded to remote storage.
+- Can be run again in case of failure. Will not re-upload entities that are already uploaded to remote storage.
+- Save nested datasets in remote storage as a flat structure. All datasets will be placed in the project directory. 
+- Will not delete entities from Supervisely storage after migration.
+
+#### Function to use in your code: `migrate_project(...)`
+
+
+```python
+
+import asyncio
+import os
+from typing import Union
+
+import aiohttp
+from aiohttp import FormData
+from tenacity import before_sleep_log, retry, stop_after_attempt, wait_exponential
+from tqdm import tqdm
+
+import supervisely as sly
+from supervisely.api.api import ApiField
+from supervisely.api.image_api import ImageApi
+from supervisely.api.video.video_api import VideoApi
+
+# -------------------------------- Global Variables For Migration -------------------------------- #
+
+entity_api = None
+download_api_url = None
+entities_map = {}
+
+api = sly.Api.from_env()
+
+# ------------------------------------ Constants For Migration ----------------------------------- #
+
+REMOTE_BUCKET = "s3://migration-bucket/"  # TODO Change to your remote storage bucket
+MIGRATION_DIR = "projects-migration-storage"  # TODO Change to your remote storage directory
+IMAGES_DIR = os.path.join(REMOTE_BUCKET, MIGRATION_DIR, str(sly.ProjectType.IMAGES))
+VIDEOS_DIR = os.path.join(REMOTE_BUCKET, MIGRATION_DIR, str(sly.ProjectType.VIDEOS))
+IMAGES_DOWNLOAD_API_URL = api.api_server_address + "/v3/" + "images.download"
+VIDEOS_DOWNLOAD_API_URL = api.api_server_address + "/v3/" + "videos.download"
+REMOTE_STORAGE_UPLOAD_API_URL = api.api_server_address + "/v3/" + "remote-storage.upload"
+
+# ----------------------------- Asynchronous Functions For Migration ----------------------------- #
+
+@retry(
+    stop=stop_after_attempt(10),
+    wait=wait_exponential(multiplier=2, min=2, max=60),
+    before_sleep=before_sleep_log(sly.logger, sly.logger.level),
+)
+async def process_entity(
+    download_api_url: str,
+    entity_id: int,
+    info: dict,
+    progress_on: bool,
+    total_progress: tqdm,
+):
+    """This function is used in `upload_entity` to wrap the process of downloading and uploading entities with retries."""
+    global api
+
+    async with aiohttp.ClientSession() as session:
+        async with session.post(
+            url=download_api_url, data={ApiField.ID: entity_id}, headers=api.headers
+        ) as response:
+            response.raise_for_status()
+
+            form = FormData()
+            form.add_field("path", info["remote"])
+
+            total_size = int(response.headers.get("Content-Length", 0))
+            if progress_on:
+                progress = tqdm(total=total_size, unit="B", unit_scale=True, desc=info["name"])
+
+            async def file_gen():
+                """This function generates chunks of entity to upload to remote storage."""
+                async for chunk in response.content.iter_chunked(8192):
+                    yield chunk
+                    if progress_on:
+                        progress.update(len(chunk))
+
+            form.add_field(
+                "file",
+                file_gen(),
+                filename=info["name"],
+                content_type=info["mime"],
+            )
+
+            async with session.post(
+                url=REMOTE_STORAGE_UPLOAD_API_URL, data=form, headers=api.headers
+            ) as post_response:
+                post_response.raise_for_status()
+                if progress_on:
+                    progress.close()
+                if total_progress:
+                    total_progress.update(1)
+                return await post_response.text()
+
+
+async def upload_entity(
+    download_api_url: str,
+    entity_id: int,
+    info: dict,
+    semaphore: asyncio.Semaphore,
+    total_progress: tqdm = None,
+    progress_on: bool = False,
+):
+    """
+    This function downloads entity from Supervisely storage as a stream
+    without saving it to disk and uploads it to remote storage as a stream.
+    All operations are done asynchronously in memory by chunks.
+
+    :param download_api_url: URL to download entity from Supervisely storage via API
+    :type download_api_url: str
+    :param entity_id: ID of the entity to download
+    :type entity_id: int
+    :param info: Information about entity collected during the preparation. Contains name, mime, remote path.
+    :type info: dict
+    :param semaphore: Semaphore to limit the number of concurrent downloads/uploads
+    :type semaphore: asyncio.Semaphore
+    :param total_progress: Progress bar to track the total progress of migration
+    :type total_progress: tqdm
+    :param progress_on: Flag to enable progress bar for the current entity. Don't use it if entity has a small size in megabytes < 100.
+    :type progress_on: bool
+    :return None
+    """
+    async with semaphore:
+        try:
+            loop = asyncio.get_event_loop()
+            try:
+                remote_info = await loop.run_in_executor(
+                    None, entity_api._api.remote_storage.get_file_info_by_path, info["remote"]
+                )
+                if remote_info.get("size") == info.get("size"):
+                    sly.logger.debug(
+                        f"Entity already exists in remote storage: {info.get('remote')}"
+                    )
+                    if total_progress:
+                        total_progress.update(1)
+                    return None
+            except Exception:
+                sly.logger.debug(
+                    f"Entity does not exist in remote storage: {info.get('remote')}. Will be uploaded"
+                )
+
+            return await process_entity(
+                download_api_url, entity_id, info, progress_on, total_progress
+            )
+
+        except Exception as e:
+            sly.logger.error(
+                f"Failed to process entity with ID - {entity_id}, name - {info.get('name')}. "
+                f"Will be skipped from migration due to the error: {e}"
+            )
+            entities_map.pop(entity_id)
+            return None
+
+
+async def upload():
+    """
+    This function uploads entities to remote storage in parallel.
+    The number of concurrent uploads is limited by the semaphore as 10.
+    Don't adjust the semaphore value if you are not sure about the performance of instance.
+    """
+    semaphore = asyncio.Semaphore(10)
+    tasks = []
+    total_tasks = len(entities_map)
+
+    with tqdm(total=total_tasks, desc="Uploading entities to remote storage") as total_progress:
+        for e_id, info in entities_map.items():
+            tasks.append(upload_entity(download_api_url, e_id, info, semaphore, total_progress))
+
+        await asyncio.gather(*tasks)
+
+
+@retry(
+    stop=stop_after_attempt(4),
+    wait=wait_exponential(multiplier=2, max=60),
+    before_sleep=before_sleep_log(sly.logger, sly.logger.level),
+)
+def set_remote_with_retries(entity_api: Union[ImageApi, VideoApi], e_list: list, r_list: list):
+    response = entity_api.set_remote(e_list, r_list)
+    if not response.get("success"):
+        raise Exception(f"Failed to set remote links for entities: {e_list}")
+    return response
+
+
+def migrate_project(project: Union[sly.ProjectInfo, int]):
+    global api, entity_api, download_api_url, entities_map
+    
+    # -------------------------------- Collecting Entities Information ------------------------------- #
+    if isinstance(project, int):
+        project_info = api.project.get_info_by_id(project)
+    elif isinstance(project, sly.ProjectInfo):
+        project_info = project
+    else:
+        raise ValueError("Unsupported project reference of type: {}".format(type(project)))
+
+    if project_info.type == str(sly.ProjectType.IMAGES):
+        entity_api = api.image
+        download_api_url = IMAGES_DOWNLOAD_API_URL
+    elif project_info.type == str(sly.ProjectType.VIDEOS):
+        entity_api = api.video
+        download_api_url = VIDEOS_DOWNLOAD_API_URL
+    else:
+        raise ValueError(f"Unsupported project type: {project_info.type}")
+    
+    if not entities_map:
+      for dataset in api.dataset.get_list(project_info.id, recursive=True):
+          for entity_info in entity_api.get_list(dataset.id):
+              if entity_info.link is not None:
+                  continue
+              entities_map[entity_info.id] = {}
+              entities_map[entity_info.id]["name"] = entity_info.name
+
+              if project_info.type == str(sly.ProjectType.IMAGES):
+                  entities_map[entity_info.id]["mime"] = entity_info.mime
+                  entities_map[entity_info.id]["size"] = entity_info.size
+                  entities_map[entity_info.id]["remote"] = os.path.join(
+                      IMAGES_DIR, str(project_info.id), str(dataset.id), entity_info.name
+                  )
+              elif project_info.type == str(sly.ProjectType.VIDEOS):
+                  entities_map[entity_info.id]["mime"] = entity_info.file_meta["mime"]
+                  entities_map[entity_info.id]["size"] = int(entity_info.file_meta["size"])
+                  entities_map[entity_info.id]["remote"] = os.path.join(
+                      VIDEOS_DIR, str(project_info.id), str(dataset.id), entity_info.name
+                  )
+
+    # --------------------------------- Uploading Entities To Remote --------------------------------- #
+
+    if entities_map:
+        asyncio.run(upload())
+
+        # ----------------------------- Setting Remote Links For Entities ---------------------------- #
+
+        entity_list = [int(entity_id) for entity_id in entities_map.keys()]
+        remote_links_list = [entities_map[e_id]["remote"] for e_id in entity_list]
+
+        for e_list, r_list in zip(
+            sly.batched(entity_list, batch_size=1000),
+            sly.batched(remote_links_list, batch_size=1000),
+        ):
+            set_remote_with_retries(entity_api, e_list, r_list)
+        sly.logger.info(
+            f"Entities have been migrated to remote storage for project: [{project_info.id}] {project_info.name}"
+        )
+    else:
+        sly.logger.info(
+            f"No entities to migrate for project: [{project_info.id}] {project_info.name}"
+        )
+
+```
+
+### If you need to keep the nested dataset structure in remote storage
+
+You can modify the script to create nested directories in the remote storage.
+To do this, you need to change the remote path of the entity to include the dataset name.
+For that, you can use `api.dataset.get_tree(...)` instead of `api.dataset.get_list(...)` and iterate over the tree.
+Then, you can modify the remote path of the entity to include the nested dataset name.
+
+### If you have already uploaded entities to remote storage
+You will be able just set remote links for them. There are two ways: 
+1. To create your own `entities_map`, that corresponds to the structure used in code above and redefine in **Global Variables'** section
+2. Use SDK API methods with the lists of entity IDs and remote links:
+   - `api.image.set_remote(...)`
+   - `api.video.set_remote(...)` 
+  <br>For better performance, you can use the function `sly.batched` to split the list of entities and remote links into batches.
+  It is recommended to batch the list of entities and remote links not more than `1000` items per batch.
