@@ -251,7 +251,7 @@ Our benchmark aims to assess the following capabilities of a model:
 #### Methodology
 
 1. We use **consistent hardware** between tests for a fair model comparison.
-2. We run a model on a constant set of 100 images from the COCO dataset with a resolution of 640x640 (most models can process this resolution, but if not, we add a note about resolution).
+2. We run a model on a set of 100 images from the evaluated dataset with a resolution of 640x640 (most models can process this resolution, but if not, we add a note about resolution).
 3. **3-stage inference:** We measure inference in 3 stages: **pre-processing, inference, post-processing.** This provides insights into where optimization efforts can be focused. Additionally, it gives us another level of verification to ensure that tests are conducted properly for a model.
 
 * **Preprocess:** The stage where images are prepared for input into the model. This includes image reading, resizing, and any necessary transformations.
