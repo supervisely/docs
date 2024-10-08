@@ -401,9 +401,24 @@ async def upload_entity(
                     f"Entity does not exist in remote storage: {info.get('remote')}. Will be uploaded"
                 )
 
-            return await process_entity(
+            response = await process_entity(
                 download_api_url, entity_id, info, progress_on, total_progress
             )
+
+            remote_info = await loop.run_in_executor(
+                None, entity_api._api.remote_storage.get_file_info_by_path, info["remote"]
+            )
+
+            if remote_info.get("size") == info.get("size"):
+                sly.logger.debug(f"Entity uploaded successfully to: {info.get('remote')}")
+                return response
+            else:
+                sly.logger.warning(
+                    f"Entity with ID - {entity_id}, name - {info.get('name')} was not uploaded successfully. "
+                    "Restart this process after completing the migration of other entities to try fix the issue."
+                )
+                entities_map.pop(entity_id)
+                return None
 
         except Exception as e:
             sly.logger.error(
@@ -470,25 +485,25 @@ def migrate_project(project: Union[sly.ProjectInfo, int]):
         raise ValueError(f"Unsupported project type: {project_info.type}")
     
     if not entities_map:
-      for dataset in api.dataset.get_list(project_info.id, recursive=True):
-          for entity_info in entity_api.get_list(dataset.id):
-              if entity_info.link is not None:
-                  continue
-              entities_map[entity_info.id] = {}
-              entities_map[entity_info.id]["name"] = entity_info.name
+        for dataset in api.dataset.get_list(project_info.id, recursive=True):
+            for entity_info in entity_api.get_list(dataset.id):
+                if entity_info.link is not None:
+                    continue
+                entities_map[entity_info.id] = {}
+                entities_map[entity_info.id]["name"] = entity_info.name
 
-              if project_info.type == str(sly.ProjectType.IMAGES):
-                  entities_map[entity_info.id]["mime"] = entity_info.mime
-                  entities_map[entity_info.id]["size"] = entity_info.size
-                  entities_map[entity_info.id]["remote"] = os.path.join(
-                      IMAGES_DIR, str(project_info.id), str(dataset.id), entity_info.name
-                  )
-              elif project_info.type == str(sly.ProjectType.VIDEOS):
-                  entities_map[entity_info.id]["mime"] = entity_info.file_meta["mime"]
-                  entities_map[entity_info.id]["size"] = int(entity_info.file_meta["size"])
-                  entities_map[entity_info.id]["remote"] = os.path.join(
-                      VIDEOS_DIR, str(project_info.id), str(dataset.id), entity_info.name
-                  )
+                if project_info.type == str(sly.ProjectType.IMAGES):
+                    entities_map[entity_info.id]["mime"] = entity_info.mime
+                    entities_map[entity_info.id]["size"] = entity_info.size
+                    entities_map[entity_info.id]["remote"] = os.path.join(
+                        IMAGES_DIR, str(project_info.id), str(dataset.id), entity_info.name
+                    )
+                elif project_info.type == str(sly.ProjectType.VIDEOS):
+                    entities_map[entity_info.id]["mime"] = entity_info.file_meta["mime"]
+                    entities_map[entity_info.id]["size"] = int(entity_info.file_meta["size"])
+                    entities_map[entity_info.id]["remote"] = os.path.join(
+                        VIDEOS_DIR, str(project_info.id), str(dataset.id), entity_info.name
+                    )
 
     # --------------------------------- Uploading Entities To Remote --------------------------------- #
 
