@@ -30,3 +30,4 @@ redirects:
   getting-started/first-steps/: getting-started/How-to-import.md
   labeling/editors/images: labeling/images/README.md
   labeling/editors/images/: labeling/images/README.md
+  customization/agents/agent-storage: agents/agent-storage/agent-storage.md
