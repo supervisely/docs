@@ -76,7 +76,7 @@
   * [Videos](labeling/videos/README.md)
   * [Video tracking](labeling/videos/video-tracking.md)
   * [3D Point Clouds](labeling/3D-Point-Clouds/3D-Point-Clouds.md)
-  * [3D Point Clouds Episodes](labeling/3D-Point-Clouds/3D-Point-Clouds-episod.md)
+  * [3D Point Clouds](labeling/3D-Point-Clouds/3D-Point-Clouds-episod.md)
   * [Sensor-fusion](labeling/3D-Point-Clouds/Sensor-fusion/Sensor-fusion.md)
   * [DICOM](labeling/DICOM/DICOM.md)
 * [Labeling Tools](labeling/labeling-tools/README.md)
