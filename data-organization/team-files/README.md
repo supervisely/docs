@@ -26,7 +26,7 @@ Team Files supports creating folders for structuring data. You can organize file
 
 #### Context menu of files in Team Files
 
-You can right-click on a file or folder. From here (we call this the "context menu") you can perform many important actions related to files: for example: clone, save a file path to launch an application, launch an application so that they immediately download the selected file, download locally or delete files.
+You can right-click on a file or folder. From here (we call this the "context menu") you can perform many important actions related to files, for example: clone, save a file path to launch an application, launch an application so that they immediately download the selected file, download locally or delete files.
 
 <figure><img src="../../.gitbook/assets/context-menu-files.png" alt=""><figcaption><p>Folder context menu</p></figcaption></figure>
 
@@ -54,6 +54,17 @@ Many applications in the Supervisely Ecosystem generate artifacts, such as:
 * Additional files used by applications for various tasks.
 
 These artifacts are automatically stored in Team Files, making it easy to access them for analysis, reuse or loading into other projects.
+
+
+
+***
+
+### System Directories
+
+Team Files contains important system directories that help you manage temporary files and offline sessions:
+
+* **/tmp/supervisely/export:** This directory stores temporary files created during the export process. Once you have exported data, these files will remain here so that you can access them later. These files allow for a smooth export process without affecting the main data storage.
+* **/offline-sessions:** This directory stores the settings (UI) for all sessions of all applications, including NN trainings and ML pipelines. It is particularly relevant for stopped applications, as it allows you to reopen a previously saved session and view their configurations. To ensure continued access to your sessions and their settings, don’t delete this directory, or you’ll lose progress.
 
 
 
