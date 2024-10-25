@@ -33,6 +33,7 @@
       * [LabelMe](data-organization/import/import/supported-formats-images/labelme.md)
       * [LabelStudio](data-organization/import/import/supported-formats-images/label\_studio.md)
       * [Fisheye](data-organization/import/import/supported-formats-images/fisheye.md)
+      * [High Color Depth](data-organization/import/import/supported-formats-images/high-color-depth.md)
   * [Import sample dataset](data-organization/import/import/Import-sample-dataset.md)
   * [Import into an existing dataset](data-organization/import/import/exesting-dataset.md)
   * [Import using Team Files](data-organization/import/import/Import-Team-Files.md)
