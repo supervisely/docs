@@ -38,28 +38,6 @@ description: >-
 
 ## **Using tags in the Video Annotation Tool 2.0**
 
-### **Use the Definitions panel to search for or create tags**
-
-* Below the classes are sections for **object property tags** and **object frame tags**. These sections are used to tag entire objects (such as a skier or snowboarder) or specific frames for specific attributes or actions.
-* The **tags available** section displays all tags that can be used in the video annotation. You can create new tags, search for tags using the search bar, or select directly from the available list.
-* **Video Property Tags:** This section, found in the right panel, allows you to assign tags that describe general properties of the entire video, such as "on the move." Use the `+` button next to this section to add tags that describe overarching elements of the video, like the weather, location, or ongoing action throughout the entire clip.
-* **Video Frame Tags:** This section, also in the right panel, helps in tagging specific moments or events within the video. If an event (like a skier jumping) occurs at a particular frame, you can tag that frame using this section.
-
-### **Applying tags to Frames**
-
-* To apply a tag to a specific frame, click on the `MARK FRAMES` button next to the tag in the tags available section. This action allows you to select frames to which you want to apply the selected tag.&#x20;
-
-### **Navigation and Tagging Controls**
-
-* The bottom of the interface contains playback controls and a timeline slider.
-* Use these controls to navigate through the video frames (e.g., go frame by frame, play, pause) and select the frames you want to tag.
-* The `TAG`, `UNTAG`, and `CHANGE VALUE` buttons below the timeline slider allow you to apply, remove, or modify tags for the selected frames or objects.
-
-### **Filter and Manage Tracks**
-
-* The Manage tracks dropdown menu lets you control which tags are visible and which types of tags you want to manage. You can filter by different tag categories, such as "Figures," "Video Tags," "Object Tags," etc., to simplify your view and focus on specific elements.
-* The Filter icon next to each section helps narrow down what is displayed, making it easier to manage large amounts of tagged data.
-
 ### **Global Tags**
 
 Global Tags apply to the entire video or to an object across its presence in the video.
