@@ -73,6 +73,7 @@
 * [Labeling Toolboxes](labeling/Labeling-toolbox.md)
   * [Images](labeling/images/README.md)
   * [Videos 2.0](labeling/videos/README.md)
+  * [Videos 3.0](labeling/labeling-toolbox/videos-3.0.md)
   * [3D Point Clouds](labeling/3D-Point-Clouds/3D-Point-Clouds-episod.md)
   * [DICOM](labeling/DICOM/DICOM.md)
   * [Multi-view images](<labeling/images/Multi-view images/Multi-view-images.md>)
