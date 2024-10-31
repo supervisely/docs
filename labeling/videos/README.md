@@ -60,7 +60,7 @@ description: >-
 * The Manage tracks dropdown menu lets you control which tags are visible and which types of tags you want to manage. You can filter by different tag categories, such as "Figures," "Video Tags," "Object Tags," etc., to simplify your view and focus on specific elements.
 * The Filter icon next to each section helps narrow down what is displayed, making it easier to manage large amounts of tagged data.
 
-### **Global Tags (Video and Object)**
+### **Global Tags**
 
 Global Tags apply to the entire video or to an object across its presence in the video.
 
@@ -74,27 +74,25 @@ Global Tags apply to the entire video or to an object across its presence in the
 
 #### **Assign a global tag for an object**
 
-1. Go to the **Objects** panel and select the labeled object (e.g., "car").
+1. Click on the labeled object in the video or go to the **Objects** panel and select one (e.g., "car").
 2. In the **Tags Available** section, select or create tags to describe the object property tag throughout the video (for example, "Road Position" or "Direction"). Choose whether the scope is global or global and frame-based when creating a tag.
 3. Click the **Attach to annotation object as a property tag** to link the tag to the object.
 
 <figure><img src="../../.gitbook/assets/Group 1.png" alt=""><figcaption></figcaption></figure>
 
-### **Frame-Based Tags (Video and Object)**
+### **Frame-Based Tags**&#x20;
 
 Frame Tag**s** allow you to tag specific moments or actions on individual frames.
 
-**Example: adding a frame tag**
+**Assign a frame tag for an object**
 
-1. Select the object (e.g., bus) on the timeline.
+1. Click on the labeled object in the video or go to the **Objects** panel and select one (e.g., "bus").
 2. In the **Tags Available** section, choose a tag (e.g., "Lane Change") and click **Mark Frames** to tag the frames where the bus changes lanes.
-3. Use the **Timeline slider** to navigate and mark specific frames with the selected tag.
+3. Use the **Timeline** slider to navigate through the video and label specific frames with the selected tag. Once you've identified the relevant frames, the tag will be applied accordingly to the chosen frames for the object.
 
 ### **Auto-Tracking**
 
 **Auto-Tracking** enables the system to follow an object across frames, making it easier to add tags and annotations.
-
-**Example: activating auto-tracking**
 
 1. Select the object in the video.
 2. Click **Track** (or use the **SHIFT + T** shortcut) to start tracking. The system will automatically follow the object's movement.
