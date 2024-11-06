@@ -2,14 +2,14 @@
 
 With more than 5 years of constant improvement, proved by hundreds of businesses, our image labeling suite sets the highest industry standard on the market today. 
 
-[Learn more ➡️](https://supervise.ly/labeling-toolbox/images)
+[Learn more ➡️](https://supervisely.com/labeling-toolbox/images)
 
 ![](<Labeling-Toolboxes .png>)
 
 ## **FOR ANY TYPE OF ANNOTATION**
 
 Packed with advanced labeling tools.
-Precise tools for pixel-accurate annotations make any task from object detection to instance segmentations simple and fast. [Learn more ➡️](https://supervise.ly/labeling-toolbox/images)
+Precise tools for pixel-accurate annotations make any task from object detection to instance segmentations simple and fast. [Learn more ➡️](https://supervisely.com/labeling-toolbox/images)
 
 ![](FOR-ANY-TYPE-OF-ANNOTATION.gif)
 
