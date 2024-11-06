@@ -29,7 +29,7 @@ from the context menu of a project or dataset or launch the application directly
     ![](Export-Metadata.png)
 
 5. [**Export to cloud storage.**](https://app.supervisely.com/ecosystem/apps/export-project-to-cloud-storage?id=186)
-    This apps allows to export images project with annotations (in [Supervisely format](https://developer.supervise.ly/api-references/supervisely-annotation-json-format?_ga=2.2048241.1588633722.1698657810-1548462166.1688143034)) to the most popular cloud storage providers from Supervisely Private instance.
+    This apps allows to export images project with annotations (in [Supervisely format](https://developer.supervisely.com/api-references/supervisely-annotation-json-format?_ga=2.2048241.1588633722.1698657810-1548462166.1688143034)) to the most popular cloud storage providers from Supervisely Private instance.
 
     **List of providers:**
 
