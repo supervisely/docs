@@ -12,6 +12,17 @@ The **Definitions** tab consists of two main categories:
 1. **Classes** - management object classes.&#x20;
 2. **Tags** - management of tags for data annotations.
 
+### Definitions tab functions
+
+* **Adding a new classes and tags**: you can create a new class or tag by clicking the `+ NEW CLASS` or `+ NEW TAG` button and filling in the required fields.
+* **Editing**: each class and tag can be edited by changing its parameters such as name, colour, scope and value type.
+* **Archiving**: if a class or tag is not needed temporarily, it can be archived so that it is not displayed in the list of active elements but remains in the project. Archived classes and tags can be restored at any time.
+* **Sorting**: Sort classes and tags to quickly find the elements you need.
+  * **Newest (default)** — displays the most recently created items first.
+  * **Oldest** — displays the oldest items first.
+  * **Name (A-Z)** and **Name (Z-A)** — sorts items alphabetically in ascending or descending order.
+  * **Shape (A-Z)** and **Shape (Z-A)** — **(for classes only)** sorts items by shape type in ascending or descending order.
+
 <div>
 
 <figure><img src="../../.gitbook/assets/classes0.png" alt=""><figcaption></figcaption></figure>
