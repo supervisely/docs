@@ -1,10 +1,10 @@
-# Single Video Annotation File
+# Individual Video Annotations
 
-For each video file, we store the annotations in a separate json file named `image_name.image_format.json` with the following file structure:
+For each video file, we store the annotations in a separate json file named `video_name.video_format.json` with the following file structure:
 
 Example:
 
-![cudoid_3d example](./figures_images/video_frame.png)
+![](figures\_images/video\_frame.png)
 
 Json format of annotation for video format:
 
@@ -63,44 +63,41 @@ Json format of annotation for video format:
 
 **Fields definitions:**
 
-- `size` - string - is equal to image(frame) size
-- `description` - string - (optional) -  this field is used to store the text we want to assign to the video. In the labeling intrface it corresponds to the 'data' filed.
-- `tags` - list of strings that will be interpreted as video tags
-- `key` - string, unique key for a given video (used in key_id_map.json to get the video ID)
-- `objects` - list of objects that may be present on the video
-- `frames` - list of frames of which the video consists. List contains only frames with an object from the 'objects' field
-  - `index` - integer - number of the current frame
-  - `figures` - integer -  list of objects which the current frame contains
-- `framesCount` - integer - total number of frames in the video
-- `objectKey` - string - unique key for a given object (used in key_id_map.json)
-- `labelerLogin` - string - the name of a user who created the current figure
-- `geometryType` - "cuboid_3d" - class shape
-- `geometry` - a dictionary containing indicators of location, rotation and dimensions of cuboids
+* `size` - string - is equal to image(frame) size
+* `description` - string - (optional) - this field is used to store the text we want to assign to the video. In the labeling intrface it corresponds to the 'data' filed.
+* `tags` - list of strings that will be interpreted as video tags
+* `key` - string, unique key for a given video (used in key\_id\_map.json to get the video ID)
+* `objects` - list of objects that may be present on the video
+* `frames` - list of frames of which the video consists. List contains only frames with an object from the 'objects' field
+  * `index` - integer - number of the current frame
+  * `figures` - integer - list of objects which the current frame contains
+* `framesCount` - integer - total number of frames in the video
+* `objectKey` - string - unique key for a given object (used in `key_id_map.json`)
+* `labelerLogin` - string - the name of a user who created the current figure
+* `geometryType` - "cuboid\_3d" - class shape
+* `geometry` - a dictionary containing indicators of location, rotation and dimensions of cuboids
 
 **Fields definitions for objects field:**
 
-- `key` - string, a unique key for the given object (used in key_id_map.json to get the object ID)
-- `classTitle` - string - the title of a class. It's used to identify the class shape from the `meta.json` file
-- `tags` - list of strings that will be interpreted as object tags
-- `labelerLogin` - string - the name of the user that added this figure to the project
+* `key` - string, a unique key for the given object (used in `key_id_map.json` to get the object ID)
+* `classTitle` - string - the title of a class. It's used to identify the class shape from the `meta.json` file
+* `tags` - list of strings that will be interpreted as object tags
+* `labelerLogin` - string - the name of the user that added this figure to the project
 
 **Fields description for figures field:**
 
-- `key` - string, a unique key for the given figure (used in key_id_map.json to get the figure ID)
-- `objectKey` - string, a unique key for the given object (used in key_id_map.json to get the object ID). 
-- `geometryType` - "rectangle" -class shape
-- `geometry` - geometry of the object
-- `classTitle` - string - the title of a class. It's used to identify the class shape from the `meta.json` file
-- `labelerLogin` - string - the name of the user that added this figure to the current frame
-
+* `key` - string, a unique key for the given figure (used in key\_id\_map.json to get the figure ID)
+* `objectKey` - string, a unique key for the given object (used in key\_id\_map.json to get the object ID).
+* `geometryType` - "rectangle" - class shape
+* `geometry` - geometry of the object
+* `classTitle` - string - the title of a class. It's used to identify the class shape from the `meta.json` file
+* `labelerLogin` - string - the name of the user that added this figure to the current frame
 
 ## Key id map file
 
-Key_id_map.json file is optional. It is created when annotating the video inside Supervisely interface and sets the correspondence between the unique identifiers of the video, object and the frame on which the object is located.  If you annotate manually, you do not need to create this file. This will not affect the work being done.
+`Key_id_map.json` file is optional. It is created when annotating the video inside Supervisely interface and sets the correspondence between the unique identifiers of the video, object and the frame on which the object is located. If you annotate manually, you do not need to create this file. This will not affect the work being done.
 
-
-
-Json format of key_id_map.json:
+Json format of `key_id_map.json`:
 
 ```json
 {
@@ -119,7 +116,7 @@ Json format of key_id_map.json:
 
 Fields definitions:
 
-- `objects` - dictionary, where the key is a unique string, generated inside Supervisely environment to set correspondence of current object in annotation, and values are unique integer ID corresponding to the current object
-- `figures` - dictionary, where the key is a unique string, generated inside Supervisely environment to set correspondence of object on current frame in annotation, and values are unique integer ID corresponding to the current frame
-- `videos` - dictionary, where the key is unique string, generated inside Supervisely environment to set correspondence of video in annotation, and value is a unique integer ID corresponding to the current video
-- `tags` - dictionary, where the keys are unique strings, generated inside Supervisely environment to set correspondence of tag on current frame in annotation, and values are a unique integer ID corresponding to the current tag
+* `objects` - dictionary, where the key is a unique string, generated inside Supervisely environment to set correspondence of current object in annotation, and values are unique integer ID corresponding to the current object
+* `figures` - dictionary, where the key is a unique string, generated inside Supervisely environment to set correspondence of object on current frame in annotation, and values are unique integer ID corresponding to the current frame
+* `videos` - dictionary, where the key is unique string, generated inside Supervisely environment to set correspondence of video in annotation, and value is a unique integer ID corresponding to the current video
+* `tags` - dictionary, where the keys are unique strings, generated inside Supervisely environment to set correspondence of tag on current frame in annotation, and values are a unique integer ID corresponding to the current tag

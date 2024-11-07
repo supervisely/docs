@@ -68,13 +68,25 @@ Frame Tag**s** allow you to tag specific moments or actions on individual frames
 2. In the **Tags Available** section, choose a tag (e.g., "Lane Change") and click **Mark Frames** to tag the frames where the bus changes lanes.
 3. Use the **Timeline** slider to navigate through the video and label specific frames with the selected tag. Once you've identified the relevant frames, the tag will be applied accordingly to the chosen frames for the object.
 
-### **Auto-Tracking**
+<figure><img src="../../.gitbook/assets/Group 4.png" alt=""><figcaption></figcaption></figure>
 
-**Auto-Tracking** enables the system to follow an object across frames, making it easier to add tags and annotations.
+**Assign a frame tag for an video**
+
+1. Go to the **Videos** panel and open **Toggle tags panel**.
+2. In the **Tags Available** section, choose a tag (e.g., "Traffic Density") and click **Mark Frames** to select the frame range to which you want to apply the tag.
+3. Use the **Timeline** slider to navigate through the video and label specific frames with the selected tag. Once you've identified the relevant frames, the tag will be applied accordingly to the chosen frames for the video.
+
+<figure><img src="../../.gitbook/assets/Group 11.png" alt=""><figcaption></figcaption></figure>
+
+### **Tracking**
+
+**Tracking** enables the system to follow an object across frames, making it easier to add tags and annotations.
 
 1. Select the object in the video.
 2. Click **Track** (or use the **SHIFT + T** shortcut) to start tracking. The system will automatically follow the object's movement.
 3. In the tracking settings, you can select the tracking method, direction, and number of frames to process. Once tracking is complete, the object will be tracked across all selected frames.
+
+<figure><img src="../../.gitbook/assets/Group 12.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
