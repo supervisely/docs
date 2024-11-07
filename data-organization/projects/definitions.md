@@ -22,14 +22,16 @@ The **Definitions** tab consists of two main categories:
 
 </div>
 
+
+
 ## Classes & Tags: Distinctions <a href="#tags--classes-distinctions" id="tags--classes-distinctions"></a>
 
 Although both tags and classes are used to identify objects, they serve distinct purposes:
 
 * **Classes:** Represent clear categories that an object belongs to, such as "car", "truck", or "bus" for vehicles.
-* **Tags:** Provide specific information about objects or images, such as context or properties. Tags are more flexible and can include details not tied to formal classifications.
+* **Tags:** Provide specific information about objects or images, such as context or properties. Tags are more flexible and can include details not tied to formal classifications. For example, the tag "Traffic Density" can have values "High" or "Low" indicating the level of traffic density, and the tag "Action" can signify the actions of an object (e.g. "Stopped" or "Moves").
 
-An image or an object can have multiple Tags assigned, while each object usually belongs to a single class, i.e. classes are used to explicitly categorize objects. Tags can be more personalized and focused on specific characteristics and attributes. Tags typically add context and descriptive attributes not necessarily related to the formal classification of an object.
+An image or an object can have multiple tags assigned, while each object usually belongs to a single class, i.e. classes are used to explicitly categorize objects. Tags can be more personalized and focused on specific characteristics and attributes. Tags typically add context and descriptive attributes not necessarily related to the formal classification of an object.
 
 {% hint style="info" %}
 Tags provide a more flexible and free way to describe, while classes provide a formalized structure for training models.
@@ -37,47 +39,29 @@ Tags provide a more flexible and free way to describe, while classes provide a f
 
 ## Classes
 
-**Classes** are object categories that are used to annotate images and videos by creating shapes on objects. Each class denotes an object type.
+**Classes** are object categories used to annotate images and video by creating shapes on objects. Each class represents an object type, and each annotated object in an image or video frame has exactly one class associated with it.
 
 * **TITLE** — the name of the class. The name should be unique and clearly describe the object, for example, "Person," "Car," or "Tree."
-* **SHAPE** — the annotation shape for the class (e.g., Bounding Box to label an object with rectangular frame).
+* **SHAPE** — the annotation shape for the class. Available options include [Bounding Box](../../labeling/labeling-tools/bounding-box-rectangle-tool.md), [Mask](../../labeling/labeling-tools/mask-pen-tool.md), [Polygon](../../labeling/labeling-tools/polygon-tool.md), [Keypoints](../../labeling/labeling-tools/graph-keypoints-tool.md), [Points](../../labeling/labeling-tools/point-tool.md), [Line](../../labeling/labeling-tools/polyline-tool.md), Cuboid 2D, Alpha Mask, and Any Shape.
 * **COLOR** — the color assigned to the class, displayed on the screen to visually differentiate the annotation.
 * **HOTKEY** — a shortcut key assigned to the class for quick annotation during labeling.
 
 <figure><img src="../../.gitbook/assets/classes-1.png" alt=""><figcaption></figcaption></figure>
-
-{% hint style="warning" %}
-Every labeled object on image or video frame has exactly one class associated.
-{% endhint %}
 
 ### How to create a new class
 
 1. Click on the `+ NEW CLASS` **button** to start creating a new class.
 2. Set a **unique title** for the class to clearly identify it.
 3. Add a **description (optional)** and assign a [**hotkey**](#user-content-fn-1)[^1] for quick selection during labeling.
-4. Choose the **Shape** for the class. Available options include [Bounding Box](../../labeling/labeling-tools/bounding-box-rectangle-tool.md), [Mask](../../labeling/labeling-tools/mask-pen-tool.md), [Polygon](../../labeling/labeling-tools/polygon-tool.md), [Keypoints](../../labeling/labeling-tools/graph-keypoints-tool.md), [Points](../../labeling/labeling-tools/point-tool.md), [Line](../../labeling/labeling-tools/polyline-tool.md), Cuboid 2D, Alpha Mask, and Any Shape.
+4. Choose the **Shape** for the class (e.g., Bounding Box to label an object with rectangular frame).
 
-{% hint style="warning" %}
+{% hint style="info" %}
 **Note**: Some shapes are only applicable to specific labeling tools (e.g., Cuboid 2D is relevant for Point Cloud and Point Cloud Episodes).
 {% endhint %}
 
 5. Generate or choose a **color** for the class to visually differentiate it from other classes.
 
 <figure><img src="../../.gitbook/assets/new-class.png" alt="" width="375"><figcaption></figcaption></figure>
-
-Usually, you define classes before labeling starts, but you can add new classes in the labelling interface on-fly (if you have enough permissions, of course).
-
-If you delete the class, then the objects drawn by this class are disabled, and they can later be restored using the restore mode function.
-
-<div>
-
-<figure><img src="../../.gitbook/assets/new-class-labeling-tool.png" alt="" width="254"><figcaption></figcaption></figure>
-
- 
-
-<figure><img src="../../.gitbook/assets/restore-mode.png" alt="" width="296"><figcaption></figcaption></figure>
-
-</div>
 
 ## Tags
 
@@ -89,24 +73,18 @@ If you delete the class, then the objects drawn by this class are disabled, and 
 
       **Object Tags:** Apply to objects within images, detailing characteristics (e.g., "broken" equipment), state (e.g., "ripe" fruit), and localization (e.g., "anterior" placenta).
   * Some tags can be applied to **both images and objects**. Such Tags may describe both image characteristics and individual objects at the same time, providing comprehensive labeling.
-*   **SCOPE** (**for videos project)** — the tag’s range of application:
-
-    * **Global** — the tag applies to the entire video or object.
-    * **Frame-based** — the tag applies only to specific frames in the video.
-    * **Global and Frame-based** — allows you to use a tag for the entire video or object as well as for individual frames at the same time. This means that you can set a global tag for the entire video or object, denoting a permanent property, and apply it to individual frames to label temporary changes or events.
-
-
-
-    <figure><img src="../../.gitbook/assets/tags-1.png" alt=""><figcaption></figcaption></figure>
+* **SCOPE** (**for videos project)** — the tag’s range of application:
+  * **Global** — the tag applies to the entire video or object.
+  * **Frame-based** — the tag applies only to specific frames in the video.
+  * **Global and Frame-based** — allows you to use a tag for the entire video or object as well as for individual frames at the same time. This means that you can set a global tag for the entire video or object, denoting a permanent property, and apply it to individual frames to label temporary changes or events.
+* **TAG VALUE TYPE** — the type of value associated with the tag:
+  * **None (Tag without Value):** Used to flag specific properties. For example, a tag "train" might mark data for neural network training.
+  * **Text Tag:** Contains textual descriptions or comments about the object or image.
+  * **Number Tag:** Represents numeric properties, useful for regression tasks (e.g., size, weight).
+  * **One of:** Indicates that the value must be one of a predefined set, such as colors (Red, Blue, Green).
 * **COLOR** — the color displayed on the screen to make the tag easily identifiable.
-*   **TAG VALUE TYPE** — the type of value associated with the tag:
 
-    * **None (Tag without Value):** Used to flag specific properties. For example, a tag "train" might mark data for neural network training.
-    * **Text Tag:** Contains textual descriptions or comments about the object or image.
-    * **Number Tag:** Represents numeric properties, useful for regression tasks (e.g., size, weight).
-    * **One of:** Indicates that the value must be one of a predefined set, such as colors (Red, Blue, Green).
-
-    <figure><img src="../../.gitbook/assets/value-types.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/tags-1.png" alt=""><figcaption></figcaption></figure>
 
 ### How to create a new tag
 
