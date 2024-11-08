@@ -2,7 +2,7 @@
 description: >-
   The Definitions tab allows you to manage all the classes and tags used for
   annotation tasks in the project. In this section you can create, edit and
-  delete classes and tags.
+  archive classes and tags.
 ---
 
 # Definitions
@@ -35,7 +35,7 @@ The **Definitions** tab consists of two main categories:
 
 
 
-## Classes & Tags: Distinctions <a href="#tags--classes-distinctions" id="tags--classes-distinctions"></a>
+## Classes & Tags: distinctions <a href="#tags--classes-distinctions" id="tags--classes-distinctions"></a>
 
 Although both tags and classes are used to identify objects, they serve distinct purposes:
 
@@ -120,7 +120,7 @@ Tags provide a more flexible and free way to describe, while classes provide a f
 
 <figure><img src="../../.gitbook/assets/new-tag.png" alt="" width="359"><figcaption></figcaption></figure>
 
-### Multiple Tags Mode
+### Multiple tags mode
 
 To apply the same tag multiple times:
 
