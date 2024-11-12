@@ -1,6 +1,19 @@
 # Projects
 
-You can think of a **Project** as a superfolder with data and metadata, like classes and tags. Every dataset inside the project will share the same metadata and have the same classes and tags defined on the project-level.
+**Project** is a primary organizational unit designed to house and manage datasets, along with metadata such as **classes** and **tags**. Think of it as a "superfolder" where all datasets within the project share common metadata configurations, including predefined classes and tags set at the project-level.
+
+## Navigating the Projects Page
+
+The **Projects** page displays all available projects in the currently selected [Workspace](../../collaboration/teams.md#workspaces). Each project appears as a card or line, showing key details such as:
+
+* **Thumbnail Preview**: Provides a quick visual overview of the project's content (e.g. an image or video frame).
+* **Project Name**: The title of the project, such as "Wood Defect Detection".
+* **Data Count**: Shows the total items within the project, broken down by data type (e.g., "888 images in 3 datasets").
+* **Project ID and Creation Date**: Helps track and organize projects, especially in collaborative environments.
+
+Projects are displayed either in **Card View** (default) or **Table View**. You can switch between these views by using the icon at the top-right corner of the page.
+
+<figure><img src="../../.gitbook/assets/project-page.png" alt=""><figcaption></figcaption></figure>
 
 ## Projects List
 

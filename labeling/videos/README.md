@@ -23,16 +23,15 @@ description: >-
 
 ## **Overview**
 
-<figure><img src="../../.gitbook/assets/video-labeling-toolbox-overview.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/video-tool-2.png" alt=""><figcaption></figcaption></figure>
 
 1. **Home button** — returns user to the main menu (Projects page)
 2. [Basic interface elements](./#basic-interface-elements) — basic settings, such as history of operations, theme, a hotkeys map and more useful features.
 3. [Main scene & labeling scene settings & playback](./#main-scene-and-labeling-scene-settings-and-playback) — annotation area for current video and its labels.
 4. [Timeline and track controls](./#timeline-and-track-controls) —  video timeline and controls for managing tracks and frames.
-5. [Definitions panel](./#definitions-panel) — make it easy to create and manage classes and tags.
-6. [Instruments panel](./#instruments-panel) — annotation tools used to create annotations.
-7. [Objects panel](./#objects-panel) — list of figures on the current video with additional information like classes and tags.
-8. [Videos/Apps/Settings panel](./#images-panel) — list of videos in your dataset, list of additional apps you can embed into the labeling toolbox, visualization and other settings.
+5. [Instruments panel](./#instruments-panel) — annotation tools used to create annotations.
+6. [Objects panel](./#objects-panel) — list of figures on the current video with additional information like classes and tags.
+7. [Videos/Apps/Settings panel](./#images-panel) — list of videos in your dataset, list of additional apps you can embed into the labeling toolbox, visualization and other settings.
 
 ***
 

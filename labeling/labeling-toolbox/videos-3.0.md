@@ -2,7 +2,7 @@
 
 **Video Annotation Tool 3.0** is designed to simplify and streamline the complex task of video annotation, which involves not only labeling multiple frames, but also tracking the relationships between them to ensure consistent object tracking and accurate labeling.
 
-With this latest release, users gain access to a number of enhancements, including AI-powered auto-tracking, improved tag management, a redesigned interface, and a new Objects & Tags panel that provides a complete view of annotations across the entire video.
+With this latest release, users gain access to a number of new features, including AI-powered auto-tracking, improved tag management, a redesigned interface, and a new Objects & Tags panel that provides a complete view of annotations across the entire video.
 
 
 
