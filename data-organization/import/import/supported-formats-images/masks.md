@@ -1,7 +1,5 @@
 # Images with PNG masks
 
-## ![](https://github.com/supervisely-ecosystem/import-wizard-docs/releases/download/v0.0.1/masks\_logo.png)Images with masks Format
-
 ## Overview
 
 Allows to upload images with annotations in the format of PNG masks. Masks are 3-(1-)channel images containing only pixels that have the same values in all channels, to map pixel masks with the appropriate class app requires `obj_class_to_machine_color.json` file to match classes and colors, otherwise app won't start. The converter supports both semantic and instance segmentation masks. All data will be uploaded to a single dataset.
