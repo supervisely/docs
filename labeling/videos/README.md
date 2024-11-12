@@ -77,9 +77,9 @@ Frame Tag**s** allow you to tag specific moments or actions on individual frames
 
 <figure><img src="../../.gitbook/assets/Group 11.png" alt=""><figcaption></figcaption></figure>
 
-### **Tracking**
+## **Tracking**
 
-**Tracking** enables the system to follow an object across frames, making it easier to add tags and annotations.
+**Tracking** allows the system to automatically follow an object across multiple frames.
 
 1. Select the object in the video.
 2. Click **Track** (or use the **SHIFT + T** shortcut) to start tracking. The system will automatically follow the object's movement.
