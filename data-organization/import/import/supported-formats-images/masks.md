@@ -13,9 +13,7 @@ Allows to upload images with annotations in the format of PNG masks. Masks are 3
 
 ## Input files structure
 
-{% hint style="success" %}
 Example data: [download ⬇️](https://github.com/user-attachments/files/17330052/masks\_sample.zip)
-{% endhint %}
 
 Images should be in the folder `"img"` and masks should be in one (or more) of the following folders below:
 
