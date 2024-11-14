@@ -90,6 +90,7 @@
   * [Mask Pen Tool](labeling/labeling-tools/mask-pen-tool.md)
   * [Smart Tool](labeling/labeling-tools/smart-tool.md)
   * [Graph (Keypoints) Tool](labeling/labeling-tools/graph-keypoints-tool.md)
+  * [Frame-based tagging](labeling/labeling-tools/frame-based-tags.md)
 * [Labeling Jobs](labeling/jobs/README.md)
   * [Labeling Queues](labeling/jobs/Labeling-Queues.md)
   * [Labeling Consensus](labeling/jobs/Labeling-Consensus.md)
