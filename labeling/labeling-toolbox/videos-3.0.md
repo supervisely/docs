@@ -2,9 +2,7 @@
 
 **Video Annotation Tool 3.0** is designed to simplify and streamline the complex task of video annotation, which involves not only labeling multiple frames, but also tracking the relationships between them to ensure consistent object tracking and accurate labeling.
 
-With this latest release, users gain access to a number of new features, including AI-powered auto-tracking, improved tag management, a redesigned interface, and a new Objects & Tags panel that provides a complete view of annotations across the entire video.
-
-
+<figure><img src="../../.gitbook/assets/cover.jpg" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -20,18 +18,20 @@ With this latest release, users gain access to a number of new features, includi
 
 **Quick Actions Panel**: To save time when annotating large videos, the floating quick actions panel appears beside the annotation object, enabling rapid access to functions such as moving, deleting, or adjusting bounding boxes, thereby minimizing unnecessary cursor movements.
 
+***
+
 ## **Overview**
 
 <figure><img src="../../.gitbook/assets/interface-vlt-3.png" alt=""><figcaption></figcaption></figure>
 
 1. **Home button** — returns user to the main menu (Projects page)
-2. Basic interface elements — basic settings, such as history of operations, theme, a hotkeys map and more useful features.
-3. Auto-Tracking — button to start tracking and adjust tracking settings.
-4. Main scene & labeling scene settings & playback — annotation area for current video and its labels.
-5. Objects & Tags & Timeline —  video timeline and overview of all objects and tags throughout the entire video.
-6. Instruments panel — annotation tools used to create annotations.
-7. Definitions panel — make it easy to create, manage and assign classes and tags.
-8. Videos/Apps/Settings panel — list of videos in your dataset, list of additional apps you can embed into the labeling toolbox, visualization and other settings.
+2. [Basic interface elements](videos-3.0.md#basic-interface-elements) — basic settings, such as history of operations, theme, a hotkeys map and more useful features.
+3. [Auto-Tracking](videos-3.0.md#auto-tracking) — button to start tracking and adjust tracking settings.
+4. [Main scene & labeling scene settings & playback](videos-3.0.md#main-scene-and-labeling-scene-settings-and-playback) — annotation area for current video and its labels.
+5. [Objects & Tags & Timeline](videos-3.0.md#objects-and-tags-and-timeline) —  video timeline and overview of all objects and tags throughout the entire video.
+6. [Instruments panel](videos-3.0.md#instruments-panel) — annotation tools used to create annotations.
+7. [Definitions panel](videos-3.0.md#definitions-panel) — make it easy to create, manage and assign classes and tags.
+8. [Videos/Apps/Settings panel](videos-3.0.md#images-panel) — list of videos in your dataset, list of additional apps you can embed into the labeling toolbox, visualization and other settings.
 
 ***
 
@@ -44,12 +44,14 @@ This guide provides detailed instructions for using auto-tracking and tagging fe
 1. **Open the video** you want to annotate.
 2. **Annotate the object** with the desired class, such as a bounding box, skeleton, or mask.
 3. **Select the object** you want to track by clicking on it within the video frame.
-4. **Click the Auto Tracking button** to activate the Auto Track application. By default, Auto Track will be used, but you can also select other models, like **Serve Segment Anything** or **MixFormer**, depending on your tracking needs.
+4. **Click the Auto Tracking button** to activate the Auto Track application. By default, Auto Track will be used, but you can also select other models, like [**Serve Segment Anything**](https://app.supervisely.com/ecosystem/apps/serve-segment-anything-2) or [**MixFormer**](https://app.supervisely.com/ecosystem/apps/supervisely-ecosystem/mixformer/serve/serve), depending on your tracking needs.
 5. **Configure tracking settings** by adjusting options such as:
    * **Auto-tracking mode**: Automatically re-tracks the object when labels change or as you move forward through frames.
    * **Detect off-screen**: Automatically stops tracking and removes objects when they go off-screen.
    * **Tracking By Detection**: Automatically finds and tracks new objects in the scene when you extend the track by clicking forward in the video.
-6. **Scroll through the video** to view auto-generated label predictions and updates. If the object leaves the frame, tracking will automatically stop
+6. **Scroll through the video** to view auto-generated label predictions and updates. If the object leaves the frame, tracking will automatically stop.
+
+
 
 ### Step 2. Configuring the Definitions Panel
 
@@ -71,7 +73,7 @@ Apply global tags like "car," "pedestrian," and "traffic light," along with fram
 
 1. Go to the **Objects & Tags Panel** to get an overview of all objects and tags in the video.
 2. Easily navigate to specific segments.
-3. Use the minimized timeline for precise adjustment
+3. Use the minimized timeline for precise adjustment.
 
 ### **Step 5. Viewing Trajectories**
 
