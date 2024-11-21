@@ -1,36 +1,94 @@
-# Frame-based Tagging
+---
+description: >-
+  Frame-based tagging is a crucial task in video annotation, allowing tags to be
+  assigned to specific frame ranges or multiple intervals.
+---
 
-Tagging is a popular task in any kind of labeling, and it is especially important in video labeling. While applying a tag to a specific labeling object or video file can be useful, it becomes a bit tricky when it comes to assigning a tag (often with a value) to a range of frames or multiple ranges. This short guide will help you learn how to do frame-based tagging in Supervisely efficiently.
+# Frame-based tagging
 
-## Defining a Tag and Finding It in the Labeling Toolbox
+While applying a tag to a specific label object or video file can be useful, it gets a bit tricky when it comes to assigning a tag (often with a value) to a range of frames or multiple ranges. This short guide will help you learn **how to efficiently apply frame-based tagging** in Supervisely.
 
-First, you need to define one or more tags on the [project definitions](/data-organization/projects/definitions) page. The tag scope should be set to either Global and Frame-based or just Frame-based.
+## Step 1. Preparing and locating tags
 
-You can find these tags later when you open a labeling tool in the definitions panel under the frame-based tags section. Note that depending on whether you have a labeling object selected or not, you will see tags available and assigned either for the current video file or the selected annotation object.
+1. **Define tags in the project**:
+   * Go to the [project definitions](https://docs.supervisely.com/data-organization/projects/definitions) page.
+   * Create the required tags and set their scope to **Global and Frame-based** or **Frame-based**.
+2. **Find tags in the Video Labeling Toolbox**:
+   * Open the [Video Labeling Toolbox](../labeling-toolbox/videos-3.0.md).
+   * Navigate to the **Definitions** panel and locate the tags under the **Frame-based Tags** section. Here is a list of tags you have already created.
 
-## Starting a Tag Range
+{% hint style="info" %}
+**Note:** Tags for annotation objects appear when an object is selected. Tags for the entire video appear when no object is selected.
+{% endhint %}
 
-Say you are at a specific frame of a video and want to mark some frames with a tag starting from there. It's easy: just find the desired tag in the Definitions panel and check it.
+## Step 2. Adding a frame-based tag
 
-**Note**: If it is a tag with a value, instead of checking the tag, you can enter a tag value or select it in the dropdown right away.
+1. **Select a frame:**
+   * Navigate to the frame where the tag should start.
+   * Choose the tag from the [Definitions panel](../labeling-toolbox/videos-3.0.md#definitions-panel) by checking its box.
+2. **Apply a value (Optional):**
+   * Open the [Video Labeling Toolbox](../labeling-toolbox/videos-3.0.md).
+   * If the tag requires a value (e.g., "High," "Stopped"), select it from the dropdown.
 
-You will see a popup window asking how to add the tag. Let's see an overview of options:
+## Step 3. Configuring the tag range
 
-### Option 1: Select Range
+After selecting the tag, a pop-up window will appear, offering several ways to define the tag's range. Choose the option that best fits your needs:
 
-The default way of assigning a tag to a range of frames is "Select Range." This will put a tag on a single frame where you are currently at — but as you move through the video, you will see in the Timeline panel that the tag is marked with a dashed line and always ends at the frame where you currently are. When you click the "Finish" button in the Definitions panel, it will end the tag at the current position. Quite convenient, isn't it?
+1. **Select** **Range (Default)**:
+   * This method allows the tag range to grow dynamically as you move through the video.
+   * Press _**Finish**_ in the **Definitions** panel or hit `Enter` to finalize the range at your desired position.
+2.  **From Here to End**:
 
-**Note**: You can just press "Enter" to quickly select the default option.
+    * Apply the tag from the current frame to the end of the video.
+    * To stop the tag earlier, uncheck the tag on the desired frame. A pop-up will allow you to adjust the range accordingly.
 
-**Note**: You can start multiple unfinished tags as you move through the video and finish them one by one. This is totally valid!
+    <mark style="color:green;">**Note:**</mark> You can start multiple unfinished tags as you move through the video and finish them one by one. This is totally valid!
 
-**Note**: Don't worry about closing your labeling toolbox: those unfinished tags will stay where they are, and other people can finish them later if needed.
+    <mark style="color:green;">**Note:**</mark> Unfinished tags remain accessible even after closing the tool, allowing others to finalize them later.
+3. **Custom Options**:
+   * **Add Unfinished**: Start the tag but finalize its range later.
+   * **Few Frames Forward/Backward**: Apply the tag for a fixed number of frames forward or backward. Use the `+` and `-` buttons to adjust the frame count.
+   * **Whole Length**: Tag the entire timeline of the object.
+   * **Labeled Frames**: Apply the tag only to frames where the object is already annotated.
 
-### Option 2: From Here to End
+{% hint style="success" %}
+**Tip**: Use the **Default Action** setting in the pop-up to simplify repetitive actions (e.g., set "From Here to End" as the default behavior).
+{% endhint %}
 
-Another way is to put a tag from your current position to the very end of the video. If the tag range should end before that, simply scroll to the position where the tag should end and uncheck the tag. You will see a popup window suggesting to clear the tag between the current position and the end of the video, leaving the tag with exactly the required range.
+### Editing Tags
 
-### Other Options
+Select the tag in the **Definitions** panel to modify its range or value.&#x20;
 
-You can also click the "Other..." button to find more ways to put a tag. For example, you might need to apply the tag to exactly 20 frames forward. You can also change the default button behavior here and make "From Here to End" the default option.
+## Example
 
+You need to tag a car (_Object ID: 482_) as moving out of its lane:
+
+1. Select the car in the objects list.
+2. Find the **Lane Change** tag in the **Definitions** panel.
+3. Choose the value **Off-lane** from the dropdown.
+4. In the pop-up window, select **Few Frames Forward** and set the range to 10 frames.
+5. Confirm the action and review the timeline.
+
+## Configuring the tag range for clearing tags
+
+When you need to adjust or remove an existing tag's range, the **"Where to Clear Tag"** modal offers several options to customize how and where the tag should be cleared.
+
+1.  **From Tag Start to Here:** Removes the tag from the beginning of its range up to the current frame.
+
+    Ideal for use cases where the tag should no longer apply to earlier frames but remains valid for later frames.
+2. **Few Frames Forward/Backward:** Clears the tag for a set number of frames forward/backward from the current frame. Use the `+` and `-` buttons to adjust the number of frames.
+3. **Whole Length:** Clears the tag across its entire range, regardless of the current frame.
+4. **Clear From Here to Tag End:** Removes the tag from the current frame to the end of its range. Suitable when the tag should apply only to earlier frames and not extend to the end of the video.
+
+## Example
+
+**Scenario**: You want to adjust the range of a tag applied to an object but only remove part of it.
+
+1. Select the tag in the timeline or **Definitions** panel.
+2. In the **"Where to Clear Tag"** modal:
+
+* To remove frames ahead of the current position, choose **Few Frames Forward** and set the desired number of frames.
+* To clear frames leading up to the current frame, select **From Tag Start to Here**.
+* For complete removal, select **Whole Length**.
+
+3. Confirm the action by clicking the appropriate button, such as **Clear From Here to Tag End** or pressing **Enter**.
