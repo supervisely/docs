@@ -135,28 +135,30 @@ In the example above we uploaded two groups of multi-view images. Before or afte
 
 ### Group existing images for multi-view
 
-If you already have images in your project and you want to group them for multi-view, you can group them by your own logic.
-
 {% hint style="info" %}
 Available starting from version `v6.73.236` of the Supervisely Python SDK.
 {% endhint %}
 
-Here is an example of how you can do it with just a single line of code.
+If you already have images in your project and you want to group them for multi-view, you can group them by your own logic. By default, images will be grouped by the value of the `multiview` tag. You can change the tag name by passing the `multiview_tag_name` argument.
+
+Here is an example of how you can do it with just a few lines of code.
+
 ```python
 images_1 = [2389126, 2389127, 2389128, 2389129, 2389130]
 group_name_1 = 'audi'
-api.image.group_images_for_multiview(images_1, group_name_1)
-```
-By default, images will be grouped by the value of the `multiview` tag.
-You can change the tag name by passing the `multiview_tag_name` argument.
-
-```python
-multiview_tag_name = 'cars'
+multiview_tag_name = 'cars' # optional
 api.image.group_images_for_multiview(images_1, group_name_1, multiview_tag_name)
 ```
 
+{% hint style="success" %}
+
+- If the tag does not exist, it will be created automatically.
+- If multi-view mode is not enabled in the project settings, it will be enabled automatically.
+
+{% endhint %}
+
 Let's consider a more complex example.
-For instance, you have a project with several datasets containing images of cars. You can group them by dataset name. If there are a lot of images in datasets, we recommend splitting them into smaller groups of 6-12 images (depending on the size of your display).
+For instance, you have a project with several datasets containing images and you want to group them by dataset name. Here is an example of how you can do it.
 
 ```python
 GROUP_SIZE = 6  # number of images in one group
@@ -176,4 +178,6 @@ with sly.ApiContext(api, project_id=project_id, project_meta=meta):
             api.image.group_images_for_multiview(ids, group_name)
 ```
 
-Enabling multi-view mode in the project settings is not required, as it will be done automatically in the `group_images_for_multiview` method.
+{% hint style="info" %}
+We recommend grouping images in batches of 6-12 images (depending on the size of your display).
+{% endhint %}
