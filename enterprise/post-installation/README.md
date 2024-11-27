@@ -92,6 +92,358 @@ To add the "Render Previews" application with auto-launch and two sessions on th
 
 ***
 
+## Default agent options
+
+The **Default Agent Options** define the configuration and behavior of agents when they are deployed for the first time. These settings will not affect agents that have already been deployed; if you want changes to apply to an existing agent, you need to **re-deploy it** from the **Cluster page** using the "Instructions" button.
+
+Here’s an overview of each default option:
+
+***
+
+**Environment Settings**
+
+Environment variables are passed to agents automatically during deployment. These variables can influence how the agent behaves and interacts with the system.
+
+***
+
+**CA Certificates**
+
+Manage certificates for secure connections. Ensure that the agent can communicate with Supervisely over HTTPS if certificates are required.
+
+***
+
+**Stateless Mode**
+
+* **Description**: In this mode, agents do not store cached data to the disk, which helps conserve disk space.
+* **Default Value**: **OFF**
+* **Use Case**: Enable when running in environments with limited storage space or when caching is not required.
+
+***
+
+**Enable Nvidia Runtime**
+
+* **Description**: Activates GPU support for agents, which is necessary for tasks involving neural networks.
+* **Default Value**: **ON**
+* **Use Case**: Essential for tasks requiring high computational power, such as training or running deep learning models.
+
+***
+
+**Additional Docker Registry**
+
+* **Description**: Specifies a private Docker registry to pull custom plugins or applications.
+* **Use Case**: Use this when your organization has proprietary plugins stored in a private Docker registry.
+
+***
+
+**Additional Docker Login**
+
+* **Description**: Username used to authenticate with the additional Docker registry.
+* **Example**: `lisa`
+
+***
+
+**Additional Docker Password**
+
+* **Description**: Password for authenticating with the additional Docker registry.
+* **Note**: Passwords are masked (e.g., `••••••••••••••••••`) for security.
+
+***
+
+**Host Folder**
+
+* **Description**: A folder where the agent keeps cache files. This is useful for temporary storage during tasks like imports or training.
+* **Use Case**: Ensure the specified folder has sufficient disk space.
+
+***
+
+**Cleanup Failed Import Tasks**
+
+* **Description**: The time after which the system will automatically clean up failed import tasks.
+* **Default Value**: **`1d`** (1 day)
+* **Format**: Time should be specified in formats like `"12h"` (12 hours) or `"1d"` (1 day).
+
+***
+
+**Cleanup Completed Import Tasks**
+
+* **Description**: The time after which the system will automatically clean up completed import tasks.
+* **Default Value**: **`1h`** (1 hour)
+* **Format**: Time should be specified in formats like `"12h"` (12 hours) or `"1d"` (1 day).
+
+***
+
+## Labeling Settings
+
+The **Labeling Settings** section controls various aspects of the annotation process to enhance the labeling experience. Below is a detailed explanation of each option:
+
+**Annotation Image Quality**
+
+* **Description**: Defines the JPEG compression level for images displayed in labeling tools.
+* **Default Value**: **100** (highest quality).
+* **Setting to `0`**: Ensures that the original image is always used, which may be necessary for detailed or high-precision annotation tasks.
+* **Use Case**: Adjust to a lower value (e.g., 70-80) for faster loading times when working with large datasets or slower network connections.
+
+***
+
+**Labeling Idle Timeout (seconds)**
+
+* **Description**: Determines how often the system checks for user activity (e.g., cursor movement) during labeling.
+* **Default Value**: **30 seconds**.
+* **Use Case**: Helps track whether the labeler is actively working or idle, which is useful for team management and activity monitoring.
+
+***
+
+**Track Frames Limit**
+
+* **Description**: Specifies the maximum number of frames available per track in video labeling.
+* **Default Value**: **500 frames**.
+* **Use Case**: This limit ensures optimal performance and responsiveness when working with long videos or dense tracks. Adjust the limit for specific projects if needed.
+
+***
+
+**Default Image Preview Quality**
+
+* **Description**: Controls the default JPEG quality for previewing images during labeling.
+* **Default Value**: **100** (highest quality).
+* **Use Case**: Lowering the quality can speed up image loading for previews in large projects, especially when detailed analysis isn’t required.
+
+***
+
+**Default Image Labeling Toolbox**
+
+* **Description**: Sets the default toolbox configuration for labeling images.
+* **Default Value**: **Any** (no specific toolbox is enforced).
+* **Use Case**: Choose a specific toolbox to streamline the labeling workflow for certain types of image projects.
+
+***
+
+**Default Video Labeling Toolbox**
+
+* **Description**: Sets the default toolbox configuration for labeling videos.
+* **Default Value**: Not explicitly defined.
+* **Use Case**: Specify a preferred video toolbox to ensure consistency in annotation workflows for video projects.
+
+***
+
+## Authorization Settings
+
+The **Authorization Settings** section controls who can log in to Supervisely and how authentication is managed. This includes support for external identity providers, password policies, and user access restrictions. Here's a detailed breakdown of the settings:
+
+***
+
+**OpenID Authorization**
+
+* **Description**: Allows integration with an OpenID provider for single sign-on (SSO) authentication.
+* **Default Status**: Disabled (No OpenID credentials provided).
+* **Use Case**: Configure OpenID to allow users to log in using third-party identity providers like Google or Azure AD.
+
+***
+
+**LDAP Authorization**
+
+LDAP (Lightweight Directory Access Protocol) settings enable authentication using an organization’s directory service.
+
+* **Server URL**:
+  * The URL of the LDAP server.
+  * **Example**: `ldap://example:389`
+  * **Use Case**: Needed for connecting Supervisely to your LDAP server.
+* **Bind DN**:
+  * The Distinguished Name (DN) of the account used to authenticate against the LDAP directory.
+  * **Example**: `cn=root`
+* **DN Credentials**:
+  * Password associated with the Bind DN.
+  * **Example**: `secret`
+* **Search Filter**:
+  * Specifies how to locate users in the LDAP directory.
+  * **Example**: `(uid={{username}})`
+  * **Use Case**: Use placeholders like `{{username}}` to dynamically query the directory for the logging-in user.
+* **Search Base**:
+  * Defines the root point in the LDAP directory tree where searches begin.
+  * **Example**: `dc=example, dc=org`
+
+***
+
+**Use Strong Password**
+
+* **Description**: Enforces strong passwords for built-in Supervisely accounts.
+* **Default Status**: **OFF** (disabled).
+* **Strong Password Min Length**:
+  * Minimum password length required if strong passwords are enabled.
+  * **Default Value**: 10 characters.
+* **Use Case**: Enable for enhanced security to reduce the risk of weak passwords.
+
+***
+
+**Disable Built-in Logins**
+
+* **Description**: Disables Supervisely’s native login system to allow only LDAP or OpenID authentication.
+* **Default Status**: **OFF** (disabled).
+* **Use Case**: Enable if you want to centralize login management through LDAP or OpenID only.
+
+***
+
+**Enable Reservation of Seats by Team**
+
+* **Description**: Changes how reserved seats are allocated, from individual users to entire teams.
+* **Default Status**: **OFF** (disabled).
+* **Use Case**: Enable this option to manage user seat reservations on a team basis, particularly useful for large organizations.
+
+***
+
+**Authenticate Only Existing Users**
+
+* **Description**: Controls whether new accounts are automatically created during SSO login.
+* **Default Status**: **OFF** (new accounts are auto-created).
+* **Use Case**: Enable this option to restrict login access to pre-approved users, requiring manual user account setup for Supervisely.
+
+***
+
+**Token Lifetime**
+
+* **Description**: Determines how long login tokens remain valid before requiring re-authentication.
+* **Default Value**: **7 days**.
+* **Format**: Specify in formats like `"12h"` (12 hours) or `"1d"` (1 day).
+* **Use Case**: Shorten token duration for enhanced security or extend for convenience in long-running sessions.
+
+***
+
+## Miscellaneous Settings
+
+The **Miscellaneous Settings** category includes options that don’t fit into specific categories but provide important functionality for security, notifications, and file upload verification. Here’s an explanation of each setting:
+
+***
+
+**Disable Python Scripts & Notebooks**
+
+* **Description**: Disables the functionality to run Python scripts and Jupyter notebooks within Supervisely.
+* **Default Status**: **ON** (disabled).
+* **Use Case**: Enable this setting to enhance security by preventing execution of potentially harmful or unauthorized Python scripts and notebooks, especially in shared or sensitive environments.
+
+***
+
+**Show Notifications**
+
+* **Description**: Toggles system notifications for various events, such as:
+  * **"New job assigned"**: Alerts users when a new task or job is assigned to them.
+  * **"New labeling exam assigned"**: Notifies labelers about assigned exams.
+* **Default Status**: **ON** (enabled).
+* **Use Case**: Keep this enabled to ensure users are aware of important updates and tasks. Disable it if you prefer a distraction-free environment or use external notification systems.
+
+***
+
+**Uploading Verification URL**
+
+* **Description**: Sends an HTTP request with the content of each file being uploaded. The server hosting the provided URL must return an HTTP status **200 OK** to allow the file to be uploaded.
+* **Use Case**: This setting is useful for implementing additional verification or validation steps during the upload process, such as:
+  * Checking file type, size, or content for compliance with organizational rules.
+  * Blocking unwanted or unverified files from being uploaded to Supervisely.
+
+***
+
+## Cloud Credentials
+
+The **Cloud Credentials** section is where you manage access to cloud storage services (AWS, Google Cloud, Azure, or server file systems) to facilitate remote data import into Supervisely. Here's an overview of this functionality:
+
+***
+
+#### **Purpose of Cloud Credentials**
+
+Cloud credentials allow Supervisely to connect to external cloud services or remote file systems securely. Once set up, they enable seamless import of datasets or files directly from supported cloud providers or your server file system without requiring manual uploads.
+
+***
+
+#### **Key Features**
+
+1. **Supported Providers**:
+   * **AWS (Amazon Web Services)**: Access S3 buckets for importing data stored in Amazon’s cloud.
+   * **Google Cloud**: Connect to Google Cloud Storage buckets.
+   * **Azure**: Access data stored in Microsoft Azure Storage.
+   * **Server File System**: For remote imports from file systems on network servers or similar setups.
+2. **Flexibility**:
+   * No credentials are mandatory unless you need to access data stored remotely.
+   * Supports various use cases, such as:
+     * Centralized storage of datasets for collaborative work.
+     * Importing large files directly from the cloud without local downloads.
+
+***
+
+#### **How to Configure Cloud Credentials**
+
+1. **AWS Example**:
+   * Add the following details:
+     * **Access Key ID**: Your AWS access key.
+     * **Secret Access Key**: Your AWS secret key.
+     * **Region**: The region where your S3 bucket is hosted (e.g., `us-east-1`).
+     * **Bucket Name**: The name of the S3 bucket you want to access.
+2. **Google Cloud Example**:
+   * Provide:
+     * **Service Account Key JSON**: Upload the JSON file containing credentials for the Google Cloud service account.
+3. **Azure Example**:
+   * Add:
+     * **Storage Account Name**: The name of your Azure Storage account.
+     * **Access Key**: The key to authenticate access to Azure Storage.
+4. **Server File System Example**:
+   * Specify:
+     * **Server Address**: The IP or hostname of the server.
+     * **Path**: The directory path to the folder containing the files.
+     * **Login Credentials**: User account details, if required.
+
+***
+
+#### **Use Case Scenarios**
+
+* **Large Dataset Imports**:
+  * Instead of uploading files manually, link your cloud storage to Supervisely and import data directly.
+* **Collaboration**:
+  * Teams working across different locations can upload datasets to a shared cloud storage for easy access and import.
+* **Automated Workflows**:
+  * Use cloud storage as a central repository for data pipelines, where files are automatically synced and imported into Supervisely.
+
+***
+
+#### **What Happens If No Credentials Are Provided?**
+
+* By default, Supervisely cannot access any cloud storage.
+* All uploads must be done manually using local files.
+* To enable remote imports, credentials must be added for the desired provider.
+
+***
+
+## HTTPS Configuration
+
+The **HTTPS** section in Supervisely allows you to configure secure communication for your server using HTTP over SSL/TLS. Here's an explanation of the available options:
+
+***
+
+**Disabled (Default)**
+
+* **Description**: HTTPS is turned off, and the server communicates over regular HTTP.
+* **Use Case**: Suitable for private networks where security is not a concern or when testing in a controlled environment.
+
+***
+
+**Let’s Encrypt**
+
+* **Description**: Automatically acquires a free SSL/TLS certificate from Let’s Encrypt.
+* **Requirements**:
+  * A **publicly accessible server address** is required.
+  * Supervisely will handle certificate renewal automatically.
+* **Use Case**: Ideal for servers exposed to the public internet that need a secure connection with minimal setup effort.
+
+***
+
+**Custom Certificates**
+
+* **Description**: Allows you to provide your own SSL/TLS certificates, using `.pem` files for configuration. This option works best for private networks or custom setups.
+* **Fields**:
+  * **Path to fullchain.pem file**: Specify the path to the file containing the full certificate chain (including all intermediate and root certificates).
+  * **Path to privkey.pem file**: Specify the path to the file containing the private key associated with the certificate.
+* **Use Case**:
+  * You are operating in a **private network** where self-signed certificates are used.
+  * Your organization provides certificates through a custom Certificate Authority (CA).
+
+***
+
 Every kind of potentially long operation (like Import or Training) is performed on so-called [agents](../../getting-started/connect-your-computer/). Before you can use Supervisely, you should deploy at least one.
 
 During the installation we automatically deploy a default "Main Node" agent via `supervisely deploy-agent` so you don't have to do anything. But, if you don't have a GPU device on your machine with Supervisely, you may want to deploy an additional agent on AWS or some computer with a videocard.
