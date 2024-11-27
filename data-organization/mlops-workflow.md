@@ -1,63 +1,91 @@
 ---
+description: >-
+  The main features, capabilities and usage recommendations of MLOps Workflow
+  are described in this documentation.
 hidden: true
 ---
 
 # MLOps Workflow
 
-The workflow on Supervisely is a visual and systematic representation of the sequence of actions and tools applied to data during each stage of a computer vision and machine learning project. This workflow ensures traceability, version control, efficient project management, collaboration, and easy navigation for any project developed on the platform.
+MLOps Workflow streamlines the machine learning lifecycle, focusing on data version control, reproducibility, and collaboration. It provides an easy-to-use visual interface that integrates data management, experiment tracking, and model evaluation.
 
-### Inspirations behind workflow creation
+#### Why do you need trial tracking and version control?&#x20;
 
-The workflow concept on the Supervisely platform draws inspiration from several principles:
+**Data evolution:** Datasets change over time, and tracking these changes is critical to maintaining model accuracy.
 
-**Simplicity and visualization:** Inspired by the need for transparency in machine learning processes, the workflow provides an easy-to-understand visual representation of complex steps, giving users a clear view of each step.&#x20;
+**Avoid confusion**: Repeated iterations can lead to errors if teams lose track of which data and model versions were used.&#x20;
 
-**Collaboration and team efficiency:** Built to emulate the collaborative power of software version control systems, Workflow facilitates a shared environment where multiple users can track and contribute to different project stages.&#x20;
+**Reproducibility:** Proper tracking ensures that results can be reproduced and shared with team.
 
-**Traceability and reproducibility:** In data science, the ability to reproduce results is critical. We designed the workflow to ensure that every step, from data import to model deployment, is documented and traceable, allowing for reproduction of experiments.&#x20;
+## 1. Data Version Control
 
-**Customization and flexibility:** The workflow reflects the dynamic nature of machine learning projects, allowing for iterative changes and easy adaptation to new requirements, inspired by agile project management practices.
+Data version control simplifies managing changes in datasets throughout the project lifecycle.
 
-### With our workflow system you can:
+**Capabilities:**
 
-* You can **track all steps** of data processing and model training, ensuring that experiments can be accurately reproduced with the same results.
-* The workflow supports **version control** for both data and models, allowing you to track changes, manage modifications, and restore previous project states.
-* All steps-from data upload to model prediction-are **visualized**, making it easier to understand the evolution of the project and models.
-* Team members can easily track and interact with the workflow, making it easier to **work collaboratively** on projects.
-* The workflow provides **quick access** **to various stages**, such as application sessions, files, and projects, for download or further work.
+* Track changes and create backups.
+* Restore previous states with a single click.
+* Centralized tracking of data evolution.
 
-##
+**How It Works:**
 
-### **1. Data Collection and Preparation**
+* Create versions at any stage—data upload, annotation, or transformation.
+* Each version is stored in a secure binary format, avoiding file duplication.
+* Restore data by creating a new project version from a previous state.
 
-**Data Import**: Loading images or videos from various sources (cameras, databases, sensors) to be used for training the model.
+> **Note:** Available only on Pro and Enterprise plans.
 
-**Data Preprocessing**: Includes processes like resizing images, normalizing brightness, and removing noise or artifacts that could hinder model training.
+## 2. MLOps Workflow Visualization
 
-### **2. Data Annotation**
+The visual map shows the entire data lifecycle, including the apps and operations that modify it.
 
-If the task requires labeled data (e.g., image classification or segmentation), the data is annotated: objects in the images are classified or annotated, either manually or using semi-automated tools.
+**Key Features:**
 
-### **3. Data Augmentation**
+* **Data Operations:**
+  * Augmentation (cropping, rotation, adding noise, etc.).
+  * Annotation transformation.
+  * Training data generation.
+  * Dataset splitting, merging, and filtering.
+* **Navigation:** Easily access data versions, projects, and application sessions.
 
-To increase the dataset size and improve model robustness, augmentation techniques are applied. These include transformations like rotations, scaling, flipping, brightness and contrast adjustments, and adding noise.
+**Example:**
 
-### **4. Neural Network Training**
+1. **Data Import**: Upload and annotate images using tools like Smart Tool.
+2. **Version Creation**: Capture the project's state after annotation.
+3. **Model Training**: Train YOLOv10 while automatically generating checkpoints and reports.
+4. **Deployment**: Apply the model to new datasets or export results.
 
-Labeled and augmented data are fed into the neural network for training. The model undergoes multiple epochs where its parameters are optimized. **Checkpoints** (intermediate versions of the model) are saved periodically to allow for recovery or further refinement of the training process.
+## 3. Model Benchmarking
 
-### **5. Model Evaluation**
+The platform generates automatic reports to evaluate model performance using metrics such as:
 
-After training, the model's performance is evaluated on test data. Metrics like accuracy, precision, recall, and F1-score are calculated to assess how well the model handles the task.
+* mAP, Precision, Recall.
+* Inference speed.
+* Classification accuracy and IoU.
 
-### **6. Image Filtering and Selection**
+**Benefits:**
 
-At this stage, data may be filtered to remove images that could negatively impact training, such as those with low resolution or highly similar images.
+* Compare model versions to identify improvements.
+* Understand how architecture or hyperparameter changes affect results.
 
-### **7. Model Deployment and Use**
+## Building a Workflow
 
-The final trained model is deployed for real-world use. This could involve integrating the model into an application or system that processes images for tasks like object detection, classification, segmentation, or other types of visual analysis.
+#### **Best Practices:**
 
-### **8. Model Maintenance and Updates**
+1. **Use Projects Instead of Individual Datasets**: This improves Workflow readability.
+2. **Optimize Nodes**: Combine file cards into folders to reduce redundancy.
+3. **Add Descriptions**: Provide context for each Workflow element.
+4. **Avoid Overwriting Node States**: Maintain a clear history of changes.
+5. **Organize Session-Based Applications**: Prevent clutter and simplify Workflow structure.
 
-As conditions change, new data becomes available, or performance improvements are needed, the model can be retrained or updated. The workflow remains flexible to adapt to new requirements.
+### **Practical Usage**
+
+#### **Workflow Entry Points:**
+
+* Project context menu.
+* Task context menu.
+* Workspace options.
+
+## **Integrating Workflows into Applications:**
+
+Detailed instructions for integrating Workflows into your custom applications are available on the **Supervisely Developer Portal**.
