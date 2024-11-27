@@ -92,7 +92,7 @@ To add the "Render Previews" application with auto-launch and two sessions on th
 
 ***
 
-## Default agent options
+### Default agent options
 
 The **Default Agent Options** define the configuration and behavior of agents when they are deployed for the first time. These settings will not affect agents that have already been deployed; if you want changes to apply to an existing agent, you need to **re-deploy it** from the **Cluster page** using the "Instructions" button.
 
@@ -172,7 +172,7 @@ Manage certificates for secure connections. Ensure that the agent can communicat
 
 ***
 
-## Labeling Settings
+### Labeling Settings
 
 The **Labeling Settings** section controls various aspects of the annotation process to enhance the labeling experience. Below is a detailed explanation of each option:
 
@@ -225,7 +225,7 @@ The **Labeling Settings** section controls various aspects of the annotation pro
 
 ***
 
-## Authorization Settings
+### Authorization Settings
 
 The **Authorization Settings** section controls who can log in to Supervisely and how authentication is managed. This includes support for external identity providers, password policies, and user access restrictions. Here's a detailed breakdown of the settings:
 
@@ -307,7 +307,7 @@ LDAP (Lightweight Directory Access Protocol) settings enable authentication usin
 
 ***
 
-## Miscellaneous Settings
+### Miscellaneous Settings
 
 The **Miscellaneous Settings** category includes options that don’t fit into specific categories but provide important functionality for security, notifications, and file upload verification. Here’s an explanation of each setting:
 
@@ -340,7 +340,7 @@ The **Miscellaneous Settings** category includes options that don’t fit into s
 
 ***
 
-## Cloud Credentials
+### Cloud Credentials
 
 The **Cloud Credentials** section is where you manage access to cloud storage services (AWS, Google Cloud, Azure, or server file systems) to facilitate remote data import into Supervisely. Here's an overview of this functionality:
 
@@ -409,7 +409,7 @@ Cloud credentials allow Supervisely to connect to external cloud services or rem
 
 ***
 
-## HTTPS Configuration
+### HTTPS Configuration
 
 The **HTTPS** section in Supervisely allows you to configure secure communication for your server using HTTP over SSL/TLS. Here's an explanation of the available options:
 
