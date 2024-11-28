@@ -2,7 +2,6 @@
 description: >-
   The main features, capabilities and usage recommendations of MLOps Workflow
   are described in this documentation.
-hidden: true
 ---
 
 # MLOps Workflow
