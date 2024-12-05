@@ -31,7 +31,7 @@
       * [Multispectral images](data-organization/import/import/supported-formats-images/multispectral.md)
       * [Medical 2D images](data-organization/import/import/supported-formats-images/medical2d.md)
       * [LabelMe](data-organization/import/import/supported-formats-images/labelme.md)
-      * [LabelStudio](data-organization/import/import/supported-formats-images/label\_studio.md)
+      * [LabelStudio](data-organization/import/import/supported-formats-images/label_studio.md)
       * [Fisheye](data-organization/import/import/supported-formats-images/fisheye.md)
       * [High Color Depth](data-organization/import/import/supported-formats-images/high-color-depth.md)
   * [Import sample dataset](data-organization/import/import/Import-sample-dataset.md)
@@ -99,6 +99,9 @@
 
 ## 🤝 Collaboration
 
+* [Account Settings](collaboration/account-settings.md)
+* [Admin panel](collaboration/admin-panel/README.md)
+  * [Users management](collaboration/admin-panel/users-management.md)
 * [Teams & workspaces](collaboration/teams.md)
 * [Members](collaboration/members.md)
 * [Issues](labeling/issues/README.md)
@@ -114,8 +117,8 @@
   * [AMI AWS](agents/ami/README.md)
   * [Kubernetes](enterprise/kubernetes/installation.md)
 * [How agents work](agents/agent/agent.md)
-* [Restart and delete agents](agents/add\_delete\_node/add\_delete\_node.md)
-* [Status and monitoring](agents/status\_and\_troubleshooting/status.md)
+* [Restart and delete agents](agents/add_delete_node/add_delete_node.md)
+* [Status and monitoring](agents/status_and_troubleshooting/status.md)
 * [Storage and cleanup](agents/agent-storage/agent-storage.md)
 * [Integration with Docker](agents/custom-docker-registry/README.md)
 
@@ -147,7 +150,7 @@
   * [CDN](enterprise/cdn/README.md)
   * [Notifications](enterprise/notifications/README.md)
   * [Moving Instance](enterprise/moving/README.md)
-  * [Generating Troubleshoot Archive](enterprise/troubleshoot/generating\_ts\_archive.md)
+  * [Generating Troubleshoot Archive](enterprise/troubleshoot/generating_ts_archive.md)
   * [Storage Cleanup](enterprise/cleanup/README.md)
   * [Private Apps](enterprise/private-apps/README.md)
   * [Data Folder](enterprise/data-folder/README.md)
@@ -159,17 +162,17 @@
 
 ## 🔧 Customization and Integration
 
-* [Supervisely .JSON Format](data-organization/Annotation-JSON-format/00\_ann\_format\_navi.md)
-  * [Project Structure](data-organization/Annotation-JSON-format/01\_Project\_Structure\_new.md)
-  * [Project Classes and Tags](data-organization/Annotation-JSON-format/02\_Project\_Classes\_And\_Tags.md)
-  * [Tags](data-organization/Annotation-JSON-format/03\_Supervisely\_format\_tags.md)
-  * [Objects](data-organization/Annotation-JSON-format/04\_Supervisely\_Format\_objects.md)
-  * [Individual Image Annotations](data-organization/Annotation-JSON-format/05\_Supervisely\_format\_images.md)
-  * [Individual Video Annotations](data-organization/Annotation-JSON-format/06\_Supervisely\_format\_videos.md)
-  * [Point Cloud Episodes](data-organization/Annotation-JSON-format/07\_Supervisely\_format\_pointcloud\_episode.md)
-  * [Volumes Annotation](data-organization/Annotation-JSON-format/08\_Supervisely\_format\_volume.md)
+* [Supervisely .JSON Format](data-organization/Annotation-JSON-format/00_ann_format_navi.md)
+  * [Project Structure](data-organization/Annotation-JSON-format/01_Project_Structure_new.md)
+  * [Project Classes and Tags](data-organization/Annotation-JSON-format/02_Project_Classes_And_Tags.md)
+  * [Tags](data-organization/Annotation-JSON-format/03_Supervisely_format_tags.md)
+  * [Objects](data-organization/Annotation-JSON-format/04_Supervisely_Format_objects.md)
+  * [Individual Image Annotations](data-organization/Annotation-JSON-format/05_Supervisely_format_images.md)
+  * [Individual Video Annotations](data-organization/Annotation-JSON-format/06_Supervisely_format_videos.md)
+  * [Point Cloud Episodes](data-organization/Annotation-JSON-format/07_Supervisely_format_pointcloud_episode.md)
+  * [Volumes Annotation](data-organization/Annotation-JSON-format/08_Supervisely_format_volume.md)
 * [Developer Portal](https://developer.supervisely.com/)
-* [SDK](https://supervisely.readthedocs.io/en/latest/sdk\_packages.html)
+* [SDK](https://supervisely.readthedocs.io/en/latest/sdk_packages.html)
 * [API](https://api.docs.supervisely.com)
 
 ## 💡 Resources
