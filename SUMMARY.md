@@ -38,7 +38,7 @@
       * [Supervisely](data-organization/import/import/supported-formats-videos/supervisely.md)
     * [Pointclouds](import-and-export/import/supported-annotation-formats/pointclouds/README.md)
       * [Supervisely](data-organization/import/import/supported-formats-pointcloud/supervisely.md)
-      * [Pointclouds](data-organization/import/import/supported-formats-pointcloud/point_clouds.md)
+      * [.PCD, .PLY, .LAS, .LAZ pointclouds](data-organization/import/import/supported-formats-pointcloud/point_clouds.md)
       * [Lyft](data-organization/import/import/supported-formats-pointcloud/lyft.md)
   * [Import sample dataset](data-organization/import/import/Import-sample-dataset.md)
   * [Import into an existing dataset](data-organization/import/import/exesting-dataset.md)

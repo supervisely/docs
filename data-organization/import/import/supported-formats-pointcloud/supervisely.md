@@ -1,10 +1,12 @@
-<h1 align="left" style="border-bottom: 0"> <img align="left" src="https://github.com/supervisely-ecosystem/import-wizard-docs/releases/download/v0.0.1/sly_logo.png" width="80" style="padding-right: 20px;"> Supervisely Format </h1>
-
 # Overview
 
+{% hint style="success" %}
 Easily import your pointclouds with annotations in the Supervisely format. The Supervisely json-based annotation format supports `cuboid_3d` shape figures. It is a universal format that supports various types of annotations and is used in the Supervisely platform.
+{% endhint %}
 
-> All information about the Supervisely JSON format can be found <a href="https://docs.supervisely.com/data-organization/00_ann_format_navi" target="_blank">here</a>
+{% hint style="info" %}
+All information about the Supervisely JSON format can be found <a href="https://docs.supervisely.com/data-organization/00_ann_format_navi" target="_blank">here</a>
+{% endhint %}
 
 # Format description
 
@@ -15,7 +17,9 @@ Easily import your pointclouds with annotations in the Supervisely format. The S
 
 # Input files structure
 
+{% hint style="success" %}
 Example data: [download ⬇️](https://github.com/supervisely-ecosystem/demo-pointcloud-project-annotated/releases/download/v0.0.1/demo_pointcloud_project_annotated.zip).
+{% endhint %}
 
 Both directory and archive are supported.
 

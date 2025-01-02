@@ -1,8 +1,8 @@
-<h1 align="left" style="border-bottom: 0"> LYFT Format </h1>
-
 # Overview
 
+{% hint style="success" %}
 Easily import your pointclouds with annotations in the LYFT format. LYFT is an annotation format used in the well-regarded `Lyft Level 5 Prediction` dataset. 
+{% endhint %}
 
 Originaly, the dataset is suited to be imported as Pointcloud Episodes, even though it is available in Pointcloud format as well.
 
@@ -15,7 +15,9 @@ Originaly, the dataset is suited to be imported as Pointcloud Episodes, even tho
 
 # Input files structure
 
+{% hint style="success" %}
 Example data: [download ⬇️](https://github.com/supervisely/docs/releases/download/v0.0.1/lyft-sample.zip).
+{% endhint %}
 
 Both directory and archive are supported.
 

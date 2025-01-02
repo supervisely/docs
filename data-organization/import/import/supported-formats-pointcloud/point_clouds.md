@@ -1,5 +1,3 @@
-<h1 align="left" style="border-bottom: 0"> <img align="left" src="https://github.com/supervisely-ecosystem/import-wizard-docs/assets/48913536/ce89dc59-558e-49c7-888f-9c14b4ae68db" width="80" style="padding-right: 20px;"> Point Clouds </h1>
-
 # Overview
 
 This option allows you to upload point clouds to the platform without any annotations. All items from the input directory and its subdirectories will be uploaded to a single dataset. If you need to preserve the directory structure, you can use the <a href="https://ecosystem.supervisely.com/apps/import-pointcloud-pcd" target="_blank">Import Pointclouds PCD</a> application from the Supervisely Ecosystem.
@@ -13,7 +11,9 @@ This option allows you to upload point clouds to the platform without any annota
 
 # Input files structure
 
+{% hint style="success" %}
 Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/15025187/sample_pcd.zip)<br>
+{% endhint %}
 
 Recommended directory structure:
 

@@ -1,10 +1,12 @@
-# Supervisely Format
-
 # Overview
 
+{% hint style="success" %}
 Easily import your videos with annotations in the Supervisely format. The Supervisely json-based annotation format supports such figures: `rectangle`, `line (polyline)`, `polygon`, `point`, `bitmap` (`mask`), `graph` (`keypoints`). It is a universal format that supports various types of annotations and is used in the Supervisely platform.
+{% endhint %}
 
-> All information about the Supervisely JSON format can be found <a href="https://docs.supervisely.com/data-organization/00_ann_format_navi" target="_blank">here</a>
+{% hint style="info" %}
+All information about the Supervisely JSON format can be found <a href="https://docs.supervisely.com/data-organization/00_ann_format_navi" target="_blank">here</a>
+{% endhint %}
 
 ## Format description
 
@@ -15,7 +17,9 @@ Easily import your videos with annotations in the Supervisely format. The Superv
 
 ## Input files structure
 
+{% hint style="success" %}
 Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-videos-in-sly-format/files/12546490/my_videos_project.zip).
+{% endhint %}
 
 Both directory and archive are supported.
 
