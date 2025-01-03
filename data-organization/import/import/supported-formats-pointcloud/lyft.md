@@ -16,7 +16,7 @@ Originaly, the dataset is suited to be imported as Pointcloud Episodes, even tho
 # Input files structure
 
 {% hint style="success" %}
-Example data: [download ⬇️](https://github.com/supervisely/docs/releases/download/v0.0.1/lyft-sample.zip).
+Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/releases/download/v0.0.2/lyft-sample.zip).
 {% endhint %}
 
 Both directory and archive are supported.

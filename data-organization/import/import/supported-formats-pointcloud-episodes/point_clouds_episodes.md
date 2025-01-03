@@ -12,8 +12,10 @@ This option allows you to upload point clouds as episodes to the platform withou
 # Input files structure
 
 {% hint style="success" %}
-Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/15025197/sample_pcde.zip)
+
+Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/15025197/sample_pcde.zip) <br> </br>
 Example data with related images: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/15025207/sample_pcde_w_rimg.zip)
+
 {% endhint %}
 
 <br>
