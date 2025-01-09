@@ -68,7 +68,9 @@ Every `.bin` file in a sequence has to be stored inside a `lidar` folder of data
 | i   | Intensity of the return signal.                           |
 | r   | Ring index.                                               |
 
+{% hint style="info" %}
 The LYFT format description can be found <a href="https://mmdetection3d.readthedocs.io/en/stable/advanced_guides/datasets/lyft.html" target="_blank">here</a>
+{% endhint %}
 
 # LYFT Annotation format
 
