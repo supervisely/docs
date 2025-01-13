@@ -13,7 +13,7 @@ Converting data into different formats and splitting it into training and testin
 
   It is a useful app If you have a Point Clouds project and you want to apply 3D tracking tools and export project annotations with tracklets in a convenient-to-use format.
 
-- [Convert labels to rotated bboxes.](https://app.supervisely.com/ecosystem/apps/convert-labels-to-rotated-bboxes?id=206) Convert labels in the project or dataset to rotated bounding boxes (Polygon with properties of rotated bbox). Supported shapes: Polygon, Bitmap, Line, Rectangle or Any Shape with any of the mentioned shapes. Resulting label names will be added suffix ro_bbox, e.g plane -> plane_ro_bbox. Disable Keep original annotations checkbox if you don't want to copy original labels. Application always converts data to the new project, original project will remain unchanged.
+- [Convert labels to rotated bboxes.](https://app.supervisely.com/ecosystem/apps/convert-labels-to-rotated-bboxes?id=206) Convert labels in the project or dataset to rotated bounding boxes (Polygon with properties of rotated bbox). Supported shapes: Polygon, Bitmap, Line, Rectangle or Any Shape with any of the mentioned shapes. Resulting label names will be added suffix ro_bbox, e.g plane -> plane_ro_bbox. Disable Keep original annotations checkbox if you don't want to copy original labels. The application always converts data to the new project, original project will remain unchanged.
 
 - [Convert to semantic segmentation.](https://app.supervisely.com/ecosystem/apps/convert-to-semantic-segmentation?id=209) App converts all supported labels to one bitmap for each supported class. It may be helpful when you change your task from instance to semantic segmentation.
 
@@ -26,7 +26,7 @@ Converting data into different formats and splitting it into training and testin
 ## Convert data using Supervisely Python SDK
 
 {% hint style="success" %}
-**TL;DR:** If you have a project in Supervisely format and want to convert it to COCO/YOLO/Pascal VOC format, you can use the following code snippets:
+**TL;DR:** If you have a local project in Supervisely format and want to convert it to COCO, YOLO, or Pascal VOC format, you can use the following code snippets:
 
 ```python
 import supervisely as sly
@@ -44,37 +44,41 @@ sly.convert.project_to_pascal_voc("./sly_project", "./result_pascal")
 You can also convert a dataset or a single annotation to COCO/YOLO/Pascal VOC format. Check the examples below.
 {% endhint %}
 
-Whenever you need to convert a project, dataset, or a single annotation to a different formats, you can use Supervisely Python SDK to perform these operations. Here are some examples of how you can use the SDK to convert data to COCO, YOLO, and Pascal VOC formats:
+Whenever you need to convert a project, dataset, or a single annotation to different formats, you can use the Supervisely Python SDK to perform these operations. Here are some examples of how you can use the SDK to convert data to COCO, YOLO, and Pascal VOC formats:
 
-### Convert project/dataset/annotations to COCO format
+### Convert to COCO Format
 
-This converter allows you to convert a project, dataset, or a single annotation to COCO format. Each dataset in the project will be converted to a separate COCO dataset. The single sly.Annotation object will be converted to a list of COCO annotation format objects.
+This converter allows you to convert a project, dataset, or a single annotation to COCO format. Each dataset in the project will be converted to a separate COCO dataset. The single `sly.Annotation` object will be converted to a list of COCO annotation format objects.
 
+{% hint style="info" %}
 It supports the following geometry types: `sly.Rectangle`, `sly.Bitmap`, `sly.Polygon`, `sly.GraphNodes`.
 
-- Convert whole project to COCO format:
+Enabling the `with_captions` parameter will include captions in the COCO annotations (if present in the project).
+{% endhint %}
+
+- Convert a project to COCO format:
 
 ```python
-# one line of code
+# One line of code
 sly.convert.project_to_coco("./sly_project", "./result_coco")
 
-# or using the Project object
+# Or using the Project object
 project_fs = sly.Project("./sly_project", sly.OpenMode.READ)
 project_fs.to_coco("./result_coco")
 ```
 
-- Convert specific dataset to COCO format:
+- Convert a specific dataset to COCO format:
 
 ```python
 for ds in project_fs.datasets:
-    # one line of code
+    # One line of code
     sly.convert.dataset_to_coco(dataset=ds, meta=project_fs.meta, dest_dir="./result_coco")
 
-    # or using the Dataset object
+    # Or using the Dataset object
     ds.to_coco(project_fs.meta, dest_dir="./result_coco")
 ```
 
-- Convert a single sly.Annotation object to COCO format:
+- Convert a single `sly.Annotation` object to COCO format:
 
 ```python
 coco_instances = dict(
@@ -100,41 +104,44 @@ label_id = 222
 ann.to_coco(image_id, class_mapping, coco_instances, label_id)
 ```
 
-### Convert project/dataset/annotations to YOLO format
+### Convert to YOLO Format
 
 This converter allows you to convert a project, dataset, or a single annotation to YOLO format for **detection**, **segmentation**, and **pose estimation** tasks.
 
-Project and dataset conversion works similarly and will convert all data in the same structure to YOLO format. The single slo.Annotation object will be converted to a list of YOLO annotation format lines.
+Project and dataset conversion works similarly and will convert all data in the same structure to YOLO format. The single `sly.Annotation` object will be converted to a list of YOLO annotation format lines.
 
+{% hint style="info" %}
 It supports the following geometry types:
 
 - **detection**: `sly.Rectangle`, `sly.Bitmap`, `sly.Polygon`, `sly.GraphNodes`, `sly.Polyline`, `sly.AlphaMask`
 - **segmentation**: `sly.Polygon`, `sly.Bitmap`, `sly.AlphaMask`
 - **pose estimation**: `sly.GraphNodes`
 
-- Convert whole project to YOLO format:
+{% endhint %}
+
+- Convert a project to YOLO format:
 
 ```python
-# one line of code
+# One line of code
 sly.convert.project_to_yolo("./sly_project", "./result_yolo", task_type="detection")
 
-# or using the Project object
+# Or using the Project object
 project_fs = sly.Project("./sly_project", sly.OpenMode.READ)
 project_fs.to_yolo("./result_yolo", task_type="segmentation")
 ```
 
-- Convert specific dataset to YOLO format:
+- Convert a specific dataset to YOLO format:
 
 ```python
 for ds in project_fs.datasets:
-    # one line of code
+    # One line of code
     sly.convert.dataset_to_yolo(dataset=ds, meta=project_fs.meta, dest_dir="./result_yolo")
 
-    # or using the Dataset object
+    # Or using the Dataset object
     ds.to_yolo(project_fs.meta, dest_dir="./result_yolo")
 ```
 
-- Convert a single sly.Annotation object to YOLO format:
+- Convert a single `sly.Annotation` object to YOLO format:
 
 ```python
 class_names = [obj_class.name for obj_class in meta.obj_classes]
@@ -142,40 +149,40 @@ ann = sly.Annotation.from_json(ann_json, meta)
 yolo_lines = ann.to_yolo(class_names, task_type)
 ```
 
-### Convert project/dataset/annotations to Pascal VOC format
+### Convert to Pascal VOC Format
 
-This converter allows you to convert a project, dataset, or a single annotation to Pascal VOC format. Each dataset in the project will be converted to a separate Pascal VOC dataset. The single sly.Annotation object will be converted to a tuple of Pascal VOC annotation format xml object and numpy masks (instances masks and class masks).
+This converter allows you to convert a project, dataset, or a single annotation to Pascal VOC format. Each dataset in the project will be converted to a separate Pascal VOC dataset. The single `sly.Annotation` object will be converted to a tuple of Pascal VOC annotation format xml object and numpy masks (instances masks and class masks).
 
-- Convert whole project to Pascal VOC format:
+- Convert a project to Pascal VOC format:
 
 ```python
-# one line of code
+# One line of code
 sly.convert.project_to_pascal_voc("./sly_project", "./result_pascal")
 
-# or using the Project object
+# Or using the Project object
 project_fs = sly.Project("./sly_project", sly.OpenMode.READ)
 project_fs.to_pascal_voc("./result_pascal")
 ```
 
-- Convert specific dataset to Pascal VOC format:
+- Convert a specific dataset to Pascal VOC format:
 
 ```python
 for ds in project_fs.datasets:
-    # one line of code
+    # One line of code
     sly.convert.dataset_to_pascal_voc(dataset=ds, meta=project_fs.meta, dest_dir="./result_pascal")
 
-    # or using the Dataset object
+    # Or using the Dataset object
     ds.to_pascal_voc(project_fs.meta, dest_dir="./result_pascal")
 ```
 
-- Convert a single sly.Annotation object to Pascal VOC format:
+- Convert a single `sly.Annotation` object to Pascal VOC format:
 
 ```python
 ann = sly.Annotation.from_json(ann_json, meta)
 xml, instance_masks, class_masks = ann.to_pascal_voc("image_name")
 ```
 
-## Splitting data using Supervisely Ecosystem Apps
+## Splitting Data Using Supervisely Ecosystem Apps
 
 Splitting data into training and testing sets is a crucial step in machine learning projects. Here are some apps from the Supervisely Ecosystem that can help you with this task:
 
@@ -183,7 +190,7 @@ Splitting data into training and testing sets is a crucial step in machine learn
 
 - [Split datasets](https://ecosystem.supervisely.com/apps/split-dataset). This app allows you to split selected datasets into parts according to the specified percentage/number of images/number of parts. You can choose to split the dataset randomly or by the order of images. The resulting datasets can be created in the same project or in a new one.
 
-## Splitting data using Supervisely Python SDK
+## Splitting Data Using Supervisely Python SDK
 
 Here is an example of how you can split a project into training and testing sets using the Supervisely Python SDK:
 
