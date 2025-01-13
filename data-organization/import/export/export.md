@@ -31,6 +31,23 @@ Of course, there are countless other Supervisely Apps that will help download yo
 
 Explore more [export applications](https://app.supervisely.com/ecosystem/export) in the Ecosystem.
 
+**For Python developers** –you can use our Python SDK to download and convert your data to COCO, YOLO, Pascal VOC formats:
+
+```python
+sly.Project.download(api, project_id, "./sly_project", log_progress=True)
+
+# Convert project to COCO format
+sly.convert.project_to_coco("./sly_project", "./result_coco")
+
+# Convert project to YOLO format (you can specify task_type)
+sly.convert.project_to_yolo("./sly_project", "./result_yolo")
+
+# Convert project to Pascal VOC format
+sly.convert.project_to_pascal_voc("./sly_project", "./result_pascal")
+```
+
+Check out the [documentation](../../Operations-with-Data/Converting-Splitdata.md#convert-data-using-supervisely-python-sdk) for more details on how to convert data using the Supervisely Python SDK and the [Developer Portal](https://developer.supervisely.com/getting-started/basics-of-authentication) to get started with the API.
+
 ### **Export only certain items**
 
 Some other Supervisely Apps will help you export only subsamples of your data. For example, select [Export only labeled items](https://ecosystem.supervisely.com/apps/export-only-labeled-items) application to skip export of any unlabeled items.
