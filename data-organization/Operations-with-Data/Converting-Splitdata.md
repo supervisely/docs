@@ -41,10 +41,8 @@ sly.convert.project_to_yolo("./sly_project", "./result_yolo")
 sly.convert.project_to_pascal_voc("./sly_project", "./result_pascal")
 ```
 
-You can also convert a dataset or a single annotation to COCO/YOLO/Pascal VOC format. Check the examples below.
+You can also convert a dataset-level data or a single annotation to COCO/YOLO/Pascal VOC format. Check the examples below.
 {% endhint %}
-
-Whenever you need to convert a project, dataset, or a single annotation to different formats, you can use the Supervisely Python SDK to perform these operations. Here are some examples of how you can use the SDK to convert data to COCO, YOLO, and Pascal VOC formats:
 
 ### Convert to COCO Format
 
@@ -62,7 +60,7 @@ Enabling the `with_captions` parameter will include captions in the COCO annotat
 # One line of code
 sly.convert.project_to_coco("./sly_project", "./result_coco")
 
-# Or using the Project object
+# Or using the sly.Project object
 project_fs = sly.Project("./sly_project", sly.OpenMode.READ)
 project_fs.to_coco("./result_coco")
 ```
@@ -74,7 +72,7 @@ for ds in project_fs.datasets:
     # One line of code
     sly.convert.dataset_to_coco(dataset=ds, meta=project_fs.meta, dest_dir="./result_coco")
 
-    # Or using the Dataset object
+    # Or using the sly.Dataset object
     ds.to_coco(project_fs.meta, dest_dir="./result_coco")
 ```
 
@@ -95,12 +93,14 @@ coco_instances = dict(
     annotations=[],
     categories=get_categories_from_meta(meta),  # [{"supercategory": "lemon", "id": 0, "name": "lemon"}, ...]
 )
+class_mapping = {obj_cls.name: idx for idx, obj_cls in enumerate(meta.obj_classes)}
+
+# iterate over all annotations in the project and convert them to COCO format
+# for example, let's convert only one annotation:
+image_id = 1 # image id for the image in COCO annotation file
+label_id = 1 # label id for the COCO objects (will be incremented for each object)
 
 ann = sly.Annotation.from_json(ann_json, meta)
-image_id = 11
-class_mapping = {obj_cls.name: idx for idx, obj_cls in enumerate(meta.obj_classes)}
-label_id = 222
-
 ann.to_coco(image_id, class_mapping, coco_instances, label_id)
 ```
 
@@ -125,7 +125,7 @@ It supports the following geometry types:
 # One line of code
 sly.convert.project_to_yolo("./sly_project", "./result_yolo", task_type="detection")
 
-# Or using the Project object
+# Or using the sly.Project object
 project_fs = sly.Project("./sly_project", sly.OpenMode.READ)
 project_fs.to_yolo("./result_yolo", task_type="segmentation")
 ```
@@ -137,7 +137,7 @@ for ds in project_fs.datasets:
     # One line of code
     sly.convert.dataset_to_yolo(dataset=ds, meta=project_fs.meta, dest_dir="./result_yolo")
 
-    # Or using the Dataset object
+    # Or using the sly.Dataset object
     ds.to_yolo(project_fs.meta, dest_dir="./result_yolo")
 ```
 
@@ -159,7 +159,7 @@ This converter allows you to convert a project, dataset, or a single annotation 
 # One line of code
 sly.convert.project_to_pascal_voc("./sly_project", "./result_pascal")
 
-# Or using the Project object
+# Or using the sly.Project object
 project_fs = sly.Project("./sly_project", sly.OpenMode.READ)
 project_fs.to_pascal_voc("./result_pascal")
 ```
@@ -171,7 +171,7 @@ for ds in project_fs.datasets:
     # One line of code
     sly.convert.dataset_to_pascal_voc(dataset=ds, meta=project_fs.meta, dest_dir="./result_pascal")
 
-    # Or using the Dataset object
+    # Or using the sly.Dataset object
     ds.to_pascal_voc(project_fs.meta, dest_dir="./result_pascal")
 ```
 
@@ -225,17 +225,10 @@ All the above methods will return two lists of `ItemInfo` objects that represent
 
 ```python
 class ItemInfo(NamedTuple):
-    #: :class:`str`: Item's dataset name
-    dataset_name: str
-
-    #: :class:`str`: Item name
-    name: str
-
-    #: :class:`str`: Full image file path of item
-    img_path: str
-
-    #: :class:`str`: Full annotation file path of item
-    ann_path: str
+    dataset_name: str  # Item's dataset name
+    name: str  # Item's name
+    img_path: str  # Full image file path of item
+    ann_path: str  # Full annotation file path of item
 ```
 
 You can use these items to get the corresponding image name and path, annotation path, and dataset name.
@@ -244,7 +237,3 @@ You can use these items to get the corresponding image name and path, annotation
 for item in train_set:
     print(f"{item.name=}, {item.img_path=}, {item.ann_path=}")
 ```
-
-## Conclusion
-
-There are a variety of tools and methods available to convert and split data in Supervisely using both the Ecosystem Apps (no coding required) and the Python SDK (for python developers). These tools can help you efficiently prepare your data for machine learning projects and streamline the data preparation process. If you have any questions or need other data conversion or splitting tools, feel free to reach out to us.
