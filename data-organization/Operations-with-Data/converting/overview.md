@@ -1,6 +1,5 @@
-# Converting
-
-Converting data into different formats is essential operation in data preparation. In this section, you'll discover tools for efficiently performing this task. We have specific applications designed for data conversion, simplifying these processes. Additionally, you can use the Supervisely Python SDK to convert data to other formats.
+Converting data into different formats is essential operation in data preparation. We have specific applications designed for data conversion, simplifying these processes. Additionally, you can use the Supervisely Python SDK to convert data to other formats.
+Discover the tools for efficiently converting data to different formats in the following sections:
 
 <table data-view="cards">
 <thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead>
@@ -23,6 +22,4 @@ Converting data into different formats is essential operation in data preparatio
 </tbody>
 </table>
 
-{% hint style="info" %}
-For more information on data conversion formats and tools, contuct our support team.
-{% endhint %}
+---

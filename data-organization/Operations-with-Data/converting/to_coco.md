@@ -9,7 +9,7 @@ For more information on how to import COCO format data into Supervisely, see the
 
 ## Converting data using Supervisely Python SDK
 
-Easily convert your data in one line of code using the Supervisely Python SDK.
+Our Python SDK provides a simple way to convert your data to COCO format, allowing you to convert a Project, Dataset, or a single Annotation to COCO format. Easily convert your data in one line of code using the Supervisely Python SDK.
 
 {% hint style="success" %}
 
@@ -25,7 +25,7 @@ sly.convert.to_coco(dataset, meta=project.meta, dest_dir="./result_coco")
 
 {% endhint %}
 
-Our Python SDK provides a simple way to convert your data to COCO format, allowing you to convert a Project, Dataset, or a single Annotation to COCO format. Each dataset in the project will be converted to a separate COCO dataset. The single `sly.Annotation` object will be converted to a list of COCO annotation format objects.
+Each dataset in the project will be converted to a separate COCO dataset. The single `sly.Annotation` object will be converted to a list of COCO annotation format objects.
 
 {% hint style="info" %}
 It supports the following geometry types: `sly.Rectangle`, `sly.Bitmap`, `sly.Polygon`, `sly.GraphNodes`.

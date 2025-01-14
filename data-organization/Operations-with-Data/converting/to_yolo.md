@@ -29,6 +29,8 @@ This converter allows you to convert a project, dataset, or a single annotation 
 
 Project and dataset conversion works similarly and will convert all data in the same structure to YOLO format. The single `sly.Annotation` object will be converted to a list of YOLO annotation format lines.
 
+{% hint style="info" %}
+
 It supports the following geometry types:
 
 - **detection**: `sly.Rectangle`, `sly.Bitmap`, `sly.Polygon`, `sly.GraphNodes`, `sly.Polyline`, `sly.AlphaMask`
