@@ -1,4 +1,6 @@
-# Convert data to Pascal VOC format
+The Pascal VOC (Visual Object Classes) format stands as one of the benchmarks established relatively early for object classification, segmentation and detection. It furnishes a standardized dataset for identifying object classes, utilizing an XML-based export format that enjoys widespread adoption in computer vision tasks.
+
+For more information on how to import Pascal VOC format data into Supervisely, see the [Import from PascalVOC](../../import/import/supported-formats-images/pascal.md) guide.
 
 ## Converting data using Supervisely Ecosystem Apps
 

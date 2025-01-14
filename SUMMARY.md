@@ -81,9 +81,9 @@
   * [Augmentations](data-organization/Operations-with-Data/Augmentations.md)
   * [Splitting data](data-organization/Operations-with-Data/Splitdata.md)
   * [Converting data](data-organization/Operations-with-Data/converting/overview.md)
-    * [to COCO](data-organization/Operations-with-Data/converting/to_coco.md)
-    * [to YOLO](data-organization/Operations-with-Data/converting/to_yolo.md)
-    * [to Pascal VOC](data-organization/Operations-with-Data/converting/to_pascal_voc.md)
+    * [Convert to COCO](data-organization/Operations-with-Data/converting/to_coco.md)
+    * [Convert to YOLO](data-organization/Operations-with-Data/converting/to_yolo.md)
+    * [Convert to Pascal VOC](data-organization/Operations-with-Data/converting/to_pascal_voc.md)
 * [Data Commander](data-organization/data-commander/README.md)
   * [Clone Project Meta](data-organization/data-commander/clone-meta.md)
 

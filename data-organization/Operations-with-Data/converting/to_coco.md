@@ -1,4 +1,6 @@
-# Convert data to COCO format
+The [COCO](https://cocodataset.org/#home) format is widely used in the computer vision community and is supported by many popular frameworks and libraries. COCO format is a complex format that can contain multiple types of annotations. Supervisely supports conversions for instances, keypoints, and captions.
+
+For more information on how to import COCO format data into Supervisely, see the [Import from COCO](../../import/import/supported-formats-images/coco.md) guide.
 
 ## Converting data using Supervisely Ecosystem Apps
 

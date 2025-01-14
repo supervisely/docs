@@ -1,4 +1,6 @@
-# Convert data to YOLO format
+YOLO format is a popular, text-based format for different computer vision tasks, such as object detection, segmentation, and pose estimation.
+
+For more information on how to import YOLO format data into Supervisely, see the [Import from YOLO](../../import/import/supported-formats-images/yolo.md) guide.
 
 ## Converting data using Supervisely Ecosystem Apps
 
