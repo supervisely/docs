@@ -79,7 +79,11 @@
     * [How to use advanced filters](data-organization/operations-with-data/data-filtration/how-to-use-advanced-filters.md)
   * [Pipelines](data-organization/operations-with-data/pipelines.md)
   * [Augmentations](data-organization/Operations-with-Data/Augmentations.md)
-  * [Converting & Splitting data](data-organization/Operations-with-Data/Converting-Splitdata.md)
+  * [Splitting data](data-organization/Operations-with-Data/Splitdata.md)
+  * [Converting data](data-organization/Operations-with-Data/converting/overview.md)
+    * [to COCO](data-organization/Operations-with-Data/converting/to_coco.md)
+    * [to YOLO](data-organization/Operations-with-Data/converting/to_yolo.md)
+    * [to Pascal VOC](data-organization/Operations-with-Data/converting/to_pascal_voc.md)
 * [Data Commander](data-organization/data-commander/README.md)
   * [Clone Project Meta](data-organization/data-commander/clone-meta.md)
 
