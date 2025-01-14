@@ -22,14 +22,14 @@ The appropriate Supervisely App will generate an archive, save it to your Files 
 
 Of course, there are countless other Supervisely Apps that will help download your dataset in any desirable format. Just like with the Supervisely Format, select Download via App in the project or dataset context menu and choose any format of your likening. Here are some examples:
 
-* [Export to COCO](hhttps://app.supervisely.com/ecosystem/apps/export-to-coco?id=104)
-* [Export to Pascal VOC](https://app.supervisely.com/ecosystem/apps/export-to-pascal-voc?id=71)
-* [Export activity as csv](https://app.supervisely.com/ecosystem/apps/export-activity-as-csv?id=86)
-* [Export to YOLOv8 format](https://app.supervisely.com/ecosystem/apps/export-to-yolov8?id=252)
-* [Export to DOTA](https://app.supervisely.com/ecosystem/apps/export-to-dota?id=205)
-* [Export to Cityscapes](https://app.supervisely.com/ecosystem/apps/export-to-cityscapes)
+* [Export to COCO](https://ecosystem.supervisely.com/apps/export-to-coco)
+* [Export to Pascal VOC](https://ecosystem.supervisely.com/apps/export-to-pascal-voc)
+* [Export activity as csv](https://ecosystem.supervisely.com/apps/export-activity-as-csv)
+* [Export to YOLOv8 format](https://ecosystem.supervisely.com/apps/export-to-yolov8)
+* [Export to DOTA](https://ecosystem.supervisely.com/apps/export-to-dota)
+* [Export to Cityscapes](https://ecosystem.supervisely.com/apps/export-to-cityscapes)
 
-Explore more [export applications](https://app.supervisely.com/ecosystem/export) in the Ecosystem.
+Explore more [export applications](https://ecosystem.supervisely.com/export) in the Ecosystem.
 
 **For Python developers** –you can use our Python SDK to download and convert your data to COCO, YOLO, Pascal VOC formats:
 
