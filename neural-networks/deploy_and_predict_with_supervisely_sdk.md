@@ -19,14 +19,24 @@ pip install supervisely
 2. Run this code to deploy a model on the platform.
 
 ```python
-...
+from dotenv import load_dotenv
+import os
+import supervisely as sly
+from supervisely.nn.deploy import deploy_model
+
+# Ensure you've set API_TOKEN and SERVER_ADDRESS environment variables.
+load_dotenv(os.path.expanduser("~/supervisely.env"))
+
+model = deploy_model("your_experiment_name")
 ```
 
 ### 2. Predict
 
-Any model deployed on the platform (both manually and through code) works as a service and can accept API requests for predictions.
+```python
+prediction = model.inference_image_id(image_id=123)
+```
 
-To predict, you can use our convenient SessionAPI class in Supervisely SDK. Internally, it just makes requests to the FastAPI service for you.
+Any model deployed on the platform (both manually and through code) works as a service and can accept API requests for inference. So, if you manually served a model on the platform, connect to it, and get predictions using `Session` class:
 
 ```python
 import supervisely as sly
@@ -45,7 +55,8 @@ prediction = session.inference_image_id(image_id)
 
 Learn more about SessionAPI in the [Inference API Tutorial](https://developer.supervisely.com/app-development/neural-network-integration/inference-api-tutorial).
 
-## Local Deploy outside of Supervisely
+
+## Deploy outside of Supervisely
 
 In this section you will deploy a model locally on your machine, outside of Supervisely Platform. In the case of deployment outside of the platform, you don't have the advantages of the Ecosystem, but you get more freedom in how your model will be used in your code.
 
