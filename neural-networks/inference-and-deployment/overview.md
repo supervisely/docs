@@ -8,7 +8,7 @@ In general, there are 3 different ways you can deploy and apply your trained mod
 
 ## 1. Supervisely Serving Apps
 
-The fastest and easiest way. Deploy your model via Supervisely **Serving Apps**, such as [Serve YOLOv11](https://ecosystem.supervisely.com/apps/yolov8/serve), [Serve RT-DETRv2](https://ecosystem.supervisely.com/apps/rt-detrv2/supervisely_integration/serve), [Serve SAM 2.1](https://ecosystem.supervisely.com/apps/serve-segment-anything-2), then apply a model using **Applying Apps**, such as [Apply NN to Images](https://ecosystem.supervisely.com/apps/nn-image-labeling/project-dataset), [Apply NN to video](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project), [NN Image Labeling](https://ecosystem.supervisely.com/apps/nn-image-labeling/annotation-tool).
+This is the most user-friendly variant. Deploy your model via Supervisely **Serving Apps**, such as [Serve YOLOv11](https://ecosystem.supervisely.com/apps/yolov8/serve), [Serve RT-DETRv2](https://ecosystem.supervisely.com/apps/rt-detrv2/supervisely_integration/serve), [Serve SAM 2.1](https://ecosystem.supervisely.com/apps/serve-segment-anything-2), then apply a model using **Applying Apps**, such as [Apply NN to Images](https://ecosystem.supervisely.com/apps/nn-image-labeling/project-dataset), [Apply NN to video](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project), [NN Image Labeling](https://ecosystem.supervisely.com/apps/nn-image-labeling/annotation-tool).
 
 See more information in [Supervisely Serving Apps](supervisely-serving-apps.md).
 
