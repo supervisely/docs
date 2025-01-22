@@ -1,4 +1,4 @@
-# Deploy & Predict with Supervisely Python SDK
+# Deploy & Predict with Supervisely SDK
 
 This section involves using Python code together with [Supervisely SDK](https://github.com/supervisely/supervisely) to automate deployment and inference in different scenarios and environments. You can deploy your models either inside the Supervisely Platform (on an agent), or outside the platform, directly on your local machine. See the difference in [Overview](overview.md#in-platform-model-deployment-vs-local-deployment).
 
@@ -87,7 +87,7 @@ pip install supervisely
 
 3. **Download** your checkpoint and model files from Team Files.
 
-![Download checkpoint from Team Files](https://private-user-images.githubusercontent.com/31512713/395529957-796bf915-fbaf-4e93-a327-f0caa51dced4.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mzc1NzUzMjUsIm5iZiI6MTczNzU3NTAyNSwicGF0aCI6Ii8zMTUxMjcxMy8zOTU1Mjk5NTctNzk2YmY5MTUtZmJhZi00ZTkzLWEzMjctZjBjYWE1MWRjZWQ0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMjIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTIyVDE5NDM0NVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTM0ZjViMTA5YmNmOGZhYmQ2MDExMzQ1MDVhZjMwMTdjZGFkYWNiYzE0MTczMTFmYjM4MDI5ODY5OGUyYzlkYmQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.TqOSgCqqYXlFRBVbBSBMAW11Mtd75fd8D6QgWcxTI88)
+![Download checkpoint from Team Files](https://github.com/user-attachments/assets/796bf915-fbaf-4e93-a327-f0caa51dced4)
 
 4. **Predict:** Create `main.py` file in the root of the repository and paste the following code:
 
