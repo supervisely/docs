@@ -62,12 +62,12 @@ In this section you will deploy a model locally on your machine, outside of Supe
 
 There are several variants of how you can use a model locally:
 
-* 1. **[Load and Predict in Your Code](#1-load-and-predict-in-your-code)**: Load your checkpoint and get predictions in your code or in a script.
-* 2. **[Deploy Model as a Server](#2-deploy-model-as-a-server)**: Deploy your model as a server on your machine, and interact with it through API requests.
-  * **[🐋 Deploy in Docker Container](#-deploy-in-docker-container)**: Deploy model as a server in a docker container on your local machine.
-* 3. **[Deploy Model as a Serving App with web UI](#3-deploy-model-as-a-serving-app-with-web-ui)**: Deploy model as a server with a web UI, and interact with it through API. ❓ This feature is mostly for debugging and testing of Serving Apps.
+* **[Load and Predict in Your Code](#load-and-predict-in-your-code)**: Load your checkpoint and get predictions in your code or in a script.
+* **[Deploy Model as a Server](#deploy-model-as-a-server)**: Deploy your model as a server on your machine, and interact with it through API requests.
+  * **[🐋 Deploy in Docker Container](#deploy-in-docker-container)**: Deploy model as a server in a docker container on your local machine.
+* **[Deploy Model as a Serving App with web UI](#deploy-model-as-a-serving-app-with-web-ui)**: Deploy model as a server with a web UI, and interact with it through API. ❓ This feature is mostly for debugging and testing of Serving Apps.
 
-### 1. Load and Predict in Your Code
+### Load and Predict in Your Code
 
 This example shows how to load your checkpoint and get predictions in any of your code. The instructions are similar for other models.
 
@@ -139,9 +139,9 @@ sys.path.append("/path/to/RT-DETRv2")
 ```
 
 
-### 2. Deploy Model as a Server
+### Deploy Model as a Server
 
 #### 🐋 Deploy in Docker Container
 
-### 3. Deploy Model as a Serving App with web UI
+### Deploy Model as a Serving App with web UI
 
