@@ -1,6 +1,6 @@
 # Deploy & Predict with Supervisely Python SDK
 
-This section involves using Python code together with [Supervisely SDK](https://github.com/supervisely/supervisely) to automate deployment and inference in different scenarios and environments. You can deploy either inside the Supervisely Platform on an agent, or outside the platform, directly on your local machine. See the difference in this [Overview](overview.md#Deploy). If you need to completely decouple your code from Supervisely SDK, see **Deploy as a Standalone PyTorch Model** for advanced developers.
+This section involves using Python code together with [Supervisely SDK](https://github.com/supervisely/supervisely) to automate deployment and inference in different scenarios and environments. You can deploy either inside the Supervisely Platform on an agent, or outside the platform, directly on your local machine. See the difference in [Overview](overview.md#in-platform-model-deployment-vs-local-deployment). If you need to completely decouple your code from Supervisely SDK, see [Using Standalone PyTorch Models](using-standalone-pytorch-models.md).
 
 ## In-Platform Model Deployment
 
