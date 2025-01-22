@@ -11,12 +11,16 @@ In case of in-platform deployment, running the model will be similar to manually
 **Here's how to do it:**
 
 1. Install supervisely SDK if not installed.
+
 ```
-pip install supervisely  
+pip install supervisely
 ```
 
-2. ...
+2. Run this code to deploy a model on the platform.
 
+```python
+...
+```
 
 ### 2. Predict
 
