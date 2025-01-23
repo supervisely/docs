@@ -4,7 +4,9 @@
 
 This converter allows to import images with annotations in [COCO](https://cocodataset.org/#home) format. COCO format has all annotations in one `.json` file.
 
-Autoimport supports the following COCO annotation types: **instances**, **keypoints**, **captions**.
+"Auto Import" app supports the following COCO annotation types: **instances**, **keypoints**, **captions**.
+
+This format also supports importing images and their annotations directly from cloud storage links.
 
 ![Result of the import](images/coco\_res.png)
 

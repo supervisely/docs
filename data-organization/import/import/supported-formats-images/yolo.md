@@ -6,6 +6,7 @@ This converter allows to import images with annotations in [YOLO](https://docs.u
 
 Each image should have a corresponding `.txt` file with the same name, which contains information about objects in the image.
 
+
 * Segmentation labels will be converted to polygons. Labels format: `<class-index> <x1> <y1> <x2> <y2> ... <xn> <yn>`
 * Detection labels will be converted to rectangles. Labels format: `<class-index> <x_center> <y_center> <width> <height>`
 * Pose estimation labels will be converted to keypoints. Labels format: `<class-index> <x> <y> <width> <height> <px1> <py1> <px2> <py2> ... <pxn> <pyn>` for Dim=2 and `<class-index> <x> <y> <width> <height> <px1> <py1> <p1-visibility> <px2> <py2> <p2-visibility> <pxn> <pyn> <p2-visibility>` for Dim=3.
@@ -15,6 +16,8 @@ YOLO format data should have a specific configuration file that contains informa
 ⚠️ **Note:** If the input data does not contain `data_config.yaml` file, it will use default COCO class names.
 
 ![Result of the import](images/yolo\_res.png)
+
+This format also supports importing images and their annotations directly from cloud storage links.
 
 <details>
 

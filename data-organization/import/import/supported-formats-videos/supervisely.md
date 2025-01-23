@@ -8,6 +8,8 @@ Easily import your videos with annotations in the Supervisely format. The Superv
 All information about the Supervisely JSON format can be found <a href="https://docs.supervisely.com/data-organization/00_ann_format_navi" target="_blank">here</a>
 {% endhint %}
 
+This format also supports importing videos and their annotations directly from cloud storage links.
+
 ## Format description
 
 **Supported video formats:** `.avi`, `.mp4`, `.3gp`, `.flv`, `.webm`, `.wmv`, `.mov`, and `.mkv` <br>
