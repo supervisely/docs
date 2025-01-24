@@ -6,15 +6,31 @@
 The implementation of the instance segmentation evaluation is almost identical to object detection, except that IoU in instance segmentation is calculated between masks instead of bounding boxes.
 {% endhint %}
 
-We use pycocotools to compute basic metrics such as mAP, precision, and recall. Additionally, we utilize algorithms from pycocotools for object matching based on IoU. This approach allows us to adhere to the original algorithm for calculating the mAP metric, as different implementations can yield slightly varying results. Moreover, pycocotools is a C++ library with Python bindings, which ensures fast and efficient calculations.
+We use [pycocotools](https://github.com/cocodataset/cocoapi/tree/master) to compute basic metrics such as mAP, precision, and recall. Additionally, we utilize algorithms from pycocotools for object matching based on IoU. This approach allows us to adhere to the original algorithm for calculating the mAP metric, as different implementations can yield slightly varying results. Moreover, pycocotools is a C++ library with Python bindings, which ensures fast and efficient calculations.
 
-#### Matching Algorithm from pycocotools
+### Matching Algorithm from pycocotools
 
-To calculate any metrics, we must match the predicted instances (masks) with the actual ones. After matching, all instances are categorized into one of three outcomes: true positives, false positives, and false negatives. These categories are essential for calculating precision, recall, and mAP.
+To calculate common metrics, we need to *match* predicted instances (masks) with the actual ones. During the matching stage, we assign each instance an outcome: **True Positive**, **False Positive**, or **False Negative**. These categories are essential for calculating precision, recall, f1, and mAP. A predicted mask is considered **matched** if it overlaps with an actual mask with [IoU](#mask-accuracy-iou) >= 0.5.
 
 <figure><img src="../../.gitbook/assets/truth_vs_prediction.jpg" alt=""><figcaption></figcaption></figure>
 
-During the matching stage, we align the actual instances with the predicted ones, assigning each instance an outcome: **True Positive**, **False Positive**, or **False Negative**. An instance considered **matched** if its mask overlaps with an actual instance with [IoU](https://en.wikipedia.org/wiki/Jaccard\_index) greater than or equal to 0.5.
+### Averaging IoU thresholds
+
+When calculating the main metrics, such as Precision, Recall, F1-score, we average the results across a range of IoU thresholds. For instance, Precision is calculated as `Precision@IoU=[0.5,0.55,0.6...0.95]`. We calculate precision for each threshold and average them getting the final metric.
+
+Averaging across IoU thresholds is often used in detection and segmentation benchmarks, for example in [COCO challenges](https://cocodataset.org/#detection-eval). Such a metric provides more comprehensive view of model performance, than a metric calculated with a single IoU threhsold. Otherwise, there's a problem with metric discreteness due strict thresholding.
+
+To demonstrate the problem, consider an example: let's say we want to calculate `precision@IoU=0.85` (i.e., precision with 0.85 IoU threshold, without averaging). Then, in cases where the model correctly predicted an object of the true class but with IoU, say 0.84 or 0.83, which is quite a decent prediction, we would still record it as a wrong prediction. In extreme cases, this metric might end up being close to zero, despite the model producing not bad predictions. In another example, we might set a lower IoU threshold, say 0.5. In this case, the metric will saturate very early, hitting 1.0 score even if predictions are not perfect.
+
+Therefore, with averaging IoU thresholds, setting a strict IoU threshold is not necceassary, and we can evaluate the model performance more comprehensively.
+
+{% hint style="info" %}
+Note, that IoU Averaging can be applied only in calculation of the general metrics, such as Precision, Recall, F1-score. But in many charts, such as Confusion Matrix, Outcome Counts, as like as in image previews, only sigle IoU threshold can be used, since there is no way to average across several thresholds here.
+{% endhint %}
+
+## Outcome Counts
+
+Outcome Counts provides a quick assessment of model accuracy. It offers a general overview of how many instances the model correctly detected (True Positive), how many it missed (False Negative), and how many predictions were incorrect (False Positive).
 
 **True Positive (TP)** predictions are those that have matched with a ground truth segmentation mask and share the same class.
 
@@ -22,18 +38,12 @@ During the matching stage, we align the actual instances with the predicted ones
 
 **False Negative (FN)** happens when the model fails to detect an object that is present in the image. For example, the model does not detect a car that is actually in the ground truth. A false negative detection occurs when a ground truth segmentation mask has no any predicted mask with IoU greater than 0.5, or their classes do not match.
 
-After the matching procedure, we can calculate precision, recall, mAP, and other common metrics.
-
-## Outcome Counts
-
-Outcome Counts provides a quick assessment of model accuracy at a glance. It offers a general overview of how many instances the model correctly detected (True Positive), how many it missed (False Negative), and how many predictions were incorrect (False Positive).
-
 #### How to use
 
 The larger the green bar for true positive outcomes, and the smaller the red bars for false negative and false positive outcomes, the better the model's predictions. This chart helps to compare and understand the balance between false negatives and false positives, thus identifying which type of error is more prevalent in the model given the current confidence threshold.
 
 {% hint style="info" %}
-Remember, the ratio between false negatives and false positives depends on the confidence threshold.
+Note, the ratio between false negatives and false positives depends on the confidence threshold.
 {% endhint %}
 
 #### Calculating
