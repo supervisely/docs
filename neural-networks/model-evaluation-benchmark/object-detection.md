@@ -21,7 +21,7 @@ To demonstrate the problem, consider an example: let's say we want to calculate 
 Therefore, with averaging IoU thresholds, setting a strict IoU threshold is not necceassary, and we can evaluate the model performance more comprehensively.
 
 {% hint style="info" %}
-Note, that IoU Averaging can be applied only in calculation of the general metrics, such as Precision, Recall, F1-score, AP and mAP. But in many charts, such as Confusion Matrix, Outcome Counts, as like as in image previews, only sigle IoU threshold can be used, since there is no way to average across several thresholds here.
+Note, that IoU Averaging can be applied only in calculation of the general metrics, such as Precision, Recall, F1-score. But in many charts, such as Confusion Matrix, Outcome Counts, and in image previews, only sigle IoU threshold can be used, since there is no way to average across several thresholds here.
 {% endhint %}
 
 ## Outcome Counts
