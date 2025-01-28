@@ -132,7 +132,7 @@ ann.draw_pretty(img)
 Image.fromarray(img).save("prediction.jpg")
 ```
 
-If you need to run the code in your project and not in the root of the repository, you can add the path to the repository into PYTHONPATH, or by the following lines of the beginning of the script:
+If you need to run the code in your project and not in the root of the repository, you can add the path to the repository into `PYTHONPATH`, or by the following lines of the beginning of the script:
 
 ```python
 import sys
@@ -171,7 +171,7 @@ pip install supervisely
 
 4. **Deploy:**
 
-To deploy, use our script to start the server. You need to pass the path to your checkpoint file or the name of the pretrained model usin `--model` argument. Like in the previous example, you need to add the path to the repository into `PYTHONPATH`.
+To deploy, use our script to start the server. You need to pass the path to your checkpoint file or the name of the pre-trained model using `--model` argument. Like in the previous example, you need to add the path to the repository into `PYTHONPATH`.
 
 ```bash
 PYTHONPATH="${PWD}:${PYTHONPATH}" python ./supervisely_integration/serve/main.py --model ./my_experiments/2315_RT-DETRv2/checkpoints/best.pth
@@ -212,7 +212,7 @@ pred = session.inference_image_url(url)
 
 **Predict using script arguments:**
 
-- `--model` - **(required)** a path to your local checkpoint file, or remote path in Team Files. Also, it can be a name of a pretrained model.
+- `--model` - **(required)** a path to your local checkpoint file, or remote path in Team Files. Also, it can be a name of a pre-trained model.
 - `--predict` ❌ - a universal argument for input. It can be a local path to image, directory of images, or video.
 - `--output` ❌ - a local directory where predictions will be saved.
 - `--predict-image` - path to a local image.
