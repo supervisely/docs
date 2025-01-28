@@ -8,7 +8,9 @@ Easily import your videos with annotations in the Supervisely format. The Superv
 All information about the Supervisely JSON format can be found <a href="https://docs.supervisely.com/data-organization/00_ann_format_navi" target="_blank">here</a>
 {% endhint %}
 
-This format also supports importing videos and their annotations directly from cloud storage links.
+Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process. 
+
+To step up import speed even further you can compress all annotation files (`.json`'s) into an archive and import it together with the images. (Note: This method is format-dependent and may not apply to all formats.)
 
 ## Format description
 
