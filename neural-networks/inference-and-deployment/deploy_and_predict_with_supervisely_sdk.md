@@ -67,9 +67,10 @@ There are several variants of how you can use a model locally:
   * **[🐋 Deploy in Docker Container](#deploy-in-docker-container)**: Deploy model as a server in a docker container on your local machine.
 * **[Deploy Model as a Serving App with web UI](#deploy-model-as-a-serving-app-with-web-ui)**: Deploy model as a server with a web UI, and interact with it through API. ❓ This feature is mostly for debugging and testing of Serving Apps.
 
+
 ### Load and Predict in Your Code
 
-This example shows how to load your checkpoint and get predictions in any of your code. The instructions are similar for other models.
+This example shows how to load your checkpoint and get predictions in any of your code. RT-DETRv2 is used in this example, but the instructions are similar for other models.
 
 1. **Clone** our [RT-DETRv2](https://github.com/supervisely-ecosystem/RT-DETRv2) fork with the model implementation.
 
@@ -141,7 +142,163 @@ sys.path.append("/path/to/RT-DETRv2")
 
 ### Deploy Model as a Server
 
+❌ `sly.Api` is redundant in local deployment
+
+In this variant, you will deploy a model locally as an API Server for inference with the help of Supervisely SDK. It allows you to predict with local images, folders, videos, or remote supervisely projects and datasets (if you provide your Supervisely API token).
+
+
+1. **Clone** our [RT-DETRv2](https://github.com/supervisely-ecosystem/RT-DETRv2) fork with the model implementation.
+
+```bash
+git clone https://github.com/supervisely-ecosystem/RT-DETRv2
+cd RT-DETRv2
+```
+
+2. **Set up environment:**
+
+For **Local Inference Server**, you need to install the necessary dependencies and tools to run the server.
+
+Install [requirements](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/main/rtdetrv2_pytorch/requirements.txt) manually, or use our pre-built docker image ([DockerHub](https://hub.docker.com/r/supervisely/rt-detrv2/tags) | [Dockerfile](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/main/docker/Dockerfile)).
+
+```bash
+pip install -r rtdetrv2_pytorch/requirements.txt
+pip install supervisely
+```
+
+3. **Download** (optional) your checkpoint and model files from Team Files. Or skip this step and pass a remote path to checkpoint in Team Files.
+
+![Download checkpoint from Team Files](https://github.com/user-attachments/assets/796bf915-fbaf-4e93-a327-f0caa51dced4)
+
+4. **Deploy:**
+
+To deploy, use our script to start the server. You need to pass the path to your checkpoint file or the name of the pretrained model usin `--model` argument. Like in the previous example, you need to add the path to the repository into `PYTHONPATH`.
+
+```bash
+PYTHONPATH="${PWD}:${PYTHONPATH}" python ./supervisely_integration/serve/main.py --model ./my_experiments/2315_RT-DETRv2/checkpoints/best.pth
+```
+
+This command will start the server on `http://0.0.0.0:8000` and will be ready to accept API requests for inference.
+
+5. **Predict**
+
+After the model is deployed, use Supervisely [Inference Session API](https://developer.supervisely.com/app-development/neural-network-integration/inference-api-tutorial) with setting server address to `http://0.0.0.0:8000`.
+
+```python
+import os
+from dotenv import load_dotenv
+import supervisely as sly
+
+load_dotenv(os.path.expanduser("~/supervisely.env"))
+# ❌ (sly.Api is redundant in local deployment)
+api = sly.Api()
+
+# Create Inference Session
+session = sly.nn.inference.Session(api, session_url="http://0.0.0.0:8000")
+
+# local image
+pred = session.inference_image_path("image_01.jpg")
+
+# batch of images
+pred = session.inference_image_paths(["image_01.jpg", "image_02.jpg"])
+
+# remote image on the platform
+pred = session.inference_image_id(17551748)
+pred = session.inference_image_ids([17551748, 17551750])
+
+# image url
+url = "https://images.unsplash.com/photo-1674552791148-c756b0899dba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+pred = session.inference_image_url(url)
+```
+
+**Predict using script arguments:**
+
+- `--model` - **(required)** a path to your local checkpoint file, or remote path in Team Files. Also, it can be a name of a pretrained model.
+- `--predict` ❌ - a universal argument for input. It can be a local path to image, directory of images, or video.
+- `--output` ❌ - a local directory where predictions will be saved.
+- `--predict-image` - path to a local image.
+- `--predict-dir` ❌ - path to a local directory with images to predict. Predictions will be saved in the same directory in Supervisely JSON annotation format.
+- `--predict-video` ❌ - path to a local video file.
+- `--predict-project` - ID of Supervisely project to predict. A new project with predictions will be created on the platform.
+- `--predict-dataset` - ID(s) of Supervisely dataset(s) to predict. A new project with predictions will be created on the platform.
+
+Example usage:
+
+```bash
+PYTHONPATH="${PWD}:${PYTHONPATH}" python ./supervisely_integration/serve/main.py --model ./my_experiments/2315_RT-DETRv2/checkpoints/best.pth --predict ./supervisely_integration/demo/images
+```
+
+🔎 **Нужен отдельный туториал по аргументам на dev portal, и отсюда сделать ссылку туда.**
+
 #### 🐋 Deploy in Docker Container
+
+Deploying in a Docker Container is similar to deployment as a Server. This example is useful when you need to run your model on a remote machine or in a cloud environment.
+
+❓ For **Docker Container**, you need to pull the pre-built docker image from DockerHub.
+
+```bash
+docker pull supervisely/rt-detrv2-gpu-cloud:1.0.3
+```
+
+Use this docker run command:
+
+```bash
+docker run \
+  --shm-size=1g \
+  --runtime=nvidia \
+  --cap-add NET_ADMIN \
+  --env-file ~/supervisely.env \
+  --env ENV=production \
+  -v ".:/app" \
+  -w /app \
+  -p 8000:8000 \
+  supervisely/rt-detrv2-gpu-cloud:1.0.3 \
+  --model "/experiments/553_42201_Animals/2315_RT-DETRv2/checkpoints/best.pth"
+```
+
+In the last line, you need to pass the argument for model checkpoint and, optionally, other arguments for prediction (see the [previous](#deploy-model-as-a-server) section).
+This will start the server on `http://0.0.0.0:8000` in the container and will be ready to accept API requests for inference. You can use the same SessionAPI to get predictions.
+
 
 ### Deploy Model as a Serving App with web UI
 
+❌ `sly.Api` is redundant in local deployment
+
+In this variant, you will start a [Serving App](supervisely-serving-apps.md) with web UI, in which you can deploy a model.
+
+You need to follow all the steps from the [previous](#deploy-model-as-a-server) section, but instead of running the server, you need to run the following command:
+
+**Deploy:**
+
+```bash
+uvicorn main:model.app --app-dir supervisely_integration/serve --host 0.0.0.0 --port 8000 --ws websockets
+```
+After the app is started, you can open the web UI http://localhost:8000, and deploy a model through the web interface.
+
+**Predict:** Use the same [SessionAPI](https://developer.supervisely.com/app-development/neural-network-integration/inference-api-tutorial) to get predictions with the server address `http://localhost:8000`.
+
+```python
+import os
+from dotenv import load_dotenv
+import supervisely as sly
+
+load_dotenv(os.path.expanduser("~/supervisely.env"))
+# ❌ (do not need sly.Api for local deployment)
+api = sly.Api()
+
+# Create Inference Session
+session = sly.nn.inference.Session(api, session_url="http://localhost:8000")
+
+# local image
+pred = session.inference_image_path("image_01.jpg")
+
+# batch of images
+pred = session.inference_image_paths(["image_01.jpg", "image_02.jpg"])
+
+# remote image on the platform
+pred = session.inference_image_id(17551748)
+pred = session.inference_image_ids([17551748, 17551750])
+
+# image url
+url = "https://images.unsplash.com/photo-1674552791148-c756b0899dba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+pred = session.inference_image_url(url)
+```

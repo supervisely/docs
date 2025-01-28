@@ -47,21 +47,21 @@ Each model trained in Supervisely is recorded in the Experiments table, which di
 
 After your model has been trained, validated, and is ready for use, you can deploy it as API service in different ways:
 
-1. **In-Platform serve:** Deploy it via Serving Apps in Supervisely Platform.
-2. **Local deployment:** You can just download a checkpoint and deploy it locally on your machine, or use it as a standalone PyTorch model in your scripts.
-3. **Docker Container:** Deploy a model in a docker container on your local machine.
+1. **[Supervisely Serving Apps](inference-and-deployment/supervisely-serving-apps.md)** within the Platform. Faster and user-friendly way with convenient web UI.  
+2. **[Deploy with Supervisely Python SDK](inference-and-deployment/deploy_and_predict_with_supervisely_sdk.md)** for automated model inference: Use Supervisely SDK for deploying models and getting predictions in your code.  
+3. **[Using Standalone PyTorch Models](inference-and-deployment/using-standalone-pytorch-models.md)**: You can always download a plain PyTorch checkpoint and use it outside of Supervisely infrastructure in your code, or download its ONNX / TensorRT exported versions.
 
-Thus, there is no vendor lock, you can use your models the same way, as if you trained it manually with your own code.
+There is no vendor lock, you can use your models the same way, as if you trained it manually with your own code.
 
 ## Predict
 
-After you've deployed a model, you can interact with your model in different ways:
+After you've deployed a model, you can interact with it in different ways:
 
-1. **Apply model in platform:** Use convenient Supervisely Apps with GUI to get predictions. [Apply NN to Images](https://ecosystem.supervisely.com/apps/nn-image-labeling/project-dataset), [Apply NN to Videos](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project).
-2. **SessionAPI:** Communicate with deployed model using our python SDK, which has convenient methods for efficient model inference on images, projects, and even videos. We also support Tracking-by-detection algorithms, such as BoT-Sort.
-3. **Predict with Supervisely SDK:** Deploy a model locally and interact with it through Supervisely SDK.
-4. **Predict with CLI arguments:** Interact with model through CLI commands, or within Docker Container.
-5. **Standalone PyTorch model:** Use your trained checkpoints out of Supervisely infrastructure in your code as a simple pytorch model.
+1. **Apply model in platform:** If you deployed a model via a [Supervisely Serving App](inference-and-deployment/supervisely-serving-apps.md), you can predict easily with NN Applying app with web UI. [Apply NN to Images](https://ecosystem.supervisely.com/apps/nn-image-labeling/project-dataset), [Apply NN to Videos](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project).
+2. **SessionAPI:** Communicate with the deployed model using [Supervisely python SDK](https://developer.supervisely.com/app-development/neural-network-integration/inference-api-tutorial), which has convenient methods for efficient model inference on images, projects and videos. We also support Tracking-by-detection algorithms, such as BoT-Sort.
+3. **Predict with Supervisely SDK:** Deploy a model locally and interact with it through [Inference API](https://developer.supervisely.com/app-development/neural-network-integration/inference-api-tutorial).
+4. **Predict with CLI arguments:** In case you [deploying model locally](inference-and-deployment/deploy_and_predict_with_supervisely_sdk.md#deploy-model-as-a-server) or in a [docker container](inference-and-deployment/deploy_and_predict_with_supervisely_sdk.md#deploy-in-docker-container), you can do it with a simple command line interface, and get predictions in a few seconds.
+5. **Standalone PyTorch model:** Use your trained checkpoints out of Supervisely infrastructure in your code as a simple pytorch model (see more details in [Using Standalone PyTorch Models](inference-and-deployment/using-standalone-pytorch-models.md)).
 
 With the help of Supervisely SDK and Apps, you can easily apply your model to:
 
