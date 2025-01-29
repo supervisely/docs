@@ -6,10 +6,11 @@ This converter allows to import images with annotations in [COCO](https://cocoda
 
 "Auto Import" app supports the following COCO annotation types: **instances**, **keypoints**, **captions**.
 
+![Result of the import](images/coco\_res.png)
+
 Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process. 
 
 To step up import speed even further you can compress all annotation files (`.json`'s) into an archive and import it together with the images. (Note: This method is format-dependent and may not apply to all formats.)
-![Result of the import](images/coco\_res.png)
 
 ## Format description
 
