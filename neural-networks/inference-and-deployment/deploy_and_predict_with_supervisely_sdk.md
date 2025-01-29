@@ -236,26 +236,22 @@ PYTHONPATH="${PWD}:${PYTHONPATH}" python ./supervisely_integration/serve/main.py
 
 Deploying in a Docker Container is similar to deployment as a Server. This example is useful when you need to run your model on a remote machine or in a cloud environment.
 
-❓ For **Docker Container**, you need to pull the pre-built docker image from DockerHub.
-
-```bash
-docker pull supervisely/rt-detrv2-gpu-cloud:1.0.3
-```
-
 Use this docker run command:
+
+❌ тут нужно еще с Пашей проверить, что все аргументы рабочие. Пока что примерный список:
 
 ```bash
 docker run \
   --shm-size=1g \
   --runtime=nvidia \
-  --cap-add NET_ADMIN \
-  --env-file ~/supervisely.env \
   --env ENV=production \
+  --env PYTHONPATH="${PYTHONPATH}:/app/supervisely_integration/serve" \
   -v ".:/app" \
   -w /app \
   -p 8000:8000 \
-  supervisely/rt-detrv2-gpu-cloud:1.0.3 \
-  --model "/experiments/553_42201_Animals/2315_RT-DETRv2/checkpoints/best.pth"
+  supervisely/rt-detrv2:1.0.7 \
+  python3 supervisely_integration/serve/main.py \
+    --model "/experiments/553_42201_Animals/2315_RT-DETRv2/checkpoints/best.pth"
 ```
 
 In the last line, you need to pass the argument for model checkpoint and, optionally, other arguments for prediction (see the [previous](#deploy-model-as-a-server) section).

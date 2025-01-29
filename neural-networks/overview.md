@@ -11,7 +11,7 @@ In Supervisely Platform you can train popular models and frameworks on your data
 - Train popular models, such as [YOLOv8 - YOLOv11](https://ecosystem.supervisely.com/apps/yolov8/train), [RT-DETRv2](https://ecosystem.supervisely.com/apps/rt-detrv2/supervisely_integration/train), [MMDetection](https://ecosystem.supervisely.com/apps/train-mmdetection-v3), [SAM 2](https://ecosystem.supervisely.com/apps/serve-segment-anything-2/train).
 - Open source.
 - No vendor lock: use your models out of Supervisely Platform as standalone PyTorch models or within Python Supervisely SDK.
-- Auto export to ONNX, TensorRT, Pytorch, OpenVINO runtimes if framework supports it.
+- Auto export PyTorch model to ONNX, TensorRT, OpenVINO runtimes if framework supports it.
 - Auto-training: Automate model training via API to handle custom model improvement scenarios.
 - Tracking of data changes and model versions – all your experiments are reproducible.
 - Integrate training of your custom models and architectures.
