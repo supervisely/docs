@@ -18,6 +18,8 @@ pip install supervisely
 
 2. Run this code to deploy a model on the platform.
 
+❌ *У нас еще нет метода deploy_model*
+
 ```python
 from dotenv import load_dotenv
 import os
@@ -55,6 +57,7 @@ prediction = session.inference_image_id(image_id)
 
 Learn more about SessionAPI in the [Inference API Tutorial](https://developer.supervisely.com/app-development/neural-network-integration/inference-api-tutorial).
 
+---
 
 ## Deploy outside of Supervisely
 
