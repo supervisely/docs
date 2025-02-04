@@ -8,6 +8,9 @@ This section involves using Python code together with [Supervisely SDK](https://
 
 In-platform deployment is similar to manually launching a Serving App on the Supervisely Platform. With python SDK you can automate this.
 
+❌❌❌ ❌❌❌ session.inference_project(123) - внутри async
+❌❌❌  -
+
 **Here's how to do it:**
 
 1. Install supervisely SDK if not installed.
