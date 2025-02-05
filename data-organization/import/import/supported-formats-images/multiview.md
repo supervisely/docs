@@ -1,16 +1,16 @@
-# Multi-view images
+# Multiview images
 
 ## Overview
 
-Multi-view mode is a feature that allows you to view and annotate multiple images simultaneously. It is especially useful when you need to label objects from different perspectives, 3D reconstruction images, Autonomous vehicle camera views or depth estimation task images. Labeling in multi-view mode can significantly increase the speed of the labeling process (for example, you don't need to switch between images and select a desired class to label the same object)
+Multiview mode is a feature that allows you to view and annotate multiple images simultaneously. It is especially useful when you need to label objects from different perspectives, 3D reconstruction images, Autonomous vehicle camera views or depth estimation task images. Labeling in multiview mode can significantly increase the speed of the labeling process (for example, you don't need to switch between images and select a desired class to label the same object)
 
-Just organize images into groups and drop them to the import. The app will do the rest: it will detect groups, tag images, and activate grouping and multi-view modes in the project settings.
+Just organize images into groups and drop them to the import. The app will do the rest: it will detect groups, tag images, and activate grouping and multiview modes in the project settings.
 
 {% hint style="info" %}
-Note: To use the multi-view import feature, you need to create a project with the `Multi-view image annotation` setting enabled. You can also enable this setting in the project settings after the import. Here is an illustration of how to upload multi-view images:
+Note: To use the multiview import feature, you need to create a project with the `Multiview image annotation` setting enabled. You can also enable this setting in the project settings after the import. Here is an illustration of how to upload multiview images:
 {% endhint %}
 
-![Import Multi-view images](https://github.com/supervisely-ecosystem/import-wizard-docs/assets/79905215/81e7c8d1-dc38-4baf-bcef-165521a33c2a)
+![Import Multiview images](https://github.com/supervisely-ecosystem/import-wizard-docs/assets/79905215/81e7c8d1-dc38-4baf-bcef-165521a33c2a)
 
 Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process. 
 
@@ -26,6 +26,7 @@ To step up import speed even further you can compress all annotation files (`.js
 
 ### Key Features
 
+* 🏷️ NEW: Upload multiview project with grouped labels
 * All images in groups in the created project will be tagged
 * `Images Grouping` option will be turned on by default in the created project
 * Images will be grouped by tag's value
@@ -81,6 +82,93 @@ To step up import speed even further you can compress all annotation files (`.js
     * Group directories must be populated with images and placed inside the dataset directory. All images inside the group will be tagged with folder name value.
     * All images in the root dataset directory will be uploaded as regular images and will not be tagged.
 
+-   🏷️ **NEW: Supervisely Project Folder or Archive with label groups**
+
+    This type of structure will work only if you have the required data in the files:
+
+    -   All images must be tagged with a group tag of the same value.
+    -   All necessary labels must be tagged with a label group tag of the same value.
+    -   The project settings in `meta.json` must contain a `multiView` section with the correct data.
+
+    **Recommended structure**
+
+    ```text
+    📦archive
+     ┗📂project folder
+       ┣ 📂dataset_name_01
+       ┃  ┣ 📂ann
+       ┃  ┃  ┣ 📄106_1.jpeg.json
+       ┃  ┃  ┣ 📄106_2.jpeg.json
+       ┃  ┃  ┣ 📄106_3.jpeg.json
+       ┃  ┃  ┣ 📄107_1.jpeg.json
+       ┃  ┃  ┗ ...
+       ┃  ┣ 📂img
+       ┃  ┃  ┣ 🏞️106_1.jpg
+       ┃  ┃  ┣ 🏞️106_2.jpg
+       ┃  ┃  ┣ 🏞️106_3.jpg
+       ┃  ┃  ┣ 🏞️107_1.jpg
+       ┃  ┃  ┗ ...
+       ┃  ┗ 📂meta (optional)
+       ┃     ┣ 📄106_1.jpeg.json
+       ┃     ┣ 📄106_2.jpeg.json
+       ┃     ┣ 📄106_3.jpeg.json
+       ┃     ┣ 📄107_1.jpeg.json
+       ┃     ┗ ...
+       ┗ 📄meta.json
+    ```
+
+    **Annotation explained:**
+
+    Below is the annotation for each image, for example `106_1.jpeg.json`. Only the lines of interest are shown; other lines are omitted, but the structure is preserved.
+
+    ```json
+    {
+    	"tags": [
+    		{
+    			"name": "multiview",
+    			"value": "106"
+    		}
+    	],
+    	"objects": [
+    		{
+    			"classTitle": "Head Light",
+    			"tags": [
+    				{
+    					"name": "@label-group-id",
+    					"value": "head-light"
+    				}
+    			]
+    		}
+    	]
+    }
+    ```
+
+    For an image group, an image must be tagged with the `multiview` tag (in our example) and assigned a value that represents the group, such as `106`.
+
+    For a label group, an object (label) must be tagged with the `@label-group-id` tag and assigned a value that represents the group. For example `head-light`
+
+    **Meta explained**
+
+    Required setting for the project to import as multiview. Also shown only lines of interest.
+
+    ```json
+    {
+    	"projectSettings": {
+    		"multiView": {
+    			"enabled": true,
+    			"tagName": "multiview"
+    		}
+    	}
+    }
+    ```
+
+    **Image Labeling Tool Interface**
+
+      - 1 Multiview group
+      - 2 Labeling group
+
+    ![Labeling Tool Interface](https://github.com/user-attachments/assets/5283e0b7-eb22-48ce-ae3b-e991191857da)
+    
 {% hint style="success" %}
 We prepared sample datasets for you to try the import process:
 
@@ -90,10 +178,10 @@ We prepared sample datasets for you to try the import process:
 
 *   To display single images switch off `Images Grouping` setting.
 
-    ![Switch off multi view mode](images/multi\_view\_toggle.gif)
+    ![Switch off multiview mode](images/multi\_view\_toggle.gif)
 *   If you want to disable images grouping for the whole project, go to `Project` → `Settings` → `Visuals` and uncheck
 
-    ![Disable multi view in project settings](images/multi\_view\_1.png)
+    ![Disable multiview in project settings](images/multi\_view\_1.png)
 *   Windowing tool is available when working with `.nrrd` files. It helps to filter pixels to see bones, air, liquids etc.
 
     ![Nrrd windowing tool](images/multi\_view\_2.png)
@@ -113,20 +201,20 @@ We prepared sample datasets for you to try the import process:
 
 ## Easy integration for Python developers
 
-Automate processes with multi-view images using Supervisely Python SDK.
+Automate processes with multiview images using Supervisely Python SDK.
 
 ```bash
 pip install supervisely
 ```
 
-You can learn more about it in our [Developer Portal](https://developer.supervisely.com/getting-started/python-sdk-tutorials/images/multiview-images), but here we'll just give you a quick examples of how you can get started with multi-view images.
+You can learn more about it in our [Developer Portal](https://developer.supervisely.com/getting-started/python-sdk-tutorials/images/multiview-images), but here we'll just give you a quick examples of how you can get started with multiview images.
 
-### Upload multi-view images
+### Upload multiview images
 
-The following code snippets demonstrate how you can upload your multi-view images with just a few lines of code.
+The following code snippets demonstrate how you can upload your multiview images with just a few lines of code.
 
 ```python
-# enable multi-view display in project settings
+# enable multiview display in project settings
 api.project.set_multiview_settings(project_id)
 
 images_paths = ['path/to/audi_01.png', 'path/to/audi_02.png']
@@ -135,15 +223,15 @@ images_paths = ['path/to/audi_01.png', 'path/to/audi_02.png']
 api.image.upload_multiview_images(dataset_id, "audi", images_paths)
 ```
 
-In the example above we uploaded two groups of multi-view images. Before or after uploading images, we also need to enable image grouping in the project settings.\
+In the example above we uploaded two groups of multiview images. Before or after uploading images, we also need to enable image grouping in the project settings.\
 
-### Group existing images for multi-view
+### Group existing images for multiview
 
 {% hint style="info" %}
 Available starting from version `v6.73.236` of the Supervisely Python SDK.
 {% endhint %}
 
-If you already have images in your project and you want to group them for multi-view, you can group them by your own logic. By default, images will be grouped by the value of the `multiview` tag. You can change the tag name by passing the `multiview_tag_name` argument.
+If you already have images in your project and you want to group them for multiview, you can group them by your own logic. By default, images will be grouped by the value of the `multiview` tag. You can change the tag name by passing the `multiview_tag_name` argument.
 
 Here is an example of how you can do it with just a few lines of code.
 
@@ -157,7 +245,7 @@ api.image.group_images_for_multiview(images_1, group_name_1, multiview_tag_name)
 {% hint style="success" %}
 
 - If the tag does not exist, it will be created automatically.
-- If multi-view mode is not enabled in the project settings, it will be enabled automatically.
+- If multiview mode is not enabled in the project settings, it will be enabled automatically.
 
 {% endhint %}
 
@@ -185,3 +273,91 @@ with sly.ApiContext(api, project_id=project_id, project_meta=meta):
 {% hint style="info" %}
 We recommend grouping images in batches of 6-12 images (depending on the size of your display).
 {% endhint %}
+
+
+### How to upload label groups
+
+{% hint style="info" %}
+Available starting from version `v6.73.293` of the Supervisely Python SDK.
+{% endhint %}
+
+There are many cases when you need to group labels together. For example, if you have some labels captured from different perspectives that represent one object on different images and you want to analyze the object as a whole and not as separate instances, you can join them into a single group.
+
+**Label group** - is a simple group of objects, that displays the relationship between objects and helps you to quickly locate the object on different images and to avoid labeling the same object multiple times.
+
+![label group example](https://github.com/user-attachments/assets/2552ce5c-76b3-41fd-be12-80d1dd6e834d)
+
+Using the `api.annotation.append_labels_group` method, you can upload labels as a group to images.
+
+Let's group it all together and upload local images and labels to Supervisely using this method.
+
+Our sample data directory structure:
+
+```text
+ 📂 data
+ ┣ 📂 images
+ ┃ ┣ 🏞️ car_01.jpeg
+ ┃ ┣ 🏞️ car_02.jpeg
+ ┃ ┗ 🏞️ car_03.jpeg
+ ┗ 📂 masks
+   ┣ 🏞️ car_01.png
+   ┣ 🏞️ car_02.png
+   ┗ 🏞️ car_03.png
+```
+
+![data sample](https://github.com/user-attachments/assets/746eff69-e3c3-43f8-8094-8b5839dee61f)
+
+⬇️ You can download this sample here: [data.zip](https://github.com/supervisely/developer-portal/releases/download/untagged-6cc0d25bd610d680cc0d/data.zip)
+
+Follow the code below to upload images and labels to Supervisely.
+
+```python
+project_id = 56
+dataset_id = 196
+
+# GET PROJECT META
+meta = sly.ProjectMeta.from_json(api.project.get_meta(project_id, with_settings=True))
+
+# GET OBJ CLASS FROM META BY NAME
+obj_cls = meta.get_obj_class("car")
+# OR CREATE NEW OBJ CLASS IF NOT EXISTS
+# obj_cls = sly.ObjClass(name="car", geometry_type=sly.Rectangle, color=[255, 0, 0])
+# UPDATE PROJECT META IF CREATING NEW OBJ CLASS
+# meta = meta.add_obj_classes([obj_cls])
+# api.project.update_meta(project_id, meta.to_json())
+
+# SET MULTIVIEW SETTINGS
+api.project.set_multiview_settings(project_id)
+
+# GET IMAGES AND MASKS PATHS
+image_dir = os.path.join("data", "images")
+mask_dir = os.path.join("data", "masks")
+
+# SORT PATHS FOR CORRECT LABELS ORDER
+image_paths = sorted([os.path.join(image_dir, path) for path in os.listdir(image_dir)])
+mask_paths =  sorted([os.path.join(mask_dir, path) for path in os.listdir(mask_dir)])
+
+# CREATE LABELS
+labels = []
+for image_path, mask_path in zip(image_paths, mask_paths):
+    # READ MASK
+    bitmap = sly.Bitmap.from_path(mask_path)
+    # CREATE LABEL
+    label = sly.Label(geometry=bitmap, obj_class=obj_cls)
+    labels.append(label)
+
+# UPLOAD IMAGES
+image_infos = api.image.upload_multiview_images(dataset_id, "white_car", image_paths)
+images_ids = [image_info.id for image_info in image_infos]
+
+# APPEND LABELS TO IMAGES
+api.annotation.append_labels_group(
+    dataset_id=dataset_id,
+    image_ids=images_ids,
+    labels=labels,
+    project_meta=meta,
+)
+```
+**Result:**
+
+![result](https://github.com/user-attachments/assets/6a89c945-529a-4125-98c3-6d0582ce05dd)

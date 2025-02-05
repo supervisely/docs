@@ -52,7 +52,7 @@ Items even can be placed in any subdirectories or the root directory. Just make 
 
 Project meta file `meta.json` is recommended to be present in the project directory. It contains classes and tags definitions for the project. If it is not present, it will try to create it from the annotations. Learn more about the `meta.json` file <a href="https://docs.supervisely.com/customization-and-integration/00_ann_format_navi/02_project_classes_and_tags" target="_blank">here</a>.
 
-## Individual Video Annotations
+## Single-Video Annotation JSON
 
 For each video, we store the annotations in a separate `json` file named `video_name.video_format.json` with the following file structure:
 

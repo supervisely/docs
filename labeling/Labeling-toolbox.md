@@ -45,7 +45,7 @@ You can also open the labeling toolbox from a [Labeling Job](jobs/README.md) or 
          <td><a href="images/README.md">Images labeling toolbox</a></td>
       </tr>
     <tr>
-         <td><strong>Multi-view images</strong></td>
+         <td><strong>Multiview images</strong></td>
          <td>Create image groups inside your dataset by assigning a grouping tag.</td>
          <td><a href="<images/Multi-view images/Multi-view-images.md>">Multi-view images</a></td>
     </tr>

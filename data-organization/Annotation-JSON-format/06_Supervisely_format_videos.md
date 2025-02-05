@@ -1,4 +1,4 @@
-# Individual Video Annotations
+# Single-Video Annotation JSON
 
 For each video file, we store the annotations in a separate json file named `video_name.video_format.json` with the following file structure:
 
