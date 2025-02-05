@@ -168,7 +168,7 @@ To step up import speed even further you can compress all annotation files (`.js
       - 2 Labeling group
 
     ![Labeling Tool Interface](https://github.com/user-attachments/assets/5283e0b7-eb22-48ce-ae3b-e991191857da)
-    
+
 {% hint style="success" %}
 We prepared sample datasets for you to try the import process:
 
@@ -195,9 +195,9 @@ We prepared sample datasets for you to try the import process:
 *   [\[Supervisely Ecosystem\] Group Images for Multiview Labeling](https://ecosystem.supervisely.com/apps/group-images-for-multiview-labeling)
 
     ![](https://github.com/supervisely-ecosystem/group-images-for-multiview-labeling/assets/57998637/823cf901-8d8c-4a64-b884-c59f5ff83e93)
-*   [\[Supervisely Ecosystem\] Import images groups](https://ecosystem.supervisely.com/apps/import-images-groups)
+*   [\[Supervisely Ecosystem\] Import Multiview Image Groups](https://ecosystem.supervisely.com/apps/import-images-groups)
 
-    ![](https://i.imgur.com/wAiE0ld.png)
+    ![](https://github.com/user-attachments/assets/1788313e-8ef3-4f42-9277-38e32aa9dfa6)
 
 ## Easy integration for Python developers
 

@@ -49,7 +49,7 @@ Organize images into groups by creating a project directory. Example:
 
 ### Step 2: Importing Images
 
-Use the Import Wizard or the "Import Images Groups" app to upload and group multiview images. Enable multiview mode in the Labeling Tool for synchronized annotation.
+Use the Import Wizard or the "Import Multiview Image Groups" app to upload and group multiview images. Enable multiview mode in the Labeling Tool for synchronized annotation.
 
 ### Step 3: Annotating Images
 
