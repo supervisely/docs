@@ -100,7 +100,7 @@ Let's dive into the steps required to integrate your custom model using the `Tra
 
 ### Step 1. Prepare the Model Configuration List 📑
 
-Create a `models.json` file that holds a list of model configurations. Each entry is a dictionary with model-specific details. This data will be used in the GUI for model selection (except for the technical meta field).
+Create a `models.json` file that holds a list of model configurations. Each entry is a dictionary with model-specific details. These fields are used to populate the model table and can be customized based on your model requirements. This data will be displayed in the GUI for model selection (except for the technical `meta` field, which is required for the `TrainApp` to correctly access model info).
 
 {% hint style="info" %}
 
@@ -134,9 +134,9 @@ Create a `models.json` file that holds a list of model configurations. Each entr
 **Note:**
 
 - The `meta` field holds technical details used by the `TrainApp`:
-  - `task_type`: The type of task (e.g., object detection)
-  - `model_name`: Model name
-  - `model_files`: Paths to the checkpoint and configuration files
+  - (**required**) `task_type`: The type of task (e.g., object detection)
+  - (**required**) `model_name`: Model name
+  - (**required**) `model_files`: Paths to the checkpoint and configuration files
 
 _Example GUI preview:_
 
