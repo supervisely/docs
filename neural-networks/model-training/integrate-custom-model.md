@@ -104,7 +104,7 @@ Create a `models.json` file that holds a list of model configurations. Each entr
 
 {% hint style="info" %}
 
-📄 See source code for the RT-DETRv2 [models.json](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/main/supervisely_integration/models_v2.json)
+📄 See source file for the RT-DETRv2 [models.json](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/main/supervisely_integration/models_v2.json)
 
 {% endhint %}
 
@@ -150,7 +150,7 @@ You can access hyperparameters later in the code by using `train.hyperparameters
 
 {% hint style="info" %}
 
-📄 See source code for the RT-DETRv2 [hyperparameters.yaml](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/main/supervisely_integration/train/hyperparameters.yaml)
+📄 See source file for the RT-DETRv2 [hyperparameters.yaml](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/main/supervisely_integration/train/hyperparameters.yaml)
 
 {% endhint %}
 
@@ -232,7 +232,7 @@ You can provide additional options to control the GUI layout and behavior. Creat
   - **description:**  Collapse GUI cards on selection
   - **default:** `false`
   - **options:** `true`, `false`
-- **`demo`** | <mark style="color:green">For developers</mark>
+- **`demo`** | <mark style="color:purple">For developers</mark>
   - **description:**  Path to the demo folder containing tutorial data on how to use the model outside of the Supervisely platform
   - **default:** `None`
   - **options:** `path/to/demo/folder`
@@ -241,7 +241,7 @@ You can provide additional options to control the GUI layout and behavior. Creat
 
 {% hint style="info" %}
 
-📄 See source code for the RT-DETRv2 [app_options.yaml](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/main/supervisely_integration/train/app_options.yaml)
+📄 See source file for the RT-DETRv2 [app_options.yaml](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/main/supervisely_integration/train/app_options.yaml)
 
 {% endhint %}
 
@@ -458,18 +458,6 @@ Below is an example of how the final output directory might be structured:
  ┃ ┣ 📜checkpoint0025.pth
  ┃ ┣ 📜checkpoint0050.pth
  ┃ ┗ 📜last.pth
- ┣ 📂demo
- ┃ ┣ 📂img
- ┃ ┃ ┣ 📜coco_sample.jpg
- ┃ ┃ ┗ 📜team_files_download.png
- ┃ ┣ 📂tracking-by-detection
- ┃ ┃ ┣ 📜main.py
- ┃ ┃ ┗ 📜video.py
- ┃ ┣ 📜INFERENCE.md
- ┃ ┣ 📜README.md
- ┃ ┣ 📜demo_onnx.py
- ┃ ┣ 📜demo_pytorch.py
- ┃ ┗ 📜demo_tensorrt.py
  ┣ 📂export
  ┃ ┗ 📜best.onnx
  ┣ 📂logs
