@@ -439,7 +439,7 @@ Additional processing is applied to the raw training outputs (e.g., cleaning up 
 3. **Postprocess Training and Validation Splits**
 The splits for training and validation data are further refined if needed. This step ensures consistency and prepares the splits for future reference or re-training if necessary.
 
-4. **Upload Checkpoints to Supervisely Storage**
+4. **Upload Model Files and Checkpoints to Supervisely Storage**
 All model files provided in experiment info and checkpoints (e.g., best, intermediate, and last checkpoints) are automatically uploaded to the Supervisely storage so that they are safely stored and can be accessed later.
 
 5. **Create and Upload model_meta.json**
