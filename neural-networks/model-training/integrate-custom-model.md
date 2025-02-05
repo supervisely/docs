@@ -6,10 +6,9 @@ Welcome to this step-by-step guide on integrating your custom model with the Sup
 
 This guide will walk you through the process of:
 
-- Setting up your models configuration 📄
-- Preparing hyperparameters in YAML format 🔧
-- (Optionally) Configuring app options for enhanced behavior ⚙️
-- Integrating your custom model using the Supervisely SDK
+- Preparing model configuration files 📄
+- Learning about dedicated Supervisely `TrainApp` class 🔧
+- Integrating your custom model using Supervisely ⚙️
 - Finalizing and uploading your training artifacts 📦
 
 ### The TrainApp Class
