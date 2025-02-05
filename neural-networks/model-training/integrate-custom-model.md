@@ -47,7 +47,18 @@ class TrainApp(
 ## How to Run and Debug
 
 `TrainApp` is the same Supervisely App, but with a built-in GUI, so you don't have to worry about all the widgets and layout.
-You can run and debug your training app locally using the Supervisely SDK.
+
+You can run and debug your training app locally using the following shell command:
+
+```shell
+uvicorn main:train.app --host 0.0.0.0 --port 8000 --ws websockets
+```
+
+After running the app, you can access the GUI by opening the following URL in your browser:
+
+```text
+http://localhost:8000/
+```
 
 {% hint style="info" %}
 
@@ -55,7 +66,7 @@ Please see this [tutorial](https://developer.supervisely.com/app-development/app
 
 {% endhint %}
 
-Create `.vscode/launch.json` configuration to run and debug your training app locally.
+If you are a VSCode user, you can create `.vscode/launch.json` configuration to run and debug your training app locally.
 
 **Example `launch.json`**
 
@@ -86,12 +97,6 @@ Create `.vscode/launch.json` configuration to run and debug your training app lo
     }
     ]
 }
-```
-
-After running the app, you can access the GUI by opening the following URL in your browser:
-
-```text
-http://localhost:8000/
 ```
 
 ## Custom Model Integration Steps
@@ -137,6 +142,8 @@ Create a `models.json` file that holds a list of model configurations. Each entr
   - (**required**) `task_type`: The type of task (e.g., object detection)
   - (**required**) `model_name`: Model name
   - (**required**) `model_files`: Paths to the checkpoint and configuration files
+    - (**required**) `checkpoint`: Path or URL to the model checkpoint. URL will be downloaded automatically.
+    - (**optional**) `config`: Path to the model configuration file
 
 _Example GUI preview:_
 
@@ -286,10 +293,10 @@ Create an instance of the `TrainApp` by providing the framework name, model conf
 ```python
 base_path = "supervisely_integration/train"
 train = TrainApp(
-    "RT-DETRv2",
-    f"supervisely_integration/models_v2.json",
-    f"{base_path}/hyperparameters.yaml",
-    f"{base_path}/app_options.yaml",
+    framework_name="RT-DETRv2",
+    models=f"supervisely_integration/models_v2.json",
+    hyperparameters=f"{base_path}/hyperparameters.yaml",
+    app_options=f"{base_path}/app_options.yaml",
 )
 ```
 
