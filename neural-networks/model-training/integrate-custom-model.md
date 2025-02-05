@@ -16,7 +16,7 @@ This guide will walk you through the process of:
 
 The Supervisely SDK provides a dedicated class called `TrainApp` to help you train your custom model using Supervisely’s infrastructure. This class offers a built-in GUI and manages many essential tasks automatically.
 
-**Key Features of TrainApps**
+**Key Features of TrainApp**
 
 - Built-in GUI: Simple and easy to follow customizable interface
 - Train and Val Splits: Automatically split your dataset into training and validation sets

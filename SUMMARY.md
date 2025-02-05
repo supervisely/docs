@@ -163,7 +163,7 @@
   * [Instance Segmentation](neural-networks/model-evaluation-benchmark/instance-segmentation.md)
   * [Semantic Segmentation](neural-networks/model-evaluation-benchmark/semantic-segmentation.md)
 * [Model Training](neural-networks/model-training/README.md)
-  * [Integrate custom model](neural-networks/model-training/integrate-custom-model.md)
+  * [Custom Model Integration](neural-networks/model-training/integrate-custom-model.md)
 
 ## 👔 Enterprise Edition
 
