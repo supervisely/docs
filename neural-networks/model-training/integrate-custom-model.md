@@ -44,6 +44,56 @@ class TrainApp(
 |   app_options   | Optional\[Union\[str, List\[Dict\[str, Any\]\]\]\] |     Path to options file in `.yaml` format     |
 |    work_dir     |                  Optional\[str\]                   |   Local path for storing intermediate files    |
 
+## How to Run and Debug
+
+`TrainApp` is the same Supervisely App, but with a built-in GUI, so you don't have to worry about all the widgets and layout.
+You can run and debug your training app locally using the Supervisely SDK.
+
+{% hint style="info" %}
+
+Please see this [tutorial](https://developer.supervisely.com/app-development/apps-with-gui/hello-world) to learn how to run and debug Supervisely app.
+
+{% endhint %}
+
+Create `.vscode/launch.json` configuration to run and debug your training app locally.
+
+**Example `launch.json`**
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Uvicorn Train",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "main:train.app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000",
+        "--ws",
+        "websockets",
+      ],
+      "justMyCode": false,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${PYTHONPATH}",
+        "LOG_LEVEL": "DEBUG",
+        "DEBUG_APP_DIR": "app_data"
+      }
+    }
+    ]
+}
+```
+
+After running the app, you can access the GUI by opening the following URL in your browser:
+
+```text
+http://localhost:8000/
+```
+
 ## Custom Model Integration Steps
 
 Let's dive into the steps required to integrate your custom model using the `TrainApp` class.
@@ -178,11 +228,11 @@ You can provide additional options to control the GUI layout and behavior. Creat
   - **description:** Automatically converts classes according to the model CV task for model benchmark and creates a new project.
   - **default:** `false`
   - **options:** `true`, `false`
-- **`collapsable`** | <span style="color:red">Beta feature</span>
+- **`collapsable`** | <mark style="color:red">Beta feature</mark>
   - **description:**  Collapse GUI cards on selection
   - **default:** `false`
   - **options:** `true`, `false`
-- **`demo`** | <span style="color:green">For developers</span>
+- **`demo`** | <mark style="color:green">For developers</mark>
   - **description:**  Path to the demo folder containing tutorial data on how to use the model outside of the Supervisely platform
   - **default:** `None`
   - **options:** `path/to/demo/folder`
@@ -257,6 +307,12 @@ train.register_inference_class(RTDETRv2)
 
 The `TrainApp` gives you access to the Supervisely [Project](https://supervisely.readthedocs.io/en/latest/sdk/supervisely.project.project.Project.html#supervisely.project.project.Project) containing the `train` and `val` datasets. Convert these datasets to the desired format (e.g., COCO) and run your training routine.
 
+{% hint style="info" %}
+
+Use `train.sly_project` to access the Supervisely project in the training code.
+
+{% endhint %}
+
 You can use built-in converters like `to_coco` to convert your datasets to the required format or write your custom converter if required.
 
 **Data Conversion Example:**
@@ -282,6 +338,12 @@ def convert_data() -> Tuple[str, str]:
 All training code should be implemented in the `start_training` function using the `@train.start` decorator and should return the experiment information dictionary.
 
 Training logic and loop are inside `solver.fit()` function.
+
+{% hint style="info" %}
+
+📄 See source code for the RT-DETRv2 [main.py](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/main/supervisely_integration/train/main.py)
+
+{% endhint %}
 
 ```python
 @train.start
