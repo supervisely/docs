@@ -1,4 +1,4 @@
-# Project Meta: annotation classes, tags and other info
+# Project Meta: Annotation Classes, Tags, Settings
 
 Each project in Supervisely has a set of predetermined classes and tags. This information is called `Project Meta` and stored in a corresponding JSON-based `meta.json` file. This file contains all of the necessary data from the project's classes and tags. Also, it has information about the project's type and settings:
 
@@ -114,12 +114,13 @@ Each project in Supervisely has a set of predetermined classes and tags. This in
   * `hotkey` (string) [optional] - hotkey for the Labeling Tool to quickly assign tag to object or image
   * `applicable_type` (string) [optional] - defines the applicability of Tag only to images (`imagesOnly`), objects (`objectsOnly`), or both (`all`). By default tag can be assigned to both images and objects.
   * `classes` (list of strings) [optional] - defines the applicability of Tag only to certain classes
+  * `target_type` (string) [optional] - Defines the scope of application. It can be applied globally for the entire duration or to individual frames, with the following values: `entitiesOnly`,`framesOnly`, `all`. Since images do not have "frames," the `all` option is used for them.
 * `projectType`(string) - one of the possible project types: `images`, `videos`, `volumes`, `point_clouds`, and `point_cloud_episodes`
-* `projectSettings`(string) [optional] - additional project properties. For example, multi-view settings. Read more [here](../../getting-started/python-sdk-tutorials/images/multispectral-images.md#advanced-use-supervisely-format-for-multispectral-images)
-  * `multiView` - additional properties for the multi-view mode
-    * `enabled`(bool) - enable multi-view mode
+* `projectSettings`(string) [optional] - additional project properties. For example, multiview settings. Read more [here](../../getting-started/python-sdk-tutorials/images/multispectral-images.md#advanced-use-supervisely-format-for-multispectral-images)
+  * `multiView` - additional properties for the multiview mode
+    * `enabled`(bool) - enable multiview mode
     * `tagName`(string) (optional) - the name of the tag which will be used as a group tag
     * `tagId`(int) [optional] - the id of the tag which will be used as a group tag
-    * `isSynced`(bool) - enable synchronization of views for the multi-view mode
+    * `isSynced`(bool) - enable synchronization of views for the multiview mode
 
 Please note, that it is necessary that the group tag in `multiView` should have the corresponding `name` or the `id` in the `tags` field. Also, the `value_type` *should not be* `none`.

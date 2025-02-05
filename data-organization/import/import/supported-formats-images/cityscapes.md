@@ -89,7 +89,7 @@ In order to import custom annotations for the images, you need to provide a `cla
 
 </details>
 
-## Individual Image Annotations
+## Single-Image Annotation JSON
 
 Annotation file should contain the following fields:
 

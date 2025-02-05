@@ -6,7 +6,7 @@ When defining a tag, you assign it a name, possible values for a tag instance an
 
 ## Tags With 'None' Value 
 
-Tags of 'none' type can't be assigned a value. Adding one manually will result in an error. Also it [could not be used](../supervisely-annotation-json-format/project-classes-and-tags.md#fields-definitions) as a group tag for the multi-view mode.
+Tags of 'none' type can't be assigned a value. Adding one manually will result in an error. Also it [could not be used](../supervisely-annotation-json-format/project-classes-and-tags.md#fields-definitions) as a group tag for the multiview mode.
 
 Json format for 'None' tags:
 

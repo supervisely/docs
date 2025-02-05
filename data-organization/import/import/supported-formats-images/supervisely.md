@@ -61,7 +61,7 @@ Just make sure that:
 * Image and annotation files can be placed in any subdirectories or the root directory.
 {% endhint %}
 
-## Individual Image Annotations
+## Single-Image Annotation JSON
 
 For each image, we store the annotations in a separate `json` file named `image_name.image_format.json` with the following file structure:
 

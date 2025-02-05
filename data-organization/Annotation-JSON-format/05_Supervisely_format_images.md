@@ -1,4 +1,6 @@
-# Single Image Annotation File
+# Single-Image Annotation JSON
+
+### Structure
 
 For each image, we store the annotations in a separate json file named `image_name.image_format.json` with the following file structure: 
 
@@ -108,5 +110,61 @@ Example:
     ]
 }
 ```
+
+### How the Label Group Is Described in Project Files
+
+![Label Group](./figures_images/label-group-example.png)
+
+1. **Project Meta**
+
+    In the **tags** section of project `meta.json`, you must include a tag named **`@label-group-id`** with the following properties:
+    - **`name`**: `"@label-group-id"`  
+    - **`value_type`**: `"any_string"` (allows flexible naming for groups)  
+    - **`applicable_type`**: `"objectsOnly"` (ensures the tag is only assigned to labeled objects)  
+
+    This tag is essential for defining and managing label groups within the project, allowing grouped labels to be linked and organized effectively.
+
+    ```json
+    {        
+        "tags": [
+            {
+                "name": "@label-group-id",
+                "value_type": "any_string",
+                "color": "#FF0000",
+                "id": 222,
+                "hotkey": "",
+                "applicable_type": "objectsOnly",
+                "classes": [],
+                "target_type": "all"
+            }
+        ],
+        ... // more elements here
+    }
+    ```
+
+2. **Image Annotation**
+
+    To add an object to a label group, you must assign the `@label-group-id` tag with the corresponding group name as its value.
+
+    - This ensures that all objects with the same tag value are recognized as part of the same group.
+    - Grouped labels will be visually linked and managed together in the annotation interface.
+
+    ```json
+    "objects": [
+            {
+                "classTitle": "Head Light",
+                "description": "",
+                "tags": [
+                    {
+                        "name": "@label-group-id",
+                        "value": "head-light",
+                        "labelerLogin": "supervisely",
+                        ... // more elements here
+                    }
+                ],
+                ... // more elements here
+            }
+        ]
+    ```
 
 

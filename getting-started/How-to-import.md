@@ -31,7 +31,7 @@ You can learn more about Import, such as importing different formats, import fro
 
 <!---->
 
-* Import images for [Multi-view](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/multiview.md), [Multispectral](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/multispectral.md), [Medical 2D (single)](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/medical\_2d.md) labeling.&#x20;
+* Import images for [Multiview](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/multiview.md), [Multispectral](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/multispectral.md), [Medical 2D (single)](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/medical\_2d.md) labeling.&#x20;
 
 <!---->
 

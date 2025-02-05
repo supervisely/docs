@@ -180,7 +180,7 @@ kpt_shape: [17, 3] # number of keypoints, number of dims (2 for x,y or 3 for x,y
 
 </details>
 
-## Individual Image Annotations
+## Single-Image Annotation
 
 Annotation files are in `.txt` format and should contain object labels on each line:
 

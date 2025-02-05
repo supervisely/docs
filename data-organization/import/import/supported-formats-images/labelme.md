@@ -33,7 +33,7 @@ Example directory structure:
 
 ```
 
-## Individual Image Annotations (JSON)
+## Single-Image Annotation JSON
 
 An annotation file should contain the following fields:
 
