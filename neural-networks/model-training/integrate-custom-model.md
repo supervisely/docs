@@ -342,13 +342,13 @@ def convert_data() -> Tuple[str, str]:
 
 **Training Routine with @train.start Decorator:**
 
-All training code should be implemented in the `start_training` function using the `@train.start` decorator and should return the experiment information dictionary.
+All training code should be implemented in the function under the `@train.start` decorator and should return the experiment information dictionary.
 
-Training logic and loop are inside `solver.fit()` function.
+In this example training logic and loop are inside `solver.fit()` function.
 
 {% hint style="info" %}
 
-📄 See source code for the RT-DETRv2 [main.py](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/main/supervisely_integration/train/main.py)
+📄 See source code for the RT-DETRv2 [main.py](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/main/supervisely_integration/train/main.py) and [training logic](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/fd957cdfd793c0661a1b57a549f7bba82aeb7c84/rtdetrv2_pytorch/src/solver/det_solver.py#L20-L130)
 
 {% endhint %}
 
@@ -395,8 +395,8 @@ def start_training():
 Returned dictionary should contain the following fields:
 
 - **`model_name`** - Name of the model used for training
-- **`model_files`** - Dictionary with paths to additional model files (e.g. `config`)
-- **`checkpoints`** - List of checkpoint paths or path to the output directory with checkpoints
+- **`model_files`** - Dictionary with paths to additional model files (e.g. `config`). These files will be uploaded to the storage automatically.
+- **`checkpoints`** - List of checkpoint paths or path to the output directory with checkpoints. These files will be uploaded to the storage automatically.
 - **`best_checkpoint`** - Name of the best checkpoint file
 
 {% hint style="warning" %}
@@ -537,15 +537,24 @@ This is an example of the final experiment information file that is generated:
 
 **Fields explanation:**
 
+{% hint style="info" %}
+
+All paths listed in the `experiment_info.json` are relative to the `artifacts_dir` field.
+
+{% endhint %}
+
 - **experiment_name**, **framework_name**, **model_name**, **task_type**: General metadata about the training experiment.
 - **project_id**, **task_id**: IDs used to uniquely identify the project and the training task within Supervisely.
 - **model_files**: Contains paths to the model configuration file(s).
 - **checkpoints** & **best_checkpoint**: Lists the checkpoints produced during training and indicates the best-performing one.
 - **export**: Shows the export file for ONNX (or TensorRT if enabled).
-- **app_state**, **model_meta**, **train_val_split**, **hyperparameters**: References to additional configuration and state files.
+- **app_state**: Location of the app_state.json file for debugging and re-runs.
+- **model_meta**: Path to the model meta file. Contains [ProjectMeta](https://supervisely.readthedocs.io/en/latest/sdk/supervisely.project.project_meta.ProjectMeta.html#supervisely.project.project_meta.ProjectMeta) object in `json` format.
+- **train_val_split**: Location of the `train_val_split.json` file containing the split information.
+- **hyperparameters**: Path to the hyperparameters file used for training.
 - **artifacts_dir** & **datetime**: Directory where artifacts are stored and the timestamp of the experiment.
 - **evaluation_report** and **evaluation_metrics**: Information from the model benchmarking process (if run).
-- **logs**: Location of training logs for review in the Supervisely interface.
+- **logs**: Location and type of training logs for review in the Supervisely interface.
 
 ## Additional Resources 📚
 
