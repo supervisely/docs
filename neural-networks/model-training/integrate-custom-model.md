@@ -1,15 +1,16 @@
 # Custom Model Integration Tutorial 🚀
 
-Welcome to this step-by-step guide on integrating your custom model with the Supervisely SDK! In this tutorial, you'll learn how to use the powerful TrainApp class to train your model effortlessly while taking advantage of Supervisely’s robust infrastructure. We’ll use the [Train RT-DETRv2](https://ecosystem.supervisely.com/apps/rt-detrv2/supervisely_integration/train) implementation as an example throughout this guide.
+Welcome to this step-by-step guide on integrating your custom model with the Supervisely SDK!
+In this tutorial, you'll learn how to use the `TrainApp` for implementation and how it aligns with the Supervisely platofrm.
+We’ll use the [Train RT-DETRv2](https://ecosystem.supervisely.com/apps/rt-detrv2/supervisely_integration/train) implementation as an example throughout this guide.
 
 ## Overview
 
 This guide will walk you through the process of:
 
-- Preparing model configuration files 📄
-- Learning about dedicated Supervisely `TrainApp` class 🔧
-- Integrating your custom model using Supervisely ⚙️
-- Finalizing and uploading your training artifacts 📦
+- Prepare model configuration files 📄
+- Learn about dedicated Supervisely `TrainApp` class 🚀
+- Integrate your custom model using Supervisely SDK 🤖
 
 ### The TrainApp Class
 
@@ -18,11 +19,12 @@ The Supervisely SDK provides a dedicated class called `TrainApp` to help you tra
 **Key Features of TrainApp**
 
 - Built-in GUI: Simple and easy to follow customizable interface
-- Train and Val Splits: Automatically split your dataset into training and validation sets
-- Data Preparation: Seamless conversion of Supervisely projects to the required format
-- Data Backup: Automatic backup of your dataset with Supervisely’s versioning system
-- Model Evaluation: On-demand evaluation (requires a model [serving implementation](https://developer.supervisely.com/app-development/neural-network-integration/inference/overview-nn-integration))
-- Model Saving: Automatically save your model and related files to Supervisely storage
+- Train and Val Splits: Automatically split your project into training and validation sets
+- Data Preparation: Seamless conversion of Supervisely project to the required format with 1 line of code
+- Data Backup: Automatic backup of your project with Supervisely’s versioning system
+- Model Evaluation: On-demand evaluation (requires [model serving implementation](https://developer.supervisely.com/app-development/neural-network-integration/inference/overview-nn-integration))
+- Model Export: Export your model to ONNX or TensorRT format (requires [export implementation](#link-to-custom-export-tutorial))
+- Model Saving: Automatically save your model and related files to Supervisely Team Files
 
 #### TrainApp Signature
 
@@ -47,6 +49,17 @@ class TrainApp(
 ## How to Run and Debug
 
 `TrainApp` is the same Supervisely App, but with a built-in GUI, so you don't have to worry about all the widgets and layout.
+Learn more about the `TrainApp` GUI [below](#about-gui-layout).
+
+Prepare environment file before running the app:
+
+```text
+# Change values to your own
+
+PROJECT_ID=12208 # ⬅️ change it
+APP_NAME=Train RT-DETRv2 # ⬅️ change it
+DEBUG_APP_DIR=app_data # ⬅️ change it
+```
 
 You can run and debug your training app locally using the following shell command:
 
@@ -62,7 +75,11 @@ http://localhost:8000/
 
 {% hint style="info" %}
 
-Please see this [tutorial](https://developer.supervisely.com/app-development/apps-with-gui/hello-world) to learn how to run and debug Supervisely app.
+**Useful links:**
+
+- [Environment variables](https://developer.supervisely.com/getting-started/environment-variables) - Setting up environment variables for Supervisely App development
+- [App developemnt](https://developer.supervisely.com/app-development/basics) - Basics of Supervisely App development
+- [Hello world!](https://developer.supervisely.com/app-development/apps-with-gui/hello-world) - Simple example of a Supervisely App
 
 {% endhint %}
 
@@ -147,11 +164,11 @@ Create a `models.json` file that holds a list of model configurations. Each entr
 
 _Example GUI preview:_
 
-![model-selection](https://github.com/user-attachments/assets/753f6f0f-a38f-4d61-accb-dc8ba41777c0)
+![Model Selection](./train-step-4.png)
 
 ### Step 2. Prepare Hyperparameters YAML 🔧
 
-Define your default hyperparameters save to a YAML file (e.g., `hyperparameters.yaml`). Path to this file is then passed to the `TrainApp` for training configuration.
+Define your default hyperparameters save to a `.yaml` file (e.g., `hyperparameters.yaml`). Path to this file is then passed to the `TrainApp` for training configuration.
 
 You can access hyperparameters later in the code by using `train.hyperparameters` in your training logic.
 
@@ -395,8 +412,8 @@ def start_training():
 Returned dictionary should contain the following fields:
 
 - **`model_name`** - Name of the model used for training
-- **`model_files`** - Dictionary with paths to additional model files (e.g. `config`). These files will be uploaded to the storage automatically.
-- **`checkpoints`** - List of checkpoint paths or path to the output directory with checkpoints. These files will be uploaded to the storage automatically.
+- **`model_files`** - Dictionary with paths to additional model files (e.g. `config`). These files will be uploaded to the supervisely storage automatically.
+- **`checkpoints`** - List of checkpoint paths or path to the output directory with checkpoints. These files will be uploaded to the supervisely storage automatically.
 - **`best_checkpoint`** - Name of the best checkpoint file
 
 {% hint style="warning" %}
@@ -422,11 +439,11 @@ for epoch in range(start_epcoch, total_epochs):
 train_logger.train_finished()
 ```
 
-## Final Steps 🎉
+## Final Steps 📦
 
 After training is completed successfully, the `TrainApp` will automatically prepare and upload the model and all related files to Supervisely storage. During this finalization phase, TrainApp executes several important steps to ensure your experiment's outputs are correctly validated, processed, and stored.
 
-Standard Supervisely storage path for the experiment: `/experiments/{project_id}_{project_name}/{task_id}_{framework_name}/`
+Standard Supervisely storage path for the artifacts: `/experiments/{project_id}_{project_name}/{task_id}_{framework_name}/`
 
 **Here’s what happens:**
 
@@ -443,7 +460,7 @@ The splits for training and validation data are further refined if needed. This 
 All model files provided in experiment info and checkpoints (e.g., best, intermediate, and last checkpoints) are automatically uploaded to the Supervisely storage so that they are safely stored and can be accessed later.
 
 5. **Create and Upload model_meta.json**
-A metadata file (model_meta.json) is generated, which includes essential details about the model (such as its architecture, training parameters, and version). This file is then uploaded along with other artifacts.
+A metadata file (`model_meta.json`) is generated, which includes essential details about the model (such as its architecture, training parameters, and version). This file is then uploaded along with other artifacts.
 
 6. **Run Model Benchmarking (if enabled)**
 If model benchmarking is enabled in your `app_options`, the system will run automated tests to evaluate model performance. These benchmarks help in comparing the model against standard metrics.
@@ -548,8 +565,8 @@ All paths listed in the `experiment_info.json` are relative to the `artifacts_di
 - **model_files**: Contains paths to the model configuration file(s).
 - **checkpoints** & **best_checkpoint**: Lists the checkpoints produced during training and indicates the best-performing one.
 - **export**: Shows the export file for ONNX (or TensorRT if enabled).
-- **app_state**: Location of the app_state.json file for debugging and re-runs.
-- **model_meta**: Path to the model meta file. Contains [ProjectMeta](https://supervisely.readthedocs.io/en/latest/sdk/supervisely.project.project_meta.ProjectMeta.html#supervisely.project.project_meta.ProjectMeta) object in `json` format.
+- **app_state**: Location of the `app_state.json` file for debugging and re-runs.
+- **model_meta**: Path to the model meta file. Contains [ProjectMeta](https://supervisely.readthedocs.io/en/latest/sdk/supervisely.project.project_meta.ProjectMeta.html#supervisely.project.project_meta.ProjectMeta) object in `.json` format.
 - **train_val_split**: Location of the `train_val_split.json` file containing the split information.
 - **hyperparameters**: Path to the hyperparameters file used for training.
 - **artifacts_dir** & **datetime**: Directory where artifacts are stored and the timestamp of the experiment.
@@ -558,7 +575,7 @@ All paths listed in the `experiment_info.json` are relative to the `artifacts_di
 
 ## Additional Resources 📚
 
-#### Important TrainApp Attributes
+### Important TrainApp Attributes
 
 - **`train.work_dir`** - Path to the working directory. Contains intermediate files.
 - **`train.output_dir`** - Path to the output directory. Contains training results.
@@ -584,22 +601,129 @@ All paths listed in the `experiment_info.json` are relative to the `artifacts_di
 - **`train.classes`** - List of selected classes
 - **`train.device`** - Selected CUDA device
 
-#### Debugging with app_state.json 🐞
+### Export Model to ONNX and TensorRT
+
+If you'd like to export your trained model to the ONNX or TensorRT format, you can easily do so using dedicated decorators. Simply add the @train.export_onnx and @train.export_tensorrt decorators to your export functions. These functions should return the file path of the exported model, and the TrainApp will take care of uploading it to Supervisely storage automatically.
+
+```python
+@train.export_onnx
+def export_onnx_model():
+    # Your export model to ONNX format
+    return path_to_onnx_model
+
+@train.export_tensorrt
+def export_tensorrt_model():
+    # Your export model to TensorRT format code
+    return path_to_tensorrt_model
+```
+
+### About GUI Layout
+
+The graphical user interface (GUI) for the training app is a pre-built template based on [Supervisely Widgets](https://developer.supervisely.com/app-development/widgets). Each step is organized into a separate [Card](https://developer.supervisely.com/app-development/widgets/layouts-and-containers/card) that groups related settings together, making it intuitive to navigate through the training settings.
+
+#### Step 1. Project Options
+
+In this initial step, the app displays the project on which the training is run. It also offers an option to cache the project on the training agent for future use.
+
+![Step 1](./train-step-1.png)
+
+#### Step 2. Train and Val Splits
+
+This step allows you to split your project data into training and validation sets. You can choose among different splitting methods such as random, tags, or by datasets.
+
+![Step 2](./train-step-2.png)
+
+#### Step 3. Classes Selector
+
+Select the classes you want your model to train on. You can choose multiple classes from the provided classes table.
+
+![Step 3](./train-step-3.png)
+
+#### Step 4. Model Selector
+
+Here, you can choose the model you wish to train. Select from pretrained models or your own custom models (trained previously in Supervisely). Once trained, your custom model will automatically appear in the custom models table next time you run the app.
+
+![Step 4](./train-step-4.png)
+
+#### Step 5. Hyperparameters
+
+Set and adjust the training hyperparameters in this step. You can also enable model benchmarking (if enabled and implemented) and export your model to ONNX or TensorRT formats (if enabled and implemented). The hyperparameters are fully customizable using an [Editor](https://developer.supervisely.com/app-development/widgets/text-elements/editor) widget, allowing you to add as many variables and values as needed.
+
+![Step 5](./train-step-5.png)
+
+#### Step 6. Training Process
+
+Enter your experiment name, choose the CUDA device (if enabled), and start the training process. Once training begins, previous steps will be locked to prevent changes during the run.
+
+![Step 6](./train-step-6.png)
+
+#### Step 7. Training Logs
+
+View real-time training logs and progress via a progress bar (if implemented). This step also provides a link to the TensorBoard dashboard for more detailed monitoring (if implemented).
+
+![Step 7](./train-step-7.png)
+
+#### Step 8. Training Artifacts
+
+After training finishes, this step displays the final training artifacts along with links to the stored files. These artifacts are automatically uploaded and organized in the Supervisely storage.
+
+Default artifacts location is: `/experiments/{project_id}_{project_name}/{task_id}_{framework_name}/`
+
+![Step 8](./train-step-8.png)
+
+### How to see TensorBoard logs after the training is finished
+
+Once the training process is complete, you can view the TensorBoard logs in the `logs` directory within the artifacts folder.
+
+The default location for these logs is: `/experiments/{project_id}_{project_name}/{task_id}_{framework_name}/logs/`
+
+To open and view the log file, you can use [Tensorboard Experiments Viewer](https://ecosystem.supervisely.com/apps/tensorboard-experiments-viewer) app.
+
+![tensorboard dashboard]()
+
+### Debugging with app_state.json 🐞
 
 The `app_state.json` file captures the state of the `TrainApp` right before training begins. This file is incredibly useful for debugging and troubleshooting issues that might arise during training. It allows developers to quickly restart the training process without having to reconfigure all the settings via the GUI.
 
-You can access `app_state` in the training code by using `train.app_state`.
+You can access `app_state` in the training code by using `train.app_state` and dump it locally for debugging purposes.
+
+```python
+@train.start
+def start_training():
+    ...
+    app_state = train.app_state
+    with open("app_state.json", "w") as f:
+        json.dump(app_state, f, indent=2)
+    ...
+```
 
 **Why Use app_state.json?**
-- **Quick Debugging:** If something goes wrong during training, you can inspect the app_state.json file to see the exact configuration that was used.
-- **Streamlined Re-runs:** Run the training app from an API request without manually reselecting settings every time.
-- **State Preservation:** It preserves the state of the training app in a human-readable YAML format.
+
+- **Quick Debugging:** If something goes wrong during training, you can inspect `app_state.json` file to see the exact configuration and quickle re-run the app without manually reselecting settings in the GUI every time.
+- **State Preservation:** It preserves the state of the training app in a human-readable `.json` format.
 
 **How to use app_state.json**
 
+Call `load_from_app_state` method to load the app state from the `app_state.json` file after the app is initialized.
+
 ```python
+base_path = "supervisely_integration/train"
+train = TrainApp(
+    framework_name="RT-DETRv2",
+    models=f"supervisely_integration/models_v2.json",
+    hyperparameters=f"{base_path}/hyperparameters.yaml",
+    app_options=f"{base_path}/app_options.yaml",
+)
+
+train.register_inference_class(RTDETRv2)
+
+# Call `train.gui.load_from_app_state` to load the app state
 app_state = {...}
 train.gui.load_from_app_state(app_state)
+
+@train.start
+def start_training():
+    ...
 ```
 
 **Example of `app_state.json`:**
@@ -633,48 +757,54 @@ train.gui.load_from_app_state(app_state)
 #### Fields in app_state.json
 
 **`input`**
+
 - **description:** Contains the input data for the training app.
 - **fields:**
-  - project_id – The ID of the project to use for training.
+  - `project_id` – The ID of the project to use for training.
 
 **`train_val_split`**
+
 - **description:** Configures how the dataset is split into training and validation sets.
 - **fields:**
-  - method: The splitting method (e.g., `random`, `tags`, or `datasets`).
-  - If method is `random`:
-    - split: Specifies which split to use (e.g., train or val).
-    - percent: The percentage of the dataset to include for training.
-  - If method is `tags`:
-    - train_tag: The tag used for the training split.
-    - val_tag: The tag used for the validation split.
-    - untagged_action: Action for untagged images (options: train, val, or ignore).
-  - If method is `datasets`:
-    - train_datasets: IDs of datasets used for training.
-    - val_datasets: IDs of datasets used for validation.
+  - `method`: The splitting method (e.g., `random`, `tags`, or `datasets`).
+  - If `method` is `random`:
+    - `split`: Specifies which split to use (e.g., train or val).
+    - `percent`: The percentage of the dataset to include for training.
+  - If `method` is `tags`:
+    - `train_tag`: The tag used for the training split.
+    - `val_tag`: The tag used for the validation split.
+    - `untagged_action`: Action for untagged images (options: train, val, or ignore).
+  - If `method` is `datasets`:
+    - `train_datasets`: IDs of datasets used for training.
+    - `val_datasets`: IDs of datasets used for validation.
 
 **`classes`**
-- **description:** Lists the classes to be used during training.
+
+- **description:** List of the classes to be used during training. Must match the class names in the project.
 
 **`model`**
+
 - **description:** Specifies the model configuration for training.
 - **fields:**
-  - source: The model source, such as `Pretrained models` or `Custom model`.
-  - If source is `Pretrained models`:
-    - model_name: The name of the pretrained model (should match an entry in models.json).
-  - If source is `Custom model`:
-    - task_id: The training session ID containing the custom checkpoint.
-    - checkpoint: The name of the custom checkpoint to be used.
+  - `source`: The model source, such as `Pretrained models` or `Custom model`.
+  - If `source` is `Pretrained models`:
+    - `model_name`: The name of the pretrained model (should match an entry in `models.json`).
+  - If `source` is `Custom model`:
+    - `task_id`: The training session ID containing the custom checkpoint.
+    - `checkpoint`: The name of the custom checkpoint to be used.
 
 **`hyperparameters`**
-- **description:** Contains the hyperparameters (in YAML format) used for training.
+
+- **description:** Contains the hyperparameters (in `.yaml` format) used for training.
 
 **`options`**
+
 - **description:** Provides additional optional configurations for the training app.
 - **fields:**
-  - model_benchmark: Configuration for model benchmarking.
-    - enable: Boolean to enable or disable benchmarking.
-    - speed_test: Boolean to enable or disable a speed test.
-  - cache_project: Boolean to enable or disable caching of the project.
-  - export: Configurations for model export.
-    - ONNXRuntime: Option for enabling/disabling ONNX model export.
-    - TensorRT: Option for enabling/disabling TensorRT model export.
+  - `model_benchmark`: Configuration for model benchmarking.
+    - `enable`: Boolean to enable or disable benchmarking.
+    - `speed_test`: Boolean to enable or disable a speed test.
+  - `cache_project`: Boolean to enable or disable caching of the project.
+  - `export`: Configurations for model export.
+    - `ONNXRuntime`: Option for enabling/disabling ONNX model export.
+    - `TensorRT`: Option for enabling/disabling TensorRT model export.
