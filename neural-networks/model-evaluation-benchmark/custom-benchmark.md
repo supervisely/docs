@@ -17,11 +17,13 @@ Key features of the custom benchmark implementation in Supervisely:
 
 {% endhint %}
 
-## 🧩 Key Components
+## Part 1. Custom Evaluation Implementation
 
 The custom benchmark implementation consists of several classes that interact with each other to perform the evaluation process and generate the report.
 
 {% hint style="info" %}
+🧩 **Key Components.**
+
 Here are the main classes that you need to import and override to implement your custom benchmark:
 
 - **BaseEvaluator**: The main class that calculates the evaluation metrics and saves them to disk.
@@ -509,7 +511,7 @@ hooray! 🎉 You have successfully implemented a custom benchmark evaluation in 
 
 But wait, there is another way to run the custom benchmark – using Deployed NN Model. Let's move on to the next step.
 
-## Part 2. Custom Benchmark on Deployed Model
+## Part 2. Custom Evaluation on Deployed Model
 
 Let's consider another scenario where you need to evaluate a deployed model. In this case, you can use the deployed model session instead of the Predictions project.
 
