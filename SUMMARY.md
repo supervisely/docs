@@ -156,6 +156,7 @@
   * [Object Detection](neural-networks/model-evaluation-benchmark/object-detection.md)
   * [Instance Segmentation](neural-networks/model-evaluation-benchmark/instance-segmentation.md)
   * [Semantic Segmentation](neural-networks/model-evaluation-benchmark/semantic-segmentation.md)
+  * [Custom Benchmark Integration](neural-networks/model-evaluation-benchmark/custom-benchmark.md)
 
 ## 👔 Enterprise Edition
 
