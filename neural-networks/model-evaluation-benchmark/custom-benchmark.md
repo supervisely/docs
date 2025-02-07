@@ -530,7 +530,7 @@ After running the script, you will see the evaluation results in the Team Files.
 Find the `evaluation` and `visualizations` folders with the generated report (`Model Evaluation Report.lnk` file).
 Also, you can open the report in the web interface by clicking on the link in the logs.
 
-<figure><img src="../../.gitbook/assets//benchmark_result.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/benchmark_result.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 
