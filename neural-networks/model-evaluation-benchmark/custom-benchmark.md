@@ -1,19 +1,12 @@
 # Custom Benchmark Implementation
 
+In the world of machine learning, evaluation is a crucial step in the model development process. It helps to understand how well the model performs on unseen data and provides insights into its strengths and weaknesses. **Supervisely provides a set of built-in evaluation metrics for various task types**, such as object detection, instance segmentation, and semantic segmentation. However, in some cases, you may need to define custom metrics that are specific to your use case.
 
-In this guide, we will show you how to integrate a custom evaluation benchmark using Supervisely SDK with metrics for your specific needs. We will use the object detection task type as an example and show you how to add your own specific business metrics. The result will be a comprehensive report with charts and tables.
+✨ In this guide, we will show you how to integrate a custom evaluation benchmark using Supervisely SDK with metrics for your specific needs. We will use the object detection task type as an example and show you how to add your own specific business metrics. The result will be a comprehensive report with charts and tables.
 
 <figure><img src="../../.gitbook/assets/benchmark_report.gif" alt=""><figcaption></figcaption></figure>
 
-
 ## Overview
-
-The custom benchmark implementation consists of the following steps:
-
-- Inheriting and implementing the necessary classes for the evaluation process.
-- Implementing custom metrics and visualizations.
-- Running the evaluation process.
-- Generating visualizations.
 
 We will consider 2 scenarios:
 
@@ -21,11 +14,42 @@ We will consider 2 scenarios:
 
 2. **Custom Benchmark using GT Project and Deployed Model**: Using the deployed model session to automatically run inference and evaluation on images from the GT project with the same classes (or a subset of them). We will describe key points of the full benchmark flow and show you how to integrate the process with a GUI interface.
 
-Will guide you through the necessary steps to achieve a comprehensive evaluation report tailored to your specific needs.
-
 ## Scenario 1: Custom Benchmark using GT and Prediction Projects
 
 In this scenario, we will show you how to implement a custom benchmark using two projects: Ground Truth (GT) and Predictions. We will calculate custom metrics and generate simple visualizations for the evaluation report.
+
+{% hint style="warning" %}
+Before you start, make sure you have Ground Truth and Predictions projects with the same structure of datasets and images. The projects should contain the same classes.
+{% endhint %}
+
+Here is a brief overview of the relationships between the classes and files we will create:
+
+<figure><img src="../../.gitbook/assets/benchmark_1.png" alt=""><figcaption></figcaption></figure>
+
+---
+
+Just to give you a quick overview, here is the structure of the files we will create:
+
+```plaintext
+.
+├── src/
+│   ├── __init__.py
+│   ├── benchmark.py            # 15 lines of code
+│   ├── evaluator.py            # 47 lines of code
+│   ├── eval_result.py          # 38 lines of code
+│   ├── visualizer.py           # 64 lines of code
+│   ├── widgets/
+│   │   ├── __init__.py
+│   │   ├── intro.py            # 37 lines of code
+│   │   ├── key_metrics.py      # 34 lines of code
+│   │   └── custom_metric.py    # 26 lines of code
+│   └── main.py                 # 20 lines of code
+└── local.env                   # 1 line of code
+```
+
+{% hint style="success" %}
+You can find the full code for this scenario in the [GitHub repository]()
+{% endhint %}
 
 ### Step 1.1: Implement Custom Evaluator
 
@@ -421,18 +445,38 @@ Recap of the files structure:
 ```plaintext
 .
 ├── src/
-│   ├── benchmark.py
-│   ├── evaluator.py
-│   ├── eval_result.py
-│   ├── visualizer.py
+│   ├── __init__.py
+│   ├── benchmark.py            # 15 lines of code
+│   ├── evaluator.py            # 47 lines of code
+│   ├── eval_result.py          # 38 lines of code
+│   ├── visualizer.py           # 64 lines of code
 │   ├── widgets/
-│   │   ├── intro.py
-│   │   ├── key_metrics.py
-│   │   └── custom_metric.py
-│   └── main.py
-└── local.env
+│   │   ├── __init__.py
+│   │   ├── intro.py            # 37 lines of code
+│   │   ├── key_metrics.py      # 34 lines of code
+│   │   └── custom_metric.py    # 26 lines of code
+│   └── main.py                 # 20 lines of code
+└── local.env                   # 1 line of code
 ```
 
 Run the script:
 
 <figure><img src="../../.gitbook/assets/benchmark.gif" alt=""><figcaption></figcaption></figure>
+
+After running the script, you will see the evaluation results in the Team Files.
+Find the `evaluation` and `visualizations` folders with the generated report (`Model Evaluation Report.lnk` file).
+Also, you can open the report in the web interface by clicking on the link in the logs.
+
+
+## Scenario 2: Custom Benchmark using GT Project and Deployed Model
+
+In this scenario, we will show you how to integrate your custom benchmark with a deployed model session. The benchmark will automatically run inference and evaluation on images from the GT project with the same classes.
+
+Here is a brief overview of the relationships between the classes in this scenario. As you can see, we will use the same classes, but the input will be different:
+
+<figure><img src="../../.gitbook/assets/benchmark_2.png" alt=""><figcaption></figcaption></figure>
+
+---
+
+![Custom Benchmark using GT Project and Deployed Model](../../.gitbook/assets/benchmark_2.png)
+
