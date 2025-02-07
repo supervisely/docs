@@ -13,21 +13,22 @@ Easily convert your data in one line of code using the Supervisely Python SDK.
 
 {% hint style="success" %}
 
-`sly.convert.to_yolo()` function automatically detects the input data type and converts it to Pascal VOC format. For example, you can pass a path to a project, sly.Project object, sly.Dataset object, or sly.Annotation object. For each input type, you need to provide dedicated parameters (as shown in the examples below).
+`sly.convert.to_yolo()` function automatically detects the input data type and converts it to Pascal VOC format. For example, you can pass a path to a project, sly.Project object or sly.Dataset object. To convert a Dataset, you need to provide the project meta information as shown in the example below.
 
 ```python
+# Project path
 sly.convert.to_yolo("./sly_project", dest_dir="./result_yolo")
-# or
+# Project object
 sly.convert.to_yolo(project, dest_dir="./result_yolo")
-# or
-sly.convert.to_yolo(dataset, meta=project.meta, dest_dir="./result_yolo")
+# or Dataset object
+sly.convert.to_yolo(dataset, dest_dir="./result_yolo", meta=project.meta)
 ```
 
 {% endhint %}
 
-This converter allows you to convert a project, dataset, or a single annotation to YOLO format for **detection**, **segmentation**, and **pose estimation** tasks.
+This converter allows you to convert a project or dataset to YOLO format for **detection**, **segmentation**, and **pose estimation** tasks.
 
-Project and dataset conversion works similarly and will convert all data in the same structure to YOLO format. The single `sly.Annotation` object will be converted to a list of YOLO annotation format lines.
+Project and dataset conversion works similarly and will convert all data in the same structure to YOLO format.
 
 {% hint style="info" %}
 
@@ -55,15 +56,7 @@ project_fs.to_yolo("./result_yolo", task_type="segmentation")
 ```python
 ds = project_fs.datasets.get("dataset_name")
 
-sly.convert.to_yolo(ds, meta=project_fs.meta, dest_dir="./result_yolo")
+sly.convert.to_yolo(ds, dest_dir="./result_yolo", meta=project_fs.meta)
 # Or using the sly.Dataset object
 ds.to_yolo(project_fs.meta, dest_dir="./result_yolo")
-```
-
-- Convert a single `sly.Annotation` object to YOLO format:
-
-```python
-class_names = [obj_class.name for obj_class in meta.obj_classes]
-ann = sly.Annotation.from_json(ann_json, meta)
-yolo_lines = ann.to_yolo(class_names, task_type)
 ```

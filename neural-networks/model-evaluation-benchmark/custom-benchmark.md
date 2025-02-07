@@ -1,110 +1,83 @@
 # Custom Benchmark Implementation
 
-✨ In this guide, we will show you how to **integrate a custom benchmark evaluation** using Supervisely SDK. 
+## Overview
 
-For most use cases, our [Evaluator for Model Benchmark](https://ecosystem.supervisely.com/apps/model-benchmark) app in the Ecosystem provides a set of built-in evaluation metrics for various task types, such as object detection, instance segmentation, and semantic segmentation. 
+In this guide, we will show you how to **integrate a custom benchmark evaluation** using Supervisely SDK. For most use cases, our [Evaluator for Model Benchmark](https://ecosystem.supervisely.com/apps/model-benchmark) app in the Ecosystem provides a set of built-in evaluation metrics for various task types, such as object detection, instance segmentation, and semantic segmentation.
 However, in some cases, you may need to define custom metrics that are specific to your use case. The custom benchmark implementation allows you to achieve this goal – to evaluate the model performance with your own business metrics and visualize the results in a comprehensive report.
 
-<figure><img src="../../.gitbook/assets/benchmark_report.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/benchmark_result.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 
 Key features of the custom benchmark implementation in Supervisely:
 
-- **Custom Evaluator**: Implement your own logic to calculate evaluation metrics with custom parameters.
-- **Visualizations Diversity**: Create a report with various visualizations, such as markdown, tables, clickable charts, and galleries.
-- **Easy GUI Integration**: Run the benchmark with a few clicks using the Supervisely GUI interface.
-- **Automate with Python SDK & API**: Release your custom benchmark as a [private app](https://developer.supervisely.com/app-development/basics/add-private-app#option-1.-recommended-cli-run-command-in-terminal) and manage application sessions to run evaluations automatically. Learn more [here](https://developer.supervisely.com/advanced-user-guide/automate-with-python-sdk-and-api/start-and-stop-app).
-- **Automated Inference**: Run inference on images from the GT project with a deployed model session and evaluate the results.
-- **Integration with Train Apps**: Integrate the custom benchmark with the training process to evaluate the best model checkpoint after training automatically.
-- **Comparison of Multiple Reports**: Compare multiple reports in a convenient way (coming soon).
+- **Custom Metrics and Charts**: Implement custom evaluation metrics and visualizations for your specific use case.
+- **Automate with Python SDK & API**: Run evaluations from the script or release as a private app. Run it with a few clicks or automate the process using the Supervisely API (learn more [here](https://developer.supervisely.com/advanced-user-guide/automate-with-python-sdk-and-api/start-and-stop-app)).
+- **Easy integration with experiments in Supervisely**: Integrate the custom benchmark with your custom training app to evaluate the best model checkpoint after training automatically and visualize the results in the Experiments page.
 
 {% endhint %}
 
-Let's dive into the details! 🔍
+## 🧩 Key Components
 
-## Overview
-
-We will consider 2 scenarios:
-
-1. **Custom Benchmark using GT and Prediction Projects**: Implementing an evaluation using two projects (Ground Truth and Prediction) – this scenario is useful when you already have the test predictions and want to evaluate them without running inference. We will show you how to run the evaluation and visualize the results. In this scenario, you can modify both the visualizer and evaluator classes or use the default implementation.
-
-2. **Custom Benchmark using GT Project and Deployed Model**: Using the deployed model session to automatically run inference and evaluation on images from the GT project with the same classes (or a subset of them). We will describe key points of the full benchmark flow and show you how to integrate the process with a GUI interface.
+The custom benchmark implementation consists of several classes that interact with each other to perform the evaluation process and generate the report.
 
 {% hint style="info" %}
-**🧩 Key Components**:
+Here are the main classes that you need to import and override to implement your custom benchmark:
 
-If we take a high-level view, Supervisely divides the entire benchmark task into separate components: `evaluator` (metric calculation), `eval_result` (quick access to calculated metrics), `visualizer` + `widgets` (to generate a report with visualizations), and the main `benchmark` class that orchestrates the entire process (look at the schema below ⤵︎). Additionally, it is easy to plug in a `GUI interface` to launch the benchmark with a few clicks.
-{% endhint %}
+- **Evaluator**: The main class that calculates the evaluation metrics and saves them to disk.
+- **EvalResult**: A data interface class that allows easy access to the evaluation metrics later in the visualizer class.
+- **Visualizer**: A class that generates visualization template using widgets and saves it to disk.
+  - **Widgets**: A set of classes that define the content and appearance of the visualizations in the report.
 
-## Scenario 1: Custom Benchmark using GT and Prediction Projects
-
-In this scenario, we will show you how to implement a custom benchmark using two projects: Ground Truth (GT) and Predictions. We will calculate custom metrics and generate simple visualizations for the evaluation report.
-
-{% hint style="warning" %}
-❕ Before you start, make sure you have Ground Truth and Predictions projects with the same structure of datasets and images. The projects should contain the same classes. If you need to run evaluations on a subset of classes, you can provide a `classes_whitelist` parameter to the benchmark class.
 {% endhint %}
 
 🛠️ Here is a brief overview of the relationships between the classes we will create:
 
-![Schema of the benchmark process using GT and Prediction projects](../../.gitbook/assets/benchmark_1.png)
+![Schema of the benchmark process using GT and Prediction projects](../../.gitbook/assets/benchmark_0.png)
 
-🔗 Just to give you a quick overview, here is the structure of the files we will create:
-
-```plaintext
-.
-├── src/
-│   ├── __init__.py
-│   ├── benchmark.py            # 15 lines of code
-│   ├── evaluator.py            # 47 lines of code
-│   ├── eval_result.py          # 38 lines of code
-│   ├── visualizer.py           # 64 lines of code
-│   ├── widgets/
-│   │   ├── __init__.py
-│   │   ├── intro.py            # 37 lines of code
-│   │   ├── key_metrics.py      # 34 lines of code
-│   │   └── custom_metric.py    # 26 lines of code
-│   └── main.py                 # 20 lines of code
-└── local.env                   # 1 line of code
-```
+And all you need to do is to implement these classes with your custom logic to calculate the metrics and generate the visualizations. We will guide you through the process step by step. Let's get started!
 
 {% hint style="success" %}
-You can find the full code for this scenario in the [here]()
+You can find the source code for this guide [here]()
 {% endhint %}
 
-### Step 1.1: Implement Custom Evaluator
+### Step 1. Implement Custom Evaluator class
 
-Create a custom evaluator class that inherits from `BaseEvaluator` and overrides the `evaluate` method.
-Generally, this is a main class of the evaluation process, where you should calculate the evaluation metrics and save them to disk.
+The main component of the custom benchmark is the `Evaluator` class. This class gets the local paths to the GT and Predictions projects, calculates the evaluation metrics, and saves them to disk.
+
+{% hint style="warning" %}
+❕ Before you start, make sure you have Ground Truth and Predictions projects with the same structure of datasets and images. The projects should contain the same classes. If you need to run evaluations on a subset of classes, you can provide a `classes_whitelist` parameter.
+{% endhint %}
+
+`BaseEvaluator` is a base class that provides the basic functionality for the evaluator.
+
+Available attributes in the `BaseEvaluator` class:
+
+- `self.gt_project_path`: Path to the local GT project.
+- `self.pred_project_path`: Path to the local Predictions project.
+- `self.evaluation_params`: Optional: Evaluation parameters.
+- `self.result_dir`: Optional: Directory to save evaluation results. Default is `./evaluation`.
+- `self.classes_whitelist`: Optional: List of classes to evaluate.
+
+Let's start by creating a new class `MyEvaluator` that inherits from `BaseEvaluator` and overrides the `evaluate` method.
 
 ```python
 # src/evaluator.py
 from pathlib import Path
 
 import supervisely as sly
-from src.eval_result import MyEvalResult
 from supervisely.nn.benchmark.base_evaluator import BaseEvaluator
+
+from src.eval_result import MyEvalResult  # we will implement this class in the next step
 
 
 class MyEvaluator(BaseEvaluator):
-    eval_result_cls = MyEvalResult
-    # EVALUATION_PARAMS_YAML_PATH = "path/to/evaluation_params.yaml"  # Optional
+    eval_result_cls = MyEvalResult  # we will implement this class in the next step
 
     def evaluate(self):
-        # This method should CALCULATE evaluation metrics and DUMP them to disk.
-
-        # Available attributes:
-        # self.gt_project_path: str                 # Path to the local GT project
-        # self.pred_project_path: str               # Path to the local Predictions project
-        # self.evaluation_params: Dict[str, Any]    # Optional: Evaluation parameters
-        # self.result_dir: str                      # Optional: Directory to save evaluation results
-        # self.classes_whitelist: List[str]         # Optional: List of classes to evaluate
-        # self.pbar: tqdm                           # Optional: Progress bar
+        """This method should CALCULATE evaluation metrics and DUMP them to disk."""
 
         # ---------------- ⬇︎ Placeholder for your custom code ⬇︎ ---------------- #
-        # Example:
-
-        # read Supervisely projects (GT and predictions)
         gt_project = sly.Project(self.gt_project_path, sly.OpenMode.READ)
         pred_project = sly.Project(self.pred_project_path, sly.OpenMode.READ)
 
@@ -130,10 +103,12 @@ class MyEvaluator(BaseEvaluator):
         sly.json.dump_json_file(self.eval_data, save_path)
 ```
 
-### Step 1.2: Implement Custom EvalResult
+### Step 2: Implement Custom EvalResult
 
-Create a custom `EvalResult` class that inherits from `BaseEvalResult`. This class will be used as a data interface to access the evaluation metrics in the visualizer.
-All you need to do is implement the `_read_files` and `_prepare_data` methods.
+This class will be used as a data interface to access the evaluation metrics in the visualizer.
+It loads the evaluation metrics from disk and prepares the data for easy access.
+
+Let's create a new class `MyEvalResult` that inherits from `BaseEvalResult` and overrides the `_read_files` and `_prepare_data` methods.
 
 ```python
 # src/eval_result.py
@@ -212,14 +187,18 @@ class MyEvalResult(BaseEvalResult):
         return self._class_figures_stats.copy()
 ```
 
-### Step 1.3: Implement Custom Visualizer
+### Step 3. Implement Custom Visualizer with Widgets
 
 This step involves creating a custom `Visualizer` class that inherits from `BaseVisualizer`. The class should generate visualizations and save them to disk.
 
 But first, let's create a few widgets that we will use in the visualizer.
 Let's start with the `Intro`, `KeyMetrics`, and `CustomMetric` widgets. To make the code more readable, we will split the widget classes into separate files.
 
-Feel free to change the widget content and appearance to suit your needs. The example below with Markdown widgets is just a starting point.
+Feel free to change the widget content and appearance to suit your needs. The example below with Markdown, Table, and Chart widgets is just a starting point.
+
+<details>
+
+<summary><strong>`src/widgets/intro.py`</strong></summary>
 
 ```python
 # src/widgets/intro.py
@@ -263,11 +242,17 @@ class Intro(DetectionVisMetric):
         return md
 ```
 
+</details>
+
 Take a look at the `Intro` widget:
 
 <figure><img src="../../.gitbook/assets/benchmark_intro.png" alt=""><figcaption></figcaption></figure>
 
-Let's create the `KeyMetrics` section:
+Let's create the `KeyMetrics` section.
+
+<details>
+
+<summary><strong>`src/widgets/key_metrics.py`</strong></summary>
 
 ```python
 # src/widgets/key_metrics.py
@@ -311,11 +296,17 @@ class KeyMetrics(DetectionVisMetric):
         )
 ```
 
+</details>
+
 Here is the `KeyMetrics` widget in action:
 
 <figure><img src="../../.gitbook/assets/benchmark_key_metrics.png" alt=""><figcaption></figcaption></figure>
 
-Let's create the `CustomMetric` section:
+Let's create the `CustomMetric` section.
+
+<details>
+
+<summary><strong>`src/widgets/custom_metric.py`</strong></summary>
 
 ```python
 # src/widgets/custom_metric.py
@@ -342,6 +333,8 @@ class CustomMetric(DetectionVisMetric):
         return ChartWidget(name="images_chart", figure=fig)
 ```
 
+</details>
+
 The `CustomMetric` widget will look like this:
 
 <figure><img src="../../.gitbook/assets/benchmark_custom_metric.png" alt=""><figcaption></figcaption></figure>
@@ -351,13 +344,14 @@ All you need to do is to implement the `_create_widgets` and `_create_layout` me
 
 ```python
 # src/visualizer.py
-from src.widgets import CustomMetric, Intro, KeyMetrics
 from supervisely.nn.benchmark.base_visualizer import BaseVisualizer
 from supervisely.nn.benchmark.visualization.widgets import (
     ContainerWidget,
     SidebarWidget,
 )
 from supervisely.nn.task_type import TaskType
+
+from src.widgets import CustomMetric, Intro, KeyMetrics
 
 
 class MyVisualizer(BaseVisualizer):
@@ -390,17 +384,11 @@ class MyVisualizer(BaseVisualizer):
         # ------------------------------------------------------------------------ #
 
     def _create_layout(self):
-        """
-        In this method, we create the layout of the visualizer.
-        We define the order of the widgets in the report and their visibility in the sidebar.
-        """
-        # Create widgets
+        """In this method, we create the layout of the visualizer."""
         self._create_widgets()
 
-
         # ---------------- ⬇︎ Placeholder for your widgets ⬇︎ ------------------- #
-        # In the code below, you should define the order of the widgets in the report and their visibility in the sidebar.
-        # (if 1 - will display in sidebar, 0 - will not display in sidebar)
+        # Here you need only to define the order of the widgets in the report and anchors in the sidebar (1 - visible, 0 - hidden in the sidebar)
         is_anchors_widgets = [
             # Intro
             (0, self.intro_header),
@@ -424,41 +412,9 @@ class MyVisualizer(BaseVisualizer):
         return layout
 ```
 
-### Step 1.4: Implement Custom Benchmark Class
+### Step 4. Run evaluation and generate the report
 
-Now, let's create a custom benchmark class that inherits from `BaseBenchmark`. This class will orchestrate the evaluation process and generate the report.
-
-```python
-# src/benchmark.py
-from src.evaluator import MyEvaluator
-from src.visualizer import MyVisualizer
-from supervisely.nn.benchmark.base_benchmark import BaseBenchmark
-from supervisely.nn.benchmark.base_evaluator import BaseEvaluator
-from supervisely.nn.task_type import TaskType
-
-
-class CustomBenchmark(BaseBenchmark):
-    visualizer_cls = MyVisualizer
-
-    @property
-    def cv_task(self) -> str:
-        return TaskType.OBJECT_DETECTION
-
-    def _get_evaluator_class(self) -> BaseEvaluator:
-        return MyEvaluator
-```
-
-### Step 1.5: Run the Custom Benchmark
-
-Before we run the custom benchmark, prepare the environment:
-
-- variables in the `local.env` file:
-
-```plaintext
-TEAM_ID = 8         # ⬅︎ change the value
-```
-
-- credentials in the `supervisely.env` file:
+Before we run the custom benchmark, prepare the environment credentials in the `supervisely.env` file:
 
 ```plaintext
 SERVER_ADDRESS=     # ⬅︎ change the value
@@ -484,23 +440,43 @@ if sly.is_development():
 
 api = sly.Api()
 
+team_id = 8
 gt_project_id = 73
 pred_project_id = 133
 
-# 1. Initialize benchmark
-bench = CustomBenchmark(api, gt_project_id)
+gt_path = "./data/gt_project"
+pred_path = "./data/pred_project"
+
+for project_id, path in [(gt_project_id, gt_path), (pred_project_id, pred_path)]:
+    if not sly.fs.dir_exists(path):
+        sly.download_project(
+            api,
+            project_id,
+            path,
+            log_progress=True,
+            save_images=False,
+            save_image_info=True,
+        )
+
+# 1. Initialize Evaluator
+evaluator = MyEvaluator(gt_path, pred_path)
 
 # 2. Run evaluation
-bench.evaluate(pred_project_id)
+evaluator.evaluate()
 
-# 3. Generate templates with visualizations
-bench.visualize()
+# 3. Initialize EvalResult object
+eval_result = evaluator.get_eval_result()
+eval_result.gt_project_id = gt_project_id
+eval_result.pred_project_id = pred_project_id
 
-# 4. Upload to Supervisely Team Files
-# (it is required to open visualizations in the web interface)
-remote_dir = f"/model-benchmark/custom_benchmark_{sly.rand_str(6)}"
-bench.upload_eval_results(remote_dir + "/evaluation/")
-bench.upload_visualizations(remote_dir + "/visualizations/")
+# 4. Initialize visualizer and visualize
+visualizer = MyVisualizer(api, [eval_result])
+visualizer.visualize()
+
+# 5. Upload to Supervisely Team Files (it is required to open visualizations in the web interface)
+remote_dir = "/model-benchmark/custom_benchmark"
+api.file.upload_directory(team_id, evaluator.result_dir, remote_dir + "/evaluation")
+visualizer.upload_results(team_id, remote_dir + "/visualizations/")
 ```
 
 🔗 Recap of the files structure:
@@ -509,63 +485,88 @@ bench.upload_visualizations(remote_dir + "/visualizations/")
 .
 ├── src/
 │   ├── __init__.py
-│   ├── benchmark.py            # 15 lines of code
-│   ├── evaluator.py            # 47 lines of code
-│   ├── eval_result.py          # 38 lines of code
+│   ├── evaluator.py            # 49 lines of code
+│   ├── eval_result.py          # 73 lines of code
 │   ├── visualizer.py           # 64 lines of code
 │   ├── widgets/
 │   │   ├── __init__.py
-│   │   ├── intro.py            # 37 lines of code
-│   │   ├── key_metrics.py      # 34 lines of code
-│   │   └── custom_metric.py    # 26 lines of code
-│   └── main.py                 # 20 lines of code
+│   │   ├── intro.py            # 36 lines of code
+│   │   ├── key_metrics.py      # 38 lines of code
+│   │   └── custom_metric.py    # 22 lines of code
+│   └── main.py                 # 53 lines of code
 └── local.env                   # 1 line of code
 ```
 
-Run the script:
+Run the `main.py` script – `python src/main.py` in the terminal or `Run` in your IDE.
 
 <figure><img src="../../.gitbook/assets/benchmark.gif" alt=""><figcaption></figcaption></figure>
 
-After running the script, you will see the evaluation results in the Team Files.
-Find the `evaluation` and `visualizations` folders with the generated report (`Model Evaluation Report.lnk` file).
-Also, you can open the report in the web interface by clicking on the link in the logs.
+After the evaluation is complete, you will receive **a link to the report in the logs**. You can open the report in the web interface by clicking on the link. Also, you will find the evaluation results in the Team Files in the folder that you specified in the script (`/model-benchmark/custom_benchmark/`)
 
 <figure><img src="../../.gitbook/assets/benchmark_result.png" alt=""><figcaption></figcaption></figure>
 
+hooray! 🎉 You have successfully implemented a custom benchmark evaluation in Supervisely!
+
+But wait, there is another way to run the custom benchmark using Deployed NN Model. Let's move on to the next step.
+
+## Part 2. Custom Benchmark on Deployed Model
+
+Let's consider another scenario where you need to evaluate a deployed model. In this case, you can use the deployed model session instead of the Predictions project.
+
+For this purpose, we will create a new custom benchmark class that inherits from the `BaseBenchmark`.
+
 {% hint style="info" %}
-
-**💫 New Beta Feature**: The `Experiments` page is now available. All information about experiments (GT project, Train session, Checkpoint, Artifacts, Evaluation Report) is in quick access in one place.
-
+The `BaseBenchmark` class is a all-in-one base class that orchestrates all the processes – runs the inference, evaluation, and visualization processes. It provides the basic functionality to run the evaluation process and generate the report.
 {% endhint %}
 
-![Experiments page](../../.gitbook/assets/report_in_experimetns.png)
+All you need to do is to change only 3 lines of code! 💫
 
-## Scenario 2: Custom Benchmark using GT Project and Deployed Model
+```python
+from src.tests.custom_benchmark.evaluator import MyEvaluator
+from src.tests.custom_benchmark.visualizer import MyVisualizer
+from supervisely.nn.benchmark.base_benchmark import BaseBenchmark
+from supervisely.nn.task_type import TaskType
 
-In this scenario, we will not describe the components as in the previous scenario ⤴︎. Instead, we will show you how to integrate the custom benchmark with the GUI interface, pass the necessary evaluation parameters, classes, and use a deployed model session.
 
-Here is a brief overview of the relationships between the classes in this scenario. As you can see, we will use the same classes, but the input will be different – the GT project and the deployed model session (instead of the Predictions project).
+class CustomBenchmark(BaseBenchmark):
+    visualizer_cls = MyVisualizer  # ⬅︎ change the visualizer class
+
+    @property
+    def cv_task(self) -> str:
+        return TaskType.INSTANCE_SEGMENTATION  # ⬅︎ change the task type
+
+    def _get_evaluator_class(self) -> type:
+        return MyEvaluator  # ⬅︎ change the evaluator class
+```
+
+That's it! And you are ready to run the custom benchmark on the deployed model session.
+
+Here is a brief overview of the relationships between the classes in this scenario. As you can see, we will use the engine classes, but the input will be different – the GT project ID and the deployed model session ID (instead of the local projects).
 
 ![Schema of the benchmark process with GT project and a deployed model](../../.gitbook/assets/benchmark_2.png)
 
-As you can see, the structure of the files is the same as in the previous scenario. The only difference is in the `main.py` script, where we will use the deployed model session instead of the Predictions project and create a GUI interface to run the benchmark.
+Let's move on to the next step and integrate the custom benchmark with **the GUI interface**.
+
+## Part 3. Plug-in the Custom Benchmark to the GUI
+
+In this step, we will create a `sly.Application` (FastAPI application with GUI interface) that will run the custom benchmark evaluation. The application will allow you to select the GT project, the deployed model session, and the evaluation parameters.
 
 {% hint style="success" %}
 You can find the full code for this scenario in the [here]()
 {% endhint %}
 
-First, let's update the `local.env` file with the following variables:
+First, let's create the `local.env` file with the following variables:
 
 ```plaintext
 SLY_APP_DATA_DIR = "APP_DATA"
 TEAM_ID = 8
 ```
 
-Now, we will change the `main.py` from the simple script to a FastAPI application that will run the benchmark with the GUI interface.
+Now, we will upgrade the `main.py` from the simple script to the `sly.Application`.
 
 <details>
 
-<summary><strong>FULL CODE</strong></summary>
+<summary><strong>`src/main.py`</strong></summary>
 
 ```python
 import os
@@ -730,6 +731,12 @@ def match_classes(api, project_id, session_id):
 
 </details>
 
-Launch the application and run the evaluation. After the evaluation is complete, you will see a widget with the evaluation report.
+Launch the application, select the GT project, the deployed model session, and press the `Evaluate` button to run the evaluation. The app will connect to the deployed NN model, run the inference, upgrade predictions to the new project, evaluate the model, and generate the report.
+
+After the process is complete, you will see a widget with the evaluation report.
 
 <figure><img src="../../.gitbook/assets/benchmark_app_finished.png" alt=""><figcaption></figcaption></figure>
+
+Congratulations! 🎉 You have successfully integrated the custom benchmark with the GUI interface in Supervisely!
+
+<figure><img src="../../.gitbook/assets/benchmark_result.png" alt=""><figcaption></figcaption></figure>
