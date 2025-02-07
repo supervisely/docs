@@ -24,14 +24,14 @@ The custom benchmark implementation consists of several classes that interact wi
 {% hint style="info" %}
 Here are the main classes that you need to import and override to implement your custom benchmark:
 
-- **Evaluator**: The main class that calculates the evaluation metrics and saves them to disk.
-- **EvalResult**: A data interface class that allows easy access to the evaluation metrics later in the visualizer class.
-- **Visualizer**: A class that generates visualization template using widgets and saves it to disk.
-  - **Widgets**: A set of classes that define the content and appearance of the visualizations in the report.
+- **BaseEvaluator**: The main class that calculates the evaluation metrics and saves them to disk.
+- **BaseEvalResult**: A data interface class that allows easy access to the evaluation metrics later in the visualizer class.
+- **BaseVisualizer**: A class that generates visualization template using widgets and saves it to disk.
+  - **VisMetric** (widgets): A set of classes that define the content and appearance of the visualizations in the report. For object detection tasks, you can use the `DetectionVisMetric` class as a base class for your widgets.
 
 {% endhint %}
 
-🛠️ Here is a brief overview of the relationships between the classes we will create:
+🛠️ Brief overview of the relationships between the instances:
 
 ![Schema of the benchmark process using GT and Prediction projects](../../.gitbook/assets/benchmark_0.png)
 
@@ -43,10 +43,10 @@ You can find the source code for this guide [here]()
 
 ### Step 1. Implement Custom Evaluator class
 
-The main component of the custom benchmark is the `Evaluator` class. This class gets the local paths to the GT and Predictions projects, calculates the evaluation metrics, and saves them to disk.
+The main component of the custom benchmark is the `BaseEvaluator` class. This class gets the local paths to the GT and Predictions projects, calculates the evaluation metrics, and saves them to disk.
 
 {% hint style="warning" %}
-❕ Before you start, make sure you have Ground Truth and Predictions projects with the same structure of datasets and images. The projects should contain the same classes. If you need to run evaluations on a subset of classes, you can provide a `classes_whitelist` parameter.
+Before you start, make sure you have Ground Truth and Predictions projects with the same structure of datasets and images. The projects should contain the same classes. If you need to run evaluations on a subset of classes, you can provide a `classes_whitelist` parameter.
 {% endhint %}
 
 `BaseEvaluator` is a base class that provides the basic functionality for the evaluator.
@@ -198,7 +198,7 @@ Feel free to change the widget content and appearance to suit your needs. The ex
 
 <details>
 
-<summary><strong>`src/widgets/intro.py`</strong></summary>
+<summary><strong>src/widgets/intro.py</strong></summary>
 
 ```python
 # src/widgets/intro.py
@@ -252,7 +252,7 @@ Let's create the `KeyMetrics` section.
 
 <details>
 
-<summary><strong>`src/widgets/key_metrics.py`</strong></summary>
+<summary><strong>src/widgets/key_metrics.py</strong></summary>
 
 ```python
 # src/widgets/key_metrics.py
@@ -306,7 +306,7 @@ Let's create the `CustomMetric` section.
 
 <details>
 
-<summary><strong>`src/widgets/custom_metric.py`</strong></summary>
+<summary><strong>src/widgets/custom_metric.py</strong></summary>
 
 ```python
 # src/widgets/custom_metric.py
@@ -501,13 +501,13 @@ Run the `main.py` script – `python src/main.py` in the terminal or `Run` in yo
 
 <figure><img src="../../.gitbook/assets/benchmark.gif" alt=""><figcaption></figcaption></figure>
 
-After the evaluation is complete, you will receive **a link to the report in the logs**. You can open the report in the web interface by clicking on the link. Also, you will find the evaluation results in the Team Files in the folder that you specified in the script (`/model-benchmark/custom_benchmark/`)
+After the evaluation is complete, you will receive **a link to the report in the logs**. You can open the report in the web interface by clicking on the link. Also, you will find the evaluation results in the Team Files in the folder that you specified in the script (`/model-benchmark/custom_benchmark/vizualizations/Model Evaluation Report.lnk`)
 
 <figure><img src="../../.gitbook/assets/benchmark_result.png" alt=""><figcaption></figcaption></figure>
 
 hooray! 🎉 You have successfully implemented a custom benchmark evaluation in Supervisely!
 
-But wait, there is another way to run the custom benchmark using Deployed NN Model. Let's move on to the next step.
+But wait, there is another way to run the custom benchmark – using Deployed NN Model. Let's move on to the next step.
 
 ## Part 2. Custom Benchmark on Deployed Model
 
@@ -529,14 +529,14 @@ from supervisely.nn.task_type import TaskType
 
 
 class CustomBenchmark(BaseBenchmark):
-    visualizer_cls = MyVisualizer  # ⬅︎ change the visualizer class
+    visualizer_cls = MyVisualizer  # ⬅︎ the visualizer class
 
     @property
     def cv_task(self) -> str:
-        return TaskType.INSTANCE_SEGMENTATION  # ⬅︎ change the task type
+        return TaskType.OBJECT_DETECTION  # ⬅︎ the task type
 
     def _get_evaluator_class(self) -> type:
-        return MyEvaluator  # ⬅︎ change the evaluator class
+        return MyEvaluator  # ⬅︎ the evaluator class
 ```
 
 That's it! And you are ready to run the custom benchmark on the deployed model session.
@@ -545,7 +545,7 @@ Here is a brief overview of the relationships between the classes in this scenar
 
 ![Schema of the benchmark process with GT project and a deployed model](../../.gitbook/assets/benchmark_2.png)
 
-Let's move on to the next step and integrate the custom benchmark with **the GUI interface**.
+Let's move on to the next step and integrate the custom benchmark with **the GUI interface** 🎨.
 
 ## Part 3. Plug-in the Custom Benchmark to the GUI
 
@@ -566,7 +566,7 @@ Now, we will upgrade the `main.py` from the simple script to the `sly.Applicatio
 
 <details>
 
-<summary><strong>`src/main.py`</strong></summary>
+<summary><strong>src/main.py</strong></summary>
 
 ```python
 import os
