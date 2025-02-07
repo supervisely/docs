@@ -530,13 +530,15 @@ After running the script, you will see the evaluation results in the Team Files.
 Find the `evaluation` and `visualizations` folders with the generated report (`Model Evaluation Report.lnk` file).
 Also, you can open the report in the web interface by clicking on the link in the logs.
 
+<figure><img src="../../.gitbook/assets//benchmark_result.png" alt=""><figcaption></figcaption></figure>
+
 {% hint style="info" %}
 
 **💫 New Beta Feature**: The `Experiments` page is now available. All information about experiments (GT project, Train session, Checkpoint, Artifacts, Evaluation Report) is in quick access in one place.
 
-![Experiments page](../../.gitbook/assets/report_in_experimetns.png)
-
 {% endhint %}
+
+![Experiments page](../../.gitbook/assets/report_in_experimetns.png)
 
 ## Scenario 2: Custom Benchmark using GT Project and Deployed Model
 
@@ -544,7 +546,7 @@ In this scenario, we will not describe the components as in the previous scenari
 
 Here is a brief overview of the relationships between the classes in this scenario. As you can see, we will use the same classes, but the input will be different – the GT project and the deployed model session (instead of the Predictions project).
 
-![Schema of the benchmark process with GT project and a deployed model](../../.gitbook/assets/benchmark_2_schema.png)
+![Schema of the benchmark process with GT project and a deployed model](../../.gitbook/assets/benchmark_2.png)
 
 As you can see, the structure of the files is the same as in the previous scenario. The only difference is in the `main.py` script, where we will use the deployed model session instead of the Predictions project and create a GUI interface to run the benchmark.
 
