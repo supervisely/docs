@@ -155,6 +155,7 @@
   * [Supervisely Serving Apps](neural-networks/inference-and-deployment/supervisely-serving-apps.md)
   * [Deploy & Predict with Supervisely SDK](neural-networks/inference-and-deployment/deploy_and_predict_with_supervisely_sdk.md)
   * [Using Standalone PyTorch Models](neural-networks/inference-and-deployment/using-standalone-pytorch-models.md)
+  * [Integrate Custom Inference](neural-networks/inference-and-deployment/integrate-custom-inference.md)
 <!-- * [Starting with Neural Networks](neural-networks/overview/overview.md)
 * [Train custom Neural Networks](neural-networks/custom-nn/custom-nn.md)
 * [Run pre-trained models](neural-networks/pre-trained-models.md) -->
