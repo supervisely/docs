@@ -17,19 +17,19 @@ Key features of the custom benchmark implementation in Supervisely:
 
 {% endhint %}
 
-## Part 1. Custom Evaluation Implementation
+## Implement Custom Evaluation
 
 The custom benchmark implementation consists of several classes that interact with each other to perform the evaluation process and generate the report.
 
 {% hint style="info" %}
 🧩 **Key Components.**
 
-Here are the main classes that you need to import and override to implement your custom benchmark:
+Here are the main classes that you need to subclass to implement your custom benchmark:
 
-- **BaseEvaluator**: The main class that calculates the evaluation metrics and saves them to disk.
-- **BaseEvalResult**: A data interface class that allows easy access to the evaluation metrics later in the visualizer class.
-- **BaseVisualizer**: A class that generates visualization template using widgets and saves it to disk.
-  - **VisMetric** (widgets): A set of classes that define the content and appearance of the visualizations in the report. For object detection tasks, you can use the `DetectionVisMetric` class as a base class for your widgets.
+- **BaseEvaluator**: This class responsible for all calculations and evaluation procedures needed for metrics and visualizations. It should output evaluation data, from which the necessary metrics and charts will be generated. It should also save this data to disk.
+- **BaseEvalResult**: A data interface class that provides easy access to metrics and data for charts. The `EvalResult` class will be used by the `Visualizer` to retrieve ready-to-use metrics.
+- **BaseVisualizer**: A class that generates the resulting evaluation report. It responsible for renedering all your code and widgets into a web page.
+  <!-- - **VisMetric** (widgets): A set of classes that define the content and appearance of the visualizations in the report. -->
 
 {% endhint %}
 
@@ -43,23 +43,32 @@ And all you need to do is to implement these classes with your custom logic to c
 You can find the source code for this guide [here]()
 {% endhint %}
 
-### Step 1. Implement Custom Evaluator class
+### 1. Custom Evaluator
 
-The main component of the custom benchmark is the `BaseEvaluator` class. This class gets the local paths to the GT and Predictions projects, calculates the evaluation metrics, and saves them to disk.
+The `Evaluator` is the key component of a custom benchmark. Its main responsibility is to process **Ground Truth (GT)** and **Predictions** data, preparing it for evaluation.
+
+Instead of computing every metric and chart directly, the `Evaluator` focuses on generating **essential processed data** that serves as the foundation for further analysis. Some computer vision tasks require computationally expensive operations. For example, in **object detection**, each predicted instance must be matched with the corresponding GT instance, which can take significant time. However, once this matching is done, calculating metrics becomes straightforward.
+
+To optimize performance, the `Evaluator`:
+- **Processes raw GT and Prediction data** into a structured format suitable for metric calculation.
+- **Handles computationally intensive tasks** like matching predictions to GT.
+- **Saves processed data to disk**, avoiding redundant computations and speeding up further analysis.
+
+By handling the heavy lifting in the evaluation pipeline, the `Evaluator` ensures that metric computation remains efficient and scalable.
 
 {% hint style="warning" %}
-Before you start, make sure you have Ground Truth and Predictions projects in Supervisely format with the same structure of datasets. The projects should contain the same classes. If you need to run evaluations on a subset of classes, you can provide a `classes_whitelist` parameter.
+Before you start, make sure you have downloaded Ground Truth and Predictions projects in Supervisely format with the same datasets and classes. If you need to run evaluations on a subset of classes, you can provide a `classes_whitelist` parameter.
 {% endhint %}
 
 `BaseEvaluator` is a base class that provides the basic functionality for the evaluator.
 
-Available attributes in the `BaseEvaluator` class:
+Available arguments in the `BaseEvaluator` class:
 
-- `self.gt_project_path`: Path to the local GT project.
-- `self.pred_project_path`: Path to the local Predictions project.
-- `self.evaluation_params`: Optional: Evaluation parameters.
-- `self.result_dir`: Optional: Directory to save evaluation results. Default is `./evaluation`.
-- `self.classes_whitelist`: Optional: List of classes to evaluate.
+- `gt_project_path`: Path to the local GT project.
+- `pred_project_path`: Path to the local Predictions project.
+- `evaluation_params`: Optional: Evaluation parameters.
+- `result_dir`: Optional: Directory to save evaluation results. Default is `./evaluation`.
+- `classes_whitelist`: Optional: List of classes to evaluate.
 
 Let's start by creating a new class `MyEvaluator` that inherits from `BaseEvaluator` and overrides the `evaluate` method.
 
@@ -105,7 +114,7 @@ class MyEvaluator(BaseEvaluator):
         sly.json.dump_json_file(self.eval_data, save_path)
 ```
 
-### Step 2: Implement Custom EvalResult
+### 2. Custom EvalResult
 
 This class will be used as a data interface to access the evaluation metrics in the visualizer.
 It loads the evaluation metrics from disk (saved by the evaluator in the previous step) and prepares the data for easy access.
@@ -189,7 +198,7 @@ class MyEvalResult(BaseEvalResult):
         return self._class_figures_stats.copy()
 ```
 
-### Step 3. Implement Custom Visualizer with Widgets
+### 3. Visualizer, Charts and Widgets
 
 This step involves creating a custom `Visualizer` class that inherits from `BaseVisualizer`. The class should generate visualizations and save them to disk.
 
@@ -540,9 +549,9 @@ hooray! 🎉 You have successfully implemented a custom benchmark evaluation in 
 
 But wait, there is another way to run the custom benchmark – using Deployed NN Model. Let's move on to the next step.
 
-## Part 2. Custom Evaluation on Deployed Model
+## Run Evaluation of your Models
 
-Let's consider another scenario where you need to evaluate a deployed model. In this case, you can use the deployed model session instead of the Predictions project.
+In this section we will evaluate a model, that is deployed in Supervisely platform. We will use the model to get predictions and evaluate them, instead of using downloaded project with predictions.
 
 For this purpose, we will create a new custom benchmark class that inherits from the `BaseBenchmark`.
 
@@ -630,7 +639,7 @@ Using the `BaseBenchmark` class, you still have the flexibility to run evaluatio
 
 Let's move on to the next level and integrate the custom benchmark with **the GUI interface** 🎨.
 
-## Part 3. Plug-in the Custom Benchmark to the GUI
+## Plug-in the Custom Benchmark to the GUI
 
 In this step, we will create a `sly.Application` (FastAPI application with GUI interface) that will run the custom benchmark evaluation. The application will allow you to select the GT project, the deployed model session, and the evaluation parameters and run the evaluation with a few clicks in the web interface.
 
