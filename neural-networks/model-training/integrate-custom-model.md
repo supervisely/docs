@@ -291,7 +291,7 @@ def start_training():
 ```
 
 
-# Step 3. [Optional] Add optional features
+### Step 3. [Optional] Add optional features
 
 #### 3.1 Progress Bar with the Train Logger ⏱️
 
@@ -384,7 +384,7 @@ collapsable: false
 auto_convert_classes: true
 ```
 
-# Step 4. Run the application
+### Step 4. Run the application
 
 Now that you've integrated your custom model, you're ready to launch the training application. You can choose to run it locally for testing or deploy it directly to the Supervisely platform. The training app functions like any other Supervisely app, but with a built-in GUI.
 
@@ -398,7 +398,7 @@ Now that you've integrated your custom model, you're ready to launch the trainin
 
 {% endhint %}
 
-### Run and debug locally
+#### Run and debug locally
 
 Prepare environment file before running the app:
 
@@ -455,7 +455,7 @@ If you are a VSCode user, you can create `.vscode/launch.json` configuration to 
 }
 ```
 
-### Deploy to Supervisely
+#### Deploy to Supervisely
 
 Releasing your private app to the Supervisely platform is very simple. You will need a git repository with your app code, Supervisely SDK and credentials to access the platform. You can refer to [Add private app](https://developer.supervisely.com/app-development/basics/add-private-app) for more information.
 
