@@ -2,10 +2,10 @@
 
 ## Overview
 
-In this guide, we will show you how to **integrate a custom benchmark evaluation** using Supervisely SDK. For most use cases, our [Evaluator for Model Benchmark](https://ecosystem.supervisely.com/apps/model-benchmark) app in the Ecosystem provides a set of built-in evaluation metrics for various task types, such as object detection, instance segmentation, and semantic segmentation.
+In this guide, we will show you how to **integrate a custom benchmark evaluation** using Supervisely SDK. For most use cases, our [Evaluator for Model Benchmark](https://ecosystem.supervisely.com/apps/model-benchmark) app in the Ecosystem provides a set of built-in evaluation metrics for various task types, such as [object detection](object-detection.md), [instance segmentation](./instance-segmentation.md), and [semantic segmentation](./semantic-segmentation.md).
 However, in some cases, you may need to define custom metrics that are specific to your use case. The custom benchmark implementation allows you to achieve this goal – to evaluate the model performance with your own business metrics and visualize the results in a comprehensive report.
 
-<figure><img src="../../.gitbook/assets/benchmark_result.png" alt=""><figcaption></figcaption></figure>
+![Example of the Custom Benchmark report we will create in this guide](../../.gitbook/assets/benchmark_result.png)
 
 {% hint style="success" %}
 
@@ -48,7 +48,7 @@ You can find the source code for this guide [here]()
 The main component of the custom benchmark is the `BaseEvaluator` class. This class gets the local paths to the GT and Predictions projects, calculates the evaluation metrics, and saves them to disk.
 
 {% hint style="warning" %}
-Before you start, make sure you have Ground Truth and Predictions projects with the same structure of datasets and images. The projects should contain the same classes. If you need to run evaluations on a subset of classes, you can provide a `classes_whitelist` parameter.
+Before you start, make sure you have Ground Truth and Predictions projects in Supervisely format with the same structure of datasets. The projects should contain the same classes. If you need to run evaluations on a subset of classes, you can provide a `classes_whitelist` parameter.
 {% endhint %}
 
 `BaseEvaluator` is a base class that provides the basic functionality for the evaluator.
@@ -108,7 +108,7 @@ class MyEvaluator(BaseEvaluator):
 ### Step 2: Implement Custom EvalResult
 
 This class will be used as a data interface to access the evaluation metrics in the visualizer.
-It loads the evaluation metrics from disk and prepares the data for easy access.
+It loads the evaluation metrics from disk (saved by the evaluator in the previous step) and prepares the data for easy access.
 
 Let's create a new class `MyEvalResult` that inherits from `BaseEvalResult` and overrides the `_read_files` and `_prepare_data` methods.
 
