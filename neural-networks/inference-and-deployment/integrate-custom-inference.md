@@ -115,7 +115,7 @@ Create a `models.json` file that holds a list of model configurations and assign
 
 **Note:**
 
-- The `meta` field holds technical details used by the `TrainApp`:
+- The `meta` field holds technical details used by the inference class to load the model:
   - (**required**) `task_type`: The type of task (e.g., object detection)
   - (**required**) `model_name`: Model name
   - (**required**) `model_files`: Paths to the checkpoint and configuration files
