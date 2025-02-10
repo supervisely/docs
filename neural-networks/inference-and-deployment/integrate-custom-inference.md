@@ -1,12 +1,12 @@
 # Integrate Custom Inference
 
-In this guide, you’ll learn how to build a custom serving app using the Supervisely SDK. By integrating your own model, you’ll be able to deploy a fully functional inference app on the Supervisely platform (or externally) that serves predictions in real time. In other words, you'll transform your model into a serving app that’s ready to be used in production.
+In this guide, you'll learn how to build a custom [serving app](./supervisely-serving-apps.md) using the Supervisely SDK. By integrating your own model, you'll be able to deploy a fully functional inference app on the Supervisely platform (or externally) that serves predictions in real time. In other words, you'll transform your model into a serving app that's ready to be used in production.
 
 ## Overview
 
-By following this guide, you’ll convert your custom model into a fully deployable serving app. This integration lets you:
+By following this guide, you'll convert your custom model into a fully deployable serving app. This integration lets you:
 
-- **Easily Serve Your Model:** Run inference on your own data through Supervisely’s platform.
+- **Easily Serve Your Model:** Run inference on your own data through Supervisely's platform.
 - **Customize Your Solution:** Extend a Supervisely SDK class and implement the core methods needed for your custom inference solution.
 - **Debug and Release**: Test locally, debug quickly, and deploy your app for production use.
 
@@ -14,12 +14,12 @@ By following this guide, you’ll convert your custom model into a fully deploya
 
 Let's dive into the steps:
 
-1. **Create Your Implementation File:** Create your custom model class (inheriting from `sly.nn.inference.ObjectDetection` or a similar base class).
-2. **Prepare models and inference settings files:** Create a `.json` file that lists your model configurations and details and `.yaml` file for any extra inference settings.
-3. **Implement Key Methods:**
+1. **Create Your Implementation File:** Create your custom model class inheriting from `sly.nn.inference.Inference` or a similar base class (sly.nn.inference.ObjectDetection).
+2. **Prepare model configurations and inference settings files:** Create a `.json` file that lists your model configurations and details and `.yaml` file for any extra inference settings.
+3. **Define Inference Settings:** Create an inference_settings.yaml file for any extra parameters you need during inference.
+4. **Implement Key Methods:**
    - `load_model`: Load and set up your model for inference.
-   - `predict`: Process input data, run inference, and format the predictions.
-4. **Define Inference Settings:** Create an inference_settings.yaml file for any extra parameters you need during inference.
+   - `predict`: Preprocess input data, run inference, and format the predictions to [Supervisely format]()
 5. **Run, Debug, and Release:** Test your app locally (with IDE tips provided), then deploy it on the Supervisely platform.
 
 Below is a simple example for a YOLO‑based object detection model. This example demonstrates the core functionality without distracting external dependencies.
@@ -91,7 +91,22 @@ class CustomYOLOInference(sly.nn.inference.ObjectDetection):
 
 #### Create models.json
 
-Create a `models.json` file that holds a list of model configurations and assign the path to this file in the `MODELS` variable in your custom class. Each entry is a dictionary with model-specific details. These fields are used to populate the model table and can be customized based on your model requirements. This data will be displayed in the GUI for model selection (except for the technical `meta` field, which is required for the `Inference` to correctly access model info).
+**Informative Fields:** Each model dictionary includes fields that provide key details about the model. These are displayed in the GUI for quick reference:
+
+- `Model`: The name of the model (e.g. Custom YOLOv5nu).
+- `Size (pixels)`: The input image size in pixels (e.g. 640).
+- `mAP`: The mean average precision of the model (e.g. 0.75).
+- `params (M)`: The number of model parameters in millions (e.g. 50).
+- `FLOPs (B)`: The number of floating-point operations in billions (e.g. 50).
+
+**Technical Field (meta):**
+Each model must also include a `meta` field. This field contains technical information required by the TrainApp to correctly access and manage the model during the training process. While the informative fields are for display purposes, the `meta` field ensures the app functions properly behind the scenes.
+
+- (**required**) `task_type`: The type of task (e.g., object detection)
+- (**required**) `model_name`: Model name
+- (**required**) `model_files`: Paths to the checkpoint and configuration files
+  - (**required**) `checkpoint`: Path or URL to the model checkpoint. URL will be downloaded automatically.
+  - (**optional**) `config`: Path to the model configuration file
 
 **Example `models.json`**
 
@@ -112,6 +127,10 @@ Create a `models.json` file that holds a list of model configurations and assign
     // ... additional models
 ]
 ```
+
+_Example GUI preview:_
+
+![Model in GUI](./models-json.png)
 
 **Note:**
 
@@ -174,7 +193,8 @@ def predict(self, image_path: str, settings: dict):
     # 2️⃣ Run the model inference
     outputs = self.model(img_tensor)
     
-    # 3️⃣ Postprocess the outputs (convert raw outputs to labels, boxes, scores, etc.)
+    # 3️⃣ Postprocess the outputs 
+    # (implement your own method, convert raw outputs to labels, boxes, scores, etc.)
     predictions = self._postprocess_outputs(outputs, settings)
     return predictions
 ```
