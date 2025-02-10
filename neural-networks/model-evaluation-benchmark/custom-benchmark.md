@@ -12,7 +12,7 @@ However, in some cases, you may need to define custom metrics that are specific 
 Key features of the custom benchmark implementation in Supervisely:
 
 - **Custom Metrics and Charts**: Implement custom evaluation metrics and visualizations for your specific use case.
-- **Automate with Python SDK & API**: Run evaluations from the script or release as a private app. Run it with a few clicks or automate the process using the Supervisely API (learn more [here](https://developer.supervisely.com/advanced-user-guide/automate-with-python-sdk-and-api/start-and-stop-app)).
+- **Automate with Python SDK & API**: Run evaluations from the script in your pipeline or [release as a private app](https://developer.supervisely.com/app-development/basics/add-private-app#option-1.-recommended-cli-run-command-in-terminal). Releasing as a private app allows you to run evaluations with a few clicks in the GUI interface or automate the launch using the Supervisely API (learn more [here](https://developer.supervisely.com/advanced-user-guide/automate-with-python-sdk-and-api/start-and-stop-app)).
 - **Easy integration with experiments in Supervisely**: Integrate the custom benchmark with your custom training app to evaluate the best model checkpoint after training automatically and visualize the results in the Experiments page.
 
 {% endhint %}
@@ -499,15 +499,42 @@ visualizer.upload_results(team_id, remote_dir + "/visualizations/")
 └── local.env                   # 1 line of code
 ```
 
-Run the `main.py` script – `python src/main.py` in the terminal or `Run` in your IDE.
+Run the `main.py` script – `python src/main.py` in the terminal.
+For debugging, you can use the `launch.json` file in the repository (select the "Python Current File" configuration and press `F5` or `Run and Debug`).
+
+<details>
+
+<summary><strong>.vscode/launch.json</strong></summary>
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${PYTHONPATH}",
+        "LOG_LEVEL": "DEBUG"
+      }
+    }
+  ]
+}
+```
 
 <figure><img src="../../.gitbook/assets/benchmark.gif" alt=""><figcaption></figcaption></figure>
 
 After the evaluation is complete, you will receive **a link to the report in the logs**. You can open the report in the web interface by clicking on the link. Also, you will find the evaluation results in the Team Files in the folder that you specified in the script (`/model-benchmark/custom_benchmark/vizualizations/Model Evaluation Report.lnk`)
 
-<figure><img src="../../.gitbook/assets/benchmark_result.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/benchmark_link.png" alt=""><figcaption></figcaption></figure>
 
 hooray! 🎉 You have successfully implemented a custom benchmark evaluation in Supervisely!
+
+<figure><img src="../../.gitbook/assets/benchmark_result.png" alt=""><figcaption></figcaption></figure>
 
 But wait, there is another way to run the custom benchmark – using Deployed NN Model. Let's move on to the next step.
 
@@ -522,6 +549,8 @@ The `BaseBenchmark` class is a all-in-one base class that orchestrates all the p
 {% endhint %}
 
 All you need to do is to change only 3 lines of code! 💫
+
+**1. Create a new file `benchmark.py`** with the following content:
 
 ```python
 from src.tests.custom_benchmark.evaluator import MyEvaluator
@@ -541,13 +570,62 @@ class CustomBenchmark(BaseBenchmark):
         return MyEvaluator  # ⬅︎ the evaluator class
 ```
 
-That's it! And you are ready to run the custom benchmark on the deployed model session.
-
-Here is a brief overview of the relationships between the classes in this scenario. As you can see, we will use the engine classes, but the input will be different – the GT project ID and the deployed model session ID (instead of the local projects).
+Here is a brief overview of the relationships between the classes in this scenario. As you can see, we will use the same engine classes, but the input will be different – the GT project ID and the deployed model session ID (instead of the local projects).
 
 ![Schema of the benchmark process with GT project and a deployed model](../../.gitbook/assets/benchmark_2.png)
 
-Let's move on to the next step and integrate the custom benchmark with **the GUI interface** 🎨.
+**2. Update the `main.py` script** to run the custom benchmark on the deployed model session:
+
+```python
+import os
+
+from dotenv import load_dotenv
+
+import supervisely as sly
+from src.tests.custom_benchmark.benchmark import CustomBenchmark
+
+if sly.is_development():
+    load_dotenv(os.path.expanduser("~/supervisely.env"))
+    load_dotenv("local.env")
+
+api = sly.Api()
+
+team_id = 8
+gt_project_id = 73
+pred_project_id = 133
+model_session_id = 1234
+
+# 1. Initialize benchmark
+bench = CustomBenchmark(api, gt_project_id)
+
+# 2. Run evaluation
+bench.run_evaluation(model_session_id)  # ⬅︎ the deployed model session ID
+
+# 3. Generate charts and dashboards
+bench.visualize()
+
+# 4. Upload to Supervisely Team Files (it is required to open visualizations in the web interface)
+remote_dir = f"/model-benchmark/custom_benchmark/{model_session_id}"
+bench.upload_eval_results(remote_dir + "/evaluation/")
+bench.upload_visualizations(remote_dir + "/visualizations/")
+```
+
+That's it! And you are ready to run the custom evaluation on different deployed models.
+
+Run the `main.py` script – `python src/main.py` in the terminal (or use the `launch.json` file from source code for debugging).
+
+As in the previous step, you will receive a link to the report in the logs or find the evaluation results in the Team Files.
+
+<figure><img src="../../.gitbook/assets/benchmark_link.png" alt=""><figcaption></figcaption></figure>
+
+Great job! 🎉 You have successfully implemented a custom benchmark evaluation on the deployed model in Supervisely!
+
+{% hint style="success" %}
+**Bonus:**
+Using the `BaseBenchmark` class, you still have the flexibility to run evaluations on two projects. And you can do it even easier – just pass project IDs instead of paths and change `bench.run_evaluation(model_session_id)` to `bench.evaluation(pred_project_id)`. The `BaseBenchmark` class will take care of the rest.
+{% endhint %}
+
+Let's move on to the next level and integrate the custom benchmark with **the GUI interface** 🎨.
 
 ## Part 3. Plug-in the Custom Benchmark to the GUI
 
@@ -733,11 +811,56 @@ def match_classes(api, project_id, session_id):
 
 </details>
 
-Launch the application, select the GT project, the deployed model session, and press the `Evaluate` button to run the evaluation. The app will connect to the deployed NN model, run the inference, upgrade predictions to the new project, evaluate the model, and generate the report.
+Launch the application using the following command in the terminal:
 
-After the process is complete, you will see a widget with the evaluation report.
+```bash
+uvicorn src.main:app --host 0.0.0.0 --port 8000 --ws websockets --reload
+```
+
+Or use the `launch.json` file from the source code for debugging and press `F5` or `Run and Debug`.
+
+<details>
+
+<summary><strong>.vscode/launch.json</strong></summary>
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "GUI app",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "src.main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000",
+        "--ws",
+        "websockets"
+      ],
+      "jinja": true,
+      "justMyCode": false,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${PYTHONPATH}",
+        "LOG_LEVEL": "DEBUG"
+      }
+    }
+  ]
+}
+```
+
+</details>
+
+Open the browser and go to `http://localhost:8000` to see the GUI interface.Select the GT project, the deployed model session, and press the `Evaluate` button to run the evaluation. The app will connect to the deployed NN model, run the inference, upgrade predictions to the new project, evaluate the model, and generate the report.
+
+After the process is complete, you will see a widget with the evaluation report (click on the link to open the report in the web interface).
 
 <figure><img src="../../.gitbook/assets/benchmark_app_finished.png" alt=""><figcaption></figcaption></figure>
+
+Check out our Developer Portal to learn more on how to release your app as a private app in Supervisely – [here](https://developer.supervisely.com/app-development/basics/add-private-app#option-1.-recommended-cli-run-command-in-terminal).
 
 Congratulations! 🎉 You have successfully integrated the custom benchmark with the GUI interface in Supervisely!
 
