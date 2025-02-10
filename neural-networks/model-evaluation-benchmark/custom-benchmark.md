@@ -423,7 +423,7 @@ class MyVisualizer(BaseVisualizer):
         return layout
 ```
 
-### Step 4. Run evaluation and generate the report
+### 4. Run the code
 
 Before we run the custom benchmark, prepare the environment credentials in the `supervisely.env` file:
 
