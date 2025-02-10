@@ -526,6 +526,8 @@ For debugging, you can use the `launch.json` file in the repository (select the 
 }
 ```
 
+</details>
+
 <figure><img src="../../.gitbook/assets/benchmark.gif" alt=""><figcaption></figcaption></figure>
 
 After the evaluation is complete, you will receive **a link to the report in the logs**. You can open the report in the web interface by clicking on the link. Also, you will find the evaluation results in the Team Files in the folder that you specified in the script (`/model-benchmark/custom_benchmark/vizualizations/Model Evaluation Report.lnk`)
