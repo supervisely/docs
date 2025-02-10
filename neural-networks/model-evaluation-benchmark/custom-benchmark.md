@@ -555,8 +555,9 @@ All you need to do is to change only 3 lines of code! 💫
 **1. Create a new file `benchmark.py`** with the following content:
 
 ```python
-from src.tests.custom_benchmark.evaluator import MyEvaluator
-from src.tests.custom_benchmark.visualizer import MyVisualizer
+# src/benchmark.py
+from src.evaluator import MyEvaluator
+from src.visualizer import MyVisualizer
 from supervisely.nn.benchmark.base_benchmark import BaseBenchmark
 from supervisely.nn.task_type import TaskType
 
@@ -579,12 +580,13 @@ Here is a brief overview of the relationships between the classes in this scenar
 **2. Update the `main.py` script** to run the custom benchmark on the deployed model session:
 
 ```python
+# src/main.py
 import os
 
 from dotenv import load_dotenv
 
 import supervisely as sly
-from src.tests.custom_benchmark.benchmark import CustomBenchmark
+from src.benchmark import CustomBenchmark
 
 if sly.is_development():
     load_dotenv(os.path.expanduser("~/supervisely.env"))
@@ -598,18 +600,18 @@ pred_project_id = 133
 model_session_id = 1234
 
 # 1. Initialize benchmark
-bench = CustomBenchmark(api, gt_project_id)
+bm = CustomBenchmark(api, gt_project_id)
 
 # 2. Run evaluation
-bench.run_evaluation(model_session_id)  # ⬅︎ the deployed model session ID
+bm.run_evaluation(model_session_id)  # ⬅︎ the deployed model session ID
 
 # 3. Generate charts and dashboards
-bench.visualize()
+bm.visualize()
 
 # 4. Upload to Supervisely Team Files (it is required to open visualizations in the web interface)
 remote_dir = f"/model-benchmark/custom_benchmark/{model_session_id}"
-bench.upload_eval_results(remote_dir + "/evaluation/")
-bench.upload_visualizations(remote_dir + "/visualizations/")
+bm.upload_eval_results(remote_dir + "/evaluation/")
+bm.upload_visualizations(remote_dir + "/visualizations/")
 ```
 
 That's it! And you are ready to run the custom evaluation on different deployed models.
@@ -622,8 +624,7 @@ As in the previous step, you will receive a link to the report in the logs or fi
 
 Great job! 🎉 You have successfully implemented a custom benchmark evaluation on the deployed model in Supervisely!
 
-{% hint style="success" %}
-**Bonus:**
+{% hint style="info" %}
 Using the `BaseBenchmark` class, you still have the flexibility to run evaluations on two projects. And you can do it even easier – just pass project IDs instead of paths and change `bench.run_evaluation(model_session_id)` to `bench.evaluation(pred_project_id)`. The `BaseBenchmark` class will take care of the rest.
 {% endhint %}
 
@@ -631,7 +632,7 @@ Let's move on to the next level and integrate the custom benchmark with **the GU
 
 ## Part 3. Plug-in the Custom Benchmark to the GUI
 
-In this step, we will create a `sly.Application` (FastAPI application with GUI interface) that will run the custom benchmark evaluation. The application will allow you to select the GT project, the deployed model session, and the evaluation parameters.
+In this step, we will create a `sly.Application` (FastAPI application with GUI interface) that will run the custom benchmark evaluation. The application will allow you to select the GT project, the deployed model session, and the evaluation parameters and run the evaluation with a few clicks in the web interface.
 
 {% hint style="success" %}
 You can find the full code for this scenario in the [here]()
@@ -651,6 +652,7 @@ Now, we will upgrade the `main.py` from the simple script to the `sly.Applicatio
 <summary><strong>src/main.py</strong></summary>
 
 ```python
+# src/main.py
 import os
 
 import yaml
@@ -658,8 +660,8 @@ from dotenv import load_dotenv
 
 import supervisely as sly
 import supervisely.app.widgets as sly_widgets
-from src.tests.custom_benchmark.benchmark import CustomBenchmark
-from src.tests.custom_benchmark.evaluator import MyEvaluator
+from src.benchmark import CustomBenchmark
+from src.evaluator import MyEvaluator
 from supervisely.nn.inference import SessionJSON
 
 if sly.is_development():
