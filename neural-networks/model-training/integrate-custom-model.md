@@ -1,7 +1,7 @@
 # Custom Model Integration Tutorial 🚀
 
-Welcome to this step-by-step tutorial on building model training applications with the Supervisely SDK!
-This guide will show you how to set up a training app in just a few lines of code, complete with a user interface and everything needed to manage the training process seamlessly. Supervisely takes care of the heavy lifting, so you can focus on your model and training logic without worrying about the underlying infrastructure.
+Welcome to this step-by-step tutorial on building model training applications with Supervisely SDK!
+This guide will show you how to set up a training app in just a few lines of code, with a built-in user interface and all the necessary tools to seamlessly manage the training process. Supervisely takes care of the heavy lifting, so you can focus on your model and training logic without worrying about the underlying infrastructure.
 We'll use the [Train RT-DETRv2](https://ecosystem.supervisely.com/apps/rt-detrv2/supervisely_integration/train) example to walk you through the process.
 
 ## Overview
@@ -14,17 +14,18 @@ This guide will walk you through the process of:
 
 ### The TrainApp Class
 
-The Supervisely SDK includes the TrainApp class, designed to simplify training your custom models on Supervisely’s platform. This class offers a built-in GUI and manages many essential tasks automatically.
+Supervisely SDK includes the TrainApp class, designed to simplify training your custom models on Supervisely platform. This class offers a built-in GUI and manages many essential tasks automatically.
 
 **Key Features of TrainApp**
 
-- Built-in GUI: Simple and easy to follow customizable interface
-- Train and Val Splits: Automatically split your project into training and validation sets
-- Data Preparation: Seamless conversion of Supervisely project to the required format with 1 line of code
-- Data Backup: Automatic backup of your project with Supervisely’s versioning system
-- Model Evaluation: On-demand evaluation (requires [model serving implementation](https://developer.supervisely.com/app-development/neural-network-integration/inference/overview-nn-integration))
-- Model Export: Export your model to ONNX or TensorRT format (requires [export implementation](#link-to-custom-export-tutorial))
-- Model Saving: Automatically save your model and related files to Supervisely Team Files
+- **Built-in GUI:** Simple and easy-to-follow customizable interface.  
+- **Train and Val Splits:** Handles splitting of your project into training and validation sets.  
+- **Data Preparation:** Easily convert Supervisely annotation format into one of the popular formats with a single line of code (e.g., COCO annotation format).  
+- **Project Versioning:** Saves project versions to reproduce training with the same data and annotations.  
+- **Model Evaluation:** On-demand evaluation (requires ❌ [model serving implementation](neural-networks/inference-and-deployment/...)).  
+- **Model Export:** Export your model to ONNX or TensorRT format (requires [export implementation](#export-model-to-onnx-and-tensorrt)).  
+- **Model Saving:** Automatically save your model and related files to Supervisely Team Files.  
+
 
 #### TrainApp Signature
 
@@ -229,10 +230,10 @@ All training code should be implemented in the function under the `@train.start`
 
 Returned dictionary should contain the following fields:
 
-- `model_name` - Name of the model used for training
-- `model_files` - Dictionary with paths to additional model files (e.g. `config`). These files will be uploaded to the supervisely storage automatically.
-- `checkpoints` - List of checkpoint paths or path to the output directory with checkpoints. These files will be uploaded to the supervisely storage automatically.
-- `best_checkpoint` - Name of the best checkpoint file
+- `model_name` - Name of the model used for training.
+- `model_files` - Dictionary with paths to additional model files (e.g. `config`). These files together with checkpoints will be uploaded to Supervisely Team Files automatically.
+- `checkpoints` - A list of checkpoint paths, or an output directory with checkpoints. These checkpoints will be uploaded to Supervisely Team Files automatically.
+- `best_checkpoint` - Name of the best checkpoint file.
 
 {% hint style="warning" %}
 
@@ -310,17 +311,15 @@ for epoch in range(start_epcoch, total_epochs):
 train_logger.train_finished()
 ```
 
-#### 3.2 Register the Inference Class for model benchmarking 📊
+#### 3.2 Register the Inference Class for model evaluation 📊
 
-If you plan to use [model benchmarking](../model-evaluation-benchmark/README.md), register your custom inference class.
-
-Please refer to the [serving implementation](https://developer.supervisely.com/app-development/neural-network-integration/inference/overview-nn-integration) guide for more information.
+If you plan to use [Evaluation Model Benchmark](../model-evaluation-benchmark/README.md), you need to implement Inference class and register it for TrainApp. Refer to the ❌ [Integrate Custom Inference](https://...) guide for more information.
 
 ```python
 train.register_inference_class(RTDETRv2)
 ```
 
-### 3.3 GUI Layout Customization 🎨
+#### 3.3 GUI Layout Customization 🎨
 
 You can provide additional options to control the GUI layout and behavior. Create an `app_options.yaml` file to enable or disable features.
 
@@ -426,6 +425,9 @@ If you are a VSCode user, you can create `.vscode/launch.json` configuration to 
 
 **Example `launch.json`**
 
+<details>
+<summary> <b> Click to expand </b> </summary>
+
 ```json
 {
   "version": "0.2.0",
@@ -454,6 +456,7 @@ If you are a VSCode user, you can create `.vscode/launch.json` configuration to 
     ]
 }
 ```
+</details>
 
 #### Deploy to Supervisely
 
