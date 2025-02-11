@@ -1,10 +1,11 @@
 # Custom Benchmark Implementation
 
-> <i class="zmdi zmdi-github"></i> You can find the source code for this guide [here](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark)
-
 {% hint style="info" %}
 
-<i class="zmdi zmdi-github"></i> You can find the source code for this guide [here](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark)
+<i class="zmdi zmdi-github">
+We have prepared a [GitHub repository](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark) with the full code for this guide. You can clone the repository and follow the instructions to implement a custom benchmark evaluation in Supervisely.
+
+</i>
 
 {% endhint %}
 
@@ -49,7 +50,9 @@ And all you need to do is to implement these classes with your custom logic to c
 
 {% hint style="info" %}
 
-<i class="zmdi zmdi-github"></i> You can find the source code for this guide [here](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark)
+<i class="zmdi zmdi-github">
+Find the full code for this guide in the [GitHub repository](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark).
+</i>
 
 {% endhint %}
 
@@ -687,11 +690,11 @@ You can take a look at the [Evaluator for Model Benchmark](https://ecosystem.sup
 
 {% hint style="info" %}
 
-<i class="zmdi zmdi-github"></i>
-You can find the full code for this scenario in the [here](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark)
+<i class="zmdi zmdi-github">
+Find the full code for this guide in the [GitHub repository](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark).
+</i>
 
 {% endhint %}
-
 First, let's create the `local.env` file with the following variables:
 
 ```plaintext
