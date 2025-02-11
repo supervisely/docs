@@ -71,7 +71,7 @@ Available arguments in the `BaseEvaluator` class:
 - `result_dir`: Optional: Directory to save evaluation results. Default is `./evaluation`.
 - `classes_whitelist`: Optional: List of classes to evaluate.
 
-Let's start by creating a new class `MyEvaluator` that inherits from `BaseEvaluator` and overrides the `evaluate` method. In our example, `evaluate` method compares GT and Predicted annotations from two projects, counting the occurrences of each object class in images and objects. It iterates through datasets and images, retrieves annotations, and collects statistics for both ground truth and predicted data. Finally, it saves the evaluation results in `self.eval_data`.
+Let's start by creating a new class `MyEvaluator` that inherits from `BaseEvaluator` and overrides the `evaluate` method. In our example, `evaluate` method compares GT and Predicted annotations from two projects, counting the occurrences of each object class in images and objects. It iterates through datasets and images, retrieves annotations, and collects statistics for both ground truth and predicted data. Finally, it saves the evaluation results in `self.eval_data` and dumps it to disk.
 
 ```python
 # src/evaluator.py
