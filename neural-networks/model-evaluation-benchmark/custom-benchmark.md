@@ -1,5 +1,13 @@
 # Custom Benchmark Implementation
 
+> <i class="zmdi zmdi-github"></i> You can find the source code for this guide [here](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark)
+
+{% hint style="info" %}
+
+<i class="zmdi zmdi-github"></i> You can find the source code for this guide [here](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark)
+
+{% endhint %}
+
 ## Overview
 
 In this guide, we will show you how to **integrate a custom benchmark evaluation** using Supervisely SDK. For most use cases, our [Evaluator for Model Benchmark](https://ecosystem.supervisely.com/apps/model-benchmark) app in the Ecosystem provides a set of built-in evaluation metrics for various task types, such as [object detection](object-detection.md), [instance segmentation](./instance-segmentation.md), and [semantic segmentation](./semantic-segmentation.md).
@@ -39,8 +47,10 @@ Here are the main classes that you need to subclass to implement your custom ben
 
 And all you need to do is to implement these classes with your custom logic to calculate the metrics and generate the visualizations. We will guide you through the process step by step. Let's get started!
 
-{% hint style="success" %}
-You can find the source code for this guide [here](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark)
+{% hint style="info" %}
+
+<i class="zmdi zmdi-github"></i> You can find the source code for this guide [here](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark)
+
 {% endhint %}
 
 ### 1. Custom Evaluator
@@ -675,8 +685,11 @@ In this step, we will create a `sly.Application` (high-level class in the Superv
 
 You can take a look at the [Evaluator for Model Benchmark](https://ecosystem.supervisely.com/apps/model-benchmark) app in the Ecosystem to see how we implemented the GUI interface for the evaluation process.
 
-{% hint style="success" %}
+{% hint style="info" %}
+
+<i class="zmdi zmdi-github"></i>
 You can find the full code for this scenario in the [here](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark)
+
 {% endhint %}
 
 First, let's create the `local.env` file with the following variables:
