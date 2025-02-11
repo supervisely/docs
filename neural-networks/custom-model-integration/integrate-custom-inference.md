@@ -95,20 +95,22 @@ _Example GUI preview:_
 
 ![Model in GUI](/.gitbook/assets/custom-model-integration/inference-models-json.png)
 
-**Table Fields:**
+#### Table Fields
 
-Each dict item in `models.json` will be a row representing a single model, and all the fields in that dict, except the `meta` field, will be the columns. You can customize fields as you want to display the necessary information about your checkpoints.
+Each dictionary item in `models.json` represents a single model as a row, with all its fields, except for the `meta` field, acting as columns. You can customize these fields to display the necessary information about your checkpoints.
 
-**Technical Field (meta):**
+#### Technical Field (`meta`)
 
-Each model configuration must has a `meta` field. This field is not displayed in the table. It contains information required by the Inference class to properly download checkpoints and load the model for inference. Here's the required fields:
+Each model configuration must have a `meta` field. This field is not displayed in the table but contains essential information required by the `Inference` class to properly download checkpoints and load the model for inference.
+
+Here are the required fields:
 
 - (**required**) `task_type`: A computer vision task type (e.g., object detection).
 - (**required**) `model_name`: Model configuration name.
 - (**required**) `model_files`: A dict with files needed to load the model, such as model weights, config file. You can extend it with additional files if needed.
   - (**required**) `checkpoint`: Path or URL to the model checkpoint. URL will be downloaded automatically.
-  - (*optional*) `config`: Path to the model configuration file.
-  - (*optional*) Any additional files can be added to the `model_files` dictionary that are required for your model.
+  - *(optional)* `config`: Path to the model configuration file.
+  - *(optional)* Any additional files can be added to the `model_files` dictionary that are required for your model.
 
 ### Step 2. Prepare Inference Settings
 
