@@ -160,10 +160,10 @@
   * [Instance Segmentation](neural-networks/model-evaluation-benchmark/instance-segmentation.md)
   * [Semantic Segmentation](neural-networks/model-evaluation-benchmark/semantic-segmentation.md)
   * [Custom Benchmark Integration](neural-networks/model-evaluation-benchmark/custom-benchmark.md)
-* [Custom Model Integration](neural-networks/model-integration/README.md)
-  * [Overview](neural-networks/model-integration/overview.md)
-  * [Custom Training](neural-networks/model-integration/integrate-custom-training.md)
-  * [Custom Inference](neural-networks/model-integration/integrate-custom-inference.md)
+* [Custom Model Integration](neural-networks/custom-model-integration/README.md)
+  * [Overview](neural-networks/custom-model-integration/overview.md)
+  * [Custom Training](neural-networks/custom-model-integration/integrate-custom-training.md)
+  * [Custom Inference](neural-networks/custom-model-integration/integrate-custom-inference.md)
 
 ## 👔 Enterprise Edition
 
