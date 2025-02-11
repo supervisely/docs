@@ -40,7 +40,7 @@ Here are the main classes that you need to subclass to implement your custom ben
 And all you need to do is to implement these classes with your custom logic to calculate the metrics and generate the visualizations. We will guide you through the process step by step. Let's get started!
 
 {% hint style="success" %}
-You can find the source code for this guide [here]()
+You can find the source code for this guide [here](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark)
 {% endhint %}
 
 ### 1. Custom Evaluator
@@ -50,6 +50,7 @@ The `Evaluator` is the key component of a custom benchmark. Its main responsibil
 Instead of computing every metric and chart directly, the `Evaluator` focuses on generating **essential processed data** that serves as the foundation for further analysis. Some computer vision tasks require computationally expensive operations. For example, in **object detection**, each predicted instance must be matched with the corresponding GT instance, which can take significant time. However, once this matching is done, calculating metrics becomes straightforward.
 
 To optimize performance, the `Evaluator`:
+
 - **Processes raw GT and Prediction data** into a structured format suitable for metric calculation.
 - **Handles computationally intensive tasks** like matching predictions to GT.
 - **Saves processed data to disk**, avoiding redundant computations and speeding up further analysis.
@@ -74,52 +75,75 @@ Let's start by creating a new class `MyEvaluator` that inherits from `BaseEvalua
 
 ```python
 # src/evaluator.py
+from collections import defaultdict
 from pathlib import Path
 
 import supervisely as sly
 from supervisely.nn.benchmark.base_evaluator import BaseEvaluator
 
-from src.eval_result import MyEvalResult  # we will implement this class in the next step
+from src.eval_result import MyEvalResult
 
 
 class MyEvaluator(BaseEvaluator):
     eval_result_cls = MyEvalResult  # we will implement this class in the next step
 
     def evaluate(self):
-        """This method should CALCULATE evaluation metrics and DUMP them to disk."""
+        """This method should perform the evaluation process."""
 
-        # ---------------- ⬇︎ Placeholder for your custom code ⬇︎ ---------------- #
+        # For example, let's iterate over all datasets and calculate some statistics
         gt_project = sly.Project(self.gt_project_path, sly.OpenMode.READ)
         pred_project = sly.Project(self.pred_project_path, sly.OpenMode.READ)
 
-        self.eval_data = {"gt_objects_count": 0, "pred_objects_count": 0}
+        gt_stats = {"images_count": defaultdict(int), "objects_count": defaultdict(int)}
+        pred_stats = {"images_count": defaultdict(int), "objects_count": defaultdict(int)}
 
-        # just for demonstration purposes we will calculate and save some statistics
-        self.eval_data["gt_project_stats"] = gt_project.get_classes_stats()
-        self.eval_data["pred_project_stats"] = pred_project.get_classes_stats()
-
-        # you can iterate over datasets and items to calculate metrics
         for ds_1 in gt_project.datasets:
             ds_2 = pred_project.datasets.get(ds_1.name)
             ds_1: sly.Dataset
             for name in ds_1.get_items_names():
                 ann_1 = ds_1.get_ann(name, gt_project.meta)
                 ann_2 = ds_2.get_ann(name, pred_project.meta)
-                self.eval_data["gt_objects_count"] += len(ann_1.labels)
-                self.eval_data["pred_objects_count"] += len(ann_2.labels)
-        # -------------------------------------------------------------------------#
 
-        # IMPORTANT: save the eval_data to disk
+                gt_founded_classes = set()
+                pred_founded_classes = set()
+                for label in ann_1.labels:
+                    if label.obj_class.geometry_type != sly.Polygon:
+                        continue
+                    if label.obj_class.name == "person":
+                        continue
+                    class_name = label.obj_class.name
+                    gt_founded_classes.add(class_name)
+                    gt_stats["objects_count"][class_name] += 1
+                for label in ann_2.labels:
+                    if label.obj_class.geometry_type != sly.Bitmap:
+                        continue
+                    if label.obj_class.name == "person":
+                        continue
+                    class_name = label.obj_class.name
+                    pred_founded_classes.add(class_name)
+                    pred_stats["objects_count"][class_name] += 1
+
+                for class_name in gt_founded_classes:
+                    gt_stats["images_count"][class_name] += 1
+                for class_name in pred_founded_classes:
+                    pred_stats["images_count"][class_name] += 1
+
+        # save the evaluation results
+        self.eval_data = {"gt_stats": gt_stats, "pred_stats": pred_stats}
+
+        # Dump the eval_data to disk (to be able to load it later)
         save_path = Path(self.result_dir) / "eval_data.json"
         sly.json.dump_json_file(self.eval_data, save_path)
+        return self.eval_data
 ```
 
 ### 2. Custom EvalResult
 
 This class will be used as a data interface to access the evaluation metrics in the visualizer.
-It loads the evaluation metrics from disk (saved by the evaluator in the previous step) and prepares the data for easy access.
 
-Let's create a new class `MyEvalResult` that inherits from `BaseEvalResult` and overrides the `_read_files` and `_prepare_data` methods.
+When initializing the `EvalResult` object, it calls the `_read_files` method to load the evaluation metrics from disk and the `_prepare_data` method to prepare the data for easy access. So, you need to implement these two methods in the `MyEvalResult` class.
+
+Let's create a new file `eval_result.py` and implement the `MyEvalResult` class.
 
 ```python
 # src/eval_result.py
@@ -131,79 +155,88 @@ from supervisely.nn.benchmark.base_evaluator import BaseEvalResult
 
 
 class MyEvalResult(BaseEvalResult):
-    def _read_files(self, path: str) -> None:
-        """This method should LOAD evaluation metrics from disk."""
 
-        # ---------------- ⬇︎ Placeholder for your custom code ⬇︎ ---------------- #
+    def _read_files(self, path: str) -> None:  # ⬅︎ This method is required
+        """This method should LOAD evaluation metrics from disk."""
         save_path = Path(path) / "eval_data.json"  # path to the saved evaluation metrics
         self.eval_data = sly.json.load_json_file(str(save_path))
 
-        # project statistics
-        self.gt_project_stats = self.eval_data.get("gt_project_stats", {})
-        self.pred_project_stats = self.eval_data.get("pred_project_stats", {})
-
-        # objects count
-        self.gt_objects_count = self.eval_data.get("gt_objects_count", 0)
-        self.pred_objects_count = self.eval_data.get("pred_objects_count", 0)
-        # -------------------------------------------------------------------------#
-
-    def _prepare_data(self) -> None:
+    def _prepare_data(self) -> None:  # ⬅︎ This method is required
         """This method should PREPARE data to allow easy access to the data."""
 
-        # ---------------- ⬇︎ Placeholder for your custom code ⬇︎ ---------------- #
+        gt = self.eval_data.get("gt_stats", {})
+        pred = self.eval_data.get("pred_stats", {})
 
-        # class statistics (dict with class names as keys and class statistics as values)
-        self._class_items_stats = defaultdict(dict)
-        self._class_figures_stats = defaultdict(dict)
-        for name, items_count in self.gt_project_stats.get("items_count", {}).items():
-            pred_items_count = self.pred_project_stats.get("items_count", {}).get(name, 0)
-            self._class_items_stats[name] = {"gt": items_count, "pred": pred_items_count}
+        # class statistics (class names as keys and number of objects as values)
+        self._objects_per_class = self._get_objects_per_class(gt, pred)
 
-        for name, gt_figures_cnt in self.gt_project_stats.get("figures_count", {}).items():
-            pred_figures_cnt = self.pred_project_stats.get("figures_count", {}).get(name, 0)
-            self._class_figures_stats[name] = {"gt": gt_figures_cnt, "pred": pred_figures_cnt}
+        # GT metrics
+        gt_obj_num = self._get_total_objects_count(gt)
+        gt_cls_num = self._get_num_of_used_classes(gt)
+        gt_cls_most_freq = self._get_most_frequent_class(gt)
 
-        # number of classes used in the projects
-        gt_classes_used = self.gt_project_stats.get("items_count", {})
-        gt_classes_used = len([k for k, v in gt_classes_used.items() if v > 0])
-        pred_classes_used = self.pred_project_stats.get("items_count", {})
-        pred_classes_used = len([k for k, v in pred_classes_used.items() if v > 0])
-
-        # class (and number of figures) with the maximum number of figures
-        most_figures_gt_class = max(
-            self.gt_project_stats.get("figures_count", {}).items(), key=lambda x: x[1]
-        )
-        most_figures_pred_class = max(
-            self.pred_project_stats.get("figures_count", {}).items(), key=lambda x: x[1]
-        )
+        # Prediction metrics
+        pred_obj_num = self._get_total_objects_count(pred)
+        pred_cls_num = self._get_num_of_used_classes(pred)
+        pred_cls_most_freq = self._get_most_frequent_class(pred)
 
         self._key_metrics = {
-            "Objects Count": [self.gt_objects_count, self.pred_objects_count],
-            "Found Classes": [gt_classes_used, pred_classes_used],
-            "Classes with Max Figures": [most_figures_gt_class, most_figures_pred_class],
+            "Objects Count": [gt_obj_num, pred_obj_num],
+            "Found Classes": [gt_cls_num, pred_cls_num],
+            "Classes with Max Figures": [gt_cls_most_freq, pred_cls_most_freq],
         }
-        # -------------------------------------------------------------------------#
 
+    # ---------------- ⬇︎ Properties to access the data easily ⬇︎ ----------------- #
     @property
     def key_metrics(self):
-        """You can create any properties or methods to access the data easily."""
+        """Return key metrics as a dictionary."""
         return self._key_metrics.copy()
 
     @property
-    def class_items_stats(self):
-        return self._class_items_stats.copy()
+    def objects_per_class(self):
+        """Return the number of objects per class."""
+        return self._objects_per_class.copy()
 
-    @property
-    def class_figures_stats(self):
-        return self._class_figures_stats.copy()
+    # ------- ⬇︎ Utility methods (you can create any methods you need) ⬇︎ --------- #
+    def _get_most_frequent_class(self, stats: dict):
+        name = max(stats.get("objects_count", {}).items(), key=lambda x: x[1])[0]
+        return f"{name} ({stats['objects_count'][name]})"
+
+    def _get_total_objects_count(self, stats: dict):
+        return sum(stats.get("objects_count", {}).values())
+
+    def _get_objects_per_class(self, gt: dict, pred: dict):
+        gt_img_stats = gt.get("objects_count", {})
+        pred_img_stats = pred.get("objects_count", {})
+
+        images_per_class = defaultdict(dict)
+        for name, gt_images_count in gt_img_stats.items():
+            pred_images_count = pred_img_stats.get(name, 0)
+            images_per_class[name] = [gt_images_count, pred_images_count]
+
+        return images_per_class
+
+    def _get_num_of_used_classes(self, stats: dict):
+        return len(stats.get("images_count", {}))
 ```
 
 ### 3. Visualizer, Charts and Widgets
 
-This step involves creating a custom `Visualizer` class that inherits from `BaseVisualizer`. The class should generate visualizations and save them to disk.
+This step involves creating a custom `Visualizer` class that inherits from `BaseVisualizer`. The class should generate visualizations, save them to disk, and upload them to the Team Files (to open the visualizations in the web interface).
 
-But first, let's create a few widgets that we will use in the visualizer.
-Let's start with the `Intro`, `KeyMetrics`, and `CustomMetric` widgets. To make the code more readable, we will split the widget classes into separate files.
+{% hint style="info" %}
+**Key points of the visualizer implementation:**
+
+- **Widgets**: Widgets are the building blocks of the visualizations in the report. All widgets should be initialized in the `_create_widgets` method of the visualizer class.
+- **Available widgets**: `MarkdownWidget`, `TableWidget`, `ChartWidget`, `CollapseWidget`, `ContainerWidget`, `GalleryWidget`, `RadioGroupWidget`, `NotificationWidget`, and `SidebarWidget`.
+- **Grouping widgets**: Each widget has a `to_html()` method, and, in the end, it is just HTML code. You can combine them as you like, but we recommend organizing them into separate classes that inherit from `BaseVisMetric`, which can be responsible for a specific section of the report or ML metric, for example, Precision, Recall, F1-score, etc.
+- **Layout**: The `BaseVisualizer` class has a `_create_layout` method and here you need to define the order of the widgets in the report and the anchors in the sidebar.
+- **Upload to Team Files**: To open the report in the web interface, you need to upload the visualization results to the Team Files. We will call the `upload_results` or `upload_visualizations` methods in the main script.
+
+{% endhint %}
+
+First, let's create a few widgets that we will use in the visualizer. We will start with the `MarkdownWidget`, `TableWidget`, and `ChartWidget`.
+Our example will include three sections in the report: `Intro` (header + overview), `KeyMetrics` (text + table), and `CustomMetric` (text + chart). To make the code more readable, we will split the code into separate files for each section.
 
 Feel free to change the widget content and appearance to suit your needs. The example below with Markdown, Table, and Chart widgets is just a starting point.
 
@@ -215,11 +248,11 @@ Feel free to change the widget content and appearance to suit your needs. The ex
 # src/widgets/intro.py
 from datetime import datetime
 
-from supervisely.nn.benchmark.object_detection.base_vis_metric import DetectionVisMetric
+from supervisely.nn.benchmark.object_detection.base_vis_metric import BaseVisMetric
 from supervisely.nn.benchmark.visualization.widgets import MarkdownWidget
 
 
-class Intro(DetectionVisMetric):
+class Intro(BaseVisMetric):
 
     def get_header(self, user_login: str) -> MarkdownWidget:
         current_date = datetime.now().strftime("%d %B %Y, %H:%M")
@@ -236,18 +269,8 @@ class Intro(DetectionVisMetric):
 
     @property
     def md(self) -> MarkdownWidget:
-        gt_id = self.eval_result.gt_project_info.id
-        gt_name = self.eval_result.gt_project_info.name
-        project_link = f"<a href='/projects/{gt_id}/datasets' target='_blank'>{gt_name}</a>"
-        text = (
-            f"## Overview \n"
-            f"- **Ground Truth project**: {project_link}\n"
-            f"- **Task type**: Object Detection\n"
-        )
-
+        text = "## Overview \n- **Task type**: Object Detection\n"
         md = MarkdownWidget(name="intro", title="Intro", text=text)
-
-        # add a special styles to the widget
         md.is_info_block = True
         md.width_fit_content = True
         return md
@@ -267,11 +290,11 @@ Let's create the `KeyMetrics` section.
 
 ```python
 # src/widgets/key_metrics.py
-from supervisely.nn.benchmark.object_detection.base_vis_metric import DetectionVisMetric
+from supervisely.nn.benchmark.object_detection.base_vis_metric import BaseVisMetric
 from supervisely.nn.benchmark.visualization.widgets import MarkdownWidget, TableWidget
 
 
-class KeyMetrics(DetectionVisMetric):
+class KeyMetrics(BaseVisMetric):
     @property
     def md(self) -> MarkdownWidget:
         text = (
@@ -286,18 +309,11 @@ class KeyMetrics(DetectionVisMetric):
         columns = ["Metric", "GT Project", "Predictions Project"]
         columns_options = [{"disableSort": True}] * len(columns)
         content = []
-        # ---------------- ⬇︎ Placeholder for your custom code ⬇︎ ---------------- #
         for metric, values in self.eval_result.key_metrics.items():
-            gt, pred = values
-            gt = f"{gt[0]} ({gt[1]})" if isinstance(gt, (list, tuple)) else str(gt)
-            pred = f"{pred[0]} ({pred[1]})" if isinstance(pred, (list, tuple)) else str(pred)
-            content.append({"row": [metric, gt, pred], "id": metric, "items": [metric, gt, pred]})
+            row = [metric, *values]
+            content.append({"row": row, "id": metric, "items": row})
 
-        data = {
-            "columns": columns,
-            "content": content,
-            "columnsOptions": columns_options,
-        }
+        data = {"columns": columns, "content": content, "columnsOptions": columns_options}
         return TableWidget(
             name="key_metrics",
             data=data,
@@ -321,26 +337,36 @@ Let's create the `CustomMetric` section.
 
 ```python
 # src/widgets/custom_metric.py
-from supervisely.nn.benchmark.object_detection.base_vis_metric import DetectionVisMetric
+from supervisely.nn.benchmark.object_detection.base_vis_metric import BaseVisMetric
 from supervisely.nn.benchmark.visualization.widgets import ChartWidget, MarkdownWidget
 
 
-class CustomMetric(DetectionVisMetric):
+class CustomMetric(BaseVisMetric):
 
     @property
     def md(self) -> MarkdownWidget:
-        text = "## Custom Metric\n In this section, you can explore a custom metric in a chart."
+        text = (
+            "## Number of Objects per Class\n"
+            " In this section, you can explore the number of objects per class"
+            " in the GT and predictions projects."
+        )
         return MarkdownWidget(name="custom_metric", title="Custom Metric", text=text)
 
     @property
     def chart(self) -> ChartWidget:
-        import plotly.express as px
+        import plotly.graph_objects as go
 
-        x = list(self.eval_result.class_items_stats.keys())
-        y1 = [self.eval_result.class_items_stats[val]["gt"] for val in x]
-        y2 = [self.eval_result.class_items_stats[val]["pred"] for val in x]
+        x = list(self.eval_result.objects_per_class.keys())
+        y1, y2 = zip(*self.eval_result.objects_per_class.values())
 
-        fig = px.bar(x=x, y=[y1, y2], labels={"x": "Classes", "y": "Images"}, barmode="group")
+        fig = go.Figure()
+        fig.add_trace(go.Bar(y=y1, x=x, name="GT"))
+        fig.add_trace(go.Bar(y=y2, x=x, name="Predictions"))
+
+        fig.update_layout(barmode="group", bargap=0.15, bargroupgap=0.05)
+        fig.update_xaxes(title_text="Class")
+        fig.update_yaxes(title_text="Images")
+
         return ChartWidget(name="images_chart", figure=fig)
 ```
 
@@ -376,7 +402,6 @@ class MyVisualizer(BaseVisualizer):
 
         vis_text = "N/A"  # not used in this example
 
-        # ---------------- ⬇︎ Placeholder for your widgets ⬇︎ ------------------- #
         # Intro (Markdown)
         me = self.api.user.get_my_info()
         intro = Intro(vis_text, self.eval_result)
@@ -392,14 +417,18 @@ class MyVisualizer(BaseVisualizer):
         custom_metric = CustomMetric(vis_text, self.eval_result)
         self.custom_metric_md = custom_metric.md
         self.custom_metric_chart = custom_metric.chart
-        # ------------------------------------------------------------------------ #
 
     def _create_layout(self):
-        """In this method, we create the layout of the visualizer."""
+        """
+        Method to create the layout of the visualizer.
+        We define the order of the widgets in the report and their visibility in the sidebar.
+        """
+
+        # Create widgets
         self._create_widgets()
 
-        # ---------------- ⬇︎ Placeholder for your widgets ⬇︎ ------------------- #
-        # Here you need only to define the order of the widgets in the report and anchors in the sidebar (1 - visible, 0 - hidden in the sidebar)
+        # Configure sidebar
+        # (if 1 - will display in sidebar, 0 - will not display in sidebar)
         is_anchors_widgets = [
             # Intro
             (0, self.intro_header),
@@ -411,8 +440,6 @@ class MyVisualizer(BaseVisualizer):
             (1, self.custom_metric_md),
             (0, self.custom_metric_chart),
         ]
-        # ------------------------------------------------------------------------ #
-
         anchors = []
         for is_anchor, widget in is_anchors_widgets:
             if is_anchor:
@@ -440,10 +467,11 @@ Create a `main.py` script to run the custom benchmark:
 # src/main.py
 import os
 
+import supervisely as sly
 from dotenv import load_dotenv
 
-import supervisely as sly
-from src.benchmark import CustomBenchmark
+from src.evaluator import MyEvaluator
+from src.visualizer import MyVisualizer
 
 if sly.is_development():
     load_dotenv(os.path.expanduser("~/supervisely.env"))
@@ -451,13 +479,18 @@ if sly.is_development():
 
 api = sly.Api()
 
-team_id = 8
+team_id = sly.env.team_id()
 gt_project_id = 73
-pred_project_id = 133
+pred_project_id = 159
 
-gt_path = "./data/gt_project"
-pred_path = "./data/pred_project"
 
+workdir = sly.app.get_data_dir()
+gt_path = os.path.join(workdir, "gt_project")
+pred_path = os.path.join(workdir, "pred_project")
+eval_result_dir = os.path.join(workdir, "evaluation")
+vis_result_dir = os.path.join(workdir, "vizualizations")
+
+# 0. Download projects
 for project_id, path in [(gt_project_id, gt_path), (pred_project_id, pred_path)]:
     if not sly.fs.dir_exists(path):
         sly.download_project(
@@ -469,26 +502,30 @@ for project_id, path in [(gt_project_id, gt_path), (pred_project_id, pred_path)]
             save_image_info=True,
         )
 
+
 # 1. Initialize Evaluator
-evaluator = MyEvaluator(gt_path, pred_path)
+evaluator = MyEvaluator(gt_path, pred_path, eval_result_dir)
 
 # 2. Run evaluation
 evaluator.evaluate()
 
 # 3. Initialize EvalResult object
 eval_result = evaluator.get_eval_result()
-eval_result.gt_project_id = gt_project_id
-eval_result.pred_project_id = pred_project_id
 
 # 4. Initialize visualizer and visualize
-visualizer = MyVisualizer(api, [eval_result])
+visualizer = MyVisualizer(api, [eval_result], vis_result_dir)
 visualizer.visualize()
 
-# 5. Upload to Supervisely Team Files (it is required to open visualizations in the web interface)
+# 5. Upload to Supervisely Team Files
 remote_dir = "/model-benchmark/custom_benchmark"
 api.file.upload_directory(team_id, evaluator.result_dir, remote_dir + "/evaluation")
+# ⬇︎ required to open visualizations in the web interface
 visualizer.upload_results(team_id, remote_dir + "/visualizations/")
 ```
+
+{% hint style="info" %}
+Please note that to open the report in the web interface, visualization results need to be uploaded to the Team Files. The `upload_results` method in the visualizer class will take care of this.
+{% endhint %}
 
 🔗 Recap of the files structure:
 
@@ -565,10 +602,11 @@ All you need to do is to change only 3 lines of code! 💫
 
 ```python
 # src/benchmark.py
-from src.evaluator import MyEvaluator
-from src.visualizer import MyVisualizer
 from supervisely.nn.benchmark.base_benchmark import BaseBenchmark
 from supervisely.nn.task_type import TaskType
+
+from src.evaluator import MyEvaluator
+from src.visualizer import MyVisualizer
 
 
 class CustomBenchmark(BaseBenchmark):
@@ -576,10 +614,10 @@ class CustomBenchmark(BaseBenchmark):
 
     @property
     def cv_task(self) -> str:
-        return TaskType.OBJECT_DETECTION  # ⬅︎ the task type
+        return TaskType.OBJECT_DETECTION  # ⬅︎ the visualizer class
 
     def _get_evaluator_class(self) -> type:
-        return MyEvaluator  # ⬅︎ the evaluator class
+        return MyEvaluator  # ⬅︎ the visualizer class
 ```
 
 Here is a brief overview of the relationships between the classes in this scenario. As you can see, we will use the same engine classes, but the input will be different – the GT project ID and the deployed model session ID (instead of the local projects).
@@ -592,9 +630,9 @@ Here is a brief overview of the relationships between the classes in this scenar
 # src/main.py
 import os
 
+import supervisely as sly
 from dotenv import load_dotenv
 
-import supervisely as sly
 from src.benchmark import CustomBenchmark
 
 if sly.is_development():
@@ -605,22 +643,24 @@ api = sly.Api()
 
 team_id = 8
 gt_project_id = 73
-pred_project_id = 133
+pred_project_id = 159
 model_session_id = 1234
 
 # 1. Initialize benchmark
-bm = CustomBenchmark(api, gt_project_id)
+bench = CustomBenchmark(api, gt_project_id, output_dir=sly.app.get_data_dir())
 
 # 2. Run evaluation
-bm.run_evaluation(model_session_id)  # ⬅︎ the deployed model session ID
+bench.evaluate(pred_project_id)  # ⬅︎ evaluate without inference
+# bench.run_evaluation(model_session_id)    # ⬅︎ evaluate with inference
 
 # 3. Generate charts and dashboards
-bm.visualize()
+bench.visualize()
 
-# 4. Upload to Supervisely Team Files (it is required to open visualizations in the web interface)
+# 4. Upload to Supervisely Team Files
 remote_dir = f"/model-benchmark/custom_benchmark/{model_session_id}"
-bm.upload_eval_results(remote_dir + "/evaluation/")
-bm.upload_visualizations(remote_dir + "/visualizations/")
+bench.upload_eval_results(remote_dir + "/evaluation/")
+# ⬇︎ required to open visualizations in the web interface
+bench.upload_visualizations(remote_dir + "/visualizations/")
 ```
 
 That's it! And you are ready to run the custom evaluation on different deployed models.
@@ -634,17 +674,19 @@ As in the previous step, you will receive a link to the report in the logs or fi
 Great job! 🎉 You have successfully implemented a custom benchmark evaluation on the deployed model in Supervisely!
 
 {% hint style="info" %}
-Using the `BaseBenchmark` class, you still have the flexibility to run evaluations on two projects. And you can do it even easier – just pass project IDs instead of paths and change `bench.run_evaluation(model_session_id)` to `bench.evaluation(pred_project_id)`. The `BaseBenchmark` class will take care of the rest.
+Using the `BaseBenchmark` class, you still have the flexibility to run evaluations on two projects. And you can do it even easier – just pass project IDs instead of paths and use the `bench.evaluation(pred_project_id)` method. The `BaseBenchmark` class will take care of the rest.
 {% endhint %}
 
 Let's move on to the next level and integrate the custom benchmark with **the GUI interface** 🎨.
 
 ## Plug-in the Custom Benchmark to the GUI
 
-In this step, we will create a `sly.Application` (FastAPI application with GUI interface) that will run the custom benchmark evaluation. The application will allow you to select the GT project, the deployed model session, and the evaluation parameters and run the evaluation with a few clicks in the web interface.
+In this step, we will create a `sly.Application` (high-level class in the Supervisely SDK that allows you to create a FastAPI application with GUI interface) that will run the custom benchmark evaluation. The application will allow you to select the GT project, the deployed model session, and the evaluation parameters and run the evaluation with a few clicks in the web interface.
+
+You can take a look at the [Evaluator for Model Benchmark](https://ecosystem.supervisely.com/apps/model-benchmark) app in the Ecosystem to see how we implemented the GUI interface for the evaluation process.
 
 {% hint style="success" %}
-You can find the full code for this scenario in the [here]()
+You can find the full code for this scenario in the [here](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark)
 {% endhint %}
 
 First, let's create the `local.env` file with the following variables:
@@ -664,14 +706,14 @@ Now, we will upgrade the `main.py` from the simple script to the `sly.Applicatio
 # src/main.py
 import os
 
-import yaml
-from dotenv import load_dotenv
-
 import supervisely as sly
 import supervisely.app.widgets as sly_widgets
+import yaml
+from dotenv import load_dotenv
+from supervisely.nn.inference import SessionJSON
+
 from src.benchmark import CustomBenchmark
 from src.evaluator import MyEvaluator
-from supervisely.nn.inference import SessionJSON
 
 if sly.is_development():
     load_dotenv("local.env")
@@ -867,7 +909,7 @@ Or use the `launch.json` file from the source code for debugging and press `F5` 
 
 </details>
 
-Open the browser and go to `http://localhost:8000` to see the GUI interface.Select the GT project, the deployed model session, and press the `Evaluate` button to run the evaluation. The app will connect to the deployed NN model, run the inference, upgrade predictions to the new project, evaluate the model, and generate the report.
+Open the browser and go to [http://localhost:8000](http://localhost:8000) to see the GUI interface.Select the GT project, the deployed model session, and press the `Evaluate` button to run the evaluation. The app will connect to the deployed NN model, run the inference, upload predictions to a new project, evaluate the model, and generate the report.
 
 After the process is complete, you will see a widget with the evaluation report (click on the link to open the report in the web interface).
 
