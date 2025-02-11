@@ -2,8 +2,6 @@
 
 Supervisely covers the entire model lifecycle, from training to production deployment, enabling you to apply models to images, videos, and 3D data. The Supervisely Platform provides comprehensive support at every stage of the model lifecycle and simplifies model development. In many standard cases, you don't even need to write a single line of code, but for advanced customization, you can!
 
-![][image1]
-
 ## Train
 
 In the Supervisely Platform, you can train popular models and frameworks on your data using a convenient UI. The platform's modular design allows you to customize training apps to suit your needs and even integrate your own models and architectures.
@@ -27,8 +25,6 @@ After training, the [Model Evaluation Benchmark](model-evaluation-benchmark) wil
 - Currently supported for Detection, Instance segmentation, Semantic segmentation.
 - You can launch the evaluation manually for every checkpoint.
 
-![][image2]
-
 ## Model Comparison & Versioning
 
 Each model trained in Supervisely is recorded in the Experiments table, which displays all your trained models, their metrics, links to train and val datasets, evaluation report, and other useful information. In addition to the evaluation report of a single model, you can generate a comparison report of two or more models, which allows you to compare models in as much detail as during the evaluation stage – it will include various pivot tables, charts and comparison tools. Additionally, you can quickly deploy models or fine-tune them right from the Experiments table.
@@ -38,10 +34,6 @@ Each model trained in Supervisely is recorded in the Experiments table, which di
 - Generate very detailed comparison reports of two or more models, this includes various pivot tables, charts and comparison tools.
 - Data and model versioning.
 - Data and model workflow diagrams - to understand, reproduce, track changes of all your ML operations.
-
-**Experiments (скриншот):**
-
-![][image3]
 
 ## Deploy
 
