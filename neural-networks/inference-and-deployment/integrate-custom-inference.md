@@ -14,12 +14,12 @@ In this guide, you'll learn how to build a custom [serving app](./supervisely-se
 
 To integrate your custom model into the Supervisely platform, follow these steps:
 
-**[Step 1.](#step-1-prepare-model-configurations) Prepare model configurations:** Create a `.json` file to list your model configurations.
-**[Step 2.](#step-2-prepare-inference-settings) Prepare inference settings:** Create a `.yaml` file to specify parameters for inference.
-**[Step 3.](#step-3-optional-prepare-app-options) Prepare app options:** Create a `.yaml` file to specify additional options for your app.
-**[Step 4.](#step-4-create-a-custom-class) Create a custom class:** Create a python file that contains your custom inference class.
-**[Step 5.](#step-5-implement-required-methods) Implement required methods:** Implement the `load_model` and `predict` methods.
-**[Step 6.](#step-6-optional-create-main-script) Create main script:** Create an entrypoint python script to run and serve your model.
+**[Step 1.](#step-1-prepare-the-model-configuration-list) Prepare the Model Configuration List:** Create a `.json` file to list your model configurations.
+**[Step 2.](#step-2-prepare-inference-settings) Prepare Inference Settings:** Create a `.yaml` file to specify parameters for inference.
+**[Step 3.](#step-3-optional-prepare-app-options) Prepare App Options:** Create a `.yaml` file to specify additional options for your app.
+**[Step 4.](#step-4-create-custom-class) Create Custom Class:** Create a python file that contains your custom inference class.
+**[Step 5.](#step-5-implement-required-methods) Implement Required Methods:** Implement the `load_model` and `predict` methods.
+**[Step 6.](#step-6-optional-create-main-script) Create Main Script:** Create an entrypoint python script to run and serve your model.
 
 ### Implementation Example
 
@@ -65,7 +65,7 @@ class CustomYOLOInference(sly.nn.inference.ObjectDetection):
 
 ![Custom Inference GUI](./serve-app.png)
 
-### Step 1. Prepare model configurations
+### Step 1. Prepare the Model Configuration List
 
 Create `models.json` file to list your model configurations. This file should include a list of dictionaries, each containing details about a specific model. If not specified, only custom models tab will be available in the GUI.
 
@@ -108,7 +108,7 @@ Each model must also include a `meta` field. This field is not displayed in the 
   - (**optional**) `config`: Path to the model configuration file
   - (**optional**) Any additional files can be added to the `model_files` dictionary
 
-### Step 2. Prepare inference settings
+### Step 2. Prepare Inference Settings
 
 Create an `inference_settings.yaml` file to specify parameters for inference.
 
@@ -127,7 +127,7 @@ max_det: 300
 agnostic_nms: False
 ```
 
-### Step 3. [Optional] Prepare app options
+### Step 3. [Optional] Prepare App Options
 
 You can create an `app_options.yaml` file to specify additional options for your app. This file is optional and can be used to customize the app GUI.
 
@@ -152,7 +152,7 @@ supported_runtimes: ["pytorch"]
   - `type`: list of strings
   - `default`: `["pytorch"]`
 
-### Step 4. Create a custom class
+### Step 4. Create Custom Class
 
 Create a python file (e.g., `src/custom_yolo.py`) that contains your custom inference class with implementation.
 
@@ -196,7 +196,7 @@ In your custom class, define class variables to specify the model framework, pat
 - **`INFERENCE_SETTINGS:`** Path to your `.yaml` settings file.
 - **`APP_OPTIONS:`** (Optional) Path to additional app options in `.yaml` format.
 
-### Step 5. Implement required methods
+### Step 5. Implement Required Methods
 
 #### The `load_model` Method
 
@@ -205,7 +205,7 @@ This method loads the model checkpoint and prepares it for inference.
 Let's break down the `load_model` parameters:
 
 - **`model_files`:** A dictionary containing paths to the model checkpoint and configuration files. All paths are local paths.
-- **`model_info`:** A dictionary containing model information from the `models.json` file if model is pretrained, otherwise it's [experiment info]() from custom model that was trained in Supervisely.
+- **`model_info`:** A dictionary containing model information from the `models.json` file if model is pretrained, otherwise it's [experiment info](../model-training/integrate-custom-model.md#experiment-info) from custom model that was trained in Supervisely.
 - **`model_source`:** The source of the model (`Pretrained models` or `Custom model`).
 - **`device`:** The device to run the model on (e.g., "cpu", "cuda").
 - **`runtime`:** The runtime to use for inference (e.g., "pytorch", "onnx").
@@ -264,7 +264,7 @@ def _postprocess_outputs(self, outputs, settings: dict):
     pass
 ```
 
-### Step 6. [Optional] Create main script
+### Step 6. [Optional] Create Main Script
 
 This step is optional, but we recommend to keep your main script separate from the custom class for better organization.
 
