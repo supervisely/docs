@@ -14,17 +14,12 @@ In this guide, you'll learn how to build a custom [serving app](./supervisely-se
 
 To integrate your custom model into the Supervisely platform, follow these steps:
 
-**[Step 1.](#step-1-prepare-the-model-configuration-list) Prepare the Model Configuration List:** Create a `.json` file to list your model configurations.
-
-**[Step 2.](#step-2-prepare-inference-settings) Prepare Inference Settings:** Create a `.yaml` file to specify parameters for inference.
-
-**[Step 3.](#step-3-optional-prepare-app-options) Prepare App Options:** Create a `.yaml` file to specify additional options for your app.
-
-**[Step 4.](#step-4-create-custom-class) Create Custom Class:** Create a python file that contains your custom inference class.
-
-**[Step 5.](#step-5-implement-required-methods) Implement Required Methods:** Implement the `load_model` and `predict` methods.
-
-**[Step 6.](#step-6-optional-create-main-script) Create Main Script:** Create an entrypoint python script to run and serve your model.
+- **Step 1. Prepare the Model Configuration List:** Create a `.json` file to list your model configurations.
+- **Step 2. Prepare Inference Settings:** Create a `.yaml` file to specify parameters for inference.
+- **Step 3. Prepare App Options:** Create a `.yaml` file to specify additional options for your app.
+- **Step 4. Create Custom Class:** Create a python file that contains your custom inference class.
+- **Step 5. Implement Required Methods:** Implement the `load_model` and `predict` methods.
+- **Step 6. Create Main Script:** Create an entrypoint python script to run and serve your model.
 
 ### Implementation Example
 
