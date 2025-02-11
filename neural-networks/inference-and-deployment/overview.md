@@ -1,5 +1,7 @@
 ## Overview
 
+This section covers the deployment and inference of models.
+
 In general, there are 3 different ways you can deploy and apply your trained model:
 
 1. **[Supervisely Serving Apps](supervisely-serving-apps.md)** within the Platform. Faster and user-friendly way with convenient web UI.  

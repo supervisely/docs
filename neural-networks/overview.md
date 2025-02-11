@@ -1,12 +1,12 @@
 ## Introduction
 
-Supervisely covers the entire model lifecycle from training to production deployment and applying model to images, video, and 3D data. Supervisely Platform offers comprehensive support in each step of the model lifecycle and ease your model development. In many standard cases, you don't even need to write a single line of code, but for extensive customization, you can!
+Supervisely covers the entire model lifecycle, from training to production deployment, enabling you to apply models to images, videos, and 3D data. The Supervisely Platform provides comprehensive support at every stage of the model lifecycle and simplifies model development. In many standard cases, you don't even need to write a single line of code, but for advanced customization, you can!
 
 ![][image1]
 
 ## Train
 
-In Supervisely Platform you can train popular models and frameworks on your data with the help of convenient UI, and the modular design of the platform enables you to modify train apps for you needs and even integrate your custom models and architectures.
+In the Supervisely Platform, you can train popular models and frameworks on your data using a convenient UI. The platform's modular design allows you to customize training apps to suit your needs and even integrate your own models and architectures.
 
 - Train popular models, such as [YOLOv8 - YOLOv11](https://ecosystem.supervisely.com/apps/yolov8/train), [RT-DETRv2](https://ecosystem.supervisely.com/apps/rt-detrv2/supervisely_integration/train), [MMDetection](https://ecosystem.supervisely.com/apps/train-mmdetection-v3), [SAM 2](https://ecosystem.supervisely.com/apps/serve-segment-anything-2/train).
 - Open source.
