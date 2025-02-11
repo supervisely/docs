@@ -1,8 +1,8 @@
 # Custom Model Integration Tutorial 🚀
 
-Welcome to this step-by-step guide on integrating your custom model with the Supervisely SDK!
-In this tutorial, you'll learn how to use the `TrainApp` for implementation and how it aligns with the Supervisely platofrm.
-We’ll use the [Train RT-DETRv2](https://ecosystem.supervisely.com/apps/rt-detrv2/supervisely_integration/train) implementation as an example throughout this guide.
+Welcome to this step-by-step tutorial on building model training applications with Supervisely SDK!
+This guide will show you how to set up a training app in just a few lines of code, with a built-in user interface and all the necessary tools to seamlessly manage the training process. Supervisely takes care of the heavy lifting, so you can focus on your model and training logic without worrying about the underlying infrastructure.
+We'll use the [Train RT-DETRv2](https://ecosystem.supervisely.com/apps/rt-detrv2/supervisely_integration/train) example to walk you through the process.
 
 ## Overview
 
@@ -14,17 +14,18 @@ This guide will walk you through the process of:
 
 ### The TrainApp Class
 
-The Supervisely SDK provides a dedicated class called `TrainApp` to help you train your custom model using Supervisely’s infrastructure. This class offers a built-in GUI and manages many essential tasks automatically.
+Supervisely SDK includes the TrainApp class, designed to simplify training your custom models on Supervisely platform. This class offers a built-in GUI and manages many essential tasks automatically.
 
 **Key Features of TrainApp**
 
-- Built-in GUI: Simple and easy to follow customizable interface
-- Train and Val Splits: Automatically split your project into training and validation sets
-- Data Preparation: Seamless conversion of Supervisely project to the required format with 1 line of code
-- Data Backup: Automatic backup of your project with Supervisely’s versioning system
-- Model Evaluation: On-demand evaluation (requires [model serving implementation](https://developer.supervisely.com/app-development/neural-network-integration/inference/overview-nn-integration))
-- Model Export: Export your model to ONNX or TensorRT format (requires [export implementation](#link-to-custom-export-tutorial))
-- Model Saving: Automatically save your model and related files to Supervisely Team Files
+- **Built-in GUI:** Simple and easy-to-follow customizable interface.  
+- **Train and Val Splits:** Handles splitting of your project into training and validation sets.  
+- **Data Preparation:** Easily convert Supervisely annotation format into one of the popular formats with a single line of code (e.g., COCO annotation format).  
+- **Project Versioning:** Saves project versions to reproduce training with the same data and annotations.  
+- **Model Evaluation:** On-demand evaluation (requires ❌ [model serving implementation](neural-networks/inference-and-deployment/...)).  
+- **Model Export:** Export your model to ONNX or TensorRT format (requires [export implementation](#export-model-to-onnx-and-tensorrt)).  
+- **Model Saving:** Automatically save your model and related files to Supervisely Team Files.  
+
 
 #### TrainApp Signature
 
@@ -46,75 +47,6 @@ class TrainApp(
 |   app_options   | Optional\[Union\[str, List\[Dict\[str, Any\]\]\]\] |     Path to options file in `.yaml` format     |
 |    work_dir     |                  Optional\[str\]                   |   Local path for storing intermediate files    |
 
-## How to Run and Debug
-
-`TrainApp` is the same Supervisely App, but with a built-in GUI, so you don't have to worry about all the widgets and layout.
-Learn more about the `TrainApp` GUI [below](#about-gui-layout).
-
-Prepare environment file before running the app:
-
-```text
-# Change values to your own
-
-PROJECT_ID=12208 # ⬅️ change it
-APP_NAME=Train RT-DETRv2 # ⬅️ change it
-DEBUG_APP_DIR=app_data # ⬅️ change it
-```
-
-You can run and debug your training app locally using the following shell command:
-
-```shell
-uvicorn main:train.app --host 0.0.0.0 --port 8000 --ws websockets
-```
-
-After running the app, you can access the GUI by opening the following URL in your browser:
-
-```text
-http://localhost:8000/
-```
-
-{% hint style="info" %}
-
-**Useful links:**
-
-- [Environment variables](https://developer.supervisely.com/getting-started/environment-variables) - Setting up environment variables for Supervisely App development
-- [App developemnt](https://developer.supervisely.com/app-development/basics) - Basics of Supervisely App development
-- [Hello world!](https://developer.supervisely.com/app-development/apps-with-gui/hello-world) - Simple example of a Supervisely App
-
-{% endhint %}
-
-If you are a VSCode user, you can create `.vscode/launch.json` configuration to run and debug your training app locally.
-
-**Example `launch.json`**
-
-```json
-{
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Uvicorn Train",
-      "type": "debugpy",
-      "request": "launch",
-      "module": "uvicorn",
-      "args": [
-        "main:train.app",
-        "--host",
-        "0.0.0.0",
-        "--port",
-        "8000",
-        "--ws",
-        "websockets",
-      ],
-      "justMyCode": false,
-      "env": {
-        "PYTHONPATH": "${workspaceFolder}:${PYTHONPATH}",
-        "LOG_LEVEL": "DEBUG",
-        "DEBUG_APP_DIR": "app_data"
-      }
-    }
-    ]
-}
-```
 
 ## Custom Model Integration Steps
 
@@ -122,7 +54,26 @@ Let's dive into the steps required to integrate your custom model using the `Tra
 
 ### Step 1. Prepare the Model Configuration List 📑
 
-Create a `models.json` file that holds a list of model configurations. Each entry is a dictionary with model-specific details. These fields are used to populate the model table and can be customized based on your model requirements. This data will be displayed in the GUI for model selection (except for the technical `meta` field, which is required for the `TrainApp` to correctly access model info).
+To enable model selection in your training app, you'll need to create a models.json file. This file stores a list of model configurations, where each configuration is represented as a dictionary containing model-specific details. These configurations will be displayed in the app's GUI, allowing users to easily choose a model for training.
+
+#### How to Structure models.json:
+
+**Informative Fields:** Each model dictionary includes fields that provide key details about the model. These are displayed in the GUI for quick reference:
+
+- `Model`: The name of the model (e.g., RT-DETRv2-S).
+- `Dataset`: The dataset the model was trained on (e.g., COCO).
+- `AP_val`: The validation Average Precision score (e.g., 48.1).
+- `Params(M)`: The number of parameters in millions (e.g., 20).
+- `FPS(T4)`: The inference speed in frames per second on an NVIDIA T4 GPU (e.g., 217).
+
+**Technical Field (meta):**
+Each model must also include a meta field. This field contains technical information required by the TrainApp to correctly access and manage the model during the training process. While the informative fields are for display purposes, the meta field ensures the app functions properly behind the scenes.
+
+- (**required**) `task_type`: The type of task (e.g., object detection)
+- (**required**) `model_name`: Model name
+- (**required**) `model_files`: Paths to the checkpoint and configuration files
+  - (**required**) `checkpoint`: Path or URL to the model checkpoint. URL will be downloaded automatically.
+  - (**optional**) `config`: Path to the model configuration file
 
 {% hint style="info" %}
 
@@ -152,15 +103,6 @@ Create a `models.json` file that holds a list of model configurations. Each entr
     // ... additional models
 ]
 ```
-
-**Note:**
-
-- The `meta` field holds technical details used by the `TrainApp`:
-  - (**required**) `task_type`: The type of task (e.g., object detection)
-  - (**required**) `model_name`: Model name
-  - (**required**) `model_files`: Paths to the checkpoint and configuration files
-    - (**required**) `checkpoint`: Path or URL to the model checkpoint. URL will be downloaded automatically.
-    - (**optional**) `config`: Path to the model configuration file
 
 _Example GUI preview:_
 
@@ -215,7 +157,169 @@ ema:
 use_amp: True
 ```
 
-### Step 3. [Optional] Prepare App Options File ⚙️
+### Step 2. Integrate Your Custom Model 🤖
+
+Now it’s time to integrate your custom model using the TrainApp class. We’ll use the RT-DETRv2 model as an example. You can always refer to the source code for Train RT-DETRv2 on [GitHub](https://github.com/supervisely-ecosystem/RT-DETRv2/tree/main/supervisely_integration/train).
+
+#### Step 2.1 Initialize Your Imports
+
+```python
+import os
+import shutil
+import sys
+from multiprocessing import cpu_count
+
+sys.path.insert(0, "rtdetrv2_pytorch")
+import yaml
+
+import supervisely as sly
+from rtdetrv2_pytorch.src.core import YAMLConfig
+from rtdetrv2_pytorch.src.solver import DetSolver
+from supervisely.nn import ModelSource, RuntimeType
+from supervisely.nn.training.train_app import TrainApp
+from supervisely_integration.export import export_onnx, export_tensorrt
+from supervisely_integration.serve.rtdetrv2 import RTDETRv2
+```
+
+#### Step 2.2 Initialize the `TrainApp`
+
+Create an instance of the `TrainApp` by providing the framework name, model configuration file, hyperparameters file, and app options file.
+
+```python
+base_path = "supervisely_integration/train"
+train = TrainApp(
+    framework_name="RT-DETRv2",
+    models=f"supervisely_integration/models_v2.json",
+    hyperparameters=f"{base_path}/hyperparameters.yaml",
+    app_options=f"{base_path}/app_options.yaml",
+)
+```
+
+#### Step 2.3 Prepare Training data
+
+The `TrainApp` gives you access to the Supervisely [Project](https://supervisely.readthedocs.io/en/latest/sdk/supervisely.project.project.Project.html#supervisely.project.project.Project) containing the `train` and `val` datasets. Convert these datasets to the desired format (e.g., COCO) and run your training routine. You can use built-in converters like `to_coco` to convert your datasets to the required format or write your custom converter if required.
+
+{% hint style="info" %}
+
+Use `train.sly_project` to access the Supervisely project in the training code.
+
+{% endhint %}
+
+
+**Data Conversion Example:**
+
+```python
+def convert_data() -> Tuple[str, str]:
+    # Get selected project from TrainApp
+    project = train.sly_project
+    meta = project.meta
+
+    # Convert train dataset to COCO format
+    train_dataset: sly.Dataset = project.datasets.get("train")
+    train_ann_path = train_dataset.to_coco(meta, dest_dir=train_dataset.directory)
+
+    # Convert val dataset to COCO format
+    val_dataset: sly.Dataset = project.datasets.get("val")
+    val_ann_path = val_dataset.to_coco(meta, dest_dir=val_dataset.directory)
+    return train_ann_path, val_ann_path
+```
+
+#### Step 2.4 Implement Training Routine
+
+All training code should be implemented in the function under the `@train.start` decorator and should return the experiment information dictionary.
+
+Returned dictionary should contain the following fields:
+
+- `model_name` - Name of the model used for training.
+- `model_files` - Dictionary with paths to additional model files (e.g. `config`). These files together with checkpoints will be uploaded to Supervisely Team Files automatically.
+- `checkpoints` - A list of checkpoint paths, or an output directory with checkpoints. These checkpoints will be uploaded to Supervisely Team Files automatically.
+- `best_checkpoint` - Name of the best checkpoint file.
+
+{% hint style="warning" %}
+
+These fields will be validated upon training completion, and if one of them is missing, the training will be considered as failed.
+
+{% endhint %}
+
+In this example training logic and loop are inside `solver.fit()` function.
+
+{% hint style="info" %}
+
+📄 See source code for the RT-DETRv2 [main.py](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/main/supervisely_integration/train/main.py) and [training logic](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/fd957cdfd793c0661a1b57a549f7bba82aeb7c84/rtdetrv2_pytorch/src/solver/det_solver.py#L20-L130)
+
+{% endhint %}
+
+**Training Routine with @train.start Decorator:**
+
+```python
+@train.start
+def start_training():
+    # 1️⃣ Convert data to required format
+    train_ann_path, val_ann_path = convert_data()
+
+    # 2️⃣ Get the path to the selected checkpoint
+    checkpoint = train.model_files["checkpoint"]
+
+    # 3️⃣ Prepare custom config for training
+    custom_config_path = prepare_config(train_ann_path, val_ann_path)
+    cfg = YAMLConfig(
+        custom_config_path,
+        tuning=checkpoint,
+    )
+    output_dir = cfg.output_dir
+    os.makedirs(output_dir, exist_ok=True)
+    model_config_path = f"{output_dir}/model_config.yml"
+    with open(model_config_path, "w") as f:
+        yaml.dump(cfg.yaml_cfg, f)
+    remove_include(model_config_path)
+
+    # 4️⃣ Start tensorboard logs
+    tensorboard_logs = f"{output_dir}/summary"
+    train.start_tensorboard(tensorboard_logs)
+    
+    # 5️⃣ Start training
+    solver = DetSolver(cfg)
+    solver.fit()
+
+    # 6️⃣ Return experiment information
+    experiment_info = {
+        "model_name": train.model_name,
+        "model_files": {"config": model_config_path},
+        "checkpoints": output_dir,
+        "best_checkpoint": "best.pth",
+    }
+    return experiment_info
+```
+
+
+### Step 3. [Optional] Add optional features
+
+#### 3.1 Progress Bar with the Train Logger ⏱️
+
+Enhance your training feedback by incorporating a progress bar via the Supervisely `train_logger`.
+
+Simply import `train_logger` from `supervisely.nn.training` and use it in your training loop.
+
+```python
+from supervisely.nn.training import train_logger
+
+train_logger.train_started(total_epochs=(args.epoches - start_epcoch))
+for epoch in range(start_epcoch, total_epochs):
+    train_logger.epoch_started(epoch)
+    ...
+    train_logger.epoch_finished(epoch, metrics)
+train_logger.train_finished()
+```
+
+#### 3.2 Register the Inference Class for model evaluation 📊
+
+If you plan to use [Evaluation Model Benchmark](../model-evaluation-benchmark/README.md), you need to implement Inference class and register it for TrainApp. Refer to the ❌ [Integrate Custom Inference](https://...) guide for more information.
+
+```python
+train.register_inference_class(RTDETRv2)
+```
+
+#### 3.3 GUI Layout Customization 🎨
 
 You can provide additional options to control the GUI layout and behavior. Create an `app_options.yaml` file to enable or disable features.
 
@@ -279,165 +383,120 @@ collapsable: false
 auto_convert_classes: true
 ```
 
-### Step 4. Integrate Your Custom Model 🤖
+### Step 4. Run the application
 
-Now it’s time to integrate your custom model using the TrainApp class. We’ll use the RT-DETRv2 model as an example. You can always refer to the source code for Train RT-DETRv2 on [GitHub](https://github.com/supervisely-ecosystem/RT-DETRv2/tree/main/supervisely_integration/train).
-
-#### Step 4.1 Initialize Your Imports
-
-```python
-import os
-import shutil
-import sys
-from multiprocessing import cpu_count
-
-sys.path.insert(0, "rtdetrv2_pytorch")
-import yaml
-
-import supervisely as sly
-from rtdetrv2_pytorch.src.core import YAMLConfig
-from rtdetrv2_pytorch.src.solver import DetSolver
-from supervisely.nn import ModelSource, RuntimeType
-from supervisely.nn.training.train_app import TrainApp
-from supervisely_integration.export import export_onnx, export_tensorrt
-from supervisely_integration.serve.rtdetrv2 import RTDETRv2
-```
-
-#### Step 4.2 Initialize the `TrainApp`
-
-Create an instance of the `TrainApp` by providing the framework name, model configuration file, hyperparameters file, and app options file.
-
-```python
-base_path = "supervisely_integration/train"
-train = TrainApp(
-    framework_name="RT-DETRv2",
-    models=f"supervisely_integration/models_v2.json",
-    hyperparameters=f"{base_path}/hyperparameters.yaml",
-    app_options=f"{base_path}/app_options.yaml",
-)
-```
-
-#### Step 4.3 [Optional] Register the Inference Class
-
-If you plan to use [model benchmarking](../model-evaluation-benchmark/README.md), register your custom inference class.
-
-Please refer to the [serving implementation](https://developer.supervisely.com/app-development/neural-network-integration/inference/overview-nn-integration) guide for more information.
-
-```python
-train.register_inference_class(RTDETRv2)
-```
-
-#### Step 4.4 Prepare Training
-
-The `TrainApp` gives you access to the Supervisely [Project](https://supervisely.readthedocs.io/en/latest/sdk/supervisely.project.project.Project.html#supervisely.project.project.Project) containing the `train` and `val` datasets. Convert these datasets to the desired format (e.g., COCO) and run your training routine.
+Now that you've integrated your custom model, you're ready to launch the training application. You can choose to run it locally for testing or deploy it directly to the Supervisely platform. The training app functions like any other Supervisely app, but with a built-in GUI.
 
 {% hint style="info" %}
 
-Use `train.sly_project` to access the Supervisely project in the training code.
+**Useful links:**
+
+- [Environment variables](https://developer.supervisely.com/getting-started/environment-variables) - Setting up environment variables for Supervisely App development
+- [App developemnt](https://developer.supervisely.com/app-development/basics) - Basics of Supervisely App development
+- [Hello world!](https://developer.supervisely.com/app-development/apps-with-gui/hello-world) - Simple example of a Supervisely App
 
 {% endhint %}
 
-You can use built-in converters like `to_coco` to convert your datasets to the required format or write your custom converter if required.
+#### Run and debug locally
 
-**Data Conversion Example:**
+Prepare environment file before running the app:
 
-```python
-def convert_data() -> Tuple[str, str]:
-    # Get selected project from TrainApp
-    project = train.sly_project
-    meta = project.meta
+```text
+# Change values to your own
 
-    # Convert train dataset to COCO format
-    train_dataset: sly.Dataset = project.datasets.get("train")
-    train_ann_path = train_dataset.to_coco(meta, dest_dir=train_dataset.directory)
-
-    # Convert val dataset to COCO format
-    val_dataset: sly.Dataset = project.datasets.get("val")
-    val_ann_path = val_dataset.to_coco(meta, dest_dir=val_dataset.directory)
-    return train_ann_path, val_ann_path
+PROJECT_ID=12208 # ⬅️ change it
+APP_NAME=Train RT-DETRv2 # ⬅️ change it
+DEBUG_APP_DIR=app_data # ⬅️ change it
 ```
 
-**Training Routine with @train.start Decorator:**
+You can run and debug your training app locally using the following shell command:
 
-All training code should be implemented in the function under the `@train.start` decorator and should return the experiment information dictionary.
+```shell
+uvicorn main:train.app --host 0.0.0.0 --port 8000 --ws websockets
+```
 
-In this example training logic and loop are inside `solver.fit()` function.
+After running the app, you can access the GUI by opening the following URL in your browser:
 
-{% hint style="info" %}
+```text
+http://localhost:8000/
+```
 
-📄 See source code for the RT-DETRv2 [main.py](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/main/supervisely_integration/train/main.py) and [training logic](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/fd957cdfd793c0661a1b57a549f7bba82aeb7c84/rtdetrv2_pytorch/src/solver/det_solver.py#L20-L130)
+If you are a VSCode user, you can create `.vscode/launch.json` configuration to run and debug your training app locally.
 
-{% endhint %}
+**Example `launch.json`**
 
-```python
-@train.start
-def start_training():
-    # 1️⃣ Convert data to required format
-    train_ann_path, val_ann_path = convert_data()
+<details>
+<summary> <b> Click to expand </b> </summary>
 
-    # 2️⃣ Get the path to the selected checkpoint
-    checkpoint = train.model_files["checkpoint"]
-
-    # 3️⃣ Prepare custom config for training
-    custom_config_path = prepare_config(train_ann_path, val_ann_path)
-    cfg = YAMLConfig(
-        custom_config_path,
-        tuning=checkpoint,
-    )
-    output_dir = cfg.output_dir
-    os.makedirs(output_dir, exist_ok=True)
-    model_config_path = f"{output_dir}/model_config.yml"
-    with open(model_config_path, "w") as f:
-        yaml.dump(cfg.yaml_cfg, f)
-    remove_include(model_config_path)
-
-    # 4️⃣ Start tensorboard logs
-    tensorboard_logs = f"{output_dir}/summary"
-    train.start_tensorboard(tensorboard_logs)
-    
-    # 5️⃣ Start training
-    solver = DetSolver(cfg)
-    solver.fit()
-
-    # 6️⃣ Return experiment information
-    experiment_info = {
-        "model_name": train.model_name,
-        "model_files": {"config": model_config_path},
-        "checkpoints": output_dir,
-        "best_checkpoint": "best.pth",
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Uvicorn Train",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "main:train.app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000",
+        "--ws",
+        "websockets",
+      ],
+      "justMyCode": false,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${PYTHONPATH}",
+        "LOG_LEVEL": "DEBUG",
+        "DEBUG_APP_DIR": "app_data"
+      }
     }
-    return experiment_info
+    ]
+}
 ```
+</details>
 
-Returned dictionary should contain the following fields:
+#### Deploy to Supervisely
 
-- **`model_name`** - Name of the model used for training
-- **`model_files`** - Dictionary with paths to additional model files (e.g. `config`). These files will be uploaded to the supervisely storage automatically.
-- **`checkpoints`** - List of checkpoint paths or path to the output directory with checkpoints. These files will be uploaded to the supervisely storage automatically.
-- **`best_checkpoint`** - Name of the best checkpoint file
+Releasing your private app to the Supervisely platform is very simple. You will need a git repository with your app code, Supervisely SDK and credentials to access the platform. You can refer to [Add private app](https://developer.supervisely.com/app-development/basics/add-private-app) for more information.
 
-{% hint style="warning" %}
+Follow steps below to release your app:
 
-These fields will be validated upon training completion, and if one of them is missing, the training will be considered as failed.
-
-{% endhint %}
-
-#### 4.5. Add a Progress Bar with the Train Logger ⏱️
-
-Enhance your training feedback by incorporating a progress bar via the Supervisely `train_logger`.
-
-Simply import `train_logger` from `supervisely.nn.training` and use it in your training loop.
-
-```python
-from supervisely.nn.training import train_logger
-
-train_logger.train_started(total_epochs=(args.epoches - start_epcoch))
-for epoch in range(start_epcoch, total_epochs):
-    train_logger.epoch_started(epoch)
-    ...
-    train_logger.epoch_finished(epoch, metrics)
-train_logger.train_finished()
-```
+0. [Optional] git clone your app code if you haven't done it yet:
+    ```bash
+    git clone "your_app_repo_url"
+    cd "your_app_repo"
+    ```
+1. [Optional] create a python virtual environment:
+    ```bash
+    python3 -m venv .venv
+    source .venv/bin/activate
+    ```
+2. Install Supervisely SDK:
+    ```bash
+    pip install supervisely
+    ```
+3. Provide your Supervisely credentials in one of the following ways:
+    - Create a file `supervisely.env` in the home directory with the fields:
+      ```bash
+      SERVER_ADDRESS=https://app.supervisely.com
+      API_TOKEN=your_personal_token
+      ```
+    - Set environment variables:
+      ```bash
+      export SERVER_ADDRESS=https://app.supervisely.com
+      export API_TOKEN=your_personal_token
+      ```
+4. Run CLI command to deploy the app:
+    ```bash
+    supervisely release
+    ```
+    If the app code is in a subdirectory, you can specify the path to the app code (directory with `config.json` file):
+    ```bash
+    supervisely release --sub-app "path/to/app"
+    ```
 
 ## Final Steps 📦
 
