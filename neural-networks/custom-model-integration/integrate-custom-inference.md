@@ -63,7 +63,7 @@ class CustomYOLOInference(sly.nn.inference.ObjectDetection):
         return predictions
 ```
 
-![Custom Inference GUI](.gitbook/assets/custom-model-integration/inference-app.png)
+![Custom Inference GUI](/.gitbook/assets/custom-model-integration/inference-app.png)
 
 ### Step 1. Prepare the Model Configuration List
 
@@ -91,7 +91,7 @@ Create `models.json` file to list your model configurations. This file should in
 
 _Example GUI preview:_
 
-![Model in GUI](./inference-models-json.png)
+![Model in GUI](/.gitbook/assets/custom-model-integration/inference-models-json.png)
 
 **Table Fields:**
 
@@ -366,7 +366,7 @@ Once the code seems working locally, it's time to test the code right in the Sup
 
 ✅ It will deploy the model in the Supervisely platform as a regular serving App that is able to communicate with all others app in the platform:
 
-![Develop and Debug](./inference-develop-debug.png)
+![Develop and Debug](/.gitbook/assets/custom-model-integration/inference-develop-debug.png)
 
 {% hint style="success" %}
 Now you can use apps like [Apply NN to Images](https://ecosystem.supervisely.com/apps/nn-image-labeling/project-dataset), [Apply NN to videos](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project) with your deployed model.

@@ -64,7 +64,7 @@ To enable model selection in your training app, you'll need to create a models.j
 
 _Example GUI preview:_
 
-![Model Selection](./train-step-4.png)
+![Model Selection](/.gitbook/assets/custom-model-integration/train-step-4.png)
 
 **Table Fields:**
 
@@ -693,43 +693,43 @@ The graphical user interface (GUI) for the training app is a pre-built template 
 
 In this initial step, the app displays the project on which the training is run. It also offers an option to cache the project on the training agent for future use.
 
-![Step 1](./train-step-1.png)
+![Step 1](/.gitbook/assets/custom-model-integration/train-step-1.png)
 
 #### Step 2. Train and Val Splits
 
 This step allows you to split your project data into training and validation sets. You can choose among different splitting methods such as random, tags, or by datasets.
 
-![Step 2](./train-step-2.png)
+![Step 2](/.gitbook/assets/custom-model-integration/train-step-2.png)
 
 #### Step 3. Classes Selector
 
 Select the classes you want your model to train on. You can choose multiple classes from the provided classes table.
 
-![Step 3](./train-step-3.png)
+![Step 3](/.gitbook/assets/custom-model-integration/train-step-3.png)
 
 #### Step 4. Model Selector
 
 Here, you can choose the model you wish to train. Select from pretrained models or your own custom models (trained previously in Supervisely). Once trained, your custom model will automatically appear in the custom models table next time you run the app.
 
-![Step 4](./train-step-4.png)
+![Step 4](/.gitbook/assets/custom-model-integration/train-step-4.png)
 
 #### Step 5. Hyperparameters
 
 Set and adjust the training hyperparameters in this step. You can also enable model benchmarking (if enabled and implemented) and export your model to ONNX or TensorRT formats (if enabled and implemented). The hyperparameters are fully customizable using an [Editor](https://developer.supervisely.com/app-development/widgets/text-elements/editor) widget, allowing you to add as many variables and values as needed.
 
-![Step 5](./train-step-5.png)
+![Step 5](/.gitbook/assets/custom-model-integration/train-step-5.png)
 
 #### Step 6. Training Process
 
 Enter your experiment name, choose the CUDA device (if enabled), and start the training process. Once training begins, previous steps will be locked to prevent changes during the run.
 
-![Step 6](./train-step-6.png)
+![Step 6](/.gitbook/assets/custom-model-integration/train-step-6.png)
 
 #### Step 7. Training Logs
 
 View real-time training logs and progress via a progress bar (if implemented). This step also provides a link to the TensorBoard dashboard for more detailed monitoring (if implemented).
 
-![Step 7](./train-step-7.png)
+![Step 7](/.gitbook/assets/custom-model-integration/train-step-7.png)
 
 #### Step 8. Training Artifacts
 
@@ -737,7 +737,7 @@ After training finishes, this step displays the final training artifacts along w
 
 Default artifacts location is: `/experiments/{project_id}_{project_name}/{task_id}_{framework_name}/`
 
-![Step 8](./train-step-8.png)
+![Step 8](/.gitbook/assets/custom-model-integration/train-step-8.png)
 
 ### How to see TensorBoard logs after the training is finished
 
