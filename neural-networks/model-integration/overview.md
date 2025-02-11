@@ -1,14 +1,10 @@
 # Custom Model Integration
 
-In this guide, you'll learn how to integrate your custom model for both training and inference on the Supervisely platform.
-
-## Overview
-
 When you integrate a custom model into Supervisely, you are creating two closely related apps:
 
 - **Training App**
 
-    This app handles the end-to-end training process of your model from data preparation and hyperparameter configuration to checkpoint creation and evaluation. Some features of the training app relies on the serving app to run the benchmark tests. This means that once the model is trained, the training app uses the serving app’s evaluation capabilities to measure performance and generate benchmark report for best model.
+    This app handles the training process of your model from data preparation and hyperparameter configuration to checkpoint creation and evaluation. Some features of the training app relies on the serving app to run the benchmark tests. This means that once the model is trained, the training app uses the serving app to measure performance and generate benchmark report for the best model.
 
     Read more about training implementation [here](./integrate-custom-training.md).
 
@@ -20,7 +16,7 @@ When you integrate a custom model into Supervisely, you are creating two closely
 
 ## Unified Repository
 
-We recommend that both the training and serving apps must reside in the same repository. This design enables shared configurations, dockerfile with dependencies and easier management of common files (e.g., `models.json`, configs).
+We recommend that both the training and serving apps must reside in the same repository. This design enables shared configurations, dockerfile with dependencies and easier management of common files (e.g., `models.json`, configs). However, you can also create separate repositories for each app, but you will miss out on some important features.
 
 ### Common Components
 
