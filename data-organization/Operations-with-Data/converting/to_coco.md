@@ -9,23 +9,24 @@ For more information on how to import COCO format data into Supervisely, see the
 
 ## Converting data using Supervisely Python SDK
 
-Our Python SDK provides a simple way to convert your data to COCO format, allowing you to convert a Project, Dataset, or a single Annotation to COCO format. Easily convert your data in one line of code using the Supervisely Python SDK.
+Our Python SDK provides a simple way to convert your data to COCO format, allowing you to convert a Project or Dataset to COCO format. Easily convert your data in one line of code using the Supervisely Python SDK.
 
 {% hint style="success" %}
 
-`sly.convert.to_coco()` function automatically detects the input data type and converts it to Pascal VOC format. For example, you can pass a path to a project, sly.Project object, sly.Dataset object, or sly.Annotation object. For each input type, you need to provide dedicated parameters (as shown in the examples below).
+`sly.convert.to_coco()` function automatically detects the input data type and converts it to Pascal VOC format. For example, you can pass a path to a project, sly.Project object or sly.Dataset object. To convert a Dataset, you need to provide the project meta information as shown in the example below.
 
 ```python
+# Project path
 sly.convert.to_coco("./sly_project", dest_dir="./result_coco")
-# or
+# Project object
 sly.convert.to_coco(project, dest_dir="./result_coco")
-# or
-sly.convert.to_coco(dataset, meta=project.meta, dest_dir="./result_coco")
+# or Dataset object
+sly.convert.to_coco(dataset, dest_dir="./result_coco", meta=project.meta)
 ```
 
 {% endhint %}
 
-Each dataset in the project will be converted to a separate COCO dataset. The single `sly.Annotation` object will be converted to a list of COCO annotation format objects.
+Each dataset in the project will be converted to a separate COCO dataset.
 
 {% hint style="info" %}
 It supports the following geometry types: `sly.Rectangle`, `sly.Bitmap`, `sly.Polygon`, `sly.GraphNodes`.
@@ -49,35 +50,7 @@ project_fs.to_coco("./result_coco")
 ```python
 ds = project_fs.datasets.get("dataset_name")
 
-sly.convert.to_coco(ds, meta=project_fs.meta, dest_dir="./result_coco")
+sly.convert.to_coco(ds, dest_dir="./result_coco", meta=project_fs.meta)
 # Or using the sly.Dataset object
 ds.to_coco(project_fs.meta, dest_dir="./result_coco")
-```
-
-- Convert a single `sly.Annotation` object to COCO format:
-
-```python
-coco_instances = dict(
-    info=dict(
-        description="COCO dataset converted from Supervisely",
-        url="None",
-        version=str(1.0),
-        year=2025,
-        contributor="Supervisely",
-        date_created="2025-01-01 00:00:00",
-    ),
-    licenses=[dict(url="None", id=0, name="None")],
-    images=[],
-    annotations=[],
-    categories=get_categories_from_meta(meta),  # [{"supercategory": "lemon", "id": 0, "name": "lemon"}, ...]
-)
-class_mapping = {obj_cls.name: idx for idx, obj_cls in enumerate(meta.obj_classes)}
-
-# iterate over all annotations in the project and convert them to COCO format
-# for example, let's convert only one annotation:
-image_id = 1 # image id for the image in COCO annotation file
-label_id = 1 # label id for the COCO objects (will be incremented for each object)
-
-ann = sly.Annotation.from_json(ann_json, meta)
-ann.to_coco(image_id, class_mapping, coco_instances, label_id)
 ```

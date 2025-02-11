@@ -16,6 +16,10 @@ YOLO format data should have a specific configuration file that contains informa
 
 ![Result of the import](images/yolo\_res.png)
 
+Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process. 
+
+To step up import speed even further you can compress all annotation files (`.txt`'s) into an archive and import it together with the images. (Note: This method is format-dependent and may not apply to all formats.)
+
 <details>
 
 <summary>Default COCO class names</summary>
@@ -176,7 +180,7 @@ kpt_shape: [17, 3] # number of keypoints, number of dims (2 for x,y or 3 for x,y
 
 </details>
 
-## Individual Image Annotations
+## Single-Image Annotation
 
 Annotation files are in `.txt` format and should contain object labels on each line:
 

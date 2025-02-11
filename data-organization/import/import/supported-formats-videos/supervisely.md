@@ -8,6 +8,10 @@ Easily import your videos with annotations in the Supervisely format. The Superv
 All information about the Supervisely JSON format can be found <a href="https://docs.supervisely.com/data-organization/00_ann_format_navi" target="_blank">here</a>
 {% endhint %}
 
+Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process. 
+
+To step up import speed even further you can compress all annotation files (`.json`'s) into an archive and import it together with the images. (Note: This method is format-dependent and may not apply to all formats.)
+
 ## Format description
 
 **Supported video formats:** `.avi`, `.mp4`, `.3gp`, `.flv`, `.webm`, `.wmv`, `.mov`, and `.mkv` <br>
@@ -48,7 +52,7 @@ Items even can be placed in any subdirectories or the root directory. Just make 
 
 Project meta file `meta.json` is recommended to be present in the project directory. It contains classes and tags definitions for the project. If it is not present, it will try to create it from the annotations. Learn more about the `meta.json` file <a href="https://docs.supervisely.com/customization-and-integration/00_ann_format_navi/02_project_classes_and_tags" target="_blank">here</a>.
 
-## Individual Video Annotations
+## Single-Video Annotation JSON
 
 For each video, we store the annotations in a separate `json` file named `video_name.video_format.json` with the following file structure:
 

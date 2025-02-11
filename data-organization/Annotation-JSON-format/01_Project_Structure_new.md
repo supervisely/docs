@@ -16,7 +16,7 @@ On the top level we have Project folders, these are the elements visible on the 
 
 **Project Meta**
 
-Project Meta contains the essential information about the project - Classes and Tags. These are defined project-wide and can be used for labeling in every dataset inside the current roject.
+Project Meta contains essential information about the project, including Classes and Tags, which are defined project-wide and can be used for labeling in any dataset within the current project. It also includes the Project Type and Settings, which configure the labeling interface.
 
 **Datasets**
 

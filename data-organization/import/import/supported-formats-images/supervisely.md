@@ -8,6 +8,10 @@ Easiest way to import your images with annotations is to use the Supervisely for
 
 The Supervisely json-based annotation format supports such figures: `rectangle`, `line (polyline)`, `polygon`, `point`, `bitmap` (`mask`), `graph` (`keypoints`), `alpha mask`, `2D cuboid`. It is a universal format for various task types and is used in the Supervisely platform.
 
+Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process. 
+
+To step up import speed even further you can compress all annotation files (`.json`'s) into an archive and import it together with the images. (Note: This method is format-dependent and may not apply to all formats.)
+
 ## Format description
 
 **Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`\
@@ -57,7 +61,7 @@ Just make sure that:
 * Image and annotation files can be placed in any subdirectories or the root directory.
 {% endhint %}
 
-## Individual Image Annotations
+## Single-Image Annotation JSON
 
 For each image, we store the annotations in a separate `json` file named `image_name.image_format.json` with the following file structure:
 

@@ -8,6 +8,10 @@ This converter allows to import images with `.json` annotations in [Cityscapes](
 
 ![Result of the import](images/cityscapes\_res.png)
 
+Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process. 
+
+To step up import speed even further you can compress all annotation files (`.json`'s) into an archive and import it together with the images. (Note: This method is format-dependent and may not apply to all formats.)
+
 ## Format description
 
 **Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`\
@@ -85,7 +89,7 @@ In order to import custom annotations for the images, you need to provide a `cla
 
 </details>
 
-## Individual Image Annotations
+## Single-Image Annotation JSON
 
 Annotation file should contain the following fields:
 

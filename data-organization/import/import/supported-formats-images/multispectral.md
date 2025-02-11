@@ -62,7 +62,7 @@ In this example, we have 3 groups with images. In the first group, we have one i
 
 ## Easy integration for Python developers
 
-Automate processes with multi-view images using Supervisely Python SDK.
+Automate processes with multiview images using Supervisely Python SDK.
 
 ```bash
 pip install supervisely

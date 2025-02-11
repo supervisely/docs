@@ -11,19 +11,20 @@ For more information on how to import Pascal VOC format data into Supervisely, s
 Easily convert your data in one line of code using the Supervisely Python SDK.
 
 {% hint style="info" %}
-`sly.convert.to_pascal_voc()` function automatically detects the input data type and converts it to Pascal VOC format. For example, you can pass a path to a project, sly.Project object, sly.Dataset object, or sly.Annotation object. For each input type, you need to provide dedicated parameters (as shown in the examples below).
+`sly.convert.to_pascal_voc()` function automatically detects the input data type and converts it to Pascal VOC format. For example, you can pass a path to a project, sly.Project object or sly.Dataset object. To convert a Dataset, you need to provide the project meta information as shown in the example below.
 
 ```python
+# Project path
 sly.convert.to_pascal_voc("./sly_project", dest_dir="./pascal_voc")
-# or
+# Project object
 sly.convert.to_pascal_voc(project, dest_dir="./pascal_voc")
-# or
-sly.convert.to_pascal_voc(dataset, meta=project.meta, dest_dir="./pascal_voc")
+# or Dataset object
+sly.convert.to_pascal_voc(dataset, dest_dir="./pascal_voc", meta=project.meta)
 ```
 
 {% endhint %}
 
-This converter allows you to convert a Project, Dataset, or a single Annotation to Pascal VOC format. Each dataset in the project will be converted to a separate Pascal VOC dataset. The single `sly.Annotation` object will be converted to a tuple of Pascal VOC annotation format xml object and numpy masks (instances masks and class masks).
+This converter allows you to convert a Project or Dataset. Each dataset in the project will be converted to a separate Pascal VOC dataset.
 
 - Convert a project to Pascal VOC format:
 
@@ -41,14 +42,7 @@ project_fs.to_pascal_voc("./result_pascal")
 ```python
 ds = project_fs.datasets.get("dataset_name")
 
-sly.convert.to_pascal_voc(ds, meta=project_fs.meta, dest_dir="./result_pascal")
+sly.convert.to_pascal_voc(ds, dest_dir="./result_pascal", meta=project_fs.meta)
 # Or using the sly.Dataset object
 ds.to_pascal_voc(project_fs.meta, dest_dir="./result_pascal")
-```
-
-- Convert a single `sly.Annotation` object to Pascal VOC format:
-
-```python
-ann = sly.Annotation.from_json(ann_json, meta)
-xml, instance_masks, class_masks = ann.to_pascal_voc("image_name")
 ```
