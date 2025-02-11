@@ -1,28 +1,27 @@
 # Integrate Custom Inference
 
-In this guide, you'll learn how to build a custom [serving app](./supervisely-serving-apps.md) using the Supervisely SDK. By integrating your own model, you'll be able to deploy a fully functional inference app on the Supervisely platform (or externally) that serves predictions in real time. In other words, you'll transform your model into a serving app that's ready to be used in production.
-
 ## Overview
 
-By following this guide, you'll convert your custom model into a fully deployable serving app. This integration lets you:
+In this guide, you'll learn how to build a custom [serving app](./supervisely-serving-apps.md) using the Supervisely SDK. By integrating your own model, you'll be able to deploy it on the Supervisely platform (or externally). In other words, you'll transform your model into a serving app that's ready to be used in production.
 
-- **Easily Serve Your Model:** Run inference on your own data through Supervisely's platform.
+**Key Features:**
+
+- **Easily Serve Your Model:** Run inference on your own data through Supervisely platform or locally.
 - **Customize Your Solution:** Extend a Supervisely SDK class and implement the core methods needed for your custom inference solution.
 - **Debug and Release**: Test locally, debug quickly, and deploy your app for production use.
 
 ## Step-by-Step Implementation
 
-Let's dive into the steps:
+To integrate your custom model into the Supervisely platform, follow these steps:
 
-1. **Create Your Implementation File:** Create your custom model class inheriting from `sly.nn.inference.Inference` or a similar base class (sly.nn.inference.ObjectDetection).
-2. **Prepare model configurations and inference settings files:** Create a `.json` file that lists your model configurations and details and `.yaml` file for any extra inference settings.
-3. **Define Inference Settings:** Create an inference_settings.yaml file for any extra parameters you need during inference.
-4. **Implement Key Methods:**
-   - `load_model`: Load and set up your model for inference.
-   - `predict`: Preprocess input data, run inference, and format the predictions to [Supervisely format]()
-5. **Run, Debug, and Release:** Test your app locally (with IDE tips provided), then deploy it on the Supervisely platform.
+**[Step 1.](#step-1-prepare-model-configurations) Prepare model configurations:** Create a `.json` file to list your model configurations.
+**[Step 2.](#step-2-prepare-inference-settings) Prepare inference settings:** Create a `.yaml` file to specify parameters for inference.
+**[Step 3.](#step-3-optional-prepare-app-options) Prepare app options:** Create a `.yaml` file to specify additional options for your app.
+**[Step 4.](#step-4-create-a-custom-class) Create a custom class:** Create a python file that contains your custom inference class.
+**[Step 5.](#step-5-implement-required-methods) Implement required methods:** Implement the `load_model` and `predict` methods.
+**[Step 6.](#step-6-optional-create-main-script) Create main script:** Create an entrypoint python script to run and serve your model.
 
-Below is a simple example for a YOLO‑based object detection model. This example demonstrates the core functionality without distracting external dependencies.
+### Implementation Example
 
 ```python
 import torch
@@ -31,9 +30,9 @@ import supervisely as sly
 class CustomYOLOInference(sly.nn.inference.ObjectDetection):
     # 1️⃣ Define essential class variables
     FRAMEWORK_NAME = "Custom YOLO"
-    MODELS = "path/to/models.json"  # File containing your model configurations
-    INFERENCE_SETTINGS = "path/to/inference_settings.yaml"  # Additional inference settings
-    APP_OPTIONS = "path/to/app_options.yaml" # [optional] Additional app options
+    MODELS = "src/models.json"  # File containing your model configurations
+    INFERENCE_SETTINGS = "src/inference_settings.yaml"  # Additional inference settings
+    APP_OPTIONS = "src/app_options.yaml" # [optional] Additional app options
 
 
     # 2️⃣ Implement the load_model method
@@ -62,66 +61,28 @@ class CustomYOLOInference(sly.nn.inference.ObjectDetection):
         outputs = self.model(img_tensor)
         predictions = self._postprocess_outputs(outputs, settings)
         return predictions
-
-# 4️⃣ Initialize and serve the model using custom inference class
-model = CustomYOLOInference(use_gui=True, use_serving_gui_template=True)
-model.serve()
 ```
 
-![Custom Inference GUI](./custom_serving_app_gui.png)
+![Custom Inference GUI](./serve-app.png)
 
-### Step 1. Create a custom class
+### Step 1. Prepare model configurations
 
-Write a Python file (e.g., src/main.py) that contains your custom inference class.
-
-Example snippet:
-
-```python
-import supervisely as sly
-
-class CustomYOLOInference(sly.nn.inference.ObjectDetection):
-    # Define essential class variables
-    FRAMEWORK_NAME = "Custom YOLO"
-    MODELS = "path/to/models.json"  # File containing your model configurations
-    INFERENCE_SETTINGS = "path/to/inference_settings.yaml"  # Additional inference settings
-    # ...
-```
-
-### Step 2. Prepare models and inference settings files
-
-#### Create models.json
-
-**Informative Fields:** Each model dictionary includes fields that provide key details about the model. These are displayed in the GUI for quick reference:
-
-- `Model`: The name of the model (e.g. Custom YOLOv5nu).
-- `Size (pixels)`: The input image size in pixels (e.g. 640).
-- `mAP`: The mean average precision of the model (e.g. 0.75).
-- `params (M)`: The number of model parameters in millions (e.g. 50).
-- `FLOPs (B)`: The number of floating-point operations in billions (e.g. 50).
-
-**Technical Field (meta):**
-Each model must also include a `meta` field. This field contains technical information required by the TrainApp to correctly access and manage the model during the training process. While the informative fields are for display purposes, the `meta` field ensures the app functions properly behind the scenes.
-
-- (**required**) `task_type`: The type of task (e.g., object detection)
-- (**required**) `model_name`: Model name
-- (**required**) `model_files`: Paths to the checkpoint and configuration files
-  - (**required**) `checkpoint`: Path or URL to the model checkpoint. URL will be downloaded automatically.
-  - (**optional**) `config`: Path to the model configuration file
+Create `models.json` file to list your model configurations. This file should include a list of dictionaries, each containing details about a specific model. If not specified, only custom models tab will be available in the GUI.
 
 **Example `models.json`**
 
 ```json
 [
     {
-        "Model": "Custom YOLOv5nu",
+        "Model": "Custom YOLO-S",
         "Size (pixels)": "640",
         "mAP": "34.3",
         "params (M)": "2.6",
         "FLOPs (B)": "7.7",
         "meta": {
             "task_type": "object detection",
-            "model_name": "custom yolov5nu",
-            "model_files": {"checkpoint": "https://my_custom_model.com/download/yolov5nu.pt"}
+            "model_name": "custom yolo-s",
+            "model_files": {"checkpoint": "https://.../yolo-s.pt"}
         }
     },
     // ... additional models
@@ -132,40 +93,132 @@ _Example GUI preview:_
 
 ![Model in GUI](./models-json.png)
 
-**Note:**
+**Table Fields:**
 
-- The `meta` field holds technical details used by the inference class to load the model:
-  - (**required**) `task_type`: The type of task (e.g., object detection)
-  - (**required**) `model_name`: Model name
-  - (**required**) `model_files`: Paths to the checkpoint and configuration files
-    - (**required**) `checkpoint`: Path or URL to the model checkpoint. URL will be downloaded automatically.
-    - (**optional**) `config`: Path to the model configuration file
+Fields that are displayed in the GUI for quick reference about the model performance. These fields can be anything you want to display in the GUI about your model and are not limited to the example shown above.
 
-#### Create inference_settings.yaml
+**Technical Field (meta):**
 
-Create an `inference_settings.yaml` file to specify any extra settings needed during inference and assign path to this file in the `INFERENCE_SETTINGS` variable in your custom class.
+Each model must also include a `meta` field. This field is not displayed in the GUI. It contains technical information required by the inference class and ensures the app functions properly behind the scenes.
+
+- (**required**) `task_type`: The type of task (e.g., object detection)
+- (**required**) `model_name`: Model configuration name
+- (**required**) `model_files`: Paths to the checkpoint and configuration files. You can extend this field with additional paths if needed
+  - (**required**) `checkpoint`: Path or URL to the model checkpoint. URL will be downloaded automatically
+  - (**optional**) `config`: Path to the model configuration file
+  - (**optional**) Any additional files can be added to the `model_files` dictionary
+
+### Step 2. Prepare inference settings
+
+Create an `inference_settings.yaml` file to specify parameters for inference.
+
+**Example `inference_settings.yaml`:**
 
 ```yaml
-confidence_threshold: 0.4
+# bounding box confidence threshold
+conf: 0.25
+# intersection over union (IoU) threshold for NMS
+iou: 0.7
+# use half precision (FP16)
+half: False
+# maximum number of detections per image
+max_det: 300
+# whether to use class-agnostic NMS or not
+agnostic_nms: False
 ```
 
-### Step 3. Implement Required Methods
+### Step 3. [Optional] Prepare app options
 
-#### Inheritance and Class Variables
+You can create an `app_options.yaml` file to specify additional options for your app. This file is optional and can be used to customize the app GUI.
 
-Your custom class should inherit from the appropriate Supervisely base class. Define key class variables:
+```yaml
+pretrained_models: true
+custom_models: true
+supported_runtimes: ["pytorch"]
+```
 
-**`FRAMEWORK_NAME:`** Name of your model's framework.
-**`MODELS:`** Path to your `models.json` file.
-**`INFERENCE_SETTINGS:`** Path to your `.yaml` settings file.
-**`APP_OPTIONS:`** (Optional) Path to additional app options in `.yaml` format.
+**Available options:**
+
+- **`pretrained_models`**
+  - `description`: If enabled, shows the pretrained models tab in the GUI. Pretrained models are models that are provided by Supervisely.
+  - `type`: boolean
+  - `default`: `True`
+- **`custom_models`**
+  - `description`: If enabled, shows the custom models tab in the GUI. Custom models are models trained in Supervisely with corresponding training app.
+  - `type`: boolean
+  - `default`: `True`
+- **`supported_runtimes`**
+  - `description`: List of supported runtimes for the app. If not specified, "pytorch" is used by default. Available options: `pytorch`,  `onnx`, `tensorrt`.
+  - `type`: list of strings
+  - `default`: `["pytorch"]`
+
+### Step 4. Create a custom class
+
+Create a python file (e.g., `src/custom_yolo.py`) that contains your custom inference class with implementation.
+
+**Example custom_yolo.py:**
+
+```python
+import supervisely as sly
+
+class CustomYOLOInference(sly.nn.inference.ObjectDetection):
+    # Define essential class variables
+    FRAMEWORK_NAME = "Custom YOLO"
+    MODELS = "src/models.json"  # File containing your model configurations
+    INFERENCE_SETTINGS = "src/inference_settings.yaml"  # Additional inference settings
+    # ...
+```
+
+#### Inheritance
+
+Your custom class should inherit from the appropriate Supervisely base class. For example, if you're working on an object detection model, you should inherit from `sly.nn.inference.ObjectDetection`.
+
+**Available classes for inheritance:**
+
+- `ObjectDetection`
+- `ObjectDetection3D`
+- `PoseEstimation`
+- `PromptBasedObjectDetection`
+- `PromptableSegmentation`
+- `SalientObjectSegmentation`
+- `SemanticSegmentation`
+
+If none of these classes fit your model, you can inherit from the base `Inference` class and customize it as needed.
+
+#### Class Variables
+
+In your custom class, define class variables to specify the model framework, paths to model configurations, and inference settings.
+
+**Class variables:**
+
+- **`FRAMEWORK_NAME:`** Name of your model's framework or architecture.
+- **`MODELS:`** Path to your `models.json` file.
+- **`INFERENCE_SETTINGS:`** Path to your `.yaml` settings file.
+- **`APP_OPTIONS:`** (Optional) Path to additional app options in `.yaml` format.
+
+### Step 5. Implement required methods
 
 #### The `load_model` Method
 
 This method loads the model checkpoint and prepares it for inference.
 
+Let's break down the `load_model` parameters:
+
+- **`model_files`:** A dictionary containing paths to the model checkpoint and configuration files. All paths are local paths.
+- **`model_info`:** A dictionary containing model information from the `models.json` file if model is pretrained, otherwise it's [experiment info]() from custom model that was trained in Supervisely.
+- **`model_source`:** The source of the model (`Pretrained models` or `Custom model`).
+- **`device`:** The device to run the model on (e.g., "cpu", "cuda").
+- **`runtime`:** The runtime to use for inference (e.g., "pytorch", "onnx").
+
 ```python
-def load_model(self, model_files: dict, model_info: dict, model_source: str, device: str, runtime: str):
+def load_model(
+    self,
+    model_files: dict,
+    model_info: dict,
+    model_source: str,
+    device: str,
+    runtime: str
+):
     """
     Load and prepare the model for inference.
     """
@@ -193,10 +246,38 @@ def predict(self, image_path: str, settings: dict):
     # 2️⃣ Run the model inference
     outputs = self.model(img_tensor)
     
-    # 3️⃣ Postprocess the outputs 
+    # 3️⃣ Postprocess the outputs to Supervisely format
     # (implement your own method, convert raw outputs to labels, boxes, scores, etc.)
     predictions = self._postprocess_outputs(outputs, settings)
     return predictions
+
+#########################################################################################
+# ⬇️ These methods are optional, you can implement everything in the predict method ⬇️ #
+#########################################################################################
+
+def _preprocess_image(self, image_path: str):
+    # Your own logic to preprocess the input image
+    pass
+
+def _postprocess_outputs(self, outputs, settings: dict):
+    # Your own logic to convert raw outputs to predictions
+    pass
+```
+
+### Step 6. [Optional] Create main script
+
+This step is optional, but we recommend to keep your main script separate from the custom class for better organization.
+
+Create a main python script (e.g., `src/main.py`) to run and debug your app. This file should contain code to initialize custom class and serve it. This script will be the entry point for your app.
+
+**Example `main.py`**
+
+```python
+import supervisely as sly
+from custom_yolo import CustomYOLOInference
+
+model = CustomYOLOInference(use_gui=True, use_serving_gui_template=True)
+model.serve()
 ```
 
 ## Running and Debugging Your App
@@ -320,6 +401,7 @@ The structure of repository is the following:
     ├── 📜inference_settings.yaml
     ├── 📜app_options.yaml
     └── 🐍main.py
+    └── 🐍custom_yolo.py
 ```
 
 Explanation:
@@ -355,7 +437,7 @@ App configuration is stored in `config.json` file. A detailed explanation of all
   "session_tags": ["deployed_nn"],
   "need_gpu": true,
   "community_agent": false,
-  "docker_image": "supervisely/detectron2-demo:1.0.3",
+  "docker_image": "user/custom-yolo:1.0.0",
   "entrypoint": "python -m uvicorn src.main:m.app --host 0.0.0.0 --port 8000",
   "port": 8000,
   "headless": true
@@ -376,25 +458,3 @@ Here is an explanation for the fields:
 - `entrypoint` - the command that starts our application in a container
 - `port` - port inside the container
 - `"headless": true` means that the app has no User Interface
-
-## Additional resources
-
-### Create app_options.yaml
-
-You can create an `app_options.yaml` file to specify additional options for your app. This file is optional and can be used to customize the app GUI. Assign path to this file in the `APP_OPTIONS` variable in your custom class if you plan to use it.
-
-```yaml
-pretrained_models: true # If enabled shows pretrained models tab in the GUI
-custom_models: true # If enabled shows custom models tab in the GUI (Custom models are models that were trained in Supervisely)
-supported_runtimes: ["pytorch"] # Available options: "pytorch", "onnxruntime", "tensorrt". Each runtime requires a separate implementation
-```
-
-**Available classes for inheritance:**
-
-- `ObjectDetection`
-- `ObjectDetection3D`
-- `PoseEstimation`
-- `PromptBasedObjectDetection`
-- `PromptableSegmentation`
-- `SalientObjectSegmentation`
-- `SemanticSegmentation`
