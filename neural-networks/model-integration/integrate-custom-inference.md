@@ -63,7 +63,7 @@ class CustomYOLOInference(sly.nn.inference.ObjectDetection):
         return predictions
 ```
 
-![Custom Inference GUI](./serve-app.png)
+![Custom Inference GUI](./inference-app.png)
 
 ### Step 1. Prepare the Model Configuration List
 
@@ -91,7 +91,7 @@ Create `models.json` file to list your model configurations. This file should in
 
 _Example GUI preview:_
 
-![Model in GUI](./models-json.png)
+![Model in GUI](./inference-models-json.png)
 
 **Table Fields:**
 
@@ -205,7 +205,7 @@ This method loads the model checkpoint and prepares it for inference.
 Let's break down the `load_model` parameters:
 
 - **`model_files`:** A dictionary containing paths to the model checkpoint and configuration files. All paths are local paths.
-- **`model_info`:** A dictionary containing model information from the `models.json` file if model is pretrained, otherwise it's [experiment info](../model-training/integrate-custom-model.md#experiment-info) from custom model that was trained in Supervisely.
+- **`model_info`:** A dictionary containing model information from the `models.json` file if model is pretrained, otherwise it's [experiment info](./integrate-custom-training.md#experiment-info) from custom model that was trained in Supervisely.
 - **`model_source`:** The source of the model (`Pretrained models` or `Custom model`).
 - **`device`:** The device to run the model on (e.g., "cpu", "cuda").
 - **`runtime`:** The runtime to use for inference (e.g., "pytorch", "onnx").
@@ -366,7 +366,7 @@ Once the code seems working locally, it's time to test the code right in the Sup
 
 ✅ It will deploy the model in the Supervisely platform as a regular serving App that is able to communicate with all others app in the platform:
 
-![Develop and Debug](./develop-debug.png)
+![Develop and Debug](./inference-develop-debug.png)
 
 {% hint style="success" %}
 Now you can use apps like [Apply NN to Images](https://ecosystem.supervisely.com/apps/nn-image-labeling/project-dataset), [Apply NN to videos](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project) with your deployed model.
