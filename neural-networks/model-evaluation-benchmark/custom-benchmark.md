@@ -2,7 +2,7 @@
 
 {% hint style="info" %}
 
-We have prepared a [GitHub repository](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark) with the full code for this guide. You can clone the repository and follow the instructions to implement a custom benchmark evaluation in Supervisely.
+We have prepared a [GitHub repository](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark) with the source code for this guide. You can clone the repository and follow the instructions to implement a custom benchmark evaluation in Supervisely.
 
 {% endhint %}
 
@@ -47,7 +47,7 @@ And all you need to do is to implement these classes with your custom logic to c
 
 {% hint style="info" %}
 
-Find the full code for this guide in the [GitHub repository](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark).
+Check out the [GitHub repository](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark) with the source code for this guide to see examples of the implementation.
 
 {% endhint %}
 
@@ -685,9 +685,10 @@ You can take a look at the [Evaluator for Model Benchmark](https://ecosystem.sup
 
 {% hint style="info" %}
 
-Find the full code for this guide in the [GitHub repository](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark).
+Find the source code for this guide in the [GitHub repository](https://github.com/supervisely-ecosystem/tutorial-custom-benchmark).
 
 {% endhint %}
+
 First, let's create the `local.env` file with the following variables:
 
 ```plaintext
