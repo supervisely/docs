@@ -553,9 +553,11 @@ For ease of deployment, the model may be automatically exported to additional fo
 8. **Generate and Upload Additional Training Files**
 Other supplementary files such as logs, experiment reports, and configuration files are packaged and uploaded. These additional artifacts help in future debugging, auditing, or model evaluation.
 
-**Output Artifacts Directory Structure**
+### Training Artifacts
 
-Below is an example of how the final output directory might be structured:
+The final training artifacts are organized and stored in the Supervisely storage directory. This directory contains all the necessary files and metadata related to the training experiment.
+
+**Output artifacts directory structure:**
 
 ```text
 📦265_RT-DETRv2
@@ -578,9 +580,13 @@ Below is an example of how the final output directory might be structured:
  ┗ 📜train_val_split.json
 ```
 
-##### Experiment Info
+### Experiment Info
 
-**Final `experiment_info.json` Example**
+Experiment info contains all the necessary information about the training experiment. This file is generated automatically by the `TrainApp` and is used to store metadata, paths to model files, checkpoints, and other artifacts, making it easy to track and manage the training process.
+
+This file is essential and used by the Supervisely platform to organize and display models in a structured manner in training and serving apps.
+
+**Example `experiment_info.json`**
 
 This is an example of the final experiment information file that is generated:
 

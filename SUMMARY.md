@@ -162,9 +162,10 @@
   * [Object Detection](neural-networks/model-evaluation-benchmark/object-detection.md)
   * [Instance Segmentation](neural-networks/model-evaluation-benchmark/instance-segmentation.md)
   * [Semantic Segmentation](neural-networks/model-evaluation-benchmark/semantic-segmentation.md)
-* [Model Integration](neural-networks/model-integration/README.md)
-  * [Custom Training Integration](neural-networks/model-integration/integrate-custom-training.md)
-  * [Custom Inference Integration](neural-networks/model-integration/integrate-custom-inference.md)
+* [Custom Model Integration](neural-networks/model-integration/README.md)
+  * [Overview](neural-networks/model-integration/overview.md)
+  * [Custom Training](neural-networks/model-integration/integrate-custom-training.md)
+  * [Custom Inference](neural-networks/model-integration/integrate-custom-inference.md)
 
 ## 👔 Enterprise Edition
 
