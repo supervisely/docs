@@ -107,18 +107,10 @@ class MyEvaluator(BaseEvaluator):
                 gt_founded_classes = set()
                 pred_founded_classes = set()
                 for label in ann_1.labels:
-                    if label.obj_class.geometry_type != sly.Polygon:
-                        continue
-                    if label.obj_class.name == "person":
-                        continue
                     class_name = label.obj_class.name
                     gt_founded_classes.add(class_name)
                     gt_stats["objects_count"][class_name] += 1
                 for label in ann_2.labels:
-                    if label.obj_class.geometry_type != sly.Bitmap:
-                        continue
-                    if label.obj_class.name == "person":
-                        continue
                     class_name = label.obj_class.name
                     pred_founded_classes.add(class_name)
                     pred_stats["objects_count"][class_name] += 1
