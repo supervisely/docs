@@ -63,7 +63,7 @@ class CustomYOLOInference(sly.nn.inference.ObjectDetection):
         return predictions
 ```
 
-![Custom Inference GUI](/.gitbook/assets/custom-model-integration/inference-app.png)
+![Custom Inference GUI](.gitbook/assets/custom-model-integration/inference-app.png)
 
 ### Step 1. Prepare the Model Configuration List
 
