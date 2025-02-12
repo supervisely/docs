@@ -43,7 +43,7 @@ After you've opened the app, you'll see the app's interface with the following s
 
 1. **Pretrained / Custom tabs:** In the pretrained tab, you can find the list of available pretrained checkpoints to select one. In the custom tab, you can select your own model trained in Supervisely.
 2. **Device Selector:** Choose the device to load the model on.
-3. **Serve Buttom:** Click the "Serve" button to start the deployment process. The app will download model weights, load it on device, and start the FastAPI server for API requests.
+3. **Serve Button:** Click the "Serve" button to start the deployment process. The app will download model weights, load it on device, and start the FastAPI server for API requests.
 
 After the model is deployed, you'll see a green checkmark with text "Model has been successfully loaded on device" and the "Full model info" section will be filled with the model's information.
 
