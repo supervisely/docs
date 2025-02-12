@@ -22,12 +22,12 @@ We'll use the [Train RT-DETRv2](https://ecosystem.supervisely.com/apps/rt-detrv2
 Let's dive into the steps required to integrate your custom model using the `TrainApp` class.
 
 1. **[Prepare the Model Configuration List](#id-1.-prepare-model-configuration-list):** Create a `models.json` file with a list of model configurations.
-2. **[Prepare Hyperparameters](#step-2.-prepare-hyperparameters):** Define default hyperparameters and save to a `.yaml` file.
-3. **Prepare App Options:** Add optional features to control the GUI layout and behavior.
-4. **The `TrainApp`:** Initialize the `TrainApp` class with the required parameters.
-5. **Integrate Your Custom Model:** Implement your custom model training logic using the `TrainApp` wrapper.
-6. **Add optional features:** Enhance your training app with additional features like a progress bar or model evaluation.
-7. **Run the application:** Launch the training app locally and deploy it to the Supervisely platform.
+2. **[Prepare Hyperparameters](#id-2.-prepare-hyperparameters):** Define default hyperparameters and save to a `.yaml` file.
+3. **[Prepare App Options](#id-3.-prepare-app-options):** Add optional features to control the GUI layout and behavior.
+4. **[The TrainApp](#id-4.-trainapp-class):** Initialize the `TrainApp` class with the required parameters.
+5. **[Integrate Your Custom Model](#id-5.-integrate-your-custom-model):** Implement your custom model training logic using the `TrainApp` wrapper.
+6. **[Enhancements](#id-6.-enhancements):** Enhance your training app with additional features like a progress bar or model evaluation.
+7. **[Run the Application](#id-7.-run-the-application):** Launch the training app locally and deploy it to the Supervisely platform.
 
 ### 1. Prepare Model Configuration List
 
@@ -130,7 +130,7 @@ ema:
 use_amp: True
 ```
 
-### 3. [Optional] Prepare App Options
+### 3. Prepare App Options
 
 You can provide additional options to control the GUI layout and behavior. Create an `app_options.yaml` file to enable or disable features.
 
@@ -194,7 +194,7 @@ auto_convert_classes: true
 
 </details>
 
-### 4. The `TrainApp`
+### 4. TrainApp Class
 
 Now that you have prepared the necessary files, you can initialize the `TrainApp` class with the required parameters. The `TrainApp` class is the core component that manages the training process and provides a user-friendly interface for interacting with the training app.
 
@@ -335,7 +335,7 @@ In this example training logic and loop are inside `solver.fit()` function.
 
 {% endhint %}
 
-##### Training Routine with @train.start Decorator
+**Training Routine with `@train.start` Decorator**
 
 ```python
 @train.start
@@ -377,7 +377,7 @@ def start_training():
     return experiment_info
 ```
 
-### 6. [Optional] Add optional features
+### 6. Enhancements
 
 You can enhance your training application by adding additional features like a progress bar or model evaluation. These features provide valuable feedback to the user and help in monitoring the training process.
 
@@ -406,7 +406,7 @@ If you plan to use [Evaluation Model Benchmark](../model-evaluation-benchmark/RE
 train.register_inference_class(RTDETRv2)
 ```
 
-### 7. Run the application
+### 7. Run the Application
 
 Now that you've integrated your custom model, you're ready to launch the training application. You can choose to run it locally for testing or deploy it directly to the Supervisely platform. The training app functions like any other Supervisely app, but with a built-in GUI.
 
@@ -671,7 +671,7 @@ All paths listed in the `experiment_info.json` are relative to the `artifacts_di
 
 ### Export Model to ONNX and TensorRT
 
-If you'd like to export your trained model to the ONNX or TensorRT format, you can easily do so using dedicated decorators. Simply add the @train.export_onnx and @train.export_tensorrt decorators to your export functions. These functions should return the file path of the exported model, and the TrainApp will take care of uploading it to Supervisely storage automatically.
+If you'd like to export your trained model to the ONNX or TensorRT format, you can easily do so using dedicated decorators. Simply add the `@train.export_onnx` and `@train.export_tensorrt` decorators to your export functions. These functions should return the file path of the exported model, and the TrainApp will take care of uploading it to Supervisely storage automatically.
 
 ```python
 @train.export_onnx
