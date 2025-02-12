@@ -21,7 +21,7 @@ We'll use the [Train RT-DETRv2](https://ecosystem.supervisely.com/apps/rt-detrv2
 
 Let's dive into the steps required to integrate your custom model using the `TrainApp` class.
 
-- **[Step 1](#1-prepare-the-model-configuration-list). Prepare the Model Configuration List:** Create a `models.json` file with a list of model configurations.
+- **[Step 1](#1-prepare-model-configuration-list). Prepare the Model Configuration List:** Create a `models.json` file with a list of model configurations.
 - **Step 2. Prepare Hyperparameters:** Define default hyperparameters and save to a `.yaml` file.
 - **Step 3. Prepare App Options:** Add optional features to control the GUI layout and behavior.
 - **Step 4. The `TrainApp`:** Initialize the `TrainApp` class with the required parameters.
@@ -29,7 +29,7 @@ Let's dive into the steps required to integrate your custom model using the `Tra
 - **Step 6. Add optional features:** Enhance your training app with additional features like a progress bar or model evaluation.
 - **Step 7. Run the application:** Launch the training app locally and deploy it to the Supervisely platform.
 
-### 1. Prepare the Model Configuration List
+### 1. Prepare Model Configuration List
 
 To enable model selection in your training app, you'll need to create a models.json file. This file stores a list of model configurations, where each configuration is represented as a dictionary containing model-specific details. These configurations will be displayed in the app's GUI, allowing users to easily choose a model for training.
 
