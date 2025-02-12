@@ -2,8 +2,11 @@
 
 This section involves using Python code together with [Supervisely SDK](https://github.com/supervisely/supervisely) to automate deployment and inference in different scenarios and environments. You can deploy your models either inside the Supervisely Platform (on an agent), or outside the platform, directly on your local machine. See the difference in [Overview](overview.md#in-platform-model-deployment-vs-local-deployment).
 
-<!-- ## In-Platform Model Deployment
+## In-Platform Model Deployment
 
+*Will be added soon.* 😊
+
+<!-- 
 ### 1. Deploy
 
 In-platform deployment is similar to manually launching a Serving App on the Supervisely Platform. With python SDK you can automate this.
