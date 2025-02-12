@@ -2,7 +2,7 @@
 
 This section involves using Python code together with [Supervisely SDK](https://github.com/supervisely/supervisely) to automate deployment and inference in different scenarios and environments. You can deploy your models either inside the Supervisely Platform (on an agent), or outside the platform, directly on your local machine. See the difference in [Overview](overview.md#in-platform-model-deployment-vs-local-deployment).
 
-## In-Platform Model Deployment
+<!-- ## In-Platform Model Deployment
 
 ### 1. Deploy
 
@@ -59,7 +59,7 @@ prediction = session.inference_image_id(image_id)
 
 Learn more about SessionAPI in the [Inference API Tutorial](https://developer.supervisely.com/app-development/neural-network-integration/inference-api-tutorial).
 
----
+--- -->
 
 ## Deploy outside of Supervisely
 
@@ -226,7 +226,7 @@ url = "https://images.unsplash.com/photo-1674552791148-c756b0899dba?ixlib=rb-4.0
 pred = session.inference_image_url(url)
 ```
 
-#### Predict with CLI arguments
+<!-- #### Predict with CLI arguments
 
 Instead of writing code for inference, you can use CLI arguments to get predictions right after the model is loaded. The following arguments are available:
 
@@ -243,17 +243,13 @@ Example usage:
 
 ```bash
 PYTHONPATH="${PWD}:${PYTHONPATH}" python ./supervisely_integration/serve/main.py --model ./my_experiments/2315_RT-DETRv2/checkpoints/best.pth --predict ./supervisely_integration/demo/images
-```
-
-🔎 **Нужен отдельный туториал по аргументам на dev portal, и отсюда сделать ссылку туда.**
+``` -->
 
 #### 🐋 Deploy in Docker Container
 
 Deploying in a Docker Container is similar to deployment as a Server. This example is useful when you need to run your model on a remote machine or in a cloud environment.
 
 Use this `docker run` command:
-
-❌ тут нужно еще с Пашей проверить, что все аргументы рабочие. Пока что примерный список:
 
 ```bash
 docker run \
@@ -269,15 +265,18 @@ docker run \
     --model "/experiments/553_42201_Animals/2315_RT-DETRv2/checkpoints/best.pth"
 ```
 
-In the last line, you need to pass the argument for model checkpoint and, optionally, other arguments for prediction (see the [previous](#deploy-model-as-a-server) section).
-This will start the server on [http://0.0.0.0:8000](http://0.0.0.0:8000) in the container and will be ready to accept API requests for inference. You can use the same SessionAPI to get predictions.
+<!-- In the last line, you need to pass the argument for model checkpoint and, optionally, other arguments for prediction (see the [previous](#deploy-model-as-a-server) section). -->
+
+Put your path to the checkpoint file in the `--model` argument.
+
+This will start the server on [http://0.0.0.0:8000](http://0.0.0.0:8000) in the container and will be ready to accept API requests for inference. You can use the same `Session` object for inference.
 
 
 ### Deploy Model as a Serving App with web UI
 
-In this variant, you will run a [Serving App](supervisely-serving-apps.md) with web UI, in which you can deploy a model.
+In this variant, you will run a full [Serving App](supervisely-serving-apps.md) with web UI, in which you can deploy a model. This is useful for debugging and testing purposes, for example, when you're integrating your [Custom Inference App](../custom-model-integration/integrate-custom-inference.md) with the Supervisely Platform.
 
-You need to follow all the steps from the [previous](#deploy-model-as-a-server) section, but instead of running the server, you need to run the following command:
+Follow the steps from the [previous](#deploy-model-as-a-server) section, but instead of running the server, you need to run the following command:
 
 #### Deploy
 
