@@ -19,21 +19,21 @@ You can interact with the deployed model in different ways:
 
 To deploy a model, you need to run a Serving App. You can **search** an app on the [Ecosystem](https://ecosystem.supervisely.com), or find available serving apps in the **[Neural Networks](https://app.supervisely.com/nn/apps)** section of the platform.
 
-#### Find your app
+**Find your app**
 
 ![Neural Networks Section](/.gitbook/assets/neural-networks/nn-apps.jpg)
 
-#### Run app
+**Run app**
 
 Run an app by clicking the **"Run App"** button, and the app interface will be opened in a new tab. In the first time, the app will download a docker image, it may take some time. After the app is started, you'll see the Serving GUI.
 
-#### Serving App Interface:
+**Serving App Interface:**
 
 ![Serving App Interface](/.gitbook/assets/neural-networks/serve-rtdetr-gui.jpg)
 
 If the app did not open automatically, you can find it in the **"Apps"** section of the platform.
 
-#### Open the app from the Apps section
+**Open the app from the Apps section**
 
 ![Apps Section](/.gitbook/assets/neural-networks/apps-section.jpg)
 
@@ -60,19 +60,19 @@ After the model is deployed, you can apply it using the **NN Applying apps**. Th
 - [Apply Classifier to Images](https://ecosystem.supervisely.com/apps/apply-classification-model-to-project)
 - [Apply Florence-2 + SAM 2 to Images](https://ecosystem.supervisely.com/apps/apply-florence-2-to-images-project)
 
-#### Search "apply" to find available apps:
+**Search "apply" to find available apps:**
 
 ![Apply Apps](/.gitbook/assets/neural-networks/search-apply.jpg)
 
 ### 2. NN Image Labeling
 
-#### Run NN Image Labeling
+**Run NN Image Labeling**
 
 Open Labeling Tool and run the [NN Image Labeling](https://ecosystem.supervisely.com/apps/nn-image-labeling/annotation-tool) app from the **"Apps" panel**. The app will be opened in the labeling interface.
 
 ![NN Image Labeling](/.gitbook/assets/neural-networks/nn-image-labeling.jpg)
 
-#### Connect to the deployed model
+**Connect to the deployed model**
 
 In the app interface, select the deployed model from the list. Click the **"Connect"** button. After that, you can start annotating images with the help of the model.
 
