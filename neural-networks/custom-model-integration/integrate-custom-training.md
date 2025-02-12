@@ -3,25 +3,25 @@
 ## Overview
 
 Welcome to this step-by-step tutorial on building model training applications with Supervisely SDK!
-This guide will show you how to set up a training app in just a few lines of code, with a built-in user interface and all the necessary tools to seamlessly manage the training process. Supervisely has a dedicated `TrainApp` class that takes care of the heavy lifting, so you can focus directly on your model and training logic without worrying about the underlying infrastructure.
+This guide will show you how to set up a training app with a built-in user interface and all the necessary tools to seamlessly manage the training process. Supervisely SDK has a dedicated `TrainApp` class that takes care of the heavy lifting, so you can focus directly on your model and training logic without worrying about the underlying infrastructure.
 
 We'll use the [Train RT-DETRv2](https://ecosystem.supervisely.com/apps/rt-detrv2/supervisely_integration/train) example to walk you through the process.
 
-**Key Features:**
+**What the `TrainApp` class offers:**
 
-- **Built-in GUI:** Simple and easy-to-follow customizable interface.  
-- **Train and Val Splits:** Handles splitting of your project into training and validation sets.  
+- **Built-in GUI:** Simple and easy-to-follow customizable interface.
+- **Train and Val Splits:** Handles splitting of your project into training and validation sets.
 - **Data Preparation:** Easily convert Supervisely annotation format into one of the popular formats with a single line of code (e.g., COCO annotation format).  
-- **Project Versioning:** Saves project versions to reproduce training with the same data and annotations.  
-- **Model Evaluation:** On-demand evaluation (requires ❌ [model serving implementation](neural-networks/inference-and-deployment/...)).  
-- **Model Export:** Export your model to ONNX or TensorRT format (requires [export implementation](#export-model-to-onnx-and-tensorrt)).  
-- **Model Saving:** Automatically save your model and related files to Supervisely Team Files.  
+- **Project Versioning:** Saves project versions to reproduce training with the same data and annotations.
+- **Model Evaluation:** [Model Evaluation Benchmark]() automatically runs evaluation of your model's performance and generate a detailed report.
+- **Model Export:** Export your model to ONNX or TensorRT format (requires [export implementation](#export-model-to-onnx-and-tensorrt)).
+- **Model Saving:** Automatically save your model and related files to Supervisely Team Files.
 
 ## Step-by-Step Implementation
 
 Let's dive into the steps required to integrate your custom model using the `TrainApp` class.
 
-- **Step 1. Prepare the Model Configuration List:** Create a `models.json` file with a list of model configurations.
+- **[Step 1](#step-1-prepare-the-model-configuration-list). Prepare the Model Configuration List:** Create a `models.json` file with a list of model configurations.
 - **Step 2. Prepare Hyperparameters:** Define default hyperparameters and save to a `.yaml` file.
 - **Step 3. Prepare App Options:** Add optional features to control the GUI layout and behavior.
 - **Step 4. The `TrainApp`:** Initialize the `TrainApp` class with the required parameters.
@@ -156,23 +156,23 @@ auto_convert_classes: true
 <summary> <b> Click to expand </b> </summary>
 
 - **`device_selector`**
-  - **description:** Show CUDA device selector in GUI
+  - **description:** Whether to add a selector widget into the GUI for choosing the CUDA device.
   - **default:** `false`
   - **options:** `true`, `false`
 - **`model_benchmark`**
-  - **description:** Add checkboxes to run model benchmark to the GUI
+  - **description:** Whether to allow user to run model benchmark after training. If `true`, checkboxes and parameters for benchmarking will be displayed in the GUI.
   - **default:** `false`
   - **options:** `true`, `false`
 - **`export_onnx_supported`**
-  - **description:** Enable export to ONNX format, requires [export implementation](#link-to-custom-export-tutorial)
+  - **description:** If `true`, adds a checkbox allowing to export model to ONNX format. Requires implementing of [Exporting to ONNX](#export-model-to-onnx-and-tensorrt).
   - **default:** `false`
   - **options:** `true`, `false`
 - **`export_tensorrt_supported`**
-  - **description:** Enable export to TensorRT format, requires [export implementation](#link-to-custom-export-tutorial)
+  - **description:** If `true`, adds a checkbox allowing to export model to TensorRT format. Requires implementing of [Exporting to TensorRT](#export-model-to-onnx-and-tensorrt).
   - **default:** `false`
   - **options:** `true`, `false`
 - **`train_logger`**
-  - **description:** Comment to use custom tensorboard logger (requires additional implementation). Set to `tensorboard` to use supervisely tensorboard logger.
+  - **description:** If set to `tensorboard`, the TensorBoard server will start automatically for displaying training logs, such as losses, metrics, etc. If `None`, you need to start the server manually.
   - **default:** `None`
   - **options:** `None`, `tensorboard`
 - **`show_logs_in_gui`**
@@ -184,7 +184,7 @@ auto_convert_classes: true
   - **default:** `false`
   - **options:** `true`, `false`
 - **`collapsable`** | <mark style="color:red">Beta feature</mark>
-  - **description:**  Collapse GUI cards on selection
+  - **description:**  Collapse GUI cards after confirming the current step and moving to the next one.
   - **default:** `false`
   - **options:** `true`, `false`
 - **`demo`** | <mark style="color:purple">For developers</mark>
@@ -213,15 +213,15 @@ class TrainApp(
 |   Parameters    |                        Type                        |                  Description                   |
 |:---------------:|:--------------------------------------------------:|:----------------------------------------------:|
 | framework_name  |                        str                         |   Name of the ML framework used for training   |
-|     models      |       Union\[str, List\[Dict\[str, Any\]\]\]       | Path to `.json` file with model configurations |
-| hyperparameters |                        str                         |   Path to hyperparameters in `.yaml` format    |
-|   app_options   | Optional\[Union\[str, List\[Dict\[str, Any\]\]\]\] |     Path to options file in `.yaml` format     |
-|    work_dir     |                  Optional\[str\]                   |   Local path for storing intermediate files    |
+|     models      |       Union\[str, List\[Dict\[str, Any\]\]\]       | Path to `models.json` file with model configurations, or a list of the same JSON |
+| hyperparameters |                        str                         |   Path to `hyperparameters.yaml` file   |
+|   app_options   | Optional\[Union\[str, List\[Dict\[str, Any\]\]\]\] |     Path to `app_options.yaml` file     |
+|    work_dir     |                  Optional\[str\]                   |   Local path for storing intermediate files, such as downloaded model files    |
 
 #### Important TrainApp Attributes
 
-- **`train.work_dir`** - Path to the working directory. Contains intermediate files.
-- **`train.output_dir`** - Path to the output directory. Contains training results.
+- **`train.work_dir`** - Path to the working directory. Contains intermediate files, such as downloaded model files.
+- **`train.output_dir`** - Path to the output directory. Contains training results, logs, and checkpoints.
 
 **Project-related Attributes**
 
