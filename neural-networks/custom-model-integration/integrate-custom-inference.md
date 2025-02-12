@@ -14,10 +14,10 @@ In this guide, you'll learn how to build a custom [Serving App](../inference-and
 
 To integrate your custom model into the Supervisely platform, follow these steps:
 
-- **Step 1. Prepare the Model Configuration List:** Create a `.json` file to list your model configurations.
-- **Step 2. Prepare Inference Settings:** Create a `.yaml` file to specify parameters for inference.
-- **Step 3. Prepare App Options:** Create a `.yaml` file to specify additional options for your app.
-- **Step 4. Create Custom Class:** Create a python file that contains your custom inference class.
+- **Step 1. Prepare Model Configurations:** Create `models.json` file with model configurations and checkpoints.
+- **Step 2. Prepare Inference Settings:** Create `inference_settings.yaml` file to define a set of parameters used for inference.
+- **Step 3. Prepare App Options:** Create a `app_options.yaml` file to specify additional options for your app.
+- **Step 4. Create Inference Class:** Create a python file that contains your custom inference class.
 - **Step 5. Implement Required Methods:** Implement the `load_model` and `predict` methods.
 - **Step 6. Create Main Script:** Create an entrypoint python script to run and serve your model.
 
@@ -285,7 +285,7 @@ You can easily debug your code locally in your favorite IDE.
 We recommend using **Visual Studio Code** IDE, because our repositories have prepared settings for convenient debugging in VSCode. It is the easiest way to start.
 {% endhint %}
 
-#### For VSCode users
+**For VS Code users**
 
 You can use the following `launch.json` configuration to run and debug your app locally (place it in the `.vscode` directory):
 
@@ -326,7 +326,9 @@ You can use the following `launch.json` configuration to run and debug your app 
 ```
 </details>
 
-Run the code in the VSCode debugger by selecting the `Uvicorn Serve` configuration. This will start the app on http://localhost:8000.
+### Run the app locally
+
+Run the code in the VSCode debugger by selecting the `Uvicorn Serve` configuration. This will start the app on [http://localhost:8000](http://localhost:8000).
 
 You may need to install additional packages to debug the app locally:
 
@@ -334,13 +336,13 @@ You may need to install additional packages to debug the app locally:
 sudo apt-get install wireguard iproute2
 ```
 
-#### Shell command to run the app:
+**Shell command to run the app:**
 
 ```shell
 python -m uvicorn src.main:model.app --host 0.0.0.0 --port 8000
 ```
 
-If everything is set up correctly, you should be able to open the app in your browser at http://localhost:8000.
+If everything is set up correctly, you should be able to open the app in your browser at [http://localhost:8000](http://localhost:8000).
 
 ### Test that inference works correctly
 

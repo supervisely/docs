@@ -441,7 +441,7 @@ You can run and debug your training app locally using the following shell comman
 uvicorn main:train.app --host 0.0.0.0 --port 8000 --ws websockets
 ```
 
-After running the app, you can access it at http://localhost:8000.
+After running the app, you can access it at [http://localhost:8000](http://localhost:8000).
 
 
 If you are a VSCode user, you can create `.vscode/launch.json` configuration to run and debug your training app locally.
