@@ -21,13 +21,13 @@ We'll use the [Train RT-DETRv2](https://ecosystem.supervisely.com/apps/rt-detrv2
 
 Let's dive into the steps required to integrate your custom model using the `TrainApp` class.
 
-- **[Step 1](#id1.-prepare-model-configuration-list). Prepare the Model Configuration List:** Create a `models.json` file with a list of model configurations.
-- **[Step 2](#step-2.-prepare-hyperparameters). Prepare Hyperparameters:** Define default hyperparameters and save to a `.yaml` file.
-- **Step 3. Prepare App Options:** Add optional features to control the GUI layout and behavior.
-- **Step 4. The `TrainApp`:** Initialize the `TrainApp` class with the required parameters.
-- **Step 5. Integrate Your Custom Model:** Implement your custom model training logic using the `TrainApp` wrapper.
-- **Step 6. Add optional features:** Enhance your training app with additional features like a progress bar or model evaluation.
-- **Step 7. Run the application:** Launch the training app locally and deploy it to the Supervisely platform.
+1. **[Prepare the Model Configuration List](#id-1.-prepare-model-configuration-list):** Create a `models.json` file with a list of model configurations.
+2. **[Prepare Hyperparameters](#step-2.-prepare-hyperparameters):** Define default hyperparameters and save to a `.yaml` file.
+3. **Prepare App Options:** Add optional features to control the GUI layout and behavior.
+4. **The `TrainApp`:** Initialize the `TrainApp` class with the required parameters.
+5. **Integrate Your Custom Model:** Implement your custom model training logic using the `TrainApp` wrapper.
+6. **Add optional features:** Enhance your training app with additional features like a progress bar or model evaluation.
+7. **Run the application:** Launch the training app locally and deploy it to the Supervisely platform.
 
 ### 1. Prepare Model Configuration List
 
@@ -81,7 +81,7 @@ Each model must also include a `meta` field. This field is not displayed in the 
   - (**optional**) `config`: Path to the model configuration file
   - (**optional**) Any additional files can be added to the `model_files` dictionary
 
-### Step 2. Prepare Hyperparameters
+### 2. Prepare Hyperparameters
 
 Define your default hyperparameters save to a `.yaml` file (e.g., `hyperparameters.yaml`). Path to this file is then passed to the `TrainApp` for training configuration.
 
@@ -130,7 +130,7 @@ ema:
 use_amp: True
 ```
 
-### Step 3. [Optional] Prepare App Options
+### 3. [Optional] Prepare App Options
 
 You can provide additional options to control the GUI layout and behavior. Create an `app_options.yaml` file to enable or disable features.
 
@@ -194,7 +194,7 @@ auto_convert_classes: true
 
 </details>
 
-### Step 4. The `TrainApp`
+### 4. The `TrainApp`
 
 Now that you have prepared the necessary files, you can initialize the `TrainApp` class with the required parameters. The `TrainApp` class is the core component that manages the training process and provides a user-friendly interface for interacting with the training app.
 
@@ -244,11 +244,11 @@ class TrainApp(
 - **`train.classes`** - List of selected classes
 - **`train.device`** - Selected CUDA device
 
-### Step 5. Integrate Your Custom Model
+### 5. Integrate Your Custom Model
 
 Now it's time to integrate your custom model using the TrainApp class. We'll use the RT-DETRv2 model as an example. You can always refer to the source code for Train RT-DETRv2 on [GitHub](https://github.com/supervisely-ecosystem/RT-DETRv2/tree/main/supervisely_integration/train).
 
-#### Step 5.1 Initialize Your Imports
+#### 5.1 Initialize Your Imports
 
 ```python
 import os
@@ -268,7 +268,7 @@ from supervisely_integration.export import export_onnx, export_tensorrt
 from supervisely_integration.serve.rtdetrv2 import RTDETRv2
 ```
 
-#### Step 5.2 Initialize the `TrainApp`
+#### 5.2 Initialize the `TrainApp`
 
 Create an instance of the `TrainApp` by providing the framework name, model configuration file, hyperparameters file, and app options file.
 
@@ -282,7 +282,7 @@ train = TrainApp(
 )
 ```
 
-#### Step 5.3 Prepare Training data
+#### 5.3 Prepare Training data
 
 The `TrainApp` gives you access to the Supervisely [Project](https://supervisely.readthedocs.io/en/latest/sdk/supervisely.project.project.Project.html#supervisely.project.project.Project) containing the `train` and `val` datasets. Convert these datasets to the desired format (e.g., COCO) and run your training routine. You can use built-in converters like `to_coco` to convert your datasets to the required format or write your custom converter if required.
 
@@ -310,7 +310,7 @@ def convert_data() -> Tuple[str, str]:
     return train_ann_path, val_ann_path
 ```
 
-#### Step 5.4 Implement Training Routine
+#### 5.4 Implement Training Routine
 
 All training code should be implemented in the function under the `@train.start` decorator and should return the experiment information dictionary.
 
@@ -377,7 +377,7 @@ def start_training():
     return experiment_info
 ```
 
-### Step 6. [Optional] Add optional features
+### 6. [Optional] Add optional features
 
 You can enhance your training application by adding additional features like a progress bar or model evaluation. These features provide valuable feedback to the user and help in monitoring the training process.
 
@@ -406,7 +406,7 @@ If you plan to use [Evaluation Model Benchmark](../model-evaluation-benchmark/RE
 train.register_inference_class(RTDETRv2)
 ```
 
-### Step 7. Run the application
+### 7. Run the application
 
 Now that you've integrated your custom model, you're ready to launch the training application. You can choose to run it locally for testing or deploy it directly to the Supervisely platform. The training app functions like any other Supervisely app, but with a built-in GUI.
 
