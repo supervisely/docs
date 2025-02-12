@@ -1,3 +1,5 @@
+# Supervisely Serving Apps
+
 ## Overview
 
 This section covers the deployment and inference of models using **Supervisely Serving Apps**. This is a simple way to deploy a model on the Supervisely Platform with a convenient web UI. It allows you to deploy both the pretrained models, such as YOLOv8, and your own models trained in Supervisely.
