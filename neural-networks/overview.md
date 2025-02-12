@@ -2,7 +2,7 @@
 
 Supervisely covers the entire model lifecycle, from training to production deployment, enabling you to apply models to images, videos, and 3D data. The Supervisely Platform provides comprehensive support at every stage of the model lifecycle and simplifies model development. In many standard cases, you don't even need to write a single line of code, but for advanced customization, you can!
 
-![The Entire Model Lifecycle](/.gitbook/assets/nn-overview/schema.png)
+![The Entire Model Lifecycle](/.gitbook/assets/neural-networks/schema.png)
 
 ## Train
 
@@ -22,6 +22,8 @@ In the Supervisely Platform, you can train popular models and frameworks on your
 
 After training, the [Model Evaluation Benchmark](model-evaluation-benchmark) will be automatically launched for the best checkpoint, and you will be able to examine a detailed report with model performance results, which covers a broad set of metrics, charts, and prediction visualizations.
 
+![Evaluation Benchmark Example](/.gitbook/assets/benchmark_report.gif)
+
 - Auto model evaluation after each training session.
 - Very detailed evaluation report with a wide set of metrics, charts, and prediction visualizations.
 - Currently supported for Detection, Instance segmentation, Semantic segmentation.
@@ -29,7 +31,7 @@ After training, the [Model Evaluation Benchmark](model-evaluation-benchmark) wil
 
 ## Model Comparison & Versioning
 
-Each model trained in Supervisely is recorded in the Experiments table, which displays all your trained models, their metrics, links to train and val datasets, evaluation report, and other useful information. In addition to the evaluation report of a single model, you can generate a comparison report of two or more models, which allows you to compare models in as much detail as during the evaluation stage – it will include various pivot tables, charts and comparison tools. Additionally, you can quickly deploy models or fine-tune them right from the Experiments table.
+Each model trained in Supervisely is recorded in the Experiments table which displays all your trained models, their metrics, links to train and val datasets, evaluation report, and other useful information. In addition to the evaluation report of a single model, you can generate a comparison report of two or more models allowing you to compare models in as much detail as during the evaluation stage – it will include various pivot tables, charts and comparison tools. Additionally, you can quickly deploy models or fine-tune them right from the Experiments table.
 
 - The Experiments table with all your trained models and experiments.
 - Quickly deploy models or fine-tune them right from the Experiments table.
