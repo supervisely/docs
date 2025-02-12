@@ -21,7 +21,7 @@ We'll use the [Train RT-DETRv2](https://ecosystem.supervisely.com/apps/rt-detrv2
 
 Let's dive into the steps required to integrate your custom model using the `TrainApp` class.
 
-1. **[Prepare the Model Configuration List](#id-1.-prepare-model-configuration-list):** Create a `models.json` file with a list of model configurations.
+1. **[Prepare Model Configurations](#id-1.-prepare-model-configurations):** Create a `models.json` file with a list of model configurations.
 2. **[Prepare Hyperparameters](#id-2.-prepare-hyperparameters):** Define default hyperparameters and save to a `.yaml` file.
 3. **[Prepare App Options](#id-3.-prepare-app-options):** Add optional features to control the GUI layout and behavior.
 4. **[The TrainApp](#id-4.-trainapp-class):** Initialize the `TrainApp` class with the required parameters.
@@ -29,9 +29,11 @@ Let's dive into the steps required to integrate your custom model using the `Tra
 6. **[Enhancements](#id-6.-enhancements):** Enhance your training app with additional features like a progress bar or model evaluation.
 7. **[Run the Application](#id-7.-run-the-application):** Launch the training app locally and deploy it to the Supervisely platform.
 
-### 1. Prepare Model Configuration List
+### 1. Prepare Model Configurations
 
-To enable model selection in your training app, you'll need to create a models.json file. This file stores a list of model configurations, where each configuration is represented as a dictionary containing model-specific details. These configurations will be displayed in the app's GUI, allowing users to easily choose a model for training.
+To enable selection of a model configuration for training, create a `models.json` file. This JSON file consists of a list of dictionaries, each detailing a specific model configuration. The information from this file will populate a table in your app's GUI, allowing users to select a model.
+
+You can also add information or URLs of pretrained checkpoints and weights to enable fine-tuning of existing models.
 
 {% hint style="info" %}
 
@@ -66,20 +68,22 @@ _Example GUI preview:_
 
 ![Model Selection](/.gitbook/assets/custom-model-integration/train-step-4.png)
 
-**Table Fields:**
+#### Table Fields
 
-Fields that are displayed in the GUI for quick reference about the model performance. These fields can be anything you want to display in the GUI about your model and are not limited to the example shown above.
+Each dictionary item in `models.json` represents a single model as a row, with all its fields, except for the `meta` field, acting as columns. You can customize these fields to display the necessary information.
 
-**Technical Field (meta):**
+#### Technical Field (`meta`)
 
-Each model must also include a `meta` field. This field is not displayed in the GUI. It contains technical information required by the inference class and ensures the app functions properly behind the scenes.
+Each model configuration must have a `meta` field. This field is not displayed in the table but contains essential information required in training to properly build the model.
 
-- (**required**) `task_type`: The type of task (e.g., object detection)
-- (**required**) `model_name`: Model configuration name
-- (**required**) `model_files`: Paths to the checkpoint and configuration files. You can extend this field with additional paths if needed
-  - (**required**) `checkpoint`: Path or URL to the model checkpoint. URL will be downloaded automatically
-  - (**optional**) `config`: Path to the model configuration file
-  - (**optional**) Any additional files can be added to the `model_files` dictionary
+Here are the required fields:
+
+- (**required**) `task_type`: A computer vision task type (e.g., object detection).
+- (**required**) `model_name`: Model configuration name.
+- (**required**) `model_files`: A dict with files needed to load the model, such as model weights, config file. You can extend it with additional files if needed.
+  - *(optional)* `checkpoint`: Path or URL to the model weights to enable fine-tuning.
+  - *(optional)* `config`: Path to the model configuration file.
+  - *(optional)* Any additional files can be added to the `model_files` dictionary that are required for your model.
 
 ### 2. Prepare Hyperparameters
 
@@ -213,9 +217,9 @@ class TrainApp(
 |   Parameters    |                        Type                        |                  Description                   |
 |:---------------:|:--------------------------------------------------:|:----------------------------------------------:|
 | framework_name  |                        str                         |   Name of the ML framework used for training   |
-|     models      |       Union\[str, List\[Dict\[str, Any\]\]\]       | Path to `models.json` file with model configurations, or a list of the same JSON |
+|     models      |       Union\[str, List\[dict\]\]       | Path to `models.json` file with model configurations, or a list of the same JSON |
 | hyperparameters |                        str                         |   Path to `hyperparameters.yaml` file   |
-|   app_options   | Optional\[Union\[str, List\[Dict\[str, Any\]\]\]\] |     Path to `app_options.yaml` file     |
+|   app_options   | Optional\[str\] |     Path to `app_options.yaml` file     |
 |    work_dir     |                  Optional\[str\]                   |   Local path for storing intermediate files, such as downloaded model files    |
 
 #### Important TrainApp Attributes
@@ -227,21 +231,21 @@ class TrainApp(
 
 - **`train.project_id`** - Supervisely project ID
 - **`train.project_name`** - Project name
-- **`train.project_info`** - Contains project information(ProjectInfo object)
+- **`train.project_info`** - Contains project information (`ProjectInfo` object)
 - **`train.project_meta`** - [ProjectMeta](https://supervisely.readthedocs.io/en/latest/sdk/supervisely.project.project_meta.ProjectMeta.html#supervisely.project.project_meta.ProjectMeta) object with classes/tags info
 - **`train.project_dir`** - Project directory path
 - **`train.train_dataset_dir`** - Training dataset directory path
 - **`train.val_dataset_dir`** - Validation dataset directory path
-- **`train.sly_project`** - Supervisely [Project](https://supervisely.readthedocs.io/en/latest/sdk_packages.html#project) object
+- **`train.sly_project`** - Supervisely [sly.Project](https://supervisely.readthedocs.io/en/latest/sdk_packages.html#project) object
 
 **Model-related Attributes**
 
 - **`train.model_name`** - Name of the selected model
 - **`train.model_source`** - Indicates if the model is pretrained or custom (trained in Supervisely)
 - **`train.model_files`** - Dictionary containing paths to model files (e.g., `checkpoint` and optional `config`)
-- **`train.model_info`** - Entry from the [models.json](#step-1-prepare-the-model-configuration-list-) for the selected model if model is selected from the list of pretrained models, otherwise [experiment info](#experiment-info)
+- **`train.model_info`** - Entry from the `models.json` for the selected model if model is selected from the list of pretrained models, otherwise [experiment info](#experiment-info) dict.
 - **`train.hyperparameters`** - Dictionary of selected hyperparameters
-- **`train.classes`** - List of selected classes
+- **`train.classes`** - List of selected class names
 - **`train.device`** - Selected CUDA device
 
 ### 5. Integrate Your Custom Model
@@ -252,19 +256,18 @@ Now it's time to integrate your custom model using the TrainApp class. We'll use
 
 ```python
 import os
-import shutil
 import sys
-from multiprocessing import cpu_count
-
-sys.path.insert(0, "rtdetrv2_pytorch")
 import yaml
+
+# Add path to the source code of PyTorch model architecture
+sys.path.insert(0, "rtdetrv2_pytorch")
 
 import supervisely as sly
 from rtdetrv2_pytorch.src.core import YAMLConfig
 from rtdetrv2_pytorch.src.solver import DetSolver
 from supervisely.nn import ModelSource, RuntimeType
 from supervisely.nn.training.train_app import TrainApp
-from supervisely_integration.export import export_onnx, export_tensorrt
+
 from supervisely_integration.serve.rtdetrv2 import RTDETRv2
 ```
 
@@ -400,7 +403,7 @@ train_logger.train_finished()
 
 #### 6.2 Register the Inference Class for model evaluation 📊
 
-If you plan to use [Evaluation Model Benchmark](../model-evaluation-benchmark/README.md), you need to implement Inference class and register it for TrainApp. Refer to the ❌ [Integrate Custom Inference](https://...) guide for more information.
+If you plan to use [Evaluation Model Benchmark](../model-evaluation-benchmark/README.md), you need to implement Inference class and register it for TrainApp. Refer to the [Integrate Custom Inference](./integrate-custom-inference.md) guide for more information.
 
 ```python
 train.register_inference_class(RTDETRv2)
@@ -438,11 +441,8 @@ You can run and debug your training app locally using the following shell comman
 uvicorn main:train.app --host 0.0.0.0 --port 8000 --ws websockets
 ```
 
-After running the app, you can access the GUI by opening the following URL in your browser:
+After running the app, you can access it at http://localhost:8000.
 
-```text
-http://localhost:8000/
-```
 
 If you are a VSCode user, you can create `.vscode/launch.json` configuration to run and debug your training app locally.
 
@@ -545,7 +545,7 @@ All model files provided in experiment info and checkpoints (e.g., best, interme
 A metadata file (`model_meta.json`) is generated, which includes essential details about the model (such as its architecture, training parameters, and version). This file is then uploaded along with other artifacts.
 
 6. **Run Model Benchmarking (if enabled)**
-If model benchmarking is enabled in your `app_options`, the system will run automated tests to evaluate model performance. These benchmarks help in comparing the model against standard metrics.
+If model benchmarking is enabled in your `app_options`, the system will run automated evaluation and generate a detailed report with metrics and visualizations. This report is then uploaded to the Supervisely platform.
 
 7. **Export Model to ONNX and TensorRT (if enabled)**
 For ease of deployment, the model may be automatically exported to additional formats like ONNX and TensorRT. This ensures compatibility with different serving environments.
