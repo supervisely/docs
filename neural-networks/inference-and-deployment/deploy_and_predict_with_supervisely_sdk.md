@@ -13,12 +13,10 @@ In-platform deployment is similar to manually launching a Serving App on the Sup
 1. Install supervisely SDK if not installed.
 
 ```
-pip install supervisely
+pip install -U supervisely
 ```
 
-2. Run this code to deploy a model on the platform.
-
-❌ *У нас еще нет метода deploy_model*
+2. Run this code to deploy a model on the platform (starting with supervisely `v6.73.304`).
 
 ```python
 from dotenv import load_dotenv
@@ -29,7 +27,7 @@ from supervisely.nn.deploy import deploy_model
 # Ensure you've set API_TOKEN and SERVER_ADDRESS environment variables.
 load_dotenv(os.path.expanduser("~/supervisely.env"))
 
-model = deploy_model("your_experiment_name")
+model = deploy_custom_model("your_experiment_name")
 ```
 
 ### 2. Predict
@@ -72,32 +70,40 @@ There are several variants of how you can use a model locally:
 * **[Load and Predict in Your Code](#load-and-predict-in-your-code)**: Load your checkpoint and get predictions in your code or in a script.
 * **[Deploy Model as a Server](#deploy-model-as-a-server)**: Deploy your model as a server on your machine, and interact with it through API requests.
   * **[🐋 Deploy in Docker Container](#deploy-in-docker-container)**: Deploy model as a server in a docker container on your local machine.
-* **[Deploy Model as a Serving App with web UI](#deploy-model-as-a-serving-app-with-web-ui)**: Deploy model as a server with a web UI and interact with it through API. ❓ This feature is mostly for debugging and testing of Serving Apps.
+* **[Deploy Model as a Serving App with web UI](#deploy-model-as-a-serving-app-with-web-ui)**: Deploy model as a server with a web UI and interact with it through API. ❓ - This feature is mostly for debugging and testing purposes.
 
 
 ### Load and Predict in Your Code
 
 This example shows how to load your checkpoint and get predictions in any of your code. RT-DETRv2 is used in this example, but the instructions are similar for other models.
 
-1. **Clone** our [RT-DETRv2](https://github.com/supervisely-ecosystem/RT-DETRv2) fork with the model implementation.
+#### 1. Clone repository
+
+Clone our [RT-DETRv2](https://github.com/supervisely-ecosystem/RT-DETRv2) fork with the model implementation.
 
 ```bash
 git clone https://github.com/supervisely-ecosystem/RT-DETRv2
 cd RT-DETRv2
 ```
 
-2. **Set up environment:** Install [requirements](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/main/rtdetrv2_pytorch/requirements.txt) manually, or use our pre-built docker image ([DockerHub](https://hub.docker.com/r/supervisely/rt-detrv2/tags) | [Dockerfile](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/main/docker/Dockerfile)). Additionally, you need to install Supervisely SDK.
+#### 2. Set up environment
+
+Install [requirements.txt](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/main/rtdetrv2_pytorch/requirements.txt) manually, or use our pre-built docker image ([DockerHub](https://hub.docker.com/r/supervisely/rt-detrv2/tags) | [Dockerfile](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/main/docker/Dockerfile)). Additionally, you need to install Supervisely SDK.
 
 ```bash
 pip install -r rtdetrv2_pytorch/requirements.txt
 pip install supervisely
 ```
 
-3. **Download** your checkpoint and model files from Team Files.
+#### 3. Download checkpoint
+
+Download your checkpoint and model files from Team Files.
 
 ![Download checkpoint from Team Files](https://github.com/user-attachments/assets/796bf915-fbaf-4e93-a327-f0caa51dced4)
 
-4. **Predict:** Create `main.py` file in the root of the repository and paste the following code:
+#### 4. Predict
+
+Create `main.py` file in the root of the repository and paste the following code:
 
 ```python
 import numpy as np
@@ -156,14 +162,16 @@ sys.path.append("/path/to/RT-DETRv2")
 In this variant, you will deploy a model locally as an API Server with the help of Supervisely SDK. The server will be ready to process API request for inference. It allows you to predict with local images, folders, videos, or remote supervisely projects and datasets (if you provided your Supervisely API token).
 
 
-1. **Clone** our [RT-DETRv2](https://github.com/supervisely-ecosystem/RT-DETRv2) fork with the model implementation.
+#### 1. Clone repository
+
+Clone our [RT-DETRv2](https://github.com/supervisely-ecosystem/RT-DETRv2) fork with the model implementation.
 
 ```bash
 git clone https://github.com/supervisely-ecosystem/RT-DETRv2
 cd RT-DETRv2
 ```
 
-2. **Set up environment:**
+#### 2. Set up environment
 
 Install [requirements](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/main/rtdetrv2_pytorch/requirements.txt) manually, or use our pre-built docker image ([DockerHub](https://hub.docker.com/r/supervisely/rt-detrv2/tags) | [Dockerfile](https://github.com/supervisely-ecosystem/RT-DETRv2/blob/main/docker/Dockerfile)).
 
@@ -172,11 +180,13 @@ pip install -r rtdetrv2_pytorch/requirements.txt
 pip install supervisely
 ```
 
-3. **Download** (optional) your checkpoint and model files from Team Files. Or skip this step and pass a remote path to checkpoint in Team Files.
+#### 3. Download checkpoint (optional)
+
+Download your checkpoint and model files from Team Files. Or skip this step and pass a remote path to checkpoint in Team Files.
 
 ![Download checkpoint from Team Files](https://github.com/user-attachments/assets/796bf915-fbaf-4e93-a327-f0caa51dced4)
 
-4. **Deploy:**
+#### 4. Deploy
 
 To deploy, use `main.py` script to start the server. You need to pass the path to your checkpoint file or the name of the pretrained model using `--model` argument. Like in the previous example, you need to add the path to the repository into `PYTHONPATH`.
 
@@ -184,11 +194,11 @@ To deploy, use `main.py` script to start the server. You need to pass the path t
 PYTHONPATH="${PWD}:${PYTHONPATH}" python ./supervisely_integration/serve/main.py --model ./my_experiments/2315_RT-DETRv2/checkpoints/best.pth
 ```
 
-This command will start the server on http://0.0.0.0:8000 and will be ready to accept API requests for inference.
+This command will start the server on [http://0.0.0.0:8000](http://0.0.0.0:8000) and will be ready to accept API requests for inference.
 
-5. **Predict**
+#### 5. Predict
 
-After the model is deployed, use Supervisely [Inference Session API](https://developer.supervisely.com/app-development/neural-network-integration/inference-api-tutorial) with setting server address to http://0.0.0.0:8000.
+After the model is deployed, use Supervisely [Inference Session API](https://developer.supervisely.com/app-development/neural-network-integration/inference-api-tutorial) with setting server address to [http://0.0.0.0:8000](http://0.0.0.0:8000).
 
 ```python
 import os
@@ -241,7 +251,7 @@ PYTHONPATH="${PWD}:${PYTHONPATH}" python ./supervisely_integration/serve/main.py
 
 Deploying in a Docker Container is similar to deployment as a Server. This example is useful when you need to run your model on a remote machine or in a cloud environment.
 
-Use this docker run command:
+Use this `docker run` command:
 
 ❌ тут нужно еще с Пашей проверить, что все аргументы рабочие. Пока что примерный список:
 
@@ -260,23 +270,26 @@ docker run \
 ```
 
 In the last line, you need to pass the argument for model checkpoint and, optionally, other arguments for prediction (see the [previous](#deploy-model-as-a-server) section).
-This will start the server on http://0.0.0.0:8000 in the container and will be ready to accept API requests for inference. You can use the same SessionAPI to get predictions.
+This will start the server on [http://0.0.0.0:8000](http://0.0.0.0:8000) in the container and will be ready to accept API requests for inference. You can use the same SessionAPI to get predictions.
 
 
 ### Deploy Model as a Serving App with web UI
 
-In this variant, you will start a [Serving App](supervisely-serving-apps.md) with web UI, in which you can deploy a model.
+In this variant, you will run a [Serving App](supervisely-serving-apps.md) with web UI, in which you can deploy a model.
 
 You need to follow all the steps from the [previous](#deploy-model-as-a-server) section, but instead of running the server, you need to run the following command:
 
-**Deploy:**
+#### Deploy
 
 ```bash
 uvicorn main:model.app --app-dir supervisely_integration/serve --host 0.0.0.0 --port 8000 --ws websockets
 ```
-After the app is started, you can open the web UI http://localhost:8000, and deploy a model through the web interface.
 
-**Predict:** Use the same [SessionAPI](https://developer.supervisely.com/app-development/neural-network-integration/inference-api-tutorial) to get predictions with the server address http://localhost:8000.
+After the app is started, you can open the web UI [http://localhost:8000](http://localhost:8000), and deploy a model through the web interface.
+
+#### Predict
+
+Use the same [SessionAPI](https://developer.supervisely.com/app-development/neural-network-integration/inference-api-tutorial) to get predictions with the server address [http://localhost:8000](http://localhost:8000).
 
 ```python
 import os
