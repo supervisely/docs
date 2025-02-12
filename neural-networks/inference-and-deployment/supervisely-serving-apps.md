@@ -53,7 +53,7 @@ After the model is deployed, you'll see a green checkmark with text *"Model has 
 
 ## How to Predict
 
-### 1. Apply Model in Platform
+### Apply Model in Platform
 
 After the model is deployed, you can apply it using the **NN Applying apps**. They allow you to predict the entire projects or datasets:
 
@@ -66,7 +66,7 @@ After the model is deployed, you can apply it using the **NN Applying apps**. Th
 
 ![Apply Apps](/.gitbook/assets/neural-networks/search-apply.jpg)
 
-### 2. NN Image Labeling
+### NN Image Labeling
 
 **Run NN Image Labeling**
 
@@ -80,7 +80,7 @@ In the app interface, select the deployed model from the list. Click the **"Conn
 
 ![Apply Model in Labeling](/.gitbook/assets/neural-networks/nn-image-labeling-2.jpg)
 
-### 3. Inference via API
+### Inference via API
 
 You can automate the inference process by sending requests to the deployed model via API. A running Serving App acts like a server and can process inference requests.
 
