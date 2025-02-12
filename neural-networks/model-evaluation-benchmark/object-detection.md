@@ -4,6 +4,8 @@
 
 We use [pycocotools](https://github.com/cocodataset/cocoapi/tree/master) to compute basic metrics such as mAP, precision, and recall. Additionally, we utilize algorithms from pycocotools for object matching based on IoU. This approach allows us to adhere to the original algorithm for calculating the mAP metric, as different implementations can yield slightly varying results. Moreover, pycocotools is a C++ library with Python bindings, which ensures fast and efficient calculations.
 
+![Benchmark Report Example](../../.gitbook/assets/benchmark_report.gif)
+
 ### Matching Algorithm from pycocotools
 
 To calculate common metrics, we need to *match* predicted bounding boxes with the actual ones. During the matching stage, we assign each boudnding box an outcome: **True Positive**, **False Positive**, or **False Negative**. These categories are essential for calculating precision, recall, f1, and mAP. A predicted bounding box is considered **matched** if it overlaps with an actual bounding box with [IoU](#localization-accuracy-iou) >= 0.5.
