@@ -2,19 +2,21 @@
 
 Supervisely covers the entire model lifecycle, from training to production deployment, enabling you to apply models to images, videos, and 3D data. The Supervisely Platform provides comprehensive support at every stage of the model lifecycle and simplifies model development. In many standard cases, you don't even need to write a single line of code, but for advanced customization, you can!
 
+![The Entire Model Lifecycle](/.gitbook/assets/nn-overview/schema.png)
+
 ## Train
 
 In the Supervisely Platform, you can train popular models and frameworks on your data using a convenient UI. The platform's modular design allows you to customize training apps to suit your needs and even integrate your own models and architectures.
 
-- Train popular models, such as [YOLOv8 - YOLOv11](https://ecosystem.supervisely.com/apps/yolov8/train), [RT-DETRv2](https://ecosystem.supervisely.com/apps/rt-detrv2/supervisely_integration/train), [MMDetection](https://ecosystem.supervisely.com/apps/train-mmdetection-v3), [SAM 2](https://ecosystem.supervisely.com/apps/serve-segment-anything-2/train).
-- Open source.
-- No vendor lock: use your models out of Supervisely Platform as standalone PyTorch models or within Python Supervisely SDK.
-- Auto export PyTorch model to ONNX, TensorRT, OpenVINO runtimes if framework supports it.
-- Auto-training: Automate model training via API to handle custom model improvement scenarios.
-- Tracking of data changes and model versions – all your experiments are reproducible.
-- Integrate training of your custom models and architectures.
-- Active Learning support: continuous model improvement by learning from newly added data with efficient sampling strategies.
-- Workflow charts: Visual dashboard that shows every ML operation – from data preparation to model deployment – all in one clear diagram.
+- **Train popular models:** [YOLOv8 - YOLOv11](https://ecosystem.supervisely.com/apps/yolov8/train), [RT-DETRv2](https://ecosystem.supervisely.com/apps/rt-detrv2/supervisely_integration/train), [MMDetection](https://ecosystem.supervisely.com/apps/train-mmdetection-v3), [SAM 2.1](https://ecosystem.supervisely.com/apps/serve-segment-anything-2/train).
+- **Open source:** All apps and Supervisely SDK are open-source, you can customize them to your needs.
+- **No vendor lock:** You aren't locked within Supervisely. Use your trained models outside of Supervisely Platform as standalone PyTorch models or with the help of Python Supervisely SDK.
+- **Model Auto-export:** Export PyTorch models to ONNX, TensorRT, OpenVINO runtimes if framework supports it.
+- **Automate Training:** Automate model training via API to handle custom model improvement scenarios.
+- **Model & Data Versioning:** All your experiments are reproducible. You can "commit" data changes and keep track of model versions.
+- **Integrate Custom Models:** You can integrate your own model architectures for training and inference to be seamlessly integrated into the platform.
+- **Active Learning support:** Continuous model improvement by learning from newly added data with efficient sampling strategies.
+- **Workflow charts:** Visual dashboard that shows every ML operation – from data preparation to model deployment – all in one clear diagram.
 
 ## Evaluate
 

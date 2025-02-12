@@ -4,8 +4,8 @@ This section covers the deployment and inference of models.
 
 In general, there are 3 different ways you can deploy and apply your trained model:
 
-1. **[Supervisely Serving Apps](supervisely-serving-apps.md)** within the Platform. Faster and user-friendly way with convenient web UI.  
-2. **[Deploy with Supervisely Python SDK](deploy_and_predict_with_supervisely_sdk.md)** for automated model inference: Use Supervisely SDK for deploying models and getting predictions in your code.  
+1. **[Supervisely Serving Apps](supervisely-serving-apps.md)** within the Platform. Simple and user-friendly way to deploy a model with convenient web UI.
+2. **[Deploy with Supervisely Python SDK](deploy_and_predict_with_supervisely_sdk.md)** for automated model inference: Use Supervisely SDK for deploying models and getting predictions in your code.
 3. **[Using Standalone PyTorch Models](using-standalone-pytorch-models.md)**: You can always download a plain PyTorch checkpoint and use it outside of Supervisely infrastructure in your code, or download its ONNX / TensorRT exported versions.
 
 ## 1. Supervisely Serving Apps
