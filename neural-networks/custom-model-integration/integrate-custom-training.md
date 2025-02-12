@@ -393,11 +393,11 @@ Simply import `train_logger` from `supervisely.nn.training` and use it in your t
 ```python
 from supervisely.nn.training import train_logger
 
-train_logger.train_started(total_epochs=(args.epoches - start_epcoch))
-for epoch in range(start_epcoch, total_epochs):
-    train_logger.epoch_started(epoch)
+train_logger.train_started(total_epochs)
+for epoch in range(start_epoch, total_epochs):
+    train_logger.epoch_started(total_steps)
     ...
-    train_logger.epoch_finished(epoch, metrics)
+    train_logger.epoch_finished()
 train_logger.train_finished()
 ```
 
@@ -747,7 +747,7 @@ The default location for these logs is: `/experiments/{project_id}_{project_name
 
 To open and view the log file, you can use [Tensorboard Experiments Viewer](https://ecosystem.supervisely.com/apps/tensorboard-experiments-viewer) app.
 
-![tensorboard dashboard]()
+![tensorboard dashboard](/.gitbook/assets/custom-model-integration/train-tensorboard-dashboard.png)
 
 ### Debugging with app_state.json 🐞
 
