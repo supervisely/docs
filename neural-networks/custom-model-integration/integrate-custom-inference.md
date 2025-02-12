@@ -263,11 +263,9 @@ def _postprocess_outputs(self, outputs, settings: dict):
     pass
 ```
 
-### Step 6. [Optional] Create Main Script
+### Step 6. Create main.py script
 
-This step is optional, but we recommend to keep your main script separate from the custom class for better organization.
-
-Create a main python script (e.g., `src/main.py`) to run and debug your app. This file should contain code to initialize custom class and serve it. This script will be the entry point for your app.
+Create an entrypoint script (`src/main.py`) that runs when the app starts. This script initializes your inference class and launches a FastAPI server using the `model.serve()` method.
 
 **Example `main.py`**
 
@@ -284,14 +282,12 @@ model.serve()
 You can easily debug your code locally in your favorite IDE.
 
 {% hint style="info" %}
-For now, we recommend using **Visual Studio Code** IDE, because our repositories have prepared settings for convenient debugging in VSCode. It is the easiest way to start.
+We recommend using **Visual Studio Code** IDE, because our repositories have prepared settings for convenient debugging in VSCode. It is the easiest way to start.
 {% endhint %}
 
-#### For Visual Studio Code users
+#### For VSCode users
 
-Create a `launch.json` file with configuration in the `.vscode` directory of your repository.
-
-You can use the following template as a starting point:
+You can use the following `launch.json` configuration to run and debug your app locally (place it in the `.vscode` directory):
 
 <details>
 <summary> <b> .vscode/launch.json </b> </summary>
@@ -303,20 +299,7 @@ You can use the following template as a starting point:
   "version": "0.2.0",
   "configurations": [
   {
-      "name": "Local Debug",
-      "type": "python",
-      "request": "launch",
-      "program": "${workspaceFolder}/src/main.py", // path to your main file
-      "console": "integratedTerminal",
-      "justMyCode": false,
-      "env": {
-        "PYTHONPATH": "${workspaceFolder}:${PYTHONPATH}",
-        "LOG_LEVEL": "DEBUG",
-        "SLY_APP_DATA_DIR": "${workspaceFolder}/app_data"
-      }
-  },
-  {
-      "name": "Advanced Debug in Supervisely platform",
+      "name": "Uvicorn Serve",
       "type": "debugpy",
       "request": "launch",
       "module": "uvicorn",
@@ -334,7 +317,8 @@ You can use the following template as a starting point:
         "PYTHONPATH": "${workspaceFolder}:${PYTHONPATH}",
         "LOG_LEVEL": "DEBUG",
         "DEBUG_APP_DIR": "app_data",
-        "DEBUG_WITH_SLY_NET": "1"
+        "DEBUG_WITH_SLY_NET": "1",
+        "TEAM_ID": "123",  // put your team id here
       }
     }
   ]
@@ -342,40 +326,49 @@ You can use the following template as a starting point:
 ```
 </details>
 
-### Local Debug
+Run the code in the VSCode debugger by selecting the `Uvicorn Serve` configuration. This will start the app on http://localhost:8000.
 
-You can run the code locally for debugging by running this command in the terminal:
+You may need to install additional packages to debug the app locally:
 
 ```shell
-python src/main.py
+sudo apt-get install wireguard iproute2
 ```
 
-If you're a **Visual Studio Code** user use a prepared `launch.json` configuration that can be selected:
+#### Shell command to run the app:
 
-![Local debug](https://user-images.githubusercontent.com/31512713/223177253-e4475c1f-6909-43d5-99bd-d1f6310c7f48.png)
+```shell
+python -m uvicorn src.main:model.app --host 0.0.0.0 --port 8000
+```
 
-### Debug in Supervisely platform
+If everything is set up correctly, you should be able to open the app in your browser at http://localhost:8000.
 
-Once the code seems working locally, it's time to test the code right in the Supervisely platform as a debugging app. For that:
+### Test that inference works correctly
 
-1. If you develop in a Docker container, you should run the container with `--cap_add=NET_ADMIN` option.
-2. Install `sudo apt-get install wireguard iproute2`.
-3. Define your `TEAM_ID` in the `local.env` file. _Actually there are other env variables that is needed, but they are already provided in `./vscode/launch.json` for you._
-4. Switch the `launch.json` config to the `Advanced debug in Supervisely platform`:
+Serve your model by clicking the "SERVE" button in the GUI. After this, run the following code to test the model inference via API using `SessionJSON` class (see more details in [Inference API Tutorial](https://developer.supervisely.com/app-development/neural-network-integration/inference-api-tutorial)).
 
-![Advanced Debug in Supervisely](https://user-images.githubusercontent.com/31512713/224290229-5da93fd2-dc97-4911-abb5-66ce890485a2.png)
+```python
+from os.path import expanduser
+from dotenv import load_dotenv
+import supervisely as sly
+from supervisely.nn.inference import SessionJSON
 
-5. Run the code.
+# Put your image path here
+image_path = "path/to/your/image.jpg"
 
-✅ It will deploy the model in the Supervisely platform as a regular serving App that is able to communicate with all others app in the platform:
+# Load environment variables
+load_dotenv("local.env")
+load_dotenv(expanduser("~/supervisely.env"))
 
-![Develop and Debug](/.gitbook/assets/custom-model-integration/inference-develop-debug.png)
+app_url = "http://localhost:8000"
 
-{% hint style="success" %}
-Now you can use apps like [Apply NN to Images](https://ecosystem.supervisely.com/apps/nn-image-labeling/project-dataset), [Apply NN to videos](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project) with your deployed model.
+api = sly.Api()
+session = SessionJSON(api, session_url=app_url)
 
-Or get the model inference via **Python API** with the help of `sly.nn.inference.Session` class just in one line of code. See [Inference API Tutorial](https://developer.supervisely.com/app-development/neural-network-integration/inference-api-tutorial).
-{% endhint %}
+prediction = session.inference_image_path(image_path)
+print(prediction)
+print("✅ Success!")
+```
+
 
 ## Releasing Your App
 
@@ -441,7 +434,7 @@ App configuration is stored in `config.json` file. A detailed explanation of all
   "need_gpu": true,
   "community_agent": false,
   "docker_image": "user/custom-yolo:1.0.0",
-  "entrypoint": "python -m uvicorn src.main:m.app --host 0.0.0.0 --port 8000",
+  "entrypoint": "python -m uvicorn src.main:model.app --host 0.0.0.0 --port 8000",
   "port": 8000,
   "headless": true
 }
