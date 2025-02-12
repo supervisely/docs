@@ -14,7 +14,7 @@ This is the most user-friendly variant. Deploy your model via Supervisely **Serv
 
 See more information in [Supervisely Serving Apps](supervisely-serving-apps.md).
 
-[ Screenshot ]
+![Serving Apps](/.gitbook/assets/neural-networks/serve-app-list.jpg)
 
 ## 2. Deploy with Supervisely Python SDK for Automated Inference
 
