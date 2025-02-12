@@ -13,15 +13,15 @@ We'll use the [Train RT-DETRv2](https://ecosystem.supervisely.com/apps/rt-detrv2
 - **Train and Val Splits:** Handles splitting of your project into training and validation sets.
 - **Data Preparation:** Easily convert Supervisely annotation format into one of the popular formats with a single line of code (e.g., COCO annotation format).  
 - **Project Versioning:** Saves project versions to reproduce training with the same data and annotations.
-- **Model Evaluation:** [Model Evaluation Benchmark]() automatically runs evaluation of your model's performance and generate a detailed report.
-- **Model Export:** Export your model to ONNX or TensorRT format (requires [export implementation](#export-model-to-onnx-and-tensorrt)).
-- **Model Saving:** Automatically save your model and related files to Supervisely Team Files.
+- **Model Evaluation:** [Model Evaluation Benchmark](../model-evaluation-benchmark/README.md) automatically runs evaluation of your model and generate a detailed report with metrics and visualizations.
+- **Model Export:** You can add exporting of your model to ONNX or TensorRT format.
+- **Model Saving:** Automatically saves your model and related files to Supervisely Team Files.
 
 ## Step-by-Step Implementation
 
 Let's dive into the steps required to integrate your custom model using the `TrainApp` class.
 
-- **[Step 1](#step-1-prepare-the-model-configuration-list). Prepare the Model Configuration List:** Create a `models.json` file with a list of model configurations.
+- **[Step 1](#1-prepare-the-model-configuration-list). Prepare the Model Configuration List:** Create a `models.json` file with a list of model configurations.
 - **Step 2. Prepare Hyperparameters:** Define default hyperparameters and save to a `.yaml` file.
 - **Step 3. Prepare App Options:** Add optional features to control the GUI layout and behavior.
 - **Step 4. The `TrainApp`:** Initialize the `TrainApp` class with the required parameters.
@@ -29,7 +29,7 @@ Let's dive into the steps required to integrate your custom model using the `Tra
 - **Step 6. Add optional features:** Enhance your training app with additional features like a progress bar or model evaluation.
 - **Step 7. Run the application:** Launch the training app locally and deploy it to the Supervisely platform.
 
-### Step 1. Prepare the Model Configuration List
+### 1. Prepare the Model Configuration List
 
 To enable model selection in your training app, you'll need to create a models.json file. This file stores a list of model configurations, where each configuration is represented as a dictionary containing model-specific details. These configurations will be displayed in the app's GUI, allowing users to easily choose a model for training.
 

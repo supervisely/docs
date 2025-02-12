@@ -1,6 +1,6 @@
 # Custom Model Integration
 
-This series will guide you through integrating your custom model (or a custom NN architecture) into the Supervisely Platform. You'll learn how to train your model in Supervisely and deploy it as a service for inference. Don't worry, the [Supervisely SDK](https://github.com/supervisely/supervisely) has been designed to make this process as simple as possible! 😊
+This series will guide you through integrating your custom model (or a custom NN architecture) into the Supervisely Platform. You'll learn how to create a Training App to allow training of your model in Supervisely and Serving App to deploy it for inference. Don't worry, the [Supervisely SDK](https://github.com/supervisely/supervisely) has been designed to make this process as simple as possible! 😊
 
 ## Inference and Training Apps
 
@@ -8,7 +8,7 @@ When you integrate a custom model into Supervisely, you are creating two closely
 
 - **Inference (Serving) App**
 
-    This is a [Serving App](/neural-networks/inference-and-deployment/supervisely-serving-apps.md) that deploys model as an API service. Once model is deployed, user can make predictions on images and videos. Supervisely SDK provides a convinient `Inference` class with built-in GUI and ready-to-use methods and interfaces for model deployment and inference.
+    We will create a custom [Serving App](/neural-networks/inference-and-deployment/supervisely-serving-apps.md) that deploys model as an API service. Once the model is deployed, user can make predictions on images and videos. Supervisely SDK provides a convenient `Inference` class with built-in GUI and ready-to-use methods and interfaces for model deployment and inference.
 
     Read more in [Integrate Custom Inference](./integrate-custom-inference.md).
 
