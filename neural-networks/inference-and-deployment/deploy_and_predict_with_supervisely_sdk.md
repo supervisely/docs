@@ -20,7 +20,7 @@ pip install -U supervisely
 
 {% hint style="info" %}
 
-Requires Supervisely SDK version `6.73.304` or higher.
+Requires Supervisely SDK version `6.73.305` or higher.
 
 {% endhint %}
 
@@ -41,14 +41,6 @@ task_id = api.task.deploy_custom_model(workspace_id, artifacts_directory)
 
 ### 2. Predict
 
-```python
-# predict image
-prediction = model.inference_image_id(image_id=123)
-
-# predict project
-predictions = model.inference_project_id(project_id=123)
-```
-
 Any model deployed on the platform (both manually and through the code) works as a service and can accept API requests for inference. So, if you manually served a model on the platform, connect to it, and get predictions using `Session` class:
 
 {% hint style="info" %}
@@ -67,9 +59,13 @@ api = sly.Api()
 task_id = 123  # ⬅ put task_id of a model deployed on the platform
 session = sly.nn.inference.Session(api, task_id=task_id)
 
-# Predict
+# Predict Image
 image_id = 123  # ⬅ put your image_id from a platform
 prediction = session.inference_image_id(image_id)
+
+# Predict Project
+project_id = 123  # ⬅ put your project_id from a platform
+predictions = session.inference_project_id(project_id)
 ```
 
 ## Deploy outside of Supervisely
