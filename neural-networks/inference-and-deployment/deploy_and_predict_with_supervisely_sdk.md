@@ -6,23 +6,27 @@ This section involves using Python code together with [Supervisely SDK](https://
 
 ### 1. Deploy
 
-In-platform deployment is similar to manually launching a Serving App on the Supervisely Platform. With python SDK you can automate this.
+In-platform deployment is similar to manually launching a [Serving App](./supervisely-serving-apps.md) on the Supervisely Platform. With python SDK you can automate this.
+
+{% hint style="info" %}
+
+This method only works for your models trained in Supervisely and stored in Team Files. It also requires Supervisely SDK version `6.73.305` or higher.
+
+{% endhint %}
 
 **Here's how to do it:**
 
 1. Install supervisely SDK if not installed.
 
 ```bash
-pip install -U supervisely
+pip install supervisely>=6.73.305
 ```
 
-2. Run this code to deploy a model on the platform.
+2. Go to Team Files and copy the path to your model artifacts (`artifacts_dir`).
 
-{% hint style="info" %}
+![Copy path to artifacts dir](/.gitbook/assets/neural-networks/artifacts_dir.png)
 
-Requires Supervisely SDK version `6.73.305` or higher.
-
-{% endhint %}
+3. Run this code to deploy a model on the platform. Don't forget to fill in your `workspace_id` and `artifacts_dir`.
 
 ```python
 import os
@@ -32,16 +36,19 @@ from dotenv import load_dotenv
 # Ensure you've set API_TOKEN and SERVER_ADDRESS environment variables.
 load_dotenv(os.path.expanduser("~/supervisely.env"))
 
-api = sly.Api.from_env()
+api = sly.Api()
 
-workspace_id = 5  # ⬅ put your workspace_id
-artifacts_directory = "/experiments/27_Lemons/265_RT-DETRv2/" # path to artifacts dir
-task_id = api.task.deploy_custom_model(workspace_id, artifacts_directory)
+# ⬇ Put your workspace_id and artifacts_dir.
+workspace_id = 123
+artifacts_dir = "/experiments/27_Lemons/265_RT-DETRv2/"
+
+# Deploy model
+task_id = api.task.deploy_custom_model(workspace_id, artifacts_dir)
 ```
 
 ### 2. Predict
 
-Any model deployed on the platform (both manually and through the code) works as a service and can accept API requests for inference. So, if you manually served a model on the platform, connect to it, and get predictions using `Session` class:
+Any model deployed on the platform (both manually and through the code) works as a service and can accept API requests for inference. After you deployed a model on the platform, connect to it, and get predictions using `Session` class:
 
 {% hint style="info" %}
 
@@ -50,13 +57,10 @@ Learn more about SessionAPI in the [Inference API Tutorial](https://developer.su
 {% endhint %}
 
 ```python
-import supervisely as sly
 from supervisely.nn.inference import Session
 
-api = sly.Api()
-
 # Create Inference Session
-task_id = 123  # ⬅ put task_id of a model deployed on the platform
+# task_id was returned from the previous code
 session = sly.nn.inference.Session(api, task_id=task_id)
 
 # Predict Image
