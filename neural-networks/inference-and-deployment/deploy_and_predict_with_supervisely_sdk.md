@@ -12,31 +12,31 @@ In-platform deployment is similar to manually launching a Serving App on the Sup
 
 1. Install supervisely SDK if not installed.
 
-    ```bash
-    pip install -U supervisely
-    ```
+```bash
+pip install -U supervisely
+```
 
 2. Run this code to deploy a model on the platform.
 
-    {% hint style="info" %}
+{% hint style="info" %}
 
-    Requires Supervisely SDK version `6.73.304` or higher.
+Requires Supervisely SDK version `6.73.304` or higher.
 
-    {% endhint %}
+{% endhint %}
 
-    ```python
-    import os
-    import supervisely as sly
-    from dotenv import load_dotenv
+```python
+import os
+import supervisely as sly
+from dotenv import load_dotenv
 
-    # Ensure you've set API_TOKEN and SERVER_ADDRESS environment variables.
-    load_dotenv(os.path.expanduser("~/supervisely.env"))
+# Ensure you've set API_TOKEN and SERVER_ADDRESS environment variables.
+load_dotenv(os.path.expanduser("~/supervisely.env"))
 
-    api = sly.Api.from_env()
+api = sly.Api.from_env()
 
-    artifacts_directory = "/experiments/27_Lemons/265_RT-DETRv2/" # path to your artifacts dir
-    task_id = api.task.deploy_custom_model(team_id, workspace_id, artifacts_directory)
-    ```
+artifacts_directory = "/experiments/27_Lemons/265_RT-DETRv2/" # path to your artifacts dir
+task_id = api.task.deploy_custom_model(team_id, workspace_id, artifacts_directory)
+```
 
 ### 2. Predict
 
@@ -49,6 +49,12 @@ predictions = model.inference_project_id(project_id=123)
 ```
 
 Any model deployed on the platform (both manually and through the code) works as a service and can accept API requests for inference. So, if you manually served a model on the platform, connect to it, and get predictions using `Session` class:
+
+{% hint style="info" %}
+
+Learn more about SessionAPI in the [Inference API Tutorial](https://developer.supervisely.com/app-development/neural-network-integration/inference-api-tutorial).
+
+{% endhint %}
 
 ```python
 import supervisely as sly
@@ -64,12 +70,6 @@ session = sly.nn.inference.Session(api, task_id=task_id)
 image_id = 123  # ⬅ put your image_id from a platform
 prediction = session.inference_image_id(image_id)
 ```
-
-{% hint style="info" %}
-
-Learn more about SessionAPI in the [Inference API Tutorial](https://developer.supervisely.com/app-development/neural-network-integration/inference-api-tutorial).
-
-{% endhint %}
 
 ## Deploy outside of Supervisely
 
