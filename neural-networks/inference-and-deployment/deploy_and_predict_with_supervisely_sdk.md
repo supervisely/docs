@@ -34,8 +34,9 @@ load_dotenv(os.path.expanduser("~/supervisely.env"))
 
 api = sly.Api.from_env()
 
+workspace_id = 5  # ⬅ put your workspace_id
 artifacts_directory = "/experiments/27_Lemons/265_RT-DETRv2/" # path to your artifacts dir
-task_id = api.task.deploy_custom_model(team_id, workspace_id, artifacts_directory)
+task_id = api.task.deploy_custom_model(workspace_id, artifacts_directory)
 ```
 
 ### 2. Predict
