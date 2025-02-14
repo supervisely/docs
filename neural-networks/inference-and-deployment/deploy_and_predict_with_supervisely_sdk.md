@@ -374,7 +374,6 @@ Put your path to the checkpoint file in the `--model` argument.
 
 This will start the server on [http://0.0.0.0:8000](http://0.0.0.0:8000) in the container and will be ready to accept API requests for inference. You can use the same `Session` object for inference.
 
-
 ### Deploy Model as a Serving App with web UI
 
 In this variant, you will run a full [Serving App](supervisely-serving-apps.md) with web UI, in which you can deploy a model. This is useful for debugging and testing purposes, for example, when you're integrating your [Custom Inference App](../custom-model-integration/integrate-custom-inference.md) with the Supervisely Platform.
