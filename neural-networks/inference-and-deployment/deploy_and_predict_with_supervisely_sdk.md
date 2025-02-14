@@ -375,9 +375,22 @@ services:
 
 In the last line, you need to pass the argument for model checkpoint and, optionally, other arguments for prediction (see the [previous](#deploy-model-as-a-server) section).
 
-Put your path to the checkpoint file in the `--model` argument.
+Put your path to the checkpoint file in the `--model` argument. This will start the server on [http://0.0.0.0:8000](http://0.0.0.0:8000) in the container and will be ready to accept API requests for inference. You can use the same `Session` object for inference.
 
-This will start the server on [http://0.0.0.0:8000](http://0.0.0.0:8000) in the container and will be ready to accept API requests for inference. You can use the same `Session` object for inference.
+#### Predict with CLI arguments
+
+Instead of writing code for inference, you can use CLI arguments to get predictions right after the model is loaded. The following arguments are available:
+
+- `--model` - **(required)** a path to your local checkpoint file, or remote path in Team Files. Also, it can be a name of a pre-trained model from [models.json](../custom-model-integration/integrate-custom-training.md#1-prepare-model-configurations) file.
+- `--predict-project` - ID of Supervisely project to predict. A new project with predictions will be created on the platform.
+- `--predict-dataset` - ID(s) of Supervisely dataset(s) to predict. A new project with predictions will be created on the platform.
+- `--predict-image` - path to a local image or image ID in Supervisely.
+
+{% hint style="info" %}
+
+Server will shut down automatically after the prediction is done.
+
+{% endhint %}
 
 ### Deploy Model as a Serving App with web UI
 
@@ -386,8 +399,6 @@ In this variant, you will run a full [Serving App](supervisely-serving-apps.md) 
 Follow the steps from the [previous](#deploy-model-as-a-server) section, but instead of running the server, you need to run the following command:
 
 #### Deploy
-
-Run the following command to start the app server:
 
 ```bash
 uvicorn main:model.app --app-dir supervisely_integration/serve --host 0.0.0.0 --port 8000 --ws websockets
