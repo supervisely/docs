@@ -4,65 +4,73 @@ This section involves using Python code together with [Supervisely SDK](https://
 
 ## In-Platform Model Deployment
 
-*Will be added soon.* 😊
-
-<!-- 
 ### 1. Deploy
 
-In-platform deployment is similar to manually launching a Serving App on the Supervisely Platform. With python SDK you can automate this.
+In-platform deployment is similar to manually launching a [Serving App](./supervisely-serving-apps.md) on the Supervisely Platform. With python SDK you can automate this.
+
+{% hint style="info" %}
+
+This method only works for your models trained in Supervisely and stored in Team Files. It also requires Supervisely SDK version `6.73.305` or higher.
+
+{% endhint %}
 
 **Here's how to do it:**
 
 1. Install supervisely SDK if not installed.
 
-```
-pip install -U supervisely
+```bash
+pip install supervisely>=6.73.305
 ```
 
-2. Run this code to deploy a model on the platform (starting with supervisely `v6.73.304`).
+2. Go to Team Files and copy the path to your model artifacts (`artifacts_dir`).
+
+![Copy path to artifacts dir](/.gitbook/assets/neural-networks/artifacts_dir.png)
+
+3. Run this code to deploy a model on the platform. Don't forget to fill in your `workspace_id` and `artifacts_dir`.
 
 ```python
-from dotenv import load_dotenv
 import os
 import supervisely as sly
-from supervisely.nn.deploy import deploy_model
+from dotenv import load_dotenv
 
 # Ensure you've set API_TOKEN and SERVER_ADDRESS environment variables.
 load_dotenv(os.path.expanduser("~/supervisely.env"))
 
-model = deploy_custom_model("your_experiment_name")
+api = sly.Api()
+
+# ⬇ Put your workspace_id and artifacts_dir.
+workspace_id = 123
+artifacts_dir = "/experiments/27_Lemons/265_RT-DETRv2/"
+
+# Deploy model
+task_id = api.task.deploy_custom_model(workspace_id, artifacts_dir)
 ```
 
 ### 2. Predict
 
-```python
-# predict image
-prediction = model.inference_image_id(image_id=123)
+Any model deployed on the platform (both manually and through the code) works as a service and can accept API requests for inference. After you deployed a model on the platform, connect to it, and get predictions using `Session` class:
 
-# predict project
-predictions = model.inference_project_id(project_id=123)
-```
-
-Any model deployed on the platform (both manually and through the code) works as a service and can accept API requests for inference. So, if you manually served a model on the platform, connect to it, and get predictions using `Session` class:
-
-```python
-import supervisely as sly
-from supervisely.nn.inference import Session
-
-api = sly.Api()
-
-# Create Inference Session
-task_id = 123  # put task_id of a model deployed on the platform
-session = sly.nn.inference.Session(api, task_id=task_id)
-
-# Predict
-image_id = 123  # put your image_id from a platform
-prediction = session.inference_image_id(image_id)
-```
+{% hint style="info" %}
 
 Learn more about SessionAPI in the [Inference API Tutorial](https://developer.supervisely.com/app-development/neural-network-integration/inference-api-tutorial).
 
---- -->
+{% endhint %}
+
+```python
+from supervisely.nn.inference import Session
+
+# Create Inference Session
+# task_id was returned from the previous code
+session = sly.nn.inference.Session(api, task_id=task_id)
+
+# Predict Image
+image_id = 123  # ⬅ put your image_id from a platform
+prediction = session.inference_image_id(image_id)
+
+# Predict Project
+project_id = 123  # ⬅ put your project_id from a platform
+predictions = session.inference_project_id(project_id)
+```
 
 ## Deploy outside of Supervisely
 
@@ -74,7 +82,6 @@ There are several variants of how you can use a model locally:
 * **[Deploy Model as a Server](#deploy-model-as-a-server)**: Deploy your model as a server on your machine, and interact with it through API requests.
   * **[🐋 Deploy in Docker Container](#deploy-in-docker-container)**: Deploy model as a server in a docker container on your local machine.
 * **[Deploy Model as a Serving App with web UI](#deploy-model-as-a-serving-app-with-web-ui)**: Deploy model as a server with a web UI and interact with it through API. ❓ - This feature is mostly for debugging and testing purposes.
-
 
 ### Load and Predict in Your Code
 
@@ -102,7 +109,7 @@ pip install supervisely
 
 Download your checkpoint and model files from Team Files.
 
-![Download checkpoint from Team Files](https://github.com/user-attachments/assets/796bf915-fbaf-4e93-a327-f0caa51dced4)
+![Download checkpoint from Team Files](/.gitbook/assets/deploy-predict-download-local.png)
 
 #### 4. Predict
 
@@ -159,11 +166,9 @@ import sys
 sys.path.append("/path/to/RT-DETRv2")
 ```
 
-
 ### Deploy Model as a Server
 
 In this variant, you will deploy a model locally as an API Server with the help of Supervisely SDK. The server will be ready to process API request for inference. It allows you to predict with local images, folders, videos, or remote supervisely projects and datasets (if you provided your Supervisely API token).
-
 
 #### 1. Clone repository
 
@@ -185,19 +190,86 @@ pip install supervisely
 
 #### 3. Download checkpoint (optional)
 
-Download your checkpoint and model files from Team Files. Or skip this step and pass a remote path to checkpoint in Team Files.
+{% hint style="info" %}
 
-![Download checkpoint from Team Files](https://github.com/user-attachments/assets/796bf915-fbaf-4e93-a327-f0caa51dced4)
+You can skip this step and pass a remote path to checkpoint in Team Files.
+
+{% endhint %}
+
+Download your checkpoint, model files and `experiment_info.json` from Team Files or the whole artifacts directory.
+
+![Download checkpoint from Team Files](/.gitbook/assets/deploy-predict-download-local-serve.png)
+
+You can place downloaded files in the folder within app repo, for example you can create `models` folder inside root directory of the repository and place all files there.
+
+Your repo should look like this:
+
+```plaintext
+📦app-repo-root
+ ┣ 📂models
+ ┃ ┗ 📂392_RT-DETRv2
+ ┃   ┣ 📂checkpoints
+ ┃   ┃ ┗ 🔥best.pth
+ ┃   ┣ 📜experiment_info.json
+ ┃   ┣ 📜model_config.yml
+ ┃   ┗ 📜model_meta.json
+ ┗ ... other app repository files
+```
 
 #### 4. Deploy
 
 To deploy, use `main.py` script to start the server. You need to pass the path to your checkpoint file or the name of the pretrained model using `--model` argument. Like in the previous example, you need to add the path to the repository into `PYTHONPATH`.
 
 ```bash
-PYTHONPATH="${PWD}:${PYTHONPATH}" python ./supervisely_integration/serve/main.py --model ./my_experiments/2315_RT-DETRv2/checkpoints/best.pth
+PYTHONPATH="${PWD}:${PYTHONPATH}" \
+python ./supervisely_integration/serve/main.py \
+--model "models/392_RT-DETRv2/checkpoints/best.pth"
 ```
 
 This command will start the server on [http://0.0.0.0:8000](http://0.0.0.0:8000) and will be ready to accept API requests for inference.
+
+**If you are a VSCode user you can use the following configurations for your `launch.json` file:**
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+    {
+      "name": "Local Deploy with local directory",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/supervisely_integration/serve/main.py",
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "args": [
+        "--model",
+        "models/392_RT-DETRv2/checkpoints/best.pth",
+      ],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${PYTHONPATH}",
+        "LOG_LEVEL": "DEBUG"
+      }
+    },
+    {
+      "name": "Local Deploy with remote directory",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/supervisely_integration/serve/main.py",
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "args": [
+        "--model",
+        "/experiments/27_Lemons/392_RT-DETRv2/checkpoints/best.pth",
+      ],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${PYTHONPATH}",
+        "LOG_LEVEL": "DEBUG",
+        "TEAM_ID": "4",
+      }
+    }
+    ]
+}
+```
 
 #### 5. Predict
 
@@ -229,24 +301,34 @@ url = "https://images.unsplash.com/photo-1674552791148-c756b0899dba?ixlib=rb-4.0
 pred = session.inference_image_url(url)
 ```
 
-<!-- #### Predict with CLI arguments
+#### Predict with CLI arguments
 
 Instead of writing code for inference, you can use CLI arguments to get predictions right after the model is loaded. The following arguments are available:
 
-- `--model` - **(required)** a path to your local checkpoint file, or remote path in Team Files. Also, it can be a name of a pre-trained model.
-- `--predict` ❌ - a universal argument for input. It can be a local path to image, directory of images, or video.
-- `--output` ❌ - a local directory where predictions will be saved.
-- `--predict-image` - path to a local image.
-- `--predict-dir` ❌ - path to a local directory with images to predict. Predictions will be saved in the same directory in Supervisely JSON annotation format.
-- `--predict-video` ❌ - path to a local video file.
+- `--model` - **(required)** a path to your local checkpoint file, or remote path in Team Files. Also, it can be a name of a pre-trained model from [models.json](../custom-model-integration/integrate-custom-training.md#1-prepare-model-configurations) file.
 - `--predict-project` - ID of Supervisely project to predict. A new project with predictions will be created on the platform.
 - `--predict-dataset` - ID(s) of Supervisely dataset(s) to predict. A new project with predictions will be created on the platform.
+- `--predict-image` - path to a local image or image ID in Supervisely.
+
+{% hint style="info" %}
+
+Server will shut down automatically after the prediction is done.
+
+{% endhint %}
+
+<!-- - `--predict` ❌ - a universal argument for input. It can be a local path to image, directory of images, or video.
+- `--output` ❌ - a local directory where predictions will be saved.
+- `--predict-dir` ❌ - path to a local directory with images to predict. Predictions will be saved in the same directory in Supervisely JSON annotation format.
+- `--predict-video` ❌ - path to a local video file. -->
 
 Example usage:
 
 ```bash
-PYTHONPATH="${PWD}:${PYTHONPATH}" python ./supervisely_integration/serve/main.py --model ./my_experiments/2315_RT-DETRv2/checkpoints/best.pth --predict ./supervisely_integration/demo/images
-``` -->
+PYTHONPATH="${PWD}:${PYTHONPATH}" \
+python ./supervisely_integration/serve/main.py \
+--model "RT-DETRv2-S" \
+--predict-image "supervisely_integration/demo/img/coco_sample.jpg"
+```
 
 #### 🐋 Deploy in Docker Container
 
@@ -258,22 +340,57 @@ Use this `docker run` command:
 docker run \
   --shm-size=1g \
   --runtime=nvidia \
-  --env ENV=production \
-  --env PYTHONPATH="${PYTHONPATH}:/app/supervisely_integration/serve" \
+  --env-file ~/supervisely.env \
+  --env PYTHONPATH=/app \
   -v ".:/app" \
   -w /app \
   -p 8000:8000 \
-  supervisely/rt-detrv2:1.0.7 \
+  supervisely/rt-detrv2:1.0.9 \
   python3 supervisely_integration/serve/main.py \
-    --model "/experiments/553_42201_Animals/2315_RT-DETRv2/checkpoints/best.pth"
+  --model "/experiments/27_Lemons/392_RT-DETRv2/checkpoints/best.pth"
 ```
 
-<!-- In the last line, you need to pass the argument for model checkpoint and, optionally, other arguments for prediction (see the [previous](#deploy-model-as-a-server) section). -->
+You can also use `docker-compose.yml` file to run the container:
 
-Put your path to the checkpoint file in the `--model` argument.
+```yaml
+services:
+  rtdetrv2:
+    image: supervisely/rt-detrv2:1.0.9
+    shm_size: 1g
+    runtime: nvidia
+    env_file:
+      - ~/supervisely.env
+    environment:
+      - PYTHONPATH=/app
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "8000:8000"
+    expose:
+      - "8000"
+    entrypoint: [ "python3", "supervisely_integration/serve/main.py" ]
+    command: [ "--model", "/experiments/27_Lemons/392_RT-DETRv2/checkpoints/best.pth" ]
+```
 
-This will start the server on [http://0.0.0.0:8000](http://0.0.0.0:8000) in the container and will be ready to accept API requests for inference. You can use the same `Session` object for inference.
+In the last line, you need to pass the argument for model checkpoint and, optionally, other arguments for prediction (see the [previous](#deploy-model-as-a-server) section).
 
+Put your path to the checkpoint file in the `--model` argument. This will start the server on [http://0.0.0.0:8000](http://0.0.0.0:8000) in the container and will be ready to accept API requests for inference. You can use the same `Session` object for inference.
+
+#### Predict with CLI arguments
+
+Instead of writing code for inference, you can use CLI arguments to get predictions right after the model is loaded. The following arguments are available:
+
+- `--model` - **(required)** a path to your local checkpoint file, or remote path in Team Files. Also, it can be a name of a pre-trained model from [models.json](../custom-model-integration/integrate-custom-training.md#1-prepare-model-configurations) file.
+- `--predict-project` - ID of Supervisely project to predict. A new project with predictions will be created on the platform.
+- `--predict-dataset` - ID(s) of Supervisely dataset(s) to predict. A new project with predictions will be created on the platform.
+- `--predict-image` - path to a local image or image ID in Supervisely.
+
+{% hint style="info" %}
+
+Server will shut down automatically after the prediction is done.
+
+{% endhint %}
 
 ### Deploy Model as a Serving App with web UI
 
