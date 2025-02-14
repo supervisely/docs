@@ -247,8 +247,7 @@ This command will start the server on [http://0.0.0.0:8000](http://0.0.0.0:8000)
       ],
       "env": {
         "PYTHONPATH": "${workspaceFolder}:${PYTHONPATH}",
-        "LOG_LEVEL": "DEBUG",
-        "TEAM_ID": "4",
+        "LOG_LEVEL": "DEBUG"
       }
     },
     {
@@ -310,6 +309,12 @@ Instead of writing code for inference, you can use CLI arguments to get predicti
 - `--predict-project` - ID of Supervisely project to predict. A new project with predictions will be created on the platform.
 - `--predict-dataset` - ID(s) of Supervisely dataset(s) to predict. A new project with predictions will be created on the platform.
 - `--predict-image` - path to a local image or image ID in Supervisely.
+
+{% hint style="info" %}
+
+Server will shut down automatically after the prediction is done.
+
+{% endhint %}
 
 <!-- - `--predict` ❌ - a universal argument for input. It can be a local path to image, directory of images, or video.
 - `--output` ❌ - a local directory where predictions will be saved.
