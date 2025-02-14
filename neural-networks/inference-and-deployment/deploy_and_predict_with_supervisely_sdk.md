@@ -345,7 +345,7 @@ docker run \
   -v ".:/app" \
   -w /app \
   -p 8000:8000 \
-  supervisely/rt-detrv2:1.0.8 \
+  supervisely/rt-detrv2:1.0.9 \
   python3 supervisely_integration/serve/main.py \
   --model "/experiments/27_Lemons/392_RT-DETRv2/checkpoints/best.pth"
 ```
@@ -355,7 +355,7 @@ You can also use `docker-compose.yml` file to run the container:
 ```yaml
 services:
   rtdetrv2:
-    image: supervisely/rt-detrv2:1.0.8
+    image: supervisely/rt-detrv2:1.0.9
     shm_size: 1g
     runtime: nvidia
     env_file:
