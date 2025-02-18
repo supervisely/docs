@@ -164,6 +164,10 @@
   * [Overview](neural-networks/custom-model-integration/overview.md)
   * [Custom Inference](neural-networks/custom-model-integration/integrate-custom-inference.md)
   * [Custom Training](neural-networks/custom-model-integration/integrate-custom-training.md)
+* [Legacy](neural-networks/legacy/README.md)
+  * [Starting with Neural Networks](neural-networks/overview/overview.md)
+  * [Train custom Neural Networks](neural-networks/custom-nn/custom-nn.md)
+  * [Run pre-trained models](neural-networks/pre-trained-models.md)
 
 ## 👔 Enterprise Edition
 
