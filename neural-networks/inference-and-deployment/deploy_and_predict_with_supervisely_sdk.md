@@ -230,6 +230,9 @@ This command will start the server on [http://0.0.0.0:8000](http://0.0.0.0:8000)
 
 **If you are a VSCode user you can use the following configurations for your `launch.json` file:**
 
+<details>
+<summary> <b> .vscode/launch.json </b> </summary>
+
 ```json
 {
     "version": "0.2.0",
@@ -270,6 +273,7 @@ This command will start the server on [http://0.0.0.0:8000](http://0.0.0.0:8000)
     ]
 }
 ```
+</details>
 
 #### 5. Predict
 
@@ -334,7 +338,7 @@ python ./supervisely_integration/serve/main.py \
 
 Deploying in a Docker Container is similar to deployment as a Server. This example is useful when you need to run your model on a remote machine or in a cloud environment.
 
-Use this `docker run` command:
+Use this `docker run` command to deploy a model in a docker container (RT-DETRv2 example):
 
 ```bash
 docker run \
@@ -350,7 +354,11 @@ docker run \
   --model "/experiments/27_Lemons/392_RT-DETRv2/checkpoints/best.pth"
 ```
 
-You can also use `docker-compose.yml` file to run the container:
+Put your path to the checkpoint file in the `--model` argument (it can be both the local path or a remote path in Team Files). This will start FastAPI server and load the model for inference. The server will be available on [http://localhost:8000](http://localhost:8000).
+
+#### docker compose
+
+You can also use `docker-compose.yml` file for convenience:
 
 ```yaml
 services:
@@ -373,24 +381,20 @@ services:
     command: [ "--model", "/experiments/27_Lemons/392_RT-DETRv2/checkpoints/best.pth" ]
 ```
 
-In the last line, you need to pass the argument for model checkpoint and, optionally, other arguments for prediction (see the [previous](#deploy-model-as-a-server) section).
+#### Predict
 
-Put your path to the checkpoint file in the `--model` argument. This will start the server on [http://0.0.0.0:8000](http://0.0.0.0:8000) in the container and will be ready to accept API requests for inference. You can use the same `Session` object for inference.
+After the model is deployed, you can use the `Session` object for inference ([Inference Session API](https://developer.supervisely.com/app-development/neural-network-integration/inference-api-tutorial)) or use CLI arguments to get predictions.
 
 #### Predict with CLI arguments
 
-Instead of writing code for inference, you can use CLI arguments to get predictions right after the model is loaded. The following arguments are available:
+In this case, the model will make predictions right after it is loaded, and the server will shut down automatically after the inference is done.
+
+The following arguments are available:
 
 - `--model` - **(required)** a path to your local checkpoint file, or remote path in Team Files. Also, it can be a name of a pre-trained model from [models.json](../custom-model-integration/integrate-custom-training.md#1-prepare-model-configurations) file.
 - `--predict-project` - ID of Supervisely project to predict. A new project with predictions will be created on the platform.
 - `--predict-dataset` - ID(s) of Supervisely dataset(s) to predict. A new project with predictions will be created on the platform.
 - `--predict-image` - path to a local image or image ID in Supervisely.
-
-{% hint style="info" %}
-
-Server will shut down automatically after the prediction is done.
-
-{% endhint %}
 
 ### Deploy Model as a Serving App with web UI
 
