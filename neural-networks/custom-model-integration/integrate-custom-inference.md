@@ -271,8 +271,8 @@ import torch
 def predict(self, image_path: str, settings: dict) -> List[sly.nn.Prediction]:
     """
     Run inference on the input image and return predictions.
-    # 1️⃣ Preprocess the input image
     """
+    # 1️⃣ Preprocess the input image
     img = Image.open(image_path).convert("RGB")
     img = img.resize((640, 640))
     img_tensor = transforms.ToTensor()(img).unsqueeze(0)
