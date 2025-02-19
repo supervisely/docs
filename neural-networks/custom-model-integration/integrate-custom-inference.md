@@ -320,7 +320,7 @@ from supervisely.nn.inference import Inference
 class CustomPredictionBBox(sly.nn.Prediction):
     def __init__(self, class_name, bbox, score):
         self.class_name = class_name
-        self.bbox = bbox
+        self.bbox_yxyx = bbox
         self.score = score
 
 class CustomObjectDetection(Inference):
@@ -338,7 +338,7 @@ class CustomObjectDetection(Inference):
         # dto - is a single prediction returned by the `predict` method
         # 1. create a geometry
         obj_class = self.model_meta.get_obj_class(dto.class_name)
-        geometry = sly.Rectangle(*dto.bbox_tlbr)
+        geometry = sly.Rectangle(*dto.bbox_yxyx)
         # 2. add confidence tag
         tags = []
         tags.append(sly.Tag(self._get_confidence_tag_meta(), dto.score))
