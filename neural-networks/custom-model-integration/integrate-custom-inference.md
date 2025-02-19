@@ -316,6 +316,7 @@ Here is the methods you need to implement:
 import supervisely as sly
 from supervisely.nn.inference import Inference
 
+# Custom Prediction class
 class CustomPredictionBBox(sly.nn.Prediction):
     def __init__(self, class_name, bbox, score):
         self.class_name = class_name
@@ -323,6 +324,8 @@ class CustomPredictionBBox(sly.nn.Prediction):
         self.score = score
 
 class CustomObjectDetection(Inference):
+    # <...> Implement the required methods: predict, load_model
+
     def get_info(self) -> dict:
         info = super().get_info()
         info["task type"] = "object detection"
