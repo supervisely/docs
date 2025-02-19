@@ -172,17 +172,22 @@ class CustomYOLOInference(sly.nn.inference.ObjectDetection):
 
 Your custom class should inherit from the appropriate Supervisely base class, depending on Computer Vision task your model solves. For example, if you're working on an object detection model, you should inherit from `sly.nn.inference.ObjectDetection`.
 
-**Available classes for inheritance:**
+#### Available classes for inheritance
 
 - `ObjectDetection`
-- `ObjectDetection3D`
+- `InstanceSegmentation`
+- `SemanticSegmentation`
 - `PoseEstimation`
+- `ObjectDetection3D`
+- `InteractiveSegmentation`
+- `SalientObjectSegmentation`
+- `Tracking`
 - `PromptBasedObjectDetection`
 - `PromptableSegmentation`
-- `SalientObjectSegmentation`
-- `SemanticSegmentation`
 
-If there are no suitable classes for your task, you can inherit from the base class `sly.nn.inference.Inference` and implement the methods responsible for converting predictions to Supervisely format.
+Each of these classes implements a logic for converting model predictions (`sly.nn.Prediction` objects) to [Supervisely Annotation format](https://developer.supervisely.com/getting-started/supervisely-annotation-format) (`sly.Annotation`).
+
+If there is no suitable class for your task, you can inherit from the base class `sly.nn.inference.Inference` and implement the methods responsible for converting predictions to Supervisely format. See the section [Custom Task Type](#custom-task-task).
 
 #### Class Variables
 
@@ -232,36 +237,109 @@ def load_model(
 
 #### The `predict` Method
 
-This method pre-processes the input image, runs inference, and then post-processes the outputs to format them into predictions.
+This method pre-processes the input image, runs inference, and then post-processes the outputs to the established format for predictions.
+
+1. **Preprocess the input image:** Read the image, resize it, normalize it, and convert it to a tensor, or do whatever preprocessing is necessary for your model.
+2. **Run the model inference:** Pass the preprocessed image through the model and get the raw outputs.
+3. **Postprocess the outputs:** Convert the raw outputs to Supervisely prediction objects. The `sly.nn.Prediction` is the base class for this. Depending on your CV task, use the appropriate subclass: `sly.nn.PredictionBBox`, `sly.nn.PredictionMask`, etc.
+
+Here is the list of available subclasses of `sly.nn.Prediction` for different computer vision tasks:
+
+| Task Type | Prediction Class |
+| :--- | :--- |
+| Object Detection | `sly.nn.PredictionBBox` |
+| Instance Segmentation | `sly.nn.PredictionMask` |
+| Semantic Segmentation | `sly.nn.PredictionSegmentation` |
+| Pose Estimation | `sly.nn.PredictionKeypoints` |
+| Object Detection 3D | `sly.nn.PredictionCuboid3d` |
+| Interactive Segmentation | `sly.nn.PredictionMask` |
+| Tracking | `sly.nn.PredictionBBox` |
+
+If no suitable subclass is available, create your own *Prediction* class by inheriting from `sly.nn.Prediction` and convert outputs to this class. Also, you had to override additional methods in your `Inference` class, see the section [Custom Task Type](#custom-task-task).
 
 ```python
-def predict(self, image_path: str, settings: dict):
+from PIL import Image
+from typing import List
+import supervisely as sly
+from torchvision import transforms
+import torch
+
+def predict(self, image_path: str, settings: dict) -> List[sly.nn.Prediction]:
     """
     Run inference on the input image and return predictions.
+    # 1️⃣ Preprocess the input image
     """
-    # 1️⃣ Preprocess the input image (implement your own method)
-    img_tensor = self._preprocess_image(image_path)
+    img = Image.open(image_path).convert("RGB")
+    img = img.resize((640, 640))
+    img_tensor = transforms.ToTensor()(img).unsqueeze(0)
     
     # 2️⃣ Run the model inference
-    outputs = self.model(img_tensor)
+    with torch.no_grad():
+        outputs = self.model(img_tensor)
     
-    # 3️⃣ Postprocess the outputs to Supervisely format
-    # (implement your own method, convert raw outputs to labels, boxes, scores, etc.)
-    predictions = self._postprocess_outputs(outputs, settings)
+    # 3️⃣ Convert the outputs to sly.nn.Prediction
+    confidence_threshold = settings["conf"]  # field from inference_settings.yaml
+    predictions = []
+    for output in outputs:
+        # filter by confidence threshold
+        if output["confidence"] >= confidence_threshold:
+            # convert xyxy to yxyx
+            bbox = output["bbox"]
+            bbox_yxyx = [bbox_yxyx[1], bbox_yxyx[0], bbox_yxyx[3], bbox_yxyx[2]]
+            # convert label_idx to class name
+            class_name = self.classes[output["label"]]
+            # create PredictionBBox object
+            prediction = sly.nn.PredictionBBox(
+                class_name=class_name,
+                bbox_yxyx=bbox_yxyx,
+                confidence=output["confidence"]
+            )
+            predictions.append(prediction)
     return predictions
-
-#########################################################################################
-# ⬇️ These methods are optional, you can implement everything in the predict method ⬇️ #
-#########################################################################################
-
-def _preprocess_image(self, image_path: str):
-    # Your own logic to preprocess the input image
-    pass
-
-def _postprocess_outputs(self, outputs, settings: dict):
-    # Your own logic to convert raw outputs to predictions
-    pass
 ```
+
+#### Custom Task Type
+
+If your model solves a computer vision task that is not covered by the [available Inference subclasses](#available-classes-for-inheritance), you had to implement addiotional methods responsible for converting predictions to Supervisely format and create your own *Prediction* class inheriting from `sly.nn.Prediction`.
+
+Here is the methods you need to implement:
+
+- **`get_info`** - add your `"task type"` to the dict (see example code).
+- **`_get_obj_class_shape`** - Specify the basic geometry class of what your model predicts (e.g., `sly.Rectangle`, `sly.Bitmap`, etc.).
+- **`_create_label`** - This method takes a single predicted object (e.g, bbox) from a list of predictions returned by your `predict` method. It must convert an object to a supervisely label (`sly.Label`). The single predicted object is an object of your custom `sly.nn.Prediction`, and you need to convert it to a `sly.Label`.
+
+```python
+import supervisely as sly
+from supervisely.nn.inference import Inference
+
+class CustomPredictionBBox(sly.nn.Prediction):
+    def __init__(self, class_name, bbox, score):
+        self.class_name = class_name
+        self.bbox = bbox
+        self.score = score
+
+class CustomObjectDetection(Inference):
+    def get_info(self) -> dict:
+        info = super().get_info()
+        info["task type"] = "object detection"
+        return info
+
+    def _get_obj_class_shape(self):
+        return sly.Rectangle
+
+    def _create_label(self, dto: CustomPredictionBBox) -> sly.Label:
+        # dto - is a single prediction returned by the `predict` method
+        # 1. create a geometry
+        obj_class = self.model_meta.get_obj_class(dto.class_name)
+        geometry = sly.Rectangle(*dto.bbox_tlbr)
+        # 2. add confidence tag
+        tags = []
+        tags.append(sly.Tag(self._get_confidence_tag_meta(), dto.score))
+        # 3. create label
+        label = sly.Label(geometry, obj_class, tags)
+        return label
+```
+
 
 ### Step 6. Create main.py script
 
