@@ -187,7 +187,7 @@ Your custom class should inherit from the appropriate Supervisely base class, de
 
 Each of these classes implements a logic for converting model predictions (`sly.nn.Prediction` objects) to [Supervisely Annotation format](https://developer.supervisely.com/getting-started/supervisely-annotation-format) (`sly.Annotation`).
 
-If there is no suitable class for your task, you can inherit from the base class `sly.nn.inference.Inference` and implement the methods responsible for converting predictions to Supervisely format. See the section [Custom Task Type](#custom-task-task).
+If there is no suitable class for your task, you can inherit from the base class `sly.nn.inference.Inference` and implement the methods responsible for converting predictions to Supervisely format. See the section [Custom Task Type](#custom-task-type).
 
 #### Class Variables
 
@@ -255,7 +255,7 @@ Here is the list of available subclasses of `sly.nn.Prediction` for different co
 | Interactive Segmentation | `sly.nn.PredictionMask` |
 | Tracking | `sly.nn.PredictionBBox` |
 
-If no suitable subclass is available, create your own *Prediction* class by inheriting from `sly.nn.Prediction` and convert outputs to this class. Also, you had to override additional methods in your `Inference` class, see the section [Custom Task Type](#custom-task-task).
+If no suitable subclass is available, create your own *Prediction* class by inheriting from `sly.nn.Prediction` and convert outputs to this class. Also, you had to override additional methods in your `Inference` class, see the section [Custom Task Type](#custom-task-type).
 
 ```python
 from PIL import Image
