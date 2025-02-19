@@ -300,7 +300,7 @@ def predict(self, image_path: str, settings: dict) -> List[sly.nn.Prediction]:
 
 #### Custom Task Type
 
-If your model solves a computer vision task that is not covered by the [available Inference subclasses](#available-classes-for-inheritance), you had to implement addiotional methods responsible for converting predictions to Supervisely format and create your own *Prediction* class inheriting from `sly.nn.Prediction`.
+If your model solves a computer vision task that is not covered by the [available Inference subclasses](#available-classes-for-inheritance), you had to implement additional methods responsible for converting predictions to Supervisely format and create your own *Prediction* class inheriting from `sly.nn.Prediction`.
 
 Here is the methods you need to implement:
 
