@@ -258,7 +258,7 @@ Here is the list of available subclasses of `sly.nn.Prediction` for different co
 | Tracking | `sly.nn.PredictionBBox` |
 
 {% hint style="info" %}
-If no suitable subclass is available, you can create your own *Prediction* class by inheriting from `sly.nn.Prediction` and convert outputs to this class. Also, you need to override additional methods in your `Inference` class. See the section [Custom Task Type].(#custom-task-type).
+If no suitable subclass is available, you can create your own *Prediction* class by inheriting from `sly.nn.Prediction` and convert outputs to this class. Also, you need to override additional methods in your `Inference` class. See the section [Custom Task Type](#custom-task-type).
 {% endhint %}
 
 ```python
