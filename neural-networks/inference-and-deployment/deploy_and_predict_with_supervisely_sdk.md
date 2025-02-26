@@ -314,7 +314,7 @@ Instead of writing code for inference, you can use CLI arguments to get predicti
 **Main arguments**
 
 - `mode` - **(required)** mode of operation, can be `deploy` or `predict`.If you use `deploy` no other arguments are required except `--model`.
-- `--model` - **(required)** a path to your local checkpoint file, or remote path in Team Files. Also, it can be a name of a pre-trained model from [models.json](../custom-model-integration/integrate-custom-training.md#1-prepare-model-configurations) file.
+- `--model` - name of a pre-trained model from [models.json](../custom-model-integration/integrate-custom-training.md#1-prepare-model-configurations) file, a path to your local checkpoint file or remote path in Team Files. If not provided the first model from the `models.json` file will be loaded.
 - `--device` - device to run the model on, can be `cpu` or `cuda`.
 - `--runtime` - runtime to run the model on, can be `PyTorch`, `ONNXRuntime` or `TensorRT`.
 - `--settings` - inference settings, can be a path to a `.json`, `yaml`, `yml` file or a list of key-value pairs e.g. `--settings confidence_threshold=0.5`.
@@ -411,7 +411,7 @@ Instead of writing code for inference, you can use CLI arguments to get predicti
 **Main arguments**
 
 - `mode` - **(required)** mode of operation, can be `deploy` or `predict`.If you use `deploy` no other arguments are required except `--model`.
-- `--model` - **(required)** a path to your local checkpoint file, or remote path in Team Files. Also, it can be a name of a pre-trained model from [models.json](../custom-model-integration/integrate-custom-training.md#1-prepare-model-configurations) file.
+- `--model` - name of a pre-trained model from [models.json](../custom-model-integration/integrate-custom-training.md#1-prepare-model-configurations) file, a path to your local checkpoint file or remote path in Team Files. If not provided the first model from the `models.json` file will be loaded.
 - `--device` - device to run the model on, can be `cpu` or `cuda`.
 - `--runtime` - runtime to run the model on, can be `PyTorch`, `ONNXRuntime` or `TensorRT`.
 - `--settings` - inference settings, can be a path to a `.json`, `yaml`, `yml` file or a list of key-value pairs e.g. `--settings confidence_threshold=0.5`.
