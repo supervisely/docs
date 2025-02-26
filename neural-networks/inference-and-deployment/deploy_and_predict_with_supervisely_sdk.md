@@ -307,12 +307,24 @@ pred = session.inference_image_url(url)
 
 #### Predict with CLI arguments
 
-Instead of writing code for inference, you can use CLI arguments to get predictions right after the model is loaded. The following arguments are available:
+Instead of writing code for inference, you can use CLI arguments to get predictions right after the model is loaded.
 
+**Main arguments**
+
+- `mode` - **(required)** mode of operation, can be `deploy` or `predict`.If you use `deploy` no other arguments are required except `--model`.
 - `--model` - **(required)** a path to your local checkpoint file, or remote path in Team Files. Also, it can be a name of a pre-trained model from [models.json](../custom-model-integration/integrate-custom-training.md#1-prepare-model-configurations) file.
-- `--predict-project` - ID of Supervisely project to predict. A new project with predictions will be created on the platform.
-- `--predict-dataset` - ID(s) of Supervisely dataset(s) to predict. A new project with predictions will be created on the platform.
-- `--predict-image` - path to a local image or image ID in Supervisely.
+- `--device` - device to run the model on, can be `cpu` or `cuda`.
+- `--runtime` - runtime to run the model on, can be `PyTorch`, `ONNXRuntime` or `TensorRT`.
+- `--settings` - inference settings, can be a path to a `.json`, `yaml`, `yml` file or a list of key-value pairs e.g. `--settings confidence_threshold=0.5`.
+
+**Example to deploy model as a server:**
+
+```bash
+PYTHONPATH="${PWD}:${PYTHONPATH}" \
+python ./supervisely_integration/serve/main.py deploy --model "RT-DETRv2-S"
+```
+
+**Predict arguments**
 
 {% hint style="info" %}
 
@@ -320,18 +332,23 @@ Server will shut down automatically after the prediction is done.
 
 {% endhint %}
 
-<!-- - `--predict` ❌ - a universal argument for input. It can be a local path to image, directory of images, or video.
-- `--output` ❌ - a local directory where predictions will be saved.
-- `--predict-dir` ❌ - path to a local directory with images to predict. Predictions will be saved in the same directory in Supervisely JSON annotation format.
-- `--predict-video` ❌ - path to a local video file. -->
+These arguments can be used only in `predict` mode:
 
-Example usage:
+- `input` - a path to your local image or directory of images.
+- `--project_id` - ID of Supervisely project to predict. If use `--upload` a new project with predictions will be created on the platform.
+- `--dataset_id` - ID(s) of Supervisely dataset(s) to predict e.g. `--dataset_id "505,506"`. If use `--upload` a new project with predictions will be created on the platform.
+- `--image_id` - ID of Supervisely image to predict. If use `--upload` prediction will be uploaded to the platform.
+- `--output` - a local directory where predictions will be saved.
+- `--upload` - Upload predictions to the platform. Works only with: `--project_id`, `--dataset_id`, `--image_id`.
+- `--draw` - Draw predictions on the image. Works only with: `input` and `--image_id`.
+
+**Example to predict with CLI arguments:**
 
 ```bash
 PYTHONPATH="${PWD}:${PYTHONPATH}" \
-python ./supervisely_integration/serve/main.py \
---model "RT-DETRv2-S" \
---predict-image "supervisely_integration/demo/img/coco_sample.jpg"
+python ./supervisely_integration/serve/main.py predict \
+"./supervisely_integration/demo/img/coco_sample.jpg" \
+--model "RT-DETRv2-S"
 ```
 
 #### 🐋 Deploy in Docker Container
@@ -387,14 +404,65 @@ After the model is deployed, you can use the `Session` object for inference ([In
 
 #### Predict with CLI arguments
 
-In this case, the model will make predictions right after it is loaded, and the server will shut down automatically after the inference is done.
+Instead of writing code for inference, you can use CLI arguments to get predictions right after the model is loaded.
 
-The following arguments are available:
+**Main arguments**
 
+- `mode` - **(required)** mode of operation, can be `deploy` or `predict`.If you use `deploy` no other arguments are required except `--model`.
 - `--model` - **(required)** a path to your local checkpoint file, or remote path in Team Files. Also, it can be a name of a pre-trained model from [models.json](../custom-model-integration/integrate-custom-training.md#1-prepare-model-configurations) file.
-- `--predict-project` - ID of Supervisely project to predict. A new project with predictions will be created on the platform.
-- `--predict-dataset` - ID(s) of Supervisely dataset(s) to predict. A new project with predictions will be created on the platform.
-- `--predict-image` - path to a local image or image ID in Supervisely.
+- `--device` - device to run the model on, can be `cpu` or `cuda`.
+- `--runtime` - runtime to run the model on, can be `PyTorch`, `ONNXRuntime` or `TensorRT`.
+- `--settings` - inference settings, can be a path to a `.json`, `yaml`, `yml` file or a list of key-value pairs e.g. `--settings confidence_threshold=0.5`.
+
+**Example to deploy model as a server:**
+
+```bash
+docker run \
+  --shm-size=1g \
+  --runtime=nvidia \
+  --env-file ~/supervisely.env \
+  --env PYTHONPATH=/app \
+  -v ".:/app" \
+  -w /app \
+  -p 8000:8000 \
+  supervisely/rt-detrv2:1.0.9 \
+  python3 supervisely_integration/serve/main.py deploy --model "RT-DETRv2-S"
+```
+
+**Predict arguments**
+
+{% hint style="info" %}
+
+Server will shut down automatically after the prediction is done.
+
+{% endhint %}
+
+These arguments can be used only in `predict` mode:
+
+- `input` - a path to your local image or directory of images.
+- `--project_id` - ID of Supervisely project to predict. If use `--upload` a new project with predictions will be created on the platform.
+- `--dataset_id` - ID(s) of Supervisely dataset(s) to predict e.g. `--dataset_id "505,506"`. If use `--upload` a new project with predictions will be created on the platform.
+- `--image_id` - ID of Supervisely image to predict. If use `--upload` prediction will be uploaded to the platform.
+- `--output` - a local directory where predictions will be saved.
+- `--upload` - Upload predictions to the platform. Works only with: `--project_id`, `--dataset_id`, `--image_id`.
+- `--draw` - Draw predictions on the image. Works only with: `input` and `--image_id`.
+
+**Example to predict with CLI arguments:**
+
+```bash
+docker run \
+  --shm-size=1g \
+  --runtime=nvidia \
+  --env-file ~/supervisely.env \
+  --env PYTHONPATH=/app \
+  -v ".:/app" \
+  -w /app \
+  -p 8000:8000 \
+  supervisely/rt-detrv2:1.0.9 \
+  python3 supervisely_integration/serve/main.py predict \
+  "./supervisely_integration/demo/img/coco_sample.jpg" \
+  --model "RT-DETRv2-S"
+```
 
 ### Deploy Model as a Serving App with web UI
 
