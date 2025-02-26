@@ -222,7 +222,7 @@ To deploy, use `main.py` script to start the server. You need to pass the path t
 
 ```bash
 PYTHONPATH="${PWD}:${PYTHONPATH}" \
-python ./supervisely_integration/serve/main.py \
+python ./supervisely_integration/serve/main.py deploy \
 --model "models/392_RT-DETRv2/checkpoints/best.pth"
 ```
 
@@ -245,6 +245,7 @@ This command will start the server on [http://0.0.0.0:8000](http://0.0.0.0:8000)
       "console": "integratedTerminal",
       "justMyCode": false,
       "args": [
+        "deploy",
         "--model",
         "models/392_RT-DETRv2/checkpoints/best.pth",
       ],
@@ -261,6 +262,7 @@ This command will start the server on [http://0.0.0.0:8000](http://0.0.0.0:8000)
       "console": "integratedTerminal",
       "justMyCode": false,
       "args": [
+        "deploy",
         "--model",
         "/experiments/27_Lemons/392_RT-DETRv2/checkpoints/best.pth",
       ],
@@ -367,7 +369,7 @@ docker run \
   -w /app \
   -p 8000:8000 \
   supervisely/rt-detrv2:1.0.9 \
-  python3 supervisely_integration/serve/main.py \
+  python3 supervisely_integration/serve/main.py deploy \
   --model "/experiments/27_Lemons/392_RT-DETRv2/checkpoints/best.pth"
 ```
 
@@ -395,7 +397,7 @@ services:
     expose:
       - "8000"
     entrypoint: [ "python3", "supervisely_integration/serve/main.py" ]
-    command: [ "--model", "/experiments/27_Lemons/392_RT-DETRv2/checkpoints/best.pth" ]
+    command: [ "deploy", "--model", "/experiments/27_Lemons/392_RT-DETRv2/checkpoints/best.pth" ]
 ```
 
 #### Predict
