@@ -342,7 +342,7 @@ These arguments can be used only in `predict` mode:
 - `--image_id` - ID of Supervisely image to predict. If use `--upload` prediction will be uploaded to the platform.
 - `--output` - a local directory where predictions will be saved.
 - `--upload` - Upload predictions to the platform. Works only with: `--project_id`, `--dataset_id`, `--image_id`.
-- `--draw` - Draw predictions on the image. Works only with: `input` and `--image_id`.
+- `--draw` - Save image with prediction visualization in `--output-dir`. Works only with: `input` and `--image_id`.
 
 **Example to predict with CLI arguments:**
 
@@ -447,7 +447,7 @@ These arguments can be used only in `predict` mode:
 - `--image_id` - ID of Supervisely image to predict. If use `--upload` prediction will be uploaded to the platform.
 - `--output` - a local directory where predictions will be saved.
 - `--upload` - Upload predictions to the platform. Works only with: `--project_id`, `--dataset_id`, `--image_id`.
-- `--draw` - Draw predictions on the image. Works only with: `input` and `--image_id`.
+- `--draw` - Save image with prediction visualization in `--output-dir`. Works only with: `input` and `--image_id`.
 
 **Example to predict with CLI arguments:**
 
