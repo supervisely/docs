@@ -136,9 +136,9 @@ Steps to configure IAM Roles Anywhere:
 
 1. Generate certificates and keys.
 
-We've prepared two bash scripts for you. First, open `genCACert.sh` and set variables: `DURATION_DAYS`, `CN =`, `OU =`, `O =`. Then open `genCert.sh` and set the similar variables: `DURATION_DAYS`, `O =`, `CN =`. You can set any values you want.
+We've prepared two bash scripts for you. Download [⬇︎ cert.zip](./cert.zip) and extract them. Update `genCACert.sh` and `genCert.sh` scripts with your values for `DURATION_DAYS`, `CN`, `OU`, `O` variables. You can set any values you want.
 
-Run the following scripts:
+To generate certificates and keys, run the following commands:
 
 ```bash
 ./genCACert.sh
