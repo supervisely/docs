@@ -183,7 +183,7 @@ Select the IAM role you've created earlier.
 
 Open the remote storage settings in Supervisely and switch to the IAM Anywhere tab.
 
-<figure><img src="/.gitbook/assets/remote_storage_1.png" alt="" height="250px" width="auto"><figcaption></figcaption></figure>
+![Remote storage settings](/.gitbook/assets/remote_storage_1.png)
 
 
 Fill in all the fields. In the certificate field, you need to paste the content of the `ca.pem` file. In the `signing private key` field, you need to paste the content of the `company.pem` file. You can get the content of the `ca.pem` or `company.pem` files by running the following command:
