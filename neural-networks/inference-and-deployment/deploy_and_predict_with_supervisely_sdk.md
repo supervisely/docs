@@ -10,7 +10,7 @@ In-platform deployment is similar to manually launching a [Serving App](./superv
 
 {% hint style="info" %}
 
-This method only works for your models trained in Supervisely and stored in Team Files. It also requires Supervisely SDK version `6.73.305` or higher.
+This method requires Supervisely SDK version `6.73.305` or higher. # TODO: update version
 
 {% endhint %}
 
@@ -19,14 +19,15 @@ This method only works for your models trained in Supervisely and stored in Team
 1. Install supervisely SDK if not installed.
 
 ```bash
-pip install supervisely>=6.73.305
+pip install supervisely>=6.73.305 # TODO: update version
 ```
 
-2. Go to Team Files and copy the path to your model artifacts (`artifacts_dir`).
+2. Go to Team Files and copy the path to your model artifacts (`artifacts_dir`) for custom model or use the name of the pretrained model.
 
 ![Copy path to artifacts dir](/.gitbook/assets/neural-networks/artifacts_dir.png)
+![Copy app name and model name](/.gitbook/assets/neural-networks/pretrained_model.png)
 
-3. Run this code to deploy a model on the platform. Don't forget to fill in your `workspace_id` and `artifacts_dir`.
+3. Run this code to deploy a model on the platform. Don't forget to fill in your `team_id` and `artifacts_dir`.
 
 ```python
 import os
@@ -38,12 +39,22 @@ load_dotenv(os.path.expanduser("~/supervisely.env"))
 
 api = sly.Api()
 
-# ⬇ Put your workspace_id and artifacts_dir.
-workspace_id = 123
+# Custom model
+# ⬇ Put your team_id and artifacts_dir.
+team_id = 123
 artifacts_dir = "/experiments/27_Lemons/265_RT-DETRv2/"
 
-# Deploy model
-task_id = api.task.deploy_custom_model(workspace_id, artifacts_dir)
+# Deploy
+session = api.nn.deploy_custom_model(artifacts_dir=artifacts_dir, team_id=team_id)
+
+# Pretrained model
+# ⬇ Put your app_name and model_name.
+app_name="Serve RT-DETRv2"
+model_name="rtdetr_r18vd"
+
+# Deploy
+session = api.nn.deploy_pretrained_model(app_name=app_name, model_name=model_name)
+
 ```
 
 ### 2. Predict
@@ -62,6 +73,9 @@ from supervisely.nn.inference import Session
 # Create Inference Session
 # task_id was returned from the previous code
 session = sly.nn.inference.Session(api, task_id=task_id)
+
+# Or you can use session from the "Deploy" step
+session = api.nn.deploy_custom_model(artifacts_dir=artifacts_dir, team_id=team_id)
 
 # Predict Image
 image_id = 123  # ⬅ put your image_id from a platform
