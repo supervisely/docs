@@ -149,47 +149,51 @@ To generate certificates and keys, run the following commands:
 
 Open AWS Console and go to `Roles Anywhere` service and create a trust anchor.
 
-![Roles Anywhere](/.gitbook/assets/iam_roles_anywhere_0.png)
+![Roles Anywhere](/.gitbook/assets/iam_roles_anywhere_0-frame.png)
 
-![Roles Anywhere](/.gitbook/assets/iam_roles_anywhere_1.png)
+![Roles Anywhere](/.gitbook/assets/iam_roles_anywhere_1-frame.png)
 
-![Create trust anchor](/.gitbook/assets/iam_create_trust_anchor.png)
+![Create trust anchor](/.gitbook/assets/iam_create_trust_anchor-frame.png)
 
-Copy as a `base64` string the content of `ca.crt` file, generated earlier, and paste it into the `External certificate bundle` field.
+Copy `base64` encoded content of `ca.crt` file, generated earlier, and paste it into the `External certificate bundle` field.
 
 ```bash
 cat ca.crt | base64
 ```
 
-4. Create a profile.
+4. Create an IAM role.
 
-Before creating a profile, you need to create an IAM role. Here is the [documentation](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/trust-model.html#trust-policy).
+To create a profile, you need to create an IAM role. Refer to the [AWS documentation](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/trust-model.html#trust-policy) for more information.
 
 Once you have created the IAM role, go to the IAM role trust policy settings and add a new trust relationship (you can copy it from the created trust anchor).
 
-![Trust relationships](/.gitbook/assets/iam_role_trust_policy.png)
+![Trust relationships](/.gitbook/assets/iam_role_trust_policy-frame.png)
 
-Then, you can create a profile.
+5. Create a profile.
 
-![Roles Anywhere](/.gitbook/assets/iam_roles_anywhere_1.png)
+Return to the Roles Anywhere service and create a new profile.
+
+![Roles Anywhere](/.gitbook/assets/iam_roles_anywhere_2-frame.png)
 
 Select the IAM role you've created earlier.
 
-![Create profile](/.gitbook/assets/iam_profile.jpg)
+![Create profile](/.gitbook/assets/iam_profile-frame.jpg)
 
 5. Configure remote storage settings in Supervisely.
 
 Open the remote storage settings in Supervisely and switch to the IAM Anywhere tab.
 
-![Remote storage settings](/.gitbook/assets/remote_storage_1.png)
+<figure><img src="/.gitbook/assets/remote_storage_1.png" alt="" height="250px" width="auto"><figcaption></figcaption></figure>
 
-![Remote storage settings](/.gitbook/assets/remote_storage_2.png)
 
 Fill in all the fields. In the certificate field, you need to paste the content of the `ca.pem` file. In the `signing private key` field, you need to paste the content of the `company.pem` file. You can get the content of the `ca.pem` or `company.pem` files by running the following command:
 
 ```bash
 cat company.pem | base64
 ```
+
+![Remote storage settings](/.gitbook/assets/remote_storage_2.jpg)
+
 
 Don't forget to add S3 bucket name and save the settings.
 
