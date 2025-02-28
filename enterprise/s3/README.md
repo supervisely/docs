@@ -188,13 +188,13 @@ Open the remote storage settings in Supervisely, switch to the IAM Anywhere tab 
 
 ![Remote storage settings](/.gitbook/assets/remote_storage_2.jpg)
 
-In the certificate field, you need to paste the content of the `company.pem` file. You can get it by running the following command:
+In the certificate field, you need to paste the content of the `company.pem` file. Please note that the content must be `base64` encoded. You can get it by running the following command:
 
 ```bash
 cat company.pem | base64 -w 0
 ```
 
-In the `signing private key` field, you need to paste the content of the `company.key` file. You can get it by running the following command:
+In the `signing private key` field, you need to paste the content of the `company.key` file. As with the certificate, the content must be `base64` encoded. You can get it by running the following command:
 
 ```bash
 cat company.key | base64 -w 0
