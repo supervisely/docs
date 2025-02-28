@@ -11,7 +11,7 @@ You can find two subfolders here:
 - `<something>-public/`
 - `<something>-private/`
 
-That's because we maintain the same structure in local storage as if you would use a remote storage. In that case those two folders are *buckets* or *containers*. You may notice that one has "public" in it's name, but it only reflects the kind of data we store in it. Both buckets are private and does not provide anonymous read.
+That's because we maintain the same structure in local storage as if you would use a remote storage. In that case those two folders are _buckets_ or _containers_. You may notice that one has "public" in it's name, but it only reflects the kind of data we store in it. Both buckets are private and does not provide anonymous read.
 
 ## Configure Supervisely to use S3 compatible storage (Amazon S3, Minio)
 
@@ -94,11 +94,12 @@ STORAGE_CREDENTIALS_PATH=/gcs.json
 ```
 
 Now create `docker-compose.override.yml` under `cd $(sudo supervisely where)`:
+
 ```yaml
 services:
   http-storage:
     volumes:
-    - <path to the secret file>:/gcs.json:ro
+      - <path to the secret file>:/gcs.json:ro
 ```
 
 Execute `sudo supervisely up -d` to apply the new settings
@@ -121,9 +122,85 @@ Finally, restart services to apply new configuration: `supervisely up -d`.
 
 ## Keys from IAM Role
 
+> IAM Roles are only supported for AWS S3.
+
+For **Enterprise Edition:**
+
 If you want to use [IAM Role](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#instance-metadata-security-credentials) you must specify `STORAGE_IAM_ROLE=<role_name>` in .env file then `STORAGE_ACCESS_KEY` and `STORAGE_SECRET_KEY` variables can be ommited.
 
-IAM Roles are only supported for AWS S3.
+For **Community Edition** or **Enterprise Edition (if deployed without AWS)**:
+
+If you have a bucket with data and you want to connect to it securely outside AWS there are 2 ways: sharing access and secret key pair or using IAM Roles Anywhere. In this section, we will describe how to do it with IAM Roles Anywhere.
+
+Steps to configure IAM Roles Anywhere:
+
+**1. Generate certificates and keys.**
+
+We've prepared two bash scripts for you. Download [⬇︎ cert.zip](./cert.zip) and extract them. Update `genCACert.sh` and `genCert.sh` scripts with your values for `DURATION_DAYS`, `CN`, `OU`, `O` variables. You can set any values you want.
+
+Generate master certificate and key (will be used in the AWS trust anchor)
+
+```bash
+./genCACert.sh  # ⬅︎ will generate ca.* files
+```
+
+Generate certificates and keys for the client (Supervisely):
+
+```bash
+./genCert.sh  # ⬅︎ will generate company.* files
+```
+
+**2. Create a trust anchor.**
+
+Open AWS Console and go to `Roles Anywhere` service and create a trust anchor.
+
+![Roles Anywhere](/.gitbook/assets/iam_roles_anywhere_0-frame.png)
+
+![Roles Anywhere](/.gitbook/assets/iam_roles_anywhere_1-frame.png)
+
+![Create trust anchor](/.gitbook/assets/iam_create_trust_anchor-frame.png)
+
+Copy contents of the `ca.crt` file, generated earlier, and paste it into the `External certificate bundle` field.
+
+**3. Create an IAM role.**
+
+To create a profile, you need to create an IAM role. Refer to the [AWS documentation](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/trust-model.html#trust-policy) for more information.
+
+Once you have created the IAM role, go to the IAM role trust policy settings and add a new trust relationship (you can copy it from the created trust anchor).
+
+![Trust relationships](/.gitbook/assets/iam_role_trust_policy-frame.png)
+
+**4. Create a profile.**
+
+Return to the Roles Anywhere service and create a new profile.
+
+![Roles Anywhere](/.gitbook/assets/iam_roles_anywhere_2-frame.png)
+
+Select the IAM role you've created earlier.
+
+![Create profile](/.gitbook/assets/iam_profile-frame.jpg)
+
+**5. Configure remote storage settings in Supervisely.**
+
+Open the remote storage settings in Supervisely, switch to the IAM Anywhere tab and fill in the fields.
+
+![Remote storage settings](/.gitbook/assets/remote_storage_1-frame.png)
+
+![Remote storage settings](/.gitbook/assets/remote_storage_2.jpg)
+
+In the certificate field, you need to paste the content of the `company.pem` file. Please note that the content must be `base64` encoded. You can get it by running the following command:
+
+```bash
+cat company.pem | base64 -w 0
+```
+
+In the `signing private key` field, you need to paste the content of the `company.key` file. As with the certificate, the content must be `base64` encoded. You can get it by running the following command:
+
+```bash
+cat company.key | base64 -w 0
+```
+
+Don't forget to add S3 bucket name and save the settings.
 
 ## Frontend caching
 
@@ -157,16 +234,17 @@ If your files are protected, however, you will need to provide credentials in th
 
 ![](configure-cloud-2.png)
 
-
 #### Azure SAS Token minimal permissions
+
 ![](azure_sas_permissions.png)
 
 ### File system provider
 
 If you want to use images from your host where supervisely instance running, you can use "File system" provider
 ![image](https://user-images.githubusercontent.com/30120872/140936210-cf1b68ec-f2ba-4094-a2f5-fc4d37b77d49.png)
-- *Folder path on the server* - path to folder on the host server that will be mounted
-- *Storage ID (bucket)* - mouted folder identifyer. It will be used in links to mounted folder
+
+- _Folder path on the server_ - path to folder on the host server that will be mounted
+- _Storage ID (bucket)_ - mouted folder identifyer. It will be used in links to mounted folder
 
 For instance, for the example above, when you want to add a new assets (image or video) with local path on your hard drive `/data/datasets/persons/image1.jpg`, use the following format in API, SDK or corresponding application: `fs://local-datasets/persons/image1.jpg`
 
@@ -175,6 +253,7 @@ For instance, for the example above, when you want to add a new assets (image or
 If you are brave enough, you can create configuration files manually:
 
 Example configuration file:
+
 ```yaml
 # amazon s3 example
 my-car-datasets:
@@ -213,11 +292,13 @@ my-planes-datasets:
 ```
 
 Links file structure:
+
 ```
 <provider name>://<bucket name>/<object name>
 ```
 
 Links file example:
+
 ```
 s3://cars_2020_20_10/truck.jpg
 azure://boats_bucket_2020_20_10/supersonicboat.jpg
@@ -225,35 +306,39 @@ google://another_planes_bucket_2020_10_10/boeing.jpg
 ```
 
 Create a new file `docker-compose.override.yml` under `cd $(sudo supervisely where)`:
+
 ```yaml
 services:
   http-storage:
     volumes:
-    - <path to the configuration file>:/remote_links.yml:ro
+      - <path to the configuration file>:/remote_links.yml:ro
 ```
+
 Then execute the following to apply the changes:
+
 ```
 sudo supervisely up -d http-storage
 ```
 
 Google Cloud Storage secret file example, `docker-compose.override.yml`:
+
 ```yaml
 services:
   http-storage:
     volumes:
-    - <path to the secret file>:/secret_planes.json:ro
+      - <path to the secret file>:/secret_planes.json:ro
 ```
-
 
 ## Migrating existing projects to Cloud Storage
 
-If you want to migrate only some of the projects that exist in the Supervisely storage to the linked cloud, you can achieve this using the following code snippet. 
+If you want to migrate only some of the projects that exist in the Supervisely storage to the linked cloud, you can achieve this using the following code snippet.
 
 The code snippet:
+
 - Is designed to change links only for entities that are not linked yet, it means they are stored in Supervisely storage.
 - Will change links only when all entities are uploaded to remote storage.
 - Can be run again in case of failure. Will not re-upload entities that are already uploaded to remote storage.
-- Save nested datasets in remote storage as a flat structure. All datasets will be placed in the project directory. 
+- Save nested datasets in remote storage as a flat structure. All datasets will be placed in the project directory.
 - Will not delete entities from Supervisely storage after migration.
 
 #### Function to use in your code: `migrate_project(project: Union[sly.ProjectInfo, int])`
@@ -459,14 +544,14 @@ def set_remote_with_retries(entity_api: Union[ImageApi, VideoApi], e_list: list,
 
 
 def migrate_project(project: Union[sly.ProjectInfo, int]):
-    """ 
-    This main function migrates entities of the project to remote storage. 
-    
-    :param project: Project ID or ProjectInfo object 
+    """
+    This main function migrates entities of the project to remote storage.
+
+    :param project: Project ID or ProjectInfo object
     :type project: Union[sly.ProjectInfo, int]
     """
     global api, entity_api, download_api_url, entities_map
-    
+
     # -------------------------------- Collecting Entities Information ------------------------------- #
     if isinstance(project, int):
         project_info = api.project.get_info_by_id(project)
@@ -483,7 +568,7 @@ def migrate_project(project: Union[sly.ProjectInfo, int]):
         download_api_url = VIDEOS_DOWNLOAD_API_URL
     else:
         raise ValueError(f"Unsupported project type: {project_info.type}")
-    
+
     if not entities_map:
         for dataset in api.dataset.get_list(project_info.id, recursive=True):
             for entity_info in entity_api.get_list(dataset.id):
@@ -540,10 +625,12 @@ For that, you can replace `api.dataset.get_tree(...)` with `api.dataset.get_list
 Then, you can modify the remote path of the entity to include the nested dataset ID.
 
 ### If you have already uploaded entities to remote storage
-You will be able just set remote links for them. There are two ways: 
+
+You will be able just set remote links for them. There are two ways:
+
 1. To create your own `entities_map`, that corresponds to the structure used in code above and redefine in section **Global Variables**
 2. To use SDK API methods with the lists of entity IDs and remote links:
    - `ImageApi(...).set_remote(...)`
-   - `VideoApi(...).set_remote(...)` 
-  <br>For better performance, you can use the function `sly.batched` to split the list of entities and remote links into batches.
-  It is recommended to create batches not more than `1000` items per batch.
+   - `VideoApi(...).set_remote(...)`
+     <br>For better performance, you can use the function `sly.batched` to split the list of entities and remote links into batches.
+     It is recommended to create batches not more than `1000` items per batch.
