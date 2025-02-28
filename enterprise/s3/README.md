@@ -134,11 +134,11 @@ If you have a bucket with data and you want to connect to it securely without st
 
 Steps to configure IAM Roles Anywhere:
 
-1. Generate certificates and keys.
+**1. Generate certificates and keys.**
 
 We've prepared two bash scripts for you. Download [⬇︎ cert.zip](./cert.zip) and extract them. Update `genCACert.sh` and `genCert.sh` scripts with your values for `DURATION_DAYS`, `CN`, `OU`, `O` variables. You can set any values you want.
 
-Generate certificates and keys for the trust anchor (AWS):
+Generate master certificate and key (will be used in the AWS trust anchor)
 
 ```bash
 ./genCACert.sh  # ⬅︎ will generate ca.* files
@@ -150,7 +150,7 @@ Generate certificates and keys for the client (Supervisely):
 ./genCert.sh  # ⬅︎ will generate company.* files
 ```
 
-3. Create a trust anchor.
+**2. Create a trust anchor.**
 
 Open AWS Console and go to `Roles Anywhere` service and create a trust anchor.
 
@@ -162,7 +162,7 @@ Open AWS Console and go to `Roles Anywhere` service and create a trust anchor.
 
 Copy content of the `ca.crt` file, generated earlier, and paste it into the `External certificate bundle` field.
 
-4. Create an IAM role.
+**3. Create an IAM role.**
 
 To create a profile, you need to create an IAM role. Refer to the [AWS documentation](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/trust-model.html#trust-policy) for more information.
 
@@ -170,7 +170,7 @@ Once you have created the IAM role, go to the IAM role trust policy settings and
 
 ![Trust relationships](/.gitbook/assets/iam_role_trust_policy-frame.png)
 
-5. Create a profile.
+**4. Create a profile.**
 
 Return to the Roles Anywhere service and create a new profile.
 
@@ -180,12 +180,11 @@ Select the IAM role you've created earlier.
 
 ![Create profile](/.gitbook/assets/iam_profile-frame.jpg)
 
-5. Configure remote storage settings in Supervisely.
+**5. Configure remote storage settings in Supervisely.**
 
 Open the remote storage settings in Supervisely and switch to the IAM Anywhere tab.
 
 ![Remote storage settings](/.gitbook/assets/remote_storage_1-frame.png)
-
 
 Fill in all the fields. In the certificate field, you need to paste the content of the `company.pem` file. You can get it by running the following command:
 
