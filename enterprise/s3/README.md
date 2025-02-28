@@ -182,11 +182,13 @@ Select the IAM role you've created earlier.
 
 **5. Configure remote storage settings in Supervisely.**
 
-Open the remote storage settings in Supervisely and switch to the IAM Anywhere tab.
+Open the remote storage settings in Supervisely, switch to the IAM Anywhere tab and fill in the fields.
 
 ![Remote storage settings](/.gitbook/assets/remote_storage_1-frame.png)
 
-Fill in all the fields. In the certificate field, you need to paste the content of the `company.pem` file. You can get it by running the following command:
+![Remote storage settings](/.gitbook/assets/remote_storage_2.jpg)
+
+In the certificate field, you need to paste the content of the `company.pem` file. You can get it by running the following command:
 
 ```bash
 cat company.pem | base64 -w 0
@@ -197,8 +199,6 @@ In the `signing private key` field, you need to paste the content of the `compan
 ```bash
 cat company.key | base64 -w 0
 ```
-
-![Remote storage settings](/.gitbook/assets/remote_storage_2.jpg)
 
 Don't forget to add S3 bucket name and save the settings.
 
