@@ -138,11 +138,16 @@ Steps to configure IAM Roles Anywhere:
 
 We've prepared two bash scripts for you. Download [⬇︎ cert.zip](./cert.zip) and extract them. Update `genCACert.sh` and `genCert.sh` scripts with your values for `DURATION_DAYS`, `CN`, `OU`, `O` variables. You can set any values you want.
 
-To generate certificates and keys, run the following commands:
+Generate certificates and keys for the trust anchor (AWS):
 
 ```bash
-./genCACert.sh
-./genCert.sh
+./genCACert.sh  # ⬅︎ will generate ca.* files
+```
+
+Generate certificates and keys for the client (Supervisely):
+
+```bash
+./genCert.sh  # ⬅︎ will generate company.* files
 ```
 
 3. Create a trust anchor.
@@ -155,11 +160,7 @@ Open AWS Console and go to `Roles Anywhere` service and create a trust anchor.
 
 ![Create trust anchor](/.gitbook/assets/iam_create_trust_anchor-frame.png)
 
-Copy `base64` encoded content of `ca.crt` file, generated earlier, and paste it into the `External certificate bundle` field.
-
-```bash
-cat ca.crt | base64
-```
+Copy content of the `ca.crt` file, generated earlier, and paste it into the `External certificate bundle` field.
 
 4. Create an IAM role.
 
@@ -183,17 +184,22 @@ Select the IAM role you've created earlier.
 
 Open the remote storage settings in Supervisely and switch to the IAM Anywhere tab.
 
-![Remote storage settings](/.gitbook/assets/remote_storage_1.png)
+![Remote storage settings](/.gitbook/assets/remote_storage_1-frame.png)
 
 
-Fill in all the fields. In the certificate field, you need to paste the content of the `ca.pem` file. In the `signing private key` field, you need to paste the content of the `company.pem` file. You can get the content of the `ca.pem` or `company.pem` files by running the following command:
+Fill in all the fields. In the certificate field, you need to paste the content of the `company.pem` file. You can get it by running the following command:
 
 ```bash
-cat company.pem | base64
+cat company.pem | base64 -w 0
+```
+
+In the `signing private key` field, you need to paste the content of the `company.key` file. You can get it by running the following command:
+
+```bash
+cat company.key | base64 -w 0
 ```
 
 ![Remote storage settings](/.gitbook/assets/remote_storage_2.jpg)
-
 
 Don't forget to add S3 bucket name and save the settings.
 
