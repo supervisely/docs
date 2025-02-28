@@ -130,7 +130,7 @@ If you want to use [IAM Role](https://docs.aws.amazon.com/AWSEC2/latest/UserGuid
 
 For **Community Edition** or **Enterprise Edition (if deployed without AWS)**:
 
-If you have a bucket with data and you want to connect to it securely without storing any credentials publicly, you can use IAM Roles Anywhere.
+If you have a bucket with data and you want to connect to it securely outside AWS there are 2 ways: sharing access and secret key pair or using IAM Roles Anywhere. In this section, we will describe how to do it with IAM Roles Anywhere.
 
 Steps to configure IAM Roles Anywhere:
 
@@ -160,7 +160,7 @@ Open AWS Console and go to `Roles Anywhere` service and create a trust anchor.
 
 ![Create trust anchor](/.gitbook/assets/iam_create_trust_anchor-frame.png)
 
-Copy content of the `ca.crt` file, generated earlier, and paste it into the `External certificate bundle` field.
+Copy contents of the `ca.crt` file, generated earlier, and paste it into the `External certificate bundle` field.
 
 **3. Create an IAM role.**
 
