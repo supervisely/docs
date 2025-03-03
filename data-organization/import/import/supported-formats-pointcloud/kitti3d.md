@@ -1,5 +1,3 @@
-<h1 align="left" style="border-bottom: 0"> KITTI 3D </h1>
-
 # Overview
 
 {% hint style="success" %}
