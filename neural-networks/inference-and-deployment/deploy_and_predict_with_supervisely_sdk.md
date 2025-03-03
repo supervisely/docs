@@ -10,7 +10,7 @@ In-platform deployment is similar to manually launching a [Serving App](./superv
 
 {% hint style="info" %}
 
-This method only works for your models trained in Supervisely and stored in Team Files. It also requires Supervisely SDK version `6.73.305` or higher.
+This method only works for your models trained in Supervisely and stored in Team Files. It also requires Supervisely SDK version `6.73.319` or higher.
 
 {% endhint %}
 
@@ -19,7 +19,7 @@ This method only works for your models trained in Supervisely and stored in Team
 1. Install supervisely SDK if not installed.
 
 ```bash
-pip install supervisely>=6.73.305
+pip install supervisely>=6.73.319
 ```
 
 2. Go to Team Files and copy the path to your model artifacts (`artifacts_dir`).
