@@ -50,4 +50,4 @@ For each option, there are several ways you can deploy the model. See the [In-Pl
 
 This is the most advanced way. This method completely decouple you from both Supervisely Platform and Supervisely SDK, and you will develop your own code for inference and deployment. It's also important to understand that for each neural network and framework, you'll need to set up an environment and write inference code by yourself, since each model has its own installation instructions, and the format of inputs and outputs. But, in many cases, we provide our examples of using the model as a standalone PyTorch model. You can find our guidelines on a GitHub repository of the corresponding model. For example, [RT-DETRv2 Demo](https://github.com/supervisely-ecosystem/RT-DETRv2/tree/main/supervisely_integration/demo#readme).
 
-See more information in [Using Standalone PyTorch Models](using-standalone-pytorch-models.md).
+See more information in [Using trained models outside of Supervisely](using-standalone-pytorch-models.md).
