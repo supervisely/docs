@@ -45,7 +45,7 @@ After your model has been trained, validated, and is ready for use, you can depl
 
 1. **[Supervisely Serving Apps](inference-and-deployment/supervisely-serving-apps.md)** within the Platform. Faster and user-friendly way with convenient web UI.  
 2. **[Deploy with Supervisely Python SDK](inference-and-deployment/deploy_and_predict_with_supervisely_sdk.md)** for automated model inference: Use Supervisely SDK for deploying models and getting predictions in your code.  
-3. **[Using Standalone PyTorch Models](inference-and-deployment/using-standalone-pytorch-models.md)**: You can always download a plain PyTorch checkpoint and use it outside of Supervisely infrastructure in your code, or download its ONNX / TensorRT exported versions.
+3. **[Using trained models outside of Supervisely](inference-and-deployment/using-standalone-pytorch-models.md)**: You can always download a plain PyTorch checkpoint and use it outside of Supervisely infrastructure in your code, or download its ONNX / TensorRT exported versions.
 
 There is no vendor lock, you can use your models the same way, as if you trained it manually with your own code.
 
