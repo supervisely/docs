@@ -51,6 +51,7 @@
     * [Volumes](import-and-export/import/supported-annotation-formats/volumes/README.md)
       * [Supervisely](data-organization/import/import/supported-formats-volumes/supervisely.md)
       * [.NRRD, .DCM volumes](data-organization/import/import/supported-formats-volumes/volumes.md)
+      * [NIfTI](data-organization/import/import/supported-formats-volumes/nifti.md)
   * [Import sample dataset](data-organization/import/import/Import-sample-dataset.md)
   * [Import into an existing dataset](data-organization/import/import/existing-dataset.md)
   * [Import using Team Files](data-organization/import/import/Import-Team-Files.md)
