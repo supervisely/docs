@@ -61,7 +61,7 @@ The NIfTI file should be structured as follows:
 - **prefix**\_inference_2.nii (or `.nii.gz`) - second class (may contain multiple objects)
 - ...
 
-The prefix must be one of: `cor`, `sag`, or `axl`. The converter uses these prefixes to group volumes and their annotation files, requiring exactly three volumes — one for each prefix per dataset.
+The prefix must be one of: `cor`, `sag`, or `axl`. The converter uses these prefixes to group volumes and their annotation files, requiring exactly three volumes — one for each prefix per folder.
 
 Structure example for semantic segmentation:
 
