@@ -90,8 +90,13 @@ Json format of annotation for video format:
 * `objectKey` - string, a unique key for the given object (used in key\_id\_map.json to get the object ID).
 * `geometryType` - "rectangle" - class shape
 * `geometry` - geometry of the object
-* `classTitle` - string - the title of a class. It's used to identify the class shape from the `meta.json` file
-* `labelerLogin` - string - the name of the user that added this figure to the current frame
+* `labelerLogin` - string, the name of the user that added this figure to the current frame
+* `createdAt` - string - the date and time when the figure was created in format "YYYY-MM-DDTHH:MM:SS.MMMZ"
+* `updatedAt` - string - the date and time when the figure was updated in format "YYYY-MM-DDTHH:MM:SS.MMMZ"
+* `meta` - [Optional] dictionary, contains additional information about the figure
+* `smartToolInput` - [Optional] dictionary, if the figure was created by smart tool, contains geometries of the box and points
+* `priority` - [Optional] integer, priority of the figure
+* `trackId` - [Optional] string, if the figure was created by tracker, contains the track ID
 
 ## Key id map file
 
