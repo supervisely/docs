@@ -125,3 +125,44 @@ After making changes to the PostgreSQL configuration, restart the database servi
 ```bash
 sudo supervisely restart postgres
 ```
+
+### Increasing PostgreSQL Container Memory Limit
+
+After tuning the PostgreSQL configuration, you may need to increase the container memory limit to accommodate the new settings.
+To increase the PostgreSQL container memory limit, create or edit the `docker-compose.override.yml` file:
+
+```bash
+cd $(sudo supervisely where)
+```
+
+Add or modify the PostgreSQL service configuration:
+
+```yaml
+services:
+  postgres:
+    deploy:
+      resources:
+        limits:
+          memory: 16G  # Adjust this value based on your server's available RAM
+```
+
+This setting allocates up to 16GB of memory to the PostgreSQL container. Adjust this value based on your server's total RAM.
+
+You also need to adjust the `POSTGRES_SHM_SIZE` parameter in the `.env` file to match the new `shared_buffers` value:
+
+```bash
+cd $(sudo supervisely where)
+sudo nano .env
+```
+
+Find and modify the following parameter:
+
+```bash
+POSTGRES_SHM_SIZE=8G  # Adjust this value based on your shared_buffers setting
+```
+
+After making these changes, apply them by redeploying the services:
+
+```bash
+sudo supervisely up -d postgres
+```
