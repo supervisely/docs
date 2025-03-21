@@ -22,10 +22,14 @@ Create or edit the `docker-compose.override.yml` file with the following content
 ```yaml
 services:
   api:
+    environment:
+      POSTGRES_POOL_MAX: '20'
     deploy:
       replicas: 3
 
   api-public:
+    environment:
+      POSTGRES_POOL_MAX: '20'
     deploy:
       replicas: 3
 ```
@@ -36,7 +40,9 @@ After creating or modifying this file, apply the changes by redeploying the serv
 sudo supervisely up -d
 ```
 
-This configuration will start 3 replicas each of the `api` and `api-public` services, which can significantly improve the system's ability to handle concurrent requests.
+This configuration will start 3 replicas each of the `api` and `api-public` services, which will improve the stability and performance of the Supervisely platform.
+
+`POSTGRES_POOL_MAX` is the maximum number of connections to the PostgreSQL database that each service can use. You can adjust this value based on your server's available resources.
 
 ## PostgreSQL Database Tuning
 
