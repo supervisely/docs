@@ -198,7 +198,7 @@
   * [Offline usage](enterprise/offline-usage/README.md)
   * [Multi-disk usage](enterprise/multi-disk/README.md)
   * [Managed Postgres](enterprise/managed-postgres/README.md)
-  * [scalability tuning](enterprise/scalability-tuning/README.md)
+  * [Scalability Tuning](enterprise/scalability-tuning/README.md)
 
 ## 🔧 Customization and Integration
 
