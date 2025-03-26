@@ -34,6 +34,9 @@ services:
       replicas: 3
 ```
 
+The values provided above are just examples. You can adjust the number of replicas and pool size based on your server's load.
+If you notice "Timeout acquiring a connection. The pool is probably full" in the logs, you may need to increase the `POSTGRES_POOL_MAX` / replicas value.
+
 After creating or modifying this file, apply the changes by redeploying the services:
 
 ```bash
