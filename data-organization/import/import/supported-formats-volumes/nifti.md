@@ -24,7 +24,7 @@ All volumes from the input directory and its subdirectories will be uploaded to 
 The NIfTI file should be structured as follows:
 
 ```text
-📂 dataset_name
+📂 dataset_name # ⬅︎ may be archive, root files or nested directory instead
 ├── 📂 CTChest          # ⬅︎ the same name as the volume name
 │   │   # ⬇︎ this directory contains annotations for the CTChest volume
 │   ├── 🩻 lung.nii.gz
@@ -42,6 +42,10 @@ Annotation files should be named according to the following pattern:
 - Annotation files can contain multiple objects of the same class (each object should be represented by a different value in the mask).<br>
 
 ### **Example 2: grouped by plane**
+
+{% hint style="info" %}
+**Please note:** If you want to import multiple DICOM items, you need to group them by folder and import each item separately. The converter only supports importing one set of files at a time (one set of *axl*, *cor*, and *sag* axis files).
+{% endhint %}
 
 The NIfTI file should be structured as follows:
 
@@ -62,7 +66,7 @@ The prefix must be one of: `cor`, `sag`, or `axl`. The converter uses these pref
 Structure example for semantic segmentation:
 
 ```text
-📂 dataset_name
+📂 dataset_name # ⬅︎ may be archive, root files or nested directory instead
 ├──📄 cls_color_map.txt  # ⬅︎ optional file
 ├──🩻 axl_anatomic.nii
 ├──🩻 axl_inference.nii
@@ -75,7 +79,7 @@ Structure example for semantic segmentation:
 Structure example for instance segmentation:
 
 ```text
-📂 dataset_name
+📂 dataset_name # ⬅︎ may be archive, root files or nested directory instead
 ├──📄 cls_color_map.txt  # ⬅︎ optional file
 ├──🩻 axl_anatomic.nii
 ├──🩻 axl_inference_1.nii
