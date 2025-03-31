@@ -24,8 +24,7 @@ All volumes from the input directory and its subdirectories will be uploaded to 
 The NIfTI file should be structured as follows:
 
 ```text
-# any folder structure is supported - directories (including nested), archives, or direct file uploads
-📂 dataset_name
+📂 dataset_name # ⬅︎ may be archive, root files or nested directory instead
 ├── 📂 CTChest          # ⬅︎ the same name as the volume name
 │   │   # ⬇︎ this directory contains annotations for the CTChest volume
 │   ├── 🩻 lung.nii.gz
@@ -67,8 +66,7 @@ The prefix must be one of: `cor`, `sag`, or `axl`. The converter uses these pref
 Structure example for semantic segmentation:
 
 ```text
-# any folder structure is supported - directories (including nested), archives, or direct file uploads
-📂 dataset_name
+📂 dataset_name # ⬅︎ may be archive, root files or nested directory instead
 ├──📄 cls_color_map.txt  # ⬅︎ optional file
 ├──🩻 axl_anatomic.nii
 ├──🩻 axl_inference.nii
@@ -81,8 +79,7 @@ Structure example for semantic segmentation:
 Structure example for instance segmentation:
 
 ```text
-# any folder structure is supported - directories (including nested), archives, or direct file uploads
-📂 dataset_name
+📂 dataset_name # ⬅︎ may be archive, root files or nested directory instead
 ├──📄 cls_color_map.txt  # ⬅︎ optional file
 ├──🩻 axl_anatomic.nii
 ├──🩻 axl_inference_1.nii
