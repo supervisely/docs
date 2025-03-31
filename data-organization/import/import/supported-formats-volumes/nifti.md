@@ -43,6 +43,10 @@ Annotation files should be named according to the following pattern:
 
 ### **Example 2: grouped by plane**
 
+{% hint style="info" %}
+Please note, that if you want to import multiple scenes, you need to group them by folder and import each scene separately. Converter only supports import of a single scene at a time (one set of *axl*, *cor* and *sag* axis files).
+{% endhint %}
+
 The NIfTI file should be structured as follows:
 
 **For semantic segmentation:**
