@@ -44,7 +44,7 @@ Annotation files should be named according to the following pattern:
 ### **Example 2: grouped by plane**
 
 {% hint style="info" %}
-Please note, that if you want to import multiple dicom items, you need to group them by folder and import each item separately. Converter only supports import of a single item at a time (one set of *axl*, *cor* and *sag* axis files).
+**Please note:** If you want to import multiple DICOM items, you need to group them by folder and import each item separately. The converter only supports importing one set of files at a time (one set of *axl*, *cor*, and *sag* axis files).
 {% endhint %}
 
 The NIfTI file should be structured as follows:
