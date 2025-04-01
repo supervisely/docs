@@ -44,7 +44,7 @@ While applying a tag to a specific label object or video file can be useful, it 
 After selecting a tag, the start edge of the tag range will appear in the viewport at your current cursor position and will be marked with a flag icon.
 
 From this point, there are several scenarios for configuring the tag range:
-1. **Manually extending the tag range in the viewport**:
+1. **Manually extending the tag range in the viewport:**
    * Hover over the start edge of the tag in the viewport until the cursor changes, indicating that resizing is possible.
    * Click and hold the left mouse button. Then drag to extend the tag to the desired number of frames.
    
@@ -55,7 +55,7 @@ From this point, there are several scenarios for configuring the tag range:
    * Apply a value and click the _**Start Range**_ button or simply press `Enter`.
 
    <mark style="color:green;">**Note:**</mark> The number of frames the tag was extended by is displayed next to the current tag in the **Definitions** panel.
-2. **Dynamically extending the tag range in the viewport**:
+2. **Dynamically extending the tag range in the viewport:**
    * Press `Enter` to initialize video playback and see the tag range grow dynamically as you move through the video.
    * Press `Enter`  again to stop video playback and complete the tag extension.
    * Press _**Finish**_ in the **Definitions** panel or click the flag icon marker at the end of the tag in the viewport to finalize the range at your desired position.
@@ -75,9 +75,25 @@ From this point, there are several scenarios for configuring the tag range:
 **Tip**: Use the **Default Action** setting in the pop-up to simplify repetitive actions (e.g., set "From Here to End" as the default behavior).
 {% endhint %}
 
+## Duplicating existing tags in the new range
+
+   1. **Select an already created frame-based tag:**
+
+      * Navigate to the **Definitions** panel.
+      * Hover over the frame-based tag you want to duplicate in the new range, the _**Add this tag again in the new range**_ button (represented by square with a plus sign) will appear next to the frame-based tag.
+      * Press the _**Add this tag again in the new range**_ button.
+
+   2. **Apply a value (Optional):**
+
+      * Tags with all types of values except "None" will trigger a pop-up that prompts you to select or enter the tag value.
+      * Apply a value and click the _**Start Range**_ button or simply press `Enter`.
+      * Otherwise, select the _**Start Range Without Value**_ button or simply press `Enter`.
+   3. **Configuring and finalizing the tag range:**
+      * To configure and finalize the frame-based tag, follow the instructions in **Step 3**.
+
 ## Editing Tags
 
-To edit frame-based tags, use the same methods as when creating them.
+To edit frame-based tags, use the same methods as those described in **Step 3** for configuring them.
 
 ### Example
 
