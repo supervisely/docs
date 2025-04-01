@@ -62,7 +62,7 @@ Administrators can create new user accounts directly from the user management pa
 
 3. Click **Signup** to finalize the creation of the new user account.
 
-    <figure><img src="../../.gitbook/assets/new_user.jpg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/new_user_signup.png" alt=""><figcaption></figcaption></figure>
 
 ## Managing users
 
@@ -86,7 +86,7 @@ To update user details, including changing passwords and modifying user permissi
 
 4. Click **Update** to save changes.
 
-    <figure><img src="../../.gitbook/assets/new_user_update.jpg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/new_user_edit.png" alt=""><figcaption></figcaption></figure>
 
 ### Differences between Instance SuperAdmin, Instance Admin and Team Admin
 
@@ -107,7 +107,7 @@ To update user details, including changing passwords and modifying user permissi
     * **Reset the attempt limit for authentication**: Reset the failed login attempt counter for the user.
     * **Disable**: Block the user's access to the system. Use the "Disable" option cautiously to avoid disrupting active users.
 
-    An **Instance SuperAdmin** can also use the application to create users from a CSV file.
+    An **Instance SuperAdmin** can also use the [application](https://ecosystem.supervisely.com/apps/create-users-from-csv) to create users from a CSV file.
     However, they cannot directly change team member's roles but can log in as a Team Admin to modify user roles within that team.
 
 2. An **Instance Admin** is a team member with an individual login who receives their Admin rights from the SuperAdmin. However, unlike the SuperAdmin, they have limited rights. For example, they can create users but cannot assign Admin rights to others.
