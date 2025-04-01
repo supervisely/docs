@@ -42,17 +42,28 @@ Administrators can create new user accounts directly from the user management pa
 
 * **Login**: Enter a unique username for the new user.
 * **Password**: Set a secure password for the user.
-* **Settings**: Toggle between default or restricted access.
+* **Permissions**: Set instance-level permissions for this user. This setting applies globally, while the member role controls the user’s access in a specific team.
 
-If "**Is restricted**" is selected, the user will face the following limitations:
-
-* No access to the Ecosystem section.
-* No personal team will be created during signup.
-* Can't create a team.
+There are three categories of permissions:
+* "**Full-scope**" grants full access, including the ability to:
+    * Assign any role
+    * Run Any Apps
+    * Automatically create a personal team during signup
+    * Create new teams after signup
+* "**Restricted**" grants limited access, including:
+    * Assign any role
+    * Run Any Apps
+    * No personal team creation during signup
+    * Cannot create new teams after signup
+* "**Guest Labeler**" is available only if the "Active Labelers" option is enabled in the license. It grants limited access, including:
+    * Can assign only the Annotator role
+    * Cannot run any apps
+    * No personal team creation during signup
+    * Cannot create new teams after signup
 
 3. Click **Signup** to finalize the creation of the new user account.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-12-05 at 14.43.43.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/new_user.jpg" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -60,11 +71,11 @@ If "**Is restricted**" is selected, the user will face the following limitations
 
 User management is critical to keeping systems secure, managing permissions and ensuring smooth collaboration.
 
-<figure><img src="../../.gitbook/assets/edit-users.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/instance_admin_edit.jpg" alt=""><figcaption></figcaption></figure>
 
 ### Editing user details
 
-To update user details, including changing passwords and modifying user restrictions:
+To update user details, including changing passwords and modifying user permissions:
 
 1. Locate the desired user in the list.
 2. Click the three-dot icon on the right side of the user's row.
@@ -74,23 +85,41 @@ In the pop-up window, update the necessary fields:
 
 * **Login**: Change the username if required.
 * **Password**: Enter a new password to reset the user's credentials.
-* **Settings**: Toggle between default or restricted access.
-
-If "**Is restricted**" is selected, the user will face the following limitations:
-
-* No access to the Ecosystem section.
-* No personal team will be created during signup.
-* Can't create a team.
+* **Permissions**: Toggle between Full-scope, Restricted or Guest Labeler (if available).
 
 4. Click **Update** to save changes.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-12-05 at 14.30.04.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/new_user_update.jpg" alt=""><figcaption></figcaption></figure>
 
-### Additional actions
+### Deferences between Instance SuperAdmin, Instance Admin and Team Admin
 
-Administrators can perform the following actions from the three-dot action menu next to a user:
+1. **SuperAdmin** is a pre-installed user with the highest level of permissions. The default login is "Admin".
 
-* **Login as user**: Log into the system as the selected user.
-* **Convert to restricted user**: Restrict the user's permissions.
-* **Reset the attempt limit for authentication**: Reset the failed login attempt counter for the user.
-* **Disable**: Block the user's access to the system. Use the "Disable" option cautiously to avoid disrupting active users.
+    **SuperAdmin** can perform the following actions from the three-dot action menu next to a user:
+
+    <figure><img src="../../.gitbook/assets/instance_admin_screenshot.jpg" alt=""><figcaption></figcaption></figure>
+
+    * **Add admin permissions**: The Instance SuperAdmin can create users on the instance and grant them Admin rights.
+
+    Also SuperAdmin can:
+
+    * **Edit**: Update user details, including changing passwords and modifying user permissions.
+    * **Login as user**: Log into the system as the selected user.
+    * **Reserve seat**: Allocate a workspace slot for the user, ensuring they have access to necessary resources.
+    * **Convert to restricted user**: Restrict the user's permissions.
+    * **Reset the attempt limit for authentication**: Reset the failed login attempt counter for the user.
+    * **Disable**: Block the user's access to the system. Use the "Disable" option cautiously to avoid disrupting active users.
+
+    An **Instance SuperAdmin** can also use the application to create users from a CSV file.
+    However, they cannot directly change team member's roles but can log in as a Team Admin to modify user roles within that team.
+
+2. An **Instance Admin** is a team member with an individual login who receives their Admin rights from the SuperAdmin. However, unlike the SuperAdmin, they have limited rights. For example, they can create users but cannot assign Admin rights to others.
+
+    Compare:
+<figure><img src="../../.gitbook/assets/instance_admin_compare.jpg" alt=""><figcaption></figcaption></figure>
+
+3. A **Team Admin** is a user assigned to manage a specific team within the instance. They have full administrative control over that team, such as:
+
+    * **Managing team members**: Can invite new members and assign roles within their team. However, they do not have the ability to modify global settings or manage users outside their team.
+
+    * **Limited scope**: Unlike Instance SuperAdmin or Instance Admin, the Team Admin's control is restricted to the team they manage.
