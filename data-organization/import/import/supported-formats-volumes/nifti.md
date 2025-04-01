@@ -112,14 +112,15 @@ where:
 
 ### **Example 3: grouped by plane w/ multiple items**
 
-If you need to import multiple items at once, pack each item in a separate folder. Converter supports any folder structure, folders may not be on the same level, files will be found and matched regardless of structure. All files will be imported in the same dataset.
+If you need to import multiple items at once, place each item in a separate folder. 
+The converter supports any folder structure. Folders may be at different levels, and files will be matched by directory (annotation files must be in the same folder as their corresponding volume). All files will be imported into the same dataset.
 
 Structure example for multiple items directory:
 
 ```text
 📂 dataset_name # ⬅︎ may be archive, root files or nested directory instead
+├──📄 cls_color_map.txt  # ⬅︎ optional file
 ├──📂 item_1
-│  ├──📄 cls_color_map.txt  # ⬅︎ optional file
 │  ├──🩻 axl_anatomic.nii
 │  ├──🩻 axl_inference_1.nii
 │  ├──🩻 axl_inference_2.nii
@@ -128,7 +129,6 @@ Structure example for multiple items directory:
 │  ├──🩻 cor_inference_3.nii
 │  └──🩻 sag_anatomic.nii
 ├──📂 item_2
-│  ├──📄 cls_color_map.txt  # ⬅︎ optional file
 │  ├──🩻 axl_anatomic.nii
 │  ├──🩻 axl_inference_1.nii
 │  ├──🩻 axl_inference_2.nii
@@ -137,7 +137,6 @@ Structure example for multiple items directory:
 │  ├──🩻 cor_inference_3.nii
 │  └──🩻 sag_anatomic.nii
 ├──📂 item_2
-│  ├──📄 cls_color_map.txt  # ⬅︎ optional file
 │  ├──🩻 axl_anatomic.nii
 │  ├──🩻 axl_inference_1.nii
 │  ├──🩻 axl_inference_2.nii
