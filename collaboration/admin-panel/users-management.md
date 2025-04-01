@@ -28,15 +28,13 @@ Administrators can customize the user list display to filter or focus on specifi
 
 Regularly review user activity to maintain system security and performance.
 
-***
-
 ## Signup new user
 
 Administrators can create new user accounts directly from the user management panel. To do this:
 
 1. Click the **Signup** button at the bottom of the user list.
 
-<figure><img src="../../.gitbook/assets/signup-new-user.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/signup-new-user.png" alt=""><figcaption></figcaption></figure>
 
 2. Fill in the required fields in the pop-up window:
 
@@ -44,18 +42,19 @@ Administrators can create new user accounts directly from the user management pa
 * **Password**: Set a secure password for the user.
 * **Permissions**: Set instance-level permissions for this user. This setting applies globally, while the member role controls the user’s access in a specific team.
 
-There are three categories of permissions:
-* "**Full-scope**" grants full access, including the ability to:
+    There are three categories of permissions:
+
+  * "**Full-scope**" grants full access, including the ability to:
     * Assign any role
     * Run Any Apps
     * Automatically create a personal team during signup
     * Create new teams after signup
-* "**Restricted**" grants limited access, including:
+  * "**Restricted**" grants limited access, including:
     * Assign any role
     * Run Any Apps
     * No personal team creation during signup
     * Cannot create new teams after signup
-* "**Guest Labeler**" is available only if the "Active Labelers" option is enabled in the license. It grants limited access, including:
+  * "**Guest Labeler**" is available only if the "Active Labelers" option is enabled in the license. It grants limited access, including:
     * Can assign only the Annotator role
     * Cannot run any apps
     * No personal team creation during signup
@@ -63,9 +62,7 @@ There are three categories of permissions:
 
 3. Click **Signup** to finalize the creation of the new user account.
 
-<figure><img src="../../.gitbook/assets/new_user.jpg" alt=""><figcaption></figcaption></figure>
-
-***
+    <figure><img src="../../.gitbook/assets/new_user.jpg" alt=""><figcaption></figcaption></figure>
 
 ## Managing users
 
@@ -81,17 +78,17 @@ To update user details, including changing passwords and modifying user permissi
 2. Click the three-dot icon on the right side of the user's row.
 3. Select **Edit** from the dropdown menu.
 
-In the pop-up window, update the necessary fields:
+    In the pop-up window, update the necessary fields:
 
-* **Login**: Change the username if required.
-* **Password**: Enter a new password to reset the user's credentials.
-* **Permissions**: Toggle between Full-scope, Restricted or Guest Labeler (if available).
+    * **Login**: Change the username if required.
+    * **Password**: Enter a new password to reset the user's credentials.
+    * **Permissions**: Toggle between Full-scope, Restricted or Guest Labeler (if available).
 
 4. Click **Update** to save changes.
 
-<figure><img src="../../.gitbook/assets/new_user_update.jpg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/new_user_update.jpg" alt=""><figcaption></figcaption></figure>
 
-### Deferences between Instance SuperAdmin, Instance Admin and Team Admin
+### Differences between Instance SuperAdmin, Instance Admin and Team Admin
 
 1. **SuperAdmin** is a pre-installed user with the highest level of permissions. The default login is "Admin".
 
@@ -101,7 +98,7 @@ In the pop-up window, update the necessary fields:
 
     * **Add admin permissions**: The Instance SuperAdmin can create users on the instance and grant them Admin rights.
 
-    Also SuperAdmin can:
+    Also, SuperAdmin can:
 
     * **Edit**: Update user details, including changing passwords and modifying user permissions.
     * **Login as user**: Log into the system as the selected user.
@@ -116,7 +113,8 @@ In the pop-up window, update the necessary fields:
 2. An **Instance Admin** is a team member with an individual login who receives their Admin rights from the SuperAdmin. However, unlike the SuperAdmin, they have limited rights. For example, they can create users but cannot assign Admin rights to others.
 
     Compare:
-<figure><img src="../../.gitbook/assets/instance_admin_compare.jpg" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="../../.gitbook/assets/instance_admin_compare.jpg" alt=""><figcaption></figcaption></figure>
 
 3. A **Team Admin** is a user assigned to manage a specific team within the instance. They have full administrative control over that team, such as:
 
