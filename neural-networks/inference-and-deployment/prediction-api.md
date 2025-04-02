@@ -56,21 +56,6 @@ prediction = model.predict(
 ```
 {% endtab %}
 
-{% tab title="OpenCV" %}
-```python
-import cv2
-
-# Read image using OpenCV
-image = cv2.imread("path/to/image.jpg")
-# Convert BGR to RGB format
-image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-
-prediction = model.predict(
-    input=image,
-)
-```
-{% endtab %}
-
 {% tab title="URL" %}
 ```python
 prediction = model.predict(
@@ -110,7 +95,7 @@ predictions = model.predict(
 ```
 {% endtab %}
 
-{% tab title="Video" %}
+{% tab title="video" %}
 ```python
 # You can pass a video file
 predictions = model.predict(
@@ -128,32 +113,26 @@ predictions = model.predict(
 ```
 {% endtab %}
 
-{% tab title="Project ID" %}
+{% tab title="Sly ID" %}
 ```python
-# You can pass a project ID from Supervisely
-predictions = model.predict(
-    project_id=12345,  # Project ID
-)
-```
-{% endtab %}
+# You can pass IDs from Supervisely platform
+# - Project ID
+# - Dataset ID
+# - Image ID
+# - List of Image IDs
 
-{% tab title="Dataset ID" %}
-```python
-# You can pass a dataset ID from Supervisely
 predictions = model.predict(
-    dataset_id=12345,  # Dataset ID
+    project_id=123,  # Project ID
 )
-```
-{% endtab %}
 
-{% tab title="Image ID" %}
-```python
-# You can pass an image ID from Supervisely
+predictions = model.predict(
+    dataset_id=456,  # Dataset ID
+)
+
 prediction = model.predict(
     image_ids=12345,  # Image ID
 )
 
-# Or a list of image IDs
 predictions = model.predict(
     image_ids=[12345, 67890],  # List of Image IDs
 )
@@ -169,8 +148,8 @@ predictions = model.predict(
 | image | `input="path/to/image.jpg"` | `str` or `Path` | Single image file path. |
 | PIL | `input=Image.open("path/to/image.jpg")` | `PIL.Image` | Image loaded with PIL library. |
 | URL | `input="https://example.com/image.jpg"` | `str` | URL to an image. |
-| numpy | `input=np.array(image)` | np.ndarray | HWC format with RGB channels uint8 (0-255). |
-| list | `input=["image1.jpg", "image2.jpg"]` | `list` | List of images in any format (paths, PIL, OpenCV, etc.). |
+| numpy | `input=np.array(image)` | `np.ndarray` | HWC format with RGB channels uint8 (0-255). |
+| list | `input=["image1.jpg", "image2.jpg"]` | `list` | List of images in any format (paths, PIL, np.array, etc.). |
 | directory | `input="path/to/directory"` | `str` or `Path` | Path to a directory containing images. |
 | Video | `input="path/to/video.mp4"` | `str` or `Path` | Video file in formats like MP4, AVI, etc. |
 | Supervisely project | `input="path/to/sly_project"` | `str` or `Path` | Path to a local Supervisely project containing images. |
