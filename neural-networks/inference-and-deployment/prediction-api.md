@@ -113,7 +113,7 @@ predictions = model.predict(
 ```
 {% endtab %}
 
-{% tab title="Sly ID" %}
+{% tab title="Supervisely IDs" %}
 ```python
 # You can pass IDs from Supervisely platform
 # - Project ID
