@@ -174,6 +174,19 @@ predictions = model.predict(
 
 ### Output format
 
-`Predict` returns a list of `Prediction` objects, each containing the following attributes:
+The `predict()` returns a list of `Prediction` objects, containing annotation data and information about the source image.
 
-| Attribute | Type | Description |
+| Attributes | Type | Description |
+| --- | --- | --- |
+| `annotation` | `sly.Annotation` | Supervisely annotation containing predicted objects, their classes, geometries, and tags. |
+| `source` | `Any`, `None` | Source of the image used for prediction. Contains the same object as the `input` of `predict` method. Can be a file path, URL, np.array, PIL.Image, etc. Will be `None` if source was a Supervisely ID. |
+| `project_id` | `int`, `None` | ID of the Supervisely project associated with this prediction. Applicable if the input was a Supervisely ID |
+| `dataset_id` | `int`, `None` | ID of the Supervisely dataset associated with this prediction. Applicable if the input was a Supervisely ID |
+| `image_id` | `int`, `None` | ID of the image in the Supervisely platform associated with this prediction. Applicable if the input was a Supervisely ID |
+
+`Prediction` object has additional methods:
+
+| Method | Return Type | Description |
+| --- | --- | --- |
+| `load_image()` | `np.ndarray` | Loads the image associated with this prediction. |
+| `draw()` | | `np.ndarray` | Draws the predicted annotation on the image. |
