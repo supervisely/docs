@@ -119,7 +119,7 @@ predictions = model.predict(
 ```
 {% endtab %}
 
-{% tab title="Supervisely project" %}
+{% tab title="Project" %}
 ```python
 # You can pass a local project containing images
 predictions = model.predict(
