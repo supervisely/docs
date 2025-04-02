@@ -1,6 +1,6 @@
 # Prediction API
 
-Suppose you've trained a new model in Supervisely and want to deploy it for inference. You can do this with ease using the new **Supervisely Prediction API**.
+Suppose you've trained a new model in Supervisely and want to use it for inference. You can do this with ease using the new **Supervisely Prediction API**.
 
 ## Connect & Deploy
 
@@ -39,6 +39,7 @@ After you've connected to the model, you can use it to make predictions. The mod
 
 {% tab title="image" %}
 ```python
+# Single image file
 prediction = model.predict(
     input="path/to/image.jpg",
 )
@@ -47,6 +48,7 @@ prediction = model.predict(
 
 {% tab title="URL" %}
 ```python
+# URL to an image
 prediction = model.predict(
     input="https://example.com/image.jpg",
 )
@@ -57,7 +59,9 @@ prediction = model.predict(
 ```python
 from PIL import Image
 
+# Load image with PIL
 image = Image.open("path/to/image.jpg")
+
 prediction = model.predict(
     input=image,
 )
@@ -79,7 +83,7 @@ prediction = model.predict(
 
 {% tab title="list" %}
 ```python
-# You can pass a list of images in any format, such as paths, PIL, OpenCV, numpy arrays, etc.
+# A list of images in any format, such as paths, PIL, np.array, etc.
 predictions = model.predict(
     input=["image1.jpg", "image2.jpg"],
 )
@@ -88,16 +92,17 @@ predictions = model.predict(
 
 {% tab title="directory" %}
 ```python
-# You can pass a directory containing images
+# A directory of images
 predictions = model.predict(
     input="path/to/directory",
+    recursive=True,  # Search for images in sub-directories
 )
 ```
 {% endtab %}
 
 {% tab title="video" %}
 ```python
-# You can pass a video file
+# A video file
 predictions = model.predict(
     input="path/to/video.mp4",
 )
@@ -106,7 +111,7 @@ predictions = model.predict(
 
 {% tab title="Project" %}
 ```python
-# You can pass a local project containing images
+# A local Supervisely Project containing images
 predictions = model.predict(
     input="path/to/sly_project",
 )
@@ -161,8 +166,8 @@ predictions = model.predict(
 
 | Argument | Type | Default | Description |
 | --- | --- | --- | --- |
-| `input` | `str`, `Path`, `np.ndarray`, `PIL.Image`, `list`, `int` | `None` | Input source: local paths, directory, local project, numpy array, PIL.Image, URL, Project ID, Dataset ID, Image IDs |
-| `settings` | `dict` | `None` | Inference settings passed to a model for prediction |
+| `input` | `str`, `Path`, `np.ndarray`, `PIL.Image`, `list` | `None` | Input source: local paths, directory, local project, numpy array, PIL.Image, URL |
+| `settings` | `dict` | `None` | Inference settings passed to the model for inference |
 | `project_id` | `int` | `None` | Project ID from Supervisely platform |
 | `dataset_id` | `int` | `None` | Dataset ID from Supervisely platform |
 | `image_ids` | `int` or `list` | `None` | Single image ID or list of image IDs from Supervisely platform |
@@ -174,19 +179,19 @@ predictions = model.predict(
 
 ### Output format
 
-The `predict()` returns a list of `Prediction` objects, containing annotation data and information about the source image.
+The `predict()` method returns a list of `Prediction` objects, containing annotation data and information about the source image.
 
 | Attributes | Type | Description |
 | --- | --- | --- |
 | `annotation` | `sly.Annotation` | Supervisely annotation containing predicted objects, their classes, geometries, and tags. |
-| `source` | `Any`, `None` | Source of the image used for prediction. Contains the same object as the `input` of `predict` method. Can be a file path, URL, np.array, PIL.Image, etc. Will be `None` if source was a Supervisely ID. |
-| `project_id` | `int`, `None` | ID of the Supervisely project associated with this prediction. Applicable if the input was a Supervisely ID |
-| `dataset_id` | `int`, `None` | ID of the Supervisely dataset associated with this prediction. Applicable if the input was a Supervisely ID |
-| `image_id` | `int`, `None` | ID of the image in the Supervisely platform associated with this prediction. Applicable if the input was a Supervisely ID |
+| `source` | `Any` or `None` | Contains the same object as the `input` from the `predict()` method. Can be a file path, URL, np.array, PIL.Image, etc. Will be `None` if source was a Supervisely ID. |
+| `project_id` | `int` or `None` | ID of the Supervisely project associated with this prediction. Applicable if the input was a Supervisely ID |
+| `dataset_id` | `int` or `None` | ID of the Supervisely dataset associated with this prediction. Applicable if the input was a Supervisely ID |
+| `image_id` | `int` or `None` | ID of the image in the Supervisely platform associated with this prediction. Applicable if the input was a Supervisely ID |
 
-`Prediction` object has additional methods:
+The `Prediction` object has additional methods:
 
 | Method | Return Type | Description |
 | --- | --- | --- |
 | `load_image()` | `np.ndarray` | Loads the image associated with this prediction. |
-| `draw()` | | `np.ndarray` | Draws the predicted annotation on the image. |
+| `draw()` | `np.ndarray` | Draws the predicted annotation on the image. |
