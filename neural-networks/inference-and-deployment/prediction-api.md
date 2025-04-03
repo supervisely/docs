@@ -323,7 +323,7 @@ You can upload predictions to the Supervisely platform using the `upload` argume
 | `create` | Create a new project on the platform and upload predictions to it. |
 | `append` | Add new predictions to existing annotations. Only applicable if the input is an existing Project ID, Dataset ID, or Image IDs. |
 | `replace` | Replace existing annotations with the new predictions. Only applicable if the input is an existing Project ID, Dataset ID, or Image IDs. |
-| `iou_merge` | Append predictions to existing annotations, trying to avoid creating duplicate objects. This mode will check the IoU between each new prediction and existed objects, and filter out predictions which overlap with existed objects with IoU >= 0.9 (parameter controlled in `settings`). Only applicable for bounding box and mask predictions, and for existing Project ID, Dataset ID, or Image IDs. |
+| `iou_merge` | Append predictions to existing annotations, trying to avoid creating duplicate objects. This mode will check the IoU between each new prediction and existed objects, and filter out predictions which overlap with existed objects with IoU >= 0.9 (🔴🔴🔴 parameter controlled in `settings`). Only applicable for bounding box and mask predictions, and for existing Project ID, Dataset ID, or Image IDs. |
 
 ```python
 # Upload predictions to a project
