@@ -70,7 +70,7 @@ for prediction in predictions:
 {% endtab %}
 {% endtabs %}
 
-### Input format
+## Input format
 
 The model can accept various input formats, including image paths, np.ndarray, Project ID, Image ID and others.
 
@@ -201,7 +201,7 @@ Here's a summary of the input formats accepted by `predict()` and `predict_detac
 | Dataset ID | `dataset_id=12345` | `int` | Dataset ID from Supervisely platform. |
 | Image IDs | `image_ids=12345` or `image_ids=[12345, 67890]` | `int` or `list` | Single image ID or list of image IDs from Supervisely platform. |
 
-### Predict arguments
+## Predict arguments
 
 You can control the prediction process with various arguments, such as inference settings, batch size, image size. Here's a list of available arguments for the `predict()` and `predict_detached()` methods:
 
@@ -215,10 +215,10 @@ You can control the prediction process with various arguments, such as inference
 | `batch_size` | `int` | `None` | Number of images to process in a single batch |
 | `img_size` | `int` or `tuple` | `None` | Size of input images: `int` resizes to a square size, a tuple of (height, width) resizes to exact size. `None` will use the model's default input size |
 | `classes` | `List[str]` | `None` | List of classes to predict |
-| `upload` | `str` | `None` | If not `None`, the prediction will be uploaded to the platform. Upload modes: `append` - add new predictions to existed annotations, `replace` - replace an existing annotation to a new prediction, `create` - create a new project for predictions, `iou_merge` (only for bbox/mask) - append predictions to existing annotations, avoiding creating duplicated labels. |
+| `upload` | `str` | `None` | If not `None`, the prediction will be uploaded to the platform. Upload modes: `create`, `append`, `replace`, `iou_merge`. See more in [Uploading predictions](#uploading-predictions) section. |
 | `recursive` | `bool` | `False` | Whether to search for images in subdirectories |
 
-### Output format
+## Output format
 
 The `predict()` method returns a list of `Prediction` objects, containing annotation data and information about the source image.
 
@@ -267,7 +267,7 @@ The `Prediction` object provides methods for loading the original image and visu
 | `draw()` | `np.ndarray` | Draws the predicted annotation on the image. |
 
 
-### Predict Detached
+## Predict Detached
 
 The `predict_detached` method provides an asynchronous, non-blocking approach to running predictions on large datasets or when processing needs to be done in parallel with other operations. Unlike the standard `predict()` method which waits until **all** predictions are complete, `predict_detached` returns a `PredictionSession` object immediately, allowing your application to process predictions as they become available. This can be useful in tracking the progress, or doing other tasks in parallel, while predictions are being processed.
 
@@ -300,14 +300,50 @@ The `PredictionSession` object provides methods for managing the prediction proc
 
 
 ```python
-# Start a predicting video
-session = model.predict_detached(input="video.mp4")
+# Start predicting images in a directory
+session = model.predict_detached(input="path/to/directory")
 
-# Process first 10 frames
+# Process first 10 images in directory
 for i in range(10):
     if not session.is_done():
         prediction = session.next()
 
-# Stop processing video
+# Stop processing images
 session.stop()
+```
+
+
+## Uploading predictions
+
+You can upload predictions to the Supervisely platform using the `upload` argument in the `predict()` and `predict_detached()` methods. The available upload modes are:
+
+| Upload Mode | Description |
+| --- | --- |
+| `create` | Create a new project on the platform and upload predictions to it. |
+| `append` | Add new predictions to existing annotations. Only applicable if the input is an existing Project ID, Dataset ID, or Image IDs. |
+| `replace` | Replace existing annotations with the new predictions. Only applicable if the input is an existing Project ID, Dataset ID, or Image IDs. |
+| `iou_merge` | Append predictions to existing annotations, trying to avoid creating duplicate objects. This mode will check the IoU between each new prediction and existed objects, and filter out predictions which overlap with existed objects with IoU >= 0.9 (parameter controlled in `settings`). Only applicable for bounding box and mask predictions, and for existing Project ID, Dataset ID, or Image IDs. |
+
+```python
+# Upload predictions to a project
+predictions = model.predict(
+    project_id=123,  # Input project ID
+    upload="append",  # or "append", "replace", "iou_merge"
+)
+```
+
+## Predict video
+
+The `predict()` and `predict_detached()` methods can also be used to process video files. The model will process the video frame by frame, returning predictions for each frame.
+
+```python
+# Predicting a video file
+predictions = model.predict(
+    input="video.mp4",
+    video_params={"stride": 2},  # 🔴🔴🔴 как это лучше придумать?
+)
+
+# Iterating through predictions
+for prediction in predictions:
+    prediction.frame_idx  # Frame index of the prediction
 ```
