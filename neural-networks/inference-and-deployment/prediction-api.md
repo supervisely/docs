@@ -329,7 +329,7 @@ You can upload predictions to the Supervisely platform using the `upload` argume
 # Upload predictions to a project
 predictions = model.predict(
     project_id=123,  # Input project ID
-    upload="append",  # or "append", "replace", "iou_merge"
+    upload="append",  # or "create", "replace", "iou_merge"
 )
 ```
 
@@ -343,7 +343,13 @@ The `predict()` and `predict_detached()` methods can also be used to process vid
 # Predicting a video file
 predictions = model.predict(
     input="video.mp4",
-    video_params={"stride": 2},  # 🔴🔴🔴 как это лучше придумать?
+    video_params={     # 🔴🔴🔴 как это лучше придумать?
+        "stride": 2,
+        "start_frame": 120,
+        "end_frame": 2400,
+        "num_frames": 400,
+        "duration": 10,  # duration in seconds
+    },
 )
 
 # Iterating through predictions
