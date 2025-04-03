@@ -343,6 +343,7 @@ The `predict()` and `predict_detached()` methods can also be used to process vid
 # Predicting a video file
 predictions = model.predict(
     input="video.mp4",
+    video_id=5122,     # 🔴🔴🔴 еще один параметр?
     video_params={     # 🔴🔴🔴 как это лучше придумать?
         "stride": 2,
         "start_frame": 120,
