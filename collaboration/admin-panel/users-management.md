@@ -119,7 +119,6 @@ To update user details, including changing passwords and modifying user permissi
     <br>
     <figure><img src="../../.gitbook/assets/instance_admin_settings.png" alt=""><figcaption></figcaption></figure>
     <br>
-    <br>
 2. An **Instance Admin** is a team member with an individual login who receives their Admin rights from the Instance SuperAdmin. However, unlike the Instance SuperAdmin, they have limited rights. For example, they can create users but cannot assign Admin rights to others.
 
     Compare:
