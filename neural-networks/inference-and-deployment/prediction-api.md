@@ -33,7 +33,7 @@ model = api.nn.connect(
 
 ## Predict
 
-After you've connected to the model, you can use it to make predictions. The model can accept various input formats, including image path, np.array, Project ID, Image ID and others.
+After you've connected to the model, you can use it to make predictions. Here's an example usage:
 
 {% tabs %}
 {% tab title="sly.Annotation" %}
@@ -71,6 +71,8 @@ for prediction in predictions:
 {% endtabs %}
 
 ### Input format
+
+The model can accept various input formats, including image paths, np.ndarray, Project ID, Image ID and others.
 
 {% tabs %}
 
@@ -183,6 +185,8 @@ predictions = model.predict(
 
 {% endtabs %}
 
+Here's a summary of the input formats accepted by `predict()` and `predict_detached()` methods:
+
 | Input | Example | Type | Description |
 | --- | --- | --- | --- |
 | image | `input="path/to/image.jpg"` | `str` or `Path` | Single image file path. |
@@ -199,6 +203,8 @@ predictions = model.predict(
 
 ### Predict arguments
 
+You can control the prediction process with various arguments, such as inference settings, batch size, image size. Here's a list of available arguments for the `predict()` and `predict_detached()` methods:
+
 | Argument | Type | Default | Description |
 | --- | --- | --- | --- |
 | `input` | `str`, `Path`, `np.ndarray`, `PIL.Image`, `list` | `None` | Input source: local paths, directory, local project, numpy array, PIL.Image, URL |
@@ -209,7 +215,7 @@ predictions = model.predict(
 | `batch_size` | `int` | `None` | Number of images to process in a single batch |
 | `img_size` | `int` or `tuple` | `None` | Size of input images: `int` resizes to a square size, a tuple of (height, width) resizes to exact size. `None` will use the model's default input size |
 | `classes` | `List[str]` | `None` | List of classes to predict |
-| `upload` | `str` | `None` | If not `None`, the prediction will be uploaded on the platform. Upload modes: `append` - add new predictions to existed annotations, `replace` - replace an existing annotation to a new prediction, `create` - create a new project for predictions, `iou_merge` (only for bbox/mask) - append predictions to existing annotations, avoiding creating duplicated labels. |
+| `upload` | `str` | `None` | If not `None`, the prediction will be uploaded to the platform. Upload modes: `append` - add new predictions to existed annotations, `replace` - replace an existing annotation to a new prediction, `create` - create a new project for predictions, `iou_merge` (only for bbox/mask) - append predictions to existing annotations, avoiding creating duplicated labels. |
 | `recursive` | `bool` | `False` | Whether to search for images in subdirectories |
 
 ### Output format
@@ -263,7 +269,7 @@ The `Prediction` object provides methods for loading the original image and visu
 
 ### Predict Detached
 
-The `predict_detached` method provides an asynchronous, non-blocking approach to running predictions on large datasets or when processing needs to be done in parallel with other operations. Unlike the standard `predict()` method which blocks execution until **all** predictions are complete, `predict_detached` returns a `PredictionSession` object immediately, allowing your application to process predictions as they become available. This can be useful in tracking the progress, or doing other tasks while the predictions are being processed.
+The `predict_detached` method provides an asynchronous, non-blocking approach to running predictions on large datasets or when processing needs to be done in parallel with other operations. Unlike the standard `predict()` method which waits until **all** predictions are complete, `predict_detached` returns a `PredictionSession` object immediately, allowing your application to process predictions as they become available. This can be useful in tracking the progress, or doing other tasks in parallel, while predictions are being processed.
 
 ```python
 from tqdm import tqdm
@@ -283,9 +289,25 @@ for prediction in tqdm(session):
 
 #### `PredictionSession` methods
 
+The `PredictionSession` object provides methods for managing the prediction process, checking its status, and retrieving predictions.
+
 | Method | Return Type | Description |
 | --- | --- | --- |
 | `is_done()` | `bool` | Returns `True` if all predictions have been processed or the session was stopped. |
 | `next(timeout=None, block=True)` | `Prediction` | Retrieves the next available prediction. If `block=True`, waits until a prediction is available or the timeout (in seconds) is reached. If `block=False`, returns `None` immediately if no prediction is available. |
 | `stop()` | None | Stops the prediction process. Any predictions already in the queue will still be available, but no new predictions will be generated. |
 | `status()` | `dict` | Returns a dictionary containing session status information including: `progress` (percentage complete), `message` (status message), `error` (traceback if an error occurred), and `context` (project_id, dataset_id, etc.). |
+
+
+```python
+# Start a predicting video
+session = model.predict_detached(input="video.mp4")
+
+# Process first 10 frames
+for i in range(10):
+    if not session.is_done():
+        prediction = session.next()
+
+# Stop processing video
+session.stop()
+```
