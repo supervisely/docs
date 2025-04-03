@@ -36,6 +36,43 @@ model = api.nn.connect(
 After you've connected to the model, you can use it to make predictions. The model can accept various input formats, including image path, np.array, Project ID, Image ID and others.
 
 {% tabs %}
+{% tab title="sly.Annotation" %}
+```python
+# Predicting multiple images
+predictions = model.predict(
+    input=["image1.jpg",  "image2.jpg"],
+)
+
+# Iterating through predictions
+for prediction in predictions:
+    labels = prediction.annotation.labels  # 🔴🔴🔴 labels - термин в контексте моделей обычно используется для обозначения номера класса.
+    boxes = [label.geometry.to_bbox() for label in labels]
+    masks = [label.geometry for label in labels]
+    scores = [tag.value for tag in labels.tags if tag.name == "confidence"]
+    classes = [label.obj_class.name for label in labels]
+```
+{% endtab %}
+{% tab title="!NEW API!" %}
+```python
+# Predicting multiple images
+predictions = model.predict(
+    input=["image1.jpg",  "image2.jpg"],
+)
+
+# Iterating through predictions
+for prediction in predictions:
+    boxes = prediction.boxes  # List of predicted boxes (xyxy format)
+    masks = prediction.masks  # List of predicted masks (np.ndarray)
+    scores = prediction.scores  # List of predicted probabilities
+    classes = prediction.classes  # List of predicted classes
+    annotation = prediction.to_annotation()  # sly.Annotation with predicted objects
+```
+{% endtab %}
+{% endtabs %}
+
+### Input format
+
+{% tabs %}
 
 {% tab title="image" %}
 ```python
@@ -146,8 +183,6 @@ predictions = model.predict(
 
 {% endtabs %}
 
-### Input formats
-
 | Input | Example | Type | Description |
 | --- | --- | --- | --- |
 | image | `input="path/to/image.jpg"` | `str` or `Path` | Single image file path. |
@@ -181,17 +216,76 @@ predictions = model.predict(
 
 The `predict()` method returns a list of `Prediction` objects, containing annotation data and information about the source image.
 
+```python
+# Predicting multiple images
+predictions = model.predict(
+    input=["image1.jpg",  "image2.jpg"],
+)
+
+# Iterating through predictions
+for prediction in predictions:
+    prediction.annotation    # sly.Annotation with predicted objects
+    prediction.source        # Source of an image. Will be "image1.jpg" or "image2.jpg" in this example
+    prediction.image_path    # Path to the image file
+    prediction.image_url     # URL of the image if input was a URL
+    prediction.image         # np.ndarray image if input was a numpy array
+    prediction.project_id    # Project ID if input was a Supervisely ID
+    prediction.dataset_id    # Dataset ID if input was a Supervisely ID
+    prediction.image_id      # Image ID if input was a Supervisely ID
+    image = prediction.load_image()    # Load the original image associated with this prediction
+    visualization = prediction.draw()  # Draw the predicted annotation on the image
+```
+
+#### `Prediction` attributes
+
+The `Prediction` object contains the following attributes:
+
 | Attributes | Type | Description |
 | --- | --- | --- |
 | `annotation` | `sly.Annotation` | Supervisely annotation containing predicted objects, their classes, geometries, and tags. |
-| `source` | `Any` or `None` | Contains the same object as the `input` from the `predict()` method. Can be a file path, URL, np.array, PIL.Image, etc. Will be `None` if source was a Supervisely ID. |
+| `source` | `str` or `np.ndarray` | The source of a single input image. Depending on the type of `input`, it can be **image path**, **np.array** of the image, or **URL**. |
+| `image_path` | `str` or `None` | Path to the image file. Applicable if the input was a local path or directory |
+| `image_url` | `str` or `None` | URL of the image if the input was a URL. |
+| `image` | `np.ndarray` or `None` | Image as a numpy array if the input was a numpy array. |
 | `project_id` | `int` or `None` | ID of the Supervisely project associated with this prediction. Applicable if the input was a Supervisely ID |
 | `dataset_id` | `int` or `None` | ID of the Supervisely dataset associated with this prediction. Applicable if the input was a Supervisely ID |
 | `image_id` | `int` or `None` | ID of the image in the Supervisely platform associated with this prediction. Applicable if the input was a Supervisely ID |
 
-The `Prediction` object has additional methods:
+#### `Prediction` methods
+
+The `Prediction` object provides methods for loading the original image and visualizing the predicted annotation.
 
 | Method | Return Type | Description |
 | --- | --- | --- |
 | `load_image()` | `np.ndarray` | Loads the image associated with this prediction. |
 | `draw()` | `np.ndarray` | Draws the predicted annotation on the image. |
+
+
+### Predict Detached
+
+The `predict_detached` method provides an asynchronous, non-blocking approach to running predictions on large datasets or when processing needs to be done in parallel with other operations. Unlike the standard `predict()` method which blocks execution until **all** predictions are complete, `predict_detached` returns a `PredictionSession` object immediately, allowing your application to process predictions as they become available. This can be useful in tracking the progress, or doing other tasks while the predictions are being processed.
+
+```python
+from tqdm import tqdm
+
+# Start a detached prediction session
+# At this point, the model will start making predictions in parallel
+session = model.predict_detached(
+    input="path/to/directory",
+    recursive=True,
+)
+
+# Process predictions as they become available
+for prediction in tqdm(session):
+    objects = prediction.annotation.labels  # List of predicted objects
+    boxes = [label.geometry.to_bbox() for label in labels]
+```
+
+#### `PredictionSession` methods
+
+| Method | Return Type | Description |
+| --- | --- | --- |
+| `is_done()` | `bool` | Returns `True` if all predictions have been processed or the session was stopped. |
+| `next(timeout=None, block=True)` | `Prediction` | Retrieves the next available prediction. If `block=True`, waits until a prediction is available or the timeout (in seconds) is reached. If `block=False`, returns `None` immediately if no prediction is available. |
+| `stop()` | None | Stops the prediction process. Any predictions already in the queue will still be available, but no new predictions will be generated. |
+| `status()` | `dict` | Returns a dictionary containing session status information including: `progress` (percentage complete), `message` (status message), `error` (traceback if an error occurred), and `context` (project_id, dataset_id, etc.). |
