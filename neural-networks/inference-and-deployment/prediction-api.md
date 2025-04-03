@@ -70,7 +70,7 @@ for prediction in predictions:
 {% endtab %}
 {% endtabs %}
 
-## Input format
+### Input format
 
 The model can accept various input formats, including image paths, np.ndarray, Project ID, Image ID and others.
 
@@ -201,7 +201,7 @@ Here's a summary of the input formats accepted by `predict()` and `predict_detac
 | Dataset ID | `dataset_id=12345` | `int` | Dataset ID from Supervisely platform. |
 | Image IDs | `image_ids=12345` or `image_ids=[12345, 67890]` | `int` or `list` | Single image ID or list of image IDs from Supervisely platform. |
 
-## Predict arguments
+### Predict arguments
 
 You can control the prediction process with various arguments, such as inference settings, batch size, image size. Here's a list of available arguments for the `predict()` and `predict_detached()` methods:
 
@@ -216,9 +216,9 @@ You can control the prediction process with various arguments, such as inference
 | `img_size` | `int` or `tuple` | `None` | Size of input images: `int` resizes to a square size, a tuple of (height, width) resizes to exact size. `None` will use the model's default input size |
 | `classes` | `List[str]` | `None` | List of classes to predict |
 | `upload` | `str` | `None` | If not `None`, the prediction will be uploaded to the platform. Upload modes: `create`, `append`, `replace`, `iou_merge`. See more in [Uploading predictions](#uploading-predictions) section. |
-| `recursive` | `bool` | `False` | Whether to search for images in subdirectories |
+| `recursive` | `bool` | `False` | Whether to search for images in subdirectories. Applicable for directories only. |
 
-## Output format
+### Output format
 
 The `predict()` method returns a list of `Prediction` objects, containing annotation data and information about the source image.
 
@@ -271,6 +271,8 @@ The `Prediction` object provides methods for loading the original image and visu
 
 The `predict_detached` method provides an asynchronous, non-blocking approach to running predictions on large datasets or when processing needs to be done in parallel with other operations. Unlike the standard `predict()` method which waits until **all** predictions are complete, `predict_detached` returns a `PredictionSession` object immediately, allowing your application to process predictions as they become available. This can be useful in tracking the progress, or doing other tasks in parallel, while predictions are being processed.
 
+The `predict_detached()` accepts the same arguments as `predict()`, but it returns a `PredictionSession` object instead of a list of predictions.
+
 ```python
 from tqdm import tqdm
 
@@ -312,7 +314,6 @@ for i in range(10):
 session.stop()
 ```
 
-
 ## Uploading predictions
 
 You can upload predictions to the Supervisely platform using the `upload` argument in the `predict()` and `predict_detached()` methods. The available upload modes are:
@@ -333,6 +334,8 @@ predictions = model.predict(
 ```
 
 ## Predict video
+
+🔴🔴🔴
 
 The `predict()` and `predict_detached()` methods can also be used to process video files. The model will process the video frame by frame, returning predictions for each frame.
 
