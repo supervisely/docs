@@ -234,7 +234,7 @@ for prediction in predictions:
     prediction.source        # Source of an image. Will be "image1.jpg" or "image2.jpg" in this example
     prediction.image_path    # Path to the image file
     prediction.image_url     # URL of the image if input was a URL
-    prediction.image         # np.ndarray image if input was a numpy array
+    prediction.image         # np.ndarray image if input was a PIL image or np.array
     prediction.project_id    # Project ID if input was a Supervisely ID
     prediction.dataset_id    # Dataset ID if input was a Supervisely ID
     prediction.image_id      # Image ID if input was a Supervisely ID
