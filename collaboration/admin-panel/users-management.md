@@ -90,15 +90,15 @@ To update user details, including changing passwords and modifying user permissi
 
 ### Differences between Instance SuperAdmin, Instance Admin and Team Admin
 
-1. **SuperAdmin** is a pre-installed user with the highest level of permissions. The default login is "Admin".
+1. An **Instance SuperAdmin** is a pre-installed user with the highest level of permissions. The default login is "Admin".
 
-    **SuperAdmin** can perform the following actions from the three-dot action menu next to a user:
+    An Instance SuperAdmin can perform the following actions from the three-dot action menu next to a user:
 
     <figure><img src="../../.gitbook/assets/instance_admin_screenshot.jpg" alt=""><figcaption></figcaption></figure>
 
     * **Add admin permissions**: The Instance SuperAdmin can create users on the instance and grant them Admin rights.
 
-    Also, SuperAdmin can:
+    Also, Instance SuperAdmin can:
 
     * **Edit**: Update user details, including changing passwords and modifying user permissions.
     * **Login as user**: Log into the system as the selected user.
@@ -107,10 +107,14 @@ To update user details, including changing passwords and modifying user permissi
     * **Reset the attempt limit for authentication**: Reset the failed login attempt counter for the user.
     * **Disable**: Block the user's access to the system. Use the "Disable" option cautiously to avoid disrupting active users.
 
-    An **Instance SuperAdmin** can also use the [application](https://ecosystem.supervisely.com/apps/create-users-from-csv) to create users from a CSV file.
+    An Instance SuperAdmin can also use the [application](https://ecosystem.supervisely.com/apps/create-users-from-csv) to create users from a CSV file.
     However, they cannot directly change team member's roles but can log in as a Team Admin to modify user roles within that team.
 
-2. An **Instance Admin** is a team member with an individual login who receives their Admin rights from the SuperAdmin. However, unlike the SuperAdmin, they have limited rights. For example, they can create users but cannot assign Admin rights to others.
+    An Instance SuperAdmin and Instance Admin have access to instance settings, allowing them to modify its configuration, add global cloud storage, perform updates, and more.
+
+    <figure><img src="../../.gitbook/assets/instance_admin_settings.png" alt=""><figcaption></figcaption></figure>
+
+2. An **Instance Admin** is a team member with an individual login who receives their Admin rights from the Instance SuperAdmin. However, unlike the Instance SuperAdmin, they have limited rights. For example, they can create users but cannot assign Admin rights to others.
 
     Compare:
 
