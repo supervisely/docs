@@ -61,7 +61,8 @@ Administrators can create new user accounts directly from the user management pa
     * Cannot create new teams after signup
 
 3. Click **Signup** to finalize the creation of the new user account.
-
+    <br>
+    <br>
     <figure><img src="../../.gitbook/assets/new_user_signup.png" alt=""><figcaption></figcaption></figure>
 
 ## Managing users
@@ -85,7 +86,8 @@ To update user details, including changing passwords and modifying user permissi
     * **Permissions**: Toggle between Full-scope, Restricted or Guest Labeler (if available).
 
 4. Click **Update** to save changes.
-
+    <br>
+    <br>
     <figure><img src="../../.gitbook/assets/new_user_edit.png" alt=""><figcaption></figcaption></figure>
 
 ### Differences between Instance SuperAdmin, Instance Admin and Team Admin
@@ -93,9 +95,11 @@ To update user details, including changing passwords and modifying user permissi
 1. An **Instance SuperAdmin** is a pre-installed user with the highest level of permissions. The default login is "Admin".
 
     An Instance SuperAdmin can perform the following actions from the three-dot action menu next to a user:
-
+    <br>
+    <br>
     <figure><img src="../../.gitbook/assets/instance_admin_screenshot.jpg" alt=""><figcaption></figcaption></figure>
-
+    <br>
+    <br>
     * **Add admin permissions**: The Instance SuperAdmin can create users on the instance and grant them Admin rights.
 
     Also, Instance SuperAdmin can:
@@ -111,9 +115,11 @@ To update user details, including changing passwords and modifying user permissi
     However, they cannot directly change team member's roles but can log in as a Team Admin to modify user roles within that team.
 
     An Instance SuperAdmin and Instance Admin have access to instance settings, allowing them to modify its configuration, add global cloud storage, perform updates, and more.
-
+    <br>
+    <br>
     <figure><img src="../../.gitbook/assets/instance_admin_settings.png" alt=""><figcaption></figcaption></figure>
-
+    <br>
+    <br>
 2. An **Instance Admin** is a team member with an individual login who receives their Admin rights from the Instance SuperAdmin. However, unlike the Instance SuperAdmin, they have limited rights. For example, they can create users but cannot assign Admin rights to others.
 
     Compare:
