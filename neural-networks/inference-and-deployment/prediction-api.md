@@ -52,7 +52,7 @@ for prediction in predictions:
     classes = [label.obj_class.name for label in labels]
 ```
 {% endtab %}
-{% tab title="!NEW API!" %}
+{% tab title="🔴NEW API🔴" %}
 ```python
 # Predicting multiple images
 predictions = model.predict(
