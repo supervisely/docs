@@ -20,6 +20,7 @@ api = sly.Api()
 model = api.nn.deploy_custom_model( 🔴 - checkpoint_id это прям мне не нравится как новая сущность
     checkpoint_id=12345,  # file id of checkpoint in Team Files
 )
+🔴 - docker
 🔴 - лучше 
 model = api.nn.deploy_custom_model(checkpoint="/a/b/c.pth")
 🔴 - team_id по идее можно брать и искать автоматом, задал умару вопрос https://supervisely-team.slack.com/archives/CV28AA11P/p1743760002034969
