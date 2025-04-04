@@ -88,14 +88,18 @@ The model can accept various input formats, including image paths, np.ndarray, P
 {% tab title="image" %}
 ```python
 # Single image file
-predictions = model.predict(input="path/to/image.jpg")
+predictions = model.predict(
+    input="path/to/image.jpg"
+)
 ```
 {% endtab %}
 
 {% tab title="URL" %}
 ```python
 # URL to an image
-predictions = model.predict(input="https://example.com/image.jpg")
+predictions = model.predict(
+    input="https://example.com/image.jpg"
+)
 ```
 {% endtab %}
 
@@ -164,27 +168,22 @@ predictions = model.predict(
 
 {% tab title="Supervisely IDs" %}
 ```python
-# You can pass IDs from Supervisely platform
-# - Project ID
-# - Dataset ID
-# - Image ID
-# - List of Image IDs
+# You can pass IDs of items from Supervisely platform
 
-predictions = model.predict(
-    project_id=123,  # Project ID
-)
+# Project ID
+predictions = model.predict(project_id=123)
 
-predictions = model.predict(
-    dataset_id=456,  # Dataset ID
-)
+# Dataset ID
+predictions = model.predict(dataset_id=456)
 
-predictions = model.predict(
-    image_ids=12345,  # Image ID
-)
+# Image ID
+predictions = model.predict(image_ids=12345)
 
-predictions = model.predict(
-    image_ids=[12345, 67890],  # List of Image IDs
-)
+# List of Image IDs
+predictions = model.predict(image_ids=[12345, 67890])
+
+# Video ID
+predictions = model.predict(video_id=1212)
 ```
 {% endtab %}
 
@@ -217,10 +216,12 @@ You can control the prediction process with various arguments, such as inference
 | `project_id` | `int` | `None` | Project ID from Supervisely platform |
 | `dataset_id` | `int` | `None` | Dataset ID from Supervisely platform |
 | `image_ids` | `int` or `list` | `None` | Single image ID or list of image IDs from Supervisely platform |
-| `batch_size` | `int` | `None` | Number of images to process in a single batch |
+| `video_id` | `int` | `None` | Video ID from Supervisely platform. The video will be processed frame by frame. |
+| `video_settings` | `dict` | `None` | Video settings for processing video files. See more in [Predict video](#predict-video) section. |
+| `batch_size` | `int` | `None` | Number of images to process in a single batch. If `None`, the model will use its default batch size. |
 | `img_size` | `int` or `tuple` | `None` | Size of input images: `int` resizes to a square size, a tuple of (height, width) resizes to exact size. `None` will use the model's default input size |
 | `classes` | `List[str]` | `None` | List of classes to predict |
-| `upload` | `str` | `None` | If not `None`, the prediction will be uploaded to the platform. Upload modes: `create`, `append`, `replace`, `iou_merge`. See more in [Uploading predictions](#uploading-predictions) section. |
+| `upload` | `str` | `None` | If not `None`, predictions will be uploaded to the platform. Upload modes: `create`, `append`, `replace`, `iou_merge`. See more in [Uploading predictions](#uploading-predictions) section. |
 | `recursive` | `bool` | `False` | Whether to search for images in subdirectories. Applicable for directories only. |
 
 ### Prediction result
@@ -275,7 +276,7 @@ The `Prediction` object provides convenient methods for loading the original ima
 
 #### `visualize(save=None, save_dir=None)`
 
-🔴🔴🔴 add more args from sly.Annotation.draw()
+🔴🔴🔴 add more args from sly.Annotation.draw() (line_width, opacity, etc.)
 
 Visualizes the prediction by drawing annotations on the original image.
 
@@ -394,7 +395,7 @@ predictions = model.predict(
 )
 ```
 
-## Predict video frame by frame
+## Predict video
 
 🔴🔴🔴
 
@@ -403,7 +404,7 @@ The `predict()` and `predict_detached()` methods can also be used to process vid
 ```python
 # Predicting a video file
 predictions = model.predict(
-    video="video.mp4",
+    video_id=1412,
     video_settings={
         "stride": 1,        # step between frames, 1 means process every frame
         "start_frame": 0,   # start frame to process (0-based)
@@ -420,3 +421,4 @@ for p in predictions:
 
 ## Tracking objects on video
 
+🔴🔴🔴 Как вариант - сделать отдельную эпу serve boxmot, чтобы трекать на агенте а не на клиенте
