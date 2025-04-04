@@ -3,6 +3,7 @@
 Suppose you've trained a new model in Supervisely and want to use it for inference. You can do this with ease using the new **Supervisely Prediction API**.
 
 ## Connect & Deploy
+🔴 - я бы сделал Deploy & Connect
 
 Before using the model, you need to connect to it. You can either deploy a new model or connect to an existing one.
 
@@ -13,12 +14,23 @@ import supervisely as sly
 
 api = sly.Api()
 
-model = api.nn.deploy_custom_model(
+model = api.nn.deploy_custom_model( 🔴 - checkpoint_id это прям мне не нравится как новая сущность
     checkpoint_id=12345,  # file id of checkpoint in Team Files
 )
+🔴 - лучше 
+model = api.nn.deploy_custom_model(checkpoint="/a/b/c.pth")
+🔴 - team_id по идее можно брать и искать автоматом, задал умару вопрос https://supervisely-team.slack.com/archives/CV28AA11P/p1743760002034969
+🔴 - из чекпоинта по идее мы будем доставать всю инфу в том числе framework  и тд, чтобы знать в какой апе стартануть?
+🔴 - еще я бы добавил опциональный флаг, что если такая модель раздеплоена, найти ее или раздеплоить как еще одну:
+🔴 - еще аргумент checkpoint мне не нравится и еще не понятно как раздеплоить pretrained (тут у меня нет идей, но как-то вкорячить это в метод model = api.nn.deploy(model="/a/b/c.pth") было бы прикольно)
+🔴 - может переименовать в deploy?
+model = api.nn.deploy(model="/a/b/c.pth")
+🔴 - дописать в описании что метод сам проверит наличие компьютера с GPU девайса и описать аргшументы?
+
+
 ```
 {% endtab %}
-{% tab title="Connect to existed model" %}
+{% tab title="Connect to deployed model" %}
 ```python
 import supervisely as sly
 
@@ -27,6 +39,7 @@ api = sly.Api()
 model = api.nn.connect(
     task_id=12345,  # Task ID of a running app in Supervisely
 )
+🔴 - нужно будет еще написать, в отдельном разделе Advanced что там при запуске есть Restart policy разные и что тогда task_id при рестарте не поменяется. нужно проверить это
 ```
 {% endtab %}
 {% endtabs %}
