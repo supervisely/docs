@@ -1,5 +1,7 @@
 # Prediction API
 
+🔴 -  будем ли мы делать после overview секцию quickstart? и потом на ней ссылки на расширенные доки типа этой где все делали и варианты деплоя будут с аргументами расписаны?
+
 Suppose you've trained a new model in Supervisely and want to use it for inference. You can do this with ease using the new **Supervisely Prediction API**.
 
 ## Connect & Deploy
