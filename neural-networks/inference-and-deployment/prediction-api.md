@@ -1,28 +1,9 @@
 # Prediction API
 
 🔴 -  будем ли мы делать после overview секцию quickstart? и потом на ней ссылки на расширенные доки типа этой где все делали и варианты деплоя будут с аргументами расписаны?
-
-Suppose you've trained a new model in Supervisely and want to use it for inference. You can do this with ease using the new **Supervisely Prediction API**.
-
-## Deploy & Connect
-🔴 - runtime? пока не видел - onnx tensorrt
 🔴 - runtime? пока не видел - onnx tensorrt - написать что не зависит дать ссылку
-
-Before using the model, you need to connect to it. You can either deploy a new model or connect to an existing one.
-
-{% tabs %}
-{% tab title="Deploy model" %}
-```python
-import supervisely as sly
-
-api = sly.Api()
-
-model = api.nn.deploy_custom_model( 🔴 - checkpoint_id это прям мне не нравится как новая сущность
-    checkpoint_id=12345,  # file id of checkpoint in Team Files
-)
-🔴 - docker
-🔴 - лучше 
-model = api.nn.deploy_custom_model(checkpoint="/a/b/c.pth")
+🔴 - нужно будет еще написать, в отдельном разделе Advanced что там при запуске есть Restart policy разные и что тогда task_id при рестарте не поменяется. нужно проверить это
+🔴 - docker: connect to model
 🔴 - team_id по идее можно брать и искать автоматом, задал умару вопрос https://supervisely-team.slack.com/archives/CV28AA11P/p1743760002034969
 🔴 - из чекпоинта по идее мы будем доставать всю инфу в том числе framework  и тд, чтобы знать в какой апе стартануть?
 🔴 - еще я бы добавил опциональный флаг, что если такая модель раздеплоена, найти ее или раздеплоить как еще одну:
@@ -33,10 +14,26 @@ model = api.nn.deploy(pretrained="mmmm-coc-aaa"???)
 🔴 - дописать в описании что метод сам проверит наличие компьютера с GPU девайса и описать аргшументы? device, agent? 
 🔴 - поговорить с денисом и заменить слово agent на machine
 
+Suppose you've trained a new model in Supervisely and want to use it for inference via API. You can do this with ease using the new **Supervisely Prediction API**.
 
+## Deploy & Connect
+
+Before using the model, you need to deploy a new model or connect to an existing one.
+
+{% tabs %}
+{% tab title="Deploy a new model" %}
+```python
+import supervisely as sly
+
+api = sly.Api()
+
+# When you deploy a model, it will automatically connect to it.
+model = api.nn.deploy(
+    checkpoint="/path/in/team_files/best.pt",  # path to your checkpoint in Team Files
+)
 ```
 {% endtab %}
-{% tab title="Connect to deployed model" %}
+{% tab title="Connect to existed model" %}
 ```python
 import supervisely as sly
 
@@ -45,17 +42,27 @@ api = sly.Api()
 model = api.nn.connect(
     task_id=12345,  # Task ID of a running app in Supervisely
 )
-🔴 - нужно будет еще написать, в отдельном разделе Advanced что там при запуске есть Restart policy разные и что тогда task_id при рестарте не поменяется. нужно проверить это
+```
+{% endtab %}
+{% tab title="Connect to model in Docker" %}
+```python
+import supervisely as sly
+
+api = sly.Api()
+
+model = api.nn.connect(
+    url="http://localhost:8000",  # URL of the Docker container
+)
 ```
 {% endtab %}
 {% endtabs %}
+
+This guide does not cover the deployment process. Please, see the full documentation in [Deploy API](neural-networks/inference-and-deployment/deploy-api.md).
 
 ## Predict
 
 After you've connected to the model, you can use it to make predictions. Here's an example usage:
 
-{% tabs %}
-{% tab title="sly.Annotation" %}
 ```python
 # Predicting multiple images
 predictions = model.predict(
@@ -63,42 +70,14 @@ predictions = model.predict(
 )
 
 # Iterating through predictions
-predictions.draw(???)
-
 for p in predictions:
-    🔴 - p.boxes - можно сделать атрибут метод который из sly аннотации достанет то что надо внутри
-    🔴 - p.masks 
-    🔴 - p.scores
-    🔴 - p.classes
-
-    еще можно показать пример сразу как координаты доставть и представить в понятном формате или нарисовать вообще
-    p.boxes[0].whxy??? какой там общепринятый
-    p.masks[0] -> np WH1 и так далее
- 
-    labels = prediction.annotation.labels  # 🔴🔴🔴 labels - термин в контексте моделей обычно используется для обозначения номера класса.
-    boxes = [label.geometry.to_bbox() for label in labels]
-    masks = [label.geometry for label in labels]
-    scores = [tag.value for tag in labels.tags if tag.name == "confidence"]
-    classes = [label.obj_class.name for label in labels]
+    boxes = p.boxes  # np.array of shape (N, 4) with predicted boxes in "xyxy" format
+    masks = p.masks  # np.array of shape (N, H, W) with binary masks
+    scores = p.scores  # np.array of shape (N,) with predicted confidence scores
+    classes = p.classes  # list of predicted class names
+    annotation = p.annotation  # predictions in sly.Annotation format
+    p.visualize(save_dir="./output")  # save visualization with predicted annotations
 ```
-{% endtab %}
-{% tab title="🔴NEW API🔴" %}
-```python
-# Predicting multiple images
-predictions = model.predict(
-    input=["image1.jpg",  "image2.jpg"],
-)
-
-# Iterating through predictions
-for p in result:
-    boxes = p.boxes  # List of predicted boxes (xyxy format)
-    masks = p.masks  # List of predicted masks (np.ndarray)
-    scores = p.scores  # List of predicted probabilities
-    classes = p.classes  # List of predicted classes
-    annotation = p.annotation  # sly.Annotation with predicted objects
-```
-{% endtab %}
-{% endtabs %}
 
 ### Input format
 
@@ -109,15 +88,14 @@ The model can accept various input formats, including image paths, np.ndarray, P
 {% tab title="image" %}
 ```python
 # Single image file
-result = model.predict(input="path/to/image.jpg")
-result[0]
+predictions = model.predict(input="path/to/image.jpg")
 ```
 {% endtab %}
 
 {% tab title="URL" %}
 ```python
 # URL to an image
-result = model.predict(input="https://example.com/image.jpg")
+predictions = model.predict(input="https://example.com/image.jpg")
 ```
 {% endtab %}
 
@@ -128,7 +106,7 @@ from PIL import Image
 # Load image with PIL
 image = Image.open("path/to/image.jpg")
 
-prediction = model.predict(
+predictions = model.predict(
     input=image,
 )
 ```
@@ -141,7 +119,7 @@ import numpy as np
 # Numpy array of shape (H, W, C) in RGB format
 image_np = np.random.randint(low=0, high=255, size=(640, 640, 3), dtype="uint8")
 
-prediction = model.predict(
+predictions = model.predict(
     input=image_np,
 )
 ```
@@ -200,7 +178,7 @@ predictions = model.predict(
     dataset_id=456,  # Dataset ID
 )
 
-prediction = model.predict(
+predictions = model.predict(
     image_ids=12345,  # Image ID
 )
 
@@ -245,9 +223,9 @@ You can control the prediction process with various arguments, such as inference
 | `upload` | `str` | `None` | If not `None`, the prediction will be uploaded to the platform. Upload modes: `create`, `append`, `replace`, `iou_merge`. See more in [Uploading predictions](#uploading-predictions) section. |
 | `recursive` | `bool` | `False` | Whether to search for images in subdirectories. Applicable for directories only. |
 
-### Output format
+### Prediction result
 
-The `predict()` method returns a list of `Prediction` objects, containing annotation data and information about the source image.
+The `predict()` method returns a list of `Prediction` objects. The `Prediction` class represents the result of a model's prediction operation on an image. It contains annotation data, source information, and provides methods for visualization and data access.
 
 ```python
 # Predicting multiple images
@@ -256,17 +234,18 @@ predictions = model.predict(
 )
 
 # Iterating through predictions
-for prediction in predictions:
-    prediction.annotation    # sly.Annotation with predicted objects
-    prediction.source        # Source of an image. Will be "image1.jpg" or "image2.jpg" in this example
-    prediction.image_path    # Path to the image file
-    prediction.image_url     # URL of the image if input was a URL
-    prediction.image         # np.ndarray image if input was a PIL image or np.array
-    prediction.project_id    # Project ID if input was a Supervisely ID
-    prediction.dataset_id    # Dataset ID if input was a Supervisely ID
-    prediction.image_id      # Image ID if input was a Supervisely ID
-    image = prediction.load_image()    # Load the original image associated with this prediction
-    visualization = prediction.draw()  # Draw the predicted annotation on the image
+for p in predictions:
+    p.annotation    # sly.Annotation with predicted objects
+    p.source        # Source of an image. Can be a path, URL, or numpy array
+    p.image_path    # Path to the image file
+    p.image_url     # URL of the image if input was a URL
+    p.image         # np.ndarray image if input was a PIL image or np.array
+    p.project_id    # Project ID if input was a Supervisely ID
+    p.dataset_id    # Dataset ID if input was a Supervisely ID
+    p.image_id      # Image ID if input was a Supervisely ID
+    orig_image = p.load_image()       # Load the original image associated with this prediction
+    p.visualize(save_dir="./output")  # Save visualization with predicted annotations
+    🔴🔴🔴 boxes, masks. etc.
 ```
 
 #### `Prediction` attributes
@@ -283,15 +262,71 @@ The `Prediction` object contains the following attributes:
 | `project_id` | `int` or `None` | ID of the Supervisely project associated with this prediction. Applicable if the input was a Supervisely ID |
 | `dataset_id` | `int` or `None` | ID of the Supervisely dataset associated with this prediction. Applicable if the input was a Supervisely ID |
 | `image_id` | `int` or `None` | ID of the image in the Supervisely platform associated with this prediction. Applicable if the input was a Supervisely ID |
+🔴🔴🔴 add boxes, masks, etc.
 
 #### `Prediction` methods
 
-The `Prediction` object provides methods for loading the original image and visualizing the predicted annotation.
+The `Prediction` object provides convenient methods for loading the original image and visualizing the predicted annotation.
 
 | Method | Return Type | Description |
 | --- | --- | --- |
+| `visualize()` | `np.ndarray` | Draws the predicted annotation on the original image. If `save` or `save_dir` is provided, it saves the visualization to the specified path or directory. |
 | `load_image()` | `np.ndarray` | Loads the image associated with this prediction. |
-| `draw()` | `np.ndarray` | Draws the predicted annotation on the image. |
+
+#### `visualize(save=None, save_dir=None)`
+
+🔴🔴🔴 add more args from sly.Annotation.draw()
+
+Visualizes the prediction by drawing annotations on the original image.
+
+**Parameters:**
+- `save` (`str`, optional): Path where the visualization should be saved. If provided, the method will save the visualization to this path.
+- `save_dir` (`str`, optional): Directory where the visualization should be saved. If provided, the method will save the visualization with the same filename as the original image.
+
+**Returns:**
+- `np.ndarray`: Numpy array containing the image with visualized predictions (bounding boxes, masks, etc.).
+
+```python
+# Process all images in a directory
+predictions = model.predict(
+    input="path/to/images_directory/",
+    recursive=True,  # Include subdirectories
+)
+
+# Save all visualizations to an output directory
+for p in predictions:
+    p.visualize(save_dir="./results")
+```
+
+#### Notes
+
+- The `visualize()` method automatically handles loading the image from `image_path` and drawing the annotations on it.
+- When using `save_dir`, the original filename from `image_path` is preserved.
+- Multiple predictions are returned even for a single image input, so always expect a list of `Prediction` objects.
+
+#### `load_image()`
+
+Loads the original image associated with this prediction. This is useful if you want to access the original image data for further processing or visualization.
+
+```python
+# Process all images in a Project
+predictions = model.predict(
+    project_id=123,  # Project ID
+)
+
+os.makedirs("output", exist_ok=True)  # Create output directory if it doesn't exist
+
+# Save all original images to the output directory
+for p in predictions:
+    orig_image = p.load_image()  # Will download the original image
+    img_id = p.image_id  # Image ID in the Supervisely platform
+    Image.fromarray(orig_image).save(f"output/prediction_{img_id}.jpg")  # Save the original image
+```
+
+#### Notes
+
+- The `load_image()` method will download the original image from the Supervisely platform if the input was an URL, Project ID, Dataset ID, or Image ID.
+- If the input was a local path, np.array, or PIL.Image, the original image is already available in the `image` attribute of the `Prediction` object.
 
 
 ## Predict Detached
@@ -311,9 +346,8 @@ session = model.predict_detached(
 )
 
 # Process predictions as they become available
-for prediction in tqdm(session):
-    objects = prediction.annotation.labels  # List of predicted objects
-    boxes = [label.geometry.to_bbox() for label in labels]
+for p in tqdm(session):
+    p.visualize(save_dir=f"./results")  # Save the visualization with predicted annotations
 ```
 
 #### `PredictionSession` methods
@@ -360,7 +394,7 @@ predictions = model.predict(
 )
 ```
 
-## Predict every video frame
+## Predict video frame by frame
 
 🔴🔴🔴
 
@@ -369,21 +403,20 @@ The `predict()` and `predict_detached()` methods can also be used to process vid
 ```python
 # Predicting a video file
 predictions = model.predict(
-    input="video.mp4",
-    video_id=5122,     # 🔴🔴🔴 еще один параметр?
-    video_params={     # 🔴🔴🔴 как это лучше придумать?
-        "stride": 2,
-        "start_frame": 120,
-        "end_frame": 2400,
-        "num_frames": 400,
-        "duration": 10,  # duration in seconds
+    video="video.mp4",
+    video_settings={
+        "stride": 1,        # step between frames, 1 means process every frame
+        "start_frame": 0,   # start frame to process (0-based)
+        "end_frame": 2400,  # end frame (exclusive)
+        "num_frames": 400,  # number of frames to process 
+        "duration": 10,     # duration in seconds, will calculate number of frames
     },
 )
 
 # Iterating through predictions
-for prediction in predictions:
-    prediction.frame_idx  # Frame index of the prediction
+for p in predictions:
+    p.frame_idx  # Frame index of the prediction
 ```
 
-## Object tracking on video
+## Tracking objects on video
 
