@@ -264,6 +264,7 @@ The `Prediction` object contains the following attributes:
 | `dataset_id` | `int` or `None` | ID of the Supervisely dataset associated with this prediction. Applicable if the input was a Supervisely ID |
 | `image_id` | `int` or `None` | ID of the image in the Supervisely platform associated with this prediction. Applicable if the input was a Supervisely ID |
 🔴🔴🔴 add boxes, masks, etc.
+🔴🔴🔴 add class_idx? - needed for tracking
 
 #### `Prediction` methods
 
@@ -397,8 +398,6 @@ predictions = model.predict(
 
 ## Predict video
 
-🔴🔴🔴
-
 The `predict()` and `predict_detached()` methods can also be used to process video files. The model will process the video frame by frame, returning predictions for each frame.
 
 ```python
@@ -414,7 +413,7 @@ predictions = model.predict(
     },
 )
 
-# Iterating through predictions
+# Iterating frame predictions
 for p in predictions:
     p.frame_idx  # Frame index of the prediction
 ```
@@ -422,3 +421,30 @@ for p in predictions:
 ## Tracking objects on video
 
 🔴🔴🔴 Как вариант - сделать отдельную эпу serve boxmot, чтобы трекать на агенте а не на клиенте
+
+```python
+import boxmot
+
+session = model.predict_detached(
+    video=42,
+    video_settings={
+        "stride": 1,
+        "start_frame": 0,
+    },
+)
+
+device = "cpu"
+tracker = boxmot.BotSort(reid_weights=Path('osnet_x0_25_msmt17.pt'), device=device, half=False)
+
+# Track predictions
+for p in session:
+    # Get the current frame
+    frame = p.load_image()
+
+    # Convert predictions to the format required by BoxMot
+    detections = p.to_boxmot()  # N x (x, y, x, y, conf, cls)
+
+    # Track objects in the current frame
+    tracks = tracker.update(detections, frame)  # M x (x, y, x, y, track_id, conf, cls, det_id)
+    track_results.append(tracks)
+```
