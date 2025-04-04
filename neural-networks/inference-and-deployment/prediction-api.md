@@ -6,7 +6,10 @@ Suppose you've trained a new model in Supervisely and want to use it for inferen
 
 ## Connect & Deploy
 🔴 - я бы сделал Deploy & Connect
-🔴 - runtime? пока не видел
+
+🔴 - runtime? пока не видел - onnx tensorrt
+🔴 - runtime? пока не видел - onnx tensorrt
+
 
 Before using the model, you need to connect to it. You can either deploy a new model or connect to an existing one.
 
