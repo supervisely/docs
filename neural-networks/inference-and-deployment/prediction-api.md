@@ -4,12 +4,9 @@
 
 Suppose you've trained a new model in Supervisely and want to use it for inference. You can do this with ease using the new **Supervisely Prediction API**.
 
-## Connect & Deploy
-🔴 - я бы сделал Deploy & Connect
-
+## Deploy & Connect
 🔴 - runtime? пока не видел - onnx tensorrt
-🔴 - runtime? пока не видел - onnx tensorrt
-
+🔴 - runtime? пока не видел - onnx tensorrt - написать что не зависит дать ссылку
 
 Before using the model, you need to connect to it. You can either deploy a new model or connect to an existing one.
 
@@ -30,7 +27,8 @@ model = api.nn.deploy_custom_model(checkpoint="/a/b/c.pth")
 🔴 - еще я бы добавил опциональный флаг, что если такая модель раздеплоена, найти ее или раздеплоить как еще одну:
 🔴 - еще аргумент checkpoint мне не нравится и еще не понятно как раздеплоить pretrained (тут у меня нет идей, но как-то вкорячить это в метод model = api.nn.deploy(model="/a/b/c.pth") было бы прикольно)
 🔴 - может переименовать в deploy?
-model = api.nn.deploy(model="/a/b/c.pth")
+model = api.nn.deploy(checkpoint="/a/b/c.pth")
+model = api.nn.deploy(pretrained="mmmm-coc-aaa"???)
 🔴 - дописать в описании что метод сам проверит наличие компьютера с GPU девайса и описать аргшументы? device, agent? 
 🔴 - поговорить с денисом и заменить слово agent на machine
 
@@ -74,7 +72,7 @@ for p in predictions:
 
     еще можно показать пример сразу как координаты доставть и представить в понятном формате или нарисовать вообще
     p.boxes[0].whxy??? какой там общепринятый
-    p.masks[0] -> тз фккфн WH1 и так далее
+    p.masks[0] -> np WH1 и так далее
  
     labels = prediction.annotation.labels  # 🔴🔴🔴 labels - термин в контексте моделей обычно используется для обозначения номера класса.
     boxes = [label.geometry.to_bbox() for label in labels]
@@ -91,12 +89,12 @@ predictions = model.predict(
 )
 
 # Iterating through predictions
-for prediction in predictions:
-    boxes = prediction.boxes  # List of predicted boxes (xyxy format)
-    masks = prediction.masks  # List of predicted masks (np.ndarray)
-    scores = prediction.scores  # List of predicted probabilities
-    classes = prediction.classes  # List of predicted classes
-    annotation = prediction.to_annotation()  # sly.Annotation with predicted objects
+for p in result:
+    boxes = p.boxes  # List of predicted boxes (xyxy format)
+    masks = p.masks  # List of predicted masks (np.ndarray)
+    scores = p.scores  # List of predicted probabilities
+    classes = p.classes  # List of predicted classes
+    annotation = p.annotation  # sly.Annotation with predicted objects
 ```
 {% endtab %}
 {% endtabs %}
@@ -110,18 +108,15 @@ The model can accept various input formats, including image paths, np.ndarray, P
 {% tab title="image" %}
 ```python
 # Single image file
-prediction = model.predict(
-    input="path/to/image.jpg",
-)
+result = model.predict(input="path/to/image.jpg")
+result[0]
 ```
 {% endtab %}
 
 {% tab title="URL" %}
 ```python
 # URL to an image
-prediction = model.predict(
-    input="https://example.com/image.jpg",
-)
+result = model.predict(input="https://example.com/image.jpg")
 ```
 {% endtab %}
 
@@ -364,7 +359,7 @@ predictions = model.predict(
 )
 ```
 
-## Predict video
+## Predict every video frame
 
 🔴🔴🔴
 
@@ -388,3 +383,6 @@ predictions = model.predict(
 for prediction in predictions:
     prediction.frame_idx  # Frame index of the prediction
 ```
+
+## Object tracking on video
+
