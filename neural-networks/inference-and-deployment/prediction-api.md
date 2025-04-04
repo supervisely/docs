@@ -437,6 +437,7 @@ device = "cpu"
 tracker = boxmot.BotSort(reid_weights=Path('osnet_x0_25_msmt17.pt'), device=device, half=False)
 
 # Track predictions
+track_results = []
 for p in session:
     # Get the current frame
     frame = p.load_image()
