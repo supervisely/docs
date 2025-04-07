@@ -39,61 +39,53 @@ While applying a tag to a specific label object or video file can be useful, it 
    * Apply a value and click the _**Start Range**_ button or simply press `Enter`.
    * Otherwise, select the _**Start Range Without Value**_ button or simply press `Enter`.
 
-## Step 3. Configuring and finalizing  the tag range
-
-After selecting a tag, the start edge of the tag range will appear in the viewport at your current cursor position and will be marked with a flag icon.
+## Step 3. Configuring and Finalizing the Tag Range
+After selecting a tag in the **Definitions** panel, the start edge of the tag range will appear in the viewport at your current cursor position and will be marked with a flag icon.
 
 From this point, there are several scenarios for configuring the tag range:
-1. **Manually extending the tag range in the viewport:**
-   * Hover over the start edge of the tag in the viewport until the cursor changes, indicating that resizing is possible.
-   * Click and hold the left mouse button. Then drag to extend the tag to the desired number of frames.
-   
-      A dashed line will appear, indicating the length of the unfinished tag.
 
-   * To complete the tag creation process and finalize the range at your desired position, click the flag icon marker at the end of the tag in the viewport or press _**Finish**_ in the **Definitions** panel.
-   * Tags with all types of values except "None" will trigger a pop-up prompting you to select or enter the tag value if you skipped this step when initializing the tag.
-   * Apply a value and click the _**Start Range**_ button or simply press `Enter`.
+Once a tag is created, you can freely navigate to any frame — by clicking anywhere on the timeline, using the arrow keys on your keyboard, clicking the left/right buttons next to the timeline, or entering a specific frame number.  
+A dashed line will automatically extend to that frame.
 
-   <mark style="color:green;">**Note:**</mark> The number of frames the tag was extended by is displayed next to the current tag in the **Definitions** panel.
-2. **Dynamically extending the tag range in the viewport:**
-   * Press `Enter` to initialize video playback and see the tag range grow dynamically as you move through the video.
-   * Press `Enter`  again to stop video playback and complete the tag extension.
-   * Press _**Finish**_ in the **Definitions** panel or click the flag icon marker at the end of the tag in the viewport to finalize the range at your desired position.
-3. **Custom Options**:
+To complete the tag creation process and finalize the range at the desired frame:
 
-   Press the _**Extend tag range**_ button (represented by arrows pointing in opposite directions) next to the frame-based tag in the **Definitions** panel and select:
-   * **From start to here**: Apply the tag from the current frame to the beginning of the video.
-   * **Few frames forward / backward**: Apply the tag for a fixed number of frames forward or backward. Use the `+` and `-` buttons to adjust the frame count.
-   * **Whole range**: Tag the entire timeline of the object.
-   * **From here to end**: Apply the tag from the current frame to the end of the video.
-   
-<mark style="color:green;">**Note:**</mark> You can start multiple unfinished tags as you move through the video and finish them one by one. This is totally valid!
+* Click the flag icon marker at the end of the tag in the viewport, **or**
+* Press **Finish** in the **Definitions** panel.
 
-<mark style="color:green;">**Note:**</mark> Unfinished tags remain accessible even after closing the tool, allowing others to finalize them later.
+Tags with all value types except **"None"** will trigger a pop-up prompting you to select or enter a tag value if you skipped this step when initializing the tag.
 
+Apply a value and click the **Start Range** button or simply press **Enter**.
+
+The number of frames the tag has been extended by is displayed next to the current tag in the **Definitions** panel.
+
+You can start multiple unfinished tags as you move through the video and finalize them one by one. This is totally valid!  
+All unfinished tags will dynamically extend their dashed range to the currently selected frame. You can finalize them sequentially using either a shared end frame or setting individual ones.
+
+Unfinished tags remain accessible even after closing the tool, allowing others to finalize them later.
+
+<mark style="color:green;">**Note:**</mark> If you don't want to choose between **"Finish and start new range"** or **"Finish"** every time you complete a tag, and you only need the **"Finish"** option, go to: **Settings > Tags** and disable the option **"Display modal when finishing frame-based tag"**.
+ 
 {% hint style="success" %}
 **Tip**: Use the **Default Action** setting in the pop-up to simplify repetitive actions (e.g., set "From Here to End" as the default behavior).
 {% endhint %}
 
-## Duplicating existing tags in the new range
+## Editing a Finalized Tag
 
-   1. **Select an already created frame-based tag:**
+#### 1. Manual Adjustment
 
-      * Navigate to the **Definitions** panel.
-      * Hover over the frame-based tag you want to duplicate in the new range, the _**Add this tag again in the new range**_ button (represented by square with a plus sign) will appear next to the frame-based tag.
-      * Press the _**Add this tag again in the new range**_ button.
+* Hover over either edge of the tag in the viewport until the cursor changes, indicating that resizing is possible.
+* Click and hold the left mouse button. Then drag to narrow or extend the tag to the desired number of frames.
 
-   2. **Apply a value (Optional):**
+#### 2. Custom Options
 
-      * Tags with all types of values except "None" will trigger a pop-up that prompts you to select or enter the tag value.
-      * Apply a value and click the _**Start Range**_ button or simply press `Enter`.
-      * Otherwise, select the _**Start Range Without Value**_ button or simply press `Enter`.
-   3. **Configuring and finalizing the tag range:**
-      * To configure and finalize the frame-based tag, follow the instructions in **Step 3**.
+Click the **Extend tag range** button (represented by arrows pointing in opposite directions) next to the frame-based tag in the **Definitions** panel and choose:
 
-## Editing Tags
+* **From start to here** — Apply the tag from the beginning of the video to the current frame.  
+* **Few frames forward / backward** — Apply the tag for a fixed number of frames forward or backward. Use the **+** and **−** buttons to adjust the frame count.  
+* **Whole range** — Tag the entire timeline of the object.  
+* **From here to end** — Apply the tag from the current frame to the end of the video.
 
-To edit frame-based tags, use the same methods as those described in **Step 3** for configuring them.
+{% hint style="success" %} **Tip:** Use the **Default Action** setting in the pop-up to simplify repetitive actions (e.g., set **"From here to end"** as the default behavior).
 
 ### Example
 
@@ -105,9 +97,36 @@ You need to tag a car (_Object ID: 482_) as moving out of its lane:
 4. In the pop-up window, select **Few Frames Forward** and set the range to 10 frames.
 5. Confirm the action and review the timeline.
 
+
 ## Configuring the tag range for clearing tags
 
 When you need to adjust or remove an existing tag's range, select the frame-based tag and uncheck it. The **"Where to Clear Tag"** modal will appear, offering several options to customize how and where the tag should be cleared.
 
-1. **Whole Length:** Clears the tag across its entire range, regardless of the current frame.
-2. **Clear From Here to Tag End:** Removes the tag from the current frame to the end of its range. Suitable when the tag should apply only to earlier frames and not extend to the end of the video.
+1.  **From Tag Start to Here:** Removes the tag from the beginning of its range up to the current frame.
+
+    Ideal for use cases where the tag should no longer apply to earlier frames but remains valid for later frames.
+2. **Few Frames Forward/Backward:** Clears the tag for a set number of frames forward/backward from the current frame. Use the `+` and `-` buttons to adjust the number of frames.
+3. **Whole Length:** Clears the tag across its entire range, regardless of the current frame.
+4. **Clear From Here to Tag End:** Removes the tag from the current frame to the end of its range. Suitable when the tag should apply only to earlier frames and not extend to the end of the video.
+
+### Example
+
+**Scenario**: You want to adjust the range of a tag applied to an object but only remove part of it.
+
+1. Select the tag in the timeline or **Definitions** panel.
+2. In the **"Where to Clear Tag"** modal:
+
+* To remove frames ahead of the current position, choose **Few Frames Forward** and set the desired number of frames.
+* To clear frames leading up to the current frame, select **From Tag Start to Here**.
+* For complete removal, select **Whole Length**.
+
+3. Confirm the action by clicking the appropriate button, such as **Clear From Here to Tag End** or pressing **Enter**.
+
+## Hotkeys
+
+Click the **Hotkeys** menu item at the top right of the **Definitions** panel. In the **Timeline** section, you’ll find:
+
+* **Go to next tag segment** — `CTRL + SHIFT + →`  
+* **Go to previous tag segment** — `CTRL + SHIFT + ←`
+
+You can also customize all hotkeys.
