@@ -32,7 +32,8 @@ While applying a tag to a specific label object or video file can be useful, it 
       For this purpose, use the timeline zoom for comfortable tagging. Adjust the zoom level to magnify the frame detail up to 128x.
    * Choose the tag from the **Definitions** panel by checking its box.
 
-   <mark style="color:green;">**Note:**</mark> The gray area on the timeline highlights the video segment visible in the viewport, helping you navigate the time interval and understand the zoom level.
+   {% hint style="info" %}
+   **Note:** The gray area on the timeline highlights the video segment visible in the viewport, helping you navigate the time interval and understand the zoom level.
 
 2. **Apply a value (Optional):**
    * Tags with all types of values except "None" will trigger a pop-up that prompts you to select or enter the tag value.
@@ -63,7 +64,8 @@ All unfinished tags will dynamically extend their dashed range to the currently 
 
 Unfinished tags remain accessible even after closing the tool, allowing others to finalize them later.
 
-<mark style="color:green;">**Note:**</mark> If you don't want to choose between **"Finish and start new range"** or **"Finish"** every time you complete a tag, and you only need the **"Finish"** option, go to: **Settings > Tags** and disable the option **"Display modal when finishing frame-based tag"**.
+{% hint style="success" %}
+**Tip**: If you don't want to choose between **"Finish and start new range"** or **"Finish"** every time you complete a tag, and you only need the **"Finish"** option, go to: **Settings > Tags** and disable the option **"Display modal when finishing frame-based tag"**.
  
 {% hint style="success" %}
 **Tip**: Use the **Default Action** setting in the pop-up to simplify repetitive actions (e.g., set "From Here to End" as the default behavior).
