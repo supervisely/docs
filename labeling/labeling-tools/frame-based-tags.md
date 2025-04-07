@@ -67,7 +67,11 @@ Apply a value and click the button to select:
 * _**Set value & start new range**_ button or simply press `Enter`.
 * _**Set value**_ button or simply press `Ctrl` `Enter`.
 
-The number of frames the tag has been extended by is displayed next to the current tag in the **Definitions** panel.
+{% hint style="info" %}
+**Note:** The number of frames the tag has been extended by is displayed next to the current tag in the **Definitions** panel.
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_frames_count.png" alt=""><figcaption></figcaption></figure>
 
 You can start multiple unfinished tags as you move through the video and finalize them one by one. This is totally valid!  
 All unfinished tags will dynamically extend their dashed range to the currently selected frame. You can finalize them sequentially using either a shared end frame or setting individual ones.
