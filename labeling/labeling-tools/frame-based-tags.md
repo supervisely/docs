@@ -49,10 +49,10 @@ While applying a tag to a specific label object or video file can be useful, it 
 After selecting a tag in the **Definitions** panel, the start edge of the tag range will appear in the viewport at your current cursor position and will be marked with a flag icon.
 
 Once a tag is initiated, you can freely navigate to any frame by:
-1. clicking anywhere on the timeline, or
-2. clicking the left/right buttons next to the timeline, or
-3. entering a specific frame number, or
-4. using the arrow keys on your keyboard.
+1. Clicking anywhere on the timeline, or
+2. Clicking the left/right buttons next to the timeline, or
+3. Entering a specific frame number, or
+4. Using the arrow keys on your keyboard.
 
 A dashed line will automatically extend to that frame.
 
@@ -60,7 +60,7 @@ A dashed line will automatically extend to that frame.
 
 To complete the tag creation process and finalize the range at the desired frame:
 
-* Click the flag icon marker at the end of the tag in the viewport, **or**
+* Click the flag icon marker at the end of the tag in the viewport, or
 * Press _**Finish**_ in the **Definitions** panel.
 
 Tags with all value types except **"None"** will trigger a pop-up prompting you to select or enter a tag value if you skipped this step when initializing the tag.
@@ -109,7 +109,9 @@ Click the _**Extend tag range**_ button represented by arrows pointing in opposi
 
 <figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_edit_custom_options.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="success" %} **Tip:** Use the **Default Action** setting in the pop-up to simplify repetitive actions (e.g., set **"From here to end"** as the default behavior).
+{% hint style="success" %
+**Tip:** Use the **Default Action** setting in the pop-up to simplify repetitive actions (e.g., set **"From here to end"** as the default behavior).
+{% endhint %}
 
 ## Configuring the tag range for clearing tags
 
