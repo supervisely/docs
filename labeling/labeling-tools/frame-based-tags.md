@@ -29,21 +29,23 @@ While applying a tag to a specific label object or video file can be useful, it 
 ## Step 2. Adding a frame-based tag
 
 1. **Select a frame:**
-   * Navigate to the frame where the tag should start.
-
-      For this purpose, use the timeline zoom for comfortable tagging. Adjust the zoom level to magnify the frame detail up to 128x (1).
+   * Navigate to the frame where the tag should start (1). 
    * Choose the tag from the **Definitions** panel by checking its box (2).
 
 {% hint style="info" %}
-**Note:** The gray area on the timeline highlights the video segment visible in the viewport, helping you navigate the time interval and understand the zoom level (3).
+**Note:** The gray area on the timeline highlights the video segment visible in the viewport, helping you navigate the time interval and understand the zoom level.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_zoom.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_creating.png" alt=""><figcaption></figcaption></figure>
 
 2. **Apply a value (Optional):**
-   * Tags with all types of values except "None" will trigger a pop-up that prompts you to select or enter the tag value.
+   * Tags with all types of values except "None" will trigger a pop-up that prompts you to select or enter the tag value (3).
    * Apply a value and click the _**Start Range**_ button or simply press `Enter`.
    * Otherwise, select the _**Start Range Without Value**_ button or simply press `Enter`.
+
+{% hint style="success" %}
+**Tip**: For this purpose, use the timeline zoom for comfortable tagging. Adjust the zoom level to magnify the frame detail up to 128x.
+{% endhint %}
 
 ## Step 3. Configuring and Finalizing the Tag Range
 After selecting a tag in the **Definitions** panel, the start edge of the tag range will appear in the viewport at your current cursor position and will be marked with a flag icon.
@@ -139,11 +141,21 @@ When you need to adjust or remove an existing tag's range, select the frame-base
 
 ## Hotkeys
 
-Click the **Hotkeys** menu item at the top right of the **Definitions** panel. In the **Timeline** section, you’ll find:
+Click the **Hotkeys** menu item at the top right of the **Definitions** panel to view or customize shortcuts.
 
-* **Go to next tag segment** — `CTRL + SHIFT + →`  
-* **Go to previous tag segment** — `CTRL + SHIFT + ←`
+#### 1. **Timeline Navigation**
+In the **Timeline** section, you’ll find navigation options:
 
-You can also customize all hotkeys.
+- **Go to next tag segment** — `CTRL` + `SHIFT` + `→`  
+- **Go to previous tag segment** — `CTRL` + `SHIFT` + `←`
 
-<figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_hotkeys.png" alt=""><figcaption></figcaption></figure>
+#### 2. **Tag Creation & Editing**
+In the **Tags** section, you’ll find options for creating and editing tags:
+
+- **Add tag on selected frames or current frame** — `SHIFT` + `Q`  
+- **Change value of the current tag segment** — `SHIFT` + `E`  
+- **Remove current tag segment** — `SHIFT` + `W`
+
+> 💡 You can customize all hotkeys to fit your workflow.
+
+<figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_hotkeys_2.png" alt=""><figcaption></figcaption></figure>
