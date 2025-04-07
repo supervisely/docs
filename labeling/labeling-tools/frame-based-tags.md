@@ -15,7 +15,12 @@ While applying a tag to a specific label object or video file can be useful, it 
    * Create the required tags and set their scope to **Global and Frame-based** or **Frame-based**.
 2. **Find tags in the Video Labeling Toolbox**:
    * Open the [Video Labeling Toolbox](../labeling-toolbox/videos-3.0.md).
-   * Navigate to the **Definitions** panel and locate the tags under the **Frame-based Tags** section. Here is a list of tags you have already created.
+   * Navigate to the [Definitions panel](../labeling-toolbox/videos-3.0.md#definitions-panel) and locate the tags under the **Frame-based Tags** section. Here is a list of tags you have already created.
+3. **Define or add tags directly in the Labeling Toolbox**:
+   * Find the mini button _**+**_ in the top right corner of the **Definitions** panel.
+   * Click on it and select _**Create tag**_.
+
+   <figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_new_tag.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 **Note:** Tags for annotation objects appear when an object is selected. Tags for the entire video appear when no object is selected.
@@ -24,54 +29,95 @@ While applying a tag to a specific label object or video file can be useful, it 
 ## Step 2. Adding a frame-based tag
 
 1. **Select a frame:**
-   * Navigate to the frame where the tag should start.
-   * Choose the tag from the [Definitions panel](../labeling-toolbox/videos-3.0.md#definitions-panel) by checking its box.
+   * Navigate to the frame where the tag should start (1). 
+   * Choose the tag from the **Definitions** panel by checking its box (2).
+
+{% hint style="info" %}
+**Note:** The gray area on the timeline highlights the video segment visible in the viewport, helping you navigate the time interval and understand the zoom level.
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_creating.png" alt=""><figcaption></figcaption></figure>
+
 2. **Apply a value (Optional):**
-   * Open the [Video Labeling Toolbox](../labeling-toolbox/videos-3.0.md).
-   * If the tag requires a value (e.g., "High," "Stopped"), select it from the dropdown.
+   * Tags with all types of values except "None" will trigger a pop-up that prompts you to select or enter the tag value (3).
+   * Apply a value and click the _**Start Range**_ button or simply press `Enter`.
+   * Otherwise, select the _**Start Range Without Value**_ button or simply press `Enter`.
 
-## Step 3. Configuring the tag range
+{% hint style="success" %}
+**Tip**: Use the timeline zoom for comfortable tagging. Adjust the zoom level to magnify the frame detail up to 128x.
+{% endhint %}
 
-After selecting the tag, a pop-up window will appear, offering several ways to define the tag's range. Choose the option that best fits your needs:
+## Step 3. Configuring and Finalizing the Tag Range
+After selecting a tag in the **Definitions** panel, the start edge of the tag range will appear in the viewport at your current cursor position and will be marked with a flag icon.
 
-1. **Select** **Range (Default)**:
-   * This method allows the tag range to grow dynamically as you move through the video.
-   * Press _**Finish**_ in the **Definitions** panel or hit `Enter` to finalize the range at your desired position.
-2.  **From Here to End**:
+Once a tag is initiated, you can freely navigate to any frame by:
+1. Clicking anywhere on the timeline, or
+2. Clicking the left/right buttons next to the timeline, or
+3. Entering a specific frame number, or
+4. Using the arrow keys on your keyboard.
 
-    * Apply the tag from the current frame to the end of the video.
-    * To stop the tag earlier, uncheck the tag on the desired frame. A pop-up will allow you to adjust the range accordingly.
+A dashed line will automatically extend to that frame.
 
-    <mark style="color:green;">**Note:**</mark> You can start multiple unfinished tags as you move through the video and finish them one by one. This is totally valid!
+<figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_navigation.png" alt=""><figcaption></figcaption></figure>
 
-    <mark style="color:green;">**Note:**</mark> Unfinished tags remain accessible even after closing the tool, allowing others to finalize them later.
-3. **Custom Options**:
-   * **Add Unfinished**: Start the tag but finalize its range later.
-   * **Few Frames Forward/Backward**: Apply the tag for a fixed number of frames forward or backward. Use the `+` and `-` buttons to adjust the frame count.
-   * **Whole Length**: Tag the entire timeline of the object.
-   * **Labeled Frames**: Apply the tag only to frames where the object is already annotated.
+To complete the tag creation process and finalize the range at the desired frame:
 
+* Click the flag icon marker at the end of the tag in the viewport, or
+* Press _**Finish**_ in the **Definitions** panel.
+
+Tags with all value types except **"None"** will trigger a pop-up prompting you to select or enter a tag value if you skipped this step when initializing the tag.
+
+Apply a value and click the button to select:
+* _**Set value & start new range**_ button or simply press `Enter`.
+* _**Set value**_ button or simply press `Ctrl` `Enter`.
+
+{% hint style="info" %}
+**Note:** The number of frames the tag has been extended by is displayed next to the current tag in the **Definitions** panel.
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_frames_count.png" alt=""><figcaption></figcaption></figure>
+
+You can start multiple unfinished tags as you move through the video and finalize them one by one. This is totally valid!  
+All unfinished tags will dynamically extend their dashed range to the currently selected frame. You can finalize them sequentially using either a shared end frame or setting individual ones.
+
+<figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_unfinished.png" alt=""><figcaption></figcaption></figure>
+
+Unfinished tags remain accessible even after closing the tool, allowing others to finalize them later.
+
+{% hint style="success" %}
+**Tip**: If you don't want to choose between _**Finish and start new range**_ or _**Finish**_ every time you complete a tag, and you only need the _**Finish**_ option, go to: **Settings > Tags** and disable the option **"Display modal when finishing frame-based tag"**.{% endhint %}
+
+<figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_settings.png" alt=""><figcaption></figcaption></figure>
+ 
 {% hint style="success" %}
 **Tip**: Use the **Default Action** setting in the pop-up to simplify repetitive actions (e.g., set "From Here to End" as the default behavior).
 {% endhint %}
 
-### Editing Tags
+## Editing a Finalized Tag
 
-Select the tag in the **Definitions** panel to modify its range or value.&#x20;
+#### 1. Manual Adjustment
 
-## Example
+* Hover over either edge of the tag in the viewport until the cursor changes, indicating that resizing is possible.
+* Click and hold the left mouse button. Then drag to narrow or extend the tag to the desired number of frames.
 
-You need to tag a car (_Object ID: 482_) as moving out of its lane:
+#### 2. Custom Options
 
-1. Select the car in the objects list.
-2. Find the **Lane Change** tag in the **Definitions** panel.
-3. Choose the value **Off-lane** from the dropdown.
-4. In the pop-up window, select **Few Frames Forward** and set the range to 10 frames.
-5. Confirm the action and review the timeline.
+Click the _**Extend tag range**_ button represented by arrows pointing in opposite directions (1), next to the frame-based tag in the **Definitions** panel and choose:
+
+* **From start to here** — Apply the tag from the beginning of the video to the current frame.  
+* **Few frames forward / backward** — Apply the tag for a fixed number of frames forward or backward. Use the **+** and **−** buttons to adjust the frame count.  
+* **Whole range** — Tag the entire timeline of the object.  
+* **From here to end** — Apply the tag from the current frame to the end of the video.
+
+<figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_edit_custom_options.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="success" %}
+**Tip:** Use the **Default Action** setting in the pop-up to simplify repetitive actions (e.g., set **"From here to end"** as the default behavior).
+{% endhint %}
 
 ## Configuring the tag range for clearing tags
 
-When you need to adjust or remove an existing tag's range, the **"Where to Clear Tag"** modal offers several options to customize how and where the tag should be cleared.
+When you need to adjust or remove an existing tag's range, select the frame-based tag and uncheck it. The **"Where to Clear Tag"** modal will appear, offering several options to customize how and where the tag should be cleared.
 
 1.  **From Tag Start to Here:** Removes the tag from the beginning of its range up to the current frame.
 
@@ -80,7 +126,7 @@ When you need to adjust or remove an existing tag's range, the **"Where to Clear
 3. **Whole Length:** Clears the tag across its entire range, regardless of the current frame.
 4. **Clear From Here to Tag End:** Removes the tag from the current frame to the end of its range. Suitable when the tag should apply only to earlier frames and not extend to the end of the video.
 
-## Example
+### Example
 
 **Scenario**: You want to adjust the range of a tag applied to an object but only remove part of it.
 
@@ -92,3 +138,24 @@ When you need to adjust or remove an existing tag's range, the **"Where to Clear
 * For complete removal, select **Whole Length**.
 
 3. Confirm the action by clicking the appropriate button, such as **Clear From Here to Tag End** or pressing **Enter**.
+
+## Hotkeys
+
+Click the **Hotkeys** menu item at the top right of the **Definitions** panel to view or customize shortcuts.
+
+#### 1. **Timeline Navigation**
+In the **Timeline** section, you’ll find navigation hotkeys:
+
+- **Go to next tag segment** — `CTRL` + `SHIFT` + `→`  
+- **Go to previous tag segment** — `CTRL` + `SHIFT` + `←`
+
+#### 2. **Tag Creation & Editing**
+In the **Tags** section, you’ll find hotkeys for creating and editing tags:
+
+- **Add tag on selected frames or current frame** — `SHIFT` + `Q`  
+- **Change value of the current tag segment** — `SHIFT` + `E`  
+- **Remove current tag segment** — `SHIFT` + `W`
+
+You can customize all hotkeys to fit your workflow.
+
+<figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_hotkeys_2.png" alt=""><figcaption></figcaption></figure>
