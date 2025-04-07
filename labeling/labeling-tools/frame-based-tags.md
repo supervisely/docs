@@ -156,6 +156,6 @@ In the **Tags** section, you’ll find hotkeys for creating and editing tags:
 - **Change value of the current tag segment** — `SHIFT` + `E`  
 - **Remove current tag segment** — `SHIFT` + `W`
 
-> 💡 You can customize all hotkeys to fit your workflow.
+You can customize all hotkeys to fit your workflow.
 
 <figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_hotkeys_2.png" alt=""><figcaption></figcaption></figure>
