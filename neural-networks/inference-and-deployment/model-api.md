@@ -1,9 +1,8 @@
 # Model API
 
-🔴🔴🔴
-- Experiment ID?
+The `ModelAPI` class is used to interact with a model's server, which can be running either in Supervisely, or on a local machine. It provides methods for running inference, loading checkpoints, and managing the model's configuration.
 
-## Deploy
+## Deploy & Connect
 
 To deploy a new model, use the `api.nn.deploy()` method. This method will start a new Serving App in Supervisely, deploy a given model, and return a `ModelAPI` object for running predictions.
 
@@ -52,7 +51,7 @@ model = api.nn.deploy(
 
 ### Deploy pretrained checkpoint
 
-To deploy a pretrained model, you need to specify two arguments - `framework` and `model_name`. The framework should match the name of the corresponding Serving App in Supervisely, and the model name should be one of the pretrained models from the models' table in the Serving App. You can Specify `runtime` argument to convert the model to ONNX or TensorRT before deploying.
+To deploy a pretrained model, you need to specify two arguments - `framework` and `pretrained_model`. The framework should match the name of the corresponding Serving App in Supervisely, and the model name should be one of the pretrained models from the models' table in the Serving App. You can Specify `runtime` argument to convert the model to ONNX or TensorRT before deploying.
 
 {% tabs %}
 {% tab title="Pretrained checkpoint" %}
@@ -64,7 +63,7 @@ api = sly.Api()
 # Deploy a pretrained model
 model = api.nn.deploy(
     framework="RT-DETRv2",    # Name of the corresponding Serving App in Supervisely
-    model_name="RT-DETRv2-S"  # Model name from a table of pretrained models in the Serving App
+    pretrained_model="RT-DETRv2-S"  # Model name from a table of pretrained models in the Serving App
 )
 ```
 {% endtab %}
@@ -77,7 +76,7 @@ api = sly.Api()
 # ONNX Runtime
 model = api.nn.deploy(
     framework="RT-DETRv2",     # Name of the corresponding Serving App in Supervisely
-    model_name="RT-DETRv2-S",  # Model name from a table of pretrained models in the Serving App
+    pretrained_model="RT-DETRv2-S",  # Model name from a table of pretrained models in the Serving App
     runtime="onnx",            # Will convert the model to ONNX before deploying
 )
 ```
@@ -91,14 +90,14 @@ api = sly.Api()
 # TensorRT
 model = api.nn.deploy(
     framework="RT-DETRv2",     # Name of the corresponding Serving App in Supervisely
-    model_name="RT-DETRv2-S",  # Model name from a table of pretrained models in the Serving App
+    pretrained_model="RT-DETRv2-S",  # Model name from a table of pretrained models in the Serving App
     runtime="tensorrt",        # Will convert the model to TensorRT before deploying
 )
 ```
 {% endtab %}
 {% endtabs %}
 
-### Arguments
+### Deploy arguments
 
 A table with arguments for the `api.nn.deploy()` method:
 
@@ -106,21 +105,21 @@ A table with arguments for the `api.nn.deploy()` method:
 | --- | --- | --- |
 | `checkpoint` | `str` | Path to your checkpoint in Team Files. Can be PyTorch model (`.pt`), ONNX (`.onnx`), or TensorRT (`.engine`) format. Required when deploying a custom checkpoint. |
 | `framework` | `str` | Name of the corresponding Serving App in Supervisely. Required when deploying a pretrained model. |
-| `model_name` | `str` | Name of the pretrained model from the models table in the Serving App. Required when deploying a pretrained model. |
-| `runtime` | `str` | Runtime to convert the model to before deploying. Options: `"onnx"`, `"tensorrt"`. |
+| `pretrained_model` | `str` | Name of the pretrained model from the models table in the Serving App. Required when deploying a pretrained model. |
 | `device` | `str` | Device to run the model on, e.g., `"cuda:0"` or `"cpu"`. If not specified, will automatically use GPU device if available, otherwise CPU. |
+| `runtime` | `str` | Runtime to convert the model to before deploying. Options: `"onnx"`, `"tensorrt"`. Used for pretrained checkpoints. |
 | `agent_id` | `int` | ID of the Supervisely Agent (machine) that is connected to the Supervisely platform where the model should be deployed. Don't need to specify, if the only one agent is connected. |
 
 #### Notes
 
 - The `api.nn.deploy()` method will start a new Serving App in Supervisely, deploy the model, and return a `ModelAPI` object for running predictions.
-- When deploying a custom checkpoint, you need to provide the `checkpoint` argument. When deploying a pretrained model, you need to provide both `framework` and `model_name` arguments.
+- When deploying a custom checkpoint, you need to provide the `checkpoint` argument. When deploying a pretrained model, you need to provide both `framework` and `pretrained_model` arguments.
 - The `runtime` argument is used when deploying a pretrained model.
 - If `device` argument is not specified, the model will automatically use GPU device if available, otherwise CPU.
 - 🔴🔴🔴 (on the fisrt, or on the only one?) If `agent_id` argument is not specified, the model will be deployed on the first available agent.
 
 
-## Connect to model
+### Connect to deployed model
 
 If your model is already deployed in Supervisely, you just need to connect to it using the `api.nn.connect()` method, providing a `task_id` of the running serving app. This method returns a `ModelAPI` object for running predictions. You can use `url` argument to directly connect to a model's FastAPI server, bypassing the `task_id` argument.
 
@@ -150,7 +149,7 @@ model = ModelAPI(
 {% endtabs %}
 
 
-### Arguments
+#### Arguments
 
 A table with arguments for the `api.nn.connect()` method:
 
@@ -161,4 +160,78 @@ A table with arguments for the `api.nn.connect()` method:
 | `api` | `sly.Api` | Optional, an instance of the Supervisely API. If not provided, a new instance will be created. |
 
 
-## Load checkpoint
+## ModelAPI methods
+
+The `ModelAPI` class provides methods for running inference, loading checkpoints, and managing the model's configuration.
+
+### Predict
+
+### Predict Detached
+
+### Load checkpoint
+
+{% tabs %}
+{% tab title="Custom checkpoint" %}
+```python
+# Load custom checkpoint
+model.load_checkpoint(
+    checkpoint="/path/in/team_files/checkpoint.pt",  # Path to your checkpoint in Team Files
+)
+```
+{% endtab %}
+{% tab title="ONNX checkpoint" %}
+```python
+# Loading ONNX checkpoint
+model.load_checkpoint(
+    checkpoint="/path/in/team_files/model.onnx",  # Path to ONNX checkpoint in Team Files
+)
+```
+{% endtab %}
+{% tab title="TensorRT checkpoint" %}
+```python
+# Loading TensorRT checkpoint
+model.load_checkpoint(
+    checkpoint="/path/in/team_files/model.engine",  # Path to TensorRT checkpoint in Team Files
+)
+```
+{% endtab %}
+{% tab title="Pretrained checkpoint" %}
+```python
+# Load pretrained checkpoint
+model.load_checkpoint(
+    pretrained_model="RT-DETRv2-S",  # Name of the pretrained model
+)
+```
+{% endtab %}
+{% tab title="Convert to ONNX" %}
+```python
+# Load pretrained checkpoint and convert to ONNX
+model.load_checkpoint(
+    pretrained_model="RT-DETRv2-S",  # Name of the pretrained model
+    runtime="onnx",                  # Will convert the model to ONNX before loading
+)
+```
+{% endtab %}
+{% tab title="Convert to TensorRT" %}
+```python
+# Load pretrained checkpoint and convert to TensorRT
+model.load_checkpoint(
+    pretrained_model="RT-DETRv2-S",  # Name of the pretrained model
+    runtime="tensorrt",              # Will convert the model to TensorRT before loading
+)
+```
+{% endtab %}
+{% endtabs %}
+
+#### Arguments
+
+A table of arguments for the `ModelAPI.load_checkpoint()` method:
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `checkpoint` | `str` | Path to your checkpoint in Team Files. Can be PyTorch model (`.pt`), ONNX (`.onnx`), or TensorRT (`.engine`) format. Used for loading a custom checkpoint. |
+| `pretrained_model` | `str` | Name of the pretrained model from the models table in the Serving App. Used for loading a pretrained model. |
+| `device` | `str` | Device to run the model on, e.g., `"cuda:0"` or `"cpu"`. If not specified, will automatically use GPU device if available, otherwise CPU. |
+| `runtime` | `str` | Runtime to convert the model to before deploying. Options: `"onnx"`, `"tensorrt"`. Used for pretrained checkpoints. |
+| `agent_id` | `int` | ID of the Supervisely Agent (machine) that is connected to the Supervisely platform where the model should be deployed. Don't need to specify, if the only one agent is connected. |
+
