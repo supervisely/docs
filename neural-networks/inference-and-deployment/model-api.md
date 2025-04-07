@@ -149,7 +149,7 @@ model = ModelAPI(
 {% endtabs %}
 
 
-#### Arguments
+#### Connect Arguments
 
 A table with arguments for the `api.nn.connect()` method:
 
