@@ -29,10 +29,14 @@ While applying a tag to a specific label object or video file can be useful, it 
 1. **Select a frame:**
    * Navigate to the frame where the tag should start.
 
-      For this purpose, use the timeline zoom for comfortable tagging. Adjust the zoom level to magnify the frame detail up to 128x.
-   * Choose the tag from the **Definitions** panel by checking its box.
+      For this purpose, use the timeline zoom for comfortable tagging. Adjust the zoom level to magnify the frame detail up to 128x (1).
+   * Choose the tag from the **Definitions** panel by checking its box (2).
 
-   {% hint style="info" %} **Note:** The gray area on the timeline highlights the video segment visible in the viewport, helping you navigate the time interval and understand the zoom level. {% endhint %}
+{% hint style="info" %}
+**Note:** The gray area on the timeline highlights the video segment visible in the viewport, helping you navigate the time interval and understand the zoom level (3).
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_zoom.png" alt=""><figcaption></figcaption></figure>
 
 2. **Apply a value (Optional):**
    * Tags with all types of values except "None" will trigger a pop-up that prompts you to select or enter the tag value.
@@ -42,29 +46,40 @@ While applying a tag to a specific label object or video file can be useful, it 
 ## Step 3. Configuring and Finalizing the Tag Range
 After selecting a tag in the **Definitions** panel, the start edge of the tag range will appear in the viewport at your current cursor position and will be marked with a flag icon.
 
-From this point, there are several scenarios for configuring the tag range:
+Once a tag is initiated, you can freely navigate to any frame by:
+1. clicking anywhere on the timeline, or
+2. clicking the left/right buttons next to the timeline, or
+3. entering a specific frame number, or
+4. using the arrow keys on your keyboard.
 
-Once a tag is created, you can freely navigate to any frame — by clicking anywhere on the timeline, using the arrow keys on your keyboard, clicking the left/right buttons next to the timeline, or entering a specific frame number.  
 A dashed line will automatically extend to that frame.
+
+<figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_navigation.png" alt=""><figcaption></figcaption></figure>
 
 To complete the tag creation process and finalize the range at the desired frame:
 
 * Click the flag icon marker at the end of the tag in the viewport, **or**
-* Press **Finish** in the **Definitions** panel.
+* Press _**Finish**_ in the **Definitions** panel.
 
 Tags with all value types except **"None"** will trigger a pop-up prompting you to select or enter a tag value if you skipped this step when initializing the tag.
 
-Apply a value and click the **Start Range** button or simply press **Enter**.
+Apply a value and click the button to select:
+* _**Set value & start new range**_ button or simply press `Enter`.
+* _**Set value**_ button or simply press `Ctrl` `Enter`.
 
 The number of frames the tag has been extended by is displayed next to the current tag in the **Definitions** panel.
 
 You can start multiple unfinished tags as you move through the video and finalize them one by one. This is totally valid!  
 All unfinished tags will dynamically extend their dashed range to the currently selected frame. You can finalize them sequentially using either a shared end frame or setting individual ones.
 
+<figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_unfinished.png" alt=""><figcaption></figcaption></figure>
+
 Unfinished tags remain accessible even after closing the tool, allowing others to finalize them later.
 
 {% hint style="success" %}
-**Tip**: If you don't want to choose between **"Finish and start new range"** or **"Finish"** every time you complete a tag, and you only need the **"Finish"** option, go to: **Settings > Tags** and disable the option **"Display modal when finishing frame-based tag"**.{% endhint %}
+**Tip**: If you don't want to choose between _**Finish and start new range**_ or _**Finish**_ every time you complete a tag, and you only need the _**Finish**_ option, go to: **Settings > Tags** and disable the option **"Display modal when finishing frame-based tag"**.{% endhint %}
+
+<figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_settings.png" alt=""><figcaption></figcaption></figure>
  
 {% hint style="success" %}
 **Tip**: Use the **Default Action** setting in the pop-up to simplify repetitive actions (e.g., set "From Here to End" as the default behavior).
@@ -79,7 +94,7 @@ Unfinished tags remain accessible even after closing the tool, allowing others t
 
 #### 2. Custom Options
 
-Click the **Extend tag range** button (represented by arrows pointing in opposite directions) next to the frame-based tag in the **Definitions** panel and choose:
+Click the _**Extend tag range**_ button (represented by arrows pointing in opposite directions) next to the frame-based tag in the **Definitions** panel and choose:
 
 * **From start to here** — Apply the tag from the beginning of the video to the current frame.  
 * **Few frames forward / backward** — Apply the tag for a fixed number of frames forward or backward. Use the **+** and **−** buttons to adjust the frame count.  
