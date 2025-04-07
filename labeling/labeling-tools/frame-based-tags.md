@@ -44,7 +44,7 @@ While applying a tag to a specific label object or video file can be useful, it 
    * Otherwise, select the _**Start Range Without Value**_ button or simply press `Enter`.
 
 {% hint style="success" %}
-**Tip**: For this purpose, use the timeline zoom for comfortable tagging. Adjust the zoom level to magnify the frame detail up to 128x.
+**Tip**: Use the timeline zoom for comfortable tagging. Adjust the zoom level to magnify the frame detail up to 128x.
 {% endhint %}
 
 ## Step 3. Configuring and Finalizing the Tag Range
