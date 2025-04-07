@@ -20,6 +20,8 @@ While applying a tag to a specific label object or video file can be useful, it 
    * Find the mini button _**+**_ in the top right corner of the **Definitions** panel.
    * Click on it and select _**Create tag**_.
 
+   <figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_new_tag.png" alt=""><figcaption></figcaption></figure>
+
 {% hint style="info" %}
 **Note:** Tags for annotation objects appear when an object is selected. Tags for the entire video appear when no object is selected.
 {% endhint %}
@@ -98,25 +100,16 @@ Unfinished tags remain accessible even after closing the tool, allowing others t
 
 #### 2. Custom Options
 
-Click the _**Extend tag range**_ button (represented by arrows pointing in opposite directions) next to the frame-based tag in the **Definitions** panel and choose:
+Click the _**Extend tag range**_ button represented by arrows pointing in opposite directions (1), next to the frame-based tag in the **Definitions** panel and choose:
 
 * **From start to here** — Apply the tag from the beginning of the video to the current frame.  
 * **Few frames forward / backward** — Apply the tag for a fixed number of frames forward or backward. Use the **+** and **−** buttons to adjust the frame count.  
 * **Whole range** — Tag the entire timeline of the object.  
 * **From here to end** — Apply the tag from the current frame to the end of the video.
 
+<figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_edit_custom_options.png" alt=""><figcaption></figcaption></figure>
+
 {% hint style="success" %} **Tip:** Use the **Default Action** setting in the pop-up to simplify repetitive actions (e.g., set **"From here to end"** as the default behavior).
-
-### Example
-
-You need to tag a car (_Object ID: 482_) as moving out of its lane:
-
-1. Select the car in the objects list.
-2. Find the **Lane Change** tag in the **Definitions** panel.
-3. Choose the value **Off-lane** from the dropdown.
-4. In the pop-up window, select **Few Frames Forward** and set the range to 10 frames.
-5. Confirm the action and review the timeline.
-
 
 ## Configuring the tag range for clearing tags
 
