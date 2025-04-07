@@ -109,7 +109,7 @@ Click the _**Extend tag range**_ button represented by arrows pointing in opposi
 
 <figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_edit_custom_options.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="success" %
+{% hint style="success" %}
 **Tip:** Use the **Default Action** setting in the pop-up to simplify repetitive actions (e.g., set **"From here to end"** as the default behavior).
 {% endhint %}
 
