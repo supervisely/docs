@@ -146,3 +146,5 @@ Click the **Hotkeys** menu item at the top right of the **Definitions** panel. I
 * **Go to previous tag segment** — `CTRL + SHIFT + ←`
 
 You can also customize all hotkeys.
+
+<figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_hotkeys.png" alt=""><figcaption></figcaption></figure>
