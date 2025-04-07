@@ -20,42 +20,50 @@ Suppose you've trained a new model in Supervisely and want to use it for inferen
 
 Before using the model, you need to deploy a new model or connect to an existing one.
 
+#### Deploy a new model
+
+To deploy a new model, use the `api.nn.deploy()` method. This method will start a new Serving App in Supervisely, deploy a given model, and return a `ModelAPI` object for running predictions.
+
 {% tabs %}
-{% tab title="Deploy a new model" %}
+{% tab title="Custom checkpoint" %}
 ```python
 import supervisely as sly
 
 api = sly.Api()
 
-# When you deploy a model, it will automatically connect to it.
 model = api.nn.deploy(
     checkpoint="/path/in/team_files/best.pt",  # path to your checkpoint in Team Files
 )
 ```
 {% endtab %}
-{% tab title="Connect to existed model" %}
+{% tab title="Pretrained checkpoint" %}
 ```python
 import supervisely as sly
 
 api = sly.Api()
 
-model = api.nn.connect(
-    task_id=12345,  # Task ID of a running app in Supervisely
-)
-```
-{% endtab %}
-{% tab title="Connect to model in Docker" %}
-```python
-import supervisely as sly
-
-api = sly.Api()
-
-model = api.nn.connect(
-    url="http://localhost:8000",  # URL of the Docker container
+model = api.nn.deploy(
+    framework="RT-DETRv2",
+    model_name="RT-DETRv2-S"
 )
 ```
 {% endtab %}
 {% endtabs %}
+
+#### Connect to existing model
+
+If your model is already deployed in Supervisely, you just need to connect to it using the `api.nn.connect()` method, providing a `task_id` of the running serving app. This method returns a `ModelAPI` object for running predictions.
+
+```python
+import supervisely as sly
+
+api = sly.Api()
+
+# Connect to a deployed model
+model = api.nn.connect(
+    task_id=122,  # Task ID of a running Serving App in Supervisely
+)
+```
 
 This guide does not cover the deployment process. Please, see the full documentation in [Deploy API](neural-networks/inference-and-deployment/deploy-api.md).
 
