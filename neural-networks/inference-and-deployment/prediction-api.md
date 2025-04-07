@@ -204,6 +204,7 @@ Here's a summary of the input formats accepted by `predict()` and `predict_detac
 | Project ID | `project_id=12345` | `int` | Project ID from Supervisely platform. |
 | Dataset ID | `dataset_id=12345` | `int` | Dataset ID from Supervisely platform. |
 | Image IDs | `image_ids=12345` or `image_ids=[12345, 67890]` | `int` or `list` | Single image ID or list of image IDs from Supervisely platform. |
+| Video ID | `video_id=12345` | `int` | Video ID from Supervisely platform. |
 
 ### Predict arguments
 
@@ -211,7 +212,7 @@ You can control the prediction process with various arguments, such as inference
 
 | Argument | Type | Default | Description |
 | --- | --- | --- | --- |
-| `input` | `str`, `Path`, `np.ndarray`, `PIL.Image`, `list` | `None` | Input source: local paths, directory, local project, numpy array, PIL.Image, URL |
+| `input` | `str`, `Path`, `np.ndarray`, `PIL.Image`, `list` | `None` | Input source: local path to an image or video, directory of images, local Supervisely project, numpy array, PIL.Image, URL |
 | `settings` | `dict` | `None` | Inference settings passed to the model for inference |
 | `project_id` | `int` | `None` | Project ID from Supervisely platform |
 | `dataset_id` | `int` | `None` | Dataset ID from Supervisely platform |
@@ -226,7 +227,7 @@ You can control the prediction process with various arguments, such as inference
 
 ### Prediction result
 
-The `predict()` method returns a list of `Prediction` objects. The `Prediction` class represents the result of a model's prediction operation on an image. It contains annotation data, source information, and provides methods for visualization and data access.
+The `predict()` method returns a list of `Prediction` objects. Depending on the model type, the `Prediction` can contain bounding boxes, masks, keypoints, or other types of annotations. `Prediction` object also contains annotation in Supervisely format and additional information about the original image source, such as image path, URL, and Supervisely IDs (if applicable). It also provides methods for visualizing the predictions and accessing the original image.
 
 ```python
 # Predicting multiple images
@@ -236,17 +237,30 @@ predictions = model.predict(
 
 # Iterating through predictions
 for p in predictions:
+    # Model's output
+    p.boxes         # np.array of shape (N, 4) with predicted boxes in "xyxy" format
+    p.masks         # np.array of shape (N, H, W) with binary masks
+    p.scores        # np.array of shape (N,) with predicted confidence scores
+    p.classes       # list of predicted class names
+    p.class_idxs    # list of predicted class indices (labels)
     p.annotation    # sly.Annotation with predicted objects
-    p.source        # Source of an image. Can be a path, URL, or numpy array
-    p.image_path    # Path to the image file
-    p.image_url     # URL of the image if input was a URL
-    p.image         # np.ndarray image if input was a PIL image or np.array
+    
+    # Information about the source image or video
+    p.source        # Source of an image. Can be a path, URL, or numpy array, depending on input
+    p.name          # The name of image or video file
+    p.path          # Path to image or video file
+    p.url           # URL of the image if input was a URL
+    p.frame_idx     # Frame index if input was a video
+
+    # Supervisely IDs
     p.project_id    # Project ID if input was a Supervisely ID
     p.dataset_id    # Dataset ID if input was a Supervisely ID
     p.image_id      # Image ID if input was a Supervisely ID
+    p.video_id      # Video ID if input was a Supervisely ID
+
+    # Additional methods
     orig_image = p.load_image()       # Load the original image associated with this prediction
     p.visualize(save_dir="./output")  # Save visualization with predicted annotations
-    🔴🔴🔴 boxes, masks. etc.
 ```
 
 #### `Prediction` attributes
@@ -256,15 +270,20 @@ The `Prediction` object contains the following attributes:
 | Attributes | Type | Description |
 | --- | --- | --- |
 | `annotation` | `sly.Annotation` | Supervisely annotation containing predicted objects, their classes, geometries, and tags. |
+| `boxes` | `np.ndarray` | Array of shape (N, 4) with predicted bounding boxes in "xyxy" format. |
+| `masks` | `np.ndarray` | Array of shape (N, H, W) with binary masks for each predicted object. |
+| `scores` | `np.ndarray` | Array of shape (N,) with confidence scores for each prediction. |
+| `classes` | `List[str]` | List of predicted class names as strings. |
+| `class_idxs` | `List[int]` | List of predicted class indices (labels). |
 | `source` | `str` or `np.ndarray` | The source of a single input image. Depending on the type of `input`, it can be **image path**, **np.array** of the image, or **URL**. |
-| `image_path` | `str` or `None` | Path to the image file. Applicable if the input was a local path or directory |
-| `image_url` | `str` or `None` | URL of the image if the input was a URL. |
-| `image` | `np.ndarray` or `None` | Image as a numpy array if the input was a numpy array. |
-| `project_id` | `int` or `None` | ID of the Supervisely project associated with this prediction. Applicable if the input was a Supervisely ID |
-| `dataset_id` | `int` or `None` | ID of the Supervisely dataset associated with this prediction. Applicable if the input was a Supervisely ID |
-| `image_id` | `int` or `None` | ID of the image in the Supervisely platform associated with this prediction. Applicable if the input was a Supervisely ID |
-🔴🔴🔴 add boxes, masks, etc.
-🔴🔴🔴 add class_idx? - needed for tracking
+| `name` | `str` or `None` | The name of the image file. |
+| `path` | `str` or `None` | Path to the image file. Applicable if the input was a local path or directory. |
+| `url` | `str` or `None` | URL of the image if the input was a URL. |
+| `frame_idx` | `int` or `None` | Frame index if the input was a video. |
+| `project_id` | `int` or `None` | ID of the Supervisely project associated with this prediction. Applicable if the input was a Supervisely ID. |
+| `dataset_id` | `int` or `None` | ID of the Supervisely dataset associated with this prediction. Applicable if the input was a Supervisely ID. |
+| `image_id` | `int` or `None` | ID of the image in the Supervisely platform associated with this prediction. Applicable if the input was a Supervisely ID. |
+| `video_id` | `int` or `None` | ID of the video in the Supervisely platform associated with this prediction. Applicable if the input was a Supervisely video ID. |
 
 #### `Prediction` methods
 
@@ -275,15 +294,18 @@ The `Prediction` object provides convenient methods for loading the original ima
 | `visualize()` | `np.ndarray` | Draws the predicted annotation on the original image. If `save` or `save_dir` is provided, it saves the visualization to the specified path or directory. |
 | `load_image()` | `np.ndarray` | Loads the image associated with this prediction. |
 
-#### `visualize(save=None, save_dir=None)`
-
-🔴🔴🔴 add more args from sly.Annotation.draw() (line_width, opacity, etc.)
+#### `visualize(save=None, save_dir=None, **kwargs)`
 
 Visualizes the prediction by drawing annotations on the original image.
 
 **Parameters:**
 - `save` (`str`, optional): Path where the visualization should be saved. If provided, the method will save the visualization to this path.
 - `save_dir` (`str`, optional): Directory where the visualization should be saved. If provided, the method will save the visualization with the same filename as the original image.
+- `thickness` (`int`, optional): Thickness of line counters. If `None`, the default thickness will be used.
+- `opacity` (`float`, optional): Opacity of the shapes. Default is `0.5`.
+- `draw_tags` (`bool`, optional): Whether to draw tags, such as confidence score. Default is `False`.
+- `fill_rectangles` (`bool`, optional): Whether to fill the shapes with color. Default is `True`.
+- `kwargs` (`dict`, optional): Additional arguments will be passed to `sly.Annotation.draw_pretty()` method.
 
 **Returns:**
 - `np.ndarray`: Numpy array containing the image with visualized predictions (bounding boxes, masks, etc.).
@@ -297,14 +319,19 @@ predictions = model.predict(
 
 # Save all visualizations to an output directory
 for p in predictions:
-    p.visualize(save_dir="./results")
+    p.visualize(
+        save_dir="./results",
+        thickness=2,  # Line thickness
+        opacity=0.3,  # Opacity of shapes
+        draw_tags=True,  # Draw tags
+        fill_rectangles=True,  # Fill shapes with color
+    )
 ```
 
 #### Notes
 
-- The `visualize()` method automatically handles loading the image from `image_path` and drawing the annotations on it.
-- When using `save_dir`, the original filename from `image_path` is preserved.
-- Multiple predictions are returned even for a single image input, so always expect a list of `Prediction` objects.
+- The `visualize()` method automatically handles loading the image and drawing the annotations on it.
+- When using `save_dir`, the original filename (or image name) will be used for the output file.
 
 #### `load_image()`
 
@@ -403,7 +430,7 @@ The `predict()` and `predict_detached()` methods can also be used to process vid
 ```python
 # Predicting a video file
 predictions = model.predict(
-    video_id=1412,
+    video_id=42,
     video_settings={
         "stride": 1,        # step between frames, 1 means process every frame
         "start_frame": 0,   # start frame to process (0-based)
@@ -415,6 +442,7 @@ predictions = model.predict(
 
 # Iterating frame predictions
 for p in predictions:
+    p.name  # Name of the video file
     p.frame_idx  # Frame index of the prediction
 ```
 
@@ -426,7 +454,7 @@ for p in predictions:
 import boxmot
 
 session = model.predict_detached(
-    video=42,
+    video_id=42,
     video_settings={
         "stride": 1,
         "start_frame": 0,
