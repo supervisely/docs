@@ -21,8 +21,6 @@ For creating collection open any dataset and switch to a flat list view (like _*
 
 <figure><img src="../../.gitbook/assets/collections/collections_flat-list_view.png" alt=""><figcaption></figcaption></figure>
 
-#### 1. Creating collection
-
 1. If you want to create collection from all dataset items do not select any items, just click the _**Arrow**_ to the right of the _**Annotate**_ button and select option _**Add to collection**_.
 
     <figure><img src="../../.gitbook/assets/collections/collections_create_all_items1.png" alt=""><figcaption></figcaption></figure>
