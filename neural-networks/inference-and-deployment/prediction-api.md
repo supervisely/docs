@@ -32,7 +32,7 @@ import supervisely as sly
 api = sly.Api()
 
 model = api.nn.deploy(
-    checkpoint="/path/in/team_files/best.pt",  # path to your checkpoint in Team Files
+    model="/path/in/team_files/best.pt",  # path to your checkpoint in Team Files
 )
 ```
 {% endtab %}
@@ -43,8 +43,7 @@ import supervisely as sly
 api = sly.Api()
 
 model = api.nn.deploy(
-    framework="RT-DETRv2",
-    model_name="RT-DETRv2-S"
+    model="rt-detrv2/rt-detrv2-s"  # a model in the format "framework/model_name"
 )
 ```
 {% endtab %}
@@ -178,17 +177,17 @@ predictions = model.predict(
 ```python
 # You can pass IDs of items from Supervisely platform
 
+# Image ID
+predictions = model.predict(image_id=12345)
+
+# List of Image IDs
+predictions = model.predict(image_ids=[12345, 67890])
+
 # Project ID
 predictions = model.predict(project_id=123)
 
 # Dataset ID
 predictions = model.predict(dataset_id=456)
-
-# Image ID
-predictions = model.predict(image_ids=12345)
-
-# List of Image IDs
-predictions = model.predict(image_ids=[12345, 67890])
 
 # Video ID
 predictions = model.predict(video_id=1212)
@@ -209,10 +208,10 @@ Here's a summary of the input formats accepted by `predict()` and `predict_detac
 | directory | `input="path/to/directory"` | `str` or `Path` | Path to a directory containing images. Pass `recursive=True` to predict all images in sub-directories |
 | video | `input="path/to/video.mp4"` | `str` or `Path` | Video file in formats like MP4, AVI, etc. |
 | Supervisely project | `input="path/to/sly_project"` | `str` or `Path` | Path to a local Supervisely project containing images. |
-| Project ID | `project_id=12345` | `int` | Project ID from Supervisely platform. |
-| Dataset ID | `dataset_id=12345` | `int` | Dataset ID from Supervisely platform. |
-| Image IDs | `image_ids=12345` or `image_ids=[12345, 67890]` | `int` or `list` | Single image ID or list of image IDs from Supervisely platform. |
-| Video ID | `video_id=12345` | `int` | Video ID from Supervisely platform. |
+| Project ID | `project_id=123`, `project_ids=[123, 456]` | `int` or `list` | Project ID from Supervisely platform. You can pass either a single ID or a list of IDs in any of `project_id`, `project_ids` arguments. |
+| Dataset ID | `dataset_id=123`, `dataset_ids=[123, 456]` | `int` or `list` | Dataset ID from Supervisely platform. You can pass either a single ID or a list of IDs in any of `dataset_id`, `dataset_ids` arguments. |
+| Image ID | `image_id=123`, `image_ids=[123, 456]` | `int` or `list` | Image ID from Supervisely platform. You can pass either a single ID or a list of IDs in any of `image_id`, `image_ids` arguments. |
+| Video ID | `video_id=123`, `video_ids=[123, 456]` | `int` or `list` | Video ID from Supervisely platform. You can pass either a single ID or a list of IDs in any of `video_id`, `video_ids` arguments. |
 
 ### Predict arguments
 
@@ -221,21 +220,21 @@ You can control the prediction process with various arguments, such as inference
 | Argument | Type | Default | Description |
 | --- | --- | --- | --- |
 | `input` | `str`, `Path`, `np.ndarray`, `PIL.Image`, `list` | `None` | Input source: local path to an image or video, directory of images, local Supervisely project, numpy array, PIL.Image, URL |
-| `settings` | `dict` | `None` | Inference settings passed to the model for inference |
-| `project_id` | `int` | `None` | Project ID from Supervisely platform |
-| `dataset_id` | `int` | `None` | Dataset ID from Supervisely platform |
-| `image_ids` | `int` or `list` | `None` | Single image ID or list of image IDs from Supervisely platform |
-| `video_id` | `int` | `None` | Video ID from Supervisely platform. The video will be processed frame by frame. |
-| `video_settings` | `dict` | `None` | Video settings for processing video files. See more in [Predict video](#predict-video) section. |
+| `project_id` | `int` or `list` | `None` | Project IDs from Supervisely platform. You can use both `project_id` and `project_ids` arguments, they are aliases. |
+| `dataset_id` | `int` or `list` | `None` | Dataset IDs from Supervisely platform. You can use both `dataset_id` and `dataset_ids` arguments, they are aliases. |
+| `image_id` | `int` or `list` | `None` | Image IDs from Supervisely platform. You can use both `image_id` and `image_ids` arguments, they are aliases. |
+| `video_id` | `int` or `list` | `None` | Video IDs from Supervisely platform. The video will be processed frame by frame. You can use both `video_id` and `video_ids` arguments, they are aliases. |
+| `conf` | `float` | `None` | Confidence threshold for filtering out low confident predictions. If `None`, the model's default confidence threshold will be used. |
 | `batch_size` | `int` | `None` | Number of images to process in a single batch. If `None`, the model will use its default batch size. |
-| `img_size` | `int` or `tuple` | `None` | Size of input images: `int` resizes to a square size, a tuple of (height, width) resizes to exact size. `None` will use the model's default input size |
+| `img_size` | `int` or `tuple` | `None` | Size of input images: `int` resizes to a square size, a tuple of (height, width) resizes to exact size. Also applicable to video inference. `None` will use the model's default input size |
 | `classes` | `List[str]` | `None` | List of classes to predict |
 | `upload` | `str` | `None` | If not `None`, predictions will be uploaded to the platform. Upload modes: `create`, `append`, `replace`, `iou_merge`. See more in [Uploading predictions](#uploading-predictions) section. |
-| `recursive` | `bool` | `False` | Whether to search for images in subdirectories. Applicable for directories only. |
+| `recursive` | `bool` | `False` | Whether to search for images in subdirectories. Applicable when the `input` is a directory. |
+| `**kwargs` | `dict` | `None` | All additional settings, such as inference settings passed to a model, sliding window settings and video processing settings. |
 
 ### Prediction result
 
-The `predict()` method returns a list of `Prediction` objects. Depending on the model type, the `Prediction` can contain bounding boxes, masks, keypoints, or other types of annotations. `Prediction` object also contains annotation in Supervisely format and additional information about the original image source, such as image path, URL, and Supervisely IDs (if applicable). It also provides methods for visualizing the predictions and accessing the original image.
+The `predict()` method always returns a list of `Prediction` objects. Depending on the model type, the `Prediction` can contain bounding boxes, masks, keypoints, or other types of annotations. `Prediction` object also contains annotation in Supervisely format and additional information about the original image source, such as image path, URL, and Supervisely IDs (if applicable). It also provides methods for visualizing the predictions and accessing the original image.
 
 ```python
 # Predicting multiple images
@@ -258,7 +257,7 @@ for p in predictions:
     p.name          # The name of image or video file
     p.path          # Path to image or video file
     p.url           # URL of the image if input was a URL
-    p.frame_idx     # Frame index if input was a video
+    p.frame_index     # Frame index if input was a video
 
     # Supervisely IDs
     p.project_id    # Project ID if input was a Supervisely ID
@@ -287,7 +286,7 @@ The `Prediction` object contains the following attributes:
 | `name` | `str` or `None` | The name of the image file. |
 | `path` | `str` or `None` | Path to the image file. Applicable if the input was a local path or directory. |
 | `url` | `str` or `None` | URL of the image if the input was a URL. |
-| `frame_idx` | `int` or `None` | Frame index if the input was a video. |
+| `frame_index` | `int` or `None` | Frame index if the input was a video. |
 | `project_id` | `int` or `None` | ID of the Supervisely project associated with this prediction. Applicable if the input was a Supervisely ID. |
 | `dataset_id` | `int` or `None` | ID of the Supervisely dataset associated with this prediction. Applicable if the input was a Supervisely ID. |
 | `image_id` | `int` or `None` | ID of the image in the Supervisely platform associated with this prediction. Applicable if the input was a Supervisely ID. |
@@ -396,7 +395,8 @@ The `PredictionSession` object provides methods for managing the prediction proc
 | `is_done()` | `bool` | Returns `True` if all predictions have been processed or the session was stopped. |
 | `next(timeout=None, block=True)` | `Prediction` | Retrieves the next available prediction. If `block=True`, waits until a prediction is available or the timeout (in seconds) is reached. If `block=False`, returns `None` immediately if no prediction is available. |
 | `stop()` | None | Stops the prediction process. Any predictions already in the queue will still be available, but no new predictions will be generated. |
-| `status()` | `dict` | Returns a dictionary containing session status information including: `progress` (percentage complete), `message` (status message), `error` (traceback if an error occurred), and `context` (project_id, dataset_id, etc.). |
+| `status()` | `dict` | Returns a dictionary containing information about the status of a model and predictions process, including: `progress` (done / total), `message` (status message), `error` (traceback if an error occurred), `context` (project_id, dataset_id, etc.), resources (GPU: allocacted by the model, allocated by all processes, total; RAM) |
+| `progress()` | `dict` | Returns a progress (done / total) of the prediction process itself. |
 
 
 ```python
@@ -404,9 +404,11 @@ The `PredictionSession` object provides methods for managing the prediction proc
 session = model.predict_detached(input="path/to/directory")
 
 # Process first 10 images in directory
-for i in range(10):
-    if not session.is_done():
-        prediction = session.next()
+for i, prediction in enumerate(session):
+    if i == 10:
+        break
+    # Do something with the prediction
+    prediction.visualize(save_dir="./output")
 
 # Stop processing images
 session.stop()
@@ -451,37 +453,89 @@ predictions = model.predict(
 # Iterating frame predictions
 for p in predictions:
     p.name  # Name of the video file
-    p.frame_idx  # Frame index of the prediction
+    p.frame_index  # Frame index of the prediction
 ```
 
 ## Tracking objects on video
 
 🔴🔴🔴 Как вариант - сделать отдельную эпу serve boxmot, чтобы трекать на агенте а не на клиенте
 
-```python
-import boxmot
+You can track objects in video using the `boxmot` library. BoxMot is a third-party library that implements lightweight neural networks for tracking-by-detection (tracking objects based on detection results), so you can use CPU device. Supervisely has a wrapper for convenient tracking with `boxmot`. Method `track()` from `supervisely.nn.tracking` module takes a boxmot tracker and a `PredictionSession` as input, and returns a `VideoAnnotation` object with tracked objects.
 
-session = model.predict_detached(
-    video_id=42,
-    video_settings={
-        "stride": 1,
-        "start_frame": 0,
-    },
+```python
+import supervisely as sly
+from supervisely.nn.tracking import track
+import boxmot
+from pathlib import Path
+
+# Deploy a detector
+model = api.nn.deploy(
+    model="rt-detrv2/RT-DETRv2-M",
+    device="cuda:0",  # Use GPU for detection
 )
 
-device = "cpu"
-tracker = boxmot.BotSort(reid_weights=Path('osnet_x0_25_msmt17.pt'), device=device, half=False)
+# Start predict objects in video
+session = model.predict_detached(video_id=42)
 
-# Track predictions
+# Load BoxMot tracker
+tracker = boxmot.BotSort(
+    reid_weights=Path('osnet_x0_25_msmt17.pt'),
+    device="cpu",  # Use CPU for tracking
+)
+
+# Track objects in a single line
+video_ann: sly.VideoAnnotation = track(tracker, session)
+```
+
+Alternatively, you can manually track objects with a `boxmot` tracker. This approach gives you more control over the tracking process, but requires more code and understanding of the `boxmot` format.
+
+<details>
+
+<summary>Click to expand</summary>
+
+```python
+import boxmot
+from supervisely.nn.tracking import to_boxmot
+from pathlib import Path
+
+# Deploy a detector
+model = api.nn.deploy(
+    model="rt-detrv2/RT-DETRv2-M",
+    device="cuda:0",  # Use GPU for detection
+)
+
+# Start predict objects in video
+session = model.predict_detached(video_id=42)
+
+# Load BoxMot tracker
+tracker = boxmot.BotSort(
+    reid_weights=Path('osnet_x0_25_msmt17.pt'),
+    device="cpu",  # Use CPU for tracking
+)
+
+# Track predictions frame by frame
 track_results = []
 for p in session:
     # Get the current frame
     frame = p.load_image()
 
     # Convert predictions to the format required by BoxMot
-    detections = p.to_boxmot()  # N x (x, y, x, y, conf, cls)
+    detections = to_boxmot(p)  # N x (x, y, x, y, conf, cls)
 
     # Track objects in the current frame
     tracks = tracker.update(detections, frame)  # M x (x, y, x, y, track_id, conf, cls, det_id)
     track_results.append(tracks)
 ```
+</details>
+
+
+## Predict settings (kwargs)
+
+Here is a complete list of settings that can be passed to the `predict()` and `predict_detached()` methods in `**kwargs`. Additionally, you can pass the `inference settings` there. The inference settings are specific to the model you use, and can be found in the GUI of the Serving App, or in the model's documentation.
+
+### Sliding window settings
+
+| Argument | Type | Default | Description |
+| --- | --- | --- | --- |
+| `window_size` | `int` or `tuple` | `None` | Size of the sliding window. If `None`, the model's default input size will be used. |
+| `overlap` | `float` | `0.1` | Overlap between sliding windows. |
