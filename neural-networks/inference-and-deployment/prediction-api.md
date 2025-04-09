@@ -1,28 +1,30 @@
 # Prediction API
 
 🔴 -  будем ли мы делать после overview секцию quickstart? и потом на ней ссылки на расширенные доки типа этой где все делали и варианты деплоя будут с аргументами расписаны?
-🔴 - runtime? пока не видел - onnx tensorrt - написать что не зависит дать ссылку
+✅ - runtime? пока не видел - onnx tensorrt - написать что не зависит дать ссылку
+✅ - docker: connect to model (описал в гайде про deploy, также это будет на странице где всё про docker)
 🔴 - нужно будет еще написать, в отдельном разделе Advanced что там при запуске есть Restart policy разные и что тогда task_id при рестарте не поменяется. нужно проверить это
-🔴 - docker: connect to model
 🔴 - team_id по идее можно брать и искать автоматом, задал умару вопрос https://supervisely-team.slack.com/archives/CV28AA11P/p1743760002034969
-🔴 - из чекпоинта по идее мы будем доставать всю инфу в том числе framework  и тд, чтобы знать в какой апе стартануть?
 🔴 - еще я бы добавил опциональный флаг, что если такая модель раздеплоена, найти ее или раздеплоить как еще одну:
-🔴 - еще аргумент checkpoint мне не нравится и еще не понятно как раздеплоить pretrained (тут у меня нет идей, но как-то вкорячить это в метод model = api.nn.deploy(model="/a/b/c.pth") было бы прикольно)
-🔴 - может переименовать в deploy?
+✅ - из чекпоинта по идее мы будем доставать всю инфу в том числе framework  и тд, чтобы знать в какой апе стартануть?
+✅ - еще аргумент checkpoint мне не нравится и еще не понятно как раздеплоить pretrained (тут у меня нет идей, но как-то вкорячить это в метод model = api.nn.deploy(model="/a/b/c.pth") было бы прикольно)
+✅ - может переименовать в deploy?
 model = api.nn.deploy(checkpoint="/a/b/c.pth")
 model = api.nn.deploy(pretrained="mmmm-coc-aaa"???)
-🔴 - дописать в описании что метод сам проверит наличие компьютера с GPU девайса и описать аргшументы? device, agent? 
+✅ - дописать в описании что метод сам проверит наличие компьютера с GPU девайса и описать аргшументы? device, agent? 
 🔴 - поговорить с денисом и заменить слово agent на machine
 
-Suppose you've trained a new model in Supervisely and want to use it for inference via API. You can do this with ease using the new **Supervisely Prediction API**.
+This page describes how to use **Supervisely Prediction API** to make model predictions on images and videos, including object tracking. With the new API you can easily deploy models, make predictions, and process the results.
 
 ## Deploy & Connect
 
 Before using the model, you need to deploy a new model or connect to an existing one.
 
+> This page does not cover the deployment process in detail. For more information, please refer to the [Deploy API](neural-networks/inference-and-deployment/deploy-api.md) documentation.
+
 #### Deploy a new model
 
-To deploy a new model, use the `api.nn.deploy()` method. This method will start a new Serving App in Supervisely, deploy a given model, and return a `ModelAPI` object for running predictions.
+To deploy a new model, use the `api.nn.deploy()` method. This method will start a new [Serving App](supervisely-serving-apps.md) in Supervisely, deploy a given model, and return a `ModelAPI` object for running predictions.
 
 {% tabs %}
 {% tab title="Custom checkpoint" %}
@@ -43,7 +45,7 @@ import supervisely as sly
 api = sly.Api()
 
 model = api.nn.deploy(
-    model="rt-detrv2/rt-detrv2-s"  # a model in the format "framework/model_name"
+    model="rt-detrv2/rt-detrv2-s"  # model identifier in the format "framework/model_name"
 )
 ```
 {% endtab %}
@@ -63,8 +65,6 @@ model = api.nn.connect(
     task_id=122,  # Task ID of a running Serving App in Supervisely
 )
 ```
-
-This guide does not cover the deployment process. Please, see the full documentation in [Deploy API](neural-networks/inference-and-deployment/deploy-api.md).
 
 ## Predict
 
@@ -395,7 +395,7 @@ The `PredictionSession` object provides methods for managing the prediction proc
 | `is_done()` | `bool` | Returns `True` if all predictions have been processed or the session was stopped. |
 | `next(timeout=None, block=True)` | `Prediction` | Retrieves the next available prediction. If `block=True`, waits until a prediction is available or the timeout (in seconds) is reached. If `block=False`, returns `None` immediately if no prediction is available. |
 | `stop()` | None | Stops the prediction process. Any predictions already in the queue will still be available, but no new predictions will be generated. |
-| `status()` | `dict` | Returns a dictionary containing information about the status of a model and predictions process, including: `progress` (done / total), `message` (status message), `error` (traceback if an error occurred), `context` (project_id, dataset_id, etc.), resources (GPU: allocacted by the model, allocated by all processes, total; RAM) |
+| `status()` | `dict` | Returns a dictionary containing information about the status of a model and predictions process, including: `progress` (done / total), `message` (status message), `error` (traceback if an error occurred), `context` (project_id, dataset_id, etc.), resources (GPU: allocated by the model, allocated by all processes, total; RAM) |
 | `progress()` | `dict` | Returns a progress (done / total) of the prediction process itself. |
 
 
@@ -537,5 +537,16 @@ Here is a complete list of settings that can be passed to the `predict()` and `p
 
 | Argument | Type | Default | Description |
 | --- | --- | --- | --- |
-| `window_size` | `int` or `tuple` | `None` | Size of the sliding window. If `None`, the model's default input size will be used. |
-| `overlap` | `float` | `0.1` | Overlap between sliding windows. |
+| `sliding_window` | `bool` | `False` | Whether to use sliding window for large images. When `sliding_window=True`, the model will process the image in smaller patches, which is useful for large images. The size of a patch is controlled by `window_size`, and the `img_size` argument will now resize the original image before cropping it into patches. |
+| `window_size` | `int` or `tuple` | `None` | Size of a sliding window patch that will be passed to the model. The `window_size` can be a tuple of (height, width) or a single integer for square patches. If `None`, the model's default input size will be used as `window_size`. |
+| `overlap` | `float` or `int` | `0.2` | Overlap between sliding windows. Can be a float in range (0-1) representing a fraction of overlap, or an integer representing the overlap in pixels. |
+
+### Video settings
+
+| Argument | Type | Default | Description |
+| --- | --- | --- | --- |
+| `stride` | `int` | `1` | Step between frames. 1 means process every frame, 2 means process every second frame, etc. |
+| `start_frame` | `int` | `0` | Start frame to process (0-based). |
+| `end_frame` | `int` | `None` | End frame (exclusive). If `None`, process all frames. |
+| `num_frames` | `int` | `None` | Number of frames to process. |
+| `duration` | `int` | `None` | Duration in seconds. |
