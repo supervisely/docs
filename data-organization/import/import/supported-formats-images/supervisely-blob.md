@@ -1,4 +1,4 @@
-# 🤖 Supervisely Extended: Blob
+# 🤖 Supervisely Blob
 
 ## Overview
 
