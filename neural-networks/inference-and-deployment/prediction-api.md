@@ -20,7 +20,7 @@ This page describes how to use **Supervisely Prediction API** to make model pred
 
 Before using the model, you need to deploy a new model or connect to an existing one.
 
-> This page does not cover the deployment process in detail. For more information, please refer to the full [Model API](neural-networks/inference-and-deployment/model-api.md) documentation.
+> This page does not cover the deployment process in detail. For more information, please refer to the full [Model API](./model-api.md) documentation.
 
 #### Deploy a new model
 
