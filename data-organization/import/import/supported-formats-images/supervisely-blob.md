@@ -45,7 +45,7 @@ Benefits include:
 
 ### Offset Representation
 
-The `BlobImageInfo` class of **Supervisely Python SDK** represents image metadata within a blob storage file. It contains information about where the image data is located in the blob file, defined by byte offsets. This class provides methods to manipulate and convert blob image information to formats suitable for storage and API interactions.
+The `BlobImageInfo` class of [Supervisely Python SDK](https://supervisely.readthedocs.io/en/latest/index.html) represents image metadata within a blob storage file. It contains information about where the image data is located in the blob file, defined by byte offsets. This class provides methods to manipulate and convert blob image information to formats suitable for storage and API interactions.
 
 {% hint style="success" %} Once blob files are uploaded to Team Files, you can reuse them for multiple projects without re-uploading the images. {% endhint %}
 
@@ -68,7 +68,7 @@ A typical blob-based project structure looks like this:
  ┗ 📄 meta.json
 ```
 
-For detailed information about blob project structure, refer to the extended [Project Structure documentation][Project Structure](../../../Annotation-JSON-format/01_Project_Structure_new.md).
+For detailed information about blob project structure, refer to the extended [Project Structure documentation](../../../Annotation-JSON-format/01_Project_Structure_new.md#extended-project-structure).
 
 
 ## Performance Comparison Information
@@ -86,4 +86,4 @@ A blob project with 30000 small images (~4KB each) can be:
 * [\[CLI Tool Beta\] Upload projects in Supervisely format](https://developer.supervisely.com/getting-started/command-line-interface/cli-tool/workflow-automation#upload-projects-in-supervisely-format)
 *   [\[Supervisely Ecosystem\] Import images in Supervisely format](https://ecosystem.supervisely.com/apps/import-images-in-sly-format)
 
-    <img src="https://i.imgur.com/Y6RcQPT.png" height="50">
+    <img src="https://i.imgur.com/Y6RcQPT.png" height="60">
