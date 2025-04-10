@@ -75,7 +75,7 @@ For detailed information about blob project structure, refer to the extended [Pr
 
 A blob project with 30000 small images (~4KB each) can be:
 
--   Uploaded `~2x` faster than standard uploads, `~x14` especially using Quick Import
+-   Uploaded `~2x` faster than standard uploads, `~x14` especially using fast methods `coming soon in apps`
 -   Downloaded `~4x` faster than standard downloads, `~22x` especially using fast methods
 
 
