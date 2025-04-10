@@ -124,6 +124,6 @@ Complementing the blob files are offset files with the suffix `_offsets.pkl`, wh
 #### Related:
 
   -   To learn more about extended Supervisely format with blob files, refer to this page: [🤖 Supervisely Blob](../import/import/supported-formats-images/supervisely-blob.md)
-  -   To export extended Supervisely format with the blob files and offsets, use the [Export to Supervisely format: Blob](https://ecosystem.supervisely.com/apps/export-to-supervisely-format:-blob) application.<br> 
+  -   To export extended Supervisely format with the blob files and offsets, use the [Export to Supervisely format: Blob](https://ecosystem.supervisely.com/apps/export-to-supervisely-format-blob) application.<br> 
   ☝️ However, other applications export projects in the Supervisely format using the traditional method, downloading each image separately.
   - Importing the extended Supervisely format happens automatically in applications that previously imported projects in the Supervisely format without blobs. Such as [Import Images in Supervisely Format](https://ecosystem.supervisely.com/apps/import-images-in-sly-format) application or [Auto Import](https://ecosystem.supervisely.com/apps/main-import) tool.
