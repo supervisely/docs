@@ -1,10 +1,10 @@
 # 🤖 Supervisely Extended: Blob
 
-## Understanding the Blob format
+## Overview
 
 When dealing with large quantities of small images (e.g., thousands of images under 100KB each), importing them individually is inefficient. The blob approach combines multiple images into a single archive file, making transfer and storage more efficient.
 
-## Annotations with Blob Format
+## Annotations with Blob format
 
 The key advantage of the blob format is that it optimizes storage and transfer of image data without changing how annotations work. When using blob format:
 
@@ -45,7 +45,7 @@ Benefits include:
 
 ### Offset Representation
 
-The `BlobImageInfo` class represents image metadata within a blob storage file. It contains information about where the image data is located in the blob file, defined by byte offsets. This class provides methods to manipulate and convert blob image information to formats suitable for storage and API interactions.
+The `BlobImageInfo` class of **Supervisely Python SDK** represents image metadata within a blob storage file. It contains information about where the image data is located in the blob file, defined by byte offsets. This class provides methods to manipulate and convert blob image information to formats suitable for storage and API interactions.
 
 {% hint style="success" %} Once blob files are uploaded to Team Files, you can reuse them for multiple projects without re-uploading the images. {% endhint %}
 
@@ -86,4 +86,4 @@ A blob project with 30000 small images (~4KB each) can be:
 * [\[CLI Tool Beta\] Upload projects in Supervisely format](https://developer.supervisely.com/getting-started/command-line-interface/cli-tool/workflow-automation#upload-projects-in-supervisely-format)
 *   [\[Supervisely Ecosystem\] Import images in Supervisely format](https://ecosystem.supervisely.com/apps/import-images-in-sly-format)
 
-    ![](https://i.imgur.com/Y6RcQPT.png)
+    <img src="https://i.imgur.com/Y6RcQPT.png" height="50">
