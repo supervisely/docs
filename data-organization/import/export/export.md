@@ -8,7 +8,7 @@ You can export data in different ways: from the context menu of a project or a d
 
 ### Export to Supervisely Format
 
-The best way to export and download your dataset from Supervisely is by saving it to the [Supervisely Format.](../../supervisely-format.md) Since it has the full support of every capability available on the platform, no matter how complex your annotations and data are (for example, 3D labels of cloud point episodes with photo context), you can be 100% sure that all the information is saved in the convenient .json-based format.
+The best way to export and download your dataset from Supervisely is by saving it to the [Supervisely Format](../../supervisely-format). Since it has the full support of every capability available on the platform, no matter how complex your annotations and data are (for example, 3D labels of cloud point episodes with photo context), you can be 100% sure that all the information is saved in the convenient .json-based format.
 
 To download a project or dataset in `Supervisely format`, select Download in the context menu by **three dots icon (⋮)** and choose **Export in Supervisely Format**.
 
