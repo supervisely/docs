@@ -17,7 +17,7 @@ Collections are custom groups of images, videos, or other items within a single 
 
 ## Step 1. Creating collection
 
-For creating collection open any dataset and switch to a flat list view (like _**Gallery Expanded**_ or _**Table Expanded**_) at first.
+For creating collection open any dataset and switch to a flat list view like _**Gallery Expanded**_ or _**Table Expanded**_ at first.
 
 <figure><img src="../../.gitbook/assets/collections/collections_flat-list_view.png" alt=""><figcaption></figcaption></figure>
 
