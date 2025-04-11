@@ -219,18 +219,13 @@ You can control the prediction process with various arguments, such as inference
 
 | Argument | Type | Default | Description |
 | --- | --- | --- | --- |
-| `input` | `str`, `Path`, `np.ndarray`, `PIL.Image`, `list` | `None` | Input source: local path to an image or video, directory of images, local Supervisely project, numpy array, PIL.Image, URL |
-| `project_id` | `int` or `list` | `None` | Project IDs from Supervisely platform. You can use both `project_id` and `project_ids` arguments, they are aliases. |
-| `dataset_id` | `int` or `list` | `None` | Dataset IDs from Supervisely platform. You can use both `dataset_id` and `dataset_ids` arguments, they are aliases. |
-| `image_id` | `int` or `list` | `None` | Image IDs from Supervisely platform. You can use both `image_id` and `image_ids` arguments, they are aliases. |
-| `video_id` | `int` or `list` | `None` | Video IDs from Supervisely platform. The video will be processed frame by frame. You can use both `video_id` and `video_ids` arguments, they are aliases. |
 | `conf` | `float` | `None` | Confidence threshold for filtering out low confident predictions. If `None`, the model's default confidence threshold will be used. |
 | `batch_size` | `int` | `None` | Number of images to process in a single batch. If `None`, the model will use its default batch size. |
 | `img_size` | `int` or `tuple` | `None` | Size of input images: `int` resizes to a square size, a tuple of (height, width) resizes to exact size. Also applicable to video inference. `None` will use the model's default input size |
 | `classes` | `List[str]` | `None` | List of classes to predict |
 | `upload` | `str` | `None` | If not `None`, predictions will be uploaded to the platform. Upload modes: `create`, `append`, `replace`, `iou_merge`. See more in [Uploading predictions](#uploading-predictions) section. |
 | `recursive` | `bool` | `False` | Whether to search for images in subdirectories. Applicable when the `input` is a directory. |
-| `**kwargs` | `dict` | `None` | All additional settings, such as inference settings passed to a model, sliding window settings and video processing settings. |
+| `**kwargs` | `dict` | `None` | All additional settings, such as inference settings, sliding window settings and video processing settings can be passed here. See more in [Advanced settings](#predict-settings-kwargs). |
 
 ### Prediction result
 
