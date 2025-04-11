@@ -54,7 +54,7 @@ You can add items to an existing collection from any dataset inside one project.
 
 <figure><img src="../../.gitbook/assets/collections/collections_add_selected_items.png" alt=""><figcaption></figcaption></figure>
 
-2. A modal window will appear. Select an existing collection from the list and press _**Add**_ button.
+2. In the pop-up window, select an existing collection from the list and press _**Add**_ button.
 
 <figure><img src="../../.gitbook/assets/collections/collections_add_selected_items2.png" alt=""><figcaption></figcaption></figure>
 
@@ -101,7 +101,7 @@ For example, to create a Labeling Queue based on an existing Collection:
 
 <figure><img src="../../.gitbook/assets/collections/collections_queue.png" alt=""><figcaption></figcaption></figure>
 
-You can create queues based on a collection even if the collection hasn’t been created yet.
+You can create a queue with **Collection** as the source, and later add the desired items to it.
 
 **Example workflow:**
 
