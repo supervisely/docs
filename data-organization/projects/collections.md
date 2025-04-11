@@ -27,7 +27,7 @@ For creating collection open any dataset and switch to a flat list view (like _*
     <figure><img src="../../.gitbook/assets/collections/collections_create_all_items1.png" alt=""><figcaption></figcaption></figure>
 
     <br></br>
-    If you want to create collection from several items, select the desired items **using filters**(1.1) or/and manual(1.2) selection and click the _**With (number) selected**_ button and select option _**Add to collection**_(1.3).
+    If you want to create collection from several items, select the desired items **using filters** (1.1) or/and manual (1.2) selection and click the _**With (number) selected**_ button and select option _**Add to collection**_ (1.3).
 
     <figure><img src="../../.gitbook/assets/collections/collections_create_selected_items.png" alt=""><figcaption></figcaption></figure>
 
@@ -50,7 +50,7 @@ For creating collection open any dataset and switch to a flat list view (like _*
 
 You can add items to an existing collection from any dataset inside one project. For example, let's go to a different dataset and:
 
-1. Select the desired items **using filters**(1.1) or manual(1.2) selection. Click the _**With (number) selected**_ button and select option _**Add to collection**_(1.3).
+1. Select the desired items **using filters** (1.1) or/and manual (1.2) selection. Click the _**With (number) selected**_ button and select option _**Add to collection**_ (1.3).
 
 <figure><img src="../../.gitbook/assets/collections/collections_add_selected_items.png" alt=""><figcaption></figcaption></figure>
 
@@ -64,7 +64,7 @@ You can add items to an existing collection from any dataset inside one project.
 
 ## 3. Deleting items from collection
 
-For deleting items from collection just select the desired items using filters or manual selection. Click the _**With (number) selected**_ button and select option _**Remove from collection**_.
+For deleting items from collection just select the desired items using **filters** (1) or manual selection (2). Click the _**With (number) selected**_ button and select option _**Remove from collection**_ (3).
 
 <figure><img src="../../.gitbook/assets/collections/collections_delete_selected_items.png" alt=""><figcaption></figcaption></figure>
 
