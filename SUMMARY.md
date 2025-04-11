@@ -73,6 +73,7 @@
 * [Projects](data-organization/project/projects.md)
   * [Datasets](data-organization/project/datasets/datasets.md)
   * [Definitions](data-organization/projects/definitions.md)
+  * [Collections](data-organization/projects/collections.md)
 * [Team Files](data-organization/team-files/README.md)
 * [Disk usage & Cleanup](data-organization/storage/README.md)
 * [Quality Assurance & Statistics](data-organization/quality-assurance-and-statistics/README.md)
