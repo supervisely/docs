@@ -420,6 +420,8 @@ You can upload predictions to the Supervisely platform using the `upload` argume
 | `replace` | Replace existing annotations with the new predictions. Only applicable if the input is an existing Project ID, Dataset ID, or Image IDs. |
 | `iou_merge` | Append predictions to existing annotations, trying to avoid creating duplicate objects. This mode will check the IoU between each new prediction and existed objects, and filter out predictions which overlap with existed objects with IoU >= 0.9 (🔴🔴🔴 parameter controlled in `settings`). Only applicable for bounding box and mask predictions, and for existing Project ID, Dataset ID, or Image IDs. |
 
+Example with uploading predictions to a source project:
+
 ```python
 # Upload predictions to a project
 predictions = model.predict(
@@ -436,13 +438,11 @@ The `predict()` and `predict_detached()` methods can also be used to process vid
 # Predicting a video file
 predictions = model.predict(
     video_id=42,
-    video_settings={
-        "stride": 1,        # step between frames, 1 means process every frame
-        "start_frame": 0,   # start frame to process (0-based)
-        "end_frame": 2400,  # end frame (exclusive)
-        "num_frames": 400,  # number of frames to process 
-        "duration": 10,     # duration in seconds, will calculate number of frames
-    },
+    stride=1,        # step between frames, 1 means process every frame
+    start_frame=0,   # start frame to process (0-based)
+    end_frame=2400,  # end frame (exclusive)
+    num_frames=400,  # number of frames to process
+    duration=10,     # duration in seconds
 )
 
 # Iterating frame predictions
@@ -450,6 +450,16 @@ for p in predictions:
     p.name  # Name of the video file
     p.frame_index  # Frame index of the prediction
 ```
+
+#### Video settings
+
+| Argument | Type | Default | Description |
+| --- | --- | --- | --- |
+| `stride` | `int` | `1` | Step between frames. 1 means process every frame, 2 means process every second frame, etc. |
+| `start_frame` | `int` | `0` | Start frame to process (0-based). |
+| `end_frame` | `int` | `None` | End frame (exclusive). If `None`, all frames will be processed. |
+| `num_frames` | `int` | `None` | Number of frames to process. If `None`, all frames will be processed. |
+| `duration` | `int` | `None` | Duration in seconds, the exact number of frames will be calculated based on the video FPS |
 
 ## Tracking objects on video
 
@@ -528,20 +538,32 @@ for p in session:
 
 Here is a complete list of settings that can be passed to the `predict()` and `predict_detached()` methods in `**kwargs`. Additionally, you can pass the `inference settings` there. The inference settings are specific to the model you use, and can be found in the GUI of the Serving App, or in the model's documentation.
 
-### Sliding window settings
+#### Sliding window settings
 
 | Argument | Type | Default | Description |
 | --- | --- | --- | --- |
 | `sliding_window` | `bool` | `False` | Whether to use sliding window for large images. When `sliding_window=True`, the model will process the image in smaller patches, which is useful for large images. The size of a patch is controlled by `window_size`, and the `img_size` argument will now resize the original image before cropping it into patches. |
 | `window_size` | `int` or `tuple` | `None` | Size of a sliding window patch that will be passed to the model. The `window_size` can be a tuple of (height, width) or a single integer for square patches. If `None`, the model's default input size will be used as `window_size`. |
-| `overlap` | `float` or `int` | `0.2` | Overlap between sliding windows. Can be a float in range (0-1) representing a fraction of overlap, or an integer representing the overlap in pixels. |
+| `overlap` | `float` or `int` | `0.0` | Overlap between sliding windows. Can be a float in range (0-1) representing a fraction of overlap, or an integer representing the overlap in pixels. |
 
-### Video settings
+**Example usage:**
+
+```python
+# Predicting a large image with sliding window
+predictions = model.predict(
+    input="path/to/large_image.jpg",
+    sliding_window=True,     # Enable sliding window
+    window_size=(640, 640),  # Size of sliding window patches
+    overlap=0.0,             # 0% overlap between patches
+)
+```
+
+#### Video settings
 
 | Argument | Type | Default | Description |
 | --- | --- | --- | --- |
 | `stride` | `int` | `1` | Step between frames. 1 means process every frame, 2 means process every second frame, etc. |
 | `start_frame` | `int` | `0` | Start frame to process (0-based). |
-| `end_frame` | `int` | `None` | End frame (exclusive). If `None`, process all frames. |
-| `num_frames` | `int` | `None` | Number of frames to process. |
-| `duration` | `int` | `None` | Duration in seconds. |
+| `end_frame` | `int` | `None` | End frame (exclusive). If `None`, all frames will be processed. |
+| `num_frames` | `int` | `None` | Number of frames to process. If `None`, all frames will be processed. |
+| `duration` | `int` | `None` | Duration in seconds, the exact number of frames will be calculated based on the video FPS |
