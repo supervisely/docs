@@ -148,11 +148,11 @@ where:
 - 255, 0, 0, ... are the RGB colors of the classes
 
 
-### Upload annotations separately
+# Upload annotations separately
 
-Plane-structured converter supports uploading annotations separately (uploading annotations to existing volumes). 
+Plane-structured converter supports uploading annotations separately (uploading annotations to existing volumes). This functionality supports both dataset-scope and project-wide annotation imports.
 
-By default, volumes are matched with their corresponding annotations based on filenames. However, a custom mapping can be provided via a `.json` file to explicitly define the mapping. This functionality supports both dataset-scope and project-wide annotation imports.
+By default, annotations are matched with their corresponding volumes based on filenames. However, a custom mapping can be provided via a `.json` file to explicitly define the mapping.
 
 Input structure example for dataset scope:
 
@@ -184,7 +184,7 @@ Input structure example for project-wide import:
 └──🩻 cor_inference_3.nii
 ```
 
-#### JSON mapping
+### JSON mapping
 
 Mapping structure should be as follows: 
 ```
