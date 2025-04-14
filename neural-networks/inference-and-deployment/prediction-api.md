@@ -34,7 +34,7 @@ import supervisely as sly
 api = sly.Api()
 
 model = api.nn.deploy(
-    model="/path/in/team_files/best.pt",  # path to your checkpoint in Team Files
+    model="/path/in/team_files/checkpoint.pt",  # path to your checkpoint in Team Files
 )
 ```
 {% endtab %}
