@@ -175,17 +175,19 @@ A table with arguments for the `api.nn.connect()` method:
 
 ## ModelAPI methods
 
-The `ModelAPI` class provides methods for running inference, loading checkpoints, and managing the model's state and configuration.
+After you've connected to a model, you have the `ModelAPI` wrapper for running inference, loading checkpoints, and managing the model's state and configuration.
 
 ### Predict
 
-The ModelAPI class provides convenient methods for predictions. You can use `predict()` or `predict_detached()` methods to run inference on a single image or a batch of images. These methods accepts a variety of input formats, including numpy arrays, PIL images, and Supervisely IDs. The difference between `predict()` and `predict_detached()` is that the first one will wait until all images are processed by a model and then return a complete list of predictions, while the second one will return a `PredictionSession` immediately, which allows you to control the process in asynchronous mode. The `PredictionSession` object provides methods for checking the status of predictions and iterating over the results as soon as they are processed.
+The ModelAPI class provides convenient methods for predictions. You can use `predict()` or `predict_detached()` method to run inference. These methods accepts a variety of input formats, including numpy arrays, PIL images, Supervisely Projects and Datasets, and even videos.
+
+The difference between `predict()` and `predict_detached()` is that the first one will wait until all images are processed by a model and then will return a complete list of predictions, while the second one will return a `PredictionSession` immediately, which allows you to track the process in asynchronous, non-blocking mode. The `PredictionSession` object provides methods for checking the status of predictions and iterating over the results as soon as they are processed.
 
 > See the full guide on the usage of predict methods and its settings in [Prediction API](./prediction-api.md).
 
 #### Predict arguments
 
-A table of arguments for the `predict()` and `predict_detached()` methods:
+Here is a full table of `predict()` and `predict_detached()` arguments:
 
 | Argument | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -198,9 +200,9 @@ A table of arguments for the `predict()` and `predict_detached()` methods:
 | `batch_size` | `int` | `None` | Number of images to process in a single batch. If `None`, the model will use its default batch size. |
 | `img_size` | `int` or `tuple` | `None` | Size of input images: `int` resizes to a square size, a tuple of (height, width) resizes to exact size. Also applicable to video inference. `None` will use the model's default input size |
 | `classes` | `List[str]` | `None` | List of classes to predict |
-| `upload` | `str` | `None` | If not `None`, predictions will be uploaded to the platform. Upload modes: `create`, `append`, `replace`, `iou_merge`. See more in [Uploading predictions](#uploading-predictions) section. |
+| `upload` | `str` | `None` | If not `None`, predictions will be uploaded to the platform. Upload modes: `create`, `append`, `replace`, `iou_merge`. See more in [Uploading predictions](./prediction-api.md#uploading-predictions) section. |
 | `recursive` | `bool` | `False` | Whether to search for images in subdirectories. Applicable when the `input` is a directory. |
-| `**kwargs` | `dict` | `None` | All additional settings, such as inference settings, sliding window settings and video processing settings can be passed here. See more in [Advanced settings](#predict-settings-kwargs). |
+| `**kwargs` | `dict` | `None` | All additional settings, such as inference settings, sliding window settings and video processing settings can be passed here. See more in [Advanced settings](./prediction-api.md#predict-settings-kwargs). |
 
 ### Load checkpoint
 
@@ -341,4 +343,4 @@ The `get_model_meta()` returns a Supervisely `sly.ProjectMeta` object contains t
 
 ### Shutdown
 
-The `ModelAPI` has `shutdown()` method that is used to completely stop the model's server. This method will stop the model and the Serving App in the Supervisely platform. After calling this method, the current `ModelAPI` object will no longer be valid, and you will need to deploy another model.
+The `shutdown()` method completely stops the model's server. This method will stop the model and the Serving App in the Supervisely platform. After calling this method, the current `ModelAPI` object will no longer be valid, and you will need to deploy another model.
