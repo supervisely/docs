@@ -175,11 +175,11 @@ The `ModelAPI` class provides methods for running inference, loading checkpoints
 
 ### Predict
 
-The ModelAPI class provides convenient methods for predictions. You can use `predict()` or `predict_detached()` methods to run inference on a single image or a batch of images. These methods accepts a variety of input formats, including numpy arrays, PIL images, and Supervisely IDs. The difference between `predict()` and `predict_detached()` is that the first one will wait until all predictions are complete, while the second one will return a `PredictionSession` object immediately, allowing you to process predictions asynchronously, as they become available.
+The ModelAPI class provides convenient methods for predictions. You can use `predict()` or `predict_detached()` methods to run inference on a single image or a batch of images. These methods accepts a variety of input formats, including numpy arrays, PIL images, and Supervisely IDs. The difference between `predict()` and `predict_detached()` is that the first one will wait until all images are processed by a model and then return a complete list of predictions, while the second one will return a `PredictionSession` immediately, which allows you to controll the process in asynchronous mode. The `PredictionSession` object provides methods for checking the status of predictions and iterating over the results as soon as they are processed.
+
+> See the full guide on the usage of predict methods and its settings in [Prediction API](./prediction-api.md).
 
 #### Predict arguments
-
-> See the full guide on usage of predict methods and its settings in [Prediction API](./prediction-api.md).
 
 A table of arguments for the `predict()` and `predict_detached()` methods:
 
@@ -198,10 +198,9 @@ A table of arguments for the `predict()` and `predict_detached()` methods:
 | `recursive` | `bool` | `False` | Whether to search for images in subdirectories. Applicable when the `input` is a directory. |
 | `**kwargs` | `dict` | `None` | All additional settings, such as inference settings, sliding window settings and video processing settings can be passed here. See more in [Advanced settings](#predict-settings-kwargs). |
 
-
-### Predict Detached
-
 ### Load checkpoint
+
+The `ModelAPI.load()` method is used to change the deployed model to a different one or load another checkpoint. The method accepts similar arguments as the [`api.nn.deploy()`](#deploy--connect) method. You can load a custom checkpoint by providing the path to a checkpoint file in Team Files using `model=` argument. The checkpoint can be in PyTorch format, ONNX format (`.onnx`), or TensorRT format (`.engine`). You can also load a pretrained model by specifying the `model=` argument in the format `framework/model_name`, for example, `"RT-DETRv2/RT-DETRv2-M"`.
 
 {% tabs %}
 {% tab title="Custom checkpoint" %}
@@ -212,6 +211,57 @@ model.load(
 )
 ```
 {% endtab %}
+{% tab title="Pretrained checkpoint" %}
+```python
+# Load pretrained checkpoint
+model.load(
+    model="rt-detrv2/rt-detrv2-s",  # Name of the pretrained model
+)
+```
+{% endtab %}
+{% endtabs %}
+
+#### Arguments
+
+A table of arguments in the `ModelAPI.load()` method:
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `model` | `str` | Can be a path to your checkpoint in Team Files or a pretrained model name in the format `framework/model_name` (e.g., `"rt-detrv2/rt-detrv2-s"`). For a custom checkpoint, the checkpoint can be in PyTorch format (`.pt` or `.pth`), ONNX format (`.onnx`), or TensorRT format (`.engine`). For a pretrained model, the framework name is the name of the corresponding Serving App in Supervisely, and the model name is the name of a pretrained model from the models table in the Serving App. |
+| `device` | `str` | Device to run the model on, e.g., `"cuda:0"` or `"cpu"`. If not specified, will automatically use `cuda` device, if available on the agent, otherwise `cpu` will be used. |
+| `runtime` | `str` | Runtime to convert the model to before deploying. Options: `"onnx"`, `"tensorrt"`. Used for pretrained checkpoints. |
+
+#### Select device
+
+You can pass `device` argument to specify the device to run the model on. Use `device="cuda:0"` to run the model on the first GPU, or `device="cpu"` to run it on CPU. If not specified, the model will automatically use GPU device if available, otherwise CPU will be used.
+
+
+{% tabs %}
+{% tab title="CUDA device" %}
+```python
+# Load model on CUDA device
+model.load(
+    model="/path/in/team_files/checkpoint.pt",  # Path to your checkpoint in Team Files
+    device="cuda:0",  # use the first GPU
+)
+```
+{% endtab %}
+{% tab title="CPU device" %}
+```python
+# Load model on CPU
+model.load(
+    model="/path/in/team_files/checkpoint.pt",  # Path to your checkpoint in Team Files
+    device="cpu",  # use CPU
+)
+```
+{% endtab %}
+{% endtabs %}
+
+#### ONNX / TensorRT runtimes
+
+To convert a pytorch model or a checkpoint to ONNX / TensorRT format, pass `runtime="onnx"` or `runtime="tensorrt"` arguments.
+
+{% tabs %}
 {% tab title="ONNX checkpoint" %}
 ```python
 # Loading ONNX checkpoint
@@ -228,20 +278,12 @@ model.load(
 )
 ```
 {% endtab %}
-{% tab title="Pretrained checkpoint" %}
-```python
-# Load pretrained checkpoint
-model.load(
-    model="RT-DETRv2-S",  # Name of the pretrained model
-)
-```
-{% endtab %}
 {% tab title="Convert to ONNX" %}
 ```python
 # Load pretrained checkpoint and convert to ONNX
 model.load(
-    model="RT-DETRv2-S",  # Name of the pretrained model
-    runtime="onnx",                  # Will convert the model to ONNX before loading
+    model="rt-detrv2/rt-detrv2-s",  # Name of the pretrained model
+    runtime="onnx",                 # Will convert the model to ONNX before loading
 )
 ```
 {% endtab %}
@@ -249,21 +291,9 @@ model.load(
 ```python
 # Load pretrained checkpoint and convert to TensorRT
 model.load(
-    model="RT-DETRv2-S",  # Name of the pretrained model
-    runtime="tensorrt",              # Will convert the model to TensorRT before loading
+    model="rt-detrv2/rt-detrv2-s",  # Name of the pretrained model
+    runtime="tensorrt",             # Will convert the model to TensorRT before loading
 )
 ```
 {% endtab %}
 {% endtabs %}
-
-#### Arguments
-
-A table of arguments for the `ModelAPI.load()` method:
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `model` | `str` | Path to your checkpoint in Team Files. Can be PyTorch model (`.pt`), ONNX (`.onnx`), or TensorRT (`.engine`) format. |
-| `device` | `str` | Device to run the model on, e.g., `"cuda:0"` or `"cpu"`. If not specified, will automatically use GPU device if available, otherwise CPU. |
-| `runtime` | `str` | Runtime to convert the model to before deploying. Options: `"onnx"`, `"tensorrt"`. Used for pretrained checkpoints. |
-| `agent_id` | `int` | ID of the Supervisely Agent (machine) that is connected to the Supervisely platform where the model should be deployed. Don't need to specify, if the only one agent is connected. |
-
