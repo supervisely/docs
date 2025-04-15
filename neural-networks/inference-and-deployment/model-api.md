@@ -202,6 +202,18 @@ A table of arguments for the `predict()` and `predict_detached()` methods:
 
 The `ModelAPI.load()` method is used to change the deployed model to a different one or load another checkpoint. The method accepts similar arguments as the [`api.nn.deploy()`](#deploy--connect) method. You can load a custom checkpoint by providing the path to a checkpoint file in Team Files using `model=` argument. The checkpoint can be in PyTorch format, ONNX format (`.onnx`), or TensorRT format (`.engine`). You can also load a pretrained model by specifying the `model=` argument in the format `framework/model_name`, for example, `"RT-DETRv2/RT-DETRv2-M"`.
 
+**Arguments:**
+
+A table of arguments in the `ModelAPI.load()` method:
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `model` | `str` | Can be a path to your checkpoint in Team Files or a pretrained model name in the format `framework/model_name` (e.g., `"rt-detrv2/rt-detrv2-s"`). For a custom checkpoint, the checkpoint can be in PyTorch format (`.pt` or `.pth`), ONNX format (`.onnx`), or TensorRT format (`.engine`). For a pretrained model, the framework name is the name of the corresponding Serving App in Supervisely, and the model name is the name of a pretrained model from the models table in the Serving App. |
+| `device` | `str` | Device to run the model on, e.g., `"cuda:0"` or `"cpu"`. If not specified, will automatically use `cuda` device, if available on the agent, otherwise `cpu` will be used. |
+| `runtime` | `str` | Runtime to convert the model to before deploying. Options: `"onnx"`, `"tensorrt"`. Used for pretrained checkpoints. |
+
+**Example usage:**
+
 {% tabs %}
 {% tab title="Custom checkpoint" %}
 ```python
@@ -221,20 +233,9 @@ model.load(
 {% endtab %}
 {% endtabs %}
 
-#### Arguments
-
-A table of arguments in the `ModelAPI.load()` method:
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `model` | `str` | Can be a path to your checkpoint in Team Files or a pretrained model name in the format `framework/model_name` (e.g., `"rt-detrv2/rt-detrv2-s"`). For a custom checkpoint, the checkpoint can be in PyTorch format (`.pt` or `.pth`), ONNX format (`.onnx`), or TensorRT format (`.engine`). For a pretrained model, the framework name is the name of the corresponding Serving App in Supervisely, and the model name is the name of a pretrained model from the models table in the Serving App. |
-| `device` | `str` | Device to run the model on, e.g., `"cuda:0"` or `"cpu"`. If not specified, will automatically use `cuda` device, if available on the agent, otherwise `cpu` will be used. |
-| `runtime` | `str` | Runtime to convert the model to before deploying. Options: `"onnx"`, `"tensorrt"`. Used for pretrained checkpoints. |
-
-#### Select device
+**Select device:**
 
 You can pass `device` argument to specify the device to run the model on. Use `device="cuda:0"` to run the model on the first GPU, or `device="cpu"` to run it on CPU. If not specified, the model will automatically use GPU device if available, otherwise CPU will be used.
-
 
 {% tabs %}
 {% tab title="CUDA device" %}
@@ -257,9 +258,9 @@ model.load(
 {% endtab %}
 {% endtabs %}
 
-#### ONNX / TensorRT runtimes
+**ONNX / TensorRT runtimes**
 
-To convert a pytorch model or a checkpoint to ONNX / TensorRT format, pass `runtime="onnx"` or `runtime="tensorrt"` arguments.
+To load an exported model, just provide a path in Team Files to that onnx / tensorrt model. If you need to convert a pytorch model or a checkpoint to ONNX / TensorRT format, pass `runtime="onnx"` or `runtime="tensorrt"`.
 
 {% tabs %}
 {% tab title="ONNX checkpoint" %}
