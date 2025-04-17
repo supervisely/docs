@@ -77,7 +77,7 @@ To run Supervisely you will need Linux OS with kernel 3.10 or newer. The followi
 - NVIDIA graphics driver: 460.27.03 or later (for Neural Network module only)
 - nvidia-docker2 (for Neural Network module only)
 
-All pre-requirements can be automatically installed via `supervisely-cli` utility for Ubuntu 18.04 and later. In case of a different Linux distribution, you can install Supervisely and pre-requirements manually, but we won't be able to provide installation support.
+All pre-requirements can be automatically installed via `supervisely` utility for Ubuntu 18.04 and later. In case of a different Linux distribution, you can install Supervisely and pre-requirements manually, but we won't be able to provide installation support.
 
 ## Installation
 
@@ -85,7 +85,7 @@ When all requirements above have been installed, you can deploy Supervisely. Ple
 
 ### Step 1. Get your unique key from us
 
-Before the installation we will send you a license key and a `supervisely-cli` installation command. Please run it on the machine where you want to install Supervisely.
+Before the installation we will send you a license key and a `supervisely` installation command. Please run it on the machine where you want to install Supervisely.
 
 ### Step 2. Install pre-requirements
 
