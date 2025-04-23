@@ -27,9 +27,7 @@ In Supervisely, a Project is a core element of the system. It is where your data
 
     After entering a **Name** and **Description** for your project, make sure to select the correct **Project type** based on your data format, as each project can contain only one type of data.
 
-    {% hint style="info" %}
-    **Note:** Once the project is created, its type cannot be changed.
-    {% endhint %}
+    {% hint style="info" %}**Note:** Once the project is created, its type cannot be changed.{% endhint %}
 
     Next, select a **Labeling interface** — you can read a description of each one by hovering over the question mark icon next to it.
 
