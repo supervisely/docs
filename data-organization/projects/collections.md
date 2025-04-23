@@ -126,6 +126,132 @@ Collections are ideal for creating reusable subsets of data. For example, after 
 - No need to store or pass item ID lists in code
 - Easily maintain and update the selection over time
 
+## Python SDK
+
+You can manage collections using the Supervisely Python SDK. The following code snippets demonstrate how to create, retrieve, and manipulate collections programmatically.
+Check out the [SDK Reference](https://supervisely.readthedocs.io/en/stable/sdk/supervisely.api.entity_collections.EntitiesCollectionApi.html) for more details.
+
+{% tabs %}
+
+{% tab title="Create" %}
+
+```python
+import supervisely as sly
+
+api = sly.Api()
+
+new = api.entity_collections.create(
+    project_id=project_id,
+    name="my collection",
+    description="my collection description",
+)
+print(new.id)
+# Output: 123
+```
+
+{% endtab %}
+
+{% tab title="Get info" %}
+
+```python
+import supervisely as sly
+
+api = sly.Api()
+
+collection_id = 2
+info = api.entities_collection.get_info_by_id(collection_id)
+print(info.name)
+# Output: my collection
+```
+
+{% endtab %}
+
+{% tab title="List Collections" %}
+
+```python
+import supervisely as sly
+
+api = sly.Api()
+
+project_id = 1
+collections = api.entities_collection.get_list(project_id)
+for collection in collections:
+    print(collection.name)
+```
+
+{% endtab %}
+
+{% tab title="Add items" %}
+
+```python
+import supervisely as sly
+
+api = sly.Api()
+
+collection_id = 2
+item_ids = [525, 526]
+res = api.entities_collection.add_items(collection_id, item_ids)
+print(res)
+# Output: [
+#   {"id": 1, "entityId": 525, 'createdAt': '2025-04-10T08:49:41.852Z'},
+#   {"id": 2, "entityId": 526, 'createdAt': '2025-04-10T08:49:41.852Z'}
+# ]
+```
+
+{% endtab %}
+
+{% tab title="Get items" %}
+
+```python
+import supervisely as sly
+
+api = sly.Api()
+
+collection_id = 123
+project_id = 111
+res = api.entities_collection.get_items(collection_id, project_id)
+print(res)
+# Output: [
+#   ImageInfo(id=525, name='image1.jpg', ...),
+#   ImageInfo(id=526, name='image2.jpg', ...)
+# ]
+```
+
+{% endtab %}
+
+{% tab title="Remove items" %}
+
+```python
+import supervisely as sly
+
+api = sly.Api()
+
+collection_id = 2
+item_ids = [525, 526, 527]
+res = api.entities_collection.remove_items(collection_id, item_ids)
+# print(res)
+# Output: [{"id": 1, "entityId": 525}, {"id": 2, "entityId": 526}]
+```
+
+{% endtab %}
+
+{% endtab %}
+
+{% tab title="Remove collection" %}
+
+```python
+import supervisely as sly
+
+api = sly.Api()
+
+collection_id = 2
+api.entities_collection.remove(collection_id)
+```
+
+{% endtab %}
+
+{% endtabs %}
+
 ## API support
 
 Collections are fully accessible through the Supervisely API. With these [Entity Collections](https://api.docs.supervisely.com/#tag/Entities-Collections), you can:
