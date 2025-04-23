@@ -251,7 +251,7 @@ Script 1 creates a collection and adds items to it. The second script checks the
 
 <details>
 
-<summary><strong>script 1</strong></summary>
+<summary><strong>Script 1 (create Collection and Labeling Queue)</strong></summary>
 
 ```python
 import random
@@ -307,7 +307,7 @@ python script1.py
 </details>
 <details>
 
-<summary><strong>script 2</strong></summary>
+<summary><strong>Script 2 (get labeled items and remove them from collection)</strong></summary>
 
 ```python
 import supervisely as sly
