@@ -132,9 +132,7 @@ You can manage collections using the Supervisely Python SDK. The following code 
 Check out the [SDK Reference](https://supervisely.readthedocs.io/en/stable/sdk/supervisely.api.entity_collections.EntitiesCollectionApi.html) for more details.
 
 {% tabs %}
-
 {% tab title="Create" %}
-
 ```python
 import supervisely as sly
 
@@ -148,11 +146,8 @@ new = api.entity_collections.create(
 print(new.id)
 # Output: 123
 ```
-
 {% endtab %}
-
 {% tab title="Get info" %}
-
 ```python
 import supervisely as sly
 
@@ -163,11 +158,8 @@ info = api.entities_collection.get_info_by_id(collection_id)
 print(info.name)
 # Output: my collection
 ```
-
 {% endtab %}
-
 {% tab title="List Collections" %}
-
 ```python
 import supervisely as sly
 
@@ -178,11 +170,8 @@ collections = api.entities_collection.get_list(project_id)
 for collection in collections:
     print(collection.name)
 ```
-
 {% endtab %}
-
 {% tab title="Add items" %}
-
 ```python
 import supervisely as sly
 
@@ -197,11 +186,8 @@ print(res)
 #   {"id": 2, "entityId": 526, 'createdAt': '2025-04-10T08:49:41.852Z'}
 # ]
 ```
-
 {% endtab %}
-
 {% tab title="Get items" %}
-
 ```python
 import supervisely as sly
 
@@ -216,11 +202,8 @@ print(res)
 #   ImageInfo(id=526, name='image2.jpg', ...)
 # ]
 ```
-
 {% endtab %}
-
 {% tab title="Remove items" %}
-
 ```python
 import supervisely as sly
 
@@ -232,13 +215,8 @@ res = api.entities_collection.remove_items(collection_id, item_ids)
 # print(res)
 # Output: [{"id": 1, "entityId": 525}, {"id": 2, "entityId": 526}]
 ```
-
 {% endtab %}
-
-{% endtab %}
-
 {% tab title="Remove collection" %}
-
 ```python
 import supervisely as sly
 
@@ -247,9 +225,7 @@ api = sly.Api()
 collection_id = 2
 api.entities_collection.remove(collection_id)
 ```
-
 {% endtab %}
-
 {% endtabs %}
 
 ## API support
