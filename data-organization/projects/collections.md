@@ -128,12 +128,14 @@ Collections are ideal for creating reusable subsets of data. For example, after 
 
 ## API support
 
-Collections are fully accessible through the Supervisely API. You can:
-
-* Create or delete collections
-* Add or remove items
-* Retrieve collection metadata
-* Use collections as filters in listing endpoints (e.g., "images.list", "videos.list", etc.)
+Collections are fully accessible through the Supervisely API. With these [Entity Collections](https://api.docs.supervisely.com/#tag/Entities-Collections), you can:
+* [Add Items to Entities Collection](https://api.docs.supervisely.com/#tag/Entities-Collections/paths/~1entities-collections.items.bulk.add/post)
+* [Create Entities Collection](https://api.docs.supervisely.com/#tag/Entities-Collections/paths/~1entities-collections.add/post)
+* [Get Entities Collection info by ID](https://api.docs.supervisely.com/#tag/Entities-Collections/paths/~1entities-collections.info/get)
+* [List Entities Collections](https://api.docs.supervisely.com/#tag/Entities-Collections/paths/~1entities-collections.list/get)
+* [Remove Entities Collection](https://api.docs.supervisely.com/#tag/Entities-Collections/paths/~1entities-collections.remove/delete)
+* [Remove Items From Entities Collection](https://api.docs.supervisely.com/#tag/Entities-Collections/paths/~1entities-collections.items.bulk.remove/delete)
+* [Update Entities Collection](https://api.docs.supervisely.com/#tag/Entities-Collections/paths/~1entities-collections.editInfo/put)
 
 ## Limitations
 
