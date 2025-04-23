@@ -68,6 +68,8 @@
 ## 📂 Data Organization
 
 * [Core concepts](data-organization/overview.md)
+* [Project and Dataset](data-organization/project-dataset/README.md)
+  * [Create](data-organization/project-dataset/create.md)
 * [MLOps Workflow](data-organization/mlops-workflow.md)
 * [Projects](data-organization/project/projects.md)
   * [Datasets](data-organization/project/datasets/datasets.md)
