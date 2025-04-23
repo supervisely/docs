@@ -1,6 +1,6 @@
 ---
 description: >-
-  This article provides a step-by-step guide on how to create a new Project and Dataset in Supervisely. You’ll learn how to select the correct project type, choose a labeling interface, and import your data using the Quick Auto Import tool. The guide also explains how datasets are created, how to monitor upload tasks, and how to manage your project after setup — including renaming and navigating through project folders. Perfect for beginners who are just getting started with Supervisely.
+  This article provides a step-by-step guide on creating a Project and Dataset in Supervisely. Learn how to select the correct project type, choose a labeling interface, and import your data.
 ---
 
 # Creating Project & Dataset
