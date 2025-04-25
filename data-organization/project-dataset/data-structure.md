@@ -1,6 +1,6 @@
 ---
 description: >-
-  This article explains the Data structure in Supervisely, including how Projects, Datasets, and Files are organized. Learn how to navigate, manage, and structure your data effectively.
+  This article explains the Data structure in Supervisely, including how Projects, Datasets, and Files are organized in Team and Workspace. Learn how to navigate, manage, and structure your data effectively.
 ---
 
 # Data Structure in Supervisely
@@ -23,7 +23,9 @@ This structure is illustrated in the scheme for Member 1.
 A Member with the Admin role can invite other Members to their **Team**, as shown in the scheme above of Member 2 and Member 3.
 In addition to their default **Team**, a Member can also create new **Teams** to collaborate on separate projects or with different groups.
 
-{% hint style="info" %} **Note:** All the projects you work on are located in the current Workspace within the current Team.{% endhint %}
+{% hint style="info" %}
+**Note:** All the projects you work on are located in the current Workspace within the current Team.
+{% endhint %}
 
 To manage or switch between **Teams**, click the arrow next to the name of your current Team.
 A menu will appear with a list of all Teams you are a member of (not necessarily the ones you created) along with other settings.
