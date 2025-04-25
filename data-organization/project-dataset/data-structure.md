@@ -1,6 +1,6 @@
 ---
 description: >-
-  This article explains the Data structure in Supervisely, including how Projects, Datasets, and Files are organized in Team and Workspace. Learn how to navigate, manage, and structure your data effectively.
+  This article explains the Data structure in Supervisely, including how Projects, Datasets, and Files are organized in Team and Workspace. Learn how to navigate, manage, and structure your data.
 ---
 
 # Data Structure in Supervisely
