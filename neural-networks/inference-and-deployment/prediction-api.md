@@ -198,7 +198,7 @@ predictions = model.predict(video_id=1212)
 
 Here's a summary of the input formats accepted by `predict()` and `predict_detached()` methods:
 
-| Input | Example | Type | Description |
+| Input format | Example | Type | Description |
 | --- | --- | --- | --- |
 | image | `input="path/to/image.jpg"` | `str` or `Path` | Single image file path. |
 | URL | `input="https://example.com/image.jpg"` | `str` | URL to an image. |
@@ -465,7 +465,9 @@ for p in predictions:
 
 🔴🔴🔴 Как вариант - сделать отдельную эпу serve boxmot, чтобы трекать на агенте а не на клиенте
 
-You can track objects in video using the `boxmot` library. BoxMot is a third-party library that implements lightweight neural networks for tracking-by-detection (tracking objects based on detection results), so you can use CPU device. Supervisely has a wrapper for convenient tracking with `boxmot`. Method `track()` from `supervisely.nn.tracking` module takes a boxmot tracker and a `PredictionSession` as input, and returns a `VideoAnnotation` object with tracked objects.
+You can track objects in video using `boxmot` library. BoxMot is a third-party library that implements lightweight neural networks for tracking-by-detection task (when the tracking is performed on the objects predicted by a separate detector). For `boxmot` models you can use even CPU device.
+
+Supervisely SDK has the `track()` method from `supervisely.nn.tracking` which allows you to apply `boxmot` models together with a detector in a single line of code. This method takes three arguments: a `video_id` of a video in the platform, a deployed detector model (`ModelAPI` class), and a `boxmot` tracker which is instantiated in this code. It will return a `sly.VideoAnnotation` with the tracked objects.
 
 ```python
 import supervisely as sly
@@ -474,13 +476,10 @@ import boxmot
 from pathlib import Path
 
 # Deploy a detector
-model = api.nn.deploy(
+detector = api.nn.deploy(
     model="rt-detrv2/RT-DETRv2-M",
     device="cuda:0",  # Use GPU for detection
 )
-
-# Start predict objects in video
-session = model.predict_detached(video_id=42)
 
 # Load BoxMot tracker
 tracker = boxmot.BotSort(
@@ -489,7 +488,11 @@ tracker = boxmot.BotSort(
 )
 
 # Track objects in a single line
-video_ann: sly.VideoAnnotation = track(tracker, session)
+video_ann: sly.VideoAnnotation = track(
+    video_id=42,
+    detector=detector,
+    tracker=tracker,
+)
 ```
 
 Alternatively, you can manually track objects with a `boxmot` tracker. This approach gives you more control over the tracking process, but requires more code and understanding of the `boxmot` format.
