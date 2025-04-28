@@ -465,7 +465,13 @@ for p in predictions:
 
 🔴🔴🔴 Как вариант - сделать отдельную эпу serve boxmot, чтобы трекать на агенте а не на клиенте
 
-You can track objects in video using `boxmot` library. BoxMot is a third-party library that implements lightweight neural networks for tracking-by-detection task (when the tracking is performed on the objects predicted by a separate detector). For `boxmot` models you can use even CPU device.
+You can track objects in video using `boxmot` library. [BoxMot](https://github.com/mikel-brostrom/boxmot) is a third-party library that implements lightweight neural networks for tracking-by-detection task (when the tracking is performed on the objects predicted by a separate detector). For `boxmot` models you can use even CPU device.
+
+First, install [BoxMot](https://github.com/mikel-brostrom/boxmot):
+
+```bash
+pip install boxmot
+```
 
 Supervisely SDK has the `track()` method from `supervisely.nn.tracking` which allows you to apply `boxmot` models together with a detector in a single line of code. This method takes three arguments: a `video_id` of a video in the platform, a deployed detector model (`ModelAPI` class), and a `boxmot` tracker which is instantiated in this code. It will return a `sly.VideoAnnotation` with the tracked objects.
 
