@@ -59,3 +59,9 @@ Then, you can navigate into the newly created sub-dataset and upload your files 
 Great! Your sub-dataset with files is now ready.
 
 <figure><img src="../../.gitbook/assets/data-structure/d-s-create_new_dataset_in_dataset-2.png" alt=""><figcaption></figcaption></figure>
+
+### Version Control
+
+The platform includes version control features, allowing your team to track changes and revisions to documents, ensuring transparency and accountability.
+
+Project versions are created automatically when training tools are run, but you can also create versions manually at any time.

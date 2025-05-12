@@ -1,6 +1,6 @@
 ---
 description: >-
-  This article provides a step-by-step guide on creating a Project and Dataset in Supervisely. Learn how to select the correct project type, choose a labeling interface, and import your data.
+  This article provides a step-by-step guide to creating classes and tags: how to define them in the project before annotation and how to add them directly in the labeling tools.
 ---
 
 # Creating Project & Dataset
