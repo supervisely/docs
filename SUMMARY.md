@@ -71,6 +71,8 @@
 * [Project and Dataset](data-organization/project-dataset/README.md)
   * [Create](data-organization/project-dataset/create.md)
   * [Data Structure](data-organization/project-dataset/data-structure.md)
+  * [Define Classes & Tags](data-organization/project-dataset/define-classes-tags.md)
+  * [Import & Export](data-organization/project-dataset/import-export.md)
 * [MLOps Workflow](data-organization/mlops-workflow.md)
 * [Projects](data-organization/project/projects.md)
   * [Datasets](data-organization/project/datasets/datasets.md)
