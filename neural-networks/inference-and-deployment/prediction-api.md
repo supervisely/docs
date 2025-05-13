@@ -461,9 +461,9 @@ for p in predictions:
 | `num_frames` | `int` | `None` | Number of frames to process. If `None`, all frames will be processed. |
 | `duration` | `int` | `None` | Duration in seconds, the exact number of frames will be calculated based on the video FPS |
 
-## Tracking objects on video
+## Tracking objects in video
 
-🔴🔴🔴 Как вариант - сделать отдельную эпу serve boxmot, чтобы трекать на агенте а не на клиенте
+🔴🔴🔴 Как вариант - сделать отдельную эпу **Serve BoxMot**, чтобы трекать на агенте а не на клиенте.
 
 You can track objects in video using `boxmot` library. [BoxMot](https://github.com/mikel-brostrom/boxmot) is a third-party library that implements lightweight neural networks for tracking-by-detection task (when the tracking is performed on the objects predicted by a separate detector). For `boxmot` models you can use even CPU device.
 
@@ -500,6 +500,13 @@ video_ann: sly.VideoAnnotation = track(
     tracker=tracker,
 )
 ```
+
+The arguments for `track()` method are:
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `tracker` | `boxmot.Tracker` | Tracker algorithm from the BoxMot package. |
+| `session` | `PredictionSession` | Session of the detector predictions. |
 
 Alternatively, you can manually track objects with a `boxmot` tracker. This approach gives you more control over the tracking process, but requires more code and understanding of the `boxmot` format.
 

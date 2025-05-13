@@ -36,8 +36,8 @@ model = api.nn.deploy(
 
 # 2. Predict
 predictions = model.predict(
-    # Input can accpet various formats: image paths, np.arrays, Supervisely IDs and more.
-    input=["/path/to/image1.jpg", "/path/to/image2.jpg"],
+    # Input can accpet various formats: image paths, np.arrays, Supervisely IDs and others.
+    input=["path/to/image1.jpg", "path/to/image2.jpg"],
     conf=0.5,      # confidence threshold
     img_size=640,  # image size for inference
     # ... other parameters (see the docs)
@@ -55,7 +55,7 @@ for p in predictions:
 
 ## 3. Local Deployment
 
-Supervisely Team has integrated a lot of different models into Ecosystem, and they are all open-sourced, so you can use it to deploy these models in your own environment - on your local machine or a server. [Supervisely SDK](https://github.com/supervisely/supervisely) implements a unified interface for all NN models, so you can use the same code to deploy and get predictions from different models.
+Supervisely Team has integrated a lot of different models into the Ecosystem, and they are all open-sourced, so you can use our efforts to deploy any model in your own environment - on your local machine or a server. [Supervisely SDK](https://github.com/supervisely/supervisely) implements a unified interface for neural networks, so you can use the same code for every model that is integrated into Supervisely.
 
 In the case of local deployment, the model will be deployed outside of the Supervisely Platform. This is useful when developing applications that are not directly related to the platform, and you can just use the model itself. Such deployment will still be available via API from your local server, because any Supervisely model is a FastAPI application.
 
@@ -63,7 +63,7 @@ In the case of local deployment, the model will be deployed outside of the Super
 
 ### Docker
 
-You can also deploy any model in a 🐋 Docker Container in a single `docker run` comand. See the [Deploy in Docker](local-deployment.md#deploy-in-docker) section.
+You can also deploy any model in a 🐋 Docker Container in a single `docker run` comand. Please, read the [Deploy in Docker](local-deployment.md#deploy-in-docker) section.
 
 
 ## 4. Using Trained Models Outside of Supervisely
