@@ -21,29 +21,29 @@ In Supervisely, a Project is a core element of the system. It is where your data
 
 <figure><img src="../../.gitbook/assets/create-project-dataset/projects_create.jpg" alt=""><figcaption></figcaption></figure>
 
-  So, we’ve covered all the main ways to create a project, and now there’s just one final general step left.
+So, we’ve covered all the main ways to create a project, and now there’s just one final general step left.
 
 5. Supervisely supports different project types depending on the kind of data you're working with:
-    * Images
-    * Videos
-    * DICOM volumes
-    * Point clouds
+  * Images
+  * Videos
+  * DICOM volumes
+  * Point clouds
 
-    Each project type is tailored to its specific data format, making it easier to manage annotations and prepare datasets for your Computer Vision tasks.
+  Each project type is tailored to its specific data format, making it easier to manage annotations and prepare datasets for your Computer Vision tasks.
 
-    After entering a **Name** and **Description** for your project, make sure to select the correct **Project type** based on your data format, as each project can contain only one type of data.
+  After entering a **Name** and **Description** for your project, make sure to select the correct **Project type** based on your data format, as each project can contain only one type of data.
 
-    Next, select a **Labeling interface** — you can read a description of each one by hovering over the question mark icon next to it.
-    
-    Finally, click the **`Create`** button.
+  Next, select a **Labeling interface** — you can read a description of each one by hovering over the question mark icon next to it.
+
+  Finally, click the **`Create`** button.
 
 <figure><img src="../../.gitbook/assets/create-project-dataset/projects_create5.jpg" alt=""><figcaption></figcaption></figure>
 
 🎉 Great! The project has been successfully created — you are now inside it.
 
 {% hint style="info" %}
-    **Note:** Once the project is created, its type cannot be changed.
-    {% endhint %}
+**Note:** Once the project is created, its type cannot be changed.
+{% endhint %}
 
 ### Creating a Dataset
 
