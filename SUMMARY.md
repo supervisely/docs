@@ -83,8 +83,6 @@
   * [Collections](data-organization/projects/collections.md)
 * [Team Files](data-organization/team-files/README.md)
 * [Disk usage & Cleanup](data-organization/storage/README.md)
-* [Quality Assurance & Statistics](data-organization/quality-assurance-and-statistics/README.md)
-  * [Practical applications of statistics](data-organization/quality-assurance-and-statistics/practical-applications-of-statistics.md)
 * [Operations with Data](data-organization/Operations-with-Data/README.md)
   * [Data Filtration](data-organization/operations-with-data/data-filtration/README.md)
     * [How to use advanced filters](data-organization/operations-with-data/data-filtration/how-to-use-advanced-filters.md)
