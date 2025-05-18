@@ -75,7 +75,7 @@
   * [Import & Export](data-organization/project-dataset/import-export.md)
   * [Gallery & Table views](data-organization/project-dataset/gallery-table-views.md)
   * [Quality Assurance & Statistics](data-organization/project-dataset/quality-assurance-and-statistics/README.md)
-    * [Practical applications of statistics](docs/data-organization/project-dataset/quality-assurance-and-statistics/practical-applications-of-statistics.md)
+    * [Practical applications of statistics](data-organization/project-dataset/quality-assurance-and-statistics/practical-applications-of-statistics.md)
 * [MLOps Workflow](data-organization/mlops-workflow.md)
 * [Projects](data-organization/project/projects.md)
   * [Datasets](data-organization/project/datasets/datasets.md)
