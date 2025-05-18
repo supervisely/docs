@@ -14,10 +14,12 @@ Supervisely is excited to introduce advanced interactive statistics designed to 
 * Improve data acquisition methods, draw the right conclusions on annotation distributions.
 * Enhance neural network performance and much more.
 
-<figure><img src="../../.gitbook/assets/stats-tab-frame.jpg" alt=""><figcaption></figcaption></figure>
+To view statistics for an entire project — that is, across all datasets within the project — select the desired project and, just below the project name, click on the **QA & Stats** tab.
+
+<figure><img src="../../.gitbook/assets/quality-assurance-statistics-tab.png" alt=""><figcaption></figcaption></figure>
 
 **Discover the best interactive dataset statistics such as:**
-
+1. [Overview:](./#overview) Explore the balance and the distribution of the objects per classes.
 1. [Class balance:](./#class-balance) Find out the distribution of classes in your dataset.
 2. [Co-occurrence matrix:](./#co-occurrence-matrix) Explore the relationships between classes.
 3. [Image statistics:](./#per-image-statistics) Get detailed information about image characteristics and its objects.
@@ -33,7 +35,11 @@ Supervisely is excited to introduce advanced interactive statistics designed to 
 13. [Actions with the filtered data:](./#actions-with-the-filtered-data) Perform actions like copy, move, delete, and create labeling jobs based on specific data filters.
 14. [Example apps:](./#example-apps) Use applications such as Classes Stats for Images, Labeling Jobs Stats, and Object Size Stats to gain deeper insight into your data.
 
-***
+## Overview
+
+The charts below present general project statistics. The chart on the left shows the balance between annotated and unlabeled images, while the chart on the right shows the distribution of objects per class. Click on a section to preview images from that partition.
+
+<figure><img src="../../.gitbook/assets/qa-statistics-overview.png" alt=""><figcaption></figcaption></figure>
 
 ## Class Balance
 
@@ -102,6 +108,32 @@ The `Images` table provides detailed information about each image contained in t
 **Dimensions** - Height and width dimensions of each image are provided in pixels, aiding in understanding the scale and resolution of the dataset.
 
 **Object Information** - Detailed statistics on objects within each image are listed. This includes for every class in a dataset the number of objects presented on the image and the total area covered by those objects.
+
+## Aggregated Statistics per Dataset
+
+The table presents aggregated statistics per dataset, including all nested datasets. It displays average values for class area and object count per image, along with general statistics. Click a row to preview dataset images with annotations, including those from nested datasets. Sort by any column to find outliers, like unannotated datasets or datasets with abnormal average object count per image.
+
+<figure><img src="../../.gitbook/assets/qa-statistics-datasets.png" alt=""><figcaption></figcaption></figure>
+
+**Components**:\
+\
+The `Datasets` table provides detailed information about each dataset contained in the dataset:
+
+**Dataset / ID** – Each dataset is identified by a unique name and an associated identifier (ID), which together help distinguish and reference it within the project.
+
+**Size** - Total number of images in the dataset.
+
+**Annotated** – Number of images that contain at least one labeled object.
+
+**Tagged** – Number of images that have at least one tag assigned.
+
+**Objects** – Total number of labeled object instances across all images in the dataset.
+
+**Tagged Objects** – Total number of object instances that have one or more tags assigned to them.
+
+**Class (Objects per Image)** – The average number of objects of the selected class per image. Only images that contain at least one object of this class are included in the calculation.
+
+**Class (Average Area)** – The average area (in pixels) covered by objects of the selected class per image. Only images containing at least one object of this class are considered in the calculation.
 
 ## Object Distribution Heatmap
 
