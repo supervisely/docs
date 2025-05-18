@@ -37,9 +37,9 @@ In Supervisely, a Project is a core element of the system. It is where your data
     **Note:** Once the project is created, its type cannot be changed.
     {% endhint %}
 
-    Next, select a **Labeling interface** — you can read a description of each one by hovering over the question mark icon next to it.
+  Next, select a **Labeling interface** — you can read a description of each one by hovering over the question mark icon next to it.
 
-    Finally, click the **`Create`** button.
+  Finally, click the **`Create`** button.
 
 <figure><img src="../../.gitbook/assets/create-project-dataset/projects_create5.jpg" alt=""><figcaption></figcaption></figure>
 
