@@ -1,9 +1,3 @@
----
-description: >-
-  Learn how to use best quality assurance and interactive statistical tools to
-  perfect your custom training datasets and improve neural network performance.
----
-
 # Practical applications of statistics
 
 In this guide, we explore how to leverage best-in-class quality assurance and interactive statistical tools to improve the quality of your custom training datasets. These tools are crucial for identifying and rectifying data issues, such as class imbalances, annotation errors, and outliers, which can significantly impact the performance of neural network models. The guide includes practical applications of statistics, providing insights on data validation, anomaly detection, and optimizing the data acquisition process.
