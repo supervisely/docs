@@ -60,7 +60,7 @@ Once you're ready, go ahead and import your data.
 <figure><img src="../../.gitbook/assets/create-project-dataset/import_data_to_dataset_quick.jpg" alt=""><figcaption></figcaption></figure>
 
 Below the **Quick Auto Import** tab, you'll also find other import options, each offering different ways to bring your data into Supervisely.
-You can learn more about them in the article [**How to Import & Export**](import-export.md).
+<!-- You can learn more about them in the article [Import & Export](import-export.md). -->
 
 <figure><img src="../../.gitbook/assets/create-project-dataset/import_data_to_dataset_other.jpg" alt=""><figcaption></figcaption></figure>
 
@@ -69,13 +69,13 @@ Right after uploading your data, you’ll be taken to the **Tasks** page, where 
 <figure><img src="../../.gitbook/assets/create-project-dataset/tasks_uploading.jpg" alt=""><figcaption></figcaption></figure>
 
 Once the upload is complete, the task will be marked as finished.
-You can then go to your project by clicking the project link(1)  in the task card or by navigating to it through the **Main Menu**(2).
+You can then go to your project by clicking the dataset link (1)  in the task card or by navigating to it through the **Main Menu** (2).
 
 <figure><img src="../../.gitbook/assets/create-project-dataset/tasks_done.jpg" alt=""><figcaption></figcaption></figure>
 
-And here it is — your **Project** with the imported data!
-Now let’s take a quick look at how to rename your project.
+And here it is — your **Dataset** with the imported data!
 
+Now let’s take a quick look at how to rename your project.
 Just follow the simple steps shown in the illustrations below — you'll see how easy it is to change the **Project Name**, as well as explore other features and options available for managing your projects in Supervisely.
 
 <figure><img src="../../.gitbook/assets/create-project-dataset/project_edit_1.jpg" alt=""><figcaption></figcaption></figure>
@@ -86,4 +86,4 @@ So now you’ve learned how to **сreate a Project** and import data into a **Da
 
 <figure><img src="../../.gitbook/assets/create-project-dataset/project_dataset.jpg" alt=""><figcaption></figcaption></figure>
 
-To learn more about the structure and organization of data in Supervisely, check out the article [**Folders Hierarchy**](data-structure.md).
+To learn more about the structure and organization of data in Supervisely, check out the article [Data Structure](data-structure.md).
