@@ -34,7 +34,8 @@ In Supervisely, a Project is a core element of the system. It is where your data
     After entering a **Name** and **Description** for your project, make sure to select the correct **Project type** based on your data format, as each project can contain only one type of data.
 
     {% hint style="info" %}
-    **Note:** Once the project is created, its type cannot be changed.{% endhint %}
+    **Note:** Once the project is created, its type cannot be changed.
+    {% endhint %}
 
     Next, select a **Labeling interface** — you can read a description of each one by hovering over the question mark icon next to it.
 
@@ -70,7 +71,7 @@ Right after uploading your data, you’ll be taken to the **Tasks** page, where 
 <figure><img src="../../.gitbook/assets/create-project-dataset/tasks_uploading.jpg" alt=""><figcaption></figcaption></figure>
 
 Once the upload is complete, the task will be marked as finished.
-You can then go to your **Dataset**** by clicking the link (1) in the task card or by navigating to it through the **Main Menu** (2).
+You can then go to your **Dataset** by clicking the link (1) in the task card or by navigating to it through the **Main Menu** (2).
 
 <figure><img src="../../.gitbook/assets/create-project-dataset/tasks_done.jpg" alt=""><figcaption></figcaption></figure>
 
