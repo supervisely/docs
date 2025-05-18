@@ -16,7 +16,7 @@ Supervisely is excited to introduce advanced interactive statistics designed to 
 
 To view statistics for an entire project — that is, across all datasets within the project — select the desired project and, just below the project name, click on the **QA & Stats** tab.
 
-<figure><img src="../../.gitbook/assets/quality-assurance-statistics-tab.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/quality-assurance-statistics-tab.png" alt=""><figcaption></figcaption></figure>
 
 **Discover the best interactive dataset statistics such as:**
 1. [Overview:](./#overview) Explore the balance and the distribution of the objects per classes.
@@ -39,7 +39,7 @@ To view statistics for an entire project — that is, across all datasets within
 
 The charts below present general project statistics. The chart on the left shows the balance between annotated and unlabeled images, while the chart on the right shows the distribution of objects per class. Click on a section to preview images from that partition.
 
-<figure><img src="../../.gitbook/assets/qa-statistics-overview.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/qa-statistics-overview.png" alt=""><figcaption></figcaption></figure>
 
 ## Class Balance
 
@@ -53,7 +53,7 @@ Class imbalance table helps you to adjust and modify data sampling algorithms du
 * Use the search function to quickly filter and find specific classes.
 * Sort by specific columns to identify the rarest or most frequent classes.
 
-<figure><img src="../../.gitbook/assets/class-balance-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/class-balance-frame.png" alt=""><figcaption></figcaption></figure>
 
 **Components**:
 
@@ -79,7 +79,7 @@ In case of analyzing custom neural network performance, this matrix is called **
 
 * Click on any cell in the matrix to access corresponding annotated images containing objects from both classes. This feature facilitates understanding of class interactions by allowing users to explore visual examples of identified relationships.
 
-<figure><img src="../../.gitbook/assets/co-occurrence-matrix-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/co-occurrence-matrix-frame.png" alt=""><figcaption></figcaption></figure>
 
 **Components**:
 
@@ -95,7 +95,7 @@ Analyzing images in the dataset based on the number of annotations for each clas
 * Quickly locate specific images or classes of interest within the dataset.
 * Clicking on any row in the table allows users to preview the selected image with labels, allowing them to instantly locate an object or class of interest in the dataset.
 
-<figure><img src="../../.gitbook/assets/images-statistic-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/images-statistic-frame.png" alt=""><figcaption></figcaption></figure>
 
 **Components**:\
 \
@@ -113,7 +113,7 @@ The `Images` table provides detailed information about each image contained in t
 
 The table presents aggregated statistics per dataset, including all nested datasets. It displays average values for class area and object count per image, along with general statistics. Click a row to preview dataset images with annotations, including those from nested datasets. Sort by any column to find outliers, like unannotated datasets or datasets with abnormal average object count per image.
 
-<figure><img src="../../.gitbook/assets/qa-statistics-datasets.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/qa-statistics-datasets.png" alt=""><figcaption></figcaption></figure>
 
 **Components**:\
 \
@@ -148,7 +148,7 @@ Clicking on that cell would display a list of all images in your dataset that co
 * Clicking on a cell in the heatmap displays a list of images containing the specified number of objects for the selected class. This feature allows users to explore specific object distributions and analyze the corresponding images in detail in a thumbnail preview mode or open them in the image annotation toolbox.
 * Users have the option to download the heatmap chart in various formats, including `SVG`, `PNG`, and `CSV`, for further analysis or documentation purposes.
 
-<figure><img src="../../.gitbook/assets/object-distr-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/object-distr-frame.png" alt=""><figcaption></figcaption></figure>
 
 **Components**:
 
@@ -165,7 +165,7 @@ The Class Sizes table provides detailed size properties of objects for each clas
 * Clicking on a row allows users to view images with all object annotations of the selected class, simplifying visual examination, analysis or correction.
 * Sortable columns enable users to identify classes with the smallest or largest objects, as well as understand size differences between classes.
 
-<figure><img src="../../.gitbook/assets/class-sizes-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/class-sizes-frame.png" alt=""><figcaption></figcaption></figure>
 
 **Components**:
 
@@ -192,7 +192,7 @@ The Class Area Sizes Treemap offers an alternative visualization method for unde
 * Hovering on rectangles show the tooltip for easier understanding.
 * Users can download the Treemap chart in various formats, including `SVG`, `PNG`, and `CSV`, for further analysis, sharing or documentation purposes.
 
-<figure><img src="../../.gitbook/assets/treemap-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/treemap-frame.png" alt=""><figcaption></figcaption></figure>
 
 **Components**:
 
@@ -213,7 +213,7 @@ These statistics are mostly relevant for spatial datasets for such Computer Visi
 * Hovering on heatmap provides detailed insights into spatial object distribution.
 * Export options allows downloading of heatmaps for detailed study and presentations.
 
-<figure><img src="../../.gitbook/assets/heatmap-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/heatmap-frame.png" alt=""><figcaption></figcaption></figure>
 
 ## Objects Properties
 
@@ -223,7 +223,7 @@ The Objects table contains all objects and their geometrical properties. Users c
 * Use the search function to quickly locate specific objects or classes of interest in a dataset.
 * Sortable columns allow users to identify outliers or patterns in object characteristics, such as extreme height or width values. For example, user can find and inspect the largest and the smallest objects in the entire dataset.
 
-<figure><img src="../../.gitbook/assets/objects-frame (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/objects-frame (1).png" alt=""><figcaption></figcaption></figure>
 
 **Components**:
 
@@ -253,7 +253,7 @@ Also it help to find the images that have both tab "A" and "B". It help on analy
 * Hovering over a cell provides a tooltip that shows the degree of co-occurrence between the tags (total number of images).
 * Clicking on any cell in the matrix allows users to view corresponding images containing the selected pair of attributes.
 
-<figure><img src="../../.gitbook/assets/co-occurrence-matrix-tags-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/co-occurrence-matrix-tags-frame.png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -282,13 +282,13 @@ Analyze occurrences of categorical key-value tags (OneOf) assigned to images or 
 
 Note that you can always change the applicability of tags (images or objects) in the `Tags` tab.
 
-<figure><img src="../../.gitbook/assets/categorical-tags-distr.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/categorical-tags-distr.png" alt=""><figcaption></figcaption></figure>
 
 ## Other Statistic
 
 Additionally, apart from the tables mentioned earlier, data scientists can easily spot some basic stats for training data, covering Datasets, Images, Image Tags, Object Tags, Objects, and Object Area. These basic statistics shows general characteristics of the data and annotations.
 
-<figure><img src="../../.gitbook/assets/other-statistics-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/other-statistics-frame.png" alt=""><figcaption></figcaption></figure>
 
 ## Actions with the filtered data <a href="#actions-with-the-filtered-data" id="actions-with-the-filtered-data"></a>
 
