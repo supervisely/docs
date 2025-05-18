@@ -32,4 +32,5 @@ redirects:
   labeling/editors/images/: labeling/images/README.md
   customization/agents/agent-storage: agents/agent-storage/agent-storage.md
   data-organization/quality-assurance-and-statistics: data-organization/project-dataset/quality-assurance-and-statistics/README.md
+  data-organization/quality-assurance-and-statistics/practical-applications-of-statistics/: data-organization/project-dataset/quality-assurance-and-statistics/practical-applications-of-statistics.md
   data-organization/quality-assurance-and-statistics/practical-applications-of-statistics: data-organization/project-dataset/quality-assurance-and-statistics/practical-applications-of-statistics.md
