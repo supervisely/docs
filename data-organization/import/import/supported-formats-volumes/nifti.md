@@ -47,17 +47,19 @@ The NIfTI file should be structured as follows:
 
 **For semantic segmentation:**
 
-- **prefix**\_anatomic.nii (or `.nii.gz`)
-- **prefix**\_inference.nii (or `.nii.gz`) - all classes in one file
+- The filename must contain one of the required plane identifiers: `axl`, `cor`, or `sag`, anywhere in the name.
+- The file representing the anatomical volume should have `anatomical` string in it's filename representing the volume type.
+- The annotation file for all classes should also include the prefix, volume type label (`inference`, `mask`, `ann` etc.), ending with `.nii` or `.nii.gz`.
 
 **For instance segmentation:**
 
-- **prefix**\_anatomic.nii (or `.nii.gz`)
-- **prefix**\_inference_1.nii (or `.nii.gz`) - first class (may contain multiple objects)
-- **prefix**\_inference_2.nii (or `.nii.gz`) - second class (may contain multiple objects)
-- ...
+- The anatomical volume file must include the plane identifier (`axl`, `cor`, or `sag`), `anatomic` type label and end with `.nii` or `.nii.gz`.
+- Each annotation file must also include the plane identifier and type label (`inference`, `mask`, `ann` etc.), ending with `.nii` or `.nii.gz`.
+- Multiple annotation files per plane are supported, each representing a separate class (and may contain multiple objects).
 
-The prefix must be one of: `cor`, `sag`, or `axl`. The converter uses these prefixes to group volumes and their annotation files, requiring exactly three volumes — one for each prefix per folder.
+**Note:** Filenames can include other descriptive parts such as patient or case UIDs, body parts, arbituary strings or other identifiers, as long as the required plane and type identifiers are present and the file extension is `.nii` or `.nii.gz`.
+
+The plane identifier must be one of: `cor`, `sag`, or `axl`. The converter uses these prefixes to group volumes and their annotation files, requiring exactly three volumes — one for each prefix per folder.
 
 Structure example for semantic segmentation:
 
