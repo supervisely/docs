@@ -7,25 +7,28 @@ description: >-
 
 ### Teams and Workspaces
 
+#### 1. Automatic Creation at Registration
+
 When a user registers on the Supervisely platform, one **Team** and one **Workspace** are automatically created in their account. By default, this workspace is named _**First Workspace**_.
 
 <figure><img src="../../.gitbook/assets/data-structure/d-s-1.png" alt=""><figcaption></figcaption></figure>
 
+#### 2. Team & Workspace Structure Rules
+
 Each **Team** must always have at least one **Workspace**, although it doesn't have to be the original one created at registration.
 
-Every Member is always a part of at least one **Team** — the personal **Team** created during registration.
-A Member cannot leave or delete this personal **Team**, ensuring they are always associated with at least one Team that includes at least one **Workspace**.
+Every Member with [Full-scope Permission](../../collaboration/admin-panel/users-management.md) is always a part of at least one **Team** — the personal **Team** created during registration.
+A member may leave or delete a personal **Team**, provided that they remain associated with at least one **Team** that includes at least one **Workspace** at all times.
 This structure is illustrated in the scheme for Member 1.
 
 <figure><img src="../../.gitbook/assets/data-structure/d-s-scheme.png" alt=""><figcaption></figcaption></figure>
 
+#### 3. Creating & Managing Teams
 
 A Member with the Admin role can invite other Members to their **Team**, as shown in the scheme above of Member 2 and Member 3.
 In addition to their default **Team**, a Member can also create new **Teams** to collaborate on separate projects or with different groups.
 
-{% hint style="info" %}
-**Note:** All the projects you work on are located in the current Workspace within the current Team.
-{% endhint %}
+#### 4. Switching Between Teams
 
 To manage or switch between **Teams**, click the arrow next to the name of your current Team.
 A menu will appear with a list of all Teams you are a member of (not necessarily the ones you created) along with other settings.
@@ -43,11 +46,11 @@ Each **Project** can contain multiple **Datasets**, which store the actual data 
 This flexible structure allows Members to organize data in a way that fits their workflow, as shown in the scheme above of Member 2 and Member 3.
 
 Furthermore, a Member can create additional **Workspaces** inside any **Team** where they have the Admin role.
-Inside a **Dataset**, it's also possible to create sub-datasets, allowing for even more structured data management (see Member 3 in the scheme avobe).
+Inside a **Dataset**, you can create **Sub-Datasets**, enabling flexible and deeply nested data structures — just like folders and subfolders on your computer. There are no limitations on nesting depth, so you can organize your data in whatever hierarchy makes sense for your workflow.
 
-Let’s repeat this important point once again:
-аt the **Project** level, you cannot store **Files** directly — only **Datasets** can exist there.
-At the **Dataset** level, you can store both **Files** and **Sub-Datasets**.
+Let’s repeat an important rule: at the **Project** level, you cannot store files directly — only **Datasets** can exist there. Files and **Sub-Datasets** can only be added inside a **Dataset**.
+
+You can think of **Datasets** as folders and **Sub-Datasets** as **subfolders**. This allows you to recreate complex directory structures exactly the way you organize data on your local machine or in your company’s cloud storage. It’s especially useful if you’re working with a shared storage system that already follows a specific hierarchy — you can mirror that same structure inside Supervisely without restrictions.
 
 To create a sub-dataset inside an existing dataset:
 1. Click the `Add` button
