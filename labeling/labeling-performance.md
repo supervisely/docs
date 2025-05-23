@@ -171,6 +171,7 @@ Displays the **average labeling time** spent per object:
 
 **What it shows:**
 The percentage of assets accepted during the review stage in Labeling Jobs.
+
 **Formula:** `Acceptance Rate (%) = (Accepted assets / Total assets) * 100`
 
 **Advantages:**
@@ -219,7 +220,7 @@ An essential table that displays statistics for each individual team member.
 **How to use it:**
 If other charts show a drop in labeling performance, you can use this table to identify members with low metrics. Simply sort the table (using the sort icon next to each column header) to find users with the lowest speed or quality (Acceptance Rate).
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-member-performance.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-member-performance1.jpg" alt=""><figcaption></figcaption></figure>
 
 ---
 
@@ -241,4 +242,6 @@ This table consolidates statistics by **class** or **tag**. By default, class st
 * **Objects** – number of objects assigned this tag
 * **Entities** – number of assets (images, videos, etc.) containing this tag.
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-class-tag.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-class-class.jpg" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/labeling-performance/lp-class-tag1.jpg" alt=""><figcaption></figcaption></figure>
