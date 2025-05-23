@@ -1,22 +1,26 @@
 ---
 description: >-
-  Definitions are a centralized place where all classes and tags used for data annotation are managed. Classes define object categories, while tags describe attributes, context, or states of objects or entire images and videos. Properly defined classes and tags ensure consistent and structured annotations across the project.
----
+  This article explains how to create and manage classes and tags for data annotation in the Labeling Tool to ensure structured and consistent labeling within a project.
 ---
 
 # Define Classes & Tags
 
-The **Definitions** tab directly in the Project or in Labeling tool consists of two main categories:
+Definitions are a centralized place where all classes and tags used for data annotation are managed.
+A class defines an object category and specifies the type of geometry that will represent this class in annotations, such as bounding boxes, masks, polygons, etc.
+Tags describe not only the annotations themselves but can also apply to frames, images, and more.
+Properly defined classes and tags ensure consistent and structured annotations throughout the entire project
 
-1. **Classes** - management object classes.&#x20;
-2. **Tags** - management of tags for data annotations.
+The **Definitions** tab, available both in the Project and in the Labeling Tool, is divided into two main categories:
+
+1. **Classes** - for managing object classes.
+2. **Tags** - for managing tags used in data annotation.
 
 ## 1. In Panel
 
 ### Definitions tab functions
 
 * **Adding a new classes and tags**: you can create a new class or tag by clicking the `+ NEW CLASS` or `+ NEW TAG` button and filling in the required fields.
-* **Editing**: each class and tag can be edited by changing its parameters such as name, colour, scope and value type.
+* **Editing**: each class and tag can be edited by changing its parameters such as name, color, scope and value type.
 * **Archiving**: if a class or tag is not needed temporarily, it can be archived so that it is not displayed in the list of active elements but remains in the project. Archived classes and tags can be restored at any time.
 * **Sorting**: Sort classes and tags to quickly find the elements you need.
   * **Newest (default)** — displays the most recently created items first.
