@@ -69,6 +69,14 @@
 ## 📂 Data Organization
 
 * [Core concepts](data-organization/overview.md)
+* [Project and Dataset](data-organization/project-dataset/README.md)
+  * [Create](data-organization/project-dataset/create.md)
+  * [Data Structure](data-organization/project-dataset/data-structure.md)
+  * [Define Classes & Tags](data-organization/project-dataset/define-classes-tags.md)
+  * [Import & Export](data-organization/project-dataset/import-export.md)
+  * [Gallery & Table views](data-organization/project-dataset/gallery-table-views.md)
+  * [Quality Assurance & Statistics](data-organization/project-dataset/quality-assurance-and-statistics/README.md)
+    * [Practical applications of statistics](data-organization/project-dataset/quality-assurance-and-statistics/practical-applications-of-statistics.md)
 * [MLOps Workflow](data-organization/mlops-workflow.md)
 * [Projects](data-organization/project/projects.md)
   * [Datasets](data-organization/project/datasets/datasets.md)
@@ -76,8 +84,6 @@
   * [Collections](data-organization/projects/collections.md)
 * [Team Files](data-organization/team-files/README.md)
 * [Disk usage & Cleanup](data-organization/storage/README.md)
-* [Quality Assurance & Statistics](data-organization/quality-assurance-and-statistics/README.md)
-  * [Practical applications of statistics](data-organization/quality-assurance-and-statistics/practical-applications-of-statistics.md)
 * [Operations with Data](data-organization/Operations-with-Data/README.md)
   * [Data Filtration](data-organization/operations-with-data/data-filtration/README.md)
     * [How to use advanced filters](data-organization/operations-with-data/data-filtration/how-to-use-advanced-filters.md)
