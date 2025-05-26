@@ -128,7 +128,8 @@ Total number of labeling actions, including object creation (bounding boxes, pol
 
 **Advantages:**<br>
 Provides a detailed view of actual annotation activity, independent of asset status.
-<br>
+
+<figure><img src="../.gitbook/assets/labeling-performance/lp-labeling-actions.png" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 5. Team Activity Heatmap
@@ -148,7 +149,8 @@ Total time each team member spent working in the annotation interface. This only
 
 **Advantages:**<br>
 Helps understand how much real, productive time the team spends on annotation, not just how long the interface was open.
-<br>
+
+<figure><img src="../.gitbook/assets/labeling-performance/lp-labeling-time.png" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 7. Labeling Speed
@@ -158,21 +160,23 @@ The annotation speed in objects per hour (objects/h).
 
 **Advantages:**<br>
 Helps assess efficiency and compare performance among team members.
-<br>
+
+<figure><img src="../.gitbook/assets/labeling-performance/lp-labeling-speed.png" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 8. Average Time per Object
 
 **What it shows:**<br>
 Displays the **average labeling time** spent per object:<br>
-**Avg Time per Object = Total labeling time / Total number of objects**
+`Avg Time per Object = Total labeling time / Total number of objects`
 
 **Usage:**
 
 * Evaluate overall team performance
 * Identify efficiency issues
 * If the average time per object is too high, it may indicate complex tasks, workflow problems, or the need for additional training for the team or specific members.
-<br>
+
+<figure><img src="../.gitbook/assets/labeling-performance/lp-ato1.png" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 9. Acceptance Rate
@@ -185,7 +189,8 @@ The percentage of assets accepted during the review stage in Labeling Jobs.
 
 **Advantages:**<br>
 A key metric for assessing annotation quality.
-<br>
+
+<figure><img src="../.gitbook/assets/labeling-performance/lp-a-rate.png" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 10. Review Time
@@ -195,7 +200,8 @@ Total time spent on asset reviews.
 
 **Advantages:**<br>
 By comparing this with Labeling Time, you can calculate how much time was spent specifically on annotation (i.e., `Labeling Time - Review Time`).
-<br>
+
+<figure><img src="../.gitbook/assets/labeling-performance/lp-review-time1.png" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 11. Average Review Time
