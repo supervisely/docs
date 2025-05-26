@@ -24,8 +24,20 @@ These filters allow you to finely customize the statistics for your specific nee
 
 **Track progress or regress**
 You can quickly and visually monitor performance progress or decline for the selected time period, compared to a previous period, without switching the time filter. This helps identify trends and evaluate process efficiency instantly.
+
+All the following chart sections follow the same structure:
+
+1. The large number at the top represents the main quantitative value of the parameter for the period selected in the filter.
+
+2. To the right of this number is a percentage comparison showing how much better or worse the current value is compared to the average for a longer reference period (usually the next available time interval in the filter list).
+
+3. Below, the chart itself also displays this longer reference period, where each bar represents the parameter’s value for the same interval selected in the filter — just like the large number above.
+
+<figure><img src="../.gitbook/assets/labeling-performance/lp-main-princip.png" alt=""><figcaption></figcaption></figure>
 <br>
 <br>
+<br>
+
 ## Chart explanations
 
 ### 1. Status of Assets
@@ -95,17 +107,7 @@ Provides insights into the volume and frequency of object creation by class over
 The bar chart list "Classes distribution among objects" and the scatter chart "Classes distribution among objects" are interconnected and interactive. You can select one or multiple classes by holding the Command key (⌘) or Control key (Ctrl) in the bar chart list, and only the selected classes will be displayed in the scatter chart as well. This mode is useful for comparing only the classes that are relevant to your analysis.
 <br>
 <br>
-{% hint style="info" %}
-**Note**: All the following chart sections follow the same structure:
 
-The large number at the top represents the main quantitative value of the parameter for the period selected in the filter.
-
-To the right of this number is a percentage comparison showing how much better or worse the current value is compared to the average for a longer reference period (usually the next available time interval in the filter list).
-
-Below, the chart itself also displays this longer reference period, where each bar represents the parameter’s value for the same interval selected in the filter — just like the large number above.
-{% endhint %}
-<br>
-<br>
 ### 3. Assets
 
 **What it shows:**<br>
