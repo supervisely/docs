@@ -144,7 +144,8 @@ Annotator activity within the current team, measured by the number of labeling a
 
 **How to Use:**<br>
 Identifies spikes and drops in team activity. Useful for workload management and performance evaluation.
-<br>
+
+<figure><img src="../.gitbook/assets/labeling-performance/lp-team-activity.png" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 6. Labeling Time
