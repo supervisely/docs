@@ -69,6 +69,8 @@ At the top of this section, you can see the total number (1) of **annotation obj
   * **Bar chart** "Classes distribution among objects" (2)<br>
   * **Scatter chart** "Classes distribution among objects" (3)
 
+  <figure><img src="../.gitbook/assets/labeling-performance/lp-objects.png" alt=""><figcaption></figcaption></figure>
+
 What is an **annotation object**?<br>
 An annotation object is an individual element on an image, video, or other data type that has been highlighted and described using annotation tools.
 Examples of annotation objects include:
@@ -106,8 +108,7 @@ Provides insights into the volume and frequency of object creation by class over
 
 **Interactivity:**<br>
 The bar chart list "Classes distribution among objects" and the scatter chart "Classes distribution among objects" are interconnected and interactive. You can select one or multiple classes by holding the Command key (⌘) or Control key (Ctrl) in the bar chart list, and only the selected classes will be displayed in the scatter chart as well. This mode is useful for comparing only the classes that are relevant to your analysis.
-
-<figure><img src="../.gitbook/assets/labeling-performance/lp-objects.png" alt=""><figcaption></figcaption></figure>
+<br>
 <br>
 
 ### 3. Assets
