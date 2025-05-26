@@ -56,7 +56,7 @@ How many assets (images, videos, DICOM volumes, point clouds) in labeling jobs a
 **Note**: Status changes don’t always mean the annotations themselves were edited. For example, an asset may change status without actual label updates, and vice versa.
 {% endhint %}
 
-**Advantages:**<br>
+**How to Use:**<br>
 Allows you to track annotation progress and measure general team activity across projects.
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-assets-status.jpg" alt=""><figcaption></figcaption></figure>
@@ -69,7 +69,7 @@ At the top of this section, you can see the total number (1) of **annotation obj
   * **Bar chart** "Classes distribution among objects" (2)<br>
   * **Scatter chart** "Classes distribution among objects" (3)
 
-  <figure><img src="../.gitbook/assets/labeling-performance/lp-objects.png" alt=""><figcaption></figcaption></figure>
+  <figure><img src="../.gitbook/assets/labeling-performance/lp-objects1.png" alt=""><figcaption></figcaption></figure>
 
 What is an **annotation object**?<br>
 An annotation object is an individual element on an image, video, or other data type that has been highlighted and described using annotation tools.
@@ -90,7 +90,7 @@ Examples of annotation objects include:
 **What it shows:**<br>
 A list of objects sorted by the class they belong to, ordered by descending count of objects in each class.
 
-**Advantages:**<br>
+**How to Use:**<br>
 Helps you understand which object classes appear most frequently in your annotations.
 When a specific project is selected via filters, this chart becomes a valuable tool for analyzing class balance in your dataset. Balanced data is critical for training accurate and fair AI models.
 
@@ -103,7 +103,7 @@ This chart includes 4 variables:
 3. Dots: Classes
 4. Dot color: Corresponds to the class and the geometry color used for annotation
 
-**Advantages:**<br>
+**How to Use:**<br>
 Provides insights into the volume and frequency of object creation by class over time. It helps identify peaks or gaps in annotation activity.
 
 **Interactivity:**<br>
@@ -116,9 +116,14 @@ The bar chart list "Classes distribution among objects" and the scatter chart "C
 **What it shows:**<br>
 The number of assets (images, videos, DICOM volumes, point clouds) that had annotation activity (e.g., label creation or editing) during the selected period.
 
-**Advantages:**<br>
+{% hint style="info" %}
+**Note**: On this chart, only the asset types that are actually present in the team's projects are included in the totals. If the team works with only one type of asset — for example, images — then only those will be counted in this section. In such cases, the section will be titled accordingly (e.g., "Images" instead of "Assets").
+{% endhint %}
+
+**How to Use:**<br>
 Enables you to evaluate the overall annotation workload and how productivity changes over time.
-<br>
+
+<figure><img src="../.gitbook/assets/labeling-performance/lp-assets.png" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 4. Labeling Actions
@@ -126,7 +131,7 @@ Enables you to evaluate the overall annotation workload and how productivity cha
 **What it shows:**<br>
 Total number of labeling actions, including object creation (bounding boxes, polygons, etc.) and tag assignments.
 
-**Advantages:**<br>
+**How to Use:**<br>
 Provides a detailed view of actual annotation activity, independent of asset status.
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-labeling-actions.png" alt=""><figcaption></figcaption></figure>
@@ -137,7 +142,7 @@ Provides a detailed view of actual annotation activity, independent of asset sta
 **What it shows:**<br>
 Annotator activity within the current team, measured by the number of labeling actions per day.
 
-**Advantages:**<br>
+**How to Use:**<br>
 Identifies spikes and drops in team activity. Useful for workload management and performance evaluation.
 <br>
 <br>
@@ -147,7 +152,7 @@ Identifies spikes and drops in team activity. Useful for workload management and
 **What it shows:**<br>
 Total time each team member spent working in the annotation interface. This only includes active work time on labeling jobs or queues. Time outside jobs or during inactivity (more than 5 minutes of no action) is excluded.
 
-**Advantages:**<br>
+**How to Use:**<br>
 Helps understand how much real, productive time the team spends on annotation, not just how long the interface was open.
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-labeling-time.png" alt=""><figcaption></figcaption></figure>
@@ -158,10 +163,10 @@ Helps understand how much real, productive time the team spends on annotation, n
 **What it shows:**<br>
 The annotation speed in objects per hour (objects/h).
 
-**Advantages:**<br>
+**How to Use:**<br>
 Helps assess efficiency and compare performance among team members.
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-labeling-speed.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-labeling-speed1.png" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 8. Average Time per Object
@@ -176,7 +181,7 @@ Displays the **average labeling time** spent per object:<br>
 * Identify efficiency issues
 * If the average time per object is too high, it may indicate complex tasks, workflow problems, or the need for additional training for the team or specific members.
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-ato1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-ato.png" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 9. Acceptance Rate
@@ -187,10 +192,10 @@ The percentage of assets accepted during the review stage in Labeling Jobs.
 **Formula:**<br>
 `Acceptance Rate (%) = (Accepted assets / Total assets) * 100`
 
-**Advantages:**<br>
+**How to Use:**<br>
 A key metric for assessing annotation quality.
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-a-rate.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-a-rate1.png" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 10. Review Time
@@ -198,7 +203,7 @@ A key metric for assessing annotation quality.
 **What it shows:**<br>
 Total time spent on asset reviews.
 
-**Advantages:**<br>
+**How to Use:**<br>
 By comparing this with Labeling Time, you can calculate how much time was spent specifically on annotation (i.e., `Labeling Time - Review Time`).
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-review-time1.png" alt=""><figcaption></figcaption></figure>
@@ -212,9 +217,10 @@ The average review time per label (figure or tag).
 **Formula:**<br>
 `Avg Review Time = Total Review Time / Number of labels reviewed`
 
-**Advantages:**<br>
+**How to Use:**<br>
 Helps measure reviewer workload and review process efficiency.
-<br>
+
+<figure><img src="../.gitbook/assets/labeling-performance/lp-avg-review-time1.png" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 12. Members Performance Table
