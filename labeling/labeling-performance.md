@@ -22,6 +22,9 @@ In the upper-right corner of the page, you’ll find several filters that direct
 
 These filters allow you to finely customize the statistics for your specific needs and obtain the most relevant data for your analysis.
 
+<figure><img src="../.gitbook/assets/labeling-performance/lp-filters.jpg" alt=""><figcaption></figcaption></figure>
+<br>
+
 **Track progress or regress**
 You can quickly and visually monitor performance progress or decline for the selected time period, compared to a previous period, without switching the time filter. This helps identify trends and evaluate process efficiency instantly.
 
@@ -34,8 +37,6 @@ All the following chart sections follow the same structure:
 3. Below, the chart itself also displays this longer reference period, where each bar represents the parameter’s value for the same interval selected in the filter — just like the large number above.
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-main-princip.png" alt=""><figcaption></figcaption></figure>
-<br>
-<br>
 <br>
 
 ## Chart explanations
@@ -63,10 +64,10 @@ Allows you to track annotation progress and measure general team activity across
 
 ### 2. Objects Section
 
-At the top of this section, you can see the total number of **annotation objects** created during the selected period, along with two charts:
+At the top of this section, you can see the total number (1) of **annotation objects** created during the selected period, along with two charts:
 
-  **1. Bar chart** "Classes distribution among objects"<br>
-  **2. Scatter chart** "Classes distribution among objects"
+  * **Bar chart** "Classes distribution among objects" (2)<br>
+  * **Scatter chart** "Classes distribution among objects" (3)
 
 What is an **annotation object**?<br>
 An annotation object is an individual element on an image, video, or other data type that has been highlighted and described using annotation tools.
@@ -105,7 +106,8 @@ Provides insights into the volume and frequency of object creation by class over
 
 **Interactivity:**<br>
 The bar chart list "Classes distribution among objects" and the scatter chart "Classes distribution among objects" are interconnected and interactive. You can select one or multiple classes by holding the Command key (⌘) or Control key (Ctrl) in the bar chart list, and only the selected classes will be displayed in the scatter chart as well. This mode is useful for comparing only the classes that are relevant to your analysis.
-<br>
+
+<figure><img src="../.gitbook/assets/labeling-performance/lp-objects.png" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 3. Assets
