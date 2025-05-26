@@ -1,13 +1,13 @@
 ---
 description: >-
-  Learn how to use the Labeling Performance page in Supervisely to track team efficiency, monitor annotation quality, and gain actionable insights with powerful, customizable analytics.
+  Discover how to track annotation progress, team performance, and review stats across projects using flexible filters and visual dashboards.
 ---
 
 The **Labeling Performance** page is a powerful analytics tool designed to provide detailed statistics about the data annotation process within your projects. It helps you track team efficiency, monitor each member’s contributions, identify bottlenecks, manage annotation quality, and make informed decisions based on real data.
 
 ## Why it’s beneficial to use Supervisely statistics
 
-Unlike competitors, **Supervisely** provides an extended analytics system that allows users to analyze labeling performance across the entire team and all projects simultaneously. This system is available absolutely free of charge for all users, including those on the Free plan.
+**Supervisely** provides an extended analytics system that allows users to analyze labeling performance across the entire team and all projects simultaneously. This system is available absolutely free of charge for all users, including those on the Free plan.
 The platform offers a wide range of filters to enable flexible, personalized, and in-depth analytics. This is especially valuable for companies and teams looking to improve annotation processes, utilize resources efficiently, and increase the quality of data used for training AI models.
 
 ### How to use the Labeling Performance page
@@ -22,6 +22,18 @@ In the upper-right corner of the page, you’ll find several filters that direct
 
 These filters allow you to finely customize the statistics for your specific needs and obtain the most relevant data for your analysis.
 
+For example, if you filter by a **specific project**, all related **Labeling Jobs** and annotation activity will be shown in the charts.
+Filtering by a **Labeling Job** lets you focus on activity within that exact task.
+
+You can combine filters, such as selecting both a **project** and a specific **job** within it, to narrow down the scope of analysis even further.
+
+**Filters help you:**
+
+- Focus on specific tasks or team members,
+- Compare performance across different projects,
+- Track progress for individual jobs,
+- Analyze team efficiency with precision.
+
 <figure><img src="../.gitbook/assets/labeling-performance/lp-filters.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
@@ -30,11 +42,11 @@ You can quickly and visually monitor performance progress or decline for the sel
 
 All the following chart sections follow the same structure:
 
-1. The large number at the top represents the main quantitative value of the parameter for the period selected in the filter.
+1. The large number at the top displays the total number of annotated items (such as assets, objects, or actions) based on the selected time filter.
 
 2. To the right of this number is a percentage comparison showing how much better or worse the current value is compared to the average for a longer reference period (usually the next available time interval in the filter list).
 
-3. Below, the chart itself also displays this longer reference period, where each bar represents the parameter’s value for the same interval selected in the filter — just like the large number above.
+3. The chart below shows this next time interval in detail.
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-main-princip.png" alt=""><figcaption></figcaption></figure>
 <br>
@@ -48,8 +60,8 @@ How many assets (images, videos, DICOM volumes, point clouds) in labeling jobs a
 
 **Asset Statuses Explained:**
   * **Pending** — The asset is waiting to be annotated. It has been assigned but no annotation has been started yet.
-  * **Submitted** — The asset has been annotated and sent for review. It is now pending approval from a reviewer.
-  * **Rejected** — The asset was reviewed and rejected. It has been sent back to the annotator for revision or correction.
+  * **Submitted** — The asset has been annotated and sent for review. It is now waiting for a reviewer’s decision.
+  * **Rejected** — The asset was reviewed and marked as rejected. Depending on the workflow, it may either be left as-is, sent back for revision (e.g., in queues), or included in a new job created for rework.
   * **Accepted** — The asset has been reviewed and approved. No further changes are required.
 
 {% hint style="info" %}
@@ -151,7 +163,9 @@ Identifies spikes and drops in team activity. Useful for workload management and
 ### 6. Labeling Time
 
 **What it shows:**<br>
-Total time each team member spent working in the annotation interface. This only includes active work time on labeling jobs or queues. Time outside jobs or during inactivity (more than 5 minutes of no action) is excluded.
+Total time each team member spent actively working in the annotation interface. This includes only periods with real activity — such as creating, editing, or deleting annotation objects (e.g., shapes), assigning tags, or interacting with labeling tools.
+
+Time is not counted when the user is idle for more than 5 minutes, or when working outside of labeling jobs or queues.
 
 **How to Use:**<br>
 Helps understand how much real, productive time the team spends on annotation, not just how long the interface was open.
@@ -162,7 +176,18 @@ Helps understand how much real, productive time the team spends on annotation, n
 ### 7. Labeling Speed
 
 **What it shows:**<br>
-The annotation speed in objects per hour (objects/h).
+The number of newly created annotation objects per hour of active work in the labeling interface (within Labeling Jobs or Queues, with inactivity excluded).
+
+**Labeling Speed is calculated as:**<br>
+`Labeling Speed = Total number of annotation objects / Active labeling time`
+
+Where:
+
+* **"Annotation objects"** refer to newly created figures (not edited or deleted ones).
+* **"Active labeling time"** is the actual time spent working in the labeling interface, excluding:
+
+  * periods of inactivity (no actions for more than 5 minutes),
+  * time spent outside of Labeling Jobs or Queues.
 
 **How to Use:**<br>
 Helps assess efficiency and compare performance among team members.
@@ -175,6 +200,14 @@ Helps assess efficiency and compare performance among team members.
 **What it shows:**<br>
 Displays the **average labeling time** spent per object:<br>
 `Avg Time per Object = Total labeling time / Total number of objects`
+
+**Total Labeling Time** refers to the active time a user spent in the annotation interface within Labeling Jobs or Queues. It includes only the time spent creating or editing objects or tags, and excludes:
+
+* periods of inactivity (no user actions for more than 5 minutes),
+* time spent outside of Labeling Jobs or Queues.
+
+This metric helps measure how much actual effort is required per object and can reveal inefficiencies or overly complex labeling tasks.
+
 
 **Usage:**
 
@@ -203,6 +236,15 @@ A key metric for assessing annotation quality.
 
 **What it shows:**<br>
 Total time spent on asset reviews.
+
+**Review Time** refers to the active time a reviewer spends interacting with assets in review mode (inside Labeling Jobs). This time is counted only when the reviewer performs actions such as opening an asset, viewing it, accepting, or rejecting.
+
+**Review Time excludes:**
+
+* Periods of inactivity longer than 5 minutes,
+* Time spent outside review mode (for example, when the review page is open but no interactions occur).
+
+This metric helps assess reviewer workload and the time required for quality checking annotations.
 
 **How to Use:**<br>
 By comparing this with Labeling Time, you can calculate how much time was spent specifically on annotation (i.e., `Labeling Time - Review Time`).
@@ -233,7 +275,16 @@ An essential table that displays statistics for each individual team member.
 * **Member Login**
 * **Created Objects** – number of objects created by the member during the selected period
 * **Created Tags** – number of tags assigned by the member during the selected period
-* **Labeling Speed** – number of objects annotated per hour
+* **Labeling Speed** is the number of new objects annotated by a user per **hour of active work in the annotation interface**.
+“Active work” means the time when the user is creating shapes or performing other annotation actions in Labeling Jobs or queues, excluding periods of inactivity (no actions for more than 5 minutes) and time spent outside these tasks.
+
+  So, the speed is calculated as:<br>
+  `Labeling Speed = Number of created objects / Active labeling time`
+
+  {% hint style="info" %}
+  **Note**: Only **created** objects are counted, not edited or deleted ones. The time reflects actual actions within the tool, not just having the interface open.
+  {% endhint %}
+
 * **Assets Accepted (%)** – acceptance rate for assets reviewed
 * **Assets Accepted (count)** – number of accepted assets
 * **Performed Reviews** – number of assets reviewed by the member (as a reviewer)
