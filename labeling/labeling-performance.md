@@ -135,7 +135,7 @@ The number of assets (images, videos, DICOM volumes, point clouds) that had anno
 **How to Use:**<br>
 Enables you to evaluate the overall annotation workload and how productivity changes over time.
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-assets.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-assets.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 4. Labeling Actions
@@ -157,7 +157,7 @@ Annotator activity within the current team, measured by the number of labeling a
 **How to Use:**<br>
 Identifies spikes and drops in team activity. Useful for workload management and performance evaluation.
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-team-activity.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-team-activity.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 6. Labeling Time
@@ -192,7 +192,7 @@ Where:
 **How to Use:**<br>
 Helps assess efficiency and compare performance among team members.
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-labeling-speed1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-labeling-speed.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 8. Average Time per Object
@@ -228,7 +228,7 @@ The percentage of assets accepted during the review stage in Labeling Jobs.
 **How to Use:**<br>
 A key metric for assessing annotation quality.
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-a-rate1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-a-rate.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 10. Review Time
@@ -248,7 +248,7 @@ This metric helps assess reviewer workload and the time required for quality che
 **How to Use:**<br>
 By comparing this with Labeling Time, you can calculate how much time was spent specifically on annotation (i.e., `Labeling Time - Review Time`).
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-review-time1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-review-time.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 11. Average Review Time
@@ -262,7 +262,7 @@ The average review time per label (figure or tag).
 **How to Use:**<br>
 Helps measure reviewer workload and review process efficiency.
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-avg-review-time1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-avg-review-time.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 12. Members Performance Table
