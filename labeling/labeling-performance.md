@@ -48,7 +48,7 @@ All the following chart sections follow the same structure:
 
 3. The chart below shows this next time interval in detail.
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-main-princip.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-main-princip.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
 ## Chart explanations
@@ -81,7 +81,7 @@ At the top of this section, you can see the total number (1) of **annotation obj
   * **Bar chart** "Classes distribution among objects" (2)<br>
   * **Scatter chart** "Classes distribution among objects" (3)
 
-  <figure><img src="../.gitbook/assets/labeling-performance/lp-objects1.png" alt=""><figcaption></figcaption></figure>
+  <figure><img src="../.gitbook/assets/labeling-performance/lp-objects.jpg" alt=""><figcaption></figcaption></figure>
 
 What is an **annotation object**?<br>
 An annotation object is an individual element on an image, video, or other data type that has been highlighted and described using annotation tools.
