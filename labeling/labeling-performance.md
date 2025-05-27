@@ -146,7 +146,7 @@ Total number of labeling actions, including object creation (bounding boxes, pol
 **How to Use:**<br>
 Provides a detailed view of actual annotation activity, independent of asset status.
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-labeling-actions.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-labeling-actions.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 5. Team Activity Heatmap
@@ -170,7 +170,7 @@ Time is not counted when the user is idle for more than 5 minutes, or when worki
 **How to Use:**<br>
 Helps understand how much real, productive time the team spends on annotation, not just how long the interface was open.
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-labeling-time.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-labeling-time.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 7. Labeling Speed
@@ -208,14 +208,13 @@ Displays the **average labeling time** spent per object:<br>
 
 This metric helps measure how much actual effort is required per object and can reveal inefficiencies or overly complex labeling tasks.
 
-
 **Usage:**
 
 * Evaluate overall team performance
 * Identify efficiency issues
 * If the average time per object is too high, it may indicate complex tasks, workflow problems, or the need for additional training for the team or specific members.
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-ato.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-ato.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 9. Acceptance Rate
