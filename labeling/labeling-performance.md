@@ -157,7 +157,7 @@ Annotator activity within the current team, measured by the number of labeling a
 **How to Use:**<br>
 Identifies spikes and drops in team activity. Useful for workload management and performance evaluation.
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-team-activity.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-team-activity1.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
 ### 6. Labeling Time
@@ -294,7 +294,7 @@ An essential table that displays statistics for each individual team member.
 **How to use it:**<br>
 If other charts show a drop in labeling performance, you can use this table to identify members with low metrics. Simply sort the table (using the sort icon next to each column header) to find users with the lowest speed or quality (Acceptance Rate).
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-member-performance1.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-member-performance.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
 
@@ -316,6 +316,6 @@ This table consolidates statistics by **class** or **tag**. By default, class st
 * **Objects** – number of objects assigned this tag
 * **Entities** – number of assets (images, videos, etc.) containing this tag.
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-class-class.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-class.jpg" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-class-tag1.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-tag.jpg" alt=""><figcaption></figcaption></figure>
