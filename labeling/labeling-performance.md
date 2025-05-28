@@ -191,8 +191,6 @@ Labeling actions in this chart include:
 - Creating, editing, and deleting objects (geometries) in the labeling tool
 - Assigning tags, editing tag values, and removing tags within the labeling tool
 - Changing the status of an asset (Submitted, Accepted, or Rejected) — performed by either annotators or reviewers
-<br>
-<br>
 
 **How to Use:**<br>
 * Quickly identify high-activity and low-activity days across the team.
@@ -292,7 +290,7 @@ Total time spent on asset reviews.
 **How to Use:**<br>
 This metric helps assess reviewer workload and the actual effort required to verify annotations.
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-review-time.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-review-time1.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
 ## 11. Average Review Time
@@ -348,7 +346,6 @@ If other charts show a drop in labeling performance, you can use this table to i
 <figure><img src="../.gitbook/assets/labeling-performance/lp-member-performance1.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
-
 ## 13. Class and Tag Statistics Table
 
 This table consolidates statistics by **class** or **tag**. By default, class statistics are shown. To view tag data, click “Tag” in the table header.
@@ -370,3 +367,31 @@ This table consolidates statistics by **class** or **tag**. By default, class st
 * **Assets** – The number of assets (images, videos, DICOM volumes, point clouds, point cloud episodes) where this tag appears on at least one object or at the asset level.
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-tag.jpg" alt=""><figcaption></figcaption></figure>
+
+Here’s a clear and user-friendly addition in English for the article, explaining all the ways to navigate to the **Labeling Performance** page with contextual filters applied:
+
+# How to Access the Labeling Performance Page
+
+There are several convenient ways to navigate to the **Labeling Performance** page, each automatically applying relevant filters (such as project or job) based on the context you came from:
+
+1. **From the Sidebar Menu**
+   You can always access the Labeling Performance page directly from the main sidebar menu. This option provides a general overview without pre-applied filters.
+
+   <figure><img src="../.gitbook/assets/labeling-performance/lp-1.jpg" alt=""><figcaption></figcaption></figure>
+
+2. **From the Project Page → QA & Stats Tab**
+   Go to a specific project page, open the **QA & Stats** tab, and click **Labeling Performance** in the navigation menu on the right. The page will scroll to the Labeling Performance section where you can click the **Labeling Performance** link to open the full analytics page.
+
+   <figure><img src="../.gitbook/assets/labeling-performance/lp-2.jpg" alt=""><figcaption></figcaption></figure>
+
+3. **From the Project Page Annotate Button**
+   On a specific project page, click the arrow next to the **Annotate** button and select **Labeling Performance** from the dropdown menu. This takes you to the Labeling Performance page with the **project filter** already applied.
+
+   <figure><img src="../.gitbook/assets/labeling-performance/lp-3.jpg" alt=""><figcaption></figcaption></figure>
+
+4. **From the Labeling Jobs Page**
+   On the **Labeling Jobs** page, you’ll find a **Performance** button located under each job. Clicking it will take you directly to the Labeling Performance page with the **corresponding job filter** automatically applied.
+
+   <figure><img src="../.gitbook/assets/labeling-performance/lp-4.jpg" alt=""><figcaption></figcaption></figure>
+
+These navigation methods make it easy to analyze annotation metrics with the relevant filters pre-set, saving time and improving workflow efficiency.
