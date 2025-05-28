@@ -50,7 +50,6 @@ All the following chart sections follow the same structure:
 3. The chart below shows this next time interval in detail.
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-main-princip.jpg" alt=""><figcaption></figcaption></figure>
-<br>
 
 ## Chart explanations
 
@@ -66,9 +65,9 @@ The number of assets (images, videos, DICOM volumes, point clouds) whose status 
   * In **Labeling Jobs**, this means the asset has been assigned but annotation hasn't started yet.
   * In **Queues**, this status may include both assets waiting to be annotated and those currently in progress.
 
-  {% hint style="info" %}
-  **Note:** The `Pending` status does **not** depend on the job’s creation date. Even if a Labeling Job was created a year ago, its assets will still appear in this chart as long as the job remains active and is not finished or stopped.
-  {% endhint %}
+{% hint style="info" %}
+**Note:** The `Pending` status does **not** depend on the job’s creation date. Even if a Labeling Job was created a year ago, its assets will still appear in this chart as long as the job remains active and is not finished or stopped.
+{% endhint %}
 
 * **Submitted** — annotation has been completed and the asset has been submitted for review.
 
@@ -347,17 +346,17 @@ This table consolidates statistics by **class** or **tag**. By default, class st
 
 **In Class mode:**
 
-* **Class name**
-* **Objects** – number of objects assigned to the class
-* **Assets** – number of assets (images, videos, etc.) containing this class
-* **Labeling Time per Object (seconds)**
-* **Total Labeling Time (minutes)**
+* **Class name** - The name of the class as defined in the project’s labeling configuration (e.g., "Car", "Person", "Tree"),
+* **Objects** – The total number of objects assigned to this class during the selected time period. These are counted across all projects and data types,
+* **Assets** – The number of unique assets (images, videos, DICOM volumes, point clouds, point cloud episodes) containing this class,
+* **Labeling Time per Object (seconds)** - The average time spent actively creating or editing each object of this class, excluding idle time and non-annotation activity,
+* **Total Labeling Time (minutes)** - The total time spent actively annotating objects of this class across the entire dataset. Only creation and editing of objects are included, and only during active work periods.
 
 **In Tag mode:**
 
-* **Tag name**
-* **Objects** – number of objects assigned this tag
-* **Entities** – number of assets (images, videos, etc.) containing this tag.
+* **Tag name** - The name of the tag assigned to objects or assets,
+* **Objects** – The number of objects that have been assigned this tag,
+* **Assets** – The number of assets (images, videos, DICOM volumes, point clouds, point cloud episodes) where this tag appears on at least one object or at the asset level.
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-class.jpg" alt=""><figcaption></figcaption></figure>
 
