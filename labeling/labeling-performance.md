@@ -380,7 +380,7 @@ There are several convenient ways to navigate to the **Labeling Performance** pa
    <figure><img src="../.gitbook/assets/labeling-performance/lp-1.jpg" alt=""><figcaption></figcaption></figure>
    <br>
 2. **From the Project Page → QA & Stats Tab**
-   Go to a specific project page, open the **QA & Stats** tab, and click **Labeling Performance** in the navigation menu on the right. The page will scroll to the Labeling Performance section where you can click the **Labeling Performance** link to open the full analytics page.
+   Go to a specific project page, open the **QA & Stats** tab, and click **Labeling Performance** in the navigation menu on the right. The page will scroll to the Labeling Performance section where you can click the **Labeling Performance** link. This takes you to the Labeling Performance page with the corresponding **project filter** already applied.
    <br>
    <figure><img src="../.gitbook/assets/labeling-performance/lp-2.jpg" alt=""><figcaption></figcaption></figure>
    <br>
