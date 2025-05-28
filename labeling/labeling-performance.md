@@ -5,12 +5,12 @@ description: >-
 
 The **Labeling Performance** page is a powerful analytics tool designed to provide detailed statistics about the data annotation process within your projects. It helps you track team efficiency, monitor each member’s contributions, identify bottlenecks, manage annotation quality, and make informed decisions based on real data.
 
-## Why it’s beneficial to use Supervisely statistics
+# Why it’s beneficial to use Supervisely statistics
 
 **Supervisely** provides an extended analytics system that allows users to analyze labeling performance across the entire team and all projects simultaneously. This system is available absolutely free of charge for all users, including those on the Free plan.
 The platform offers a wide range of filters to enable flexible, personalized, and in-depth analytics. This is especially valuable for companies and teams looking to improve annotation processes, utilize resources efficiently, and increase the quality of data used for training AI models.
 
-### How to use the Labeling Performance page
+## How to use the Labeling Performance page
 
 **Filters**
 In the upper-right corner of the page, you’ll find several filters that directly affect the data shown in all the charts:
@@ -51,9 +51,9 @@ All the following chart sections follow the same structure:
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-main-princip.jpg" alt=""><figcaption></figcaption></figure>
 
-## Chart explanations
+# Chart explanations
 
-### 1. Status of Assets
+## 1. Status of Assets
 
 **What it shows:**<br>
 The number of assets (images, videos, DICOM volumes, point clouds) whose status changed during the selected annotation period.
@@ -85,7 +85,7 @@ Allows you to track annotation progress and measure overall team activity across
 <figure><img src="../.gitbook/assets/labeling-performance/lp-assets-status.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
-### 2. Objects 
+## 2. Objects 
 
 **What it shows:**<br>
 The total number of **objects** (1) created during the selected time period, along with two charts:
@@ -156,7 +156,7 @@ This is especially helpful for comparing annotation trends of specific classes o
 <br>
 <br>
 
-### 3. Assets
+## 3. Assets
 
 **What it shows:**<br>
 The number of assets (images, videos, DICOM volumes, point clouds) that had annotation activity (e.g., label creation or editing) during the selected period.
@@ -171,7 +171,7 @@ Enables you to evaluate the overall annotation workload and how productivity cha
 <figure><img src="../.gitbook/assets/labeling-performance/lp-assets.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
-### 4. Labeling Actions
+## 4. Labeling Actions
 
 **What it shows:**<br>
 Total number of labeling actions, including object creation (bounding boxes, polygons, etc.) and tag assignments.
@@ -182,7 +182,7 @@ Provides a detailed view of actual annotation activity, independent of asset sta
 <figure><img src="../.gitbook/assets/labeling-performance/lp-labeling-actions.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
-### 5. Team Activity Heatmap
+## 5. Team Activity Heatmap
 
 **What it shows:**<br>
 Annotator activity within the current team, measured by the number of labeling actions per day.
@@ -193,7 +193,7 @@ Identifies spikes and drops in team activity. Useful for workload management and
 <figure><img src="../.gitbook/assets/labeling-performance/lp-team-activity1.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
-### 6. Labeling Time
+## 6. Labeling Time
 
 **What it shows:**<br>
 Total time each team member spent actively working in the annotation interface. This includes **only the time spent creating or editing objects** (e.g., geometries) within Labeling Jobs or Queues.
@@ -207,7 +207,7 @@ Helps understand how much real, productive time the team spends on annotation (l
 <figure><img src="../.gitbook/assets/labeling-performance/lp-labeling-time.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
-### 7. Labeling Speed
+## 7. Labeling Speed
 
 **What it shows:**<br>
 The number of newly created objects per hour of active work in the labeling interface (within Labeling Jobs or Queues, with inactivity excluded).
@@ -230,7 +230,7 @@ If the team’s overall labeling speed has suddenly decreased, it may indicate t
 <figure><img src="../.gitbook/assets/labeling-performance/lp-labeling-speed.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
-### 8. Average Time per Object
+## 8. Average Time per Object
 
 **What it shows:**<br>
 Displays the **average labeling time** spent per object:<br>
@@ -252,7 +252,7 @@ This metric helps measure how much actual effort is required per object and can 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-ato.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
-### 9. Acceptance Rate
+## 9. Acceptance Rate
 
 **What it shows:**<br>
 The percentage of assets accepted during the review stage in Labeling Jobs.
@@ -268,7 +268,7 @@ The same image can be reviewed multiple times — for example, if it was rejecte
 <figure><img src="../.gitbook/assets/labeling-performance/lp-a-rate.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
-### 10. Review Time
+## 10. Review Time
 
 **What it shows:**<br>
 Total time spent on asset reviews.
@@ -286,7 +286,7 @@ This metric helps assess reviewer workload and the actual effort required to ver
 <figure><img src="../.gitbook/assets/labeling-performance/lp-review-time.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
-### 11. Average Review Time
+## 11. Average Review Time
 
 **What it shows:**<br>
 The **average time** a reviewer actively spent per **asset** (e.g., image, video) during the review process in Labeling Jobs.
@@ -306,7 +306,7 @@ Helps assess the **typical effort** reviewers spend on checking each asset and c
 <figure><img src="../.gitbook/assets/labeling-performance/lp-avg-review-time.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
-### 12. Members Performance Table
+## 12. Members Performance Table
 
 An essential table that displays statistics for each individual team member.
 
@@ -340,7 +340,7 @@ If other charts show a drop in labeling performance, you can use this table to i
 <br>
 
 
-### 13. Class and Tag Statistics Table
+## 13. Class and Tag Statistics Table
 
 This table consolidates statistics by **class** or **tag**. By default, class statistics are shown. To view tag data, click “Tag” in the table header.
 
