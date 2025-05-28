@@ -66,7 +66,7 @@ The number of assets (images, videos, DICOM volumes, point clouds) whose status 
   * In **Queues**, this status may include both assets waiting to be annotated and those currently in progress.
 
 {% hint style="info" %}
-**Note:** The `Pending` status does **not** depend on the job’s creation date. Even if a Labeling Job was created a year ago, its assets will still appear in this chart as long as the job remains active and is not finished or stopped.
+**Note:** The **Pending** status does **not** depend on the job’s creation date. Even if a Labeling Job was created a year ago, its assets will still appear in this chart as long as the job remains active and is not finished or stopped.
 {% endhint %}
 
 * **Submitted** — annotation has been completed and the asset has been submitted for review.
@@ -312,10 +312,10 @@ An essential table that displays statistics for each individual team member.
 
 **What it shows:**
 
-* **Member Login** - login or email
-* **Created Objects** – number of objects created by the member during the selected period
-* **Created Tags** – number of tags assigned by the member during the selected period
-* **Labeling Speed** is the number of new objects annotated by a user per **hour of active work in the annotation interface**.
+* **Member Login** - The username or email address that the team member uses to log in to Supervisely. This is the primary visible identifier for each user in the table and is used to associate performance metrics with specific team members,
+* **Created Objects** – Number of objects created by the member during the selected period,
+* **Created Tags** – Number of tags assigned by the member during the selected period,
+* **Labeling Speed** - The number of new objects annotated by a user per **hour of active work in the annotation interface**.
 “Active work” means the time when the user is creating geometries or performing other annotation actions in Labeling Jobs or queues, excluding periods of inactivity (no actions for more than 5 minutes) and time spent outside these tasks.
 
   So, the speed is calculated as:<br>
@@ -325,13 +325,13 @@ An essential table that displays statistics for each individual team member.
   **Note**: Only **created** objects are counted, not edited or deleted ones. The time reflects actual actions within the tool, not just having the interface open.
   {% endhint %}
 
-* **Assets Accepted (%)** – acceptance rate for assets reviewed
-* **Assets Accepted (count)** – number of accepted assets (images, videos, DICOM volumes, point clouds, point cloud episodes)
-* **Assets Rejected** - number of rejected assets (images, videos, DICOM volumes, point clouds, point cloud episodes)
-* **Submitted Assets** – number of assets submitted for review (as an annotator)
-* **Performed Reviews** – number of assets reviewed by the member (as a reviewer)
-* **Labeling Time (min)** – total active time spent on creating or editing objects (geometries) in the annotation interface
-* **Member ID**
+* **Assets Accepted (%)** – Acceptance rate for assets reviewed,
+* **Assets Accepted (count)** – Number of accepted assets (images, videos, DICOM volumes, point clouds, point cloud episodes),
+* **Assets Rejected** - The number of assets (images, videos, DICOM volumes, point clouds, or point cloud episodes) that the team member marked as Rejected while acting as a reviewer. This reflects the volume of annotations that were sent back or flagged during the review process,
+* **Submitted Assets** – Number of assets submitted for review (as an annotator),
+* **Performed Reviews** – Number of assets reviewed by the member (as a reviewer),
+* **Labeling Time (min)** – Total active time spent on creating or editing objects (geometries) in the annotation interface,
+* **Member ID** - A unique identifier automatically assigned to each team member in the system. Useful for internal tracking, integrations, or when multiple users have similar display names. It helps distinguish between users in large teams or when exporting performance data.
 
 **How to use it:**<br>
 If other charts show a drop in labeling performance, you can use this table to identify members with low metrics. Simply sort the table (using the sort icon next to each column header) to find users with the lowest speed or quality (Acceptance Rate).
@@ -352,12 +352,12 @@ This table consolidates statistics by **class** or **tag**. By default, class st
 * **Labeling Time per Object (seconds)** - The average time spent actively creating or editing each object of this class, excluding idle time and non-annotation activity,
 * **Total Labeling Time (minutes)** - The total time spent actively annotating objects of this class across the entire dataset. Only creation and editing of objects are included, and only during active work periods.
 
+<figure><img src="../.gitbook/assets/labeling-performance/lp-class.jpg" alt=""><figcaption></figcaption></figure>
+
 **In Tag mode:**
 
 * **Tag name** - The name of the tag assigned to objects or assets,
 * **Objects** – The number of objects that have been assigned this tag,
 * **Assets** – The number of assets (images, videos, DICOM volumes, point clouds, point cloud episodes) where this tag appears on at least one object or at the asset level.
-
-<figure><img src="../.gitbook/assets/labeling-performance/lp-class.jpg" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-tag.jpg" alt=""><figcaption></figcaption></figure>
