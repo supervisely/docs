@@ -15,10 +15,10 @@ The platform offers a wide range of filters to enable flexible, personalized, an
 **Filters**
 In the upper-right corner of the page, you’ll find several filters that directly affect the data shown in all the charts:
 
-* Time period filter
-* Data type filter (images, videos, DICOM volumes, point clouds, point cloud episodes)
-* Project filter
-* Labeling Job filter
+* **Time period filter**
+* **Data type filter** (images, videos, DICOM volumes, point clouds, point cloud episodes)
+* **Project filter**
+* **Labeling Job filter**
 
 These filters allow you to finely customize the statistics for your specific needs and obtain the most relevant data for your analysis.
 
@@ -64,11 +64,13 @@ The number of assets (images, videos, DICOM volumes, point clouds) whose status 
 
   * In **Labeling Jobs**, this means the asset has been assigned but annotation hasn't started yet.
   * In **Queues**, this status may include both assets waiting to be annotated and those currently in progress.
-
+  <br>
+  <br>
   {% hint style="info" %}
   **Note:** The `Pending` status does **not** depend on the job’s creation date. Even if a Labeling Job was created a year ago, its assets will still appear in this chart as long as the job remains active and is not finished or stopped.
   {% endhint %}
-
+  <br>
+  <br>
 * **Submitted** — annotation has been completed and the asset has been submitted for review.
 
 * **Rejected** — the asset was reviewed and marked as rejected. Depending on your workflow, it may stay as is, be returned for revision (e.g., in queues), or be included in a new job for re-annotation.
@@ -99,7 +101,7 @@ The total number of **objects** (1) created during the selected time period, alo
 **Important:** In Supervisely, **objects** and **annotation objects** are not the same.
 {% endhint %}
 
-An **object** is a single labeled instance (e.g., a bounding box or polygon).
+An **object** is a single labeled instance, geometry (e.g., a bounding box or polygon).
 
 Examples of **objects**:
 * A person marked with a bounding box on an image
@@ -116,7 +118,7 @@ Example of **annotation object**:<br>
 **In this section, only plain objects are counted**, not annotation objects.
 
 **Each object typically:**
-  * Belongs to a specific **class** (e.g., “car”, “pedestrian”)
+  * Belongs to **class** (e.g., “car”, “pedestrian”)
   * Has a defined **geometry** (bounding box, mask, polygon, etc.)
   * May include **tags** (e.g., “color: red”, “moving”)
 
@@ -224,7 +226,8 @@ Where:
   * time spent outside of Labeling Jobs or Queues.
 
 **How to Use:**<br>
-Helps assess efficiency and compare performance among team members.
+Helps assess efficiency and compare team performance.<br>
+If the team’s overall labeling speed has suddenly decreased, it may indicate that specific team members are slowing down the process. To investigate, go to the **Members Performance Table**, locate the **Labeling Speed** column, and sort it in ascending order. This will bring the slowest-performing members to the top of the list for further analysis.
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-labeling-speed.jpg" alt=""><figcaption></figcaption></figure>
 <br>
@@ -261,7 +264,7 @@ The percentage of assets accepted during the review stage in Labeling Jobs.
 
 **How to Use:**<br>
 A key metric for assessing annotation quality.<br>
-In Queue workflows, the total number of reviewed images (images_count) does not necessarily equal the sum of accepted and rejected items.
+In Queue workflows, the total number of reviewed images does not necessarily equal the sum of accepted and rejected items.
 The same image can be reviewed multiple times — for example, if it was rejected and later sent back for re-annotation, it may appear again in the queue and be reviewed again. This affects how assets are counted in the Acceptance Rate.
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-a-rate.jpg" alt=""><figcaption></figcaption></figure>
@@ -311,7 +314,7 @@ An essential table that displays statistics for each individual team member.
 
 **What it shows:**
 
-* **Member Login**
+* **Member Login** - login or email
 * **Created Objects** – number of objects created by the member during the selected period
 * **Created Tags** – number of tags assigned by the member during the selected period
 * **Labeling Speed** is the number of new objects annotated by a user per **hour of active work in the annotation interface**.
@@ -325,16 +328,17 @@ An essential table that displays statistics for each individual team member.
   {% endhint %}
 
 * **Assets Accepted (%)** – acceptance rate for assets reviewed
-* **Assets Accepted (count)** – number of accepted assets
-* **Performed Reviews** – number of assets reviewed by the member (as a reviewer)
+* **Assets Accepted (count)** – number of accepted assets (images, videos, DICOM volumes, point clouds, point cloud episodes)
+* **Assets Rejected** - number of rejected assets (images, videos, DICOM volumes, point clouds, point cloud episodes)
 * **Submitted Assets** – number of assets submitted for review (as an annotator)
+* **Performed Reviews** – number of assets reviewed by the member (as a reviewer)
 * **Labeling Time (min)** – total active time spent on creating or editing objects (geometries) in the annotation interface
 * **Member ID**
 
 **How to use it:**<br>
 If other charts show a drop in labeling performance, you can use this table to identify members with low metrics. Simply sort the table (using the sort icon next to each column header) to find users with the lowest speed or quality (Acceptance Rate).
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-member-performance.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-member-performance1.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
 
