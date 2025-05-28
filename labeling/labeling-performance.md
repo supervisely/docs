@@ -56,70 +56,103 @@ All the following chart sections follow the same structure:
 ### 1. Status of Assets
 
 **What it shows:**<br>
-How many assets (images, videos, DICOM volumes, point clouds) in labeling jobs and queues changed their labeling status during the selected period.
+The number of assets (images, videos, DICOM volumes, point clouds) whose status changed during the selected annotation period.
 
 **Asset Statuses Explained:**
-  * **Pending** — The asset is waiting to be annotated. It has been assigned but no annotation has been started yet.
-  * **Submitted** — The asset has been annotated and sent for review. It is now waiting for a reviewer’s decision.
-  * **Rejected** — The asset was reviewed and marked as rejected. Depending on the workflow, it may either be left as-is, sent back for revision (e.g., in queues), or included in a new job created for rework.
-  * **Accepted** — The asset has been reviewed and approved. No further changes are required.
+
+* **Pending** — the asset is waiting to be annotated:
+
+  * In **Labeling Jobs**, this means the asset has been assigned but annotation hasn't started yet.
+  * In **Queues**, this status may include both assets waiting to be annotated and those currently in progress.
+
+  {% hint style="info" %}
+  **Note:** The `Pending` status does **not** depend on the job’s creation date. Even if a Labeling Job was created a year ago, its assets will still appear in this chart as long as the job remains active and is not finished or stopped.
+  {% endhint %}
+
+* **Submitted** — annotation has been completed and the asset has been submitted for review.
+
+* **Rejected** — the asset was reviewed and marked as rejected. Depending on your workflow, it may stay as is, be returned for revision (e.g., in queues), or be included in a new job for re-annotation.
+
+* **Accepted** — the asset was reviewed and approved. No further actions are required.
 
 {% hint style="info" %}
-**Note**: Status changes don’t always mean the annotations themselves were edited. For example, an asset may change status without actual label updates, and vice versa.
+**Note:** A status change doesn’t always mean the annotations themselves were edited. For example, an asset’s status can change even if no actual labels were modified, and vice versa.
 {% endhint %}
 
-**How to Use:**<br>
-Allows you to track annotation progress and measure general team activity across projects.
+**How to use it:**<br>
+Allows you to track annotation progress and measure overall team activity across projects.
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-assets-status.jpg" alt=""><figcaption></figcaption></figure>
 <br>
 
-### 2. Objects Section
+### 2. Objects 
 
-At the top of this section, you can see the total number (1) of **annotation objects** created during the selected period, along with two charts:
+**What it shows:**<br>
+The total number of **objects** (1) created during the selected time period, along with two charts:
 
-  * **Bar chart** "Classes distribution among objects" (2)<br>
-  * **Scatter chart** "Classes distribution among objects" (3)
+* **Bar chart:** *Classes distribution among objects* (2)
+* **Scatter chart:** *Classes distribution among objects over time* (3)
 
-  <figure><img src="../.gitbook/assets/labeling-performance/lp-objects.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-objects.jpg" alt=""><figcaption></figcaption></figure>
 
-What is an **annotation object**?<br>
-An annotation object is an individual element on an image, video, or other data type that has been highlighted and described using annotation tools.
-Examples of annotation objects include:
+{% hint style="info" %}
+**Important:** In Supervisely, **objects** and **annotation objects** are not the same.
+{% endhint %}
 
-  * A person marked with a bounding box on an image
-  * A car annotated using a polygonal mask
-  * A tumor on a medical scan marked with a brush
-  * A tree in a 3D point cloud highlighted with a cuboid
+An **object** is a single labeled instance (e.g., a bounding box or polygon).
 
-  **Each annotation object typically:**
+Examples of **objects**:
+* A person marked with a bounding box on an image
+* A person marked with a bounding box in video frame
+* A car annotated using a polygonal mask
+* A tumor on a medical scan marked with a brush
+* A tree in a 3D point cloud highlighted with a cuboid
+
+An **annotation object** is a special container used in some data types (like 3D point clouds, videos, etc.), but **not** in images. These containers can group multiple **objects** (geometries).
+
+Example of **annotation object**:<br>
+  A person is marked with a bounding box in multiple video frames. While each frame contains a separate **object** (geometry), they are all linked together as part of a single **annotation object** that represents the same person throughout the video.
+
+**In this section, only plain objects are counted**, not annotation objects.
+
+**Each object typically:**
   * Belongs to a specific **class** (e.g., “car”, “pedestrian”)
   * Has a defined **geometry** (bounding box, mask, polygon, etc.)
   * May include **tags** (e.g., “color: red”, “moving”)
 
-### Bar chart
+{% hint style="info" %}
+**Also note:** Objects are **grouped only by class name** — **regardless of project or geometry type**. If multiple projects use the same class name (e.g., “Car”), they will be counted together in this section.
+{% endhint %}
+
+### Bar Chart
 
 **What it shows:**<br>
-A list of objects sorted by the class they belong to, ordered by descending count of objects in each class.
+A list of objects grouped by their class names, sorted in descending order of object count.
 
-**How to Use:**<br>
-Helps you understand which object classes appear most frequently in your annotations.
-When a specific project is selected via filters, this chart becomes a valuable tool for analyzing class balance in your dataset. Balanced data is critical for training accurate and fair AI models.
+**How to use:**<br>
+Understand which object classes dominate your annotations.
+Useful for identifying class imbalance across your team’s annotations — especially important when training AI models.
 
-### Scatter chart
+### Scatter Chart
 
-This chart includes 4 variables:
+**What it shows:**<br>
+Distribution of object classes over time.
 
-1. Y-axis: Number of objects
-2. X-axis: Time period
-3. Dots: Classes
-4. Dot color: Corresponds to the class and the geometry color used for annotation
+**Variables:**
 
-**How to Use:**<br>
+* **Y-axis:** Number of objects
+* **X-axis:** Time period
+* **Dots:** Object classes
+* **Dot color:** Matches the class and the geometry color in your labeling settings
+
+**How to use:**<br>
 Provides insights into the volume and frequency of object creation by class over time. It helps identify peaks or gaps in annotation activity.
 
-**Interactivity:**<br>
-The bar chart list "Classes distribution among objects" and the scatter chart "Classes distribution among objects" are interconnected and interactive. You can select one or multiple classes by holding the Command key (⌘) or Control key (Ctrl) in the bar chart list, and only the selected classes will be displayed in the scatter chart as well. This mode is useful for comparing only the classes that are relevant to your analysis.
+#### Interactivity
+
+These two charts are interactive and work together. You can select one or more classes in the bar chart (use `Ctrl` or `Cmd` for multi-select), and the scatter chart will update to display only those selected classes.
+
+This is especially helpful for comparing annotation trends of specific classes over time.
 <br>
 <br>
 
@@ -163,12 +196,13 @@ Identifies spikes and drops in team activity. Useful for workload management and
 ### 6. Labeling Time
 
 **What it shows:**<br>
-Total time each team member spent actively working in the annotation interface. This includes only periods with real activity — such as creating, editing, or deleting annotation objects (e.g., shapes), assigning tags, or interacting with labeling tools.
+Total time each team member spent actively working in the annotation interface. This includes **only the time spent creating or editing objects** (e.g., geometries) within Labeling Jobs or Queues.
 
-Time is not counted when the user is idle for more than 5 minutes, or when working outside of labeling jobs or queues.
+Time is **not counted** when the user is idle for more than 5 minutes, or when working outside of Labeling Jobs or Queues.
+**Tagging or other non-shape interactions are not included** in this metric.
 
 **How to Use:**<br>
-Helps understand how much real, productive time the team spends on annotation, not just how long the interface was open.
+Helps understand how much real, productive time the team spends on annotation (limited to shape creation/editing), not just how long the interface was open.
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-labeling-time.jpg" alt=""><figcaption></figcaption></figure>
 <br>
@@ -176,14 +210,14 @@ Helps understand how much real, productive time the team spends on annotation, n
 ### 7. Labeling Speed
 
 **What it shows:**<br>
-The number of newly created annotation objects per hour of active work in the labeling interface (within Labeling Jobs or Queues, with inactivity excluded).
+The number of newly created objects per hour of active work in the labeling interface (within Labeling Jobs or Queues, with inactivity excluded).
 
 **Labeling Speed is calculated as:**<br>
-`Labeling Speed = Total number of annotation objects / Active labeling time`
+`Labeling Speed = Total number of objects / Active labeling time`
 
 Where:
 
-* **"Annotation objects"** refer to newly created figures (not edited or deleted ones).
+* **"Objects"** refer to newly created geometries (not edited or deleted ones).
 * **"Active labeling time"** is the actual time spent working in the labeling interface, excluding:
 
   * periods of inactivity (no actions for more than 5 minutes),
@@ -226,7 +260,9 @@ The percentage of assets accepted during the review stage in Labeling Jobs.
 `Acceptance Rate (%) = (Accepted assets / Total assets) * 100`
 
 **How to Use:**<br>
-A key metric for assessing annotation quality.
+A key metric for assessing annotation quality.<br>
+In Queue workflows, the total number of reviewed images (images_count) does not necessarily equal the sum of accepted and rejected items.
+The same image can be reviewed multiple times — for example, if it was rejected and later sent back for re-annotation, it may appear again in the queue and be reviewed again. This affects how assets are counted in the Acceptance Rate.
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-a-rate.jpg" alt=""><figcaption></figcaption></figure>
 <br>
@@ -243,10 +279,8 @@ Total time spent on asset reviews.
 * Periods of inactivity longer than 5 minutes,
 * Time spent outside review mode (for example, when the review page is open but no interactions occur).
 
-This metric helps assess reviewer workload and the time required for quality checking annotations.
-
 **How to Use:**<br>
-By comparing this with Labeling Time, you can calculate how much time was spent specifically on annotation (i.e., `Labeling Time - Review Time`).
+This metric helps assess reviewer workload and the actual effort required to verify annotations.
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-review-time.jpg" alt=""><figcaption></figcaption></figure>
 <br>
@@ -254,13 +288,19 @@ By comparing this with Labeling Time, you can calculate how much time was spent 
 ### 11. Average Review Time
 
 **What it shows:**<br>
-The average review time per label (figure or tag).
+The **average time** a reviewer actively spent per **asset** (e.g., image, video) during the review process in Labeling Jobs.
 
 **Formula:**<br>
-`Avg Review Time = Total Review Time / Number of labels reviewed`
+`Average Review Time = Total Review Time / Number of reviewed assets`
+
+This metric reflects the **average amount of active time** a reviewer spent evaluating each asset — including actions such as opening the asset, viewing the annotations, and accepting or rejecting them.
+
+{% hint style="info" %}
+**Note:** The system does **not track interactions with individual annotation objects** during review. Therefore, this time is calculated **per asset**, not per object or tag.
+{% endhint %}
 
 **How to Use:**<br>
-Helps measure reviewer workload and review process efficiency.
+Helps assess the **typical effort** reviewers spend on checking each asset and can be useful for optimizing review workflows or balancing review workload across the team.
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-avg-review-time.jpg" alt=""><figcaption></figcaption></figure>
 <br>
@@ -275,7 +315,7 @@ An essential table that displays statistics for each individual team member.
 * **Created Objects** – number of objects created by the member during the selected period
 * **Created Tags** – number of tags assigned by the member during the selected period
 * **Labeling Speed** is the number of new objects annotated by a user per **hour of active work in the annotation interface**.
-“Active work” means the time when the user is creating shapes or performing other annotation actions in Labeling Jobs or queues, excluding periods of inactivity (no actions for more than 5 minutes) and time spent outside these tasks.
+“Active work” means the time when the user is creating geometries or performing other annotation actions in Labeling Jobs or queues, excluding periods of inactivity (no actions for more than 5 minutes) and time spent outside these tasks.
 
   So, the speed is calculated as:<br>
   `Labeling Speed = Number of created objects / Active labeling time`
@@ -288,7 +328,7 @@ An essential table that displays statistics for each individual team member.
 * **Assets Accepted (count)** – number of accepted assets
 * **Performed Reviews** – number of assets reviewed by the member (as a reviewer)
 * **Submitted Assets** – number of assets submitted for review (as an annotator)
-* **Labeling Time (min)** – total active time spent in the annotation interface
+* **Labeling Time (min)** – total active time spent on creating or editing objects (geometries) in the annotation interface
 * **Member ID**
 
 **How to use it:**<br>
