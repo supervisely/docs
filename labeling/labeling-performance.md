@@ -20,6 +20,8 @@ In the upper-right corner of the page, you’ll find several filters that direct
 * **Project filter**
 * **Labeling Job filter**
 
+<figure><img src="../.gitbook/assets/labeling-performance/lp-filters.jpg" alt=""><figcaption></figcaption></figure>
+
 These filters allow you to finely customize the statistics for your specific needs and obtain the most relevant data for your analysis.
 
 For example, if you filter by a **specific project**, all related **Labeling Jobs** and annotation activity will be shown in the charts.
@@ -33,8 +35,7 @@ You can combine filters, such as selecting both a **project** and a specific **j
 - Compare performance across different projects,
 - Track progress for individual jobs,
 - Analyze team efficiency with precision.
-
-<figure><img src="../.gitbook/assets/labeling-performance/lp-filters.jpg" alt=""><figcaption></figcaption></figure>
+<br>
 <br>
 
 **Track progress or regress**
