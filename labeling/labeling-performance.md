@@ -174,7 +174,8 @@ Enables you to evaluate the overall annotation workload and how productivity cha
 ## 4. Labeling Actions
 
 **What it shows:**<br>
-Total number of labeling actions, including object creation (bounding boxes, polygons, etc.) and tag assignments.
+The total number of labeling actions, specifically including the creation of objects (geometries) and the assignment of pre-existing tags directly within the labeling tool.<br>
+It **does not** include actions like creating or defining classes or tags as entities in the project’s Definitions tab.
 
 **How to Use:**<br>
 Provides a detailed view of actual annotation activity, independent of asset status.
@@ -185,7 +186,13 @@ Provides a detailed view of actual annotation activity, independent of asset sta
 ## 5. Team Activity Heatmap
 
 **What it shows:**<br>
-This chart visualizes the daily annotation activity of team members, measured by the number of labeling actions performed each day. Labeling actions include the creation, editing, or deletion of objects (geometries) and the assignment of tags within Labeling Jobs or Queues.
+This chart visualizes the daily annotation activity of team members, measured by the number of labeling actions performed each day.<br>
+Labeling actions in this chart include:
+- Creating, editing, and deleting objects (geometries) in the labeling tool
+- Assigning tags, editing tag values, and removing tags within the labeling tool
+- Changing the status of an asset (Submitted, Accepted, or Rejected) — performed by either annotators or reviewers
+<br>
+<br>
 
 **How to Use:**<br>
 * Quickly identify high-activity and low-activity days across the team.
