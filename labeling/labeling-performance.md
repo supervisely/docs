@@ -63,12 +63,12 @@ The number of assets (images, videos, DICOM volumes, point clouds) whose status 
 
 * **Pending** — the asset is waiting to be annotated:
 
-* In **Labeling Jobs**, this means the asset has been assigned but annotation hasn't started yet.
-* In **Queues**, this status may include both assets waiting to be annotated and those currently in progress.
+  * In **Labeling Jobs**, this means the asset has been assigned but annotation hasn't started yet.
+  * In **Queues**, this status may include both assets waiting to be annotated and those currently in progress.
 
-{% hint style="info" %}
-**Note:** The `Pending` status does **not** depend on the job’s creation date. Even if a Labeling Job was created a year ago, its assets will still appear in this chart as long as the job remains active and is not finished or stopped.
-{% endhint %}
+  {% hint style="info" %}
+  **Note:** The `Pending` status does **not** depend on the job’s creation date. Even if a Labeling Job was created a year ago, its assets will still appear in this chart as long as the job remains active and is not finished or stopped.
+  {% endhint %}
 
 * **Submitted** — annotation has been completed and the asset has been submitted for review.
 
