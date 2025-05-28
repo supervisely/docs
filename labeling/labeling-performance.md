@@ -43,13 +43,13 @@ You can quickly and visually monitor performance progress or decline for the sel
 
 All the following chart sections follow the same structure:
 
-1. The large number at the top displays the total number of annotated items (such as assets, objects, or actions) based on the selected time filter.
+1. The **large number** at the top displays the **total number of annotated items** (such as assets, objects, or actions) based on the selected time filter.
 
-2. To the right of this number is a percentage comparison showing how much better or worse the current value is compared to the average for a longer reference period (usually the next available time interval in the filter list).
+2. To the right of this number is a **percentage comparison** showing how much better or worse the current value is compared to the average for a longer reference period (usually the next available time interval in the filter list).
 
-3. The chart below shows this next time interval in detail.
+3. The **chart** below shows this next time interval in detail.
 
-<figure><img src="../.gitbook/assets/labeling-performance/lp-main-princip.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/labeling-performance/lp-main-princip1.jpg" alt=""><figcaption></figcaption></figure>
 
 # Chart explanations
 
