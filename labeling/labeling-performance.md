@@ -185,10 +185,12 @@ Provides a detailed view of actual annotation activity, independent of asset sta
 ## 5. Team Activity Heatmap
 
 **What it shows:**<br>
-Annotator activity within the current team, measured by the number of labeling actions per day.
+This chart visualizes the daily annotation activity of team members, measured by the number of labeling actions performed each day. Labeling actions include the creation, editing, or deletion of objects (geometries) and the assignment of tags within Labeling Jobs or Queues.
 
 **How to Use:**<br>
-Identifies spikes and drops in team activity. Useful for workload management and performance evaluation.
+* Quickly identify high-activity and low-activity days across the team.
+* Spot productivity trends or potential issues (e.g., inactivity, inconsistent workloads).
+* Use this data to better allocate resources, balance workloads, or adjust deadlines.
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-team-activity1.jpg" alt=""><figcaption></figcaption></figure>
 <br>
