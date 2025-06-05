@@ -6,10 +6,10 @@ This project aims to provide an effective automated solution for monitoring beha
 
 The core computer vision task involves Temporal Action Localization - precisely identifying the start and end timestamps of these specific mouse actions in the videos. Once these temporal boundaries are established, researchers can then calculate the duration and frequency of each action type. By comparing the behavioral analysis results from pre-treatment and post-treatment videos, researchers can objectively determine whether the experimental treatment has produced positive, negative, or neutral effects on mouse behavior.
 
-**Data type:** Video
-**Task types:** Temporal Action Localization, Object Detection
-**Used models:** [MVD](https://github.com/ruiwang2021/mvd), [RT-DETRv2](https://github.com/lyuwenyu/RT-DETR)
-**Pre-processing:** Video frames extraction and sampling, object detection and cropping the frames, trimming the video into segments
+**Data type:** Video  
+**Task types:** Temporal Action Localization, Object Detection  
+**Used models:** [MVD](https://github.com/ruiwang2021/mvd), [RT-DETRv2](https://github.com/lyuwenyu/RT-DETR)  
+**Pre-processing:** Video frames extraction and sampling, object detection and cropping the frames, trimming the video into segments  
 
 ## Solution Approach
 
