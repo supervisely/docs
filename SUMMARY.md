@@ -169,6 +169,8 @@
   * [Overview](neural-networks/custom-model-integration/overview.md)
   * [Custom Inference](neural-networks/custom-model-integration/integrate-custom-inference.md)
   * [Custom Training](neural-networks/custom-model-integration/integrate-custom-training.md)
+* Solutions
+  * [Temporal Action Localization with MVD](solution/action_recognition/temporal_action_localization_with_mvd.md)
 * [Legacy](neural-networks/legacy/README.md)
   * [Starting with Neural Networks](neural-networks/legacy/overview/overview.md)
   * [Train custom Neural Networks](neural-networks/legacy/custom-nn/custom-nn.md)
