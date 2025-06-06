@@ -31,3 +31,16 @@ redirects:
   labeling/editors/images: labeling/images/README.md
   labeling/editors/images/: labeling/images/README.md
   customization/agents/agent-storage: agents/agent-storage/agent-storage.md
+  data-organization/quality-assurance-and-statistics: data-organization/project-dataset/quality-assurance-and-statistics/README.md
+  data-organization/quality-assurance-and-statistics/practical-applications-of-statistics/: data-organization/project-dataset/quality-assurance-and-statistics/practical-applications-of-statistics.md
+  data-organization/quality-assurance-and-statistics/practical-applications-of-statistics: data-organization/project-dataset/quality-assurance-and-statistics/practical-applications-of-statistics.md
+  data-organization/projects/definitions: data-organization/project-dataset/define-classes-tags.md
+  data-organization/projects/definitions/: data-organization/project-dataset/define-classes-tags.md
+  data-organization/project/projects: data-organization/project-dataset/create.md
+  data-organization/project/projects/: data-organization/project-dataset/create.md
+  data-organization/project/datasets/datasets: data-organization/project-dataset/create.md
+  data-organization/project/datasets/datasets/: data-organization/project-dataset/create.md
+  data-organization/projects/datasets: data-organization/project-dataset/create.md
+  data-organization/projects/datasets/: data-organization/project-dataset/create.md
+  data-organization/projects/collections: data-organization/project-dataset/collections.md
+  data-organization/projects/collections/: data-organization/project-dataset/collections.md
