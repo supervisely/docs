@@ -95,15 +95,15 @@ Analyzing images in the dataset based on the number of annotations for each clas
 * Quickly locate specific images or classes of interest within the dataset.
 * Clicking on any row in the table allows users to preview the selected image with labels, allowing them to instantly locate an object or class of interest in the dataset.
 
-<figure><img src="../../../.gitbook/assets/images-statistic-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/qa-images.jpg" alt=""><figcaption></figcaption></figure>
 
-**Components**:\
-\
+**Components**:
+
 The `Images` table provides detailed information about each image contained in the dataset:
 
 **Image** - Each image is identified by a unique name or identifier.
 
-**Split** - Images are categorized based on the dataset split they belong to, such as training, validation, or test.
+**Dataset** - Each dataset is identified by a unique name.
 
 **Dimensions** - Height and width dimensions of each image are provided in pixels, aiding in understanding the scale and resolution of the dataset.
 
@@ -148,7 +148,7 @@ Clicking on that cell would display a list of all images in your dataset that co
 * Clicking on a cell in the heatmap displays a list of images containing the specified number of objects for the selected class. This feature allows users to explore specific object distributions and analyze the corresponding images in detail in a thumbnail preview mode or open them in the image annotation toolbox.
 * Users have the option to download the heatmap chart in various formats, including `SVG`, `PNG`, and `CSV`, for further analysis or documentation purposes.
 
-<figure><img src="../../../.gitbook/assets/object-distr-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/qa-heatmap.jpg" alt=""><figcaption></figcaption></figure>
 
 **Components**:
 
@@ -158,14 +158,14 @@ The heatmap chart presents the following axes:
 
 **Horizontal X Axis (Number of Objects):** Represents the number of objects on the image (e.g., 0, 1, 2, 3 objects, etc...).
 
-## Object Class Sizes and Overall Properties
+## Object Class Sizes
 
 The Class Sizes table provides detailed size properties of objects for each class in the dataset, offering insights into their dimensions and size variations. Users can interact with the table to examine various size metrics and view images with annotations of selected classes, facilitating comprehensive analysis and fast data understanding.
 
 * Clicking on a row allows users to view images with all object annotations of the selected class, simplifying visual examination, analysis or correction.
 * Sortable columns enable users to identify classes with the smallest or largest objects, as well as understand size differences between classes.
 
-<figure><img src="../../../.gitbook/assets/class-sizes-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/qa-class_sizes.jpg" alt=""><figcaption></figcaption></figure>
 
 **Components**:
 
