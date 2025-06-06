@@ -167,4 +167,4 @@ Example:
 * [\[CLI Tool Beta\] Upload projects in Supervisely format](https://developer.supervisely.com/getting-started/command-line-interface/cli-tool/workflow-automation#upload-projects-in-supervisely-format)
 *   [\[Supervisely Ecosystem\] Import images in Supervisely format](https://ecosystem.supervisely.com/apps/import-images-in-sly-format)
 
-    ![](https://i.imgur.com/Y6RcQPT.png)
+    <img src="https://i.imgur.com/Y6RcQPT.png" height="60">

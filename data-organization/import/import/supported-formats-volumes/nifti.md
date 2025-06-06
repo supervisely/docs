@@ -88,28 +88,6 @@ Structure example for instance segmentation:
 └──🩻 sag_inference_1.nii
 ```
 
-### Class color map file (optional)
-
-The converter will look for an optional `TXT` file in the input directory. If present, it will be used to create the classes with names and colors corresponding to the pixel values in the NIfTI files.
-
-The TXT file should be structured as follows:
-
-```txt
-1 Femur 255 0 0
-2 Femoral cartilage 0 255 0
-3 Tibia 0 0 255
-4 Tibia cartilage 255 255 0
-5 Patella 0 255 255
-6 Patellar cartilage 255 0 255
-7 Miniscus 175 175 175
-```
-
-where:
-
-- 1, 2, ... are the pixel values in the NIfTI files
-- Femur, Femoral cartilage, ... are the names of the classes
-- 255, 0, 0, ... are the RGB colors of the classes
-
 ### **Example 3: grouped by plane w/ multiple items**
 
 If you need to import multiple items at once, place each item in a separate folder. 
@@ -145,6 +123,89 @@ Structure example for multiple items directory:
 │  ├──🩻 cor_inference_3.nii
 │  ├──🩻 sag_anatomic.nii
 └──└──🩻 sag_inference_1.nii
+```
+
+### Class color map file (optional)
+
+The converter will look for an optional `TXT` file in the input directory. If present, it will be used to create the classes with names and colors corresponding to the pixel values in the NIfTI files.
+
+The TXT file should be structured as follows:
+
+```txt
+1 Femur 255 0 0
+2 Femoral cartilage 0 255 0
+3 Tibia 0 0 255
+4 Tibia cartilage 255 255 0
+5 Patella 0 255 255
+6 Patellar cartilage 255 0 255
+7 Miniscus 175 175 175
+```
+
+where:
+
+- 1, 2, ... are the pixel values in the NIfTI files
+- Femur, Femoral cartilage, ... are the names of the classes
+- 255, 0, 0, ... are the RGB colors of the classes
+
+
+# Upload annotations separately
+
+Plane-structured converter supports uploading annotations separately (uploading annotations to existing volumes). This functionality supports both dataset-scope and project-wide annotation imports.
+
+By default, annotations are matched with their corresponding volumes based on filenames. However, a custom mapping can be provided via a `.json` file to explicitly define the mapping.
+
+Input structure example for dataset scope:
+
+```text
+🩻 axl_inference_1.nii
+🩻 axl_inference_2.nii
+🩻 cor_inference_1.nii
+🩻 cor_inference_3.nii
+📄 color_map.txt # ⬅︎ optional file
+📄 mapping.json # ⬅︎ optional file
+```
+
+Input structure example for project-wide import:
+
+```text
+📄 mapping.json # ⬅︎ optional file
+📄 cls_color_map.txt  # ⬅︎ optional file
+📂 dataset_name_1
+├──🩻 axl_inference_1.nii
+├──🩻 axl_inference_2.nii
+└──🩻 cor_inference_3.nii
+📂 dataset_name_2
+├──🩻 axl_inference_1.nii
+├──🩻 axl_inference_2.nii
+└──🩻 cor_inference_3.nii
+📂 dataset_name_3
+├──🩻 axl_inference_1.nii
+├──🩻 axl_inference_2.nii
+└──🩻 cor_inference_3.nii
+```
+
+### JSON mapping
+
+Mapping structure should be as follows: 
+```
+{
+    "cor_inference_1.nii": 123,
+    "sag_mask_2.nii": 456
+}
+```
+Where key should be annotation filename, and volume ID as value
+
+If you want to import annotations for the entire project via a JSON mapping:
+
+1. Pack annotations inside folders with corresponding dataset name as in an example above
+2. Specify the dataset name in a `.json` file in a path-like manner (`dataset_name/annotation_filename`)
+
+Example JSON structure with dataset specification:
+```
+{
+    "dataset1/cor_inference_1.nii": 123,
+    "dataset2/sag_mask_2.nii": 456
+}
 ```
 
 # Useful links

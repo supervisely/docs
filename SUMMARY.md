@@ -20,6 +20,7 @@
   * [Supported annotation formats](import-and-export/import/supported-annotation-formats/README.md)
     * [Images](import-and-export/import/supported-annotation-formats/images/README.md)
       * [🤖 Supervisely JSON](data-organization/import/import/supported-formats-images/supervisely.md)
+      * [🤖 Supervisely Blob](data-organization/import/import/supported-formats-images/supervisely-blob.md)
       * [COCO](data-organization/import/import/supported-formats-images/coco.md)
       * [Yolo](data-organization/import/import/supported-formats-images/yolo.md)
       * [Pascal VOC](data-organization/import/import/supported-formats-images/pascal.md)

@@ -110,8 +110,8 @@ You can create a queue with **Collection** as the source, and later add the desi
 3. As you import new data or identify specific items for annotation, add them to the collection.
 4. The queue will automatically reflect the collection's contents.
 
-{% hint style="info" %}
-Note: This setup allows dynamic control over labeling pipelines, especially useful when data arrives in batches or needs manual pre-selection.
+{% hint style="success" %}
+This setup allows dynamic control over labeling pipelines, especially useful when data arrives in batches or needs manual pre-selection.
 {% endhint %}
 
 {% hint style="info" %} Note: Collections do not duplicate data — they act as smart references to existing items across multiple datasets. {% endhint %}
@@ -125,6 +125,231 @@ Collections are ideal for creating reusable subsets of data. For example, after 
 - Simplifies repeated access to specific groups of items
 - No need to store or pass item ID lists in code
 - Easily maintain and update the selection over time
+
+## Automating Collection Management with Python SDK
+
+Learn how to programmatically create, retrieve, and manage collections using the Supervisely Python SDK. The following examples provide step-by-step guidance for efficient collection handling.
+Check out the [SDK Reference](https://supervisely.readthedocs.io/en/stable/sdk/supervisely.api.entity_collections.EntitiesCollectionApi.html) for more details.
+
+{% tabs %}
+{% tab title="Create" %}
+
+```python
+import supervisely as sly
+
+api = sly.Api()
+
+new = api.entity_collections.create(
+    project_id=project_id,
+    name="my collection",
+    description="my collection description",
+)
+print(new.id)
+# Output: 123
+```
+
+{% endtab %}
+{% tab title="Get info" %}
+
+```python
+import supervisely as sly
+
+api = sly.Api()
+
+collection_id = 2
+info = api.entities_collection.get_info_by_id(collection_id)
+print(info.name)
+# Output: my collection
+```
+
+{% endtab %}
+{% tab title="List Collections" %}
+
+```python
+import supervisely as sly
+
+api = sly.Api()
+
+project_id = 1
+collections = api.entities_collection.get_list(project_id)
+for collection in collections:
+    print(collection.name)
+# Output: ["my collection", "another collection"]
+```
+
+{% endtab %}
+{% tab title="Add items" %}
+
+```python
+import supervisely as sly
+
+api = sly.Api()
+
+collection_id = 2
+item_ids = [525, 526]
+res = api.entities_collection.add_items(collection_id, item_ids)
+print(res)
+# Output: [
+#   {"id": 1, "entityId": 525, 'createdAt': '2025-04-10T08:49:41.852Z'},
+#   {"id": 2, "entityId": 526, 'createdAt': '2025-04-10T08:49:41.852Z'}
+# ]
+```
+
+{% endtab %}
+{% tab title="Get items" %}
+
+```python
+import supervisely as sly
+
+api = sly.Api()
+
+collection_id = 123
+project_id = 111
+res = api.entities_collection.get_items(collection_id, project_id)
+print(res)
+# Output: [
+#   ImageInfo(id=525, name='image1.jpg', ...),
+#   ImageInfo(id=526, name='image2.jpg', ...)
+# ]
+```
+
+{% endtab %}
+{% tab title="Remove items" %}
+
+```python
+import supervisely as sly
+
+api = sly.Api()
+
+collection_id = 2
+item_ids = [525, 526, 527]
+res = api.entities_collection.remove_items(collection_id, item_ids)
+# print(res)
+# Output: [{"id": 1, "entityId": 525}, {"id": 2, "entityId": 526}]
+```
+
+{% endtab %}
+{% tab title="Remove collection" %}
+
+```python
+import supervisely as sly
+
+api = sly.Api()
+
+collection_id = 2
+api.entities_collection.remove(collection_id)
+```
+
+{% endtab %}
+{% endtabs %}
+
+You can also use Collections to create a **Labeling Queue** programmatically. This allows you to automate the process of labeling data based on specific collections. Adding new items to a collection will automatically update the Labeling Queue, allowing for dynamic management of your annotation tasks.
+
+Here's a simple example of how to integrate collections into your labeling workflow:
+
+Script 1 creates a collection and adds items to it. The second script checks the queue stats, retrieves items that finished labeling and removes them from the collection (for example, if you want to move them to another project or collection).
+
+<details>
+
+<summary><strong>Script 1 (create Collection and Labeling Queue)</strong></summary>
+
+```python
+import random
+import supervisely as sly
+
+api = sly.Api()
+
+project_id = 1
+
+all_images = api.image.get_list(project_id=project_id)
+
+# let's choose 10 random images
+random_images = random.sample(all_images, 10)
+
+# create a collection
+collection = api.entity_collections.create(
+    project_id=project_id,
+    name="Collection 1 for labeling",
+)
+print(f"Collection created: {collection.id}")
+
+# get my info
+me = api.users.get_my_info()
+
+# create a labeling queue
+queue = api.labeling_queue.create(
+    collection_id=collection.id,
+    name="Labeling Queue 1",
+    user_ids=[me.id],
+    reviewer_ids=[me.id],
+    dynamic_classes=True,
+    dynamic_tags=True,
+    allow_review_own_annotations=True,
+    skip_complete_job_on_empty=True,
+)
+print(f"Labeling queue created: {queue.id}")
+
+# collection is empty, let's add items
+item_ids = [image.id for image in random_images]
+api.entities_collection.add_items(
+    collection_id=collection.id,
+    item_ids=item_ids,
+)
+
+# after
+
+```
+
+```bash
+python script1.py
+```
+
+</details>
+<details>
+
+<summary><strong>Script 2 (get labeled items and remove them from collection)</strong></summary>
+
+```python
+import supervisely as sly
+import time
+
+api = sly.Api()
+
+project_id = 1
+collection_id = 2
+queue_id = 3
+
+res = api.labeling_queue.get_entities_all_pages(
+    queue_id,
+    collection_id,
+    status="accepted",
+)
+images = res["images"]
+img_ids = [i["id"] for i in images]
+
+# create a new collection
+new_collection = api.entity_collections.create(
+    project_id=project_id,
+    name="Collection 2 for training",
+)
+print(f"Collection created: {new_collection.id}")
+
+# add items to the new collection
+api.entities_collection.add_items(
+    collection_id=new_collection.id,
+    item_ids=img_ids,
+)
+# remove items from the old collection
+api.entities_collection.remove_items(
+    collection_id=collection_id,
+    item_ids=img_ids,
+)
+```
+
+```bash
+python script2.py
+```
+</details>
 
 ## API support
 
