@@ -40,5 +40,7 @@ redirects:
   data-organization/project/projects/: data-organization/project-dataset/create.md
   data-organization/project/datasets/datasets: data-organization/project-dataset/create.md
   data-organization/project/datasets/datasets/: data-organization/project-dataset/create.md
+  data-organization/projects/datasets: data-organization/project-dataset/create.md
+  data-organization/projects/datasets/: data-organization/project-dataset/create.md
   data-organization/projects/collections: data-organization/project-dataset/collections.md
   data-organization/projects/collections/: data-organization/project-dataset/collections.md
