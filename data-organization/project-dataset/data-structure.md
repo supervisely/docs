@@ -86,5 +86,5 @@ Key features of project versioning include:
 <figure><img src="../../.gitbook/assets/data-structure/project-versions.jpg" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-**Note**: **Project versions** is not available on the Free Plan.Episodes).
+**Note**: **Project versions** is not available on the Free Plan.
 {% endhint %}
