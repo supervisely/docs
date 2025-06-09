@@ -32,7 +32,7 @@ The Supervisely system strictly enforces these rules and will not allow any acti
 
 A Member with the Admin role can invite other Members to their **Team**. The invited member will gain access to all projects within this **Team**.
 
-<figure><img src="../../.gitbook/assets/data-structure/d-s-default-scheme2a.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/data-structure/d-s-default-scheme2.jpg" alt=""><figcaption></figcaption></figure>
 
 In addition to their default **Team**, a Member can also create new **Teams** to collaborate on separate projects or with different groups.
 
