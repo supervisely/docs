@@ -1,13 +1,11 @@
 ---
 description: >-
- new
+    This article about the new labeling interface for 3D Point Clouds in Supervisely that introduces a significantly enhanced workflow, offering extended functionality and improved usability.
 ---
 
 # Overview: New Interface for 3D Point Cloud Annotation
 
-The new labeling interface for 3D Point Clouds in Supervisely introduces a significantly enhanced workflow, offering extended functionality and improved usability. This version replaces the previous toolbox, which is now marked as **Legacy**. Users can switch back to the legacy version using the **Switch to Legacy Tool** button if needed.
-
-This article outlines the main features of the new tool.
+The new labeling interface for 3D Point Clouds replaces the previous toolbox, which is now marked as **Legacy**. Users can switch back to the legacy version using the **Switch to Legacy Tool** button if needed.
 
 ## Key Features
 
