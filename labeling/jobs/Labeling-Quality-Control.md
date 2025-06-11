@@ -5,10 +5,7 @@ description: >-
 
 # Labeling Quality Control
 
-We hope you're already familiar with the labeling quality control functionality in **Supervisely** for various project types.
-In this article, we will explore the **extended Quality Control** feature for image projects.
-
-To start the review process, a **Labeling Job** of the **Quality Control** type is created. Within this job, the reviewer gets access to the annotated data and can interact with each geometry, class and tag.
+The Quality Control functionality in **Supervisely** enables you to assign a random sample of annotated images to one or more reviewers for validation. Reviewers assess the correctness of assigned classes, object geometries, and applied tags. Upon completion, the system generates a summary report providing insights into the overall labeling quality of the project.
 
 ## Overview
 
@@ -25,9 +22,9 @@ To start the **extended Quality Control** process in an image project, follow th
 
     The **sample size** specifies the number of random images that will be taken from this project for validation.
 
-    If you select multiple reviewers, they will receive the same number of random images from the sample.
+    If you select multiple reviewers, each of them will receive an equal portion of the sample, with random images assigned individually.
 
-6. Click **`Creat`** button to start a new labeling task of the **extended Quality Control** type.
+6. Click the **`Create`** button to start a new labeling task of the **extended Quality Control** type.
 
 <figure><img src="../../.gitbook/assets/labeling-quality-control/labeling-q-c-2.jpg" alt=""><figcaption></figcaption></figure>
 
@@ -46,7 +43,7 @@ Each object includes an additional panel called **Quality Check**, which contain
 
 <figure><img src="../../.gitbook/assets/labeling-quality-control/labeling-q-c-4a.jpg" alt=""><figcaption></figcaption></figure>
 
-This functionality allows the reviewer to indicate exactly what needs to be fixed to the annotator.
+This functionality allows the reviewer to indicate exactly what needs to be fixed by the annotator.
 
  For example, a reviewer can **reject** one or more **classes** or **geometries** in the image, providing detailed feedback on what needs to be fixed. The final click on the main **`Accept`** or **`Reject`** button—applied to the entire image—determines the status of all remaining classes and geometries that haven't been individually reviewed.
  
@@ -73,8 +70,8 @@ In the **QC Stats** section you will see the following metrics:
 - **Geometric Accuracy** - ratio of annotation objects with geometry marked as correct, divided by total number of reviewed objects;
 - **Class Accuracy** - ratio of annotation objects with class marked as correct, divided by total number of reviewed objects;
 - **Tags Accuracy** - ratio of tags marked as correct, divided by total number of reviewed tags;
-- **Annotations Recall** - ratio of reviewed annotation objects, divided by total number of anntation objects in the labeling job;
-- **Reviewed Annotations** - total number of reviewed and non reviewed annotation objects.
+- **Annotations Recall** - ratio of reviewed annotation objects, divided by total number of annotation objects in the labeling job;
+- **Reviewed Annotations** - total number of reviewed and non-reviewed annotation objects.
 
 ## 2. Error Region
 
@@ -83,7 +80,7 @@ In the **QC Stats** section you will see the following metrics:
 <figure><img src="../../.gitbook/assets/labeling-quality-control/labeling-q-c-8.jpg" alt=""><figcaption></figcaption></figure>
 
 In the settings window you can specify the details of the **Error Region**:
-1. Annotation or other reason is missing,
+1. An annotation or another element is missing,
 2. Specify the class of the missing object (geometry),
 3. The number of missing objects (geometry),
 4. Leave an explanatory comment.
@@ -94,4 +91,4 @@ In the settings window you can specify the details of the **Error Region**:
 
 **Technical details of the Error Region function:**
 
-Each **Error Region** label is saved as a hidden class _$sly.error.region_ and is visible in the list of classes in the Project in the Definition tab.
+Each **Error Region** label is saved as a hidden class _$sly.error.region_ and is visible in the list of classes under the Definition tab of the project.
