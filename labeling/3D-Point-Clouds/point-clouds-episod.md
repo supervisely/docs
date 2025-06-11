@@ -53,5 +53,3 @@ The previous point cloud labeling tool remains available under the **Legacy** st
 ## Summary
 
 The updated interface introduces powerful new tools for annotating 3D point clouds and related images, with full support for time-based annotation and multi-modal synchronization. These enhancements improve the accuracy, scalability, and usability of annotation workflows for 3D datasets.
-
-Additional documentation and examples will follow as the interface nears completion.
