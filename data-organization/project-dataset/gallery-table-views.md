@@ -15,7 +15,7 @@ The data display modes on the project list page and within a project differ slig
 
 ## On the Project List Page
 
-On the main project list page, you can switch between two views. Use the toggle icon in the upper right corner of the page to switch between these views:
+On the main project list page (inside a workspace), you can toggle between two display modes. Use the **view switcher icon** in the upper-right corner of the page to switch between **gallery view** and **table view**.
 
 ### Gallery View
 
