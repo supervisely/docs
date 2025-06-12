@@ -5,28 +5,77 @@ description: >-
 
 # Gallery & Table Views
 
+Supervisely provides multiple data display modes to help you **explore and analyze your data more effectively**. Depending on the context, you can choose between visual gallery-based views and structured table-based views. These display modes are available both on the **project list page** and **inside individual projects and datasets**.
+
+Gallery views are best suited for getting a quick **visual overview** of your data. Table views offer a **structured and sortable layout**, which helps when comparing metadata or filtering based on specific attributes.
+
+These features are designed to help teams **understand the composition of their datasets**, **inspect content before labeling**, and **navigate large projects more efficiently**.
+
 The data display modes on the project list page and within a project differ slightly:
 
-### 1. On the Project List Page
+## On the Project List Page
 
-On the project list page, you can switch between card view and table view to display your projects. Use the icon in the upper right corner to toggle between these views.
+On the main project list page (inside a workspace), you can toggle between two display modes. Use the **view switcher icon** in the upper-right corner of the page to switch between **gallery view** and **table view**.
 
-<figure><img src="../../.gitbook/assets/gallery-tables-views/gallery-hierarchy-project-list.png" alt=""><figcaption></figcaption></figure>
+### Gallery View
 
-### 2. Inside a project
+Projects are displayed as visual cards with thumbnails (default), making it easier to recognize them at a glance.
 
-Inside a project — on the datasets page, as well as within individual datasets — there is also functionality that allows you to change how data is displayed. In the upper right corner next to the "Add" button, click the button to adjust the data display settings on the page. By default, data is displayed as a dataset gallery with a hierarchy.
+<figure><img src="../../.gitbook/assets/gallery-tables-views/gallery-hierarchy-project-list.jpg" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/gallery-tables-views/gallery-hierarchy.png" alt=""><figcaption></figcaption></figure>
+### Table View
 
-The “Expanded Gallery” mode will show all data stored within datasets inside the project on a single level within the current project.
+Projects are listed in a tabular format, which allows for sorting by various parameters such as **project name**, **creator**, and **project size** (based on the number of datasets and files inside each project).
 
-<figure><img src="../../.gitbook/assets/gallery-tables-views/gallery-expanded.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gallery-tables-views/table-hierarchy-project-list.jpg" alt=""><figcaption></figcaption></figure>
 
-The “Hierarchical Table” mode displays the data as datasets in a table format.
+{% hint style="info" %}
+**Note**: To select all projects, switch to the **Table View** mode.
+{% endhint %}
 
-<figure><img src="../../.gitbook/assets/gallery-tables-views/table-hierarchy.png" alt=""><figcaption></figcaption></figure>
+## Inside a Project
 
-The “Expanded Table” mode displays the data in a table that includes all data from different datasets within one project on a single level.
+Within a specific project — whether on the datasets overview page or inside an individual dataset — you have additional display modes to choose from. These let you control how files and annotations are visualized.
 
-<figure><img src="../../.gitbook/assets/gallery-tables-views/table-expanded.png" alt=""><figcaption></figcaption></figure>
+Use the display settings icon located in the upper-right corner of the screen (next to the **Add** button) to switch between modes:
+
+### Gallery with Hierarchy
+
+Datasets are displayed as visual cards with thumbnails (default), making it easier to recognize them at a glance.
+
+<figure><img src="../../.gitbook/assets/gallery-tables-views/gallery-hierarchy.jpg" alt=""><figcaption></figcaption></figure>
+
+### Gallery Expanded
+
+Flattens all datasets and sub-datasets into a single, continuous gallery. This is helpful for **visually scanning large volumes of data** across the entire project.
+
+<figure><img src="../../.gitbook/assets/gallery-tables-views/gallery-expanded.jpg" alt=""><figcaption></figcaption></figure>
+
+### Table with Hierarchy
+
+Displays a **nested table** that shows the list of datasets and their files at the **top level** of the project. Useful for **reviewing dataset structure** and inspecting associated metadata in a structured format.
+
+<figure><img src="../../.gitbook/assets/gallery-tables-views/table-hierarchy.jpg" alt=""><figcaption></figcaption></figure>
+
+### Table Expanded
+
+Displays all data from all datasets — including nested sub-datasets — in a **single-level table**. Ideal for **sorting and comparing** files across the entire project, regardless of their position in the dataset hierarchy.
+
+<figure><img src="../../.gitbook/assets/gallery-tables-views/table-expanded.jpg" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+**Note**: To select all datasets within a project, switch to one of the **Table View** modes.
+{% endhint %}
+
+## Grid Size (Gallery Views Only)
+
+When using any gallery mode, you can adjust the **grid size** to control how many items are shown per row:
+
+- Smaller grid size: More thumbnails per row, helpful for scanning large datasets.
+- Larger grid size: Bigger previews, better suited for reviewing image or point cloud content in detail.
+
+This allows users to **customize the visual density** of the gallery depending on their review or labeling context.
+
+#### Summary
+
+Different display modes are tailored for different stages of dataset management — from **visual exploration** to **structured inspection and filtering**. By choosing the right view, users can better navigate complex projects, understand dataset composition, and prepare data for annotation workflows.
