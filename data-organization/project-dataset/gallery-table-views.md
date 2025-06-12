@@ -17,11 +17,15 @@ The data display modes on the project list page and within a project differ slig
 
 On the main project list page, you can switch between two views. Use the toggle icon in the upper right corner of the page to switch between these views:
 
-- **Card View** (default): Projects are displayed as visual cards with thumbnails, making it easier to recognize them at a glance.
+### Gallery View
+
+Projects are displayed as visual cards with thumbnails (default), making it easier to recognize them at a glance.
 
 <figure><img src="../../.gitbook/assets/gallery-tables-views/gallery-hierarchy-project-list.jpg" alt=""><figcaption></figcaption></figure>
 
-- **Table View**: Projects are listed in a tabular format, which allows for sorting by various parameters such as **project name**, **creator**, and **project size** (based on the number of datasets and files inside each project).
+### Table View
+
+Projects are listed in a tabular format, which allows for sorting by various parameters such as **project name**, **creator**, and **project size** (based on the number of datasets and files inside each project).
 
 <figure><img src="../../.gitbook/assets/gallery-tables-views/table-hierarchy-project-list.jpg" alt=""><figcaption></figcaption></figure>
 
@@ -35,21 +39,27 @@ Within a specific project — whether on the datasets overview page or inside an
 
 Use the display settings icon located in the upper-right corner of the screen (next to the **Add** button) to switch between modes:
 
-### Display Modes
+### Gallery with Hierarchy
 
-- **Gallery with Hierarchy (Default)**: Displays datasets as expandable galleries. Each dataset can be opened to view the images or point clouds it contains.
+Datasets are displayed as visual cards with thumbnails (default), making it easier to recognize them at a glance.
 
 <figure><img src="../../.gitbook/assets/gallery-tables-views/gallery-hierarchy.jpg" alt=""><figcaption></figcaption></figure>
 
-- **Gallery Expanded**: Flattens all datasets into a single, continuous gallery. This is helpful for **visually scanning large volumes of data** across the entire project.
+### Gallery Expanded
+
+Flattens all datasets and sub-datasets into a single, continuous gallery. This is helpful for **visually scanning large volumes of data** across the entire project.
 
 <figure><img src="../../.gitbook/assets/gallery-tables-views/gallery-expanded.jpg" alt=""><figcaption></figcaption></figure>
 
-- **Table with Hierarchy**: Displays a **nested table** that shows the list of datasets and their files at the **top level** of the project. Useful for **reviewing dataset structure** and inspecting associated metadata in a structured format.
+### Table with Hierarchy
+
+Displays a **nested table** that shows the list of datasets and their files at the **top level** of the project. Useful for **reviewing dataset structure** and inspecting associated metadata in a structured format.
 
 <figure><img src="../../.gitbook/assets/gallery-tables-views/table-hierarchy.jpg" alt=""><figcaption></figcaption></figure>
 
-- **Table Expanded**: Displays all data from all datasets — including nested sub-datasets — in a **single-level table**. Ideal for **sorting and comparing** files across the entire project, regardless of their position in the dataset hierarchy.
+### Table Expanded
+
+Displays all data from all datasets — including nested sub-datasets — in a **single-level table**. Ideal for **sorting and comparing** files across the entire project, regardless of their position in the dataset hierarchy.
 
 <figure><img src="../../.gitbook/assets/gallery-tables-views/table-expanded.jpg" alt=""><figcaption></figcaption></figure>
 
