@@ -13,7 +13,7 @@ These features are designed to help teams **understand the composition of their 
 
 The data display modes on the project list page and within a project differ slightly:
 
-## 1. On the Project List Page
+## On the Project List Page
 
 On the main project list page, you can switch between two views. Use the toggle icon in the upper right corner of the page to switch between these views:
 
@@ -33,7 +33,7 @@ Projects are listed in a tabular format, which allows for sorting by various par
 **Note**: To select all projects, switch to the **Table View** mode.
 {% endhint %}
 
-## 2. Inside a Project
+## Inside a Project
 
 Within a specific project — whether on the datasets overview page or inside an individual dataset — you have additional display modes to choose from. These let you control how files and annotations are visualized.
 
@@ -76,6 +76,6 @@ When using any gallery mode, you can adjust the **grid size** to control how man
 
 This allows users to **customize the visual density** of the gallery depending on their review or labeling context.
 
-### Summary
+#### Summary
 
 Different display modes are tailored for different stages of dataset management — from **visual exploration** to **structured inspection and filtering**. By choosing the right view, users can better navigate complex projects, understand dataset composition, and prepare data for annotation workflows.
