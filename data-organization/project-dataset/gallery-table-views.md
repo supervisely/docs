@@ -25,6 +25,10 @@ On the main project list page, you can switch between two views. Use the toggle 
 
 <figure><img src="../../.gitbook/assets/gallery-tables-views/table-hierarchy-project-list.jpg" alt=""><figcaption></figcaption></figure>
 
+{% hint style="info" %}
+**Note**: To select all projects, switch to the **Table View** mode.
+{% endhint %}
+
 ## 2. Inside a Project
 
 Within a specific project — whether on the datasets overview page or inside an individual dataset — you have additional display modes to choose from. These let you control how files and annotations are visualized.
@@ -48,6 +52,10 @@ Use the display settings icon located in the upper-right corner of the screen (n
 - **Table Expanded**: Displays all data from all datasets — including nested sub-datasets — in a **single-level table**. Ideal for **sorting and comparing** files across the entire project, regardless of their position in the dataset hierarchy.
 
 <figure><img src="../../.gitbook/assets/gallery-tables-views/table-expanded.jpg" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+**Note**: To select all datasets within a project, switch to one of the **Table View** modes.
+{% endhint %}
 
 ## Grid Size (Gallery Views Only)
 
