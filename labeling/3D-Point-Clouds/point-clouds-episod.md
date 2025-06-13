@@ -79,7 +79,9 @@ The new interface includes native support for AI-assisted annotation features, a
 - The converted figures are visualized directly in the point cloud view.
 - Currently supports masks. Support for 2D bounding boxes is being added.
 
-> AI Assistant features are available only to Enterprise customers with the Point Cloud module enabled.
+{% hint style="info" %}
+**Note**: AI Assistant features are available only to Enterprise customers with the Point Cloud module enabled.
+{% endhint %}
 
 ### 6. Smart Tools and Object Detection
 
@@ -89,7 +91,7 @@ In addition to AI Assistant:
 - Object Detection uses AI models to detect and place cuboids automatically over recognized shapes.
 - Reduces manual effort and improves annotation consistency.
 
-#### Summary
+## Summary
 
 The updated interface for 3D Point Cloud annotation combines powerful capabilities:
 
