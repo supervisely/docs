@@ -5,51 +5,70 @@ description: >-
 
 # Overview: New Interface for 3D Point Cloud Annotation
 
-The new labeling interface for 3D Point Clouds replaces the previous toolbox, which is now marked as **Legacy**. Users can switch back to the legacy version using the **Switch to Legacy Tool** button if needed.
+Supervisely introduces a new, more powerful interface for 3D Point Cloud annotation — replacing the previous version, which is now considered as **legacy**. For compatibility or preference, users can still access the old tool using the **Switch to Legacy Tool button**.
 
 ## Key Features
 
-### Integrated Photo Context Annotation
+### Unified 2D–3D Annotation with Integrated Photo Context
 
-The photo context panel is now a fully functional part of the labeling interface. It supports direct annotation of images linked to 3D point cloud scenes.
+The photo context panel is now seamlessly integrated into the 3D labeling interface, allowing direct annotation on images linked to 3D point cloud scenes — right inside the labeling workspace.
 
-- You can create and edit annotations such as masks, bounding boxes, and tags directly on the images.
-- These annotations are synchronized with the 3D scene, allowing for consistent labeling across modalities.
-- This integration enables more efficient annotation workflows and better control over complex scenes.
+- You can create and edit masks, bounding boxes, and tags directly on the photo context images.
 
-### Timeline Support
+- These annotations are automatically synchronized with the 3D scene and vice versa — they are a single entity in both views.
 
-The new interface introduces a timeline component similar to the one available in the video labeling tool.
+- This enables multi-modal annotation in one place, improving efficiency and making it easier to label objects that are better visible in 2D.
 
-- Allows navigating through point cloud frames or scans.
-- Supports time-based annotation and review across episodic datasets.
-- Enables users to work with sequential 3D scenes and monitor changes over time.
+- The integration empowers users to understand complex scenes faster and more accurately by combining spatial and visual data.
 
-### Linked 2D–3D Annotations
+### Timeline Navigation
 
-The new toolbox allows users to link annotations across 2D and 3D views:
+The interface introduces a timeline component, similar to the one used in video labeling.
 
-- Annotations created on images can be associated with objects in the 3D space.
-- Edits made in one view can affect the corresponding annotation in the other.
-- This improves annotation consistency and helps identify labeling errors by cross-referencing modalities.
+- Provides a comprehensive overview of the dataset across time.
 
-### Updated Interface
+- Enables easy navigation through point cloud frames or scans.
 
-The user interface has been redesigned for clarity and extensibility:
+- Supports time-based annotations for episodic or dynamic scenes — ideal for applications like autonomous driving, robotics, or industrial inspection.
 
-- A modern layout with reorganized panels and tools.
-- New dropdown menus and contextual actions (currently in development).
-- Final appearance may change; screenshots and UI walkthroughs will be added once the interface is finalized.
+- Helps track object movement, instance continuity, and scene evolution frame-by-frame.
 
-> **Note**: This documentation focuses on core functionality. Visual updates and examples will be added once the UI stabilizes.
+### Synchronized 2D–3D Annotations
+
+Annotations across 2D and 3D views are now fully connected — not just linked, but unified.
+
+- An object annotated in the image view appears instantly in 3D, and vice versa.
+
+- Any update in one modality is reflected in the other automatically.
+
+- This powerful feature greatly enhances annotation consistency, scene understanding, and labeling accuracy.
+
+- It allows users to combine the strengths of both perspectives — for example, annotating finer details in 2D while maintaining spatial context in 3D.
+
+### Modular and Flexible Interface
+
+The interface has been redesigned from the ground up for better usability and customization:
+
+- A modern, clean layout with reorganized tools and intuitive controls.
+
+- Users can freely move, resize, and dock panels and tabs to build a personalized workspace.
+
+- Dropdown menus and context-aware actions (currently in development) further streamline the labeling workflow.
+
+- The UI is still evolving — screenshots and walkthroughs will be added when finalized.
+
+{% hint style="info" %}
+**Note**: This article focuses on the core functionality. Visual updates and examples will follow in upcoming releases.
+{% endhint %}
 
 ### Access to Legacy Version
 
-The previous point cloud labeling tool remains available under the **Legacy** status.
+The previous 3D annotation interface is still available as a legacy tool. You can switch to it anytime via the `Switch to Legacy Tool` button.
 
-- You can switch to the legacy tool at any time using the **Switch to Legacy Tool** option in the interface.
-- Legacy documentation remains accessible for teams who continue using the previous workflow.
+Legacy documentation remains accessible for teams continuing to use the previous workflow.
 
 ## Summary
 
-The updated interface introduces powerful new tools for annotating 3D point clouds and related images, with full support for time-based annotation and multi-modal synchronization. These enhancements improve the accuracy, scalability, and usability of annotation workflows for 3D datasets.
+The new 3D Point Cloud annotation interface in Supervisely is a major step forward. It combines synchronized 2D and 3D annotation, integrated photo context editing, flexible timeline navigation, and a customizable UI — all in a single, unified workspace.
+
+This all-in-one tool transforms how complex 3D scenes are labeled. Whether you’re working with dynamic datasets, combining multi-modal inputs, or just looking for a faster, clearer way to annotate — this interface delivers accuracy, speed, and clarity at scale. It’s not just an upgrade — it’s a game-changer for 3D annotation workflows.
