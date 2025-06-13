@@ -43,9 +43,7 @@ The new interface allows full layout customization:
 - This flexibility improves usability and efficiency during annotation.
 - Fullscreen mode for panels is currently not supported but may be reintroduced in future updates.
 
-<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-Photo Context.jpg" alt=""><figcaption></figcaption></figure>
-
-{% embed url="https://github.com/supervisely/docs/raw/refs/heads/3d-pcd/.gitbook/assets/3d-pc-episode/3d-pcd-ui-resize.mp4" %}
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-Resize.jpg" alt=""><figcaption></figcaption></figure>
 
 ### 4. Definitions Panel
 
