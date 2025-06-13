@@ -9,7 +9,7 @@ Supervisely introduces a significantly enhanced labeling interface for 3D Point 
 
 ## Key Features
 
-### Unified 2D–3D Annotation with Integrated Photo Context
+### 1. Unified 2D–3D Annotation with Integrated Photo Context
 
 The photo context panel is now an interactive part of the 3D labeling workspace.
 
@@ -23,7 +23,7 @@ The photo context panel is now an interactive part of the 3D labeling workspace.
 **Note**: Currently, only masks are supported for 2D-to-3D conversion. Bounding box support is in progress.
 {% endhint %}
 
-### Time-Based Labeling with Timeline Support
+### 2. Time-Based Labeling with Timeline Support
 
 A full timeline component has been added, similar to the one used in video annotation tools:
 
@@ -32,7 +32,7 @@ A full timeline component has been added, similar to the one used in video annot
 - Provides a comprehensive overview of frame availability, object presence, and annotation density.
 - Note: unlike video tools, timeline-based frame tags are not supported. Tags exist only at the object level.
 
-### Modular and Resizable UI Layout
+### 3. Modular and Resizable UI Layout
 
 The new interface allows full layout customization:
 
@@ -41,14 +41,14 @@ The new interface allows full layout customization:
 - This flexibility improves usability and efficiency during annotation.
 - Fullscreen mode for panels is currently not supported but may be reintroduced in future updates.
 
-### Definitions Panel
+### 4. Definitions Panel
 
 The **Definitions** panel is now available in the 3D interface, as in image and video tools:
 
 - Provides quick access to classes, tags, tool settings, and object styles.
 - Helps manage large taxonomies and maintain consistency across projects.
 
-### AI Assistant
+### 5. AI Assistant
 
 The new interface includes native support for AI-assisted annotation features, available via a dedicated panel.
 
@@ -77,21 +77,13 @@ The new interface includes native support for AI-assisted annotation features, a
 
 > AI Assistant features are available only to Enterprise customers with the Point Cloud module enabled.
 
-### Smart Tools and Object Detection
+### 6. Smart Tools and Object Detection
 
 In addition to AI Assistant:
 
 - Smart Tools allow selecting regions in the 3D scene and auto-generating fitted cuboids.
 - Object Detection uses AI models to detect and place cuboids automatically over recognized shapes.
 - Reduces manual effort and improves annotation consistency.
-
-## Legacy Tool Access
-
-The older version of the 3D Point Cloud tool remains available under **legacy** status.
-
-- Users can switch back using the **Switch to Legacy Tool** button.
-- Legacy version has a static layout and lacks support for definitions, timeline, and 2D–3D synchronization.
-- Further development will focus solely on the new interface.
 
 ### Summary
 
@@ -103,3 +95,11 @@ The updated interface for 3D Point Cloud annotation combines powerful capabiliti
 - Built-in AI Assistant for autolabeling, tracking, and segmentation
 
 It offers a complete workspace for multi-modal annotation with high accuracy and scalability. Whether working with static point clouds or dynamic 3D sequences, the new tool provides clarity, control, and performance required for modern annotation workflows.
+
+{% hint style="info" %}
+**Note**: The older version of the 3D Point Cloud tool remains available under **legacy** status.
+
+- Users can switch back using the **Switch to Legacy Tool** button.
+- Legacy version has a static layout and lacks support for definitions, timeline, and 2D–3D synchronization.
+- Further development will focus solely on the new interface.
+{% endhint %}
