@@ -5,7 +5,7 @@ description: >-
 
 # Overview: New Interface for 3D Point Cloud Annotation
 
-Supervisely introduces a significantly enhanced labeling interface for 3D Point Clouds — replacing the previous tool, which is now considered **legacy**. Users can revert to the old version via the **Switch to Legacy Tool** button if needed, though editing it will no longer be actively supported.
+The new 3D Point Cloud labeling interface in Supervisely brings a powerful, streamlined workflow for annotating complex 3D data. It introduces synchronized 2D–3D annotations, timeline support for sequential scenes, flexible UI layouts, and AI-assisted tools for faster, more accurate labeling — all in a single integrated workspace.
 
 ## Key Features
 
@@ -13,11 +13,13 @@ Supervisely introduces a significantly enhanced labeling interface for 3D Point 
 
 The photo context panel is now an interactive part of the 3D labeling workspace.
 
-- You can draw masks and bounding boxes directly on context images using the standard image annotation tools.
-- These annotations are automatically synchronized with the 3D space and become part of the same object instance.
-- 2D and 3D annotations now coexist at the same level — edits or creation in one view are instantly reflected in the other.
-- This improves labeling precision and scene understanding, especially when certain features are clearer in 2D.
-- The system allows combining 2D and 3D perspectives in a single environment without switching tools or views.
+You can draw masks and bounding boxes directly on **context images** using the standard image annotation tools. These annotations are automatically **synchronized with the 3D space** and become part of the same object instance.
+
+2D and 3D annotations now coexist at the same level — edits or creation in one view are instantly reflected in the other. This improves labeling precision and scene understanding, especially when certain features are clearer in 2D.
+
+The system allows combining 2D and 3D perspectives in a single environment without switching tools or views.
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-Photo Context.jpg" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 **Note**: Currently, only masks are supported for 2D-to-3D conversion. Bounding box support is in progress.
@@ -40,6 +42,14 @@ The new interface allows full layout customization:
 - Users can arrange the workspace to fit their own workflow and screen space.
 - This flexibility improves usability and efficiency during annotation.
 - Fullscreen mode for panels is currently not supported but may be reintroduced in future updates.
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-Photo Context.jpg" alt=""><figcaption></figcaption></figure>
+
+<video width="640" height="360" controls>
+  <source src="https://github.com/supervisely/docs/raw/refs/heads/3d-pcd/.gitbook/assets/3d-pc-episode/3d-pcd-ui-resize.mp4" type="video/mp4">
+  Resize UI
+</video>
+
 
 ### 4. Definitions Panel
 
@@ -85,7 +95,7 @@ In addition to AI Assistant:
 - Object Detection uses AI models to detect and place cuboids automatically over recognized shapes.
 - Reduces manual effort and improves annotation consistency.
 
-### Summary
+#### Summary
 
 The updated interface for 3D Point Cloud annotation combines powerful capabilities:
 
