@@ -45,10 +45,7 @@ The new interface allows full layout customization:
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-Photo Context.jpg" alt=""><figcaption></figcaption></figure>
 
-<video width="640" height="360" controls>
-  <source src="https://github.com/supervisely/docs/raw/refs/heads/3d-pcd/.gitbook/assets/3d-pc-episode/3d-pcd-ui-resize.mp4" type="video/mp4">
-  Resize UI
-</video>
+[Resize UI](https://github.com/supervisely/docs/raw/refs/heads/3d-pcd/.gitbook/assets/3d-pc-episode/3d-pcd-ui-resize.mp4)
 
 
 ### 4. Definitions Panel
