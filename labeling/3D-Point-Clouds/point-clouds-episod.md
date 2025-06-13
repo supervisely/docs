@@ -93,7 +93,7 @@ The older version of the 3D Point Cloud tool remains available under **legacy** 
 - Legacy version has a static layout and lacks support for definitions, timeline, and 2D–3D synchronization.
 - Further development will focus solely on the new interface.
 
-## Summary
+### Summary
 
 The updated interface for 3D Point Cloud annotation combines powerful capabilities:
 
