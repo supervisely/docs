@@ -45,10 +45,7 @@ The new interface allows full layout customization:
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-Photo Context.jpg" alt=""><figcaption></figcaption></figure>
 
-<video controls width="600">
-  <source src=".gitbook/assets/3d-pc-episode/3d-pcd-ui-resize.mp4" type="video/mp4">
-  3D Point Cloud UI Resize
-</video>
+{% embed url="https://github.com/supervisely/docs/raw/refs/heads/3d-pcd/.gitbook/assets/3d-pc-episode/3d-pcd-ui-resize.mp4" %}
 
 ### 4. Definitions Panel
 
