@@ -5,70 +5,101 @@ description: >-
 
 # Overview: New Interface for 3D Point Cloud Annotation
 
-Supervisely introduces a new, more powerful interface for 3D Point Cloud annotation — replacing the previous version, which is now considered as **legacy**. For compatibility or preference, users can still access the old tool using the **Switch to Legacy Tool button**.
+Supervisely introduces a significantly enhanced labeling interface for 3D Point Clouds — replacing the previous tool, which is now considered **legacy**. Users can revert to the old version via the **Switch to Legacy Tool** button if needed, though editing it will no longer be actively supported.
 
 ## Key Features
 
 ### Unified 2D–3D Annotation with Integrated Photo Context
 
-The photo context panel is now seamlessly integrated into the 3D labeling interface, allowing direct annotation on images linked to 3D point cloud scenes — right inside the labeling workspace.
+The photo context panel is now an interactive part of the 3D labeling workspace.
 
-- You can create and edit masks, bounding boxes, and tags directly on the photo context images.
-
-- These annotations are automatically synchronized with the 3D scene and vice versa — they are a single entity in both views.
-
-- This enables multi-modal annotation in one place, improving efficiency and making it easier to label objects that are better visible in 2D.
-
-- The integration empowers users to understand complex scenes faster and more accurately by combining spatial and visual data.
-
-### Timeline Navigation
-
-The interface introduces a timeline component, similar to the one used in video labeling.
-
-- Provides a comprehensive overview of the dataset across time.
-
-- Enables easy navigation through point cloud frames or scans.
-
-- Supports time-based annotations for episodic or dynamic scenes — ideal for applications like autonomous driving, robotics, or industrial inspection.
-
-- Helps track object movement, instance continuity, and scene evolution frame-by-frame.
-
-### Synchronized 2D–3D Annotations
-
-Annotations across 2D and 3D views are now fully connected — not just linked, but unified.
-
-- An object annotated in the image view appears instantly in 3D, and vice versa.
-
-- Any update in one modality is reflected in the other automatically.
-
-- This powerful feature greatly enhances annotation consistency, scene understanding, and labeling accuracy.
-
-- It allows users to combine the strengths of both perspectives — for example, annotating finer details in 2D while maintaining spatial context in 3D.
-
-### Modular and Flexible Interface
-
-The interface has been redesigned from the ground up for better usability and customization:
-
-- A modern, clean layout with reorganized tools and intuitive controls.
-
-- Users can freely move, resize, and dock panels and tabs to build a personalized workspace.
-
-- Dropdown menus and context-aware actions (currently in development) further streamline the labeling workflow.
-
-- The UI is still evolving — screenshots and walkthroughs will be added when finalized.
+- You can draw masks and bounding boxes directly on context images using the standard image annotation tools.
+- These annotations are automatically synchronized with the 3D space and become part of the same object instance.
+- 2D and 3D annotations now coexist at the same level — edits or creation in one view are instantly reflected in the other.
+- This improves labeling precision and scene understanding, especially when certain features are clearer in 2D.
+- The system allows combining 2D and 3D perspectives in a single environment without switching tools or views.
 
 {% hint style="info" %}
-**Note**: This article focuses on the core functionality. Visual updates and examples will follow in upcoming releases.
+**Note**: Currently, only masks are supported for 2D-to-3D conversion. Bounding box support is in progress.
 {% endhint %}
 
-### Access to Legacy Version
+### Time-Based Labeling with Timeline Support
 
-The previous 3D annotation interface is still available as a legacy tool. You can switch to it anytime via the `Switch to Legacy Tool` button.
+A full timeline component has been added, similar to the one used in video annotation tools:
 
-Legacy documentation remains accessible for teams continuing to use the previous workflow.
+- Enables navigation across sequential 3D point cloud frames (episodes).
+- Supports annotation and review of dynamic scenes across time.
+- Provides a comprehensive overview of frame availability, object presence, and annotation density.
+- Note: unlike video tools, timeline-based frame tags are not supported. Tags exist only at the object level.
+
+### Modular and Resizable UI Layout
+
+The new interface allows full layout customization:
+
+- Panels such as photo context, camera views, and definitions can be moved and docked anywhere.
+- Users can arrange the workspace to fit their own workflow and screen space.
+- This flexibility improves usability and efficiency during annotation.
+- Fullscreen mode for panels is currently not supported but may be reintroduced in future updates.
+
+### Definitions Panel
+
+The **Definitions** panel is now available in the 3D interface, as in image and video tools:
+
+- Provides quick access to classes, tags, tool settings, and object styles.
+- Helps manage large taxonomies and maintain consistency across projects.
+
+### AI Assistant
+
+The new interface includes native support for AI-assisted annotation features, available via a dedicated panel.
+
+#### Autolabeling
+
+- Automatically detects and annotates objects using pre-trained models.
+- Simplifies the process of placing cuboids or segmenting regions of interest in the scene.
+
+#### Tracking
+
+- After creating an annotation in one frame, the assistant can automatically propagate it across subsequent frames.
+- Helps label dynamic objects in sequential datasets with minimal manual input.
+- Uses a dedicated tracking panel, reusing logic from the video tool.
+
+#### Ground Segmentation
+
+- Detects and annotates the ground level in the 3D scene.
+- Fits a horizontal surface through point clusters and creates a flat figure with a `ground` class.
+- Useful for scene normalization and filtering.
+
+#### 2D to 3D Projection
+
+- Converts 2D masks created on photo context images into 3D geometry.
+- The converted figures are visualized directly in the point cloud view.
+- Currently supports masks. Support for 2D bounding boxes is being added.
+
+> AI Assistant features are available only to Enterprise customers with the Point Cloud module enabled.
+
+### Smart Tools and Object Detection
+
+In addition to AI Assistant:
+
+- Smart Tools allow selecting regions in the 3D scene and auto-generating fitted cuboids.
+- Object Detection uses AI models to detect and place cuboids automatically over recognized shapes.
+- Reduces manual effort and improves annotation consistency.
+
+## Legacy Tool Access
+
+The older version of the 3D Point Cloud tool remains available under **legacy** status.
+
+- Users can switch back using the **Switch to Legacy Tool** button.
+- Legacy version has a static layout and lacks support for definitions, timeline, and 2D–3D synchronization.
+- Further development will focus solely on the new interface.
 
 ## Summary
 
-The new 3D Point Cloud annotation interface in Supervisely is a major step forward. It combines synchronized 2D and 3D annotation, integrated photo context editing, flexible timeline navigation, and a customizable UI — all in a single, unified workspace.
+The updated interface for 3D Point Cloud annotation combines powerful capabilities:
 
-This all-in-one tool transforms how complex 3D scenes are labeled. Whether you’re working with dynamic datasets, combining multi-modal inputs, or just looking for a faster, clearer way to annotate — this interface delivers accuracy, speed, and clarity at scale. It’s not just an upgrade — it’s a game-changer for 3D annotation workflows.
+- Integrated 2D and 3D annotation tools
+- Time-based navigation and frame control
+- Modular UI layout with dockable panels
+- Built-in AI Assistant for autolabeling, tracking, and segmentation
+
+It offers a complete workspace for multi-modal annotation with high accuracy and scalability. Whether working with static point clouds or dynamic 3D sequences, the new tool provides clarity, control, and performance required for modern annotation workflows.
