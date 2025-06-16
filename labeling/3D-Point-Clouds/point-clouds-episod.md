@@ -17,7 +17,7 @@ Supervisely's 3D AI assistant is a universal tool for automating 3D point cloud 
 
 Select smart tool in left side bar and circle target object. It will automatically generate a 3D cuboid around the selected object.
 
-{% embed url="https://github.com/user-attachments/assets/35bbd436-465d-49b8-b86f-23f2717ab0e2" %}
+{% embed url="https://github.com/user-attachments/assets/43aa08e0-0496-4d21-ae78-e1bfcb90152a" %}
 
 #### 3D Point Cloud Ground Segmentation
 
@@ -27,7 +27,7 @@ Select smart tool in left side bar and circle target object. It will automatical
 
 Click on auto labeling tab and press "Ground segmentation".
 
-{% embed url="https://github.com/user-attachments/assets/bcc11a50-a367-4a1b-a3ff-64ca55e906db" %}
+{% embed url="https://github.com/user-attachments/assets/1833494b-b07c-4771-a6e7-69f385138180" %}
 
 #### 3D Cuboid Tracking
 
@@ -35,7 +35,7 @@ Click on auto labeling tab and press "Ground segmentation".
 - Helps label dynamic objects in sequential datasets with minimal manual input.
 - Uses a dedicated tracking panel, reusing logic from the video tool.
 
-{% embed url="https://github.com/user-attachments/assets/378c264f-52b0-482a-b941-aee2277f5cc3" %}
+{% embed url="https://github.com/user-attachments/assets/64c72de2-115c-458e-b5e7-889a745f4fdc" %}
 
 #### Autolabeling
 
@@ -44,7 +44,7 @@ Click on auto labeling tab and press "Ground segmentation".
 
 Click on auto labeling tab and enable "Highlight object by click" option, then select manual cuboid tabeling tools in left sidebar and set cuboid on target object.
 
-{% embed url="https://github.com/user-attachments/assets/5f8f9f48-3051-40a6-9ae4-01684166c21b" %}
+{% embed url="https://github.com/user-attachments/assets/d47e803e-1dbc-45a0-9680-960c24472749" %}
 
 #### 2D to 3D Projection
 
@@ -55,7 +55,7 @@ You can annotate context images directly using standard image labeling tools. Th
 
 The system seamlessly combines 2D and 3D perspectives in a single environment — no need to switch tools or views.
 
-{% embed url="https://github.com/user-attachments/assets/4cc6219f-c22e-4ce3-bda1-0fbc8b91fcad" %}
+{% embed url="https://github.com/user-attachments/assets/6ebcc553-40f0-41f0-a032-aa1d6845e7be" %}
 
 **Additional capabilities:**
 
