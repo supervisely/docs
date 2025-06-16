@@ -9,30 +9,77 @@ The new 3D Point Cloud labeling interface in Supervisely brings a powerful, stre
 
 ## Key Features
 
-### 1. Unified 2D–3D Annotation with Integrated Photo Context
+### 1. 3D AI Assistant
+
+Supervisely's 3D AI assistant is a universal tool for automating 3D point cloud labeling. It covers all types of labeling scenarios for 3D point clouds: 3D object detection, ground segmentation, 3D cuboid tracking, transfer of 2D annotations from photo context images to original 3D point clouds. This tool is class-agnostic - it means that it works with any type of objects regardless of their shape and point density.
+
+#### Interactive 3D Object Detection
+
+Select smart tool in left side bar and circle target object. It will automatically generate a 3D cuboid around the selected object.
+
+{% embed url="https://github.com/user-attachments/assets/35bbd436-465d-49b8-b86f-23f2717ab0e2" %}
+
+#### 3D Point Cloud Ground Segmentation
+
+- Detects and annotates the ground level in the 3D scene.
+- Fits a horizontal surface through point clusters and creates a flat figure with a `ground` class.
+- Useful for scene normalization and filtering.
+
+Click on auto labeling tab and press "Ground segmentation".
+
+{% embed url="https://github.com/user-attachments/assets/bcc11a50-a367-4a1b-a3ff-64ca55e906db" %}
+
+#### 3D Cuboid Tracking
+
+- After creating an annotation in one frame, the assistant can automatically propagate it across subsequent frames.
+- Helps label dynamic objects in sequential datasets with minimal manual input.
+- Uses a dedicated tracking panel, reusing logic from the video tool.
+
+{% embed url="https://github.com/user-attachments/assets/378c264f-52b0-482a-b941-aee2277f5cc3" %}
+
+#### Autolabeling
+
+- Automatically detects and annotates objects using pre-trained models.
+- Simplifies the process of placing cuboids or segmenting regions of interest in the scene.
+
+Click on auto labeling tab and enable "Highlight object by click" option, then select manual cuboid tabeling tools in left sidebar and set cuboid on target object.
+
+{% embed url="https://github.com/user-attachments/assets/5f8f9f48-3051-40a6-9ae4-01684166c21b" %}
+
+#### 2D to 3D Projection
 
 The photo context panel is now an interactive part of the 3D labeling workspace.
 
-You can draw masks and bounding boxes directly on **context images** using the standard image annotation tools. These annotations are automatically **synchronized with the 3D space** and become part of the same object instance.
+You can annotate context images directly using standard image labeling tools. These annotations are automatically synchronized with the 3D space and become part of the same object instance.
+2D and 3D annotations now coexist at the same level — edits or creation in one view are instantly reflected in the other. This improves labeling precision and scene understanding, especially when certain features are more visible in 2D.
 
-2D and 3D annotations now coexist at the same level — edits or creation in one view are instantly reflected in the other. This improves labeling precision and scene understanding, especially when certain features are clearer in 2D.
+The system seamlessly combines 2D and 3D perspectives in a single environment — no need to switch tools or views.
 
-The system allows combining 2D and 3D perspectives in a single environment without switching tools or views.
+{% embed url="https://github.com/user-attachments/assets/4cc6219f-c22e-4ce3-bda1-0fbc8b91fcad" %}
+
+**Additional capabilities:**
+
+- 2D masks created on photo context images can be automatically converted into 3D geometry.
+
+- Converted figures are visualized directly in the point cloud view.
+
+- Currently, only masks are supported. Support for 2D bounding boxes is coming soon.
+
+Click on a photo context image, draw a 2D mask, go to the Auto Labeling tab, and press "Create 3D objects from 2D object on camera."
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-Photo Context.jpg" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-**Note**: Currently, only masks are supported for 2D-to-3D conversion. Bounding box support is in progress.
+**Note**: AI Assistant features are available only to Enterprise customers with the Point Cloud module enabled.
 {% endhint %}
 
-### 2. Time-Based Labeling with Timeline Support
+### 2. Timeline Support
 
 A full timeline component has been added, similar to the one used in video annotation tools:
 
 - Enables navigation across sequential 3D point cloud frames (episodes).
-- Supports annotation and review of dynamic scenes across time.
+- Supports annotation and review of dynamic scenes across frame sequences.
 - Provides a comprehensive overview of frame availability, object presence, and annotation density.
-- Note: unlike video tools, timeline-based frame tags are not supported. Tags exist only at the object level.
 
 ### 3. Modular and Resizable UI Layout
 
@@ -41,7 +88,6 @@ The new interface allows full layout customization:
 - Panels such as photo context, camera views, and definitions can be moved and docked anywhere.
 - Users can arrange the workspace to fit their own workflow and screen space.
 - This flexibility improves usability and efficiency during annotation.
-- Fullscreen mode for panels is currently not supported but may be reintroduced in future updates.
 
 {% embed url="https://github.com/user-attachments/assets/b00ce27b-79c2-4597-885b-d5465db99a12" %}
 
@@ -52,37 +98,6 @@ The **Definitions** panel is now available in the 3D interface, as in image and 
 
 - Provides quick access to classes, tags, tool settings, and object styles.
 - Helps manage large taxonomies and maintain consistency across projects.
-
-### 5. AI Assistant
-
-The new interface includes native support for AI-assisted annotation features, available via a dedicated panel.
-
-#### Autolabeling
-
-- Automatically detects and annotates objects using pre-trained models.
-- Simplifies the process of placing cuboids or segmenting regions of interest in the scene.
-
-#### Tracking
-
-- After creating an annotation in one frame, the assistant can automatically propagate it across subsequent frames.
-- Helps label dynamic objects in sequential datasets with minimal manual input.
-- Uses a dedicated tracking panel, reusing logic from the video tool.
-
-#### Ground Segmentation
-
-- Detects and annotates the ground level in the 3D scene.
-- Fits a horizontal surface through point clusters and creates a flat figure with a `ground` class.
-- Useful for scene normalization and filtering.
-
-#### 2D to 3D Projection
-
-- Converts 2D masks created on photo context images into 3D geometry.
-- The converted figures are visualized directly in the point cloud view.
-- Currently supports masks. Support for 2D bounding boxes is being added.
-
-{% hint style="info" %}
-**Note**: AI Assistant features are available only to Enterprise customers with the Point Cloud module enabled.
-{% endhint %}
 
 ### 6. Smart Tools and Object Detection
 
