@@ -17,7 +17,7 @@ Supervisely's 3D AI assistant is a universal tool for automating 3D point cloud 
 
 Select smart tool in left side bar and circle target object. It will automatically generate a 3D cuboid around the selected object.
 
-{% embed url="https://youtu.be/fpWhIdpLHWU" %}
+{% embed url="https://youtu.be/fpWhIdpLHWU?rel=0" %}
 
 #### 3D Point Cloud Ground Segmentation
 
@@ -27,7 +27,7 @@ Select smart tool in left side bar and circle target object. It will automatical
 
 Click on auto labeling tab and press "Ground segmentation".
 
-{% embed url="https://youtu.be/YkTexmwWuEQ" %}
+{% embed url="https://youtu.be/YkTexmwWuEQ?rel=0" %}
 
 #### 3D Cuboid Tracking
 
@@ -35,7 +35,7 @@ Click on auto labeling tab and press "Ground segmentation".
 - Helps label dynamic objects in sequential datasets with minimal manual input.
 - Uses a dedicated tracking panel, reusing logic from the video tool.
 
-{% embed url="https://youtu.be/c55mYnGox8Q" %}
+{% embed url="https://youtu.be/c55mYnGox8Q?rel=0" %}
 
 #### Auto Labeling
 
@@ -44,7 +44,7 @@ Click on auto labeling tab and press "Ground segmentation".
 
 Click on auto labeling tab and enable "Highlight object by click" option, then select manual cuboid tabeling tools in left sidebar and set cuboid on target object.
 
-{% embed url="https://youtu.be/wmo4ShxvpcI" %}
+{% embed url="https://youtu.be/wmo4ShxvpcI?rel=0" %}
 
 #### 2D to 3D Projection
 
@@ -55,7 +55,7 @@ You can annotate context images directly using standard image labeling tools. Th
 
 The system seamlessly combines 2D and 3D perspectives in a single environment — no need to switch tools or views.
 
-{% embed url="https://youtu.be/fpWhIdpLHWU" %}
+{% embed url="https://youtu.be/KfeL5yyLIQk?rel=0" %}
 
 
 **Additional capabilities:**
