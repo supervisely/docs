@@ -27,7 +27,7 @@ Select smart tool in left side bar and circle target object. It will automatical
 
 Click on auto labeling tab and press "Ground segmentation".
 
-
+{% embed url="https://youtu.be/YkTexmwWuEQ" %}
 
 #### 3D Cuboid Tracking
 
@@ -35,16 +35,16 @@ Click on auto labeling tab and press "Ground segmentation".
 - Helps label dynamic objects in sequential datasets with minimal manual input.
 - Uses a dedicated tracking panel, reusing logic from the video tool.
 
+{% embed url="https://youtu.be/c55mYnGox8Q" %}
 
-
-#### Autolabeling
+#### Auto Labeling
 
 - Automatically detects and annotates objects using pre-trained models.
 - Simplifies the process of placing cuboids or segmenting regions of interest in the scene.
 
 Click on auto labeling tab and enable "Highlight object by click" option, then select manual cuboid tabeling tools in left sidebar and set cuboid on target object.
 
-{% embed url="https://drive.google.com/file/d/1z3nqOhkcAg9mOWHvwJqgOWlURSiIYyfJ/view?usp=sharing" %}
+{% embed url="https://youtu.be/wmo4ShxvpcI" %}
 
 #### 2D to 3D Projection
 
@@ -55,7 +55,7 @@ You can annotate context images directly using standard image labeling tools. Th
 
 The system seamlessly combines 2D and 3D perspectives in a single environment — no need to switch tools or views.
 
-{% embed url="https://github.com/user-attachments/assets/54f26537-5b27-4b96-953f-e484701f3244" %}
+{% embed url="https://youtu.be/fpWhIdpLHWU" %}
 
 
 **Additional capabilities:**
