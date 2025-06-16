@@ -44,7 +44,6 @@ Click on auto labeling tab and press "Ground segmentation".
 
 Click on auto labeling tab and enable "Highlight object by click" option, then select manual cuboid tabeling tools in left sidebar and set cuboid on target object.
 
-{% embed url="https://github.com/user-attachments/assets/464b09d6-05d9-45dd-96db-e4b7d9eb6658" %}
 
 #### 2D to 3D Projection
 
@@ -55,7 +54,7 @@ You can annotate context images directly using standard image labeling tools. Th
 
 The system seamlessly combines 2D and 3D perspectives in a single environment — no need to switch tools or views.
 
-
+{% embed url="https://github.com/user-attachments/assets/54f26537-5b27-4b96-953f-e484701f3244" %}
 
 
 **Additional capabilities:**
