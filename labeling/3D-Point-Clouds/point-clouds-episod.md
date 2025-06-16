@@ -55,7 +55,8 @@ You can annotate context images directly using standard image labeling tools. Th
 
 The system seamlessly combines 2D and 3D perspectives in a single environment — no need to switch tools or views.
 
-{% embed url="https://github.com/user-attachments/assets/6ebcc553-40f0-41f0-a032-aa1d6845e7be" %}
+{% embed url="https://github.com/user-attachments/assets/c8085fe0-1c81-4b89-9e8c-55f5517d4468" %}
+
 
 **Additional capabilities:**
 
