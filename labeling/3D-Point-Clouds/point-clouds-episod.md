@@ -17,7 +17,7 @@ Supervisely's 3D AI assistant is a universal tool for automating 3D point cloud 
 
 Select smart tool in left side bar and circle target object. It will automatically generate a 3D cuboid around the selected object.
 
-{% embed url="https://github.com/user-attachments/assets/43aa08e0-0496-4d21-ae78-e1bfcb90152a" %}
+{% embed url="https://github.com/user-attachments/assets/93d650c9-c6a6-4a77-b2e5-b374099bafbf" %}
 
 #### 3D Point Cloud Ground Segmentation
 
