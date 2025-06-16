@@ -44,6 +44,8 @@ Click on auto labeling tab and press "Ground segmentation".
 
 Click on auto labeling tab and enable "Highlight object by click" option, then select manual cuboid tabeling tools in left sidebar and set cuboid on target object.
 
+{% embed url="https://drive.google.com/file/d/1z3nqOhkcAg9mOWHvwJqgOWlURSiIYyfJ/view?usp=sharing" %}
+
 #### 2D to 3D Projection
 
 The photo context panel is now an interactive part of the 3D labeling workspace.
