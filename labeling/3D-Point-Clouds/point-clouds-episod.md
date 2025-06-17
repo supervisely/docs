@@ -87,6 +87,10 @@ The new interface allows full layout customization:
 
 {% embed url="https://youtu.be/TwpyWbaLfZY" %}
 
+In addition to repositioning view panels, the Settings panel provides advanced customization options — such as adjusting cuboid thickness, customizing class appearance, controlling point cloud display settings, toggling object IDs, and more.
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-settings.jpg" alt=""><figcaption></figcaption></figure>
+
 ## 4. Definitions Panel
 
 The **Definitions** panel is now available in the 3D interface, as in image and video tools:
@@ -96,12 +100,12 @@ The **Definitions** panel is now available in the 3D interface, as in image and 
 
 **Editing**
 
-To change the class in selected object:
-1. Click _**Select Figure**_ tool
-2. Select the object in any viewpoint windows
-3. Click in the Definition panel the mini-icon with two arrows.
+To change the class of a selected object:
+1. Click _**Select Figure**_ tool.
+2. Select the object in any of the view panels.
+3. In the **Definition panel**, in the row of the selected class, click the mini-icon with two arrows to change the class.
 
-<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-dp-change.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-dp-change1.jpg" alt=""><figcaption></figcaption></figure>
 
 ## Summary
 
