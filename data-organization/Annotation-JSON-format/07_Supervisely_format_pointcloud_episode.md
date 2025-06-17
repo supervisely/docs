@@ -12,7 +12,8 @@ Root folder for the project named `project name`
     - `related_images` optional folder, contains photo-context data:
         - Frame folder, each named according to pointcloud (`/related_images/frame1/`), which contains:
             - image files (`.png \ .jpg`)
-            - image ann files (`.json`) - json files, named according to image name (`1.png -> 1.json`)
+            - image ann files (`.json`) - json files, named according to image name (`1.png -> 1.png.json`)
+            - image figure files - optional files with image's 2d figures, named according to image name (`1.png -> 1.png.figures.json`). Only exists if photo-context has 2d annotation figures.
    
 ## Main concepts
 **Point cloud Episode Project Folder**
@@ -242,6 +243,7 @@ This file create for mapping between pointcloud files and annotation frames in t
 **Values** - point cloud name (with extension)
 
 ## Photo context image annotation file
+
 ```json 
     {
         "name": "host-a005_cam4_1231201437716091006.jpeg"
@@ -290,6 +292,62 @@ This file create for mapping between pointcloud files and annotation frames in t
     - extrinsicMatrix - Array of number <float> - 4x3 flatten matrix (dropped last zeros column) of extrinsic parameters in row-major order, also called joint rotation-translation matrix. It's used to denote the coordinate system transformations from 3D world coordinates to 3D camera coordinates. See [Extrinsic_parameters](https://en.wikipedia.org/wiki/Camera_resectioning#Extrinsic_parameters).
 
 
+## Photo context 2D figures file
+
+This file is optional and only exists if the photo context image has figures on it. It is created upon downloading a pointclouds/pointcloud episodes project. You can also provide this file upon photocontext upload to load the figures to the server.
+
+```json
+[
+    {
+        "id": 8120872,
+        "classId": null,
+        "updatedAt": "2025-06-16T14:57:06.250Z",
+        "createdAt": "2025-06-16T14:56:51.786Z",
+        "entityId": 1018554,
+        "projectId": 1553,
+        "datasetId": 10812,
+        "meta": {},
+        "geometryType": "bitmap",
+        "geometry": {
+            "bitmap": {
+                "data": "eNpNWHk8lPv3N49nNGN9zAgVeTCWKMvtezP2B5OlorQqskxXKjuFss1TmhmU...",
+                "origin": [
+                    135,
+                    175
+                ]
+            }
+        },
+        "geometryMeta": {
+            "bbox": [
+                175,
+                135,
+                374,
+                782
+            ]
+        },
+        "tags": [],
+        "area": "71589",
+        "priority": 1,
+        "objectKey": "bd5680d6-76b6-4f13-a2ff-6da001144b27"
+    }
+]
+```
+
+**Fields description:**
+- id - integer - ID of the figure in the Supervisely platform.
+- classId - integer - ID of the annotation class figure corresponds to. 
+- entityId - integer - ID of the photocontext image in the system, that figures are attached to.
+- projectId - integer - ID of the project figure is created in.
+- datasetId - integer - ID of the dataset figure is created in.
+- geometryType - string - geometry shape name.
+- geometry - data of the geometry, depends on the geometry shape.
+- geometryMeta - field used to store geometry-related metadata, such as a bounding box of a bitmap.
+- area - string - area of the geometry.
+- priority - integer - priorty order of the geometry used for overlaying bitmaps.
+- tags - list of tags attached to the figure.
+- objectKey - string - UUID identifier of the object in a KeyMapID.
+
+
 ## SDK
 Work with Supervisely projects involves two ways:
 1) Labeling within the interface and use of default download / upload applications.
@@ -308,4 +366,3 @@ After clone the repository, install the supervise library sdk from the requireme
 Then, you can run the code, after specifying your token, server address and workspace id.
 
 If you do not have the necessary credentials for connection, please contact technical support via [website](https://supervisely.com/contact) or [slack channel](https://supervisely.com/slack). 
-
