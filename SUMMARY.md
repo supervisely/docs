@@ -99,7 +99,7 @@
   * [Images](labeling/images/README.md)
   * [Videos 2.0](labeling/videos/README.md)
   * [Videos 3.0](labeling/labeling-toolbox/videos-3.0.md)
-  * [Legacy](labeling/3D-Point-Clouds/3D-Point-Clouds-episodes-1.md)
+  * [3D Point Cloud and Episodes (legacy)](labeling/3D-Point-Clouds/3D-Point-Clouds-episodes-1.md)
   * [3D Point Cloud and Episodes](labeling/3D-Point-Clouds/3D-point-cloud-episodes-2.md)
   * [DICOM](labeling/DICOM/DICOM.md)
   * [Multiview images](<labeling/images/Multi-view images/Multi-view-images.md>)
