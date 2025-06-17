@@ -20,6 +20,8 @@ redirects:
   enterprise-edition/advanced-tuning/index-1: enterprise/sso/README.md
   cluster/overview: getting-started/connect-your-computer/README.md
   cluster/overview/: getting-started/connect-your-computer/README.md
+  cluster/manage/manage: agents/manage/manage.md
+  cluster/manage/manage/: agents/manage/manage.md
   ann_format: data-organization/Annotation-JSON-format/00_ann_format_navi.md
   ann_format/: data-organization/Annotation-JSON-format/00_ann_format_navi.md
   customization/agents/status: agents/status_and_troubleshooting/status.md
@@ -44,3 +46,5 @@ redirects:
   data-organization/projects/datasets/: data-organization/project-dataset/create.md
   data-organization/projects/collections: data-organization/project-dataset/collections.md
   data-organization/projects/collections/: data-organization/project-dataset/collections.md
+  data-organization/import-export/upload: data-organization/import/upload/README.md
+  data-organization/import-export/upload/: data-organization/import/upload/README.md
