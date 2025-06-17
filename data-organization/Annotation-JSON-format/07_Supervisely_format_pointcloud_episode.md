@@ -12,8 +12,8 @@ Root folder for the project named `project name`
     - `related_images` optional folder, contains photo-context data:
         - Frame folder, each named according to pointcloud (`/related_images/frame1/`), which contains:
             - image files (`.png \ .jpg`)
-            - image ann files (`.json`) - json files, named according to image name (`1.png -> 1.json`)
-            - image figure files - optional files with image's 2d figures, named according to image name (`1.png -> 1.figures.json`). Only exists if photo-context has 2d annotation figures.
+            - image ann files (`.json`) - json files, named according to image name (`1.png -> 1.png.json`)
+            - image figure files - optional files with image's 2d figures, named according to image name (`1.png -> 1.png.figures.json`). Only exists if photo-context has 2d annotation figures.
    
 ## Main concepts
 **Point cloud Episode Project Folder**
@@ -333,7 +333,7 @@ This file create for mapping between pointcloud files and annotation frames in t
 **Fields description:**
 - id - integer - ID of the figure in the Supervisely platform.
 - classId - integer - ID of the annotation class figure corresponds to. 
-- entityId  (OPTIONAL) - integer >= 1 ID of the Point Cloud in the system, that photo attached to. Doesn't required while uploading.
+- entityId - integer - ID of the Point Cloud in the system, that photo is attached to.
 - projectId - integer - ID of the project figure is created in.
 - datasetId - integer - ID of the dataset figure is created in.
 - geometryType - string - geometry shape name.
