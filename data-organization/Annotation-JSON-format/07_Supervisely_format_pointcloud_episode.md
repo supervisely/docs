@@ -243,6 +243,9 @@ This file create for mapping between pointcloud files and annotation frames in t
 **Values** - point cloud name (with extension)
 
 ## Photo context image annotation file
+
+This file is optional and only exists if the photo context image has figures on it. It is created upon downloading a pointclouds/pointcloud episodes project. You can also provide this file upon photocontext upload to load the figures to the server.
+
 ```json 
     {
         "name": "host-a005_cam4_1231201437716091006.jpeg"
