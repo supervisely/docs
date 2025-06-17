@@ -294,7 +294,7 @@ This file is optional and only exists if the photo context image has figures on 
     - extrinsicMatrix - Array of number <float> - 4x3 flatten matrix (dropped last zeros column) of extrinsic parameters in row-major order, also called joint rotation-translation matrix. It's used to denote the coordinate system transformations from 3D world coordinates to 3D camera coordinates. See [Extrinsic_parameters](https://en.wikipedia.org/wiki/Camera_resectioning#Extrinsic_parameters).
 
 
-## Photo context image figures file
+## Photo context 2D figures file
 
 ```json
 [
