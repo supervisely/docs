@@ -74,7 +74,7 @@ Click on a photo context image, draw a 2D mask, go to the Auto Labeling tab, and
 A full timeline component has been added, similar to the one used in video annotation tools:
 
 - Enables navigation across sequential 3D point cloud frames (episodes).
-- Supports annotation and review of dynamic scenes across frame sequences.
+- Supports annotation and review of dynamic scenes (episodes) across frame sequences.
 - Provides a comprehensive overview of frame availability, object presence, and annotation density.
 
 ## 3. Modular and Resizable UI Layout
@@ -93,6 +93,15 @@ The **Definitions** panel is now available in the 3D interface, as in image and 
 
 - Provides quick access to classes, tags, tool settings, and object styles.
 - Helps manage large taxonomies and maintain consistency across projects.
+
+**Editing**
+
+To change the class in selected object:
+1. Click _**Select Figure**_ tool
+2. Select the object in any viewpoint windows
+3. Click in the Definition panel the mini-icon with two arrows.
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-dp-change.jpg" alt=""><figcaption></figcaption></figure>
 
 ## Summary
 
