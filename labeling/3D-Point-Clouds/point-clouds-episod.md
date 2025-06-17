@@ -94,14 +94,6 @@ The **Definitions** panel is now available in the 3D interface, as in image and 
 - Provides quick access to classes, tags, tool settings, and object styles.
 - Helps manage large taxonomies and maintain consistency across projects.
 
-## 6. Smart Tools and Object Detection
-
-In addition to AI Assistant:
-
-- Smart Tools allow selecting regions in the 3D scene and auto-generating fitted cuboids.
-- Object Detection uses AI models to detect and place cuboids automatically over recognized shapes.
-- Reduces manual effort and improves annotation consistency.
-
 ## Summary
 
 The updated interface for 3D Point Cloud annotation combines powerful capabilities:
