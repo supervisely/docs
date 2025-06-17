@@ -85,7 +85,7 @@ The new interface allows full layout customization:
 - Users can arrange the workspace to fit their own workflow and screen space.
 - This flexibility improves usability and efficiency during annotation.
 
-{% embed url="https://github.com/user-attachments/assets/b00ce27b-79c2-4597-885b-d5465db99a12" %}
+{% embed url="https://youtu.be/TwpyWbaLfZY" %}
 
 ## 4. Definitions Panel
 
