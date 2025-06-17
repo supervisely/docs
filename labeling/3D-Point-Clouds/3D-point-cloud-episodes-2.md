@@ -3,9 +3,31 @@ description: >-
     This article about the new labeling interface for 3D Point Clouds in Supervisely that introduces a significantly enhanced workflow, offering extended functionality and improved usability.
 ---
 
-# Overview: New Interface for 3D Point Cloud Annotation
+# New 3D Point Cloud and Episodes Labeling Tool
 
-The new 3D Point Cloud labeling interface in Supervisely brings a powerful, streamlined workflow for annotating complex 3D data. It introduces synchronized 2D–3D annotations, timeline support for sequential scenes, flexible UI layouts, and AI-assisted tools for faster, more accurate labeling — all in a single integrated workspace.
+The 3D Point Cloud labeling tool in Supervisely is designed for visualizing, annotating, and managing complex 3D data collected from sensors such as LiDAR and RADAR. It supports key tasks like object detection and segmentation across static scenes and sequential episodes, making it ideal for applications like autonomous driving.
+
+The latest version introduces a completely redesigned interface that unifies both **single-frame** and **episode-based** workflows. It brings a more streamlined and powerful experience with features such as:
+
+- **AI-assisted tools** for faster and more accurate labeling
+- Interactive **3D Object Detection**
+- 3D Point Cloud **Ground Segmentation**
+- 3D **Cuboid Tracking**
+- **Auto Labeling**
+- **Synchronized 2D–3D annotation** using photo context images  
+- **Timeline navigation** for working with sequential frames  
+- **Flexible, resizable UI layout** tailored to your workflow
+- **Definitions Panel** for convenient class management and quick object editing
+- **Advanced settings** for customizing visual styles and display preferences  
+
+Together, these enhancements provide an integrated and efficient workspace for working with large-scale 3D datasets.
+
+
+Difference between 3D Point Cloud and 3D Point Cloud Episodes:
+
+**3D Point Cloud**: A static representation of a scene captured at a single moment in time.
+
+**3D Point Cloud Episodes**: A dynamic representation consisting of multiple point clouds collected over time, enabling the analysis of movement and change in the scene.
 
 ## 1. 3D AI Assistant
 
@@ -53,7 +75,7 @@ You can annotate context images directly using standard image labeling tools. Th
 
 The system seamlessly combines 2D and 3D perspectives in a single environment — no need to switch tools or views.
 
-{% embed url="https://youtu.be/KfeL5yyLIQk?rel=0" %}
+{% embed url="https://youtu.be/N7WcULjah7I" %}
 
 **Additional capabilities:**
 
