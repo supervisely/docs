@@ -336,7 +336,7 @@ This file is optional and only exists if the photo context image has figures on 
 **Fields description:**
 - id - integer - ID of the figure in the Supervisely platform.
 - classId - integer - ID of the annotation class figure corresponds to. 
-- entityId - integer - ID of the Point Cloud in the system, that photo is attached to.
+- entityId - integer - ID of the photocontext image in the system, that figures are attached to.
 - projectId - integer - ID of the project figure is created in.
 - datasetId - integer - ID of the dataset figure is created in.
 - geometryType - string - geometry shape name.
