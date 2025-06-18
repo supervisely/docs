@@ -163,6 +163,8 @@
   * [Overview](neural-networks/inference-and-deployment/overview.md)
   * [Supervisely Serving Apps](neural-networks/inference-and-deployment/supervisely-serving-apps.md)
   * [Deploy & Predict with Supervisely SDK](neural-networks/inference-and-deployment/deploy_and_predict_with_supervisely_sdk.md)
+  * [Prediction API](neural-networks/inference-and-deployment/prediction-api.md)
+  * [Model API](neural-networks/inference-and-deployment/model-api.md)
   * [Using trained models outside of Supervisely](neural-networks/inference-and-deployment/using-standalone-pytorch-models.md)
 * [Model Evaluation Benchmark](neural-networks/model-evaluation-benchmark/README.md)
   * [Object Detection](neural-networks/model-evaluation-benchmark/object-detection.md)
