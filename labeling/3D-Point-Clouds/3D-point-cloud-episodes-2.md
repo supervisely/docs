@@ -62,9 +62,30 @@ Click on auto labeling tab and press "Ground segmentation".
 - Automatically detects and annotates objects using pre-trained models.
 - Simplifies the process of placing cuboids or segmenting regions of interest in the scene.
 
-Click on auto labeling tab and enable "Highlight object by click" option, then select manual cuboid tabeling tools in left sidebar and set cuboid on target object.
+**To use the Auto Labeling, follow these steps:**
 
-{% embed url="https://youtu.be/wmo4ShxvpcI?rel=0" %}
+1. Open the **Auto Labeling tab**. Toggle the **_Highlight object by click_** option to enable it.
+
+2. Make sure a Point Cloud view panel is active. Click on one of the 3D view panels to activate it (Top, Side, Front, Perspective).
+
+3. Select the **Cuboid tool** from the toolbar. Or press the `3` key on your keyboard to activate the Cuboid tool.
+
+4. Click on a target point cluster in the 3D scene. You’ll see a cuboid attached to your mouse cursor. Click once on the desired object in the point cloud — this will place the cuboid.
+
+5. Let the AI auto-label the selected object.
+
+- The Auto Labeling tool will detect the full object in the point cloud and fit a cuboid around it using its internal logic.
+- This minimizes manual adjustment and ensures accurate object boundaries.
+
+6. Continue labeling more objects.
+
+- The labeled object will now be **selected automatically**.
+- The **Select Figure tool** becomes active by default, while the Cuboid auto-labeling tool remains enabled in the background.
+- To label the next object, press `Space` to deselect the current object — the **Cuboid tool reattaches** to your cursor and you’re ready to click on the next group of points.
+
+This loop allows for rapid labeling of multiple objects in sequence with minimal effort.
+
+{% embed url="https://youtu.be/xhQsVn3vwoo" %}
 
 ### 2D to 3D Projection
 
