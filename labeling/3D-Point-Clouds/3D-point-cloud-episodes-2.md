@@ -47,7 +47,7 @@ Select smart tool in left side bar and circle target object. It will automatical
 
 Click on auto labeling tab and press "Ground segmentation".
 
-{% embed url="https://youtu.be/YkTexmwWuEQ?rel=0" %}
+{% embed url="https://youtu.be/pWnf0erSEiA" %}
 
 ### 3D Cuboid Tracking
 
