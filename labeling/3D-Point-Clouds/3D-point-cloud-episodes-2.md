@@ -63,15 +63,14 @@ The **3D Cuboid Tracking** tool allows you to automatically propagate annotation
    - To track **all annotated objects**, make sure **no object is selected** in the current frame.
 
 2. **Open tracking settings**
-   - Click the **arrow icon** on the **`Track All on Screen`** button.
-   - In the settings popup:
-     - Choose how many frames the annotations should be propagated to.
-     - Select the **direction**: forward or backward.
+   - Click the **arrow icon** on the **`Track All on Screen`** button (if no object is selected),  
+     or on the **`Track Selected`** button (if one or more objects are selected).
+   - In the settings popup choose how many frames the annotations should be propagated to. Select the **direction**: forward, backward, or both.
 
 3. **Run the tracking**
-   - Click the main **`Track All on Screen`** button to start.
+   - Click the main **`Track All on Screen`** or **`Track Selected`** button to start tracking.
    - The annotation propagation process will be visualized on the **timeline**.
-   - The **progress percentage** will be shown on the **`Track All on Screen`** button itself.
+   - The **progress percentage** will be shown on the button itself.
    - When it reaches **100%**, the tracking is complete.
 
 {% embed url="https://youtu.be/c55mYnGox8Q?rel=0" %}
@@ -171,9 +170,9 @@ To change the class of a selected object:
 
 ### Navigation
 
-<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-orbit-move1.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-orbit-move.jpg" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-orbit-select2.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-orbit-select.jpg" alt=""><figcaption></figcaption></figure>
 
 ### Hotkeys
 
