@@ -73,7 +73,7 @@ The **3D Cuboid Tracking** tool allows you to automatically propagate annotation
    - The **progress percentage** will be shown on the button itself.
    - When it reaches **100%**, the tracking is complete.
 
-{% embed url="https://youtu.be/c55mYnGox8Q?rel=0" %}
+{% embed url="https://youtu.be/nDlaDzJkoRk" %}
 
 ### Auto Labeling
 
@@ -168,13 +168,49 @@ To change the class of a selected object:
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-dp-change1.jpg" alt=""><figcaption></figcaption></figure>
 
-### Navigation
+## Navigation Behavior
+
+#### When the **Move tool** is selected:
+
+- **All viewports except Perspective**:
+  - Move the scene by holding **left or right mouse button**.
+
+- **Perspective viewport**:
+  - **Right mouse button** — pan the scene.
+  - **Left mouse button** — rotate the scene.
+  - **Mouse scroll** — zoom in/out.
+
+Additionally, navigation inside the **Perspective Viewport** is also available using **keyboard shortcuts**, as shown in the illustration below.
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-orbit-move.jpg" alt=""><figcaption></figcaption></figure>
 
+#### When the **Select tool** is selected:
+
+- **All viewports except Perspective**:
+  - Move the scene only by holding the **right mouse button**.
+
+- **Perspective viewport**:
+  - Navigation works **the same** as in **Move tool** mode:
+    - **Right mouse button** — pan.
+    - **Left mouse button** — rotate.
+    - **Mouse scroll** — zoom.
+
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-orbit-select.jpg" alt=""><figcaption></figcaption></figure>
 
-### Hotkeys
+## Hotkeys
+
+### ⌨️ Hotkeys
+
+To work faster and more efficiently, explore the list of available **hotkeys** in the labeling tool.
+
+Hotkeys let you:
+- Quickly switch between tools (like Select, Move, Cuboid, Brush, etc.)
+- Speed up editing actions (copy, paste, delete, undo, redo)
+- Add and remove tags, change tag values.
+
+Using keyboard shortcuts helps reduce mouse clicks and saves time during large-scale annotation tasks.
+
+You can always view the full list of hotkeys by clicking the **Hotkeys** button in the top-right corner of the tool interface.
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-hotkeys.jpg" alt=""><figcaption></figcaption></figure>
 
