@@ -29,7 +29,7 @@ Difference between 3D Point Cloud and 3D Point Cloud Episodes:
 
 **3D Point Cloud Episodes**: A dynamic representation consisting of multiple point clouds collected over time, enabling the analysis of movement and change in the scene.
 
-## 1. 3D AI Assistant
+## 3D AI Assistant
 
 Supervisely's 3D AI assistant is a universal tool for automating 3D point cloud labeling. It covers all types of labeling scenarios for 3D point clouds: 3D object detection, ground segmentation, 3D cuboid tracking, transfer of 2D annotations from photo context images to original 3D point clouds. This tool is class-agnostic - it means that it works with any type of objects regardless of their shape and point density.
 
@@ -130,7 +130,7 @@ Click on a photo context image, draw a 2D mask, go to the Auto Labeling tab, and
 **Note**: AI Assistant features are available only to Enterprise customers with the Point Cloud module enabled.
 {% endhint %}
 
-## 2. Timeline Support
+## Timeline Support
 
 A full timeline component has been added, similar to the one used in video annotation tools:
 
@@ -138,7 +138,7 @@ A full timeline component has been added, similar to the one used in video annot
 - Supports annotation and review of dynamic scenes (episodes) across frame sequences.
 - Provides a comprehensive overview of frame availability, object presence, and annotation density.
 
-## 3. Modular and Resizable UI Layout
+## Modular and Resizable UI Layout
 
 The new interface allows full layout customization:
 
@@ -152,7 +152,7 @@ In addition to repositioning view panels, the Settings panel provides advanced c
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-settings.jpg" alt=""><figcaption></figcaption></figure>
 
-## 4. Definitions Panel
+## Definitions Panel
 
 The **Definitions** panel is now available in the 3D interface, as in image and video tools:
 
@@ -170,7 +170,7 @@ To change the class of a selected object:
 
 ## Navigation Behavior
 
-#### When the **Move tool** is selected:
+**When the `Move tool` is activated:**
 
 - **All viewports except Perspective**:
   - Move the scene by holding **left or right mouse button**.
@@ -184,7 +184,7 @@ Additionally, navigation inside the **Perspective Viewport** is also available u
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-orbit-move.jpg" alt=""><figcaption></figcaption></figure>
 
-#### When the **Select tool** is selected:
+**When the `Select tool` is activated:**
 
 - **All viewports except Perspective**:
   - Move the scene only by holding the **right mouse button**.
@@ -198,8 +198,6 @@ Additionally, navigation inside the **Perspective Viewport** is also available u
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-orbit-select.jpg" alt=""><figcaption></figcaption></figure>
 
 ## Hotkeys
-
-### ⌨️ Hotkeys
 
 To work faster and more efficiently, explore the list of available **hotkeys** in the labeling tool.
 
