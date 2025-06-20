@@ -29,7 +29,7 @@ Difference between 3D Point Cloud and 3D Point Cloud Episodes:
 
 **3D Point Cloud Episodes**: A dynamic representation consisting of multiple point clouds collected over time, enabling the analysis of movement and change in the scene.
 
-## 1. 3D AI Assistant
+## 3D AI Assistant
 
 Supervisely's 3D AI assistant is a universal tool for automating 3D point cloud labeling. It covers all types of labeling scenarios for 3D point clouds: 3D object detection, ground segmentation, 3D cuboid tracking, transfer of 2D annotations from photo context images to original 3D point clouds. This tool is class-agnostic - it means that it works with any type of objects regardless of their shape and point density.
 
@@ -51,11 +51,29 @@ Click on auto labeling tab and press "Ground segmentation".
 
 ### 3D Cuboid Tracking
 
-- After creating an annotation in one frame, the assistant can automatically propagate it across subsequent frames.
-- Helps label dynamic objects in sequential datasets with minimal manual input.
-- Uses a dedicated tracking panel, reusing logic from the video tool.
+The **3D Cuboid Tracking** tool allows you to automatically propagate annotations from one frame to the next. You can choose to track:
 
-{% embed url="https://youtu.be/c55mYnGox8Q?rel=0" %}
+- A **single selected object**, or  
+- **All objects** in the current scene (if no object is selected)
+
+**Steps to use the tool:**
+
+1. **Select the target(s)**
+   - To track **one specific object**, simply **select it** in the scene.
+   - To track **all annotated objects**, make sure **no object is selected** in the current frame.
+
+2. **Open tracking settings**
+   - Click the **arrow icon** on the **`Track All on Screen`** button (if no object is selected),  
+     or on the **`Track Selected`** button (if one or more objects are selected).
+   - In the settings popup choose how many frames the annotations should be propagated to. Select the **direction**: forward, backward, or both.
+
+3. **Run the tracking**
+   - Click the main **`Track All on Screen`** or **`Track Selected`** button to start tracking.
+   - The annotation propagation process will be visualized on the **timeline**.
+   - The **progress percentage** will be shown on the button itself.
+   - When it reaches **100%**, the tracking is complete.
+
+{% embed url="https://youtu.be/nDlaDzJkoRk" %}
 
 ### Auto Labeling
 
@@ -66,9 +84,9 @@ Click on auto labeling tab and press "Ground segmentation".
 
 1. Open the **Auto Labeling tab**. Toggle the **_Highlight object by click_** option to enable it.
 
-2. Make sure a Point Cloud view panel is active. Click on one of the 3D view panels to activate it (Top, Side, Front, Perspective).
+2. Make sure a Point Cloud view panel is active or click on one of the 3D view panels to activate it (Top, Side, Front, Perspective).
 
-3. Select the **Cuboid tool** from the toolbar. Or press the `3` key on your keyboard to activate the Cuboid tool.
+3. Select the **Cuboid tool** from the toolbar or press the `3` key on your keyboard to activate the Cuboid tool.
 
 4. Click on a target point cluster in the 3D scene. You’ll see a cuboid attached to your mouse cursor. Click once on the desired object in the point cloud — this will place the cuboid.
 
@@ -112,7 +130,7 @@ Click on a photo context image, draw a 2D mask, go to the Auto Labeling tab, and
 **Note**: AI Assistant features are available only to Enterprise customers with the Point Cloud module enabled.
 {% endhint %}
 
-## 2. Timeline Support
+## Timeline Support
 
 A full timeline component has been added, similar to the one used in video annotation tools:
 
@@ -120,7 +138,7 @@ A full timeline component has been added, similar to the one used in video annot
 - Supports annotation and review of dynamic scenes (episodes) across frame sequences.
 - Provides a comprehensive overview of frame availability, object presence, and annotation density.
 
-## 3. Modular and Resizable UI Layout
+## Modular and Resizable UI Layout
 
 The new interface allows full layout customization:
 
@@ -134,7 +152,7 @@ In addition to repositioning view panels, the Settings panel provides advanced c
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-settings.jpg" alt=""><figcaption></figcaption></figure>
 
-## 4. Definitions Panel
+## Definitions Panel
 
 The **Definitions** panel is now available in the 3D interface, as in image and video tools:
 
@@ -149,6 +167,50 @@ To change the class of a selected object:
 3. In the **Definition panel**, in the row of the selected class, click the mini-icon with two arrows to change the class.
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-dp-change1.jpg" alt=""><figcaption></figcaption></figure>
+
+## Navigation Behavior
+
+**When the `Move tool` is activated:**
+
+- **All viewports except Perspective**:
+  - Move the scene by holding **left or right mouse button**.
+
+- **Perspective viewport**:
+  - **Right mouse button** — pan the scene.
+  - **Left mouse button** — rotate the scene.
+  - **Mouse scroll** — zoom in/out.
+
+Additionally, navigation inside the **Perspective Viewport** is also available using **keyboard shortcuts**, as shown in the illustration below.
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-orbit-move.jpg" alt=""><figcaption></figcaption></figure>
+
+**When the `Select tool` is activated:**
+
+- **All viewports except Perspective**:
+  - Move the scene only by holding the **right mouse button**.
+
+- **Perspective viewport**:
+  - Navigation works **the same** as in **Move tool** mode:
+    - **Right mouse button** — pan.
+    - **Left mouse button** — rotate.
+    - **Mouse scroll** — zoom.
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-orbit-select.jpg" alt=""><figcaption></figcaption></figure>
+
+## Hotkeys
+
+To work faster and more efficiently, explore the list of available **hotkeys** in the labeling tool.
+
+Hotkeys let you:
+- Quickly switch between tools (like Select, Move, Cuboid, Brush, etc.)
+- Speed up editing actions (copy, paste, delete, undo, redo)
+- Add and remove tags, change tag values.
+
+Using keyboard shortcuts helps reduce mouse clicks and saves time during large-scale annotation tasks.
+
+You can always view the full list of hotkeys by clicking the **Hotkeys** button in the top-right corner of the tool interface.
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-hotkeys.jpg" alt=""><figcaption></figcaption></figure>
 
 ## Summary
 
