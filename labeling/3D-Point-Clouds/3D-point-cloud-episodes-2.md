@@ -51,9 +51,28 @@ Click on auto labeling tab and press "Ground segmentation".
 
 ### 3D Cuboid Tracking
 
-- After creating an annotation in one frame, the assistant can automatically propagate it across subsequent frames.
-- Helps label dynamic objects in sequential datasets with minimal manual input.
-- Uses a dedicated tracking panel, reusing logic from the video tool.
+The **3D Cuboid Tracking** tool allows you to automatically propagate annotations from one frame to the next. You can choose to track:
+
+- A **single selected object**, or  
+- **All objects** in the current scene (if no object is selected)
+
+**Steps to use the tool:**
+
+1. **Select the target(s)**
+   - To track **one specific object**, simply **select it** in the scene.
+   - To track **all annotated objects**, make sure **no object is selected** in the current frame.
+
+2. **Open tracking settings**
+   - Click the **arrow icon** on the **`Track All on Screen`** button.
+   - In the settings popup:
+     - Choose how many frames the annotations should be propagated to.
+     - Select the **direction**: forward or backward.
+
+3. **Run the tracking**
+   - Click the main **`Track All on Screen`** button to start.
+   - The annotation propagation process will be visualized on the **timeline**.
+   - The **progress percentage** will be shown on the **`Track All on Screen`** button itself.
+   - When it reaches **100%**, the tracking is complete.
 
 {% embed url="https://youtu.be/c55mYnGox8Q?rel=0" %}
 
@@ -66,9 +85,9 @@ Click on auto labeling tab and press "Ground segmentation".
 
 1. Open the **Auto Labeling tab**. Toggle the **_Highlight object by click_** option to enable it.
 
-2. Make sure a Point Cloud view panel is active. Click on one of the 3D view panels to activate it (Top, Side, Front, Perspective).
+2. Make sure a Point Cloud view panel is active or click on one of the 3D view panels to activate it (Top, Side, Front, Perspective).
 
-3. Select the **Cuboid tool** from the toolbar. Or press the `3` key on your keyboard to activate the Cuboid tool.
+3. Select the **Cuboid tool** from the toolbar or press the `3` key on your keyboard to activate the Cuboid tool.
 
 4. Click on a target point cluster in the 3D scene. You’ll see a cuboid attached to your mouse cursor. Click once on the desired object in the point cloud — this will place the cuboid.
 
@@ -149,6 +168,16 @@ To change the class of a selected object:
 3. In the **Definition panel**, in the row of the selected class, click the mini-icon with two arrows to change the class.
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-dp-change1.jpg" alt=""><figcaption></figcaption></figure>
+
+### Navigation
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-orbit-move1.jpg" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-orbit-select2.jpg" alt=""><figcaption></figcaption></figure>
+
+### Hotkeys
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-hotkeys.jpg" alt=""><figcaption></figcaption></figure>
 
 ## Summary
 
