@@ -127,7 +127,9 @@ We’ll start with the **Bounding Box** tool:
 2. In the **left sidebar**, select the **Bounding Box** tool.  
    If you don’t have a class created yet for this geometry type, a modal window will open — configure and create a new class, then close the modal.
 
-   > 💡 In the tool settings, you can switch between filled or transparent rectangle display styles.
+   {% hint style="info" %}
+   **Note**: In the tool settings, you can switch between filled or transparent rectangle display styles.
+   {% endhint %}
 
 3. **Draw a bounding box** around the desired object in the image window.  
    A rectangular shape (2D mask) will appear and be added to the **Definitions panel** and the **timeline**.
@@ -144,7 +146,7 @@ The steps for using the **SmartTool** are the same as for the Bounding Box tool:
 1. **Activate the image window** by clicking on a photo context image.
 
 2. In the **left sidebar**, select the **SmartTool**.  
-   If you don’t have a bitmap class created yet, a modal window will open — configure and create a new class of type `bitmap`, then close the modal.
+   If you don’t have a bitmap class created yet, a modal window will open — configure and create a new class of type bitmap, then close the modal.
 
 3. **Draw the mask** over the desired object using your mouse.  
    The SmartTool will automatically detect the object shape and generate a **bitmap mask**.  
