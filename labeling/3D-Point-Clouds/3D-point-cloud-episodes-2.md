@@ -128,16 +128,16 @@ Let’s walk through how to use each image annotation tool:
     2. In the **left sidebar**, select the **Bounding Box Tool**.  
     If you don’t have a class created yet for this geometry type, a modal window will open — configure and create a new class, then close the modal.
 
-    {% hint style="info" %}
-    **Note**: In the tool settings, you can switch between filled or transparent rectangle display styles.
-    {% endhint %}
-
     3. **Draw a bounding box** around the desired object in the image window.  
     A rectangular shape (2D mask) will appear and be added to the **Definitions panel** and the **timeline**.
 
     4. Click the **arrow icon** on the **Auto Labeling** button and select  
     **Create 3D Objects from 2D Objects on Camera**.  
     A new **3D cuboid** will be generated based on your 2D annotation, along with a new 3D class linked to the original 2D class.
+
+{% hint style="info" %}
+**Note**: In the tool settings, you can switch between filled or transparent rectangle display styles.
+{% endhint %}
 
 {% embed url="https://youtu.be/f6m7WJxMCAM" %}
 <br>
