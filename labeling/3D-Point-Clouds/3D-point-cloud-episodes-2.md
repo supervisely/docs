@@ -128,9 +128,9 @@ Let’s walk through how to use each image annotation tool:
     2. In the **left sidebar**, select the **Bounding Box Tool**.  
     If you don’t have a class created yet for this geometry type, a modal window will open — configure and create a new class, then close the modal.
 
-{% hint style="info" %}
-**Note**: In the tool settings, you can switch between filled or transparent rectangle display styles.
-{% endhint %}
+    {% hint style="info" %}
+    **Note**: In the tool settings, you can switch between filled or transparent rectangle display styles.
+    {% endhint %}
 
     3. **Draw a bounding box** around the desired object in the image window.  
     A rectangular shape (2D mask) will appear and be added to the **Definitions panel** and the **timeline**.
@@ -148,7 +148,7 @@ Let’s walk through how to use each image annotation tool:
 
     As for the tool itself, you can hover over it in the 3D Point Clouds and Episodes labeling interface to see helpful **tooltips**. For example, you might see tips like...
 
-    > "When working with polygons, you can also create holes inside shapes. To do this, hold `SHIFT` and click to start a polygon hole. Holes can be edited just like regular polygons. To delete a hole, hover over it and press `DELETE`."
+    > _"When working with polygons, you can also create holes inside shapes. To do this, hold `Shift` and click to start a polygon hole. Holes can be edited just like regular polygons. To delete a hole, hover over it and press `Delete`."_
 
     <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-2to3-polygon.jpg" alt=""><figcaption></figcaption></figure>
 <br>
