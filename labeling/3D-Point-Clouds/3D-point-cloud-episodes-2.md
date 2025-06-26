@@ -214,6 +214,33 @@ The **Definitions** panel is now available in the 3D interface, as in image and 
 - Provides quick access to classes, tags, tool settings, and object styles.
 - Helps manage large taxonomies and maintain consistency across projects.
 
+### Working with Tags
+
+1. To create a new tag, click the **plus icon** next to the Definitions panel in the top-right corner of the screen.  
+From the drop-down menu, select **Create Tag**.
+2. A modal window will open where you can configure the tag settings.  
+Specify the name, possible values, color, and other options, then click **Create**.
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-dp-create-tag.jpg" alt=""><figcaption></figcaption></figure>
+
+In 3D Point Cloud episodes, tags are associated only with individual **objects**.
+
+To apply a tag to an object:
+
+1. Find the object in the **Objects and Tags** panel.
+2. Select it by clicking on it.
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-tag1.jpg" alt=""><figcaption></figcaption></figure>
+
+3. After selecting the object, two tagging options will appear in the Definitions panel:
+
+- **Global Tags on Object** — if enabled, the tag will apply to this object across all frames/episodes where the object exists.
+- **Frame Based Tags on Object** — if enabled, the tag will apply only on the currently active frame (the one open in the selected viewport).
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-tag2.jpg" alt=""><figcaption></figcaption></figure>
+
+These options allow flexible tagging behavior depending on whether the attribute is persistent or specific to a certain moment in time.
+
 **Editing**
 
 To change the class of a selected object:
