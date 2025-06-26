@@ -140,7 +140,7 @@ Let’s walk through how to use each image annotation tool:
 
 {% embed url="https://youtu.be/f6m7WJxMCAM" %}
 
-- **Polygon Tool**<br>
+- **POLYGON TOOL**<br>
     The Polygon tool works similarly to other image annotation tools that support 2D-to-3D conversion. You can draw a polygon directly on the photo context image, and later convert it into a 3D object using the **Auto Labeling** option.
 
     As for the tool itself, you can hover over it in the 3D Point Clouds and Episodes labeling interface to see helpful **tooltips**. For example, you might see tips like...
