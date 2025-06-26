@@ -10,10 +10,10 @@ The 3D Point Cloud labeling tool in Supervisely is designed for visualizing, ann
 The latest version introduces a completely redesigned interface that unifies both **single-frame** and **episode-based** workflows. It brings a more streamlined and powerful experience with features such as:
 
 - **AI-assisted tools** for faster and more accurate labeling
+- **Auto Labeling with Cuboid Tool**
 - Interactive **3D Object Detection**
 - 3D Point Cloud **Ground Segmentation**
-- 3D **Cuboid Tracking**
-- **Auto Labeling**
+- **Cuboid Tracking**
 - **Synchronized 2D–3D annotation** using photo context images  
 - **Timeline navigation** for working with sequential frames  
 - **Flexible, resizable UI layout** tailored to your workflow
@@ -33,49 +33,7 @@ Difference between 3D Point Cloud and 3D Point Cloud Episodes:
 
 Supervisely's 3D AI assistant is a universal tool for automating 3D point cloud labeling. It covers all types of labeling scenarios for 3D point clouds: 3D object detection, ground segmentation, 3D cuboid tracking, transfer of 2D annotations from photo context images to original 3D point clouds. This tool is class-agnostic - it means that it works with any type of objects regardless of their shape and point density.
 
-### Interactive 3D Object Detection
-
-Select smart tool in left side bar and circle target object. It will automatically generate a 3D cuboid around the selected object.
-
-{% embed url="https://youtu.be/fpWhIdpLHWU?rel=0" %}
-
-### 3D Point Cloud Ground Segmentation
-
-- Detects and annotates the ground level in the 3D scene.
-- Fits a horizontal surface through point clusters and creates a flat figure with a `ground` class.
-- Useful for scene normalization and filtering.
-
-Click on auto labeling tab and press "Ground segmentation".
-
-{% embed url="https://youtu.be/pWnf0erSEiA" %}
-
-### 3D Cuboid Tracking
-
-The **3D Cuboid Tracking** tool allows you to automatically propagate annotations from one frame to the next. You can choose to track:
-
-- A **single selected object**, or  
-- **All objects** in the current scene (if no object is selected)
-
-**Steps to use the tool:**
-
-1. **Select the target(s)**
-   - To track **one specific object**, simply **select it** in the scene.
-   - To track **all annotated objects**, make sure **no object is selected** in the current frame.
-
-2. **Open tracking settings**
-   - Click the **arrow icon** on the **`Track All on Screen`** button (if no object is selected),  
-     or on the **`Track Selected`** button (if one or more objects are selected).
-   - In the settings popup choose how many frames the annotations should be propagated to. Select the **direction**: forward, backward, or both.
-
-3. **Run the tracking**
-   - Click the main **`Track All on Screen`** or **`Track Selected`** button to start tracking.
-   - The annotation propagation process will be visualized on the **timeline**.
-   - The **progress percentage** will be shown on the button itself.
-   - When it reaches **100%**, the tracking is complete.
-
-{% embed url="https://youtu.be/nDlaDzJkoRk" %}
-
-### Auto Labeling
+### Auto Labeling with Cuboid Tool
 
 - Automatically detects and annotates objects using pre-trained models.
 - Simplifies the process of placing cuboids or segmenting regions of interest in the scene.
@@ -103,7 +61,65 @@ The **3D Cuboid Tracking** tool allows you to automatically propagate annotation
 
 This loop allows for rapid labeling of multiple objects in sequence with minimal effort.
 
-{% embed url="https://youtu.be/xhQsVn3vwoo" %}
+{% embed url="https://youtu.be/ysin0aIet5c" %}
+
+### Interactive 3D Object Detection with Smart Tool
+
+Select **Smart tool** in left side bar and circle target object. It will automatically generate a 3D cuboid around the selected object.
+
+{% embed url="https://youtu.be/8iQj4GNvp5U" %}
+
+### 3D Point Cloud Ground Segmentation
+
+- Detects and annotates the ground level in the 3D scene.
+- Fits a horizontal surface through point clusters and creates a flat figure with a `ground` class.
+- Useful for scene normalization and filtering.
+
+Click on auto labeling tab and press "Ground segmentation".
+
+{% embed url="https://youtu.be/XcLOjhXbBGQ" %}
+
+### 3D Point Cloud Pen
+
+The **Point Cloud Pen** is a versatile tool designed for direct point-level editing in 3D space.
+
+You can use it in two main ways:
+
+As an **editing** tool — to add or remove points from an existing point cloud object.
+
+{% embed url="https://youtu.be/egdhoPKd10A" %}
+
+As a **creation** tool — to define and create a new object.
+
+{% embed url="https://youtu.be/sLefC2-0r3w" %}
+
+This makes the **Point Cloud Pen** tool especially useful for refining segmentations, fixing noisy detections, or manually annotating small or complex areas within a scene.
+
+### 3D Cuboid Tracking
+
+The **3D Cuboid Tracking** tool allows you to automatically propagate annotations from one frame to the next. You can choose to track:
+
+- A **single selected object**, or  
+- **All objects** in the current scene (if no object is selected)
+
+**Steps to use the tool:**
+
+1. **Select the target(s)**
+   - To track **one specific object**, simply **select it** in the scene.
+   - To track **all annotated objects**, make sure **no object is selected** in the current frame.
+
+2. **Open tracking settings**
+   - Click the **arrow icon** on the **`Track All on Screen`** button (if no object is selected),  
+     or on the **`Track Selected`** button (if one or more objects are selected).
+   - In the settings popup choose how many frames the annotations should be propagated to. Select the **direction**: forward, backward, or both.
+
+3. **Run the tracking**
+   - Click the main **`Track All on Screen`** or **`Track Selected`** button to start tracking.
+   - The annotation propagation process will be visualized on the **timeline**.
+   - The **progress percentage** will be shown on the button itself.
+   - When it reaches **100%**, the tracking is complete.
+
+{% embed url="https://youtu.be/nDlaDzJkoRk" %}
 
 ### 2D to 3D Projection
 
