@@ -318,7 +318,7 @@ The updated interface for 3D Point Cloud annotation combines powerful capabiliti
 It offers a complete workspace for multi-modal annotation with high accuracy and scalability. Whether working with static point clouds or dynamic 3D sequences, the new tool provides clarity, control, and performance required for modern annotation workflows.
 
 {% hint style="info" %}
-**Note**: The older version of the 3D Point Cloud tool remains available under **legacy** status.
+**Note**: The [older version of the 3D Point Cloud tool](https://docs.supervisely.com/labeling/labeling-toolbox/3d-point-clouds-episodes-1) remains available under **legacy** status.
 
 - Users can switch back using the **Switch to Legacy Tool** button.
 - Legacy version has a static layout and lacks support for definitions, timeline, and 2D–3D synchronization.
