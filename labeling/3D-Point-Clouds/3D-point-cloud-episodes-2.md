@@ -112,19 +112,78 @@ The photo context panel is now an interactive part of the 3D labeling workspace.
 You can annotate context images directly using standard image labeling tools. These annotations are automatically synchronized with the 3D space and become part of the same object instance.
 2D and 3D annotations now coexist at the same level — edits or creation in one view are instantly reflected in the other. This improves labeling precision and scene understanding, especially when certain features are more visible in 2D.
 
-The system seamlessly combines 2D and 3D perspectives in a single environment — no need to switch tools or views.
+The photo context panel is now an interactive part of the 3D labeling workspace.
 
-{% embed url="https://youtu.be/N7WcULjah7I" %}
+You can annotate context images directly using standard image labeling tools. These annotations are automatically synchronized with the 3D space and become part of the same object instance.  
+2D and 3D annotations now coexist at the same level — edits or creation in one view are instantly reflected in the other. This improves labeling precision and scene understanding, especially when certain features are more visible in 2D.
 
-**Additional capabilities:**
+Let’s walk through how to use each image annotation tool:
 
-- 2D masks created on photo context images can be automatically converted into 3D geometry.
+- #### **Bounding Box Tool**
 
-- Converted figures are visualized directly in the point cloud view.
+    We’ll start with the **Bounding Box Tool**:
 
-- Currently, only masks are supported. Support for 2D bounding boxes is coming soon.
+    1. **Activate the image window** by clicking directly on a photo context image.
 
-Click on a photo context image, draw a 2D mask, go to the Auto Labeling tab, and press "Create 3D objects from 2D object on camera."
+    2. In the **left sidebar**, select the **Bounding Box Tool**.  
+    If you don’t have a class created yet for this geometry type, a modal window will open — configure and create a new class, then close the modal.
+
+    3. **Draw a bounding box** around the desired object in the image window.  
+    A rectangular shape (2D mask) will appear and be added to the **Definitions panel** and the **timeline**.
+
+    4. Click the **arrow icon** on the **Auto Labeling** button and select  
+    **Create 3D Objects from 2D Objects on Camera**.  
+    A new **3D cuboid** will be generated based on your 2D annotation, along with a new 3D class linked to the original 2D class.
+
+{% hint style="info" %}
+**Note**: In the tool settings, you can switch between filled or transparent rectangle display styles.
+{% endhint %}
+
+{% embed url="https://youtu.be/f6m7WJxMCAM" %}
+<br>
+
+- #### **Polygon Tool**
+
+    The Polygon tool works similarly to other image annotation tools that support 2D-to-3D conversion. You can draw a polygon directly on the photo context image, and later convert it into a 3D object using the **Auto Labeling** option.
+
+    As for the tool itself, you can hover over it in the 3D Point Clouds and Episodes labeling interface to see helpful **tooltips**. For example, you might see tips like...
+
+    > _"When working with polygons, you can also create holes inside shapes. To do this, hold `Shift` and click to start a polygon hole. Holes can be edited just like regular polygons. To delete a hole, hover over it and press `Delete`."_
+
+    <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-2to3-polygon.jpg" alt=""><figcaption></figcaption></figure>
+<br>
+
+- #### **Brush Tool**
+
+    The Brush tool includes a variety of settings. You can outline the target object on the image using the brush, and then use the Fill tool, which is nested inside the Brush tool.
+
+    <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-2to3-brush1.jpg" alt=""><figcaption></figcaption></figure>
+
+    Instead of manually painting the interior, simply click inside the outlined area — the entire enclosed region will be filled automatically.
+
+    <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-2to3-brush2.jpg" alt=""><figcaption></figcaption></figure>
+
+    You can also separate a part of an already drawn mask using the Brush tool. To split off a section of the mask, use the **Split Polygon** tool, which is located inside the Brush tool. This allows you to divide a single mask into separate segments directly on the image.
+<br>
+
+- #### **Smart Tool**
+
+    The steps for using the **Smart Tool** are the same as for the Bounding Box tool:
+
+    1. **Activate the image window** by clicking on a photo context image.
+
+    2. In the **left sidebar**, select the **Smart Tool**.  
+    If you don’t have a bitmap class created yet, a modal window will open — configure and create a new class of type bitmap, then close the modal.
+
+    3. **Draw the mask** over the desired object using your mouse.  
+    The SmartTool will automatically detect the object shape and generate a **bitmap mask**.  
+    The new annotation will appear in the **Definitions panel** and on the **timeline**.
+
+    4. Click the **arrow icon** on the **Auto Labeling** button and select  
+    **Create 3D Objects from 2D Objects on Camera**.  
+    A new **3D cuboid** will be generated in the point cloud based on the 2D bitmap mask, and a corresponding 3D class will be created.
+
+{% embed url="https://youtu.be/sbo9FbyPza0" %}
 
 {% hint style="info" %}
 **Note**: AI Assistant features are available only to Enterprise customers with the Point Cloud module enabled.
@@ -148,16 +207,39 @@ The new interface allows full layout customization:
 
 {% embed url="https://youtu.be/TwpyWbaLfZY" %}
 
-In addition to repositioning view panels, the Settings panel provides advanced customization options — such as adjusting cuboid thickness, customizing class appearance, controlling point cloud display settings, toggling object IDs, and more.
-
-<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-settings.jpg" alt=""><figcaption></figcaption></figure>
-
 ## Definitions Panel
 
 The **Definitions** panel is now available in the 3D interface, as in image and video tools:
 
 - Provides quick access to classes, tags, tool settings, and object styles.
 - Helps manage large taxonomies and maintain consistency across projects.
+
+### Working with Tags
+
+1. To create a new tag, click the **plus icon** next to the Definitions panel in the top-right corner of the screen.  
+From the drop-down menu, select **Create Tag**.
+2. A modal window will open where you can configure the tag settings.  
+Specify the name, possible values, color, and other options, then click **Create**.
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-dp-create-tag.jpg" alt=""><figcaption></figcaption></figure>
+
+In 3D Point Cloud episodes, tags are associated only with individual **objects**.
+
+To apply a tag to an object:
+
+1. Find the object in the **Objects and Tags** panel.
+2. Select it by clicking on it.
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-tag1.jpg" alt=""><figcaption></figcaption></figure>
+
+3. After selecting the object, two tagging options will appear in the Definitions panel:
+
+- **Global Tags on Object** — if enabled, the tag will apply to this object across all frames/episodes where the object exists.
+- **Frame Based Tags on Object** — if enabled, the tag will apply only on the currently active frame (the one open in the selected viewport).
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-tag2.jpg" alt=""><figcaption></figcaption></figure>
+
+These options allow flexible tagging behavior depending on whether the attribute is persistent or specific to a certain moment in time.
 
 **Editing**
 
@@ -167,6 +249,18 @@ To change the class of a selected object:
 3. In the **Definition panel**, in the row of the selected class, click the mini-icon with two arrows to change the class.
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-dp-change1.jpg" alt=""><figcaption></figcaption></figure>
+
+## Settings Panel
+
+In addition to repositioning view panels, the Settings panel provides advanced customization options — such as adjusting cuboid thickness, customizing class appearance, controlling point cloud display settings, toggling object IDs, and more.
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-settings.jpg" alt=""><figcaption></figcaption></figure>
+
+For example, by default, point clouds are displayed with the smallest point size. However, in some cases, increasing the point size can improve visibility and make labeling easier.
+
+You can adjust the point size in the **Settings** panel. Each Viewpoint can have its own individual point size setting, as shown in the illustration below.
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-settings-point-size.jpg" alt=""><figcaption></figcaption></figure>
 
 ## Navigation Behavior
 
@@ -224,7 +318,7 @@ The updated interface for 3D Point Cloud annotation combines powerful capabiliti
 It offers a complete workspace for multi-modal annotation with high accuracy and scalability. Whether working with static point clouds or dynamic 3D sequences, the new tool provides clarity, control, and performance required for modern annotation workflows.
 
 {% hint style="info" %}
-**Note**: The older version of the 3D Point Cloud tool remains available under **legacy** status.
+**Note**: The [older version of the 3D Point Cloud tool](https://docs.supervisely.com/labeling/labeling-toolbox/3d-point-clouds-episodes-1) remains available under **legacy** status.
 
 - Users can switch back using the **Switch to Legacy Tool** button.
 - Legacy version has a static layout and lacks support for definitions, timeline, and 2D–3D synchronization.
