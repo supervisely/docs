@@ -117,44 +117,53 @@ The photo context panel is now an interactive part of the 3D labeling workspace.
 You can annotate context images directly using standard image labeling tools. These annotations are automatically synchronized with the 3D space and become part of the same object instance.  
 2D and 3D annotations now coexist at the same level — edits or creation in one view are instantly reflected in the other. This improves labeling precision and scene understanding, especially when certain features are more visible in 2D.
 
-Let’s walk through how to use each image annotation tool.
+Let’s walk through how to use each image annotation tool:
 
-**Bounding Box**<br>
-We’ll start with the **Bounding Box** tool:
+- **Bounding Box Tool**<br>
+    We’ll start with the **Bounding Box Tool**:
 
-1. **Activate the image window** by clicking directly on a photo context image.
+    1. **Activate the image window** by clicking directly on a photo context image.
 
-2. In the **left sidebar**, select the **Bounding Box** tool.  
-   If you don’t have a class created yet for this geometry type, a modal window will open — configure and create a new class, then close the modal.
+    2. In the **left sidebar**, select the **Bounding Box Tool**.  
+    If you don’t have a class created yet for this geometry type, a modal window will open — configure and create a new class, then close the modal.
 
-   {% hint style="info" %}
-   **Note**: In the tool settings, you can switch between filled or transparent rectangle display styles.
-   {% endhint %}
+    {% hint style="info" %}
+    **Note**: In the tool settings, you can switch between filled or transparent rectangle display styles.
+    {% endhint %}
 
-3. **Draw a bounding box** around the desired object in the image window.  
-   A rectangular shape (2D mask) will appear and be added to the **Definitions panel** and the **timeline**.
+    3. **Draw a bounding box** around the desired object in the image window.  
+    A rectangular shape (2D mask) will appear and be added to the **Definitions panel** and the **timeline**.
 
-4. Click the **arrow icon** on the **Auto Labeling** button and select  
-   **Create 3D Objects from 2D Objects on Camera**.  
-   A new **3D cuboid** will be generated based on your 2D annotation, along with a new 3D class linked to the original 2D class.
+    4. Click the **arrow icon** on the **Auto Labeling** button and select  
+    **Create 3D Objects from 2D Objects on Camera**.  
+    A new **3D cuboid** will be generated based on your 2D annotation, along with a new 3D class linked to the original 2D class.
 
 {% embed url="https://youtu.be/f6m7WJxMCAM" %}
 
-**SmartTool**<br>
-The steps for using the **SmartTool** are the same as for the Bounding Box tool:
+- **Polygon Tool**<br>
+    The Polygon tool works similarly to other image annotation tools that support 2D-to-3D conversion. You can draw a polygon directly on the photo context image, and later convert it into a 3D object using the **Auto Labeling** option.
 
-1. **Activate the image window** by clicking on a photo context image.
+    As for the tool itself, you can hover over it in the 3D Point Clouds and Episodes labeling interface to see helpful **tooltips**. For example, you might see tips like...
 
-2. In the **left sidebar**, select the **SmartTool**.  
-   If you don’t have a bitmap class created yet, a modal window will open — configure and create a new class of type bitmap, then close the modal.
+        "When working with polygons, you can also create holes inside shapes. To do this, hold `SHIFT` and click to start a polygon hole. Holes can be edited just like regular polygons. To delete a hole, hover over it and press `DELETE`."
 
-3. **Draw the mask** over the desired object using your mouse.  
-   The SmartTool will automatically detect the object shape and generate a **bitmap mask**.  
-   The new annotation will appear in the **Definitions panel** and on the **timeline**.
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-2to3-polygon.jpg" alt=""><figcaption></figcaption></figure>
 
-4. Click the **arrow icon** on the **Auto Labeling** button and select  
-   **Create 3D Objects from 2D Objects on Camera**.  
-   A new **3D cuboid** will be generated in the point cloud based on the 2D bitmap mask, and a corresponding 3D class will be created.
+- **Smart Tool**<br>
+    The steps for using the **Smart Tool** are the same as for the Bounding Box tool:
+
+    1. **Activate the image window** by clicking on a photo context image.
+
+    2. In the **left sidebar**, select the **Smart Tool**.  
+    If you don’t have a bitmap class created yet, a modal window will open — configure and create a new class of type bitmap, then close the modal.
+
+    3. **Draw the mask** over the desired object using your mouse.  
+    The SmartTool will automatically detect the object shape and generate a **bitmap mask**.  
+    The new annotation will appear in the **Definitions panel** and on the **timeline**.
+
+    4. Click the **arrow icon** on the **Auto Labeling** button and select  
+    **Create 3D Objects from 2D Objects on Camera**.  
+    A new **3D cuboid** will be generated in the point cloud based on the 2D bitmap mask, and a corresponding 3D class will be created.
 
 {% embed url="https://youtu.be/sbo9FbyPza0" %}
 
