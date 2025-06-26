@@ -119,7 +119,8 @@ You can annotate context images directly using standard image labeling tools. Th
 
 Let’s walk through how to use each image annotation tool:
 
-- **Bounding Box Tool**<br>
+- **BOUNDING BOX TOOL**
+
     We’ll start with the **Bounding Box Tool**:
 
     1. **Activate the image window** by clicking directly on a photo context image.
@@ -138,18 +139,32 @@ Let’s walk through how to use each image annotation tool:
     **Create 3D Objects from 2D Objects on Camera**.  
     A new **3D cuboid** will be generated based on your 2D annotation, along with a new 3D class linked to the original 2D class.
 
-{% embed url="https://youtu.be/f6m7WJxMCAM" %}
+    {% embed url="https://youtu.be/f6m7WJxMCAM" %}
 
-- **POLYGON TOOL**<br>
+- **POLYGON TOOL**
+
     The Polygon tool works similarly to other image annotation tools that support 2D-to-3D conversion. You can draw a polygon directly on the photo context image, and later convert it into a 3D object using the **Auto Labeling** option.
 
     As for the tool itself, you can hover over it in the 3D Point Clouds and Episodes labeling interface to see helpful **tooltips**. For example, you might see tips like...
 
         "When working with polygons, you can also create holes inside shapes. To do this, hold `SHIFT` and click to start a polygon hole. Holes can be edited just like regular polygons. To delete a hole, hover over it and press `DELETE`."
 
-<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-2to3-polygon.jpg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-2to3-polygon.jpg" alt=""><figcaption></figcaption></figure>
 
-- **Smart Tool**<br>
+- **BRUSH TOOL**
+
+    The Brush tool includes a variety of settings. You can outline the target object on the image using the brush, and then use the Fill tool, which is nested inside the Brush tool.
+
+    <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-2to3-brush1.jpg" alt=""><figcaption></figcaption></figure>
+
+    Instead of manually painting the interior, simply click inside the outlined area — the entire enclosed region will be filled automatically.
+
+    <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-2to3-brush2.jpg" alt=""><figcaption></figcaption></figure>
+
+    You can also separate a part of an already drawn mask using the Brush tool. To split off a section of the mask, use the **Split Polygon** tool, which is located inside the Brush tool. This allows you to divide a single mask into separate segments directly on the image.
+
+- **SMART TOOL**
+
     The steps for using the **Smart Tool** are the same as for the Bounding Box tool:
 
     1. **Activate the image window** by clicking on a photo context image.
@@ -165,7 +180,7 @@ Let’s walk through how to use each image annotation tool:
     **Create 3D Objects from 2D Objects on Camera**.  
     A new **3D cuboid** will be generated in the point cloud based on the 2D bitmap mask, and a corresponding 3D class will be created.
 
-{% embed url="https://youtu.be/sbo9FbyPza0" %}
+    {% embed url="https://youtu.be/sbo9FbyPza0" %}
 
 {% hint style="info" %}
 **Note**: AI Assistant features are available only to Enterprise customers with the Point Cloud module enabled.
@@ -189,10 +204,6 @@ The new interface allows full layout customization:
 
 {% embed url="https://youtu.be/TwpyWbaLfZY" %}
 
-In addition to repositioning view panels, the Settings panel provides advanced customization options — such as adjusting cuboid thickness, customizing class appearance, controlling point cloud display settings, toggling object IDs, and more.
-
-<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-settings.jpg" alt=""><figcaption></figcaption></figure>
-
 ## Definitions Panel
 
 The **Definitions** panel is now available in the 3D interface, as in image and video tools:
@@ -208,6 +219,18 @@ To change the class of a selected object:
 3. In the **Definition panel**, in the row of the selected class, click the mini-icon with two arrows to change the class.
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-dp-change1.jpg" alt=""><figcaption></figcaption></figure>
+
+## Settings Panel
+
+In addition to repositioning view panels, the Settings panel provides advanced customization options — such as adjusting cuboid thickness, customizing class appearance, controlling point cloud display settings, toggling object IDs, and more.
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-settings.jpg" alt=""><figcaption></figcaption></figure>
+
+For example, by default, point clouds are displayed with the smallest point size. However, in some cases, increasing the point size can improve visibility and make labeling easier.
+
+You can adjust the point size in the **Settings** panel. Each Viewpoint can have its own individual point size setting, as shown in the illustration below.
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-settings-point-size.jpg" alt=""><figcaption></figcaption></figure>
 
 ## Navigation Behavior
 
