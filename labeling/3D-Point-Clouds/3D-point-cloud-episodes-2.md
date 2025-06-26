@@ -119,7 +119,7 @@ You can annotate context images directly using standard image labeling tools. Th
 
 Let’s walk through how to use each image annotation tool:
 
-- **BOUNDING BOX TOOL**
+- #### **Bounding Box Tool**
 
     We’ll start with the **Bounding Box Tool**:
 
@@ -141,17 +141,17 @@ Let’s walk through how to use each image annotation tool:
 
     {% embed url="https://youtu.be/f6m7WJxMCAM" %}
 
-- **POLYGON TOOL**
+- #### **Polygon Tool**
 
     The Polygon tool works similarly to other image annotation tools that support 2D-to-3D conversion. You can draw a polygon directly on the photo context image, and later convert it into a 3D object using the **Auto Labeling** option.
 
     As for the tool itself, you can hover over it in the 3D Point Clouds and Episodes labeling interface to see helpful **tooltips**. For example, you might see tips like...
 
-        "When working with polygons, you can also create holes inside shapes. To do this, hold `SHIFT` and click to start a polygon hole. Holes can be edited just like regular polygons. To delete a hole, hover over it and press `DELETE`."
+    _"When working with polygons, you can also create holes inside shapes. To do this, hold `SHIFT` and click to start a polygon hole. Holes can be edited just like regular polygons. To delete a hole, hover over it and press `DELETE`."_
 
     <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-2to3-polygon.jpg" alt=""><figcaption></figcaption></figure>
 
-- **BRUSH TOOL**
+- #### **Brush Tool**
 
     The Brush tool includes a variety of settings. You can outline the target object on the image using the brush, and then use the Fill tool, which is nested inside the Brush tool.
 
@@ -163,7 +163,7 @@ Let’s walk through how to use each image annotation tool:
 
     You can also separate a part of an already drawn mask using the Brush tool. To split off a section of the mask, use the **Split Polygon** tool, which is located inside the Brush tool. This allows you to divide a single mask into separate segments directly on the image.
 
-- **SMART TOOL**
+- #### **Smart Tool**
 
     The steps for using the **Smart Tool** are the same as for the Bounding Box tool:
 
