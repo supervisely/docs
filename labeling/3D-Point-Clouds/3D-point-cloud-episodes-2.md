@@ -128,9 +128,9 @@ Let’s walk through how to use each image annotation tool:
     2. In the **left sidebar**, select the **Bounding Box Tool**.  
     If you don’t have a class created yet for this geometry type, a modal window will open — configure and create a new class, then close the modal.
 
-    {% hint style="info" %}
-    **Note**: In the tool settings, you can switch between filled or transparent rectangle display styles.
-    {% endhint %}
+{% hint style="info" %}
+**Note**: In the tool settings, you can switch between filled or transparent rectangle display styles.
+{% endhint %}
 
     3. **Draw a bounding box** around the desired object in the image window.  
     A rectangular shape (2D mask) will appear and be added to the **Definitions panel** and the **timeline**.
@@ -141,7 +141,7 @@ Let’s walk through how to use each image annotation tool:
 
 {% embed url="https://youtu.be/f6m7WJxMCAM" %}
 <br>
-<br>
+
 - #### **Polygon Tool**
 
     The Polygon tool works similarly to other image annotation tools that support 2D-to-3D conversion. You can draw a polygon directly on the photo context image, and later convert it into a 3D object using the **Auto Labeling** option.
@@ -152,7 +152,7 @@ Let’s walk through how to use each image annotation tool:
 
     <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-2to3-polygon.jpg" alt=""><figcaption></figcaption></figure>
 <br>
-<br>
+
 - #### **Brush Tool**
 
     The Brush tool includes a variety of settings. You can outline the target object on the image using the brush, and then use the Fill tool, which is nested inside the Brush tool.
@@ -165,7 +165,7 @@ Let’s walk through how to use each image annotation tool:
 
     You can also separate a part of an already drawn mask using the Brush tool. To split off a section of the mask, use the **Split Polygon** tool, which is located inside the Brush tool. This allows you to divide a single mask into separate segments directly on the image.
 <br>
-<br>
+
 - #### **Smart Tool**
 
     The steps for using the **Smart Tool** are the same as for the Bounding Box tool:
