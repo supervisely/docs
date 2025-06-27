@@ -82,11 +82,11 @@ Click on auto labeling tab and press "Ground segmentation".
 
 {% embed url="https://youtu.be/XcLOjhXbBGQ" %}
 
-3D AI assistant proposes several ground segmentation algorithms: Patchwork++,  GndNet, quantile filtering, ground plane fitting, grid-based slope filtering - user can select the one which fits current dataset best.
+3D AI assistant proposes several ground segmentation algorithms: Patchwork++, GndNet, quantile filtering, ground plane fitting, grid-based slope filtering - user can select the one which fits current dataset best.
 
 In order to find out which ground segmentation algorithm fits user's data best, user can preview performance of each algorithm in app UI:
 
-{% embed url="https://github.com/supervisely-ecosystem/MBPTrack3D/releases/download/v1.0.0/ground_seg_algo_selection_speedup.mp4" %}
+{% embed url="https://youtu.be/fdAkOeApzMI" %}
 
 [Patchwork++](https://arxiv.org/pdf/2207.11919.pdf) is a self-adaptive, non-learning-based approach for 3D point cloud ground segmentation. Patchwork++ segments ground points in 3D point clouds by dividing the space into concentric square rings and performing progressive plane fitting from the center outward. It improves upon the original Patchwork by introducing adaptive plane modeling and better handling of non-flat terrain using a hierarchical spatial partitioning and local elevation statistics. Patchwork++ also includes mechanisms to handle sparse or occluded regions and improves computational efficiency, making it suitable for real-time applications in autonomous driving and robotics.
 
