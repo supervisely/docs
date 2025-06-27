@@ -9,6 +9,7 @@ The 3D Point Cloud labeling tool in Supervisely is designed for visualizing, ann
 
 The latest version introduces a completely redesigned interface that unifies both **single-frame** and **episode-based** workflows. It brings a more streamlined and powerful experience with features such as:
 
+- **Optimized visualization** and interaction with extremely large point clouds — **up to 50 million points per frame** — enabling smooth annotation and review even for high-resolution lidar scans.
 - **AI-assisted tools** for faster and more accurate labeling
 - **Auto Labeling with Cuboid Tool**
 - Interactive **3D Object Detection**
@@ -324,11 +325,39 @@ In addition to repositioning view panels, the Settings panel provides advanced c
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-settings.jpg" alt=""><figcaption></figcaption></figure>
 
+### Adjusting Point Size
+
 For example, by default, point clouds are displayed with the smallest point size. However, in some cases, increasing the point size can improve visibility and make labeling easier.
 
 You can adjust the point size in the **Settings** panel. Each Viewpoint can have its own individual point size setting, as shown in the illustration below.
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-settings-point-size.jpg" alt=""><figcaption></figcaption></figure>
+
+### Transferring Colors from Photo Context to 3D Point Clouds
+
+The Color Mode setting enables the transfer of color information from photo context images onto your 3D point clouds and point cloud episodes.
+
+To enable this feature:
+
+1. Go to the **Settings** tab.  
+2. Scroll down to the **Cloud Points** section.  
+3. Find the **Color Mode** setting.  
+4. Click it — in the dropdown menu, you will see the following options:
+
+    - **Z Code Height** *(default)* — uses a gradient based on point height (Z coordinate).
+    - **RGB** — displays points using their original RGB values (if available).
+    - **Distance From Center** — colors points based on their distance from the scanning device.
+    - **Camera Device** — transfers real image colors from the photo context to the 3D point cloud.
+
+When **Camera Device** is selected, colors from the photo context are projected onto the 3D points across **all frames** of a point cloud episode, not just the current one.
+
+This makes it easier to visually inspect and annotate the scene with realistic color information, especially when working with multi-frame episodes.
+
+To align your 3D perspective view with the photo context, click the small **camera icon** labeled **Match Camera Position** in the top-right corner of the photo context panel.  
+This will automatically adjust the 3D perspective to match the exact camera position of the photo.  
+As a result, you'll be able to clearly see how the photo has been projected onto the point cloud in the **Perspective** view.
+
+{% embed url="https://youtu.be/oqXPLMAwz5M" %}
 
 ## Navigation Behavior
 
@@ -373,6 +402,32 @@ Using keyboard shortcuts helps reduce mouse clicks and saves time during large-s
 You can always view the full list of hotkeys by clicking the **Hotkeys** button in the top-right corner of the tool interface.
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-hotkeys.jpg" alt=""><figcaption></figcaption></figure>
+
+## Import and Export of 3D Point Clouds
+
+Supervisely provides flexible tools for importing and exporting 3D point clouds, including annotations and related images (e.g., photo context images), in various formats.
+
+For a general overview, see the [Import Overview page](https://docs.supervisely.com/import-and-export/import).
+
+By default, **AutoImport** automatically detects and supports the following formats out of the box:
+
+- [Supported formats for single point clouds (PCD, PLY, LAS, LAZ, etc.)](https://docs.supervisely.com/import-and-export/import/supported-annotation-formats/pointclouds)
+- [Supported formats for point cloud episodes](https://docs.supervisely.com/import-and-export/import/supported-annotation-formats/pointcloud_episodes)
+
+AutoImport supports a **wider range of formats** than individual apps and does **automatic format detection**, which makes it the recommended method for most users.
+
+However, for more control or special cases, you can use dedicated Supervisely Apps to import point clouds from specific formats such as **KITTI**, **ROS bag**, **PLY**, and more.
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-import-apps.jpg" alt=""><figcaption></figcaption></figure>
+
+Similarly, you can export your labeled point cloud data into various formats using standard Supervisely Export Apps. These apps support exporting annotations, projects, or specific point cloud formats including **KITTI 3D**, **ROS Bag**, and others.
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-export-apps.jpg" alt=""><figcaption></figcaption></figure>
+
+You can find all available import and export apps in the **Import → Pointclouds** and **Export → Pointclouds** categories in the [Supervisely Ecosystem](https://ecosystem.supervisely.com).
+
+For more details about Supervisely's native format for 3D point cloud episodes, see the
+[Supervisely Point Cloud Episode Annotation Format](https://docs.supervisely.com/customization-and-integration/00_ann_format_navi/07_supervisely_format_pointcloud_episode).
 
 ## Summary
 
