@@ -140,17 +140,20 @@ The **3D Cuboid Tracking** tool allows you to automatically propagate annotation
 
 {% embed url="https://youtu.be/nDlaDzJkoRk" %}
 
-Unlike learning-based approaches, 3D AI assistant focuses on calculating the offset between neighboring point clouds with the help of point cloud registration algorithms, and does not require any additional training for tracking 3D objects on unseen point cloud sequences.
+Unlike learning-based approaches, the **3D AI Assistant** focuses on calculating the offset between neighboring point clouds using **Point Cloud Registration Algorithms**. It does **not** require any additional training to track 3D objects across unseen point cloud sequences.
 
-Point cloud registration algorithms are aimed at finding the transformation that aligns a pair of point clouds lying in defferent coordinate systems into a common coordinate system.
+**Point Cloud Registration Algorithms** are designed to find the transformation that aligns a pair of point clouds—originally located in different coordinate systems—into a shared coordinate space.
 
-Here is how two neighbouring point clouds look like when visuzalied on one scene - you can clearly see a shift between them:
+Below is a visualization of two neighboring point clouds displayed in the same scene **before** applying registration:  
+you can clearly observe a spatial shift between them.
 
-{% embed url="https://github.com/supervisely-ecosystem/MBPTrack3D/releases/download/v1.0.0/before_pcd_registration.mp4" %}
+{% embed url="https://youtu.be/1kiMWHekwok" %}
 
-After applying point cloud registration algorithm we can get a transformation matrix and apply this matrix to source point cloud. After transformation of source point cloud shift between source and target point cloud is reduced to minimum:
+After applying a **Point Cloud Registration Algorithm**, we obtain a **transformation matrix** that can be used to align the source point cloud with the target point cloud.
 
-{% embed url="https://github.com/supervisely-ecosystem/MBPTrack3D/releases/download/v1.0.0/after_pcd_registration.mp4" %}
+By applying this transformation to the **source point cloud**, the spatial shift between the source and target is minimized, resulting in much better alignment.
+
+{% embed url="https://youtu.be/nGAp3KqzCko" %}
 
 ### 2D to 3D Projection
 
