@@ -88,15 +88,28 @@ In order to find out which ground segmentation algorithm fits user's data best, 
 
 {% embed url="https://youtu.be/fdAkOeApzMI" %}
 
-[Patchwork++](https://arxiv.org/pdf/2207.11919.pdf) is a self-adaptive, non-learning-based approach for 3D point cloud ground segmentation. Patchwork++ segments ground points in 3D point clouds by dividing the space into concentric square rings and performing progressive plane fitting from the center outward. It improves upon the original Patchwork by introducing adaptive plane modeling and better handling of non-flat terrain using a hierarchical spatial partitioning and local elevation statistics. Patchwork++ also includes mechanisms to handle sparse or occluded regions and improves computational efficiency, making it suitable for real-time applications in autonomous driving and robotics.
+[**Patchwork++**](https://arxiv.org/pdf/2207.11919.pdf) is a **self-adaptive**, **non-learning-based** approach for **3D point cloud ground segmentation**.  
+Patchwork++ segments ground points in 3D point clouds by dividing the space into **concentric square rings** and performing **progressive plane fitting** from the center outward.  
+It improves upon the original Patchwork by introducing **adaptive plane modeling** and better handling of **non-flat terrain** using **hierarchical spatial partitioning** and **local elevation statistics**.  
+Patchwork++ also includes mechanisms to handle **sparse or occluded regions** and improves **computational efficiency**, making it suitable for **real-time applications** in **autonomous driving** and **robotics**.
 
-[GndNet](https://inria.hal.science/hal-02927350/document) is a neural network architecture for ground plane estimation which was trained on Semantic KITTI dataset. GndNet firstly performs input point cloud discretization into 2D grid, then converts point cloud into a sparse pseudo-image via pillar encoding feature network and finally processes this pseudo-image via 2D convolutional Encoder-Decoder network and generates high-level representation of the ground elevation per cell.
+[**GndNet**](https://inria.hal.science/hal-02927350/document) is a **neural network architecture** for **ground plane estimation**, trained on the **Semantic KITTI** dataset.  
+GndNet first performs **point cloud discretization** into a **2D grid**, then converts the point cloud into a **sparse pseudo-image** via a **pillar encoding feature network**,  
+and finally processes this pseudo-image via a **2D convolutional encoder-decoder network** to generate a **high-level representation** of ground elevation per cell.
 
-[Ground plane fitting](https://www.researchgate.net/publication/318325507_Fast_Segmentation_of_3D_Point_Clouds_A_Paradigm_on_LiDAR_Data_for_Autonomous_Vehicle_Applications) divides input points cloud into several segments and detects ground points in each of these segments. To find ground points in each segment, ground plane fitting extracts sets of points with low z coordinate values and then uses these points to estimate the initial plane model of the ground surface. For each point in specific point cloud segment, the distance from the point to its orthogonal projection on the candidate plane is computed. This distance is compared to a user defined threshold, which decides whether the point belongs to the ground surface or not. The points which were selected as belonging to the ground are then used as seeds for the refined estimation of a new plane model. This iteration repeats several times. On the final step ground points detected on each segment of input point cloud are concatenated into entire ground plane.
+[**Ground plane fitting**](https://www.researchgate.net/publication/318325507_Fast_Segmentation_of_3D_Point_Clouds_A_Paradigm_on_LiDAR_Data_for_Autonomous_Vehicle_Applications) divides the input point cloud into **several segments** and detects ground points in each of them.  
+To find ground points, it extracts **sets of points with low Z-coordinate values** and uses them to estimate an initial **plane model** of the ground surface.  
+For each point in a segment, the **distance to its orthogonal projection** on the candidate plane is computed.  
+This distance is compared to a **user-defined threshold** to determine whether the point belongs to the ground.  
+Selected ground points are then used as **seeds** for a refined plane estimation, repeating the process iteratively.  
+In the final step, ground points from all segments are **concatenated** to form the full ground plane.
 
-Quantile filtering is a simple algorithm which divides ground points from non-ground points based on probability distribution of their z coordinates (height). Optimal quantile value can be found based on ground segmentation preview.
+**Quantile filtering** is a simple algorithm that separates ground from non-ground points based on the **probability distribution** of their **Z-coordinates** (height).  
+The **optimal quantile value** can be selected using a **ground segmentation preview**.
 
-Grid-based slope filtering divides point cloud space into grid cells, finds lowest point in each cell, computes local slopes and rejects steep points. If approximate ground level is known, adaptive slope threshold can be used to achieve more accurate ground segmentation.
+**Grid-based slope filtering** divides point cloud space into **grid cells**, finds the **lowest point** in each cell, computes **local slopes**, and **rejects steep points**.  
+If the **approximate ground level** is known, an **adaptive slope threshold** can be used to improve segmentation accuracy.
+
 
 ### 3D Point Cloud Pen
 
@@ -144,8 +157,7 @@ Unlike learning-based approaches, the **3D AI Assistant** focuses on calculating
 
 **Point Cloud Registration Algorithms** are designed to find the transformation that aligns a pair of point clouds—originally located in different coordinate systems—into a shared coordinate space.
 
-Below is a visualization of two neighboring point clouds displayed in the same scene **before** applying registration:  
-you can clearly observe a spatial shift between them.
+Below is a visualization of two neighboring point clouds displayed in the same scene **before** applying registration: you can clearly observe a spatial shift between them.
 
 {% embed url="https://youtu.be/1kiMWHekwok" %}
 
