@@ -33,10 +33,9 @@ Difference between 3D Point Cloud and 3D Point Cloud Episodes:
 
 Supervisely's 3D AI assistant is a universal tool for automating 3D point cloud labeling. It covers all types of labeling scenarios for 3D point clouds: 3D object detection, ground segmentation, 3D cuboid tracking, transfer of 2D annotations from photo context images to original 3D point clouds. This tool is class-agnostic - it means that it works with any type of objects regardless of their shape and point density.
 
-### Auto Labeling with Cuboid Tool
+### Automatic cuboid adjustment
 
-- Automatically detects and annotates objects using pre-trained models.
-- Simplifies the process of placing cuboids or segmenting regions of interest in the scene.
+- Automatically adjusts manually created cuboids.
 
 **To use the Auto Labeling, follow these steps:**
 
@@ -46,9 +45,9 @@ Supervisely's 3D AI assistant is a universal tool for automating 3D point cloud 
 
 3. Select the **Cuboid tool** from the toolbar or press the `3` key on your keyboard to activate the Cuboid tool.
 
-4. Click on a target point cluster in the 3D scene. You’ll see a cuboid attached to your mouse cursor. Click once on the desired object in the point cloud — this will place the cuboid.
+4. Click on a target object in the 3D scene.
 
-5. Let the AI auto-label the selected object.
+5. Let the AI assistant adjust the cuboid for selected object.
 
 - The Auto Labeling tool will detect the full object in the point cloud and fit a cuboid around it using its internal logic.
 - This minimizes manual adjustment and ensures accurate object boundaries.
@@ -65,11 +64,15 @@ This loop allows for rapid labeling of multiple objects in sequence with minimal
 
 ### Interactive 3D Object Detection with Smart Tool
 
+Nowadays interactive data labeling approach is getting more and more recognition. Inspired by success of Meta's Segment Anything Model - interactive model for labeling of images, we decided to develop interactive model for labeling of 3D point clouds. 3D AI assistant proposes simple method of interaction with user: user circles the object - model predicts 3D bounding box for the circled area. Unlike many other 3D object detection models, 3D AI assistant does not require any finetuning in order to perform well on unseen data - it can detect any objects in any environment.
+
 Select **Smart tool** in left side bar and circle target object. It will automatically generate a 3D cuboid around the selected object.
 
 {% embed url="https://youtu.be/8iQj4GNvp5U" %}
 
 ### 3D Point Cloud Ground Segmentation
+
+Ground segmentation is one of the most important parts of 3D environments perception. 3D AI assistant allows to do it in fast and convenient way.
 
 - Detects and annotates the ground level in the 3D scene.
 - Fits a horizontal surface through point clusters and creates a flat figure with a `ground` class.
@@ -78,6 +81,22 @@ Select **Smart tool** in left side bar and circle target object. It will automat
 Click on auto labeling tab and press "Ground segmentation".
 
 {% embed url="https://youtu.be/XcLOjhXbBGQ" %}
+
+3D AI assistant proposes several ground segmentation algorithms: Patchwork++,  GndNet, quantile filtering, ground plane fitting, grid-based slope filtering - user can select the one which fits current dataset best.
+
+In order to find out which ground segmentation algorithm fits user's data best, user can preview performance of each algorithm in app UI:
+
+{% embed url="https://github.com/supervisely-ecosystem/MBPTrack3D/releases/download/v1.0.0/ground_seg_algo_selection_speedup.mp4" %}
+
+[Patchwork++](https://arxiv.org/pdf/2207.11919.pdf) is a self-adaptive, non-learning-based approach for 3D point cloud ground segmentation. Patchwork++ segments ground points in 3D point clouds by dividing the space into concentric square rings and performing progressive plane fitting from the center outward. It improves upon the original Patchwork by introducing adaptive plane modeling and better handling of non-flat terrain using a hierarchical spatial partitioning and local elevation statistics. Patchwork++ also includes mechanisms to handle sparse or occluded regions and improves computational efficiency, making it suitable for real-time applications in autonomous driving and robotics.
+
+[GndNet](https://inria.hal.science/hal-02927350/document) is a neural network architecture for ground plane estimation which was trained on Semantic KITTI dataset. GndNet firstly performs input point cloud discretization into 2D grid, then converts point cloud into a sparse pseudo-image via pillar encoding feature network and finally processes this pseudo-image via 2D convolutional Encoder-Decoder network and generates high-level representation of the ground elevation per cell.
+
+[Ground plane fitting](https://www.researchgate.net/publication/318325507_Fast_Segmentation_of_3D_Point_Clouds_A_Paradigm_on_LiDAR_Data_for_Autonomous_Vehicle_Applications) divides input points cloud into several segments and detects ground points in each of these segments. To find ground points in each segment, ground plane fitting extracts sets of points with low z coordinate values and then uses these points to estimate the initial plane model of the ground surface. For each point in specific point cloud segment, the distance from the point to its orthogonal projection on the candidate plane is computed. This distance is compared to a user defined threshold, which decides whether the point belongs to the ground surface or not. The points which were selected as belonging to the ground are then used as seeds for the refined estimation of a new plane model. This iteration repeats several times. On the final step ground points detected on each segment of input point cloud are concatenated into entire ground plane.
+
+Quantile filtering is a simple algorithm which divides ground points from non-ground points based on probability distribution of their z coordinates (height). Optimal quantile value can be found based on ground segmentation preview.
+
+Grid-based slope filtering divides point cloud space into grid cells, finds lowest point in each cell, computes local slopes and rejects steep points. If approximate ground level is known, adaptive slope threshold can be used to achieve more accurate ground segmentation.
 
 ### 3D Point Cloud Pen
 
@@ -120,6 +139,18 @@ The **3D Cuboid Tracking** tool allows you to automatically propagate annotation
    - When it reaches **100%**, the tracking is complete.
 
 {% embed url="https://youtu.be/nDlaDzJkoRk" %}
+
+Unlike learning-based approaches, 3D AI assistant focuses on calculating the offset between neighboring point clouds with the help of point cloud registration algorithms, and does not require any additional training for tracking 3D objects on unseen point cloud sequences.
+
+Point cloud registration algorithms are aimed at finding the transformation that aligns a pair of point clouds lying in defferent coordinate systems into a common coordinate system.
+
+Here is how two neighbouring point clouds look like when visuzalied on one scene - you can clearly see a shift between them:
+
+{% embed url="https://github.com/supervisely-ecosystem/MBPTrack3D/releases/download/v1.0.0/before_pcd_registration.mp4" %}
+
+After applying point cloud registration algorithm we can get a transformation matrix and apply this matrix to source point cloud. After transformation of source point cloud shift between source and target point cloud is reduced to minimum:
+
+{% embed url="https://github.com/supervisely-ecosystem/MBPTrack3D/releases/download/v1.0.0/after_pcd_registration.mp4" %}
 
 ### 2D to 3D Projection
 
@@ -200,6 +231,12 @@ Let’s walk through how to use each image annotation tool:
     A new **3D cuboid** will be generated in the point cloud based on the 2D bitmap mask, and a corresponding 3D class will be created.
 
 {% embed url="https://youtu.be/sbo9FbyPza0" %}
+
+### 3D point cloud geometric features analysis
+
+Supervisely also has algorithms for  3D point cloud geometric features analysis (verticality, planarity, linearity, etc). For some domains, a decent prelabeling can be created based on this features. For example, points of poles and building tend to have high verticality scores, while ground points usually have low verticality scores:
+
+{% embed url="https://github.com/supervisely-ecosystem/MBPTrack3D/releases/download/v1.0.0/poles_verticality.mp4" %}
 
 {% hint style="info" %}
 **Note**: AI Assistant features are available only to Enterprise customers with the Point Cloud module enabled.
