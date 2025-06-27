@@ -232,11 +232,11 @@ Let’s walk through how to use each image annotation tool:
 
 {% embed url="https://youtu.be/sbo9FbyPza0" %}
 
-### 3D point cloud geometric features analysis
+### 3D Point Cloud Geometric Features Analysis
 
-Supervisely also has algorithms for  3D point cloud geometric features analysis (verticality, planarity, linearity, etc). For some domains, a decent prelabeling can be created based on this features. For example, points of poles and building tend to have high verticality scores, while ground points usually have low verticality scores:
+Supervisely also has algorithms for 3D point cloud geometric features analysis (verticality, planarity, linearity, etc). For some domains, a decent prelabeling can be created based on this features. For example, points of poles and building tend to have high verticality scores, while ground points usually have low verticality scores:
 
-{% embed url="https://github.com/supervisely-ecosystem/MBPTrack3D/releases/download/v1.0.0/poles_verticality.mp4" %}
+{% embed url="https://youtu.be/3WqjGbkqqfU" %}
 
 {% hint style="info" %}
 **Note**: AI Assistant features are available only to Enterprise customers with the Point Cloud module enabled.
