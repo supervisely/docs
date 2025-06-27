@@ -1,6 +1,6 @@
 ---
 description: >-
-    This article about
+    About AI Search: Quickly find images using semantic similarity powered by CLIP. Supports prompt-based and diverse search modes with automatic embedding updates.
 ---
 
 # AI Search
