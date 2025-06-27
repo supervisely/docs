@@ -376,7 +376,7 @@ You can always view the full list of hotkeys by clicking the **Hotkeys** button 
 
 ## Import and Export of 3D Point Clouds
 
-Supervisely provides flexible tools for importing and exporting 3D point clouds in various formats.
+Supervisely provides flexible tools for importing and exporting 3D point clouds, including annotations and related images (e.g., photo context images), in various formats.
 
 For a general overview, see the [Import Overview page](https://docs.supervisely.com/import-and-export/import).
 
