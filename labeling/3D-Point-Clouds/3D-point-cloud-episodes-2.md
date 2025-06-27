@@ -337,15 +337,15 @@ The Color Mode setting enables the transfer of color information from photo cont
 
 To enable this feature:
 
-1. Click the **Settings** icon to open the sidebar.  
+1. Go to the **Settings** tab.  
 2. Scroll down to the **Cloud Points** section.  
 3. Find the **Color Mode** setting.  
 4. Click it — in the dropdown menu, you will see the following options:
 
-- **Z Code Height** *(default)* — uses a gradient based on point height (Z coordinate).
-- **RGB** — displays points using their original RGB values (if available).
-- **Distance From Center** — colors points based on their distance from the scanning device.
-- **Camera Device** — transfers real image colors from the photo context to the 3D point cloud.
+    - **Z Code Height** *(default)* — uses a gradient based on point height (Z coordinate).
+    - **RGB** — displays points using their original RGB values (if available).
+    - **Distance From Center** — colors points based on their distance from the scanning device.
+    - **Camera Device** — transfers real image colors from the photo context to the 3D point cloud.
 
 When **Camera Device** is selected, colors from the photo context are projected onto the 3D points across **all frames** of a point cloud episode, not just the current one.
 
