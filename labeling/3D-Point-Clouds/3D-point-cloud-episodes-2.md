@@ -374,6 +374,30 @@ You can always view the full list of hotkeys by clicking the **Hotkeys** button 
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-hotkeys.jpg" alt=""><figcaption></figcaption></figure>
 
+## Import and Export of 3D Point Clouds
+
+Supervisely provides flexible tools for importing and exporting 3D point clouds in various formats.
+
+For a general overview, see the [Import Overview page](https://docs.supervisely.com/import-and-export/import).
+
+By default, **AutoImport** automatically detects and supports the following formats out of the box:
+
+- [Supported formats for single point clouds (PCD, PLY, LAS, LAZ, etc.)](https://docs.supervisely.com/import-and-export/import/supported-annotation-formats/pointclouds)
+- [Supported formats for point cloud episodes](https://docs.supervisely.com/import-and-export/import/supported-annotation-formats/pointcloud_episodes)
+
+AutoImport supports a **wider range of formats** than individual apps and does **automatic format detection**, which makes it the recommended method for most users.
+
+However, for more control or special cases, you can use dedicated Supervisely Apps to import point clouds from specific formats such as **KITTI**, **ROS bag**, **PLY**, and more.
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-import-apps.jpg" alt=""><figcaption></figcaption></figure>
+
+Similarly, you can export your labeled point cloud data into various formats using standard Supervisely Export Apps. These apps support exporting annotations, projects, or specific point cloud formats including **KITTI 3D**, **ROS Bag**, and others.
+
+<figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-export-apps.jpg" alt=""><figcaption></figcaption></figure>
+
+You can find all available import and export apps in the **Import → Pointclouds** and **Export → Pointclouds** categories in the [Supervisely Ecosystem](https://ecosystem.supervisely.com).
+
+
 ## Summary
 
 The updated interface for 3D Point Cloud annotation combines powerful capabilities:
