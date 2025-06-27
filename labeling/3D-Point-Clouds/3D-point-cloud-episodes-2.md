@@ -325,6 +325,8 @@ In addition to repositioning view panels, the Settings panel provides advanced c
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-settings.jpg" alt=""><figcaption></figcaption></figure>
 
+### Adjusting Point Size
+
 For example, by default, point clouds are displayed with the smallest point size. However, in some cases, increasing the point size can improve visibility and make labeling easier.
 
 You can adjust the point size in the **Settings** panel. Each Viewpoint can have its own individual point size setting, as shown in the illustration below.
