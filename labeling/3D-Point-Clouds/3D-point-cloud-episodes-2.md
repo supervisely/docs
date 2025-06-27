@@ -331,6 +331,32 @@ You can adjust the point size in the **Settings** panel. Each Viewpoint can have
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-settings-point-size.jpg" alt=""><figcaption></figcaption></figure>
 
+### Transferring Colors from Photo Context to 3D Point Clouds
+
+The Color Mode setting enables the transfer of color information from photo context images onto your 3D point clouds and point cloud episodes.
+
+To enable this feature:
+
+1. Click the **Settings** icon to open the sidebar.  
+2. Scroll down to the **Cloud Points** section.  
+3. Find the **Color Mode** setting.  
+4. Click it — in the dropdown menu, you will see the following options:
+
+- **Z Code Height** *(default)* — uses a gradient based on point height (Z coordinate).
+- **RGB** — displays points using their original RGB values (if available).
+- **Distance From Center** — colors points based on their distance from the scanning device.
+- **Camera Device** — transfers real image colors from the photo context to the 3D point cloud.
+
+When **Camera Device** is selected, colors from the photo context are projected onto the 3D points across **all frames** of a point cloud episode, not just the current one.
+
+This makes it easier to visually inspect and annotate the scene with realistic color information, especially when working with multi-frame episodes.
+
+To align your 3D perspective view with the photo context, click the small **camera icon** labeled **Match Camera Position** in the top-right corner of the photo context panel.  
+This will automatically adjust the 3D perspective to match the exact camera position of the photo.  
+As a result, you'll be able to clearly see how the photo has been projected onto the point cloud in the **Perspective** view.
+
+{% embed url="https://youtu.be/oqXPLMAwz5M" %}
+
 ## Navigation Behavior
 
 **When the `Move tool` is activated:**
