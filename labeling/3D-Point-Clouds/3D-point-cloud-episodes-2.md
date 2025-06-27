@@ -9,6 +9,7 @@ The 3D Point Cloud labeling tool in Supervisely is designed for visualizing, ann
 
 The latest version introduces a completely redesigned interface that unifies both **single-frame** and **episode-based** workflows. It brings a more streamlined and powerful experience with features such as:
 
+- **Optimized visualization** and interaction with extremely large point clouds — **up to 50 million points per frame** — enabling smooth annotation and review even for high-resolution lidar scans.
 - **AI-assisted tools** for faster and more accurate labeling
 - **Auto Labeling with Cuboid Tool**
 - Interactive **3D Object Detection**
