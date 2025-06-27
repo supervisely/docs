@@ -397,6 +397,8 @@ Similarly, you can export your labeled point cloud data into various formats usi
 
 You can find all available import and export apps in the **Import → Pointclouds** and **Export → Pointclouds** categories in the [Supervisely Ecosystem](https://ecosystem.supervisely.com).
 
+For more details about Supervisely's native format for 3D point cloud episodes, see the
+[Supervisely Point Cloud Episode Annotation Format](https://docs.supervisely.com/customization-and-integration/00_ann_format_navi/07_supervisely_format_pointcloud_episode).
 
 ## Summary
 
