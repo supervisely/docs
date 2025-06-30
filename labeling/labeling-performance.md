@@ -3,6 +3,10 @@ description: >-
   Discover how to track annotation progress, team performance, and review stats across projects using flexible filters and visual dashboards.
 ---
 
+{% hint style="info" %}
+If you are looking for the 3D Point Cloud Labeling Toolbox page, you can find it [here](./3D-Point-Clouds/3D-point-cloud-episodes-2.md)
+{% endhint %}
+
 The **Labeling Performance** page is a powerful analytics tool designed to provide detailed statistics about the data annotation process within your projects. It helps you track team efficiency, monitor each member’s contributions, identify bottlenecks, manage annotation quality, and make informed decisions based on real data.
 
 # Why it’s beneficial to use Supervisely statistics
