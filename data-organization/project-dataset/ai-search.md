@@ -54,12 +54,12 @@ Search for images using a natural language prompt.
 - **Filtering**: You can filter results by adjusting score thresholds directly on the chart.
 - **Results Limit**: You can set how many top images to return. If the number of relevant images is lower than the limit, all available matches are shown.
 
-<figure><img src="../../.gitbook/assets/ai-search/ai-search4.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ai-search/ai-search4-1.jpg" alt=""><figcaption></figcaption></figure>
 
 **Example:**  
 > _"A person riding a bicycle"_ returns images that visually and semantically match this description — regardless of labeling.
 
-### Filter by Score Range
+#### Filter by Score Range
 
 After performing a prompt-based search, a score distribution chart is shown:
 
@@ -74,7 +74,7 @@ Use the slider below the chart to filter results by similarity:
 
 Images are always sorted by score, with the most relevant first.
 
-<figure><img src="../../.gitbook/assets/ai-search/ai-search-prompt.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ai-search/ai-search-prompt1.jpg" alt=""><figcaption></figcaption></figure>
 
 ### 2. Diverse Search
 
@@ -91,10 +91,10 @@ No text input is required in this mode.
 
 ## Search Results and Collections
 
-Each search creates a **collection**, which acts as a dynamic filter within your project.
+Each search creates a temporary **collection** that acts as a dynamic filter within your project:
 
-- Collections contain only images that matched the query.
-- They can be renamed, reused, or removed like any other filter.
+- This collection contains only the images that matched the query.
+- If needed, it can be saved as a separate collection for future use as a filter, since each new search overwrites the previous results and renaming the temporary collection is not possible.
 - Useful for organizing search results and building datasets based on semantic criteria.
 
 ## Managing AI Search
@@ -111,7 +111,7 @@ You can:
 
 Collections behave like any other filter, but are not saved unless you take action.
 
-<figure><img src="../../.gitbook/assets/ai-search/ai-search-collection.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ai-search/ai-search-collection1.jpg" alt=""><figcaption></figcaption></figure>
 
 ### AI Search Similar (Search by Image)
 
@@ -121,7 +121,7 @@ An additional feature allows searching by image similarity:
 - Triggered through the **image context menu**  
 - Additionally, developers can access this functionality **programmatically** via API
 
-<figure><img src="../../.gitbook/assets/ai-search/ai-search-similar.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ai-search/ai-search-similar1.jpg" alt=""><figcaption></figcaption></figure>
 
 ### Disable AI Search
 
@@ -129,11 +129,11 @@ Next to the **AI Search** button, there's a dropdown menu:
 
 - **Disable AI Search**  
     - Disconnects the project from AI Search.
-    - Embeddings will be deleted.
     - The project is removed from the auto-update queue.
+    - Note: Image embeddings are not deleted upon disabling.
 
 {% hint style="info" %}
 Embeddings are automatically refreshed on a schedule (e.g., every few days) if AI Search is enabled.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/ai-search/ai-search-disable.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ai-search/ai-search-disable1.jpg" alt=""><figcaption></figcaption></figure>
