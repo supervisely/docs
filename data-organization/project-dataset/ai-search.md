@@ -18,10 +18,15 @@ If you do not have access, a prompt will appear suggesting you upgrade your subs
 
 When a user opens a project in Supervisely, the **AI Search** button appears at the top of the interface.
 
+<figure><img src="../../.gitbook/assets/ai-search/ai-search1.jpg" alt=""><figcaption></figcaption></figure>
+
 ### First-time Activation
 
 1. Click the **AI Search** button.
 2. If AI Search is not yet enabled for this project, a modal dialog will appear asking if you want to enable it.
+
+<figure><img src="../../.gitbook/assets/ai-search/ai-search2.jpg" alt=""><figcaption></figcaption></figure>
+
 3. Upon confirmation:
     - The project is connected to the AI Search service.
     - Image embeddings for all images in the project begin generating automatically.
@@ -29,8 +34,10 @@ When a user opens a project in Supervisely, the **AI Search** button appears at 
 
 {% hint style="info" %}
 While embeddings are being created, the **AI Search** button shows animated **sparkling stars**.  
-Once complete, the button turns **solid blue** with a star icon, indicating that the project is ready for searching.
+Once complete, the star icon in the button turns **solid blue**, indicating that the project is ready for searching.
 {% endhint %}
+
+<figure><img src="../../.gitbook/assets/ai-search/ai-search3.jpg" alt=""><figcaption></figcaption></figure>
 
 Embeddings are updated automatically on a regular schedule. Manual updates can also be triggered via API.
 
@@ -47,8 +54,12 @@ Search for images using a natural language prompt.
 - **Filtering**: You can filter results by adjusting score thresholds directly on the chart.
 - **Results Limit**: You can set how many top images to return. If the number of relevant images is lower than the limit, all available matches are shown.
 
+<figure><img src="../../.gitbook/assets/ai-search/ai-search4.jpg" alt=""><figcaption></figcaption></figure>
+
 **Example:**  
 > _"A person riding a bicycle"_ returns images that visually and semantically match this description — regardless of labeling.
+
+<figure><img src="../../.gitbook/assets/ai-search/ai-search-prompt.jpg" alt=""><figcaption></figcaption></figure>
 
 ### 2. Diverse Search
 
@@ -60,6 +71,8 @@ Explore a representative variety of images based on the semantic structure of yo
 - **Diverse**: Prioritizes edge points in clusters to increase diversity. Useful for discovering edge cases and rare patterns.
 
 No text input is required in this mode.
+
+<figure><img src="../../.gitbook/assets/ai-search/ai-search5.jpg" alt=""><figcaption></figcaption></figure>
 
 ## Search Results and Collections
 
