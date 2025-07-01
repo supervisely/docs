@@ -59,6 +59,21 @@ Search for images using a natural language prompt.
 **Example:**  
 > _"A person riding a bicycle"_ returns images that visually and semantically match this description — regardless of labeling.
 
+### Filter by Score Range
+
+After performing a prompt-based search, a score distribution chart is shown:
+
+- **X-axis** – similarity score  
+- **Y-axis** – number of images  
+
+Use the slider below the chart to filter results by similarity:
+
+- **Above threshold**: shows images most similar to the prompt  
+- **Below threshold**: shows edge cases with low similarity  
+- **Full range (default)**: all results
+
+Images are always sorted by score, with the most relevant first.
+
 <figure><img src="../../.gitbook/assets/ai-search/ai-search-prompt.jpg" alt=""><figcaption></figcaption></figure>
 
 ### 2. Diverse Search
@@ -67,8 +82,8 @@ Explore a representative variety of images based on the semantic structure of yo
 
 #### Available Methods:
 
-- **Method**: Selects samples evenly across embedding clusters. Simple and balanced.
-- **Diverse**: Prioritizes edge points in clusters to increase diversity. Useful for discovering edge cases and rare patterns.
+- **Random**: A simpler approach that selects points evenly across the cluster, but may miss edge cases or unique examples.
+- **Centroids**: Returns a more diverse sample by prioritizing points on the edges of each cluster. Useful for understanding the boundaries and variability within the data
 
 No text input is required in this mode.
 
@@ -94,3 +109,23 @@ Next to the **AI Search** button, there's a dropdown menu:
 {% hint style="info" %}
 Embeddings are automatically refreshed on a schedule (e.g., every few days) if AI Search is enabled.
 {% endhint %}
+
+### Temporary Collections
+
+All search results are shown as a **temporary collection** in the Filters panel.  
+You can:
+
+- Tag images  
+- Copy them to other datasets  
+- Move or delete  
+- Use the collection to create annotation jobs  
+
+Collections behave like any other filter, but are not saved unless you take action.
+
+### AI Search Similar (Search by Image)
+
+An additional feature allows searching by image similarity:
+
+- Only available if **AI Search** is enabled for the project  
+- Triggered through the **image context menu**  
+- Additionally, developers can access this functionality **programmatically** via API
