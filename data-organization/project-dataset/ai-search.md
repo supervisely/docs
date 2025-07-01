@@ -99,17 +99,6 @@ Each search creates a **collection**, which acts as a dynamic filter within your
 
 ## Managing AI Search
 
-Next to the **AI Search** button, there's a dropdown menu:
-
-- **Disable AI Search**  
-    - Disconnects the project from AI Search.
-    - Embeddings will be deleted.
-    - The project is removed from the auto-update queue.
-
-{% hint style="info" %}
-Embeddings are automatically refreshed on a schedule (e.g., every few days) if AI Search is enabled.
-{% endhint %}
-
 ### Temporary Collections
 
 All search results are shown as a **temporary collection** in the Filters panel.  
@@ -122,6 +111,8 @@ You can:
 
 Collections behave like any other filter, but are not saved unless you take action.
 
+<figure><img src="../../.gitbook/assets/ai-search/ai-search-collection.jpg" alt=""><figcaption></figcaption></figure>
+
 ### AI Search Similar (Search by Image)
 
 An additional feature allows searching by image similarity:
@@ -129,3 +120,20 @@ An additional feature allows searching by image similarity:
 - Only available if **AI Search** is enabled for the project  
 - Triggered through the **image context menu**  
 - Additionally, developers can access this functionality **programmatically** via API
+
+<figure><img src="../../.gitbook/assets/ai-search/ai-search-similar.jpg" alt=""><figcaption></figcaption></figure>
+
+### Disable AI Search
+
+Next to the **AI Search** button, there's a dropdown menu:
+
+- **Disable AI Search**  
+    - Disconnects the project from AI Search.
+    - Embeddings will be deleted.
+    - The project is removed from the auto-update queue.
+
+{% hint style="info" %}
+Embeddings are automatically refreshed on a schedule (e.g., every few days) if AI Search is enabled.
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/ai-search/ai-search-disable.jpg" alt=""><figcaption></figcaption></figure>
