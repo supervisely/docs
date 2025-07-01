@@ -1,16 +1,16 @@
 ---
 description: >-
-    About AI Search: Quickly find images using semantic similarity powered by CLIP. Supports prompt-based and diverse search modes with automatic embedding updates.
+    This article is about AI Search, which quickly finds images using semantic similarity powered by CLIP. It supports prompt-based and diverse search modes with automatic embedding updates.
 ---
 
 # AI Search
 
-**AI Search** allows users to intelligently search for images within a project or dataset using semantic similarity. It leverages **CLIP** under the hood to generate vector embeddings of images, which are stored in a dedicated embedding database (Quadrant). These embeddings are used both to process search queries and to keep the data up to date through automated or manual updates.
+**AI Search** allows users to intelligently search for images within a project or dataset using semantic similarity. It leverages **CLIP** under the hood to generate vector embeddings of images, which are stored in a dedicated embedding database (Qdrant). These embeddings are used both to process search queries and to keep the data up to date through automated updates.
 
 {% hint style="info" %}
-**Note**: AI Search is only available to:
+**AI Search** is only available to:
 - Users with a **PRO subscription**
-- Clients using **Supervised Enterprise instances**
+- Clients using **Supervisly Enterprise Instances**.<br>
 If you do not have access, a prompt will appear suggesting you upgrade your subscription to unlock this feature.
 {% endhint %}
 
