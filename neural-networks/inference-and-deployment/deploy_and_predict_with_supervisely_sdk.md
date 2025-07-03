@@ -1,89 +1,16 @@
 # Deploy & Predict with Supervisely SDK
 
-This section involves using Python code together with [Supervisely SDK](https://github.com/supervisely/supervisely) to automate deployment and inference in different scenarios and environments. You can deploy your models either inside the Supervisely Platform (on an agent), or outside the platform, directly on your local machine. See the difference in [Overview](overview.md#in-platform-model-deployment-vs-local-deployment).
+This section involves using Python code together with [Supervisely SDK](https://github.com/supervisely/supervisely) to automate deployment and inference in different scenarios and environments. Supervisely also has a convenient [Prediction API](prediction-api.md) that allows you to deploy models and get predictions in a couple of lines of code (check our [Tutorial](prediction-api.md)).
+In this tutorial you will deploy models directly on your local machine. This is a more advanced variant, it can slightly differ from one model to another, because you need to set up python environment by yourself, but the main code of loading model and getting predictions will be the same.
 
-## In-Platform Model Deployment
-
-### 1. Deploy
-
-In-platform deployment is similar to manually launching a [Serving App](./supervisely-serving-apps.md) on the Supervisely Platform. With python SDK you can automate this.
-
-{% hint style="info" %}
-
-This method only works for your models trained in Supervisely and stored in Team Files. It also requires Supervisely SDK version `6.73.319` or higher.
-
-{% endhint %}
-
-**Here's how to do it:**
-
-1. Install supervisely SDK if not installed.
-
-```bash
-pip install supervisely>=6.73.319
-```
-
-2. Go to Team Files and copy the path to your model artifacts (`artifacts_dir`).
-
-![Copy path to artifacts dir](/.gitbook/assets/neural-networks/artifacts_dir.png)
-
-3. Run this code to deploy a model on the platform. Don't forget to fill in your `workspace_id` and `artifacts_dir`.
-
-```python
-import os
-import supervisely as sly
-from dotenv import load_dotenv
-
-# Ensure you've set API_TOKEN and SERVER_ADDRESS environment variables.
-load_dotenv(os.path.expanduser("~/supervisely.env"))
-
-api = sly.Api()
-
-# ⬇ Put your workspace_id and artifacts_dir.
-workspace_id = 123
-artifacts_dir = "/experiments/27_Lemons/265_RT-DETRv2/"
-
-# Deploy model
-task_id = api.task.deploy_custom_model(workspace_id, artifacts_dir)
-```
-
-### 2. Predict
-
-Any model deployed on the platform (both manually and through the code) works as a service and can accept API requests for inference. After you deployed a model on the platform, connect to it, and get predictions using `Session` class:
-
-{% hint style="info" %}
-
-Learn more about SessionAPI in the [Inference API Tutorial](https://developer.supervisely.com/app-development/neural-network-integration/inference-api-tutorial).
-
-{% endhint %}
-
-```python
-from supervisely.nn.inference import Session
-
-# Create Inference Session
-# task_id was returned from the previous code
-session = sly.nn.inference.Session(api, task_id=task_id)
-
-# Predict Image
-image_id = 123  # ⬅ put your image_id from a platform
-prediction = session.inference_image_id(image_id)
-
-# Predict Project
-project_id = 123  # ⬅ put your project_id from a platform
-predictions = session.inference_project_id(project_id)
-```
-
-## Deploy outside of Supervisely
-
-In this section you will deploy a model locally on your machine, outside of Supervisely Platform. In the case of deployment outside of the platform, you don't have the [advantages of the Ecosystem](overview.md#in-platform-model-deployment-vs-local-deployment), but you get more freedom in how your model will be used in your code. This is a more advanced variant, it can slightly differ from one model to another, because you need to set up python environment by yourself, but the main code of loading model and getting predictions will be the same.
-
-There are several variants of how you can use a model locally:
+There are several approaches of how you can deploy and apply your model locally:
 
 * **[Load and Predict in Your Code](#load-and-predict-in-your-code)**: Load your checkpoint and get predictions in your code or in a script.
 * **[Deploy Model as a Server](#deploy-model-as-a-server)**: Deploy your model as a server on your machine, and interact with it through API requests.
-  * **[🐋 Deploy in Docker Container](#deploy-in-docker-container)**: Deploy model as a server in a docker container on your local machine.
+* **[🐋 Deploy in Docker Container](#deploy-in-docker-container)**: Deploy model as a server in a docker container on your local machine.
 * **[Deploy Model as a Serving App with web UI](#deploy-model-as-a-serving-app-with-web-ui)**: Deploy model as a server with a web UI and interact with it through API. ❓ - This feature is mostly for debugging and testing purposes.
 
-### Load and Predict in Your Code
+## Load and Predict in Your Code
 
 This example shows how to load your checkpoint and get predictions in any of your code. RT-DETRv2 is used in this example, but the instructions are similar for other models.
 
@@ -166,7 +93,7 @@ import sys
 sys.path.append("/path/to/RT-DETRv2")
 ```
 
-### Deploy Model as a Server
+## Deploy Model as a Server
 
 In this variant, you will deploy a model locally as an API Server with the help of Supervisely SDK. The server will be ready to process API request for inference. It allows you to predict with local images, folders, videos, or remote supervisely projects and datasets (if you provided your Supervisely API token).
 
@@ -374,7 +301,7 @@ Server will shut down automatically after the prediction is done.
 
 {% endhint %}
 
-#### 🐋 Deploy in Docker Container
+## 🐋 Deploy in Docker Container
 
 Deploying in a Docker Container is similar to deployment as a Server. This example is useful when you need to run your model on a remote machine or in a cloud environment.
 
@@ -470,7 +397,7 @@ Container will be stopped automatically after the prediction is done.
 
 {% endhint %}
 
-### Deploy Model as a Serving App with web UI
+## Deploy Model as a Serving App with web UI
 
 In this variant, you will run a full [Serving App](supervisely-serving-apps.md) with web UI, in which you can deploy a model. This is useful for debugging and testing purposes, for example, when you're integrating your [Custom Inference App](../custom-model-integration/integrate-custom-inference.md) with the Supervisely Platform.
 
