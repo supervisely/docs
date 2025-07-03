@@ -1,19 +1,5 @@
 # Prediction API
 
-🔴 -  будем ли мы делать после overview секцию quickstart? и потом на ней ссылки на расширенные доки типа этой где все делали и варианты деплоя будут с аргументами расписаны?
-✅ - runtime? пока не видел - onnx tensorrt - написать что не зависит дать ссылку
-✅ - docker: connect to model (описал в гайде про deploy, также это будет на странице где всё про docker)
-🔴 - нужно будет еще написать, в отдельном разделе Advanced что там при запуске есть Restart policy разные и что тогда task_id при рестарте не поменяется. нужно проверить это
-🔴 - team_id по идее можно брать и искать автоматом, задал умару вопрос https://supervisely-team.slack.com/archives/CV28AA11P/p1743760002034969
-🔴 - еще я бы добавил опциональный флаг, что если такая модель раздеплоена, найти ее или раздеплоить как еще одну:
-✅ - из чекпоинта по идее мы будем доставать всю инфу в том числе framework  и тд, чтобы знать в какой апе стартануть?
-✅ - еще аргумент checkpoint мне не нравится и еще не понятно как раздеплоить pretrained (тут у меня нет идей, но как-то вкорячить это в метод model = api.nn.deploy(model="/a/b/c.pth") было бы прикольно)
-✅ - может переименовать в deploy?
-model = api.nn.deploy(checkpoint="/a/b/c.pth")
-model = api.nn.deploy(pretrained="mmmm-coc-aaa"???)
-✅ - дописать в описании что метод сам проверит наличие компьютера с GPU девайса и описать аргшументы? device, agent? 
-🔴 - поговорить с денисом и заменить слово agent на machine
-
 This page describes how to use **Supervisely Prediction API** to make model predictions on images and videos, including object tracking. With the new API you can easily deploy models, make predictions, and process the results.
 
 ## Deploy & Connect
@@ -301,13 +287,13 @@ The `Prediction` object provides convenient methods for loading the original ima
 Visualizes the prediction by drawing annotations on the original image.
 
 **Parameters:**
-- `save` (`str`, optional): Path where the visualization should be saved. If provided, the method will save the visualization to this path.
+- `save_path` (`str`, optional): Path where the visualization should be saved. If provided, the method will save the visualization to this path.
 - `save_dir` (`str`, optional): Directory where the visualization should be saved. If provided, the method will save the visualization with the same filename as the original image.
+- `color` (`List[int]`, optional): Color of the shapes in the visualization.
 - `thickness` (`int`, optional): Thickness of line counters. If `None`, the default thickness will be used.
 - `opacity` (`float`, optional): Opacity of the shapes. Default is `0.5`.
 - `draw_tags` (`bool`, optional): Whether to draw tags, such as confidence score. Default is `False`.
 - `fill_rectangles` (`bool`, optional): Whether to fill the shapes with color. Default is `True`.
-- `kwargs` (`dict`, optional): Additional arguments will be passed to `sly.Annotation.draw_pretty()` method.
 
 **Returns:**
 - `np.ndarray`: Numpy array containing the image with visualized predictions (bounding boxes, masks, etc.).
@@ -418,7 +404,7 @@ You can upload predictions to the Supervisely platform using the `upload` argume
 | `create` | Create a new project on the platform and upload predictions to it. |
 | `append` | Add new predictions to existing annotations. Only applicable if the input is an existing Project ID, Dataset ID, or Image IDs. |
 | `replace` | Replace existing annotations with the new predictions. Only applicable if the input is an existing Project ID, Dataset ID, or Image IDs. |
-| `iou_merge` | Append predictions to existing annotations, trying to avoid creating duplicate objects. This mode will check the IoU between each new prediction and existed objects, and filter out predictions which overlap with existed objects with IoU >= 0.9 (🔴🔴🔴 parameter controlled in `settings`). Only applicable for bounding box and mask predictions, and for existing Project ID, Dataset ID, or Image IDs. |
+| `iou_merge` | Append predictions to existing annotations, trying to avoid creating duplicate objects. This mode will check the IoU between each new prediction and existed objects, and filter out predictions which overlap with existed objects with high IoU (by default, the IoU threshold is set to 0.9). Only applicable for bounding box and mask predictions, and for existing Project ID, Dataset ID, or Image IDs. |
 
 Example with uploading predictions to a source project:
 
@@ -462,8 +448,6 @@ for p in predictions:
 | `duration` | `int` | `None` | Duration in seconds, the exact number of frames will be calculated based on the video FPS |
 
 ## Tracking objects in video
-
-🔴🔴🔴 Как вариант - сделать отдельную эпу **Serve BoxMot**, чтобы трекать на агенте а не на клиенте.
 
 You can track objects in video using `boxmot` library. [BoxMot](https://github.com/mikel-brostrom/boxmot) is a third-party library that implements lightweight neural networks for tracking-by-detection task (when the tracking is performed on the objects predicted by a separate detector). For `boxmot` models you can use even CPU device.
 

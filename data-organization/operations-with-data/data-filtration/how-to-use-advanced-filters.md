@@ -43,7 +43,7 @@ When selecting multiple images, users can quickly create labeling jobs or delete
 
 Users can easily copy or move images with annotations from filtering results to other datasets, streamlining training data management.
 
-## Use сases for advanced dataset filters
+## Use cases for advanced dataset filters
 
 Explore some illustrative examples and common use cases of how filters can be used in real projects.
 

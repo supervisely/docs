@@ -200,7 +200,7 @@ Here is a full table of `predict()` and `predict_detached()` arguments:
 | `batch_size` | `int` | `None` | Number of images to process in a single batch. If `None`, the model will use its default batch size. |
 | `img_size` | `int` or `tuple` | `None` | Size of input images: `int` resizes to a square size, a tuple of (height, width) resizes to exact size. Also applicable to video inference. `None` will use the model's default input size |
 | `classes` | `List[str]` | `None` | List of classes to predict |
-| `upload` | `str` | `None` | If not `None`, predictions will be uploaded to the platform. Upload modes: `create`, `append`, `replace`, `iou_merge`. See more in [Uploading predictions](./prediction-api.md#uploading-predictions) section. |
+| `upload_mode` | `str` | `None` | If not `None`, predictions will be uploaded to the platform. Upload modes: `create`, `append`, `replace`, `iou_merge`. See more in [Uploading predictions](./prediction-api.md#uploading-predictions) section. |
 | `recursive` | `bool` | `False` | Whether to search for images in subdirectories. Applicable when the `input` is a directory. |
 | `**kwargs` | `dict` | `None` | All additional settings, such as inference settings, sliding window settings and video processing settings can be passed here. See more in [Advanced settings](./prediction-api.md#predict-settings-kwargs). |
 
@@ -329,7 +329,7 @@ The `get_info()` method returns a dictionary with general information about the 
 
 #### `get_settings()`
 
-The `get_settings()` method returns a dictionary with the default model's settings, such as confidence threshold, iou threshold, etc. You can override these settings when calling the `predict()` and `predict_detached()` methods by passing the settings as keyword arguments.
+The `get_settings()` method returns a dictionary with the default model's settings, such as confidence threshold, iou threshold, etc. You can override these settings when calling `predict()` or `predict_detached()` methods by passing the settings as keyword arguments (e.g, `predict(image_id=1, iou_threshold=0.5)`).
 
 #### `get_classes()`
 
