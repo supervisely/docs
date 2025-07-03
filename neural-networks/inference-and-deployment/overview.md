@@ -2,10 +2,10 @@
 
 This section outlines various approaches of deployment and inference of NN models in Supervisely.
 
-In general, there are 4 different ways you can deploy and use your models:
+In general, there are 4 different approaches you can deploy and use your models:
 
 - **[Supervisely Serving Apps](supervisely-serving-apps.md)** - A simple and user-friendly way to deploy and use models with a convenient web UI. This is the most common way to deploy models in Supervisely.
-- **[Supervisely Prediction API](prediction-api.md)** and **[Supervisely Model API](model-api.md)** for deploying models and get predictions via API in your code.
+- **[Supervisely Prediction API](prediction-api.md)** and **[Supervisely Model API](model-api.md)** for deploying models and getting predictions via API in your python code.
 - **[Local Deployment](deploy_and_predict_with_supervisely_sdk.md)**. Deploy NN models on your local machine or a server by yourself. Supervisely SDK offers convenient classes and functions to help you with this task. You can also deploy any model in a 🐋 Docker Container.
 - **[Using Trained Models Outside of Supervisely](using-standalone-pytorch-models.md)**: You can always download a plain PyTorch checkpoint and use it outside of Supervisely infrastructure in any of your code (or download its ONNX / TensorRT exported versions).
 

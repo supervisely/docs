@@ -3,7 +3,7 @@
 This section involves using Python code together with [Supervisely SDK](https://github.com/supervisely/supervisely) to automate deployment and inference in different scenarios and environments. Supervisely also has a convenient [Prediction API](prediction-api.md) that allows you to deploy models and get predictions in a couple of lines of code (check our [Tutorial](prediction-api.md)).
 In this tutorial you will deploy models directly on your local machine. This is a more advanced variant, it can slightly differ from one model to another, because you need to set up python environment by yourself, but the main code of loading model and getting predictions will be the same.
 
-There are several variants of how you can use a model locally:
+There are several approaches of how you can deploy and apply your model locally:
 
 * **[Load and Predict in Your Code](#load-and-predict-in-your-code)**: Load your checkpoint and get predictions in your code or in a script.
 * **[Deploy Model as a Server](#deploy-model-as-a-server)**: Deploy your model as a server on your machine, and interact with it through API requests.
