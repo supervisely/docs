@@ -54,7 +54,7 @@ Search for images using a natural language prompt.
 - **Filtering**: You can filter results by adjusting score thresholds directly on the chart.
 - **Results Limit**: You can set how many top images to return. If the number of relevant images is lower than the limit, all available matches are shown.
 
-<figure><img src="../../.gitbook/assets/ai-search/ai-search4-1.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ai-search/ai-search-4.jpg" alt=""><figcaption></figcaption></figure>
 
 **Example:**  
 > _"A person riding a bicycle"_ returns images that visually and semantically match this description — regardless of labeling.
@@ -87,7 +87,7 @@ Explore a representative variety of images based on the semantic structure of yo
 
 No text input is required in this mode.
 
-<figure><img src="../../.gitbook/assets/ai-search/ai-search5-2.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ai-search/ai-search-5.jpg" alt=""><figcaption></figcaption></figure>
 
 
 ## Search Results and Collections
