@@ -83,7 +83,7 @@ Explore a representative variety of images based on the semantic structure of yo
 #### Available Methods:
 
 - **Random**: A simpler approach that selects points evenly across the cluster, but may miss edge cases or unique examples.
-- **Centroids**: Returns a more diverse sample by prioritizing points on the edges of each cluster. Useful for understanding the boundaries and variability within the data
+- **Centroids**: Returns a more diverse sample by selecting representative points closer to cluster centers. Useful for getting typical examples from each semantic group in your data.
 
 No text input is required in this mode.
 
@@ -96,6 +96,30 @@ Each search creates a temporary **collection** that acts as a dynamic filter wit
 - This collection contains only the images that matched the query.
 - If needed, it can be saved as a separate collection for future use as a filter, since each new search overwrites the previous results and renaming the temporary collection is not possible.
 - Useful for organizing search results and building datasets based on semantic criteria.
+
+
+## AI Search in Machine Learning Workflows
+
+Beyond basic image search, AI Search serves as a powerful tool for various machine learning scenarios. Here are some practical applications that can significantly improve your ML workflow efficiency:
+
+### Rare Instance Detection in Video Data
+
+When monitoring production lines through continuous video streams, defective products or anomalies represent only 0.1-2% of all captured frames, while 98%+ show normal operation. Traditional manual review is almost impossible at this scale. Supervisely AI Search allows you to simply search for relevant instances of interest using an example image query, or trying a text-based query. This could be useful for finding out all relevant instances and using them in training an AI model, which can automatically detect such instances in production.
+
+### Active Learning Approach
+
+When developing AI models, some industries collect millions of images daily, but manually annotating even 1% would be very expensive. The Active Learning approach aims to select the most informative samples that will maximally improve your model with minimal annotation effort. The **Diverse Sampling with Centroids** is very helpful in this context. Instead of randomly selecting data to be manually annotated, selecting more diverse data proves to be more effective.
+
+For example, in autonomous vehicle development, such sampling would intelligently select images across different conditions: daylight scenes with clear visibility, nighttime scenarios with artificial lighting, rainy weather with reduced visibility, urban environments with heavy traffic, rural roads with minimal infrastructure, and edge cases like unusual vehicle types or unexpected road obstacles. This ensures your model learns from the full spectrum of driving conditions rather than being biased toward the most common scenarios, hence, creating more robust and reliable AI systems with significantly less annotation effort.
+
+### Data Curation & Quality Control
+
+AI Search transforms manual data curation into an intelligent, systematic approach.
+
+**Data exploration:** Start by understanding what's actually in your dataset using diverse search, getting a representative sample of your entire dataset.
+
+**Systematic collection building:** You can create targeted collections for different aspects of your dataset. For example, search "nighttime urban scenes" and save the images to a "Lighting_Night" collection. Search "blurry images" and save as "Quality_Blur" collection or remove them.
+
 
 ## Managing AI Search
 
@@ -122,6 +146,17 @@ An additional feature allows searching by image similarity:
 - Additionally, developers can access this functionality **programmatically** via API
 
 <figure><img src="../../.gitbook/assets/ai-search/ai-search-similar1.jpg" alt=""><figcaption></figcaption></figure>
+
+### Batch AI Search Similar
+
+You can also search for similar images using multiple selected images as reference:
+
+1. Select multiple images using checkboxes in the project
+2. Click **"With N Selected"** button  
+3. Choose **"AI Search Similar images"** from the dropdown menu
+4. The system will find images most similar to your selected set
+
+This is useful when you want to find images that are semantically similar to a group of reference images rather than just one.
 
 ### Disable AI Search
 
