@@ -87,7 +87,7 @@ Explore a representative variety of images based on the semantic structure of yo
 
 No text input is required in this mode.
 
-<figure><img src="../../.gitbook/assets/ai-search/ai-search5-1.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ai-search/ai-search5-2.jpg" alt=""><figcaption></figcaption></figure>
 
 
 ## Search Results and Collections
