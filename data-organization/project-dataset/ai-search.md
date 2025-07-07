@@ -90,6 +90,8 @@ No text input is required in this mode.
 <figure><img src="../../.gitbook/assets/ai-search/ai-search-5.jpg" alt=""><figcaption></figcaption></figure>
 
 
+Diverse Search is particularly valuable for complex machine learning scenarios such as iterative active learning workflows, additional sampling for underrepresented classes, and refining labeling tasks based on insights from previous annotation iterations.
+
 ## Search Results and Collections
 
 Each search creates a temporary **collection** that acts as a dynamic filter within your project:
