@@ -329,7 +329,9 @@ After enabling this option and uploading the volumes and annotations with scores
 
 ![toolbox](https://github.com/supervisely-ecosystem/import-wizard-docs/releases/download/v0.0.3/toolbox.jpg)
 
+{% hint style="info" %}
 **Impotant**: You can import and export scores, but you cannot edit them in the Labeling Toolbox. Comments can be edited in the Labeling Toolbox, but they will not be saved back to the CSV files.
+{% endhint %}
 
 ## NRRD files in `mask` folder
 
