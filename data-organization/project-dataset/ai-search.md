@@ -97,7 +97,6 @@ Each search creates a temporary **collection** that acts as a dynamic filter wit
 - If needed, it can be saved as a separate collection for future use as a filter, since each new search overwrites the previous results and renaming the temporary collection is not possible.
 - Useful for organizing search results and building datasets based on semantic criteria.
 
-
 ## AI Search in Machine Learning Workflows
 
 Beyond basic image search, AI Search serves as a powerful tool for various machine learning scenarios. Here are some practical applications that can significantly improve your ML workflow efficiency:
@@ -157,6 +156,8 @@ You can also search for similar images using multiple selected images as referen
 4. The system will find images most similar to your selected set
 
 This is useful when you want to find images that are semantically similar to a group of reference images rather than just one.
+
+<figure><img src="../../.gitbook/assets/ai-search/ai-search-similar.jpg" alt=""><figcaption></figcaption></figure>
 
 ### Disable AI Search
 
