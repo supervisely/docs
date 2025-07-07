@@ -89,6 +89,7 @@ No text input is required in this mode.
 
 <figure><img src="../../.gitbook/assets/ai-search/ai-search5-1.jpg" alt=""><figcaption></figcaption></figure>
 
+
 ## Search Results and Collections
 
 Each search creates a temporary **collection** that acts as a dynamic filter within your project:
