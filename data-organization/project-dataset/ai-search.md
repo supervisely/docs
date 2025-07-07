@@ -25,7 +25,7 @@ When a user opens a project in Supervisely, the **AI Search** button appears at 
 1. Click the **AI Search** button.
 2. If AI Search is not yet enabled for this project, a modal dialog will appear asking if you want to enable it.
 
-<figure><img src="../../.gitbook/assets/ai-search/ai-search2.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ai-search/ai-search2-1.jpg" alt=""><figcaption></figcaption></figure>
 
 3. Upon confirmation:
     - The project is connected to the AI Search service.
@@ -87,7 +87,7 @@ Explore a representative variety of images based on the semantic structure of yo
 
 No text input is required in this mode.
 
-<figure><img src="../../.gitbook/assets/ai-search/ai-search5.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ai-search/ai-search5-1.jpg" alt=""><figcaption></figcaption></figure>
 
 ## Search Results and Collections
 
@@ -157,7 +157,7 @@ You can also search for similar images using multiple selected images as referen
 
 This is useful when you want to find images that are semantically similar to a group of reference images rather than just one.
 
-<figure><img src="../../.gitbook/assets/ai-search/ai-search-similar.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ai-search/ai-search-similar2.jpg" alt=""><figcaption></figcaption></figure>
 
 ### Disable AI Search
 
