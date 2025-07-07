@@ -130,6 +130,14 @@ annotation JSON file - `/project_name/dataset_name/ann/CTChest.nrrd.json`
                   ],
                   "interior": []
                 }
+              },
+              "customData": {
+                "0-0-1": {
+                  "68": {
+                    "score": "0.68",
+                    "comment": "some comment"
+                  }
+                }
               }
             }
           ]
@@ -152,7 +160,33 @@ annotation JSON file - `/project_name/dataset_name/ann/CTChest.nrrd.json`
       },
       "labelerLogin": "username",
       "updatedAt": "2021-11-13T08:05:28.771Z",
-      "createdAt": "2021-11-13T08:05:28.771Z"
+      "createdAt": "2021-11-13T08:05:28.771Z",
+      "customData": {
+        "0-0-1": {
+          // axial plane
+          "51": {
+            "score": "0.11",
+            "comment": "somment"
+          },
+          "68": {
+            "score": "0.51",
+            "comment": "some comment"
+          }
+        },
+        "0-1-0": {
+          // coronal plane
+          "51": {
+            "score": "0.97",
+            "comment": "123456"
+          }
+        },
+        "1-0-0": {
+          // sagittal plane
+          "51": {
+            "comment": "qwerty"
+          }
+        }
+      }
     }
   ]
 }
@@ -236,6 +270,68 @@ This list contains 3D objects of type <a href="https://docs.supervisely.com/cust
 - `objectKey` - string - unique key to link figure to object (used in `key_id_map.json`)
 - `geometryType` - `mask_3d` or other 3D geometry-class shape
 - `geometry` - geometry of the object
+
+#### `customData` fields description
+
+This field is used to store additional metadata for the figure, such as scores and comments. It is a dictionary with keys representing the plane and slice index, and values containing the metadata.
+
+`CustomData` is a optional dictionary with the following structure:
+
+```text
+{
+  "0-0-1": {  // axial plane
+    "51": {   // slice index
+      "score": "0.68",  // score value
+      "comment": "some comment"  // comment text
+    }
+  },
+}
+```
+
+- `0-0-1` - plane identifier (`0-0-1` for axial, `0-1-0` for coronal, `1-0-0` for sagittal)
+- `51` - slice index
+- `score` - score value for the figure (optional)
+- `comment` - comment text for the figure (optional)
+
+For `Mask3D` objects, the `customData` field can contain metadata for multiple planes and slices. The keys are structured as follows:
+
+```text
+{
+  "0-0-1": {  // axial plane
+    "51": {   // slice index
+      "score": "0.11",
+      "comment": "some comment"
+    },
+    "68": {
+      "score": "0.51",
+      "comment": "some comment"
+    }
+  },
+  "0-1-0": {  // coronal plane
+    "51": {
+      "score": "0.97",
+      "comment": "123456"
+    }
+  },
+  "1-0-0": {  // sagittal plane
+    "51": {
+      "comment": "qwerty"
+    }
+  }
+}
+```
+
+To view the scores and comments in the Labeling Toolbox, you need to enable the "Show Figure Score and Comment" option in the toolbox settings.
+
+![settings](https://github.com/supervisely-ecosystem/import-wizard-docs/releases/download/v0.0.3/settings.jpg)
+
+After enabling this option and uploading the volumes and annotations with scores, you will see the scores and comments in the Labeling Toolbox.
+
+![toolbox](https://github.com/supervisely-ecosystem/import-wizard-docs/releases/download/v0.0.3/toolbox.jpg)
+
+{% hint style="info" %}
+**Impotant**: You can import and export scores, but you cannot edit them in the Labeling Toolbox. Comments can be edited in the Labeling Toolbox.
+{% endhint %}
 
 ## NRRD files in `mask` folder
 
