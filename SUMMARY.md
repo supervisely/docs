@@ -77,7 +77,7 @@
   * [Collections](data-organization/project-dataset/collections.md)
   * [Quality Assurance & Statistics](data-organization/project-dataset/quality-assurance-and-statistics/README.md)
     * [Practical applications of statistics](data-organization/project-dataset/quality-assurance-and-statistics/practical-applications-of-statistics.md)
-  * [Data Versiones](data-organization/project-dataset/data-versiones-mlops.md)
+  * [Data Versions](data-organization/project-dataset/data-versions-mlops.md)
 * [MLOps Workflow](data-organization/mlops-workflow.md)
 * [Team Files](data-organization/team-files/README.md)
 * [Disk usage & Cleanup](data-organization/storage/README.md)
