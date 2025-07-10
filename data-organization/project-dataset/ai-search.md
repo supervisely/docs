@@ -178,6 +178,8 @@ The Visual Embedding Explorer provides an interactive way to understand your dat
 
 This feature is particularly useful for dataset analysis, quality control, and discovering unexpected patterns or edge cases in large image collections.
 
+<figure><img src="../../.gitbook/assets/ai-search/visual-embedding-explorer.jpg" alt=""><figcaption></figcaption></figure>
+
 ### Disable AI Search
 
 Next to the **AI Search** button, there's a dropdown menu:
