@@ -162,6 +162,24 @@ This is useful when you want to find images that are semantically similar to a g
 
 <figure><img src="../../.gitbook/assets/ai-search/ai-search-similar2.jpg" alt=""><figcaption></figcaption></figure>
 
+### Visual Embedding Explorer
+
+{% hint style="warning" %}
+**Private Beta Feature**  
+Visual embedding exploration in 2D and 3D space is currently available in **private beta**. This feature allows you to visualize your dataset's semantic structure and interactively explore image clusters in dimensional space.
+{% endhint %}
+
+The Visual Embedding Explorer provides an interactive way to understand your dataset's semantic organization:
+
+- **2D/3D Visualization**: View your images plotted in reduced dimensional space based on their CLIP embeddings
+- **Interactive Clustering**: Explore natural groupings and identify outliers visually
+- **Zoom and Navigate**: Pan, zoom, and rotate through the embedding space to discover patterns
+- **Click-to-Search**: Click on any point to find similar images in that semantic region
+
+This feature is particularly useful for dataset analysis, quality control, and discovering unexpected patterns or edge cases in large image collections.
+
+<figure><img src="../../.gitbook/assets/ai-search/visual-embedding-explorer.jpg" alt=""><figcaption></figcaption></figure>
+
 ### Disable AI Search
 
 Next to the **AI Search** button, there's a dropdown menu:
