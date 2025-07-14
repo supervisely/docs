@@ -10,8 +10,10 @@ description: >-
 {% hint style="info" %}
 **AI Search** is only available to:
 - Users with a **PRO subscription**
-- Clients using **Supervisly Enterprise Instances**.<br>
-If you do not have access, a prompt will appear suggesting you upgrade your subscription to unlock this feature.
+- Clients using **Supervisely Enterprise Instances**
+- Projects with data uploaded directly to the instance (not remote projects with data linked by URLs)
+
+If you do not have access, a prompt will appear explaining the feature requirements.
 {% endhint %}
 
 ## Enabling AI Search
