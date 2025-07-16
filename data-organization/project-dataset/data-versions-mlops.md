@@ -1,10 +1,9 @@
 ---
 description: >-
-  The main features, capabilities and usage recommendations of MLOps Workflow
-  are described in this documentation.
+  The main features, capabilities and usage recommendations of MLOps Workflow are described in this documentation.
 ---
 
-# 🚀 What is MLOps Workflow in Supervisely
+# What is MLOps Workflow in Supervisely
 
 **MLOps Workflow** in Supervisely helps you:
 
