@@ -128,15 +128,42 @@ AI Search transforms manual data curation into an intelligent, systematic approa
 
 ### Temporary Collections
 
-All search results are shown as a **temporary collection** in the Filters panel.  
-You can:
+All search results are shown as a temporary collection in the Filters panel. This collection acts as a dynamic filter within your project, containing only the images that matched your search query.
 
-- Tag images  
+#### Using Temporary Collections as Filters
+
+- **Apply additional filters**: While the temporary collection is active, you can further refine your results by using the comprehensive filtering options in the Filters panel, such as:
+  - Filter by object classes (e.g., find only images with specific objects within your search results)
+  - Filter by tags (both image tags and object tags)
+  - Filter by number of objects (set minimum/maximum object counts)
+  - Filter by labeling job status (pending, annotated, accepted, rejected)
+  - Filter by authors and assignees
+  - Filter by issues or annotations status
+  - Use custom queries with logical operators (AND/OR) to create complex filter combinations
+
+- **Combine multiple criteria**: The temporary collection works in conjunction with other filters, allowing you to create sophisticated queries. For example, you could search for "nighttime scenes" and then additionally filter to show only images containing more than 5 annotated objects with class "car".
+
+- **Real-time filtering**: All filter operations work in real-time, providing instant results even on large datasets with millions of images.
+
+#### Working with Temporary Collections
+
+With images in a temporary collection, you can:
+- Tag images
 - Copy them to other datasets  
-- Move or delete  
-- Use the collection to create annotation jobs  
+- Move or delete images
+- Create Labeling tasks from the filtered results
+- Start annotating only the filtered subset of images
 
-Collections behave like any other filter, but are not saved unless you take action.
+{% hint style="info" %}
+
+**Important Notes**
+
+- Collections behave like any other filter but are **not saved automatically**
+- Each new search **overwrites** the previous temporary collection
+- Renaming the temporary collection is **not possible**
+- To preserve search results for future use, you must save the collection as a separate, permanent collection
+
+{% endhint %}
 
 <figure><img src="../../.gitbook/assets/ai-search/ai-search-collection1.jpg" alt=""><figcaption></figcaption></figure>
 
