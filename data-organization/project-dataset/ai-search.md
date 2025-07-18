@@ -9,8 +9,9 @@ description: >-
 
 {% hint style="info" %}
 **AI Search** is only available to:
-- Users with a **PRO subscription**
-- Clients using **Supervisely Enterprise Instances**
+
+-   Users with a **PRO subscription**
+-   Clients using **Supervisely Enterprise Instances**
 
 If you do not have access, a prompt will appear explaining the feature requirements.
 {% endhint %}
@@ -50,28 +51,29 @@ After embeddings are ready, clicking the **AI Search** button opens a modal wind
 
 Search for images using a natural language prompt.
 
-- **Description**: The system embeds your text prompt and compares it with image embeddings to find the most semantically similar images.
-- **Score Chart**: After search, a distribution chart shows similarity scores between the prompt and images.
-- **Filtering**: You can filter results by adjusting score thresholds directly on the chart.
-- **Results Limit**: You can set how many top images to return. If the number of relevant images is lower than the limit, all available matches are shown.
+-   **Description**: The system embeds your text prompt and compares it with image embeddings to find the most semantically similar images.
+-   **Score Chart**: After search, a distribution chart shows similarity scores between the prompt and images.
+-   **Filtering**: You can filter results by adjusting score thresholds directly on the chart.
+-   **Results Limit**: You can set how many top images to return. If the number of relevant images is lower than the limit, all available matches are shown.
 
 <figure><img src="../../.gitbook/assets/ai-search/ai-search-4.jpg" alt=""><figcaption></figcaption></figure>
 
-**Example:**  
+**Example:**
+
 > _"A person riding a bicycle"_ returns images that visually and semantically match this description — regardless of labeling.
 
 #### Filter by Score Range
 
 After performing a prompt-based search, a score distribution chart is shown:
 
-- **X-axis** – similarity score  
-- **Y-axis** – number of images  
+-   **X-axis** – similarity score
+-   **Y-axis** – number of images
 
 Use the slider below the chart to filter results by similarity:
 
-- **Above threshold**: shows images most similar to the prompt  
-- **Below threshold**: shows edge cases with low similarity  
-- **Full range (default)**: all results
+-   **Above threshold**: shows images most similar to the prompt
+-   **Below threshold**: shows edge cases with low similarity
+-   **Full range (default)**: all results
 
 Images are always sorted by score, with the most relevant first.
 
@@ -83,13 +85,12 @@ Explore a representative variety of images based on the semantic structure of yo
 
 #### Available Methods:
 
-- **Random**: A simpler approach that selects points evenly across the cluster, but may miss edge cases or unique examples.
-- **Centroids**: Returns a more diverse sample by selecting representative points closer to cluster centers. Useful for getting typical examples from each semantic group in your data.
+-   **Random**: A simpler approach that selects points evenly across the cluster, but may miss edge cases or unique examples.
+-   **Centroids**: Returns a more diverse sample by selecting representative points closer to cluster centers. Useful for getting typical examples from each semantic group in your data.
 
 No text input is required in this mode.
 
 <figure><img src="../../.gitbook/assets/ai-search/ai-search-5.jpg" alt=""><figcaption></figcaption></figure>
-
 
 Diverse Search is particularly valuable for complex machine learning scenarios such as iterative active learning workflows, additional sampling for underrepresented classes, and refining labeling tasks based on insights from previous annotation iterations.
 
@@ -97,9 +98,9 @@ Diverse Search is particularly valuable for complex machine learning scenarios s
 
 Each search creates a temporary **collection** that acts as a dynamic filter within your project:
 
-- This collection contains only the images that matched the query.
-- If needed, it can be saved as a separate collection for future use as a filter, since each new search overwrites the previous results and renaming the temporary collection is not possible.
-- Useful for organizing search results and building datasets based on semantic criteria.
+-   This collection contains only the images that matched the query.
+-   If needed, it can be saved as a separate collection for future use as a filter, since each new search overwrites the previous results and renaming the temporary collection is not possible.
+-   Useful for organizing search results and building datasets based on semantic criteria.
 
 ## AI Search in Machine Learning Workflows
 
@@ -123,7 +124,6 @@ AI Search transforms manual data curation into an intelligent, systematic approa
 
 **Systematic collection building:** You can create targeted collections for different aspects of your dataset. For example, search "nighttime urban scenes" and save the images to a "Lighting_Night" collection. Search "blurry images" and save as "Quality_Blur" collection or remove them.
 
-
 ## Managing AI Search
 
 ### Temporary Collections
@@ -132,48 +132,53 @@ All search results are shown as a temporary collection in the Filters panel. Thi
 
 #### Using Temporary Collections as Filters
 
-- **Apply additional filters**: While the temporary collection is active, you can further refine your results by using the comprehensive filtering options in the Filters panel, such as:
-  - Filter by object classes (e.g., find only images with specific objects within your search results)
-  - Filter by tags (both image tags and object tags)
-  - Filter by number of objects (set minimum/maximum object counts)
-  - Filter by labeling job status (pending, annotated, accepted, rejected)
-  - Filter by authors and assignees
-  - Filter by issues or annotations status
-  - Use custom queries with logical operators (AND/OR) to create complex filter combinations
+The temporary collection functions as a base filter that can be combined with additional filtering options available in the Filters panel. You can:
 
-- **Combine multiple criteria**: The temporary collection works in conjunction with other filters, allowing you to create sophisticated queries. For example, you could search for "nighttime scenes" and then additionally filter to show only images containing more than 5 annotated objects with class "car".
+-   **Apply additional filters**: While the temporary collection is active, you can further refine your results by adding filters with AND logic:
 
-- **Real-time filtering**: All filter operations work in real-time, providing instant results even on large datasets with millions of images.
+    -   **AI Search results**: Filter by similarity score threshold (Above/Below) when using AI Search
+    -   **Objects Class**: Filter by specific object classes and set the number of objects (between min and max values)
+    -   **Images Tag**: Filter images by their tags (is/is not)
+    -   **Objects Tag**: Filter by tags assigned to objects (is/is not)
+    -   **Labeling Job**: Filter by labeling job and status (Pending, Accepted, Rejected, etc.)
+    -   **Objects Author**: Filter by the author who created the objects
+    -   **Issues**: Filter images with open issues
+
+-   **Combine multiple criteria**: All filters work with AND logic, allowing you to create precise queries. For example, you could search for "nighttime scenes" and then additionally filter to show only images containing more than 5 annotated objects with class "car".
+
+-   **Real-time filtering**: All filter operations work in real-time, providing instant results even on large datasets.
 
 #### Working with Temporary Collections
 
 With images in a temporary collection, you can:
-- Tag images
-- Copy them to other datasets  
-- Move or delete images
-- Create Labeling tasks from the filtered results
-- Start annotating only the filtered subset of images
+
+-   Copy them to other datasets
+-   Move or delete images
+-   Create annotation jobs from the filtered results
+-   Use the collection to start annotating only the filtered subset of images
 
 {% hint style="info" %}
 
 **Important Notes**
 
-- Collections behave like any other filter but are **not saved automatically**
-- Each new search **overwrites** the previous temporary collection
-- Renaming the temporary collection is **not possible**
-- To preserve search results for future use, you must save the collection as a separate, permanent collection
+-   Collections behave like any other filter but are **not saved automatically**
+-   Each new search **overwrites** the previous temporary collection
+-   Renaming the temporary collection is **not possible**
+-   To preserve search results for future use, you must save the collection as a separate, permanent collection
 
 {% endhint %}
 
 <figure><img src="../../.gitbook/assets/ai-search/ai-search-collection1.jpg" alt=""><figcaption></figcaption></figure>
 
+This temporary collection feature is particularly useful for organizing search results and building datasets based on semantic criteria combined with precise filtering conditions.
+
 ### AI Search Similar (Search by Image)
 
 An additional feature allows searching by image similarity:
 
-- Only available if **AI Search** is enabled for the project  
-- Triggered through the **image context menu**  
-- Additionally, developers can access this functionality **programmatically** via API
+-   Only available if **AI Search** is enabled for the project
+-   Triggered through the **image context menu**
+-   Additionally, developers can access this functionality **programmatically** via API
 
 <figure><img src="../../.gitbook/assets/ai-search/ai-search-similar1.jpg" alt=""><figcaption></figcaption></figure>
 
@@ -182,7 +187,7 @@ An additional feature allows searching by image similarity:
 You can also search for similar images using multiple selected images as reference:
 
 1. Select multiple images using checkboxes in the project
-2. Click **"With N Selected"** button  
+2. Click **"With N Selected"** button
 3. Choose **"AI Search Similar images"** from the dropdown menu
 4. The system will find images most similar to your selected set
 
@@ -199,10 +204,10 @@ Visual embedding exploration in 2D and 3D space is currently available in **priv
 
 The Visual Embedding Explorer provides an interactive way to understand your dataset's semantic organization:
 
-- **2D/3D Visualization**: View your images plotted in reduced dimensional space based on their CLIP embeddings
-- **Interactive Clustering**: Explore natural groupings and identify outliers visually
-- **Zoom and Navigate**: Pan, zoom, and rotate through the embedding space to discover patterns
-- **Click-to-Search**: Click on any point to find similar images in that semantic region
+-   **2D/3D Visualization**: View your images plotted in reduced dimensional space based on their CLIP embeddings
+-   **Interactive Clustering**: Explore natural groupings and identify outliers visually
+-   **Zoom and Navigate**: Pan, zoom, and rotate through the embedding space to discover patterns
+-   **Click-to-Search**: Click on any point to find similar images in that semantic region
 
 This feature is particularly useful for dataset analysis, quality control, and discovering unexpected patterns or edge cases in large image collections.
 
@@ -212,10 +217,10 @@ This feature is particularly useful for dataset analysis, quality control, and d
 
 Next to the **AI Search** button, there's a dropdown menu:
 
-- **Disable AI Search**  
-    - Disconnects the project from AI Search.
-    - The project is removed from the auto-update queue.
-    - Note: Image embeddings are not deleted upon disabling.
+-   **Disable AI Search**
+    -   Disconnects the project from AI Search.
+    -   The project is removed from the auto-update queue.
+    -   Note: Image embeddings are not deleted upon disabling.
 
 {% hint style="info" %}
 Embeddings are automatically refreshed on a schedule (e.g., every few days) if AI Search is enabled.
