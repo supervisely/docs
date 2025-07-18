@@ -98,6 +98,90 @@ Keep your JSON structured and include version information:
 }
 ```
 
+## Editing and Retrieving Custom Data
+
+There are two ways to work with Custom Data:
+
+### 1. Web Interface
+
+The web interface is ideal for static settings that don't change frequently during data processing:
+
+1. Navigate to your project or dataset
+2. Click on the **Info** tab
+3. Find the **Custom Data** section
+4. Click **Edit** to modify the JSON
+5. Save your changes
+
+### 2. Python SDK
+
+For dynamic data that needs to be updated programmatically, use the Python SDK:
+
+#### Retrieving Custom Data for a Project
+
+```python
+import supervisely as sly
+
+# Initialize API
+api = sly.Api()
+
+# Get project custom data
+project_id = 12345
+custom_data = api.project.get_custom_data(project_id)
+print(custom_data)
+```
+
+#### Updating Custom Data for a Project
+
+```python
+import supervisely as sly
+
+# Initialize API
+api = sly.Api()
+
+project_id = 12345
+
+# Get current custom data
+custom_data = api.project.get_custom_data(project_id)
+
+# Modify the data
+custom_data["processing_status"] = "completed"
+custom_data["processed_items"] = 150
+
+# Update the custom data
+api.project.update_custom_data(project_id, custom_data)
+```
+
+#### Silent Mode for Projects
+
+When updating project custom data, you can use silent mode to prevent updating the project's modification timestamp:
+
+```python
+# Update without changing the project's updated_at timestamp
+api.project.update_custom_data(project_id, custom_data, silent=True)
+```
+
+This is useful when you want to update technical metadata without marking the project as recently modified.
+
+#### Working with Dataset Custom Data
+
+For datasets, retrieve custom data through the dataset info:
+
+```python
+# Get dataset info
+dataset_id = 67890
+dataset_info = api.dataset.get_info_by_id(dataset_id)
+
+# Access custom data
+custom_data = dataset_info.custom_data
+
+# Modify only the keys you need to update
+custom_data["validation_score"] = 0.95
+custom_data["last_checked"] = "2024-03-20"
+
+# Update dataset custom data
+api.dataset.update_custom_data(dataset_id, new_custom_data)
+```
+
 ## Best Practices
 
 - Use clear, descriptive key names
