@@ -148,7 +148,7 @@ The temporary collection functions as a base filter that can be combined with ad
 
 -   **Real-time filtering**: All filter operations work in real-time, providing instant results even on large datasets.
 
-<figure><img src="../../.gitbook/assets/ai-search/ai-search-filters.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ai-search/ai-search-filters.jpeg" alt=""><figcaption></figcaption></figure>
 
 #### Working with Temporary Collections
 
