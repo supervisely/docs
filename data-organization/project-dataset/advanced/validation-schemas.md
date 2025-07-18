@@ -59,11 +59,49 @@ Create a JSON schema that defines the required structure for your image metadata
 
 ### Step 2: Set Schema for Project
 
-Apply the schema to your project through the Supervisely interface or API. Once set, this schema will be used to validate all future image metadata uploads.
+Apply the schema to your project using the API:
+
+```python
+import supervisely as sly
+
+api = sly.Api.from_env()
+project_id = 12345
+
+# Set validation schema for project
+api.project.set_validation_schema(project_id, schema)
+
+# Get current validation schema
+current_schema = api.project.get_validation_schema(project_id)
+```
 
 ### Step 3: Upload Images with Validation
 
-When uploading images, you can enable validation to ensure metadata compliance. Valid metadata example:
+When uploading images, enable validation to ensure metadata compliance:
+
+```python
+# Upload images with validation enabled
+image_paths = ["/path/to/image1.jpg", "/path/to/image2.jpg"]
+names = ["image1.jpg", "image2.jpg"]
+metas = [
+    {
+        "camera": {"iso": 800, "aperture": "f/2.8"},
+        "location": {"lat": 37.7749, "lng": -122.4194}
+    },
+    {
+        "camera": {"iso": 400, "aperture": "f/1.8"},
+        "location": {"lat": 40.7128, "lng": -74.0060}
+    }
+]
+
+api.image.upload_paths(
+    dataset_id=dataset_id,
+    names=names,
+    paths=image_paths,
+    metas=metas,
+    validate_meta=True,  # Enable validation
+    use_strict_validation=False  # Optional: strict mode
+)
+``` Valid metadata example:
 
 ```json
 {
@@ -87,28 +125,65 @@ When uploading images, you can enable validation to ensure metadata compliance. 
 ## Validation Options
 
 ### Standard Validation
-- Checks for required fields
-- Ignores extra fields not defined in schema
-- Allows flexible metadata structure
+```python
+# Standard validation - allows extra fields
+api.image.upload_paths(
+    dataset_id=dataset_id,
+    names=names,
+    paths=image_paths,
+    metas=metas,
+    validate_meta=True,
+    use_strict_validation=False
+)
+```
 
 ### Strict Validation
-- Requires exact schema match
-- Fails on missing OR extra fields
-- Enforces rigid metadata structure
+```python
+# Strict validation - exact schema match required
+api.image.upload_paths(
+    dataset_id=dataset_id,
+    names=names,
+    paths=image_paths,
+    metas=metas,
+    validate_meta=True,
+    use_strict_validation=True
+)
+```
+
+### Optimized Validation with Caching
+```python
+# Use caching for better performance with multiple uploads
+api.image.upload_paths(
+    dataset_id=dataset_id,
+    names=names,
+    paths=image_paths,
+    metas=metas,
+    validate_meta=True,
+    use_caching_for_validation=True  # Schema cached for 1 hour
+)
+```
 
 ## Validating Existing Projects
 
-For projects with existing images, you can:
+For projects with existing images, you can validate all current data:
 
-1. **Set a new schema** for the project
-2. **Run validation** on all existing images
-3. **Get detailed reports** of which images have invalid metadata
-4. **Fix metadata** for non-compliant images
+```python
+# Validate all existing images in project
+validation_result = api.project.validate_entities_schema(project_id)
 
-This is useful when:
-- Adding validation to an existing project
-- Updating schema requirements
-- Auditing metadata quality across your dataset
+# Check validation results
+if validation_result.get('failed_entities'):
+    print("Validation failed for these images:")
+    for entity in validation_result['failed_entities']:
+        print(f"Image ID: {entity['id']}, Error: {entity['error']}")
+else:
+    print("All images passed validation")
+```
+
+This process helps you:
+- Identify non-compliant images in existing projects
+- Get detailed error reports for each failed image
+- Fix metadata issues before enforcing strict validation
 
 ## Benefits
 
@@ -163,6 +238,66 @@ This is useful when:
 }
 ```
 
+## Complete Example
+
+Here's a full workflow example:
+
+```python
+import supervisely as sly
+
+# Initialize API
+api = sly.Api.from_env()
+project_id = 12345
+dataset_id = 67890
+
+# 1. Define schema
+schema = {
+    "type": "object",
+    "required": ["camera", "location"],
+    "properties": {
+        "camera": {
+            "type": "object",
+            "required": ["iso", "aperture"],
+            "properties": {
+                "iso": {"type": "number"},
+                "aperture": {"type": "string"}
+            }
+        },
+        "location": {
+            "type": "object",
+            "required": ["lat", "lng"],
+            "properties": {
+                "lat": {"type": "number"},
+                "lng": {"type": "number"}
+            }
+        }
+    }
+}
+
+# 2. Set schema for project
+api.project.set_validation_schema(project_id, schema)
+
+# 3. Upload images with validation
+image_paths = ["/path/to/image1.jpg"]
+names = ["image1.jpg"]
+metas = [{
+    "camera": {"iso": 800, "aperture": "f/2.8"},
+    "location": {"lat": 37.7749, "lng": -122.4194}
+}]
+
+try:
+    api.image.upload_paths(
+        dataset_id=dataset_id,
+        names=names,
+        paths=image_paths,
+        metas=metas,
+        validate_meta=True
+    )
+    print("Upload successful - metadata valid!")
+except Exception as e:
+    print(f"Upload failed: {e}")
+```
+
 ## Best Practices
 
 - **Start simple**: Begin with basic required fields, add complexity gradually
@@ -171,12 +306,7 @@ This is useful when:
 - **Version your schemas**: Track changes when updating validation rules
 - **Communicate changes**: Inform team members about new validation requirements
 
-## Error Handling
+## Requirements
 
-When validation fails, you'll receive detailed error messages indicating:
-- Which fields are missing
-- Which fields have incorrect types
-- Which extra fields are present (in strict mode)
-- Exact location of the validation error in your JSON structure
-
-This helps you quickly identify and fix metadata issues before successful upload.
+- Supervisely instance version: 6.12.5 or later
+- Supervisely Python SDK: 6.73.228 or later
