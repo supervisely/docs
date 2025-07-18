@@ -73,7 +73,7 @@
   * [Create](data-organization/project-dataset/create.md)
   * [Data Structure](data-organization/project-dataset/data-structure.md)
   * [Define Classes & Tags](data-organization/project-dataset/define-classes-tags.md)
-  * [How to Import and Export](data-organization/project-dataset/how-to-import-and-export-overview.md)
+  * [How to Import and Export](data-organization/project-dataset/how-to-import-end-export-overview.md)
   * [Gallery & Table views](data-organization/project-dataset/gallery-table-views.md)
   * [Collections](data-organization/project-dataset/collections.md)
   * [AI Search](data-organization/project-dataset/ai-search.md)
