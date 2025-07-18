@@ -78,6 +78,8 @@
   * [AI Search](data-organization/project-dataset/ai-search.md)
   * [Quality Assurance & Statistics](data-organization/project-dataset/quality-assurance-and-statistics/README.md)
     * [Practical applications of statistics](data-organization/project-dataset/quality-assurance-and-statistics/practical-applications-of-statistics.md)
+  * [Advanced](data-organization/project-dataset/advanced/README.md)
+    * [Custom Data](data-organization/project-dataset/advanced/custom-data.md)
 * [MLOps Workflow](data-organization/mlops-workflow.md)
 * [Team Files](data-organization/team-files/README.md)
 * [Disk usage & Cleanup](data-organization/storage/README.md)
