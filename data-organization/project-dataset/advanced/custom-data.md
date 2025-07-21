@@ -16,7 +16,7 @@ Navigate to any project or dataset and click the **Info** tab. You'll find two s
 - **README** — Documentation in Markdown format
 - **Custom Data** — Technical data in JSON format
 
-<figure><img src="../../../.gitbook/assets/custom-data/custom-data.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/custom-data/custom-data1.jpg" alt=""><figcaption></figcaption></figure>
 
 ## When to Use Custom Data
 
@@ -114,7 +114,7 @@ The web interface is ideal for static settings that don't change frequently duri
 4. Click **Edit** to modify the JSON
 5. Save your changes
 
-<figure><img src="../../../.gitbook/assets/custom-data/custom-data-edit.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/custom-data/custom-data-edit1.jpg" alt=""><figcaption></figcaption></figure>
 
 ### 2. Python SDK
 
