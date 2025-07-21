@@ -2,11 +2,7 @@
 
 ## Overview
 
-JSON Schema Validation allows you to enforce a consistent structure for image metadata when uploading images to projects. This feature ensures that all images in your project have metadata that follows a predefined JSON schema, preventing inconsistent or incomplete metadata uploads.
-
-## How It Works
-
-When uploading images with custom metadata, Supervisely can validate that metadata against a JSON schema you define for the project. If the metadata doesn't match the schema, the upload will fail with a detailed error message.
+**JSON Schema** Validation allows you to enforce a consistent structure for image metadata when uploading images to projects. By defining a **JSON schema** at the project level, you ensure that all uploaded metadata adheres to the required structure. If the metadata does not match the schema, the upload will be rejected with a clear validation error, preventing inconsistent or incomplete data from entering your project.
 
 ## Use Case Example
 
@@ -133,7 +129,7 @@ api.image.upload_paths(
     paths=image_paths,
     metas=metas,
     validate_meta=True,
-    use_strict_validation=False
+    use_strict_validation=False  # Default Value
 )
 ```
 
@@ -146,7 +142,7 @@ api.image.upload_paths(
     paths=image_paths,
     metas=metas,
     validate_meta=True,
-    use_strict_validation=True
+    use_strict_validation=True  # Set to True for strict validation
 )
 ```
 
@@ -172,12 +168,19 @@ For projects with existing images, you can validate all current data:
 validation_result = api.project.validate_entities_schema(project_id)
 
 # Check validation results
-if validation_result.get('failed_entities'):
-    print("Validation failed for these images:")
-    for entity in validation_result['failed_entities']:
-        print(f"Image ID: {entity['id']}, Error: {entity['error']}")
+if not validation_result:
+    print("All entities are valid according to the schema!")
 else:
-    print("All images passed validation")
+    print(f"Found {len(validation_result)} entities that don't match the schema:")
+    
+    for entity in validation_result:
+        print(f"\nEntity: {entity['entity_name']} (ID: {entity['entity_id']})")
+        
+        if entity['missing_fields']:
+            print(f"  Missing fields: {', '.join(entity['missing_fields'])}")
+        
+        if entity['extra_fields']:
+            print(f"  Extra fields: {', '.join(entity['extra_fields'])}")
 ```
 
 This process helps you:
