@@ -19,7 +19,7 @@ If you do not have access, a prompt will appear explaining the feature requireme
 {% hint style="success" %}
 **Data Privacy & Security**
 
-All data processed for AI Search remains completely private and secure. Image embeddings are generated and stored locally within Supervisely instance. No data or embeddings are transmitted to external services or shared outside environment. The CLIP Service runs inside Supervisely infrastructure, ensuring full data confidentiality.
+All data processed for AI Search remains completely private and secure. No data or embeddings are transmitted to external services or shared outside environment, ensuring full data privacy.
 {% endhint %}
 
 ## Enabling AI Search
