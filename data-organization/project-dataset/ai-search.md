@@ -16,6 +16,12 @@ description: >-
 If you do not have access, a prompt will appear explaining the feature requirements.
 {% endhint %}
 
+{% hint style="success" %}
+**Data Privacy & Security**
+
+All data processed for AI Search remains completely private and secure. No data or embeddings are transmitted to external services or shared outside environment, ensuring full data privacy.
+{% endhint %}
+
 ## Enabling AI Search
 
 When a user opens a project in Supervisely, the **AI Search** button appears at the top of the interface.
