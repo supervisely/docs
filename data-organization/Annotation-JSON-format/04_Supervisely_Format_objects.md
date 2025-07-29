@@ -534,7 +534,28 @@ Example:
     "face2-topleft": {
       "loc": [787, 209]
     }
-  }
+  },
+  "position": {
+    "x": 1.5254243853950376,
+    "y": -0.029332571181434806,
+    "z": 3.801592462499133
+  },
+  "rotation": {
+    "x": 0.018818180896088506,
+    "y": -0.23085865771787983,
+    "z": -0.021834559304504286
+  },
+  "dimensions": {
+    "x": 0.12849628073227648,
+    "y": 0.11568928876260993,
+    "z": 0.20575812563187024
+  },
+  "face": [
+    "face1-bottomleft",
+    "face1-topleft",
+    "face2-topleft",
+    "face2-bottomleft"
+  ]
 }
 ```
 
@@ -547,6 +568,22 @@ Fields definitions:
 - `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
 - `vertices` - is a dictionary, where keys denote the names of the cuboid vertices, and values in a dictionary with a location of a vertex on the image:
   - `loc` - list of single points (`x` and `y` coordinates) of a vertex
+- `position` - list of three numbers representing the (x, y, z) coordinates of the cuboid center in 3D space.
+- `rotation` - list of three numbers representing the rotation angles (in degrees or radians, depending on context) around the x, y, and z axes.
+- `dimension` - list of three numbers specifying the size of the cuboid along the x, y, and z axes (width, height, depth).
+- `face` - identifier or label for a specific face of the cuboid, used to reference or annotate individual faces if needed.
+
+### Tool Options
+
+Cuboid2D annotation supports advanced tool options:
+
+- **Rotate:** Adjust the orientation of the cuboid by rotating it around its center.
+- **Scale:** Change the size of the cuboid proportionally along its axes.
+- **Free Transform:** Freely move and reshape the cuboid by manipulating its vertices.
+- **Toggle Helper Lines:** Show or hide auxiliary lines to assist with alignment and positioning.
+- **Toggle Face Selection:** Enable or disable the ability to select faces of the cuboid.
+
+Cuboid2D tools support different projection types, including fisheye, cylindrical, spherical, and others. The annotation system allows you to convert and export cuboid annotations into different coordinate systems, including support for extrinsic matrices (camera pose and orientation).
 
 ## Mask3D (3D annotation)
 
