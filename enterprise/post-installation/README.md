@@ -23,6 +23,7 @@ To create new users using an instance admin account:
 
 <figure><img src="../../.gitbook/assets/post-installation/new-users.png" alt=""><figcaption></figcaption></figure>
 
+> For more details on managing users, see the [Users Management](../../collaboration/admin-panel/users-management.md) section.
 
 ### Invite new members to a team
 
