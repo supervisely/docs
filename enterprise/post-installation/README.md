@@ -12,11 +12,34 @@ By default we create two users: "admin" (to administrate the instance) and "supe
 
 We strongly advice you to keep admin account clean from models and projects and create separate teams and users for security reasons - if you would perform all the work in admin's team you may accidentally end up with overpopulated team with full access to everything.
 
+
+### Create new users with admin account
+
+To create new users using an instance admin account:
+
+  1. Click the gear icon to the right of your username in the lower left corner. 
+  2. Select "Users" from the dropdown menu. 
+  3. On the Users page, scroll all the way down and click the "Signup" button.
+
+<figure><img src="../../.gitbook/assets/post-installation/new-users.png" alt=""><figcaption></figcaption></figure>
+
+
+### Invite new members to a team
+
+To add new members to a team, navigate to the "CURRENT TEAM" section in the bottom left corner. Here, you can view and manage all users associated with your team.
+
+To invite a new user to a specific team:
+
+  1. Select the desired team from the list.
+  2. Click "Manage members" from the dropdown menu.
+  3. Click the "Invite" button in the upper right corner.
+  4. Enter the user’s login and assign a role.
+  5. Confirm the invitation.
+
+The invited user will receive a notification.
+
 <figure><img src="../../.gitbook/assets/Group 40.png" alt=""><figcaption></figcaption></figure>
 
-Click on the "Members" in the bottom left corner. Here you can manage existing users, delete them, assign roles, login under their accounts and create new ones.
-
-Click "Invite" to create a new user. We will automatically create a new team for that user and populate "Apps" section with default apps, marked as "Seed" (i.e. "Import / Images").
 
 ## Configure your instance
 
