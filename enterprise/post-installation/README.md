@@ -17,9 +17,9 @@ We strongly advice you to keep admin account clean from models and projects and 
 
 To create new users using an instance admin account:
 
-1. Click the gear icon to the right of your username in the lower left corner. 
-2. Select "Users" from the dropdown menu. 
-3. On the Users page, scroll all the way down and click the "Signup" button.
+  1. Click the gear icon to the right of your username in the lower left corner. 
+  2. Select "Users" from the dropdown menu. 
+  3. On the Users page, scroll all the way down and click the "Signup" button.
 
 <figure><img src="../../.gitbook/assets/post-installation/new-users.png" alt=""><figcaption></figcaption></figure>
 
@@ -30,11 +30,11 @@ To add new members to a team, navigate to the "CURRENT TEAM" section in the bott
 
 To invite a new user to a specific team:
 
-1. Select the desired team from the list.
-2. Click "Manage members" from the dropdown menu.
-3. Click the "Invite" button in the upper right corner.
-4. Enter the user’s login and assign a role.
-5. Confirm the invitation.
+  1. Select the desired team from the list.
+  2. Click "Manage members" from the dropdown menu.
+  3. Click the "Invite" button in the upper right corner.
+  4. Enter the user’s login and assign a role.
+  5. Confirm the invitation.
 
 The invited user will receive a notification.
 
