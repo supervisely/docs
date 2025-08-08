@@ -92,6 +92,7 @@ To setup system applications to start automatically with the instance, you can a
 * `nodeId`: Specifies the agent ID for running the application. Leave it as `null` to assign a random agent.
 * `skipVersionUpdates`: Disables automatic restart of the application to a newer version.
 * `state`: Parameters for launching the application, similar to those filled out when launching through the interface.
+* `disabled`: if set to true, the system application will not be launched automatically. Use this parameter if you need to [disable a system application](#disable-system-application).
 
 **Example**
 
@@ -114,7 +115,7 @@ To add the "Render Previews" application with auto-launch and two sessions on th
 
 ```
 
-**Example of disabling system apps**
+##### Disable system application
 
 If you need to disable some of the system apps, you can use the following config:
 
@@ -124,7 +125,21 @@ If you need to disable some of the system apps, you can use the following config
     {
       "isShared": false,
       "nodeId": null,
-      "disabled": true
+      "disabled": true // Prevents the application from launching automatically.
+    }
+  ],
+  "supervisely-ecosystem/render-previews-app": [
+    {
+      "isShared": false,
+      "nodeId": null,
+      "disabled": true // Prevents the application from launching automatically.
+    }
+  ],
+  "supervisely-ecosystem/quality-assurance-for-image-annotations": [
+    {
+      "isShared": false,
+      "nodeId": null,
+      "disabled": true // Prevents the application from launching automatically.
     }
   ]
 }
