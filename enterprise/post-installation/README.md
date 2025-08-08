@@ -114,6 +114,27 @@ To add the "Render Previews" application with auto-launch and two sessions on th
 
 ```
 
+**Example of disabling system apps**
+
+If you need to disable some of the system apps, you can use the following config:
+
+```json
+{
+  "supervisely-ecosystem/deploy-clip-as-service": [
+    {
+      "isShared": false,
+      "nodeId": null,
+      "disabled": true
+    }
+  ]
+}
+```
+
+At the moment, there are three system apps available:
+- "supervisely-ecosystem/deploy-clip-as-service" - [CLIP Service](https://ecosystem.supervisely.com/apps/deploy-clip-as-service)
+- "supervisely-ecosystem/render-previews-app" - [Render previews GUI](https://ecosystem.supervisely.com/apps/render-previews-app)
+- "supervisely-ecosystem/quality-assurance-for-image-annotations" - [On-the-Fly Quality Assurance](https://ecosystem.supervisely.com/apps/quality-assurance-for-image-annotations)
+
 ***
 
 ### Default agent options
