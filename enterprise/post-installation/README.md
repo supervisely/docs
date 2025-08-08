@@ -115,7 +115,7 @@ To add the "Render Previews" application with auto-launch and two sessions on th
 
 ```
 
-##### Disable system application
+#### Disable system application
 
 If you need to disable some of the system apps, you can use the following config:
 
