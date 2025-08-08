@@ -92,6 +92,7 @@ To setup system applications to start automatically with the instance, you can a
 * `nodeId`: Specifies the agent ID for running the application. Leave it as `null` to assign a random agent.
 * `skipVersionUpdates`: Disables automatic restart of the application to a newer version.
 * `state`: Parameters for launching the application, similar to those filled out when launching through the interface.
+* `disabled`: if set to true, the system application will not be launched automatically. Use this parameter if you need to [disable a system application](#example-of-disabling-system-apps).
 
 **Example**
 
@@ -124,7 +125,7 @@ If you need to disable some of the system apps, you can use the following config
     {
       "isShared": false,
       "nodeId": null,
-      "disabled": true
+      "disabled": true // Prevents the application from launching automatically.
     }
   ]
 }
