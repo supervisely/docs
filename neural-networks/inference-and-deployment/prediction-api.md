@@ -209,7 +209,7 @@ You can control the prediction process with various arguments, such as inference
 | `batch_size` | `int` | `None` | Number of images to process in a single batch. If `None`, the model will use its default batch size. |
 | `img_size` | `int` or `tuple` | `None` | Size of input images: `int` resizes to a square size, a tuple of (height, width) resizes to exact size. Also applicable to video inference. `None` will use the model's default input size |
 | `classes` | `List[str]` | `None` | List of classes to predict |
-| `upload` | `str` | `None` | If not `None`, predictions will be uploaded to the platform. Upload modes: `create`, `append`, `replace`, `iou_merge`. See more in [Uploading predictions](#uploading-predictions) section. |
+| `upload_mode` | `str` | `None` | If not `None`, predictions will be uploaded to the platform. Upload modes: `create`, `append`, `replace`, `iou_merge`. See more in [Uploading predictions](#uploading-predictions) section. |
 | `recursive` | `bool` | `False` | Whether to search for images in subdirectories. Applicable when the `input` is a directory. |
 | `**kwargs` | `dict` | `None` | All additional settings, such as inference settings, sliding window settings and video processing settings can be passed here. See more in [Advanced settings](#predict-settings-kwargs). |
 
@@ -397,7 +397,7 @@ session.stop()
 
 ## Uploading predictions
 
-You can upload predictions to the Supervisely platform using the `upload` argument in the `predict()` and `predict_detached()` methods. The available upload modes are:
+You can upload predictions to the Supervisely platform using the `upload_mode` argument in the `predict()` and `predict_detached()` methods. The available upload modes are:
 
 | Upload Mode | Description |
 | --- | --- |
@@ -412,7 +412,7 @@ Example with uploading predictions to a source project:
 # Upload predictions to a project
 predictions = model.predict(
     project_id=123,  # Input project ID
-    upload="append",  # or "create", "replace", "iou_merge"
+    upload_mode="append",  # or "create", "replace", "iou_merge"
 )
 ```
 
