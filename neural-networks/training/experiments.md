@@ -1,16 +1,29 @@
 # Training Experiments
 
-Supervisely tracks all your training experiments and provides a strategic way to manage them, which makes working with your trained models much easier and convenient. You can find your experiments in the **Experiments** section of the right sidebar in the Supervisely platform.
+Supervisely records all your training experiments and provides an organized way to manage them, which makes working with your trained models much easier and more efficient. You can find your experiments in the **Experiments** section of the right sidebar in the Supervisely platform. Here, you can see a table with your experiments and their details, such as model and framework, training data, evaluation metrics with the full evaluation report, tensorboard logs, and other information. You can view the details of an experiment by clicking on it in the table.
 
 <!-- *You can also filter and sort the experiments by various criteria. You can also compare the evaluation results of different models and visually understand their behavior in different scenarios. You can deploy your final models directly from the experiments table, which allows you to quickly apply the models to your data. Finally, you can start a new experiment by clicking the **New Experiment** button in the top right corner of the page. This will open a form where you can set up the experiment configuration, and run the training process.* -->
 
 ![Experiment table](/.gitbook/assets/neural-networks/training/experiments.png)
 
-Here, you can see a table with your experiments and their details, such as model and framework, training data, evaluation metrics with the full model benchmark report, and tensorboard logs. You can open the experiment details page by clicking on any experiment in the table.
 
 ## Motivation
 
+Machine learning development is inherently experimental. Data scientists typically run dozens of training experiments, tweaking hyperparameters, trying different models, and testing various datasets to achieve optimal results. However, without proper organization, this iterative process quickly becomes chaotic - teams waste a lot of time in searching for the best-performing models, they manually write hundreds of code scripts to compare and organize results properly, struggle to reproduce training runs, and lose track of valuable insights gained during training, unless they have an organized view of their work.
+
 Training neural networks is a complex process that involves many steps, such as data preparation, model selection, hyperparameter tuning, and evaluation. Each of these steps can have a significant impact on the final results. Therefore, it is essential to keep track of all the experiments you run, their configuration details, as well as the results. Supervisely Experiments provides a strategic way in addressing this complexity, representing all your training runs in an extensive table. It allows you to analyze experiments in detail, compare their evaluation results, deploy the best-performing models and apply them to your data in a few clicks.
+
+The Experiments table serves as a complete historical record of your team's ML journey, capturing:
+
+- Exact model configurations and hyperparameters
+- Training dataset versions and preprocessing steps
+- Performance metrics across different evaluation scenarios
+- Tensorboard logs for detailed training analysis
+- Environment details and framework versions
+
+This ensures that all your team's effort isn't lost, your experiments can be reproduced months later.
+
+[Placeholder: Diagram showing experiment details and metadata capture]
 
 ### Features
 
