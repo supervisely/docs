@@ -19,8 +19,11 @@ import supervisely as sly
 
 api = sly.Api()
 
+workspace_id = 555 # <- Use your workspace ID
+
 model = api.nn.deploy(
     model="/path/in/team_files/checkpoint.pt",  # path to your checkpoint in Team Files
+    workspace_id=workspace_id
 )
 ```
 {% endtab %}
@@ -30,8 +33,11 @@ import supervisely as sly
 
 api = sly.Api()
 
+workspace_id = 555 # <- Use your workspace ID
+
 model = api.nn.deploy(
-    model="rt-detrv2/rt-detrv2-s"  # model identifier in the format "framework/model_name"
+    model="rt-detrv2/rt-detrv2-s",  # model identifier in the format "framework/model_name"
+    workspace_id=workspace_id
 )
 ```
 {% endtab %}
@@ -465,10 +471,13 @@ from supervisely.nn.tracking import track
 import boxmot
 from pathlib import Path
 
+workspace_id = 555 # <- Use your workspace ID
+
 # Deploy a detector
 detector = api.nn.deploy(
     model="rt-detrv2/RT-DETRv2-M",
     device="cuda:0",  # Use GPU for detection
+    workspace_id=workspace_id
 )
 
 # Load BoxMot tracker
@@ -503,10 +512,13 @@ import boxmot
 from supervisely.nn.tracking import to_boxmot
 from pathlib import Path
 
+workspace_id = 555 # <- Use your workspace ID
+
 # Deploy a detector
 model = api.nn.deploy(
     model="rt-detrv2/RT-DETRv2-M",
     device="cuda:0",  # Use GPU for detection
+    workspace_id=workspace_id
 )
 
 # Start predict objects in video

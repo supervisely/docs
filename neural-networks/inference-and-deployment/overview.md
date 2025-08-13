@@ -28,10 +28,13 @@ import supervisely as sly
 
 api = sly.Api()
 
+workspace_id = 555 # <- Use your workspace ID
+
 # 1. Deploy your model
 model = api.nn.deploy(
     model="/path/in/team_files/checkpoint.pt",  # path to your checkpoint in Team Files
     device="cuda:0",  # or "cpu"
+    workspace_id=workspace_id
 )
 
 # 2. Predict

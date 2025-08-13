@@ -21,9 +21,13 @@ import supervisely as sly
 
 api = sly.Api()
 
+workspace_id = 555 # <- Use your workspace ID
+
 # Deploy your checkpoint trained in Supervisely
 model = api.nn.deploy(
     model="/path/in/team_files/checkpoint.pt",  # Path to your checkpoint in Team Files
+    device="cuda:0",  # or "cpu"
+    workspace_id=workspace_id
 )
 ```
 {% endtab %}
@@ -33,9 +37,12 @@ import supervisely as sly
 
 api = sly.Api()
 
+workspace_id = 555 # <- Use your workspace ID
+
 # Use ONNX checkpoint
 model = api.nn.deploy(
     model="/path/in/team_files/model.onnx",  # Path to ONNX checkpoint in Team Files
+    workspace_id=workspace_id
 )
 ```
 {% endtab %}
@@ -45,9 +52,12 @@ import supervisely as sly
 
 api = sly.Api()
 
+workspace_id = 555 # <- Use your workspace ID
+
 # Use TensorRT checkpoint
 model = api.nn.deploy(
     model="/path/in/team_files/model.engine",  # Path to TensorRT checkpoint in Team Files
+    workspace_id=workspace_id
 )
 ```
 {% endtab %}
@@ -57,10 +67,13 @@ import supervisely as sly
 
 api = sly.Api()
 
+workspace_id = 555 # <- Use your workspace ID
+
 # Using pytorch checkpoint and convert to TensorRT
 model = api.nn.deploy(
     model="/path/in/team_files/checkpoint.pt",  # Path to your checkpoint in Team Files
     runtime="tensorrt",  # Will convert the model to TensorRT, this will take some time
+    workspace_id=workspace_id
 )
 ```
 {% endtab %}
@@ -79,9 +92,12 @@ import supervisely as sly
 
 api = sly.Api()
 
+workspace_id = 555 # <- Use your workspace ID
+
 # Deploy a pretrained model
 model = api.nn.deploy(
     model="rt-detrv2/rt-detrv2-s"  # Model name from a table of pretrained models in the Serving App
+    workspace_id=workspace_id
 )
 ```
 {% endtab %}
@@ -91,10 +107,13 @@ import supervisely as sly
 
 api = sly.Api()
 
+workspace_id = 555 # <- Use your workspace ID
+
 # ONNX Runtime
 model = api.nn.deploy(
     model="rt-detrv2/rt-detrv2-s"  # Model name from a table of pretrained models in the Serving App
     runtime="onnx",            # Will convert the model to ONNX before deploying
+    workspace_id=workspace_id
 )
 ```
 {% endtab %}
@@ -104,10 +123,13 @@ import supervisely as sly
 
 api = sly.Api()
 
+workspace_id = 555 # <- Use your workspace ID
+
 # TensorRT
 model = api.nn.deploy(
     model="rt-detrv2/rt-detrv2-s"  # Model name from a table of pretrained models in the Serving App
     runtime="tensorrt",        # Will convert the model to TensorRT before deploying
+    workspace_id=workspace_id
 )
 ```
 {% endtab %}
@@ -122,6 +144,7 @@ You can specify additional arguments for the `api.nn.deploy()` method, such as `
 | `model` | `str` | Can be a path to your checkpoint in Team Files or a pretrained model name in the format `framework/model_name` (e.g., `"rt-detrv2/rt-detrv2-s"`). For a custom checkpoint, the checkpoint can be in PyTorch format (`.pt` or `.pth`), ONNX format (`.onnx`), or TensorRT format (`.engine`). For a pretrained model, the framework name is the name of the corresponding Serving App in Supervisely, and the model name is the name of a pretrained model from the models table in the Serving App. |
 | `device` | `str` | Device to run the model on, e.g., `"cuda:0"` or `"cpu"`. If not specified, will automatically use `cuda` device, if available on the agent, otherwise `cpu` will be used. |
 | `runtime` | `str` | Runtime to convert the model to before deploying. Options: `"onnx"`, `"tensorrt"`. Used for pretrained checkpoints. |
+| `workspace_id` | `int` | Workspace where serving app will be deployed. |
 | `agent_id` | `int` | ID of the Supervisely Agent, a machine that is connected to Supervisely where the model will be deployed. If not specified, the agent will be selected automatically depending on GPU usage. |
 
 
