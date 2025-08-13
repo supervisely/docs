@@ -305,7 +305,28 @@ Server will shut down automatically after the prediction is done.
 
 Deploying in a Docker Container is similar to deployment as a Server. This example is useful when you need to run your model on a remote machine or in a cloud environment.
 
-Use this `docker run` command to deploy a model in a docker container (RT-DETRv2 example):
+First pull docker image to your local machine
+
+```bash
+docker pull supervisely/rt-detrv2:1.0.31-deploy
+```
+
+Use this `docker run` command to deploy a model in a docker container (RT-DETRv2 example)
+
+For pretrained:
+
+```bash
+docker run \
+  --shm-size=1g \
+  --runtime=nvidia \
+  --env PYTHONPATH=/app \
+  -p 8000:8000 \
+  supervisely/rt-detrv2:1.0.31-deploy \
+  deploy
+  --model "RT-DETRv2-S"
+```
+
+For custom:
 
 ```bash
 docker run \
@@ -313,15 +334,15 @@ docker run \
   --runtime=nvidia \
   --env-file ~/supervisely.env \
   --env PYTHONPATH=/app \
-  -v ".:/app" \
-  -w /app \
+  -v "./47688_RT-DETRv2:/model" \
   -p 8000:8000 \
-  supervisely/rt-detrv2:1.0.11 \
-  python3 supervisely_integration/serve/main.py deploy \
-  --model "/experiments/27_Lemons/392_RT-DETRv2/checkpoints/best.pth"
+  supervisely/rt-detrv2:1.0.31-deploy \
+  deploy \
+  --model "/model/checkpoints/best.pth" \
+  --device "cuda:0"
 ```
 
-Put your path to the checkpoint file in the `--model` argument (it can be both the local path or a remote path in Team Files). This will start FastAPI server and load the model for inference. The server will be available on [http://localhost:8000](http://localhost:8000).
+Set your own path to artifacts directory for `./47688_RT-DETRv2` in `-v` argument and put your path to the checkpoint file in the `--model` argument (it can be both the local path or a remote path in Team Files). This will start FastAPI server and load the model for inference. The server will be available on [http://localhost:8000](http://localhost:8000).
 
 #### docker compose
 
@@ -330,7 +351,7 @@ You can also use `docker-compose.yml` file for convenience:
 ```yaml
 services:
   rtdetrv2:
-    image: supervisely/rt-detrv2:1.0.11
+    image: supervisely/rt-detrv2:1.0.31-deploy
     shm_size: 1g
     runtime: nvidia
     env_file:
@@ -344,7 +365,6 @@ services:
       - "8000:8000"
     expose:
       - "8000"
-    entrypoint: [ "python3", "supervisely_integration/serve/main.py" ]
     command: [ "deploy", "--model", "./models/392_RT-DETRv2/checkpoints/best.pth" ]
 ```
 
@@ -367,8 +387,8 @@ docker run \
   -v ".:/app" \
   -w /app \
   -p 8000:8000 \
-  supervisely/rt-detrv2:1.0.11 \
-  python3 supervisely_integration/serve/main.py deploy \
+  supervisely/rt-detrv2:1.0.31-deploy \
+  deploy \
   --model "RT-DETRv2-S"
 ```
 
@@ -383,8 +403,7 @@ docker run \
   -v ".:/app" \
   -w /app \
   -p 8000:8000 \
-  supervisely/rt-detrv2:1.0.11 \
-  python3 supervisely_integration/serve/main.py \
+  supervisely/rt-detrv2:1.0.31-deploy \
   predict "./image.jpg" \
   --model "RT-DETRv2-S" \
   --device cuda \
