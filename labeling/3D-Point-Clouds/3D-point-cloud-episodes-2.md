@@ -172,11 +172,6 @@ By applying this transformation to the **source point cloud**, the spatial shift
 
 The photo context panel is now an interactive part of the 3D labeling workspace.
 
-You can annotate context images directly using standard image labeling tools. These annotations are automatically synchronized with the 3D space and become part of the same object instance.
-2D and 3D annotations now coexist at the same level — edits or creation in one view are instantly reflected in the other. This improves labeling precision and scene understanding, especially when certain features are more visible in 2D.
-
-The photo context panel is now an interactive part of the 3D labeling workspace.
-
 You can annotate context images directly using standard image labeling tools. These annotations are automatically synchronized with the 3D space and become part of the same object instance.  
 2D and 3D annotations now coexist at the same level — edits or creation in one view are instantly reflected in the other. This improves labeling precision and scene understanding, especially when certain features are more visible in 2D.
 
@@ -253,10 +248,6 @@ Let’s walk through how to use each image annotation tool:
 Supervisely also has algorithms for 3D point cloud geometric features analysis (verticality, planarity, linearity, etc). For some domains, a decent prelabeling can be created based on this features. For example, points of poles and building tend to have high verticality scores, while ground points usually have low verticality scores:
 
 {% embed url="https://youtu.be/3WqjGbkqqfU" %}
-
-{% hint style="info" %}
-**Note**: AI Assistant features are available only to Enterprise customers with the Point Cloud module enabled.
-{% endhint %}
 
 ## Timeline Support
 
