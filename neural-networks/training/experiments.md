@@ -1,30 +1,43 @@
 # Training Experiments
 
-Supervisely records all your training experiments and provides an organized way to manage them, which makes working with your trained models much easier and more efficient. You can find your experiments in the **Experiments** section of the right sidebar in the Supervisely platform. Here, you can see a table with your experiments and their details, such as model and framework, training data, evaluation metrics with the full evaluation report, tensorboard logs, and other information. You can view the details of an experiment by clicking on it in the table.
+Supervisely records all your training experiments and provides an organized way to manage them, which makes working with your trained models easier and more efficient. You can find your experiments in the **Experiments** section of the right sidebar in the Supervisely platform. Here, you can see a table with your experiments and their details, such as model and framework, training data, evaluation metrics with the full evaluation report, tensorboard logs, and other information. The Experiments table serves as a complete historical record of your team's ML journey, capturing:
+
+- Exact model configurations and hyperparameters
+- Training dataset versions and preprocessing steps
+- Evaluation metrics with detailed visualizations in the full report
+- Tensorboard logs with training charts, losses, and other metrics
+- Environment details and framework versions
 
 <!-- *You can also filter and sort the experiments by various criteria. You can also compare the evaluation results of different models and visually understand their behavior in different scenarios. You can deploy your final models directly from the experiments table, which allows you to quickly apply the models to your data. Finally, you can start a new experiment by clicking the **New Experiment** button in the top right corner of the page. This will open a form where you can set up the experiment configuration, and run the training process.* -->
 
 ![Experiment table](/.gitbook/assets/neural-networks/training/experiments.png)
 
+### Experiment details
 
-## Motivation
+You can apply your model directly from the experiments table by clicking on the button with "fire" icon. This will launch the **Predict App** where you can select a project or dataset and configure inference settings.
 
-Machine learning development is inherently experimental. Data scientists typically run dozens of training experiments, tweaking hyperparameters, trying different models, and testing various datasets to achieve optimal results. However, without proper organization, this iterative process quickly becomes chaotic - teams waste a lot of time in searching for the best-performing models, they manually write hundreds of code scripts to compare and organize results properly, struggle to reproduce training runs, and lose track of valuable insights gained during training, unless they have an organized view of their work.
+Find more options in the **3 dots** menu of an experiment:
 
-Training neural networks is a complex process that involves many steps, such as data preparation, model selection, hyperparameter tuning, and evaluation. Each of these steps can have a significant impact on the final results. Therefore, it is essential to keep track of all the experiments you run, their configuration details, as well as the results. Supervisely Experiments provides a strategic way in addressing this complexity, representing all your training runs in an extensive table. It allows you to analyze experiments in detail, compare their evaluation results, deploy the best-performing models and apply them to your data in a few clicks.
+- **Training Session**: This opens the training session where the training process was run.
+- **Show hyperparameters**: This shows the hyperparameters used in the experiment.
+- **Finetune**: Allows you to finetune your model on new data.
+- **Train New**: Start a new training experiment with the same model and hyperparameters. This allows you to quickly reproduce experiments without manually configuring everything again.
+- **Deploy**: Launches a serving app where the model will be deployed for inference.
+- **Show logs**: Opens the app's logs of the training session.
+- **Files**: Opens the result files of the training in Team Files, including model weights, evaluation reports, configuration files, and other artifacts.
+- **Download folder**: Downloads ZIP archive with all the result files of the experiment.
 
-The Experiments table serves as a complete historical record of your team's ML journey, capturing:
+<!-- ## Motivation
 
-- Exact model configurations and hyperparameters
-- Training dataset versions and preprocessing steps
-- Performance metrics across different evaluation scenarios
-- Tensorboard logs for detailed training analysis
-- Environment details and framework versions
+Data scientists usually run dozens of training experiments, tweaking hyperparameters, trying different models, and testing various datasets to achieve optimal results. However, without proper organization, this process quickly becomes chaotic - teams waste a lot of time in searching for the best-performing models, they manually write hundreds of code scripts to compare and organize results properly, struggle to reproduce training runs, and lose track of valuable insights gained during training, unless they have an organized view of their work.
+
+Training neural networks is a complex process that involves many steps, such as data preparation, model selection, hyperparameter tuning, evaluation, etc. It is essential to keep track of all the configurations you use in experiments, as well as the results. Supervisely Experiments provides a strategic way in addressing this complexity, representing all your training runs in an organized table. It allows you to analyze experiments in detail, compare their evaluation results, deploy the best-performing models and apply them to your data in a few clicks.
+
 
 This ensures that all your team's effort isn't lost, your experiments can be reproduced months later.
 
-[Placeholder: Diagram showing experiment details and metadata capture]
-
+[Placeholder: Diagram showing experiment details and metadata capture] -->
+<!-- 
 ### Features
 
 - **Experiment Tracking**: Supervisely automatically tracks all your training experiments, including the model, framework, training data, hyperparameters, the full evaluation report, and tensorboard logs.
@@ -33,11 +46,11 @@ This ensures that all your team's effort isn't lost, your experiments can be rep
 - **View Tensorboard logs**: You can view the tensorboard logs of the training process.
 - **Model Deployment & Inference**: You can deploy your final models directly from the experiments table. This allows you to quickly apply the models to your data.
 - **Start New Experiment**: You can start a new experiment by clicking the **New Experiment** button in the top right corner of the page. This will open a form where you can set up the experiment configuration and run the training process.
-- **Continue Training**: You can continue training your trained model with new data or hyperparameters.
+- **Continue Training**: You can continue training your trained model with new data or hyperparameters. -->
 
 ## Experiment Details
 
-If you click on any experiment in the table, you can view its details. The experiment details page provides a comprehensive overview of the experiment.
+You can click on any experiment in the table to open its details and view all the information about the experiment.
 
 ![Experiment Details](/.gitbook/assets/neural-networks/training/experiment-page.png)
 
@@ -45,11 +58,55 @@ It includes the following sections:
 
 - **Training Information**: The experiment name, model, framework, computer vision task, device, training duration, base checkpoint in case of transfer learning.
 - **Training Data**: The dataset and project used for training, as well as the number of images in the training and validation sets.
-- **Hyperparameters**: The hyperparameters used for training, such as learning rate, batch size, number of epochs, and other parameters specific to the model and framework.
-- **Evaluation Metrics**: The evaluation metrics of the model, such as accuracy, precision, recall, F1 score, and other metrics specific to the CV task. You can also view the full evaluation report with detailed metrics and visualizations.
-- **Predictions**: You can view the predictions made by the model on the validation dataset.
-- **Training Logs**: You can open tensorboard logs and charts of the training process.
-- **Checkpoints**: You can view and manage the checkpoints created during the training process, as well as the best checkpoint based on the evaluation metrics.
-- **Inference & Deployment**: You can deploy the model directly from the experiment details page. This allows you to quickly apply the model to your data and start making predictions.
-- **Finetune**: You can finetune your model on new data or with different hyperparameters to improve its performance. This allows you to continue training your model without starting from scratch.
+- **Evaluation Metrics**: The evaluation metrics of the model, such as accuracy, precision, recall, F1 score, and other metrics specific to the computer vision task. You can also open the full evaluation report with detailed metrics and visualizations.
+- **Hyperparameters**: The hyperparameters used for training, such as learning rate, batch size, number of epochs, and other parameters specific to the training framework.
+- **Predictions**: Allows you to view the predictions made by the model on the validation dataset.
+- **Training Logs**: You can analyze the training charts with losses and metrics, or open Tensorboard dashboard from here.
+- **Checkpoints**: You can view and manage the checkpoints created during the training process, as well as the best checkpoint based on the evaluation.
 - **Code examples & API usage**: You can find all the code examples and usage instructions for the model in the experiment details page. This allows you to quickly understand how to use the model inside and outside Supervisely platform.
+
+You can also do quick actions with the model:
+
+- **Apply Model**: Launches the **Predict App** where you can select a project/dataset and configure inference settings.
+- **Deploy**: Launches a serving app where the model will be deployed for inference.
+- **Train New**: Start a new training experiment with the same model and hyperparameters, but with different data or settings. This allows you to quickly reproduce experiments without manually configuring everything again.
+- **Finetune**: You can finetune your model on new data to improve its performance or to have it applied for another downstream task. This allows you to continue training your model without starting from scratch.
+- **Download Model**: Click on the "arrow down" button to download the model files, including the model weights and configuration. This allows you to use the model outside of Supervisely platform or in other applications.
+
+## Start New Experiment
+
+You can start a new experiment by clicking the **Start** button. This will open a wizard where you can set up the experiment configuration, such as the model, training data, hyperparameters, and other settings. Once you have configured the experiment, the training app will be launched, and you can start the training process.
+
+![Screenshot]()
+
+The configuration wizard includes the following steps:
+
+1. **Choose Computer Vision Task**: Select the type of computer vision task you solve, such as classification, object detection, segmentation, etc. This will narrow down the list of available models and frameworks to choose from.
+2. **Framework**: Select the framework you want to use for training. A framework is a codebase that implements specific model architectures and training algorithms. Each framework typically offers multiple model variants (like different sizes or configurations) built on the same core design and training methodology.
+3. **Model**: Choose the specific model architecture you want to train. The available models are shown in a table with their details, such as the number of parameters, metrics on some benchmark datasets (such as COCO).
+4. **Training Data**: Select a project for training.
+5. **Classes**: Select the classes you want to train the model on. Some classes can be converted to the needed format automatically. For example, bitmap masks can be converted to bounding boxes for object detection tasks.
+6. **Train/Validation Split**: Configure how the training and validation datasets are split. You can choose to split either by datasets, by collections, or randomly.
+7. **Hyperparameters**: Set the hyperparameters for training, such as learning rate, batch size, etc. Parameters are specific to the framework you selected.
+8. **Evaluation**: 
+9. **Export of model**:
+10. **GPU**:
+11. **Train**: You can optionally set the name of the experiment and start the training process. The training app will be launched, and you can monitor the training progress in real-time.
+
+## Compare Experiments
+
+You can compare the evaluation results of different experiments by selecting them in the experiments table and going in the **(2) selected -> Compare**. This will open a comparison page where you can see the full evaluation reports of the selected experiments side by side. You can also view the tensorboard logs of the selected experiments.
+
+![Screenshot]()
+
+## Deploy & Inference
+
+You can deploy your trained models for inference directly from the experiments table. This allows you to quickly apply your models to new data and start making predictions. To apply your model, hover on the experiment in the table and click on the button with "fire" icon. To deploy your model, click on the "3 dots" menu of an experiment and select "Deploy". This will launch a serving app where the model will be deployed.
+
+![Deploy & Inference](/.gitbook/assets/neural-networks/training/deploy-inference.png)
+
+## Finetune
+
+You can finetune your trained model on new data by clicking the **Finetune** button in "3 dots" menu of an experiment. This will launch a training app with the same model and hyperparameters, but with different data. This allows you to continue training your model without starting from scratch.
+
+![Finetune](/.gitbook/assets/neural-networks/training/finetune.png)
