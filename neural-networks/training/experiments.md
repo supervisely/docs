@@ -12,9 +12,13 @@ Supervisely records all your training experiments and provides an organized way 
 
 ![Experiment table](/.gitbook/assets/neural-networks/training/experiments.png)
 
-### Experiment details
+#### Apply Model
 
 You can apply your model directly from the experiments table by clicking on the button with "fire" icon. This will launch the **Predict App** where you can select a project or dataset and configure inference settings.
+
+![Apply Model from Experiments Table](/.gitbook/assets/neural-networks/training/apply_model.png)
+
+#### More Options
 
 Find more options in the **3 dots** menu of an experiment:
 
@@ -26,6 +30,8 @@ Find more options in the **3 dots** menu of an experiment:
 - **Show logs**: Opens the app's logs of the training session.
 - **Files**: Opens the result files of the training in Team Files, including model weights, evaluation reports, configuration files, and other artifacts.
 - **Download folder**: Downloads ZIP archive with all the result files of the experiment.
+
+![More Options](/.gitbook/assets/neural-networks/training/more-options.png)
 
 <!-- ## Motivation
 
