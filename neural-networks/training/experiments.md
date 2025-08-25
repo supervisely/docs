@@ -62,7 +62,7 @@ This ensures that all your team's effort isn't lost, your experiments can be rep
 
 You can click on any experiment in the table to open its details and view all the information about the experiment.
 
-![Experiment Details](/.gitbook/assets/neural-networks/training/experiment-page.png)
+<figure><img src="../../.gitbook/assets/neural-networks/training/experiment-page.png" alt="Experiment Details"><figcaption></figcaption></figure>
 
 It includes the following sections:
 
@@ -87,7 +87,7 @@ You can also do quick actions with the model:
 
 You can start a new experiment by clicking the **Start** button. This will open a wizard where you can set up the experiment configuration, such as the model, training data, hyperparameters, and other settings. Once you have configured the experiment, the training app will be launched, and you can start the training process.
 
-![New Experiment Wizard](https://example.com/new-experiment-wizard.png)
+<figure><img src="../../.gitbook/assets/neural-networks/training/new-experiment-wizard.jpg" alt="New Experiment Wizard"><figcaption></figcaption></figure>
 
 The configuration wizard includes the following steps:
 
