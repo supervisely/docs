@@ -103,6 +103,8 @@ The configuration wizard includes the following steps:
 10. **GPU**: Select a connected machine with a GPU to run the training on. You need to connect your machine to Supervisely platform first. See [how to connect an agent](https://docs.supervisely.com/getting-started/connect-your-computer).
 11. **Finalization**: You can optionally set the name of the experiment and start the training process. The training app will be launched, and you can monitor the training progress in the application.
 
+<figure><img src="../../.gitbook/assets/neural-networks/training/new-experiment-wizard-start.jpg" alt="Finalization and start"><figcaption></figcaption></figure>
+
 ## Compare Experiments
 
 You can compare the evaluation results of different experiments by **(1) selecting** them in the experiments table, then go in the **(2) selected -> Compare Model Evaluation**. This will open a comparison page where you can see the full evaluation reports of the selected experiments side-by-side.
@@ -111,7 +113,7 @@ You can compare the evaluation results of different experiments by **(1) selecti
 
 You can also view the tensorboard logs of the selected experiments by clicking **(2) selected -> Compare Training Metrics**.
 
-<figure><img src="../../.gitbook/assets/neural-networks/training/compare-model-evaluation-and-charts.jpg" alt="Compare model Evaluation"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/training/compare-model-evaluation-chart.jpg" alt="Compare model Evaluation"><figcaption></figcaption></figure>
 
 ## Deploy & Inference
 
