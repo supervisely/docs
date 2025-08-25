@@ -3,6 +3,7 @@
 * [🤖 What's Supervisely](README.md)
 * [🚀 Ecosystem of Supervisely Apps](ecosystem/ecosystem.md)
 * [💡 FAQ](getting-started/faq.md)
+* [🆘 Support](getting-started/support.md)
 
 ## 📌 Getting started
 
