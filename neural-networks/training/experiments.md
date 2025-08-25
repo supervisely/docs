@@ -2,7 +2,7 @@
 
 Supervisely records all your training experiments and provides an organized way to manage them, which makes working with your trained models easier and more efficient. You can find your experiments in the **Experiments** section of the right sidebar in the Supervisely platform. Here, you can see a table with your experiments and their details, such as model and framework, training data, evaluation metrics with the full evaluation report, tensorboard logs, and other information.
 
-<figure><img src="../../.gitbook/assets/neural-networks/training/experiments-location.jpg" alt="Experiment table"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/training/experiments-location.jpg" alt="Experiment location"><figcaption></figcaption></figure>
 
 The Experiments table serves as a complete historical record of your team's ML journey, capturing:
 
@@ -12,7 +12,7 @@ The Experiments table serves as a complete historical record of your team's ML j
 - Tensorboard logs with training charts, losses, and other metrics
 - Environment details and framework versions
 
-<figure><img src="../../.gitbook/assets/neural-networks/training/experiments-scheme.jpg" alt="Experiment table"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/training/experiments-scheme.jpg" alt="Experiment principal scheme"><figcaption></figcaption></figure>
 
 <!-- *You can also filter and sort the experiments by various criteria. You can also compare the evaluation results of different models and visually understand their behavior in different scenarios. You can deploy your final models directly from the experiments table, which allows you to quickly apply the models to your data. Finally, you can start a new experiment by clicking the **New Experiment** button in the top right corner of the page. This will open a form where you can set up the experiment configuration, and run the training process.* -->
 
@@ -20,7 +20,7 @@ The Experiments table serves as a complete historical record of your team's ML j
 
 You can apply your model directly from the experiments table by clicking on the button with "fire" icon. This will launch the **Predict App** where you can select a project or dataset and configure inference settings.
 
-![Apply Model from Experiments Table](/.gitbook/assets/neural-networks/training/apply_model.png)
+<figure><img src="../../.gitbook/assets/neural-networks/training/predict-apply-model.jpg" alt="Apply model"><figcaption></figcaption></figure>
 
 #### More Options
 
@@ -35,7 +35,7 @@ Find more options in the **3 dots** menu of an experiment:
 - **Files**: Opens the result files of the training in Team Files, including model weights, evaluation reports, configuration files, and other artifacts.
 - **Download folder**: Downloads ZIP archive with all the result files of the experiment.
 
-![More Options](/.gitbook/assets/neural-networks/training/more-options.png)
+<figure><img src="../../.gitbook/assets/neural-networks/training/more-options.jpg" alt="More options"><figcaption></figcaption></figure>
 
 <!-- ## Motivation
 
