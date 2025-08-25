@@ -2,6 +2,8 @@
 
 Supervisely records all your training experiments and provides an organized way to manage them, which makes working with your trained models easier and more efficient. You can find your experiments in the **Experiments** section of the right sidebar in the Supervisely platform. Here, you can see a table with your experiments and their details, such as model and framework, training data, evaluation metrics with the full evaluation report, tensorboard logs, and other information.
 
+<figure><img src="../../.gitbook/assets/neural-networks/training/experiments-location.jpg" alt="Experiment table"><figcaption></figcaption></figure>
+
 The Experiments table serves as a complete historical record of your team's ML journey, capturing:
 
 - Exact model configurations and hyperparameters
@@ -10,9 +12,9 @@ The Experiments table serves as a complete historical record of your team's ML j
 - Tensorboard logs with training charts, losses, and other metrics
 - Environment details and framework versions
 
-<!-- *You can also filter and sort the experiments by various criteria. You can also compare the evaluation results of different models and visually understand their behavior in different scenarios. You can deploy your final models directly from the experiments table, which allows you to quickly apply the models to your data. Finally, you can start a new experiment by clicking the **New Experiment** button in the top right corner of the page. This will open a form where you can set up the experiment configuration, and run the training process.* -->
+<figure><img src="../../.gitbook/assets/neural-networks/training/experiments-scheme.jpg" alt="Experiment table"><figcaption></figcaption></figure>
 
-![Experiment table](/.gitbook/assets/neural-networks/training/experiments.png)
+<!-- *You can also filter and sort the experiments by various criteria. You can also compare the evaluation results of different models and visually understand their behavior in different scenarios. You can deploy your final models directly from the experiments table, which allows you to quickly apply the models to your data. Finally, you can start a new experiment by clicking the **New Experiment** button in the top right corner of the page. This will open a form where you can set up the experiment configuration, and run the training process.* -->
 
 #### Apply Model
 
