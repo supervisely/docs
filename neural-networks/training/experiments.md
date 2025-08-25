@@ -1,6 +1,8 @@
 # Training Experiments
 
-Supervisely records all your training experiments and provides an organized way to manage them, which makes working with your trained models easier and more efficient. You can find your experiments in the **Experiments** section of the right sidebar in the Supervisely platform. Here, you can see a table with your experiments and their details, such as model and framework, training data, evaluation metrics with the full evaluation report, tensorboard logs, and other information. The Experiments table serves as a complete historical record of your team's ML journey, capturing:
+Supervisely records all your training experiments and provides an organized way to manage them, which makes working with your trained models easier and more efficient. You can find your experiments in the **Experiments** section of the right sidebar in the Supervisely platform. Here, you can see a table with your experiments and their details, such as model and framework, training data, evaluation metrics with the full evaluation report, tensorboard logs, and other information.
+
+The Experiments table serves as a complete historical record of your team's ML journey, capturing:
 
 - Exact model configurations and hyperparameters
 - Training dataset versions and preprocessing steps
@@ -83,7 +85,7 @@ You can also do quick actions with the model:
 
 You can start a new experiment by clicking the **Start** button. This will open a wizard where you can set up the experiment configuration, such as the model, training data, hyperparameters, and other settings. Once you have configured the experiment, the training app will be launched, and you can start the training process.
 
-![Screenshot]()
+![New Experiment Wizard](https://example.com/new-experiment-wizard.png)
 
 The configuration wizard includes the following steps:
 
@@ -103,7 +105,7 @@ The configuration wizard includes the following steps:
 
 You can compare the evaluation results of different experiments by selecting them in the experiments table and going in the **(2) selected -> Compare**. This will open a comparison page where you can see the full evaluation reports of the selected experiments side by side. You can also view the tensorboard logs of the selected experiments.
 
-![Screenshot]()
+![Side-by-Side Comparison](https://example.com/side-by-side-comparison.png)
 
 ## Deploy & Inference
 
