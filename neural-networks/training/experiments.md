@@ -111,19 +111,16 @@ You can compare the evaluation results of different experiments by **(1) selecti
 
 You can also view the tensorboard logs of the selected experiments by clicking **(2) selected -> Compare Training Metrics**.
 
-<figure><img src="../../.gitbook/assets/neural-networks/training/compare-model-evaluation.jpg" alt="Compare model Evaluation"><figcaption></figcaption></figure>
-
-<figure><img src="../../.gitbook/assets/neural-networks/training/compare-model-evaluation-charts.jpg" alt="Compare model evaluation charts"><figcaption></figcaption></figure>
-
+<figure><img src="../../.gitbook/assets/neural-networks/training/compare-model-evaluation-and-charts.jpg" alt="Compare model Evaluation"><figcaption></figcaption></figure>
 
 ## Deploy & Inference
 
 You can deploy your trained models for inference directly from the experiments table. This allows you to quickly apply your models to new data and start making predictions. To apply your model, hover on the experiment in the table and click on the button with "fire" icon. To deploy your model, click on the "3 dots" menu of an experiment and select "Deploy". This will launch a serving app where the model will be deployed.
 
-<figure><img src="../../.gitbook/assets/neural-networks/training/" alt="Deploy & Inference"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/training/deploy-inference.jpg" alt="Deploy & Inference"><figcaption></figcaption></figure>
 
 ## Finetune
 
 You can finetune your trained model on new data by clicking the **Finetune** button in "3 dots" menu of an experiment. This will launch a training app with the same model and hyperparameters, but with different data. This allows you to continue training your model without starting from scratch.
 
-<figure><img src="../../.gitbook/assets/neural-networks/training/" alt="Finetune"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/training/finetune.jpg" alt="Finetune"><figcaption></figcaption></figure>
