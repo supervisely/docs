@@ -62,7 +62,7 @@ This ensures that all your team's effort isn't lost, your experiments can be rep
 
 You can click on any experiment in the table to open its details and view all the information about the experiment.
 
-<figure><img src="../../.gitbook/assets/neural-networks/training/experiment-page.png" alt="Experiment Details"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/training/experiment-page.png" alt="Experiment details"><figcaption></figcaption></figure>
 
 It includes the following sections:
 
@@ -87,7 +87,7 @@ You can also do quick actions with the model:
 
 You can start a new experiment by clicking the **Start** button. This will open a wizard where you can set up the experiment configuration, such as the model, training data, hyperparameters, and other settings. Once you have configured the experiment, the training app will be launched, and you can start the training process.
 
-<figure><img src="../../.gitbook/assets/neural-networks/training/new-experiment-wizard.jpg" alt="New Experiment Wizard"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/training/new-experiment-wizard.jpg" alt="New experiment wizard"><figcaption></figcaption></figure>
 
 The configuration wizard includes the following steps:
 
@@ -105,18 +105,25 @@ The configuration wizard includes the following steps:
 
 ## Compare Experiments
 
-You can compare the evaluation results of different experiments by selecting them in the experiments table, then go in the **(2) selected -> Compare Model Evaluation**. This will open a comparison page where you can see the full evaluation reports of the selected experiments side-by-side. You can also view the tensorboard logs of the selected experiments by clicking **(2) selected -> Compare Training Metrics**.
+You can compare the evaluation results of different experiments by **(1) selecting** them in the experiments table, then go in the **(2) selected -> Compare Model Evaluation**. This will open a comparison page where you can see the full evaluation reports of the selected experiments side-by-side.
 
-![Side-by-Side Comparison](https://example.com/side-by-side-comparison.png)
+<figure><img src="../../.gitbook/assets/neural-networks/training/compare-training-metrics1.jpg" alt="Compare training metrics"><figcaption></figcaption></figure>
+
+You can also view the tensorboard logs of the selected experiments by clicking **(2) selected -> Compare Training Metrics**.
+
+<figure><img src="../../.gitbook/assets/neural-networks/training/compare-model-evaluation.jpg" alt="Compare model Evaluation"><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/neural-networks/training/compare-model-evaluation-charts.jpg" alt="Compare model evaluation charts"><figcaption></figcaption></figure>
+
 
 ## Deploy & Inference
 
 You can deploy your trained models for inference directly from the experiments table. This allows you to quickly apply your models to new data and start making predictions. To apply your model, hover on the experiment in the table and click on the button with "fire" icon. To deploy your model, click on the "3 dots" menu of an experiment and select "Deploy". This will launch a serving app where the model will be deployed.
 
-![Deploy & Inference](/.gitbook/assets/neural-networks/training/deploy-inference.png)
+<figure><img src="../../.gitbook/assets/neural-networks/training/" alt="Deploy & Inference"><figcaption></figcaption></figure>
 
 ## Finetune
 
 You can finetune your trained model on new data by clicking the **Finetune** button in "3 dots" menu of an experiment. This will launch a training app with the same model and hyperparameters, but with different data. This allows you to continue training your model without starting from scratch.
 
-![Finetune](/.gitbook/assets/neural-networks/training/finetune.png)
+<figure><img src="../../.gitbook/assets/neural-networks/training/" alt="Finetune"><figcaption></figcaption></figure>
