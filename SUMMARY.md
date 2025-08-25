@@ -163,6 +163,8 @@
 ## 🔮 Neural Networks
 
 * [Overview](neural-networks/overview.md)
+* [Training](neural-networks/training/overview.md)
+  * [Experiments](neural-networks/training/experiments.md)
 * [Inference & Deployment](neural-networks/inference-and-deployment/overview.md)
   * [Overview](neural-networks/inference-and-deployment/overview.md)
   * [Supervisely Serving Apps](neural-networks/inference-and-deployment/supervisely-serving-apps.md)
