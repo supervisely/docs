@@ -91,19 +91,19 @@ The configuration wizard includes the following steps:
 
 1. **Choose Computer Vision Task**: Select the type of computer vision task you solve, such as classification, object detection, segmentation, etc. This will narrow down the list of available models and frameworks to choose from.
 2. **Framework**: Select the framework you want to use for training. A framework is a codebase that implements specific model architectures and training algorithms. Each framework typically offers multiple model variants (like different sizes or configurations) built on the same core design and training methodology.
-3. **Model**: Choose the specific model architecture you want to train. The available models are shown in a table with their details, such as the number of parameters, metrics on some benchmark datasets (such as COCO).
-4. **Training Data**: Select a project for training.
-5. **Classes**: Select the classes you want to train the model on. Some classes can be converted to the needed format automatically. For example, bitmap masks can be converted to bounding boxes for object detection tasks.
+3. **Model**: Choose a model architecture you want to train. The available models are shown in a table with their details, such as the number of parameters, metrics on some benchmark datasets (such as COCO).
+4. **Training Data**: Select a project for training. All projects in your team will be shown in the table.
+5. **Classes**: Select the classes you want to train the model on. Some classes can be automatically converted to the needed format. For example, bitmap masks can be converted to bounding boxes for training an object detection model.
 6. **Train/Validation Split**: Configure how the training and validation datasets are split. You can choose to split either by datasets, by collections, or randomly.
 7. **Hyperparameters**: Set the hyperparameters for training, such as learning rate, batch size, etc. Parameters are specific to the framework you selected.
-8. **Evaluation**: 
-9. **Export of model**:
-10. **GPU**:
-11. **Train**: You can optionally set the name of the experiment and start the training process. The training app will be launched, and you can monitor the training progress in real-time.
+8. **Evaluation & Speed test**: You can enable or disable the final evaluation of the best checkpoint on the validation dataset after training. This will generate a full evaluation report with detailed metrics and visualizations. Additionally, you can enable the speed test to measure the inference speed of the model. This will provide you with metrics like FPS and latency on your hardware.
+9. **Model Export**: Choose which formats you want to export the trained model to. ONNX is a widely supported format that can be used in various frameworks and platforms, while TensorRT is optimized for NVIDIA GPUs and provides high performance for real-time applications.
+10. **GPU**: Select a connected machine with a GPU to run the training on. You need to connect your machine to Supervisely platform first. See [how to connect an agent](https://docs.supervisely.com/getting-started/connect-your-computer).
+11. **Finalization**: You can optionally set the name of the experiment and start the training process. The training app will be launched, and you can monitor the training progress in the application.
 
 ## Compare Experiments
 
-You can compare the evaluation results of different experiments by selecting them in the experiments table and going in the **(2) selected -> Compare**. This will open a comparison page where you can see the full evaluation reports of the selected experiments side by side. You can also view the tensorboard logs of the selected experiments.
+You can compare the evaluation results of different experiments by selecting them in the experiments table, then go in the **(2) selected -> Compare Model Evaluation**. This will open a comparison page where you can see the full evaluation reports of the selected experiments side-by-side. You can also view the tensorboard logs of the selected experiments by clicking **(2) selected -> Compare Training Metrics**.
 
 ![Side-by-Side Comparison](https://example.com/side-by-side-comparison.png)
 
