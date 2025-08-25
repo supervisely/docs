@@ -29,7 +29,7 @@ If you're contacting us from a personal email address, please mention that you'r
 
 If something’s not working as expected in Supervisely, let’s first narrow down what kind of issue you're facing:
 
-1. You're having trouble with an app from the Supervisely Ecosystem (or a custom app).  
+1. You're having [trouble with an app from the Supervisely Ecosystem](#issues-with-applications) (or a custom app).  
 2. You see an error message in the UI outside of the app (e.g. "Something went wrong").  
 3. The platform isn’t throwing errors, but it feels slow or laggy.  
 4. Things technically work, but the behavior seems off or unexpected.  
@@ -80,3 +80,11 @@ In some cases, we'll need additional logs to diagnose the issue. You can change 
 ![Change Log Level]()
 
 Now, you can use the application as usual, and it will generate more verbose logs. If you encounter any issues, please [download the logs](#how-to-download-application-logs) and share them with our support team.
+
+
+### Issues with the platform
+
+If you encounter an error in the graphical user interface while not using any specific application:
+
+- **Community Edition**: Please contact our support team with a description of the issue.  
+- **Enterprise Edition**: Before reaching out, [generate a troubleshoot archive](https://docs.supervisely.com/enterprise-edition/advanced-tuning/generating_ts_archive) and share it with our support team. This helps us resolve your issue faster.
