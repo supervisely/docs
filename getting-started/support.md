@@ -1,9 +1,3 @@
-1. Understand what issue user has:
-- With some application -> how to download logs from the app session
-- Inside of the UI of the platform (error) -> Enterprise or Community (saas)?
-- Not error, but platform works slow? -> EE or CE? Connection speed?
-- Not error, but weird behavior? -> EE or CE? Logs?
-
 # Supervisely Support
 
 Whether you're using our Community Edition or Enterprise Edition, this page is your starting point for getting help, and resolving issues quickly. If you need immediate assistance, please reach out to our support team.  
@@ -37,9 +31,9 @@ If something’s not working as expected in Supervisely, let’s first narrow do
 1. You're having [trouble with an app from the Supervisely Ecosystem](#issues-with-applications) (or a custom app).  
 2. You see an [error message in the UI outside](#issues-with-the-platform) of the app (e.g. "Something went wrong").  
 3. The platform isn’t throwing errors, but it feels [slow or laggy](#slow-performance).  
-4. Things technically work, but the behavior seems off or unexpected.  
-5. You're running into a technical issue with the API or SDK.  
-6. You're an Enterprise technical engineer and need help with deployment.  
+4. Things technically work, but the [behavior seems off or unexpected](#unexpected-behavior).  
+5. You're running into a technical issue with the [API or SDK](#python-sdk-or-api-issues).  
+6. You're an Enterprise technical engineer and need [help with deployment](#deployment-issues).   
 
 Once you’ve identified the type of issue, scroll down to find the best way to get support.
 
@@ -139,3 +133,41 @@ For Enterprise version of Supervisely, please do the following:
 
 If you are using the Community Edition of Supervisely, you can perform a speed test to check your connection to our servers. You can use any online speed test tool, such as [Speedtest.net](https://www.speedtest.net/), and share the results with our support team.  
 Note, that the speed test should be performed to specific location that matches the region of the Supervisely instance. For example, for the Community Edition, use a server located in Germany (Falkenstein).
+
+### Unexpected behavior
+
+If you don't see any errors, but it looks like that something is not working as expected, please try the following steps:
+
+1. Ensure that you're using latest version of Chromium-based browser (Google Chrome, Microsoft Edge, etc.).
+2. Try the same in the incognito mode with all the extensions disabled.
+4. Clear your browser cache and cookies.
+5. Try using a different browser or device.
+
+If it did not help, check if there any errors appear on the Developer Console. To do it:
+
+1. Right-click on the page and select "Inspect" (or press Ctrl+Shift+I) to open the Developer Console.
+2. Go to the "Console" tab and look for any error messages.
+
+If the issue persists, please contact our support team with a detailed description of the problem, including any steps to reproduce it as well as screenshots from the Developer Console.  
+In some cases the screen recording of the issue can be helpful as well.
+
+
+### Python SDK or API issues
+
+If you're using our Python SDK or the API directly and encounter an issue, please follow these steps:
+
+1. Ensure you are using the version of SDK that corresponds to your Supervisely instance. You can check the compatibility table [here](https://developer.supervisely.com/getting-started/installation#compatibility-table).  
+2. Check out the [SDK Reference](https://supervisely.readthedocs.io/en/latest/sdk_packages.html) to make sure you are using the correct methods and parameters.
+3. If you're using the API directly check out the following documentation:  
+[Community version API documentation](https://api.docs.supervisely.com/)  
+For Enterprise version, the link to the documentation is: `<your-enterprise-domain>/api-docs/`
+
+After checks, if you still encounter issues, please contact our support team with a detailed description of the problem. We also appreciate if you could provide any relevant logs, error messages or code snippets to help us assist you better.
+
+### Deployment issues
+
+First of all, check out the Enterprise documentation:  
+- [Installation and post-installation](https://docs.supervisely.com/enterprise-edition/get-supervisely)  
+- [Advanced tuning](https://docs.supervisely.com/enterprise-edition/advanced-tuning)  
+
+If you did not find a solution in the documentation, please contact our support team, and we will do our best to assist you.
