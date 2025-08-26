@@ -114,7 +114,7 @@ sudo supervisely disable-remote-logs
 
 **What’s sent? Only system logs.**  
 
-Remote logging transmits **only non-sensitive system-level diagnostics**—such as service status, error traces, and performance metrics.  
+Remote logging transmits **only non-sensitive system-level diagnostics** such as service status, error traces, and performance metrics.  
 It does **not include any personal data, customer content, project files, credentials, or identifiable information**.  
 
 We take customer privacy seriously. Remote logs are strictly limited to what’s necessary for technical troubleshooting and are handled securely by the Supervisely team.  
