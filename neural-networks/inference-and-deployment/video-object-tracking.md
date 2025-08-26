@@ -57,8 +57,7 @@ with_reid: true
 appearance_thresh: 0.25
 ```
 
-
-<figure><img src="../../.gitbook/assets/neural_networks/apply_nn_with_tracker.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/apply_nn_with_tracker.jpg" alt=""><figcaption></figcaption></figure>
 
 ## Tracking via prediction API
 
@@ -150,7 +149,6 @@ video_annotation = tracker.video_annotation
 {% endtab %}
 {% tab title="Method 2: .track()" %}
 ```python
-
 from supervisely.nn.tracker import BotSortTracker
 import supervisely as sly
 
@@ -222,7 +220,7 @@ Both methods create a video_annotation object where each object is assigned a tr
 
 ## Visualization
 
-![Visualization example](../../.gitbook/assets/neural_networks/mot_demo.gif)
+![Visualization example](../../.gitbook/assets/neural-networks/mot_demo.gif)
 
 You can visualize the tracker’s results with the visualize function.
 It accepts either predictions (from the API) or video annotations (from the tracker), the path to your input video, and the path to save the output video.
