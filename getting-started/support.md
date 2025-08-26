@@ -11,7 +11,7 @@ Whether you're using our Community Edition or Enterprise Edition, this page is y
 **Community Edition Slack:** [Join here](https://supervisely.com/slack)  
 **Enterprise Edition Slack:**  for our Enterprise customers, we typically set up a private Slack channel for faster, real-time support. If you're an Enterprise user and not yet a member of your dedicated Slack channel, just let us know and we’ll get you added right away.
 
-## Community edition or Enterprise edition?
+## Community Edition or Enterprise Edition?
 
 Not sure what edition you're using? No worries—we’ve got you covered.
 
@@ -20,6 +20,11 @@ Not sure what edition you're using? No worries—we’ve got you covered.
 
 Enterprise users receive **high-priority support**—you can reach out to us directly, and we’ll do our best to resolve your issue as soon as possible.  
 If you're contacting us from a personal email address, please mention that you're an Enterprise user to help us prioritize your request.
+
+### Cloud-hosted Enterprise Instances
+
+If your Supervisely server address ends with `enterprise.supervisely.com`, you're using an **Enterprise instance hosted in our Cloud**.  
+This means the Supervisely team is actively managing the server, including updates, backups, maintenance, logs, and troubleshooting. You **do not need to collect or send a troubleshooting archive**, just contact us directly, and we’ll take it from there.
 
 ## I have a question
 
@@ -87,4 +92,30 @@ Now, you can use the application as usual, and it will generate more verbose log
 If you encounter an error in the graphical user interface while not using any specific application:
 
 - **Community Edition**: Please contact our support team with a description of the issue.  
-- **Enterprise Edition**: Before reaching out, [generate a troubleshoot archive](https://docs.supervisely.com/enterprise-edition/advanced-tuning/generating_ts_archive) and share it with our support team. This helps us resolve your issue faster.
+- **Enterprise Edition**: Before reaching out, if you're not using [Cloud-hosted Enterprise Instance](#cloud-hosted-enterprise-instances), and the [Remote Logs](#enabling-remote-logs) feature is not enabled, please [generate a troubleshoot archive](https://docs.supervisely.com/enterprise-edition/advanced-tuning/generating_ts_archive) and share it with our support team. This helps us resolve your issue faster.
+
+
+#### Enabling Remote Logs
+
+When something goes wrong, the fastest way for our team to help is by seeing what the system sees.  
+Remote logs allow Enterprise customers to securely send system-level logs to the Supervisely team in real time—so we can diagnose and resolve issues without needing a manual troubleshooting archive.
+
+To enable remote log forwarding, run:
+
+```bash
+sudo supervisely enable-remote-logs
+```
+
+To disable it at any time, use:
+
+```bash
+sudo supervisely disable-remote-logs
+```
+
+**What’s sent? Only system logs.**  
+
+Remote logging transmits **only non-sensitive system-level diagnostics**—such as service status, error traces, and performance metrics.  
+It does **not include any personal data, customer content, project files, credentials, or identifiable information**.  
+
+We take customer privacy seriously. Remote logs are strictly limited to what’s necessary for technical troubleshooting and are handled securely by the Supervisely team.  
+This ensures faster support without compromising your data integrity or confidentiality.
