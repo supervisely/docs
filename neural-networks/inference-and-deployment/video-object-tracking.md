@@ -44,7 +44,7 @@ Best for beginners without programming experience.
 3. Select video, model, and classes.  
 4. In parameters, enable **Tracking** (check the box).  
 5. Choose the algorithm **BotSort** and select the device (CPU or GPU).  
-6. In additional settings you can provide hyperparameters (see [Hyperparameter Configuration](##hyperparameter-configuration)).  
+6. In additional settings you can provide hyperparameters (see [Hyperparameter Configuration](#hyperparameter-configuration)).
 
 Example parameters:  
 
@@ -57,7 +57,8 @@ with_reid: true
 appearance_thresh: 0.25
 ```
 
-![Screenshot](path_to_file)
+
+<figure><img src="../../.gitbook/assets/neural_networks/apply_nn_with_tracker.jpg" alt=""><figcaption></figcaption></figure>
 
 ## Tracking via prediction API
 
@@ -108,17 +109,17 @@ for pred in predictions:
 ## Apply tracker to existing detections
 
 If you already have detections, you can apply the tracker directly.
+There are 2 ways to do this:
 
-### Method 1: .update()
-This method processes frame by frame.
-Useful if you want step-by-step control or process long videos in parts.
+- **Method 1: .update()** — This method processes frame by frame.
+- **Method 2: .track()** — Useful if you want step-by-step control or process long videos in parts.
+
 
 {% tabs %}
 {% tab title="Method 1: .update()" %}
 ```python
 from supervisely.nn.tracker import BotSortTracker
 import supervisely as sly
-import numpy as np
 
 # Data preparation (assuming you have frames and annotations)
 frames = [...]  # list of numpy arrays
@@ -149,6 +150,15 @@ video_annotation = tracker.video_annotation
 {% endtab %}
 {% tab title="Method 2: .track()" %}
 ```python
+
+from supervisely.nn.tracker import BotSortTracker
+import supervisely as sly
+
+# Data preparation (assuming you have frames and annotations)
+frames = [...]  # list of numpy arrays
+annotations = [...]  # list of sly.Annotation
+
+# Tracker initialization
 tracker = BotSortTracker(settings={
     "track_high_thresh": 0.6,
     "track_low_thresh": 0.1,
@@ -162,21 +172,6 @@ video_annotation = tracker.track(frames, annotations)
 {% endtab %}
 {% endtabs %}
 
-### Method 2: .track()
-This method processes the whole video at once.
-Best if you already have all frames and predictions and just want one ready-to-use annotation.
-
-```python
-tracker = BotSortTracker(settings={
-    "track_high_thresh": 0.6,
-    "track_low_thresh": 0.1,
-    "new_track_thresh": 0.7,
-    "with_reid": True
-})
-
-video_annotation = tracker.track(frames, annotations)
-
-```
 Difference:
 - .update() — step-by-step processing for flexibility.
 - .track() — one-shot processing for convenience.
@@ -227,6 +222,8 @@ Both methods create a video_annotation object where each object is assigned a tr
 
 ## Visualization
 
+![Visualization example](../../.gitbook/assets/neural_networks/mot_demo.gif)
+
 You can visualize the tracker’s results with the visualize function.
 It accepts either predictions (from the API) or video annotations (from the tracker), the path to your input video, and the path to save the output video.
 
@@ -237,8 +234,8 @@ Additional options:
 
 Both formats are supported:
 
-### Method 1: Predictions
-
+{% tabs %}
+{% tab title="Method 1:  Predictions" %}
 ```python
 import supervisely as sly
 from supervisely.nn.tracker.visualize import visualize
@@ -259,10 +256,13 @@ output_path = "path_to_save_result.avi"
 
 visualize(predictions, video_path, output_path, show_classes=False)
 ```
-
-### Method 2: Video Annotations
-
+{% endtab %}
+{% tab title="Method 2: Video Annotations" %}
 ```python
+import supervisely as sly
+from supervisely.nn.tracker.visualize import visualize
+from supervisely.nn.tracker import BotSortTracker
+
 frames = [...]  # list of numpy arrays
 annotations = [...]  # list of sly.Annotation
 
@@ -280,6 +280,9 @@ output_path = "path_to_save_result.avi"
 
 visualize(video_annotation, video_path, output_path, show_trajectories=False)
 ```
+{% endtab %}
+{% endtabs %}
+
 The visualization video will be saved in the output_path.
 
 ## Metrics Evaluation
