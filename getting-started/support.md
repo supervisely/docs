@@ -35,8 +35,8 @@ This means the Supervisely team is actively managing the server, including updat
 If something’s not working as expected in Supervisely, let’s first narrow down what kind of issue you're facing:
 
 1. You're having [trouble with an app from the Supervisely Ecosystem](#issues-with-applications) (or a custom app).  
-2. You see an error message in the UI outside of the app (e.g. "Something went wrong").  
-3. The platform isn’t throwing errors, but it feels slow or laggy.  
+2. You see an [error message in the UI outside](#issues-with-the-platform) of the app (e.g. "Something went wrong").  
+3. The platform isn’t throwing errors, but it feels [slow or laggy](#slow-performance).  
 4. Things technically work, but the behavior seems off or unexpected.  
 5. You're running into a technical issue with the API or SDK.  
 6. You're an Enterprise technical engineer and need help with deployment.  
@@ -119,3 +119,23 @@ It does **not include any personal data, customer content, project files, creden
 
 We take customer privacy seriously. Remote logs are strictly limited to what’s necessary for technical troubleshooting and are handled securely by the Supervisely team.  
 This ensures faster support without compromising your data integrity or confidentiality.
+
+### Slow performance
+
+If you notice that the platform is running slowly, and you're using the Community version of Supervisely, perform a [speed test](https://docs.supervisely.com/enterprise-edition/advanced-tuning/speed_test) and contact our support team with the results.  
+
+For Enterprise version of Supervisely, please do the following:
+
+1. Open any Labeling Toolbox (such as Image Labeling Toolbox).  
+2. Find the Troubleshoot button on the bottom right corner and click it. 
+
+![Troubleshoot Button]()
+
+3. Perform the Troubleshoot test, save the results (text or screenshot) and share them with our support team.
+
+![Troubleshoot Test Results]()
+
+#### Performing a speed test
+
+If you are using the Community Edition of Supervisely, you can perform a speed test to check your connection to our servers. You can use any online speed test tool, such as [Speedtest.net](https://www.speedtest.net/), and share the results with our support team.  
+Note, that the speed test should be performed to specific location that matches the region of the Supervisely instance. For example, for the Community Edition, use a server located in Germany (Falkenstein).
