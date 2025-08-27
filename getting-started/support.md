@@ -71,14 +71,29 @@ If you're having trouble with an app from the Supervisely Ecosystem (or a custom
 
 #### Changing the log level of application
 
-In some cases, we'll need additional logs to diagnose the issue. You can change the log level of an application by following these steps:
+In some cases, we'll need additional logs to diagnose the issue. You can change the log level in two ways:
 
-1. When launching the application click on the `Advanced settings` option.  
-2. Find the `Log Level` option and change it to `Debug` or `Trace` to capture more detailed logs.  
+Option A — Start a new app session with a different log level
+
+1. Launch the application and click on the `Advanced settings` option.
+2. Set the `Log Level` to `Debug` or `Trace` to capture more detailed logs.
+3. Start the application.
 
 ![Change Log Level]()
 
-Now, you can use the application as usual, and it will generate more verbose logs. If you encounter any issues, please [download the logs](#how-to-download-application-logs) and share them with our support team.
+Option B — Re-run the same session with a different log level
+
+1. Open `Tasks & Apps` and find the previous session.
+2. Click `Run Again`.
+3. In the relaunch dialog, open `Advanced settings` and set the `Log Level` to `Debug` or `Trace`.
+4. Start the application.
+
+What happens next
+
+- If the app runs with saved inputs, it will automatically repeat the same scenario with the new log level.
+- If it does not, it will start with the same parameters as last time and be ready for work.
+
+Now, use the application to reproduce the issue. When finished, please [download the logs](#how-to-download-application-logs) and share them with our support team.
 
 
 ### Issues with the platform
