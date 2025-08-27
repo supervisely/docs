@@ -286,8 +286,15 @@ The visualization video will be saved in the output_path.
 ## Metrics Evaluation
 
 If you have ground truth data in the form of video annotations, you can evaluate the tracker’s performance using the evaluate function.
-Simply pass predicted annotations and ground truth annotations:
 
+First, install the required libraries:  
+
+```bash
+pip install motmetrics
+pip install git+https://github.com/JonathonLuiten/TrackEval.git
+```
+
+Simply pass predicted annotations and ground truth annotations:
 
 ```python
 from supervisely.nn.tracker.calculate_metrics import evaluate
