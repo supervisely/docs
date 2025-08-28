@@ -229,6 +229,11 @@ Additional options:
 - show_labels: Display object labels.
 - show_classes: Display object classes.
 - show_trajectories: Draw object trajectories.
+- box_thickness: Thickness of bounding boxes.
+- auto_color: Use default color palette.
+
+        If True, ignore annotation colors and use default color palette.
+        If False, try to use colors from annotations.
 
 Both formats are supported:
 
