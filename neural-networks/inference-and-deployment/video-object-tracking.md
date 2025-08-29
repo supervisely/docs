@@ -88,7 +88,7 @@ This option is intended for developers who want to control tracking via the API.
 
 Steps:
 
-1. Deploy a model.
+1. [Deploy](https://docs.supervisely.com/neural-networks/overview-1/supervisely-serving-apps#how-to-deploy-a-model) a model.
 2. Call Prediction API for a video.
 3. To enable tracking, add `tracking=True` in the request.
 4. Pass tracker settings via `tracking_config`.
@@ -131,7 +131,7 @@ for pred in predictions:
 
 ### Visualizing Prediction API results
 
-If you want to visualize the results after receiving a Prediction, use the `visualize` funtction to draw predictions on the input video and save the result.
+If you want to [visualize](#visualization-overview) the results after receiving a Prediction, use the `visualize` funtction to draw predictions on the input video and save the result.
 
 ```python
 from supervisely.nn.tracker.visualize import visualize
@@ -217,7 +217,7 @@ video_annotation = tracker.track(frames, annotations)
 
 ### Visualizing SDK / VideoAnnotation results
 
-If you want to visualize the results after receiving a Video annotation, use the same `visualize` function to render the `VideoAnnotation` into a result video.
+If you want to [visualize](#visualization-overview) the results after receiving a Video annotation, use the same `visualize` function to render the `VideoAnnotation` into a result video.
 
 ```python
 from supervisely.nn.tracker.visualize import visualize
@@ -263,15 +263,15 @@ You can visualize the tracker’s results with the `visualize` function. It acce
 
 Additional options:
 
-* `show_labels`: Display object labels.
-* `show_classes`: Display object classes.
-* `show_trajectories`: Draw object trajectories.
-* `box_thickness`: Thickness of bounding boxes.
-* `auto_color`: Use default color palette.
+* `show_labels`: Draw per-object labels (track IDs).
+* `show_classes`: Draw class names for each object.
+* `show_trajectories`: Render object trajectories across frames.
+* `box_thickness`: Bounding-box line thickness in pixels.
+* `color_mode`: Use default color palette.
 
-Details for `auto_color`:
+Details for `color_mode`:
 
-If `auto_color=True`, ignore annotation colors and use the default color palette. If `auto_color=False`, the visualizer tries to use colors from annotations when possible.
+If `color_mode=True`, ignore annotation colors and use the default color palette. If `color_mode=False`, the visualizer tries to use colors from annotations when possible.
 
 ---
 
