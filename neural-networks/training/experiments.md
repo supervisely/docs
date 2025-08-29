@@ -1,7 +1,5 @@
 # Training Experiments
 
-#### Overview
-
 Training neural networks is rarely about a single run. It's dozens of iterations, constant tuning, and figuring out what actually works. Until now, this process in Supervisely was split across different tools and apps.
 
 <figure><img src="../../.gitbook/assets/neural-networks/training/experiments-overview.jpg" alt="Experiments feature in Supervisely"><figcaption></figcaption></figure>
