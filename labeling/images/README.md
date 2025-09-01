@@ -148,14 +148,16 @@ Definitions panel displays the list of annotation classes (e.g., "person", "road
 
 Tags are used to add additional information to images, objects, or other data. Tags can describe context, object properties, or other parameters that can be useful for data analysis and model training.
 
+<figure><img src="../../.gitbook/assets/definitions.png" alt=""><figcaption></figcaption></figure>
+
 Definitions panel shows tags associated with the current image. Tags are metadata that help to categorize or add additional information to images (e.g., weather conditions, time of day).
 
 * Use the **add project tags definitions** feature to create and manage tags at the project level.
 * **Tag removal:** You can configure the system to ask for confirmation when tags are removed.
 * **Attaching a single tag multiple times:** You can enable or disable the ability to attach a single tag multiple times to an object. This setting can be adjusted by editing `Project → Settings → Tags → Multiple Tags Mode` in the Dashboard.
-* **Removing tags with hotkeys:** You can enable or disable the feature that allows a tag to be removed when pressing the corresponding hotkey again.
+* **Removing tags with hotkeys:** You can enable or disable the feature that allows a tag to be removed when pressing the corresponding hotkey again. For the classic version of the toolbox (number `1` on the screenshot), these settings are configured through the `Settings` panel - `Tags` tab at the bottom `Toggle tags` section. For the advanced version of the toolbox (number `2` on the screenshot), you need to open the context menu (the three dots ...) in `Definitions` and activate the Toggle Tag on Hotkey option. 
 
-<figure><img src="../../.gitbook/assets/definitions.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/labeling-images/toogle-tags-toolboxes.jpg" alt="Toggle tags"><figcaption></figcaption></figure>
 
 Learn more about the definitions panel from our [blog post](https://supervisely.com/blog/definitions-panel/):
 
