@@ -1,13 +1,9 @@
-# BotSort Tracker — Documentation
+# Video Object Tracking
 
 ## Introduction
 
-Tracking is a core computer vision task that lets us follow objects over time in a video. On Supervisely we provide a ready-to-use tracker that works with any detector available on the platform. Our BotSort tracker is integrated into the platform — this section explains the easy ways to apply the tracker to your data.
+Tracking is a computer vision task that lets us follow objects over time in a video. Supervisely provides a ready-to-use tracker that works with any detector available on the platform. We've integrated our enhanced **BotSort** tracker into the platform as a best-in-class solution of tracking-by-detection. This section explains different ways to apply the tracker to your data.
 
-The algorithm works by the principle of **tracking by detection**:
-
-1. First, a neural network detects objects on each frame.
-2. Then the tracker “connects the dots” — it links the detected objects between frames and assigns them unique IDs.
 
 This is especially useful in video analytics systems where it is important not only to detect objects, but also to understand how they move over time.
 
@@ -15,9 +11,12 @@ Tracking helps answer questions like: how each object moves, how many objects ar
 
 Tracking is useful for tasks such as counting people or vehicles, trajectory analysis, and behavior monitoring.
 
-### Why we chose BotSort and its advantages
+### BotSort Tracker
 
-**BotSort** is a modern tracker that we use as a base.
+**BotSort** is a modern tracker that we use as a base. It is a lightweight algorithm that works by the principle of **tracking by detection**:
+
+1. Suppose, we have a detector (e.g. YOLO). We run it on each frame of the video to get bounding boxes of detected objects. These boxes are not linked between frames so far, they are just independent detections.
+2. Then we apply a tracker — it links the detected objects between frames and assigns a unique ID for each object, resulting in trajectories of objects over time.
 
 We chose BotSort because it provides an excellent balance between speed and accuracy. In MOT17-style benchmarks BotSort achieves strong tracking metrics while keeping high throughput. 
 
@@ -30,40 +29,37 @@ We chose BotSort because it provides an excellent balance between speed and accu
 | MAATrack           |   79.4 |   75.9 |   62.0 |
 
 
-Its main advantage is speed — e.g. \~38.4 FPS — which makes it suitable for real-time use while preserving good tracking quality. This combination of accuracy and performance makes BotSort an ideal choice for Supervisely, where both metrics and throughput matter.
+Its main advantage is speed — e.g. **~38.4 FPS** — which makes it suitable for real-time use while preserving good tracking quality.
 
 #### Our enhancement: ReID with OSNet
 
-In our implementation we integrated an improved ReID mechanism based on  the [OSNet x1\_0 architecture](https://arxiv.org/pdf/1905.00953) instead of the FastReID variant. This change lets the tracker use visual features of objects in addition to bounding box coordinates, which significantly improves tracking stability in challenging scenes.
+In our implementation we integrated an improved ReID mechanism based on the [OSNet x1\_0](https://arxiv.org/abs/1905.00953) architecture instead of the original FastReID variant. This change lets the tracker use visual features of objects in addition to bounding box coordinates, which significantly improves tracking stability in challenging scenes. OSNet weights are available here: *[model zoo](https://kaiyangzhou.github.io/deep-person-reid/MODEL_ZOO)*.
 
-OSNet gives better re-identification of objects after temporary occlusions or when objects cross each other. That makes the tracker more reliable in real-world scenarios where objects can be partially hidden or leave and re-enter the frame.
-
-OSNet weights are available in the: *[model zoo](https://kaiyangzhou.github.io/deep-person-reid/MODEL_ZOO)*.
+Additionally, we found some improvements in the original codebase and fixed minor bugs.
 
 ---
 
-## Ways to use the tracker
+## How to Use Tracker
 
-Users have three main ways to use our tracker, depending on their goals and needs. Each method has its own advantages and suits different scenarios:
+Users have three ways to apply a tracker in different scenarios:
 
-1. [**Apply NN to Video**](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project) — the most convenient path via Supervisely's visual interface.
-2. [**Via Prediction API**](https://docs.supervisely.com/neural-networks/overview-1/prediction-api) — programmatic access through the Prediction API: you send requests and receive predictions while tracking runs on the server.
-3. **Run Tracker Locally (SDK)** — use the tracker inside your own code or application with the Supervisely SDK on your machine, without sending requests to the server.
+1. **[Apply NN to Video](#apply-nn-to-video)**: the most convenient is to use our [Apply NN to Video](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project) app on the Supervisely platform.
+2. **[Tracking via API](#tracking-via-api)**: programmatic access through the python API - you send requests and receive predictions while tracking runs on the server.
+3. **[Run Tracker Locally](#run-tracker-locally)**: use the tracker inside your own code or application with the Supervisely SDK on your machine.
 
 ---
 
 ## Apply NN to Video
 
-Apply NN to Video (through the interface) is the easiest option for users.
+Launch [Apply NN to Video](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project) app in the Supervisely platform, deploy a detection model, configure inference and tracking settings, and apply the model to your video project.
 
-1. [Deploy a model](https://docs.supervisely.com/neural-networks/overview-1/supervisely-serving-apps#how-to-deploy-a-model)  for Object Detection or Instance Segmentation.
-2. Open the **Apply NN** app and wait until it is ready.
-3. Select a video, choose a model, and select classes to run inference on.
+1. [Deploy a model](https://docs.supervisely.com/neural-networks/overview-1/supervisely-serving-apps#how-to-deploy-a-model) for Object Detection or Instance Segmentation.
+2. Launch the **[Apply NN to Video](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project)** app and wait until it is ready.
+3. Select your deployed detection model and configure classes to predict.
 4. Choose the algorithm **BoT-SORT** and select the device (CPU or GPU).
-6. In advanced settings you can pass hyperparameters (see [Hyperparameter Configuration](#hyperparameter-configuration)).
+5. In **advanced settings** you can configure hyperparameters for tracking (see [Hyperparameter Configuration](#hyperparameter-configuration)).
 
 <figure><img src="../../.gitbook/assets/neural-networks/apply_nn_with_tracker.jpg" alt="Apply NN with tracker screenshot"><figcaption>Tracking settings</figcaption></figure>
-
 
 Example parameters:
 
@@ -79,8 +75,9 @@ min_box_area: 10
 track_buffer: 30
 ```
 
+> Read more about applying neural networks in [**Apply NN to Video**](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project)
 
-## Tracking via Prediction API
+## Tracking via API
 
 > [Prediction API documentation](https://docs.supervisely.com/neural-networks/overview-1/prediction-api)
 
@@ -136,13 +133,13 @@ If you want to [visualize](#visualization-overview) the results after receiving 
 ```python
 from supervisely.nn.tracker.visualize import visualize
 
-video_path = "path_to_your_video.avi"
-output_path = "path_to_save_result_api.avi"
+video_path = "path_to_your_video.mp4"
+output_path = "output.mp4"
 
 visualize(predictions, video_path, output_path, show_classes=False)
 ```
 
-## Run Tracker Locally (SDK)
+## Run Tracker Locally
 
 This approach allows you to use the tracker inside your own code or application using the Supervisely SDK on the same machine/hardware, without sending requests to the server.
 
