@@ -2,23 +2,19 @@
 
 ## Introduction
 
-Tracking is a computer vision task that lets us follow objects over time in a video. Supervisely provides a ready-to-use tracker that works with any detector available on the platform. We've integrated our enhanced **BotSort** tracker into the platform as a best-in-class solution of tracking-by-detection. This section explains different ways to apply the tracker to your data.
+Tracking is a computer vision task that lets us follow objects over time in a video. Tracking is useful for tasks such as counting people or vehicles, trajectory analysis, and behavior monitoring.
+
+Supervisely provides a ready-to-use tracker that works with any detector available on the platform. We've integrated our enhanced **BoT-SORT** tracker into the platform as the most accurate and efficient solution for tracking by detection.
 
 
-This is especially useful in video analytics systems where it is important not only to detect objects, but also to understand how they move over time.
+### BoT-SORT Tracker
 
-Tracking helps answer questions like: how each object moves, how many objects are present, and what happens to them during the video.
-
-Tracking is useful for tasks such as counting people or vehicles, trajectory analysis, and behavior monitoring.
-
-### BotSort Tracker
-
-**BotSort** is a modern tracker that we use as a base. It is a lightweight algorithm that works by the principle of **tracking by detection**:
+**[BoT-SORT](https://github.com/NirAharon/BoT-SORT)** is a modern tracker that we use as a base. It is a lightweight algorithm that works by the principle of **tracking by detection**:
 
 1. Suppose, we have a detector (e.g. YOLO). We run it on each frame of the video to get bounding boxes of detected objects. These boxes are not linked between frames so far, they are just independent detections.
 2. Then we apply a tracker — it links the detected objects between frames and assigns a unique ID for each object, resulting in trajectories of objects over time.
 
-We chose BotSort because it provides an excellent balance between speed and accuracy. In MOT17-style benchmarks BotSort achieves strong tracking metrics while keeping high throughput. 
+We chose BoT-SORT because it provides an excellent balance between speed and accuracy. In MOT17-style benchmarks BoT-SORT achieves strong tracking metrics while keeping high throughput.
 
 | Tracker            |  MOTA↑ |  IDF1↑ |  HOTA↑ |
 | ------------------ | -----: | -----: | -----: |
@@ -43,9 +39,11 @@ Additionally, we found some improvements in the original codebase and fixed mino
 
 Users have three ways to apply a tracker in different scenarios:
 
-1. **[Apply NN to Video](#apply-nn-to-video)**: the most convenient is to use our [Apply NN to Video](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project) app on the Supervisely platform.
+1. **[Apply NN to Video](#apply-nn-to-video)**: the most convenient way is to use our [Apply NN to Video](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project) app on the Supervisely platform.
 2. **[Tracking via API](#tracking-via-api)**: programmatic access through the python API - you send requests and receive predictions while tracking runs on the server.
 3. **[Run Tracker Locally](#run-tracker-locally)**: use the tracker inside your own code or application with the Supervisely SDK on your machine.
+
+In this guide we will cover all three options.
 
 ---
 
@@ -53,7 +51,7 @@ Users have three ways to apply a tracker in different scenarios:
 
 Launch [Apply NN to Video](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project) app in the Supervisely platform, deploy a detection model, configure inference and tracking settings, and apply the model to your video project.
 
-1. [Deploy a model](https://docs.supervisely.com/neural-networks/overview-1/supervisely-serving-apps#how-to-deploy-a-model) for Object Detection or Instance Segmentation.
+1. [Deploy a model](supervisely-serving-apps.md#how-to-deploy-a-model) for Object Detection or Instance Segmentation.
 2. Launch the **[Apply NN to Video](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project)** app and wait until it is ready.
 3. Select your deployed detection model and configure classes to predict.
 4. Choose the algorithm **BoT-SORT** and select the device (CPU or GPU).
@@ -75,20 +73,19 @@ min_box_area: 10
 track_buffer: 30
 ```
 
-> Read more about applying neural networks in [**Apply NN to Video**](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project)
+> Read more about applying neural networks in [**Supervisely Serving Apps**](supervisely-serving-apps.md).
 
 ## Tracking via API
 
-> [Prediction API documentation](https://docs.supervisely.com/neural-networks/overview-1/prediction-api)
+> This section is based on the [Prediction API](prediction-api.md), check it for more details.
 
 This option is intended for developers who want to control tracking via the API. In this workflow you do not run the tracking code locally — you call the Prediction API and receive predictions from the server.
 
 Steps:
 
-1. [Deploy](https://docs.supervisely.com/neural-networks/overview-1/supervisely-serving-apps#how-to-deploy-a-model) a model.
-2. Call Prediction API for a video.
-3. To enable tracking, add `tracking=True` in the request.
-4. Pass tracker settings via `tracking_config`.
+1. Deploy a model for detection. You can also deploy it via API (see [Deploying via API](prediction-api.md#deploy--connect)).
+2. Connect to the model using `api.nn.connect()`. If you deployed the model via API, you already have the `model` object.
+3. Predict with `model.predict()` with `tracking=True` argument. You can pass additional tracker settings in `tracking_config`.
 
 Example:
 
@@ -126,9 +123,9 @@ for pred in predictions:
     print(f"Frame {frame_index}: {len(track_ids)} tracks")
 ```
 
-### Visualizing Prediction API results
+#### Visualize
 
-If you want to [visualize](#visualization-overview) the results after receiving a Prediction, use the `visualize` funtction to draw predictions on the input video and save the result.
+You can visualize the results after receiving a Prediction, use the `visualize()` function to draw predictions on the input video and save the result. Read more in the [Visualization Settings](#visualization-settings) section.
 
 ```python
 from supervisely.nn.tracker.visualize import visualize
@@ -136,12 +133,18 @@ from supervisely.nn.tracker.visualize import visualize
 video_path = "path_to_your_video.mp4"
 output_path = "output.mp4"
 
-visualize(predictions, video_path, output_path, show_classes=False)
+visualize(predictions, video_path, output_path)
 ```
 
 ## Run Tracker Locally
 
 This approach allows you to use the tracker inside your own code or application using the Supervisely SDK on the same machine/hardware, without sending requests to the server.
+
+First, install the Supervisely SDK with tracking requirements:
+
+```bash
+pip install supervisely[tracking]
+```
 
 You can apply the tracker directly to annotations that you obtain from a detector.
 
@@ -211,19 +214,7 @@ video_annotation = tracker.track(frames, annotations)
 {% endtabs %}
 
 
-
-### Visualizing SDK / VideoAnnotation results
-
-If you want to [visualize](#visualization-overview) the results after receiving a Video annotation, use the same `visualize` function to render the `VideoAnnotation` into a result video.
-
-```python
-from supervisely.nn.tracker.visualize import visualize
-
-visualize(video_annotation, video_path, output_path, show_trajectories=False)
-```
-The visualization video will be saved in the output_path.
-
-### Matches structure
+#### Output structure
 
 `matches` is a list of dictionaries where each dictionary contains the correspondence between a `track_id` and a `sly.Label` (part of the `annotations` structure that contains information about a single detected object: bbox, class, score).
 
@@ -243,20 +234,25 @@ matches = [
 ]
 ```
 
-Difference between methods:
+#### Visualize
 
-* `update()` — step-by-step processing, good for streaming and fine control.
-* `track()` — one-shot processing, convenient for batch processing.
+To visualize the results after receiving a Video annotation, use the same `visualize()` function to render the `VideoAnnotation` into a result video.
 
-Both methods create a `VideoAnnotation` object where each object is assigned a `track_id`.
+```python
+from supervisely.nn.tracker.visualize import visualize
+
+visualize(video_annotation, video_path, output_path)
+```
+
+The visualization video will be saved in the output_path.
 
 ---
 
-## Visualization overview
+## Visualization Settings
 
 ![Visualization example](../../.gitbook/assets/neural-networks/mot_demo.gif)
 
-You can visualize the tracker’s results with the `visualize` function. It accepts either predictions (from the Prediction API) or `VideoAnnotation` (from the tracker), the path to your input video, and the path to save the output video.
+You can visualize the tracker's results with the `visualize()` function. It accepts either a list of `predictions` (in case you use the **Prediction API**) or `VideoAnnotation` (from the tracker), the path to your input video, and the path to save the output video.
 
 Additional options:
 
@@ -264,11 +260,7 @@ Additional options:
 * `show_classes`: Draw class names for each object.
 * `show_trajectories`: Render object trajectories across frames.
 * `box_thickness`: Bounding-box line thickness in pixels.
-* `color_mode`: Use default color palette.
-
-Details for `color_mode`:
-
-If `color_mode=True`, ignore annotation colors and use the default color palette. If `color_mode=False`, the visualizer tries to use colors from annotations when possible.
+* `color_mode`: Use default color palette. If `color_mode=True`, ignore annotation colors and use the default color palette. If `color_mode=False`, the visualizer tries to use colors from annotations when possible.
 
 ---
 
@@ -278,14 +270,21 @@ Input for metrics evaluation: the function accepts two `sly.VideoAnnotation` obj
 
 If you have ground truth data in the form of video annotations, you can evaluate the tracker’s performance using the `evaluate` function.
 
-First, install the required libraries:
+First, install Supervisely SDK with tracking requirements:
+
+```bash
+pip install supervisely[tracking]
+```
+
+Or install the necessary packages manually:
 
 ```bash
 pip install motmetrics
 pip install git+https://github.com/JonathonLuiten/TrackEval.git
 ```
 
-Simply pass predicted annotations and ground truth annotations:
+
+To calculate metrics pass predicted annotations and ground truth annotations to the `evaluate` function:
 
 ```python
 from supervisely.nn.tracker.calculate_metrics import evaluate
@@ -318,14 +317,14 @@ metrics = evaluate(video_ann_pred, video_ann_true)
 
 The output includes several groups of metrics:
 
-### Basic Detection Metrics
+#### Basic Detection Metrics
 
 * **Precision** — ratio of correct detections among all detections.
 * **Recall** — ratio of detected objects among all ground truth objects.
 * **F1** — harmonic mean of precision and recall.
 * **Average IoU** — average overlap between predicted and true bounding boxes.
 
-### MOT (Multiple Object Tracking) Metrics
+#### MOT (Multiple Object Tracking) Metrics
 
 * **MOTA** (Multi-Object Tracking Accuracy) — overall accuracy, combining misses, false positives, and ID switches.
 * **MOTP** (Multi-Object Tracking Precision) — how precisely the tracker matches predicted and true positions.
@@ -334,7 +333,7 @@ The output includes several groups of metrics:
 * **Fragmentations** — how often a trajectory is broken into parts.
 * **Misses / False Positives** — counts of missed objects and false alarms.
 
-### Count Metrics
+#### Count Metrics
 
 * **True Positives / False Positives / False Negatives** — raw counts of detection outcomes.
 * **Total GT Objects / Predicted Objects** — number of objects in ground truth and predictions.
@@ -345,7 +344,7 @@ These metrics give both a high-level and detailed view of how well the tracker p
 
 ## Hyperparameter Configuration
 
-### Core Tracking Parameters
+#### Core Tracking Parameters
 
 | Parameter           | Default | Description                                                                                                            |
 | ------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -356,7 +355,7 @@ These metrics give both a high-level and detailed view of how well the tracker p
 | `track_buffer`      | 30      | Number of frames a lost track remains in memory                                                                        |
 | `min_box_area`      | 10.0    | Minimum bounding box area for tracking                                                                                 |
 
-### ReID (Appearance) Parameters
+#### ReID (Appearance) Parameters
 
 | Parameter           | Default | Description                                                              |
 | ------------------- | ------- | ------------------------------------------------------------------------ |
@@ -364,20 +363,20 @@ These metrics give both a high-level and detailed view of how well the tracker p
 | `appearance_thresh` | 0.25    | Threshold for appearance similarity. Lower values mean stricter matching |
 | `proximity_thresh`  | 0.5     | Proximity threshold for ReID features                                    |
 
-### Algorithm Configuration
+#### Algorithm Configuration
 
 | Parameter    | Default | Description                                      |
 | ------------ | ------- | ------------------------------------------------ |
 | `fuse_score` | false   | Whether to fuse detection and ReID scores        |
 | `ablation`   | false   | Enable ablation study mode for research purposes |
 
-### Camera Motion Compensation
+#### Camera Motion Compensation
 
 | Parameter    | Default         | Description                                                                       |
 | ------------ | --------------- | --------------------------------------------------------------------------------- |
 | `cmc_method` | "sparseOptFlow" | Camera motion compensation method. Options: "orb", "sift", "ecc", "sparseOptFlow" |
 
-### Performance & Hardware
+#### Performance & Hardware
 
 | Parameter | Default | Description                                                           |
 | --------- | ------- | --------------------------------------------------------------------- |
@@ -385,4 +384,3 @@ These metrics give both a high-level and detailed view of how well the tracker p
 | `fp16`    | false   | Enable half-precision (FP16) computation for faster inference         |
 | `fps`     | 30      | Video FPS for correct track\_buffer calculation                       |
 
----
