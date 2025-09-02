@@ -4,7 +4,7 @@ Training neural networks is rarely about a single run. It's dozens of iterations
 
 <figure><img src="../../.gitbook/assets/neural-networks/training/experiments-overview.jpg" alt="Experiments feature in Supervisely"><figcaption></figcaption></figure>
 
-**Experiments** now provides a centralized place where every training run becomes structured, comparable, and reproducible. This feature allows you to:
+**Experiments** is a centralized place where every training run becomes structured, comparable, and reproducible. This feature allows you to:
 
 - Run multiple experiments with ease
 - Compare metrics across runs  
