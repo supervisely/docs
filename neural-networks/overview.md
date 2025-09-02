@@ -6,15 +6,15 @@ Supervisely provides a complete ecosystem for developing, training, and deployin
 
 With Supervisely, you can:
 
-- Annotate data with advanced labeling tools and [AI-assisted features](https://supervisely.com/blog/smarttool-annotation/).
-- Manage datasets effectively with [AI Search](https://docs.supervisely.com/data-organization/project-dataset/ai-search), organize them, and ensure quality control through interactive dashboards and statistics, see [Quality Assurance and Statistics](/data-organization/project-dataset/quality-assurance-and-statistics/README.md).
-- Train state-of-the-art open-source [models](https://ecosystem.supervisely.com/train) on your own hardware or in the cloud.
-- Evaluate models with detailed metrics, visualizations, and per-image statistics (check our [Detection Evaluation Dashboard](model-evaluation-benchmark/object-detection.md)).
-- Track experiments, compare results, and reproduce any run with [Supervisely Experiments](training/experiments.md).
-- Deploy trained models as APIs, Docker containers, or simple Python scripts (see [Inference & Deployment](inference-and-deployment/README.md)).
-- Use models for prediction, pre-labeling, and video analysis via [Prediction API](inference-and-deployment/prediction-api.md).
-- Continuously improve your models through active learning and human-in-the-loop workflows.
-- Export model weights to multiple formats (PyTorch, ONNX, TensorRT) without vendor lock-in. Your checkpoints can be used [outside of Supervisely](inference-and-deployment/using-standalone-pytorch-models.md).
+- **Data Annotation**: Annotate data with advanced labeling tools and [AI-assisted features](https://supervisely.com/blog/smarttool-annotation/).
+- **Versioning & QA**: Manage datasets effectively with [AI Search](https://docs.supervisely.com/data-organization/project-dataset/ai-search), organize them, and ensure quality control through interactive dashboards and statistics, see [Quality Assurance and Statistics](/data-organization/project-dataset/quality-assurance-and-statistics/README.md).
+- **Model Training**: Train state-of-the-art open-source [models](https://ecosystem.supervisely.com/train) on your own hardware or in the cloud.
+- **Model Evaluation**: Evaluate models with detailed metrics, visualizations, and per-image statistics (check our [Detection Evaluation Dashboard](model-evaluation-benchmark/object-detection.md)).
+- **Track and Compare Models**: Track experiments, compare results, and reproduce any run with [Supervisely Experiments](training/experiments.md).
+- **Deploy**: Deploy trained models as APIs, Docker containers, or simple Python scripts (see [Inference & Deployment](inference-and-deployment/README.md)).
+- **Predict**: Use models for prediction, pre-labeling, and video analysis via [Prediction API](inference-and-deployment/prediction-api.md).
+- **Improve Models**: Continuously improve your models through active learning and human-in-the-loop workflows.
+- **Export**: Export model weights to multiple formats (PyTorch, ONNX, TensorRT) without vendor lock-in. Your checkpoints can be downloaded and used [outside of Supervisely](inference-and-deployment/using-standalone-pytorch-models.md).
 
 <figure><img src="/.gitbook/assets/neural-networks/training/experiments-scheme.jpg" alt="NN Lifecycle"><figcaption></figcaption></figure>
 
