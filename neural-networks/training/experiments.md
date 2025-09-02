@@ -4,7 +4,7 @@ Training neural networks is rarely about a single run. It's dozens of iterations
 
 <figure><img src="../../.gitbook/assets/neural-networks/training/experiments-overview.jpg" alt="Experiments feature in Supervisely"><figcaption></figcaption></figure>
 
-Experiments provide a centralized place where every training run becomes structured, comparable, and reproducible. This feature allows you to:
+**Experiments** now provides a centralized place where every training run becomes structured, comparable, and reproducible. This feature allows you to:
 
 - Run multiple experiments with ease
 - Compare metrics across runs  
@@ -25,8 +25,6 @@ The Experiments table serves as a complete historical record of your team's ML j
 - Evaluation metrics with detailed visualizations in the full report
 - Tensorboard logs with training charts, losses, and other metrics
 - Environment details and framework versions
-
-<figure><img src="../../.gitbook/assets/neural-networks/training/experiments-scheme.jpg" alt="Experiment principal scheme"><figcaption></figcaption></figure>
 
 <!-- *You can also filter and sort the experiments by various criteria. You can also compare the evaluation results of different models and visually understand their behavior in different scenarios. You can deploy your final models directly from the experiments table, which allows you to quickly apply the models to your data. Finally, you can start a new experiment by clicking the **New Experiment** button in the top right corner of the page. This will open a form where you can set up the experiment configuration, and run the training process.* -->
 

@@ -1,8 +1,22 @@
-## Introduction
+# Neural Networks Overview
 
-Supervisely covers the entire model lifecycle, from training to production deployment, enabling you to apply models to images, videos, and 3D data. The Supervisely Platform provides comprehensive support at every stage of the model lifecycle and simplifies model development. In many standard cases, you don't even need to write a single line of code, but for advanced customization, you can!
+## Intro: Supervisely Neural Network Lifecycle
 
-![The Entire Model Lifecycle](/.gitbook/assets/neural-networks/schema.png)
+Supervisely provides a complete ecosystem for developing, training, and deploying neural networks, covering the entire machine learning lifecycle from data preparation to production deployment. Our platform is designed to simplify complex processes of NN model development into a seamless and flexible workflow.
+
+With Supervisely, you can:
+
+- Annotate data with advanced labeling tools and [AI-assisted features](https://supervisely.com/blog/smarttool-annotation/).
+- Manage datasets effectively, organize them, and ensure quality control through interactive dashboards and statistics (see [Quality Assurance and Statistics](/data-organization/project-dataset/quality-assurance-and-statistics/README.md)).
+- Train state-of-the-art open-source [models](https://ecosystem.supervisely.com/train) on your own hardware or in the cloud.
+- Evaluate models with detailed metrics, visualizations, and per-image statistics (check our [Detection Evaluation Dashboard](model-evaluation-benchmark/object-detection.md)).
+- Track experiments, compare results, and reproduce any run with [Supervisely Experiments](training/experiments.md).
+- Deploy trained models as APIs, Docker containers, or simple Python scripts (see [Inference & Deployment](inference-and-deployment/README.md)).
+- Use models for prediction, pre-labeling, and video analysis.
+- Continuously improve your models through active learning and human-in-the-loop workflows.
+- Export model weights to multiple formats (PyTorch, ONNX, TensorRT) without vendor lock-in.
+
+<figure><img src="/.gitbook/assets/neural-networks/training/experiments-scheme.jpg" alt="NN Lifecycle"><figcaption></figcaption></figure>
 
 ## Train
 
