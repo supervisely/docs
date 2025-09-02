@@ -39,15 +39,15 @@ Additionally, we found some improvements in the original codebase and fixed mino
 
 Users have three ways to apply a tracker in different scenarios:
 
-1. **[Apply NN to Video](#apply-nn-to-video)**: the most convenient way is to use our [Apply NN to Video](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project) app on the Supervisely platform.
-2. **[Tracking via API](#tracking-via-api)**: programmatic access through the python API - you send requests and receive predictions while tracking runs on the server.
-3. **[Run Tracker Locally](#run-tracker-locally)**: use the tracker inside your own code or application with the Supervisely SDK on your machine.
+1. **[Apply NN to Video](#option-1-apply-nn-to-video)**: the most convenient way is to use our [Apply NN to Video](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project) app on the Supervisely platform.
+2. **[Tracking via API](#option-2-tracking-via-api)**: programmatic access through the python API - you send requests and receive predictions while tracking runs on the server.
+3. **[Run Tracker Locally](#option-3-run-tracker-locally)**: use the tracker inside your own code or application with the Supervisely SDK on your machine.
 
 In this guide we will cover all three options.
 
 ---
 
-## Apply NN to Video
+### Option 1: Apply NN to Video
 
 Launch [Apply NN to Video](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project) app in the Supervisely platform, deploy a detection model, configure inference and tracking settings, and apply the model to your video project.
 
@@ -75,7 +75,7 @@ track_buffer: 30
 
 > Read more about applying neural networks in [**Supervisely Serving Apps**](supervisely-serving-apps.md).
 
-## Tracking via API
+### Option 2: Tracking via API
 
 > This section is based on the [Prediction API](prediction-api.md), check it for more details.
 
@@ -136,7 +136,7 @@ output_path = "output.mp4"
 visualize(predictions, video_path, output_path)
 ```
 
-## Run Tracker Locally
+### Option 3: Run Tracker Locally
 
 This approach allows you to use the tracker inside your own code or application using the Supervisely SDK on the same machine/hardware, without sending requests to the server.
 
