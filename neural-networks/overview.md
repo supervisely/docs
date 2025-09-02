@@ -4,7 +4,7 @@
 
 Supervisely provides a complete ecosystem for developing, training, and deploying neural networks, covering the entire machine learning lifecycle from data preparation to production deployment. Our platform is designed to simplify complex processes of NN model development into a seamless and flexible workflow.
 
-With Supervisely, you can:
+**Neural network lifecycle includes:**
 
 - **Data Annotation**: Annotate data with advanced labeling tools and [AI-assisted features](https://supervisely.com/blog/smarttool-annotation/).
 - **Versioning & QA**: Manage datasets effectively with [AI Search](https://docs.supervisely.com/data-organization/project-dataset/ai-search), organize them, and ensure quality control through interactive dashboards and statistics, see [Quality Assurance and Statistics](/data-organization/project-dataset/quality-assurance-and-statistics/README.md).
