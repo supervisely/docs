@@ -185,7 +185,6 @@
   * [Starting with Neural Networks](neural-networks/legacy/overview/overview.md)
   * [Train custom Neural Networks](neural-networks/legacy/custom-nn/custom-nn.md)
   * [Run pre-trained models](neural-networks/legacy/pre-trained-models.md)
-  * [Prediction API](neural-networks/overview-1/prediction-api.md)
 
 ## 👔 Enterprise Edition
 
