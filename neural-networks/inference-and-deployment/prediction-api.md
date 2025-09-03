@@ -455,95 +455,41 @@ for p in predictions:
 
 ## Tracking objects in video
 
-You can track objects in video using `boxmot` library. [BoxMot](https://github.com/mikel-brostrom/boxmot) is a third-party library that implements lightweight neural networks for tracking-by-detection task (when the tracking is performed on the objects predicted by a separate detector). For `boxmot` models you can use even CPU device.
+Supervisely now supports **tracking-by-detection** out of the box. We leverage a lightweight tracking algorithm (such as [BoT-SORT](https://github.com/NirAharon/BoT-SORT)) which identifies the unique objects across video frames and assigns IDs to them. This allows us to connect separate detections from different frames into a single track for each object.
 
-First, install [BoxMot](https://github.com/mikel-brostrom/boxmot):
-
-```bash
-pip install boxmot
-```
-
-Supervisely SDK has the `track()` method from `supervisely.nn.tracking` which allows you to apply `boxmot` models together with a detector in a single line of code. This method takes three arguments: a `video_id` of a video in the platform, a deployed detector model (`ModelAPI` class), and a `boxmot` tracker which is instantiated in this code. It will return a `sly.VideoAnnotation` with the tracked objects.
+To apply tracking via API, first, deploy your detection model or connect to it, and then use the `predict()` method with `tracking=True` parameter. You can also specify tracking configuration parameters by passing `tracking_config={...}` with your custom settings. See all available tracking settings in the [Video Object Tracking](video-object-tracking.md#hyperparameter-configuration).
 
 ```python
 import supervisely as sly
-from supervisely.nn.tracking import track
-import boxmot
-from pathlib import Path
 
-workspace_id = 555 # <- Use your workspace ID
-
-# Deploy a detector
-detector = api.nn.deploy(
-    model="rt-detrv2/RT-DETRv2-M",
-    device="cuda:0",  # Use GPU for detection
-    workspace_id=workspace_id
-)
-
-# Load BoxMot tracker
-tracker = boxmot.BotSort(
-    reid_weights=Path('osnet_x0_25_msmt17.pt'),
-    device="cpu",  # Use CPU for tracking
-)
-
-# Track objects in a single line
-video_ann: sly.VideoAnnotation = track(
-    video_id=42,
-    detector=detector,
-    tracker=tracker,
-)
-```
-
-The arguments for `track()` method are:
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `tracker` | `boxmot.Tracker` | Tracker algorithm from the BoxMot package. |
-| `session` | `PredictionSession` | Session of the detector predictions. |
-
-Alternatively, you can manually track objects with a `boxmot` tracker. This approach gives you more control over the tracking process, but requires more code and understanding of the `boxmot` format.
-
-<details>
-
-<summary>Click to expand</summary>
-
-```python
-import boxmot
-from supervisely.nn.tracking import to_boxmot
-from pathlib import Path
-
-workspace_id = 555 # <- Use your workspace ID
+api = sly.Api()
 
 # Deploy a detector
 model = api.nn.deploy(
     model="rt-detrv2/RT-DETRv2-M",
-    device="cuda:0",  # Use GPU for detection
-    workspace_id=workspace_id
+    device="cuda",
+    workspace_id=YOUR_WORKSPACE_ID,
 )
 
-# Start predict objects in video
-session = model.predict_detached(video_id=42)
-
-# Load BoxMot tracker
-tracker = boxmot.BotSort(
-    reid_weights=Path('osnet_x0_25_msmt17.pt'),
-    device="cpu",  # Use CPU for tracking
+# Predict and track objects in a single API call
+predictions = model.predict(
+    video_id=YOUR_VIDEO_ID,  # Video ID in Supervisely
+    tracking=True,  # Enable tracking
+    tracking_config={
+        "tracker": "botsort",  # botsort is a powerful tracking algorithm used by default
+        # You can pass other tracking parameters here, see the docs for details
+    }
 )
 
-# Track predictions frame by frame
-track_results = []
-for p in session:
-    # Get the current frame
-    frame = p.load_image()
-
-    # Convert predictions to the format required by BoxMot
-    detections = to_boxmot(p)  # N x (x, y, x, y, conf, cls)
-
-    # Track objects in the current frame
-    tracks = tracker.update(detections, frame)  # M x (x, y, x, y, track_id, conf, cls, det_id)
-    track_results.append(tracks)
+# Processing results
+for pred in predictions:
+    frame_index = pred.frame_index
+    annotation = pred.annotation
+    track_ids = pred.track_ids
+    print(f"Frame {frame_index}: {len(track_ids)} tracks")
 ```
-</details>
+
+> You can also apply tracker in your own code or application. Read more details in the [Video Object Tracking](video-object-tracking.md).
 
 
 ## Predict settings (kwargs)
