@@ -489,8 +489,7 @@ for pred in predictions:
     print(f"Frame {frame_index}: {len(track_ids)} tracks")
 ```
 
-> You can also apply tracker in your own code or application. Read more details in the [Video Object Tracking](video-object-tracking.md).
-
+> You can also use the tracker as a standalone model (without API calls) in your code or application. Read more details in the [Video Object Tracking](video-object-tracking.md).
 
 ## Predict settings (kwargs)
 
