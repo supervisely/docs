@@ -57,21 +57,25 @@ If you're having trouble with an app from the Supervisely Ecosystem (or a custom
 
 <figure><img src="../.gitbook/assets/support/error-log-1.jpg" alt="Error Log"><figcaption></figcaption></figure>
 
-3. If not, open the `Apps` tab, find the needed application and click on the button under it.  
+3. Click on the three dots icon and select the `Logs` option.
+
+<figure><img src="../.gitbook/assets/support/error-log-4.jpg" alt="Logs Tab three dots"><figcaption></figcaption></figure>
+
+4. In the opened window, click the `Download Logs` button.  
+
+<figure><img src="../.gitbook/assets/support/error-log-5.jpg" alt="Download Logs"><figcaption></figcaption></figure>
+
+If you didn’t find anything in the **Tasks tab**, then go to the **Apps tab**:
+
+1. Open the `Apps` tab, find the needed application and click on the button under it. Then simply click on the `Open error log`.  
 
 <figure><img src="../.gitbook/assets/support/error-log-2.jpg" alt="Error Log"><figcaption></figcaption></figure>
 
-4. If on the `Tasks` tab, click on the three dots icon and select the `Logs` option. On the `Apps` tab simply click on the `Logs` button.  
+2. Click on the `Download Logs` button.  
 
-![Logs Tab three dots]()
+<figure><img src="../.gitbook/assets/support/error-log-3.jpg" alt="Download Logs"><figcaption></figcaption></figure>
 
-![Apps Tab Logs]()
-
-5. Click on the `Download Logs` button.  
-
-![Download Logs]()
-
-6. Now, when you downloaded the logs, please share them with our support team for further assistance.
+Now, when you downloaded the logs, please share them with our support team for further assistance.
 
 #### Changing the log level of application
 
