@@ -81,15 +81,15 @@ Now, when you downloaded the logs, please share them with our support team for f
 
 In some cases, we'll need additional logs to diagnose the issue. You can change the log level in two ways:
 
-Option A — Start a new app session with a different log level
+**Option A** — Start a new app session with a different log level
 
 1. Launch the application and click on the `Advanced settings` option.
 2. Set the `Log Level` to `Debug` or `Trace` to capture more detailed logs.
 3. Start the application.
 
-![Change Log Level]()
+<figure><img src="../.gitbook/assets/support/change-log-level.jpg" alt="Change Log Level"><figcaption></figcaption></figure>
 
-Option B — Re-run the same session with a different log level
+**Option B** — Re-run the same session with a different log level
 
 1. Open `Tasks & Apps` and find the previous session.
 2. Click `Run Again`.
