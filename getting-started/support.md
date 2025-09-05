@@ -148,7 +148,7 @@ For Enterprise version of Supervisely, please do the following:
 1. Open any Labeling Toolbox (such as Image Labeling Toolbox).  
 2. Find the Troubleshoot button on the bottom right corner and click it. 
 
-<figure><img src="../.gitbook/assets/support/.jpg" alt="Troubleshoot Button"><figcaption></figcaption></figure>
+![Troubleshoot Button]()
 
 3. Perform the Troubleshoot test, save the results (text or screenshot) and share them with our support team.
 
