@@ -29,7 +29,10 @@ This means the Supervisely team is actively managing the server, including updat
 If something’s not working as expected in Supervisely, let’s first narrow down what kind of issue you're facing:
 
 1. You're having [trouble with an app from the Supervisely Ecosystem](#issues-with-applications) (or a custom app).  
-2. You see an [error message in the UI outside](#issues-with-the-platform) of the app (e.g. "Something went wrong").  
+2. You see an [error message in the UI outside](#issues-with-the-platform) of the app (e.g. "Something went wrong").
+
+<figure><img src="../.gitbook/assets/support/went-wrong.jpg" alt="Something went wrong"><figcaption></figcaption></figure>
+
 3. The platform isn’t throwing errors, but it feels [slow or laggy](#slow-performance).  
 4. Things technically work, but the [behavior seems off or unexpected](#unexpected-behavior).  
 5. You're running into a technical issue with the [API or SDK](#python-sdk-or-api-issues).  
@@ -41,21 +44,22 @@ Once you’ve identified the type of issue, scroll down to find the best way to 
 
 If you're having trouble with an app from the Supervisely Ecosystem (or a custom app), here are some steps you can take:
 
-1. Check the app's README section and ensure that you followed all setup instructions.  
+1. Check the app's README section and ensure that you followed all setup instructions. 
+
+<figure><img src="../.gitbook/assets/support/app-readme1.jpg" alt="App README"><figcaption></figcaption></figure>
+
 2. If there are some specific error messages while running the app, please download its logs and share it with our support team.  
 
 #### How to download application logs?
 
 1. Open the `Tasks & Apps` section in the left sidebar.  
-![Tasks & Apps]()
-
 2. Check if the needed session is in the `Tasks` tab.  
 
-![Tasks Tab]()
+<figure><img src="../.gitbook/assets/support/error-log-1.jpg" alt="Error Log"><figcaption></figcaption></figure>
 
 3. If not, open the `Apps` tab, find the needed application and click on the button under it.  
 
-![Apps Tab]()
+<figure><img src="../.gitbook/assets/support/error-log-2.jpg" alt="Error Log"><figcaption></figcaption></figure>
 
 4. If on the `Tasks` tab, click on the three dots icon and select the `Logs` option. On the `Apps` tab simply click on the `Logs` button.  
 
