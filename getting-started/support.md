@@ -46,7 +46,7 @@ If you're having trouble with an app from the Supervisely Ecosystem (or a custom
 
 1. Check the app's README section and ensure that you followed all setup instructions. 
 
-<figure><img src="../.gitbook/assets/support/app-readme1.jpg" alt="App README"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/support/app-readme.jpg" alt="App README"><figcaption></figcaption></figure>
 
 2. If there are some specific error messages while running the app, please download its logs and share it with our support team.  
 
@@ -55,7 +55,7 @@ If you're having trouble with an app from the Supervisely Ecosystem (or a custom
 1. Open the `Tasks & Apps` section in the left sidebar.  
 2. Check if the needed session is in the `Tasks` tab.  
 
-<figure><img src="../.gitbook/assets/support/error-log-1.jpg" alt="Error Log"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/support/error-log-tasks.jpg" alt="Error Log"><figcaption></figcaption></figure>
 
 3. Click on the three dots icon and select the `Logs` option.
 
