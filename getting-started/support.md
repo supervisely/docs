@@ -148,11 +148,11 @@ For Enterprise version of Supervisely, please do the following:
 1. Open any Labeling Toolbox (such as Image Labeling Toolbox).  
 2. Find the Troubleshoot button on the bottom right corner and click it. 
 
-![Troubleshoot Button]()
+<figure><img src="../.gitbook/assets/support/troubleshoot-button.jpg" alt="roubleshoot Button"><figcaption></figcaption></figure>
 
 3. Perform the Troubleshoot test, save the results (text or screenshot) and share them with our support team.
 
-![Troubleshoot Test Results]()
+<figure><img src="../.gitbook/assets/support/troubleshoot-test-results1.jpg" alt="roubleshoot Button"><figcaption></figcaption></figure>
 
 #### Performing a speed test
 
@@ -175,7 +175,6 @@ If it did not help, check if there any errors appear on the Developer Console. T
 
 If the issue persists, please contact our support team with a detailed description of the problem, including any steps to reproduce it as well as screenshots from the Developer Console.  
 In some cases the screen recording of the issue can be helpful as well.
-
 
 ### Python SDK or API issues
 
