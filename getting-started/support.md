@@ -87,7 +87,7 @@ In some cases, we'll need additional logs to diagnose the issue. You can change 
 2. Set the `Log Level` to `Debug` or `Trace` to capture more detailed logs.
 3. Start the application.
 
-<figure><img src="../.gitbook/assets/support/change-log-level.jpg" alt="Change Log Level"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/support/log-level-a.jpg" alt="Change Log Level"><figcaption></figcaption></figure>
 
 **Option B** — Re-run the same session with a different log level
 
@@ -96,7 +96,9 @@ In some cases, we'll need additional logs to diagnose the issue. You can change 
 3. In the relaunch dialog, open `Advanced settings` and set the `Log Level` to `Debug` or `Trace`.
 4. Start the application.
 
-What happens next
+<figure><img src="../.gitbook/assets/support/log-level-b.jpg" alt="Change Log Level"><figcaption></figcaption></figure>
+
+**What happens next**
 
 - If the app runs with saved inputs, it will automatically repeat the same scenario with the new log level.
 - If it does not, it will start with the same parameters as last time and be ready for work.
@@ -146,7 +148,7 @@ For Enterprise version of Supervisely, please do the following:
 1. Open any Labeling Toolbox (such as Image Labeling Toolbox).  
 2. Find the Troubleshoot button on the bottom right corner and click it. 
 
-![Troubleshoot Button]()
+<figure><img src="../.gitbook/assets/support/.jpg" alt="Troubleshoot Button"><figcaption></figcaption></figure>
 
 3. Perform the Troubleshoot test, save the results (text or screenshot) and share them with our support team.
 
