@@ -20,10 +20,6 @@ If you're contacting us from a personal email address, please mention that you'r
 If your Supervisely server address ends with `enterprise.supervisely.com`, you're using an **Enterprise instance hosted in our Cloud**.  
 This means the Supervisely team is actively managing the server, including updates, backups, maintenance, logs, and troubleshooting. You **do not need to collect or send a troubleshooting archive**, just contact us directly, and we’ll take it from there.
 
-## I have a question
-
-...
-
 ## I Have an Issue
 
 If something’s not working as expected in Supervisely, let’s first narrow down what kind of issue you're facing:
