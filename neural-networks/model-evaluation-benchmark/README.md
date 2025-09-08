@@ -1,12 +1,14 @@
 # Model Evaluation Benchmark
 
+## Overview
+
 After training a model, it is crucial to evaluate it on a validation set to assess its performance. Supervisely provides you a built-in evaluation benchmark that **automatically** runs after each model training experiment. Our evaluation benchmark has a large set of evaluation tools, visualizations, and metrics to help you understand how well does your model actually performs.
 
 **Supervisely offers the most advanced evaluation tool on the market!**
 
 ![Benchmark Report Example](../../.gitbook/assets/benchmark_report.gif)
 
-**Supported Task Types:**
+### Supported Task Types
 
 Evaluation Benchmark now supports the following **task types**:
 - [Object Detection](./object-detection.md)
