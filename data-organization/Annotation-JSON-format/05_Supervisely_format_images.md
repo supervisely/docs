@@ -73,6 +73,8 @@ Example:
             "labelerLogin": "alexxx",
             "createdAt": "2020-08-07T11:09:51.054Z",
             "updatedAt": "2020-08-07T11:09:51.054Z",
+            "nnCreated": false,
+            "nnUpdated": false,
             "tags": [],
             "classTitle": "person",
             "bitmap": {
@@ -91,6 +93,8 @@ Example:
             "labelerLogin": "alexxx",
             "createdAt": "2020-08-07T11:09:51.054Z",
             "updatedAt": "2020-08-07T11:09:51.054Z",
+            "nnCreated": false,
+            "nnUpdated": false,
             "tags": [],
             "classTitle": "bike",
             "points": {
