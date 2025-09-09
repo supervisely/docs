@@ -6,7 +6,7 @@ After training a model, it is crucial to evaluate it on a validation set to asse
 
 **Supervisely offers the most advanced evaluation tool on the market!**
 
-![Benchmark Dashboard](../../.gitbook/assets/neural-networks/model-benchmark/benchmark-dashboard.png)
+![Benchmark Dashboard](/.gitbook/assets/neural-networks/model-benchmark/benchmark-dashboard-75.png)
 
 ### Supported Task Types
 
