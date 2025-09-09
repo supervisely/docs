@@ -15,6 +15,8 @@ Evaluation Benchmark now supports the following **task types**:
 - [Instance Segmentation](./instance-segmentation.md)
 - [Semantic Segmentation](./semantic-segmentation.md)
 
+Read detailed documentation for each task type by following the links above.
+
 ## How to Open Evaluation Results
 
 After training, you can open the evaluation results either from the training session (application) where the model was trained or from the **[Experiments](../training/experiments.md)** table in Supervisely. The second option is more convenient, because the Experiments table organizes all your training experiments in one place. To open the evaluation results, find the experiment you are interested in, and click on **Evaluation Report** link.
