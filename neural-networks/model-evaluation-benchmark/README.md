@@ -6,7 +6,7 @@ After training a model, it is crucial to evaluate it on a validation set to asse
 
 **Supervisely offers the most advanced evaluation tool on the market!**
 
-![Benchmark Report Example](../../.gitbook/assets/benchmark_report.gif)
+![Benchmark Dashboard](../../.gitbook/assets/neural-networks/model-benchmark/benchmark-dashboard.png)
 
 ### Supported Task Types
 
@@ -19,7 +19,7 @@ Evaluation Benchmark now supports the following **task types**:
 
 After training, you can open the evaluation results either from the training session (application) where the model was trained or from the **[Experiments](../training/experiments.md)** table in Supervisely. The second option is more convenient, because the Experiments table organizes all your training experiments in one place. To open the evaluation results, find the experiment you are interested in, and click on **Evaluation Report** link.
 
-![Open Evaluation from Experiments](/.gitbook/assets/neural-networks/model-benchmark/open-evaluation-from-table.png)
+![Open Evaluation from Experiments](/.gitbook/assets/neural-networks/model-benchmark/open-evaluation-from-table-2.png)
 
 ## Compare Evaluation Results
 
