@@ -44,7 +44,7 @@ Fields definitions:
 - `createdAt` - string - date and time of figure creation
 - `updatedAt` - string - date and time of the last figure update
 - `nnCreated` - boolean - indicates if the object was created by a neural network
-- `nnUpdated` - boolean - indicates if the object was updated by a neural network
+- `nnUpdated` - boolean - indicates if the object was updated or corrected by a neural network or manually by the user
 
 ## Point
 
