@@ -43,6 +43,8 @@ Fields definitions:
 - `labelerLogin` - string - the name of user who created the current figure
 - `createdAt` - string - date and time of figure creation
 - `updatedAt` - string - date and time of the last figure update
+- `nnCreated` - boolean - indicates if the object was created by a neural network
+- `nnUpdated` - boolean - indicates if the object was updated or corrected by a neural network or manually by the user
 
 ## Point
 
@@ -59,6 +61,8 @@ JSON format for this shape:
   "labelerLogin": "alexxx",
   "createdAt": "2020-08-22T09:32:48.010Z",
   "updatedAt": "2020-08-22T09:33:08.926Z",
+  "nnCreated": false,
+  "nnUpdated": false,
   "description": "",
   "geometryType": "point",
   "tags": [],
@@ -96,6 +100,8 @@ JSON format for this figure:
   "labelerLogin": "max",
   "createdAt": "2020-08-22T09:32:48.010Z",
   "updatedAt": "2020-08-22T09:33:08.926Z",
+  "nnCreated": false,
+  "nnUpdated": false,
   "description": "",
   "geometryType": "rectangle",
   "tags": [],
@@ -134,6 +140,8 @@ Example:
     "labelerLogin": "alexxx",
     "createdAt": "2020-08-21T15:15:28.092Z",
     "updatedAt": "2020-08-21T15:15:37.687Z",
+    "nnCreated": false,
+    "nnUpdated": false,
     "description": "",
     "geometryType": "polygon",
     "tags": [],
@@ -173,6 +181,8 @@ Example:
   "labelerLogin": "alexxx",
   "createdAt": "2020-08-21T15:15:28.092Z",
   "updatedAt": "2020-08-21T16:06:11.461Z",
+  "nnCreated": false,
+  "nnUpdated": false,
   "description": "",
   "geometryType": "polygon",
   "tags": [],
@@ -218,6 +228,8 @@ Example:
   "labelerLogin": "alexxx",
   "createdAt": "2020-08-22T08:39:29.386Z",
   "updatedAt": "2020-08-22T08:39:34.802Z",
+  "nnCreated": false,
+  "nnUpdated": false,
   "description": "",
   "geometryType": "line",
   "tags": [],
@@ -259,6 +271,8 @@ Example:
   "labelerLogin": "alexxx",
   "createdAt": "2020-07-24T07:30:39.202Z",
   "updatedAt": "2020-07-24T07:41:12.753Z",
+  "nnCreated": false,
+  "nnUpdated": false,
   "description": "",
   "geometryType": "bitmap",
   "tags": [],
@@ -358,6 +372,8 @@ Example:
   "labelerLogin": "almaz",
   "createdAt": "2024-05-29T09:35:38.212Z",
   "updatedAt": "2024-05-29T09:45:14.543Z",
+  "nnCreated": false,
+  "nnUpdated": false,
   "description": "",
   "geometryType": "alpha_mask",
   "tags": [],
@@ -459,6 +475,8 @@ Example:
   "labelerLogin": "alexxx",
   "createdAt": "2020-08-22T10:50:28.336Z",
   "updatedAt": "2020-08-22T10:53:57.760Z",
+  "nnCreated": false,
+  "nnUpdated": false,
   "tags": [],
   "classTitle": "graph",
   "nodes": {
@@ -502,6 +520,8 @@ Example:
   "id": 246511976,
   "classId": 9214847,
   "objectId": null,
+  "nnCreated": false,
+  "nnUpdated": false,
   "description": "",
   "geometryType": "cuboid_2d",
   "labelerLogin": "almaz",
@@ -575,7 +595,9 @@ Below is an example of what the object looks like in the annotation file:
   },
   "labelerLogin": "username",
   "updatedAt": "2021-11-13T08:05:28.771Z",
-  "createdAt": "2021-11-13T08:05:28.771Z"
+  "createdAt": "2021-11-13T08:05:28.771Z",
+  "nnCreated": false,
+  "nnUpdated": false
 }
 ```
 

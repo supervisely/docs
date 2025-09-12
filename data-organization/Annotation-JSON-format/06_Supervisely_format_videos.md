@@ -52,7 +52,9 @@ Json format of annotation for video format:
                     },
                     "labelerLogin": "alexxx",
                     "updatedAt": "2020-08-23T12:06:13.544Z",
-                    "createdAt": "2020-08-23T12:06:13.544Z"
+                    "createdAt": "2020-08-23T12:06:13.544Z",
+                    "nnCreated": false,
+                    "nnUpdated": false
                 }
             ]
         }
@@ -93,6 +95,8 @@ Json format of annotation for video format:
 * `labelerLogin` - string, the name of the user that added this figure to the current frame
 * `createdAt` - string - the date and time when the figure was created in format "YYYY-MM-DDTHH:MM:SS.MMMZ"
 * `updatedAt` - string - the date and time when the figure was updated in format "YYYY-MM-DDTHH:MM:SS.MMMZ"
+* `nnCreated` - boolean - indicates if the object was created by a neural network
+* `nnUpdated` - boolean - indicates if the object was updated or corrected by a neural network or manually by the user
 * `meta` - [Optional] dictionary, contains additional information about the figure
 * `smartToolInput` - [Optional] dictionary, if the figure was created by smart tool, contains geometries of the box and points
 * `priority` - [Optional] integer, priority of the figure
