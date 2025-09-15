@@ -26,11 +26,12 @@ The Supervisely Team focused on finding the optimal solution that can be used to
 
 The complete workflow of the solution contains several steps, each of them described in the corresponding section below. The solution is implemented using the Supervisely platform and its features, such as video annotation, model training, and deploying optimized inference pipelines.
 
-Table of Contents:
+**Table of Contents:**
 1. [Import Data](#1-import-data)
 2. [Annotation & Active Learning](#2-annotation--active-learning)
 3. [Training](#3-training)
 4. [Optimization & Deployment](#4-optimization--deployment)
+5. [Additional Resources](#additional-resources)
 
 ## 1. Import data
 
@@ -60,14 +61,15 @@ After manual correction, we evaluated the quality of pre-labeling with Florence 
 |-------|-----------------|---------------------------|---------------------|-----|
 | Florence-2 pipeline | 500 frames | 0.4869 | 0.411 | 0.089 |
 
-> * mAP is reported for reference. It is not the main metric for evaluating pre-labeling quality.
+*\*mAP is reported for reference. It is not the main metric for evaluating pre-labeling quality.*
 
-Despite the Average Precision (mAP) being relatively low, the model actually performed well for initial pre-labeling. The F1-score of 0.4869 indicates that nearly half of the objects were correctly identified, which is a solid starting point for manual refinement of annotations.
+Despite the Average Precision (mAP) being relatively low, the model actually performed well for initial pre-labeling. The **F1-score** of 0.49 indicates that nearly half of the objects were correctly identified, which is a solid starting point for manual refinement of annotations.
 
 ### Active Learning Labeling Process
 
-After obtaining the first 500 annotated frames, we started the iterative process of training and annotation:
+After obtaining the first 500 annotated frames, we started the iterative process of training and annotation (also known as human-in-the-loop). In each iteration, we trained a DEIM model on the currently labeled dataset, used it to pre-label the next batch of images, and then had annotators correct any mistakes. This cycle was repeated until the entire dataset of **6000 frames** was annotated. DEIM models were trained with **640x640** input resolution and architecture **DEIM D-FINE-L**.
 
+<!-- 
 1. **First iteration**:
    - Trained DEIM on 500 manually corrected frames
    - Used this model to pre-label the next 1500 frames
@@ -80,11 +82,11 @@ After obtaining the first 500 annotated frames, we started the iterative process
 
 3. **Third iteration**:
    - Trained the final DEIM model on the complete dataset of 6000 frames
-   - Achieved 70.3 mAP on the validation set of 600 images
+   - Achieved 72.93 mAP on the validation set of 600 images -->
 
-All intermediate DEIM models were trained with **640x640** input resolution and architecture **D-FINE-L**.
 
-We re-evaluated the performance of each trained model on the final validation set of 725 images. The results of each iteration are summarized in the table below:
+
+After this, we re-evaluated each trained model on the final validation set of **725 images**. The results of each iteration are summarized in the table below:
 
 | Iteration | Training Size | Validation Size | mAP  |
 |-----------|--------------|-----------------|-------|
@@ -118,7 +120,7 @@ Based on these results, **DEIM** was confirmed as the superior architecture for 
 
 Finally, we trained the **DEIM D-FINE-M** model with **1920x1088** input resolution on the full dataset to maximize model performance. This model will be used for processing video streams with target 1920x1080 resolution.
 
-Final score: **75.12** mAP (1920x1088)
+Final score: 🔴🔴🔴**75.12** mAP (1920x1088)
 
 ## 4. Optimization & Deployment
 
@@ -137,9 +139,11 @@ Our optimized pipeline consists of:
 2. DEIM detector running on TensorRT in 1920x1088 resolution (add 8px padding)
 3. NvSORT tracker for associating detections across frames
 
-This setup achieves real-time performance with **170 FPS** on NVIDIA RTX 4090 GPU, significantly exceeding the 50 FPS requirement.
+This setup achieves real-time performance with 🔴🔴🔴**170 FPS** on NVIDIA RTX 4090 GPU, significantly exceeding the 50 FPS requirement.
 
 ---
+
+## Additional Resources
 
 ### Exporting the data
 
