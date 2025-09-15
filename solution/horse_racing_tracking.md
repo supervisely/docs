@@ -9,7 +9,7 @@ The core computer vision task involves Object Detection and Multi-Object Trackin
 **Data type:** Video  
 **Task types:** Object Detection, Multi-Object Tracking  
 **Used models:** [DEIM](https://github.com/Intellindust-AI-Lab/DEIM), [Florence 2](https://huggingface.co/microsoft/Florence-2-large), [YOLOv12](https://github.com/ultralytics/ultralytics)  
-**Pre-processing:** Active Learning for efficient annotation, zero-shot pre-labeling
+**Pre-processing:** Active Learning for efficient annotation, zero-shot pre-labeling  
 **Object classes:** horse, horse head, driver, number plate, white stick, yellow stick
 
 ## Solution Approach
@@ -67,24 +67,12 @@ Despite the Average Precision (mAP) being relatively low, the model actually per
 
 ### Active Learning Labeling Process
 
-After obtaining the first 500 annotated frames, we started the iterative process of training and annotation (also known as human-in-the-loop). In each iteration, we trained a DEIM model on the currently labeled dataset, used it to pre-label the next batch of images, and then had annotators correct any mistakes. This cycle was repeated until the entire dataset of **6000 frames** was annotated. DEIM models were trained with **640x640** input resolution and architecture **DEIM D-FINE-L**.
+After obtaining the first 500 annotated frames, we started the iterative process of training and annotation (also known as **human-in-the-loop**). In each iteration, we trained a DEIM model on the currently labeled dataset, used it to pre-label the next batch of images, and then had annotators correct any mistakes. This cycle was repeated until the entire dataset of **6000 frames** was annotated. DEIM models were trained with **640x640** input resolution and architecture **DEIM D-FINE-L**.
 
-<!-- 
-1. **First iteration**:
-   - Trained DEIM on 500 manually corrected frames
-   - Used this model to pre-label the next 1500 frames
-   - Sent pre-labeled frames for manual correction by annotators
-
-2. **Second iteration**:
-   - Trained a new DEIM model on 2000 total labeled frames
-   - Used this improved model to pre-label the remaining 4000 frames
-   - Completed the manual review and correction of these frames
-
-3. **Third iteration**:
-   - Trained the final DEIM model on the complete dataset of 6000 frames
-   - Achieved 72.93 mAP on the validation set of 600 images -->
-
-
+We performed **3 iterations** of this process with the following dataset sizes:
+- **Iteration 1:** 500 annotated frames
+- **Iteration 2:** 2000 annotated frames
+- **Iteration 3:** 6000 annotated frames
 
 After this, we re-evaluated each trained model on the final validation set of **725 images**. The results of each iteration are summarized in the table below:
 
