@@ -183,6 +183,7 @@
   * [Custom Training](neural-networks/custom-model-integration/integrate-custom-training.md)
 * Solutions
   * [Temporal Action Localization with MVD](solution/action_recognition/temporal_action_localization_with_mvd.md)
+  * [Horse Racing Detection & Tracking](solution/horse_racing_tracking.md)
 * [Legacy](neural-networks/legacy/README.md)
   * [Starting with Neural Networks](neural-networks/legacy/overview/overview.md)
   * [Train custom Neural Networks](neural-networks/legacy/custom-nn/custom-nn.md)
