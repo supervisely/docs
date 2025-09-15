@@ -1,5 +1,5 @@
 # Object Tracking for Horse Racing with DEIM
-The Supervisely Team is pleased to share a successful solution for tracking objects in horse racing videos using a [DEIM](https://github.com/DearCaat/DEIM) detector combined with tracking algorithms to achieve high-performance object tracking.
+The Supervisely Team is pleased to share a successful solution for tracking objects in horse racing videos using a [DEIM](https://github.com/Intellindust-AI-Lab/DEIM) detector combined with NvSort tracking algorithm to achieve real-time high-performance object tracking in video streams.
 
 ## Description
 This project aims to provide an effective automated solution for tracking multiple objects in horse racing videos. The system focuses on identifying and tracking several key elements: horses, drivers, sticks, and other racing-related objects with high accuracy and real-time performance.
@@ -8,33 +8,31 @@ The core computer vision task involves Object Detection and Multi-Object Trackin
 
 **Data type:** Video  
 **Task types:** Object Detection, Multi-Object Tracking  
-**Used models:** [DEIM](https://github.com/DearCaat/DEIM), [Florence 2](https://github.com/microsoft/Florence-2), [YOLOv12](https://github.com/ultralytics/ultralytics)  
-**Pre-processing:** Active Learning for efficient annotation, zero-shot pre-labeling  
+**Used models:** [DEIM](https://github.com/Intellindust-AI-Lab/DEIM), [Florence 2](https://huggingface.co/microsoft/Florence-2-large), [YOLOv12](https://github.com/ultralytics/ultralytics)  
+**Pre-processing:** Active Learning for efficient annotation, zero-shot pre-labeling
+**Object classes:** horse, horse head, driver, number plate, white stick, yellow stick
 
 ## Solution Approach
 
 The Supervisely Team focused on finding the optimal solution that can be used to solve this case in the most effective way. The solution is based on the following steps:
 
 1. **Import video files** to the Supervisely platform. The dataset consists of 107 horse racing videos that need to be analyzed.
-2. **Data annotation** using Active Learning approach to make the labeling process more efficient. We started with zero-shot pre-labeling using Florence 2 model and iteratively trained custom detectors to improve annotations.
+2. **Data annotation with Active Learning** approach to make the labeling process more efficient. We started with zero-shot pre-labeling using Florence 2 model and iteratively trained custom detectors to improve annotations.
 3. **Train Object Detection model** using the [DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train) architecture, which significantly outperformed alternative models like YOLOv12 in our tests.
 4. **Model optimization and export** to TensorRT for maximum inference speed while maintaining accuracy.
-5. **Deployment** with the Nvidia DeepStream framework integrated with NvSORT tracker for an accelerated pipeline that achieves 170 FPS at 1920x1088 resolution on NVIDIA RTX 4090 GPU.
+5. **Deployment** with the Nvidia DeepStream framework integrated with NvSORT tracker for an accelerated pipeline that achieves 🔴🔴🔴 170 FPS at 1920x1088 resolution on NVIDIA RTX 4090 GPU.
 
 ![Solution Approach](../../assets/solution/object_tracking/solution-approach.png)
-
-## Solution Overview
 
 The complete workflow of the solution contains several steps, each of them described in the corresponding section below. The solution is implemented using the Supervisely platform and its features, such as video annotation, model training, and deploying optimized inference pipelines.
 
 Table of Contents:
 1. [Import Data](#1-import-data)
-2. [Annotation](#2-annotation)
+2. [Annotation & Active Learning](#2-annotation--active-learning)
 3. [Training](#3-training)
-4. [Optimization](#4-optimization)
-5. [Deployment](#5-deployment)
+4. [Optimization & Deployment](#4-optimization--deployment)
 
-### 1. Import data
+## 1. Import data
 
 The first step of solving the task is to import the video files into the Supervisely platform. There are plenty of ways to do that, and all of them are described in the [Import](https://docs.supervisely.com/import-and-export/import) section of the Supervisely documentation. In this case, we'll briefly describe one of the options - manual upload of the data from the local machine.
 
@@ -44,19 +42,29 @@ The first step of solving the task is to import the video files into the Supervi
 
 If you need to import files from a remote server or from Cloud Storage, you can use apps like [Import Videos from Cloud Storage](https://ecosystem.supervisely.com/apps/import-videos-from-cloud-storage) or [Remote Import](https://ecosystem.supervisely.com/apps/remote-import).
 
-### 2. Annotation
+## 2. Annotation & Active Learning
 
 For efficient annotation of a large dataset, we implemented an Active Learning approach, which makes the process more effective by iteratively training models and using them to assist in annotation. This approach significantly reduces the manual labeling effort required while maintaining high annotation quality.
 
-#### Bootstrap Phase with Florence 2
+### Pre-labeling with Florence 2
 
-In the initial phase when no trained models were available, we utilized the Florence 2 zero-shot model to generate preliminary annotations for the first 500 frames:
+In the initial phase when no trained models were available suitable for our task, we utilized the [Florence 2](https://huggingface.co/microsoft/Florence-2-large) model with zero-shot capabilities to generate preliminary annotations for the first 500 frames which were uniformly sampled across the videos.
 
 1. We crafted a custom pipeline for Florence 2 to achieve the best possible accuracy from a zero-shot model
 2. Applied this pipeline to automatically pre-label the first 500 frames
 3. Sent these preliminary annotations for manual review and correction
 
-#### Active Learning Iteration Process
+After manual correction, we evaluated the quality of pre-labeling with Florence 2. The following results were observed:
+
+| Model | Validation Size | F1-score (avg. per-image) | Average Recall (AR) | mAP* |
+|-------|-----------------|---------------------------|---------------------|-----|
+| Florence-2 pipeline | 500 frames | 0.4869 | 0.411 | 0.089 |
+
+> * mAP is reported for reference. It is not the main metric for evaluating pre-labeling quality.
+
+Despite the Average Precision (mAP) being relatively low, the model actually performed well for initial pre-labeling. The F1-score of 0.4869 indicates that nearly half of the objects were correctly identified, which is a solid starting point for manual refinement of annotations.
+
+### Active Learning Labeling Process
 
 After obtaining the first 500 annotated frames, we started the iterative process of training and annotation:
 
@@ -70,82 +78,68 @@ After obtaining the first 500 annotated frames, we started the iterative process
    - Used this improved model to pre-label the remaining 4000 frames
    - Completed the manual review and correction of these frames
 
-3. **Final training**:
+3. **Third iteration**:
    - Trained the final DEIM model on the complete dataset of 6000 frames
    - Achieved 70.3 mAP on the validation set of 600 images
 
-This approach allowed us to efficiently annotate the necessary frames while continually improving our model's accuracy throughout the process.
+All intermediate DEIM models were trained with **640x640** input resolution and architecture **D-FINE-L**.
 
-#### Annotation Format
+We re-evaluated the performance of each trained model on the final validation set of 725 images. The results of each iteration are summarized in the table below:
 
-The annotations include the following classes:
-- Horses
-- Drivers
-- Sticks
-- Other racing-related objects
+| Iteration | Training Size | Validation Size | mAP  |
+|-----------|--------------|-----------------|-------|
+| 1         | 400          | 725             | 58.71 |
+| 2         | 1675         | 725             | 71.98 |
+| 3         | 5275         | 725             | 72.93 |
 
-Each object is annotated with a bounding box that precisely delineates its position in the frame.
+#### Comparing with YOLOv12
 
-### 3. Training
+We additionally tested **YOLOv12-L** model using the same dataset and training methodology. YOLOv12-L achieved only **45.53** mAP on the first training iteration, and **53.4** mAP on the final iteration, significantly underperforming compared to **DEIM**. Based on these results, DEIM was confirmed as the superior architecture for this application.
 
-After completing the annotation process, we proceeded to train and evaluate multiple object detection models to identify the best performer for our specific use case.
+| Model   | Iteration | Training Size | mAP |
+|---------|-----------|---------------|------|
+| YOLOv12-L | 1         | 400           | 45.53 |
+| YOLOv12-L | 3         | 5275          | 53.4  |
+| DEIM D-FINE-L | 1         | 400           | 58.71 |
+| DEIM D-FINE-L | 3         | 5275          | 72.93 |
 
-#### DEIM Model Training
+## 3. Training
 
-We selected the [DEIM](https://github.com/DearCaat/DEIM) architecture as our primary model due to its superior performance characteristics:
+After annotation process was completed with 6000 annotated frames, we proceeded to train the final object detection model. We evaluated two architectures: **YOLOv12-L** and **DEIM D-FINE-L**, and selected the one that provided the best balance of accuracy and inference speed for our specific use case.
 
-1. Trained the final model on the complete dataset of 6000 annotated frames
-2. Configured optimal hyperparameters for horse racing domain
-3. Evaluated on a validation set of 600 frames
-4. Achieved 70.3 mAP, demonstrating excellent detection capabilities
+**DEIM vs. YOLOv12 Comparison:**
 
-#### Comparative Analysis
+| Model   | Dataset size | mAP | Params | Latency | GFLOPs |
+|---------|---------------|-----|--------|---------|--------|
+| YOLOv12-L | 6000        | 53.4  | 26.4M   | 6.77ms  | 88.9 |
+| DEIM D-FINE-L | 6000    | **72.93** | 31M     | 8.07ms  | 91   |
 
-To ensure we selected the best model architecture for our task, we conducted comparative testing:
+Based on these results, **DEIM** was confirmed as the superior architecture for this application.
 
-1. Trained YOLOv12 using the same dataset and training methodology
-2. Evaluated YOLOv12 on the same validation set
-3. YOLOv12 achieved only 53.4 mAP, significantly underperforming compared to DEIM
-4. Based on these results, DEIM was confirmed as the superior architecture for this application
+Finally, we trained the **DEIM D-FINE-M** model with **1920x1088** input resolution on the full dataset to maximize model performance. This model will be used for processing video streams with target 1920x1080 resolution.
 
-### 4. Optimization
+Final score: **75.12** mAP (1920x1088)
+
+## 4. Optimization & Deployment
 
 To meet the requirement of processing video at 50+ FPS in 1920x1080 resolution, we implemented several optimization techniques:
 
-#### Model Export and Acceleration
+### TensorRT Export
 
-1. Exported the trained DEIM model to TensorRT format
-   - TensorRT provides significant acceleration through hardware-specific optimizations
-   - Maintained detection accuracy while improving inference speed
+We exported our trained model to TensorRT engine. TensorRT provides significant acceleration through hardware-specific optimizations on NVIDIA GPUs.
 
-2. Optimized model parameters
-   - Balanced detection confidence thresholds for optimal accuracy
-   - Fine-tuned non-maximum suppression settings to maintain detection quality at high speeds
+### Nvidia DeepStream Integration
 
-### 5. Deployment
+We integrated our TensorRT-optimized model into the Nvidia DeepStream framework. This framework is designed for high-performance video analytics and supports efficient processing pipelines. It also provides built-in multi-object tracking algorithms. We selected the **NvSORT** tracker for its balance of speed and accuracy.
 
-The final deployment solution combines our optimized detection model with a tracking system to implement a tracking-by-detection approach:
+Our optimized pipeline consists of:
+1. Video input at 1920x1080 resolution
+2. DEIM detector running on TensorRT in 1920x1088 resolution (add 8px padding)
+3. NvSORT tracker for associating detections across frames
 
-#### Integration with Nvidia DeepStream and NvSORT
+This setup achieves real-time performance with **170 FPS** on NVIDIA RTX 4090 GPU, significantly exceeding the 50 FPS requirement.
 
-1. Configured Nvidia DeepStream framework
-   - Integrated our TensorRT-optimized DEIM model
-   - Set up the NvSORT tracker for efficient multi-object tracking
-   - Optimized pipeline parameters for horse racing video characteristics
-
-2. Performance Results
-   - Achieved 170 FPS processing speed at 1920x1088 resolution on NVIDIA RTX 4090 GPU
-   - Significantly exceeded the 50 FPS requirement, providing margin for additional processing if needed
-   - Maintained high tracking accuracy across diverse racing scenarios
-
-#### Deployment Process
-
-The deployment pipeline is designed for easy integration into existing video processing systems:
-
-1. Video input is processed through the DeepStream framework
-2. DEIM detector identifies objects in each frame
-3. NvSORT tracker associates detections across frames to maintain consistent object identities
-4. Output provides bounding boxes with unique track IDs for each detected object
+---
 
 ### Exporting the data
 
