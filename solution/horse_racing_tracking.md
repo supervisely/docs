@@ -10,7 +10,7 @@ The core computer vision task involves Object Detection and Multi-Object Trackin
 **Task types:** Object Detection, Multi-Object Tracking  
 **Used models:** [DEIM](https://github.com/Intellindust-AI-Lab/DEIM), [Florence 2](https://huggingface.co/microsoft/Florence-2-large), [YOLOv12](https://github.com/ultralytics/ultralytics)  
 **Pre-processing:** Active Learning for efficient annotation, zero-shot pre-labeling  
-**Object classes:** horse, horse head, driver, number plate, white stick, yellow stick
+**Object classes:** horse, horse head, rider, number plate, white stick, yellow stick
 
 ## Solution Approach
 
@@ -20,7 +20,7 @@ The Supervisely Team focused on finding the optimal solution that can be used to
 2. **Data annotation with Active Learning** approach to make the labeling process more efficient. We started with zero-shot pre-labeling using Florence 2 model and iteratively trained custom detectors to improve annotations.
 3. **Train Object Detection model** using the [DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train) architecture, which significantly outperformed alternative models like YOLOv12 in our tests.
 4. **Model optimization and export** to TensorRT for maximum inference speed while maintaining accuracy.
-5. **Deployment** with the Nvidia DeepStream framework integrated with NvSORT tracker for an accelerated pipeline that achieves 🔴🔴🔴 170 FPS at 1920x1088 resolution on NVIDIA RTX 4090 GPU.
+5. **Deployment** with the Nvidia DeepStream framework integrated with NvSORT tracker for an accelerated pipeline that achieves 🔴🔴🔴 170 FPS at 1920x1080 resolution on NVIDIA RTX 4090 GPU.
 
 ![Solution Approach](../../assets/solution/object_tracking/solution-approach.png)
 
@@ -129,9 +129,15 @@ Our optimized pipeline consists of:
 
 This setup achieves real-time performance with 🔴🔴🔴**170 FPS** on NVIDIA RTX 4090 GPU, significantly exceeding the 50 FPS requirement.
 
+> See the details in our repository: [DeepStream](https://github.com/supervisely-research/deepstream/)
+
 ---
 
 ## Additional Resources
+
+- Annotated dataset with 6000 frames stored in Supervisely Team **"Horse Racing"** (id: 109962), workspace **"PRODUCTION WS"**.
+- DEIM model artifacts and details: [DEIM Experiment](https://app.supervisely.com/nn/experiments/47383586)
+- DeepStream Pipeline with code and tutorial: [DeepStream Pipeline](https://github.com/supervisely-research/deepstream/)
 
 ### Exporting the data
 
