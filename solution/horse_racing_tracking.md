@@ -31,11 +31,11 @@ The solution is implemented using the Supervisely platform and its features, suc
 
 **Table of Contents:**
 
-1. [Import Data](#1-import-data)
-2. [Annotation & Active Learning](#2-annotation--active-learning)
-3. [Training Experiments](#3-training-experiments)
-4. [Optimization & Deployment](#4-optimization--deployment)
-5. [Exporting Data and Models](#exporting-data-and-models)
+1. [Import Data](#id-1.-import-data)
+2. [Annotation & Active Learning](#id-2.-annotation--active-learning)
+3. [Training Experiments](#id-3.-training-experiments)
+4. [Optimization & Deployment](#id-4.-optimization--deployment)
+5. [Exporting Data and Models](#id-5.-exporting-data-and-models)
 
 ## 1. Import data
 
@@ -154,7 +154,7 @@ This setup achieves real-time performance with **275 FPS** on NVIDIA RTX 4090 GP
 
 ---
 
-## Exporting Data and Models
+## 5. Exporting Data and Models
 
 #### Exporting the data
 
