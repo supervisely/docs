@@ -32,9 +32,9 @@ The solution is implemented using the Supervisely platform and its features, suc
 **Table of Contents:**
 
 1. [Import Data](#id-1.-import-data)
-2. [Annotation & Active Learning](#id-2.-annotation--active-learning)
+2. [Annotation & Active Learning](#id-2.-annotation-and-active-learning)
 3. [Training Experiments](#id-3.-training-experiments)
-4. [Optimization & Deployment](#id-4.-optimization--deployment)
+4. [Optimization & Deployment](#id-4.-optimization-and-deployment)
 5. [Exporting Data and Models](#id-5.-exporting-data-and-models)
 
 ## 1. Import data
