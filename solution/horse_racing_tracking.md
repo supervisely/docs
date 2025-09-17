@@ -1,34 +1,36 @@
 # Object Tracking for Horse Racing with DEIM
 
-The Supervisely Team is pleased to share a successful solution for tracking objects in horse racing videos using a [DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train) detector combined with **NvSort** tracking algorithm in the accelerated [DeepStream](https://developer.nvidia.com/deepstream-sdk) environment to achieve real-time high-performance object tracking in video streams. We annotated a dataset efficiently using an **Active Learning** approach and pre-labeling pipeline leveraging the [Florence 2](https://huggingface.co/microsoft/Florence-2-large) model to minimize manual labeling efforts. In the results, our optimized pipeline achieves **275 FPS** on NVIDIA RTX 4090 GPU while maintaining high accuracy with **72.93 mAP** for object detection.
+The Supervisely Team is pleased to share a successful solution for tracking objects in horse racing videos using a [DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train) detector combined with **NvSort** tracking algorithm  within NVIDIA's accelerated [DeepStream](https://developer.nvidia.com/deepstream-sdk) environment to achieve real-time, high-performance object tracking in video streams. We efficiently annotated our dataset using an **Active Learning** approach and a pre-labeling pipeline that leverages the [Florence 2](https://huggingface.co/microsoft/Florence-2-large) model to minimize manual labeling efforts. Our optimized pipeline achieves **275 FPS** on NVIDIA RTX 4090 GPU while maintaining high detection accuracy with **72.93 mAP**.
 
 ## Project Overview
 
-This project aims to provide an effective automated solution for tracking target objects in horse racing videos. The system focuses on identifying and tracking several key elements: horses, drivers, road sticks, and other racing-related objects with high accuracy and real-time performance.
+This project delivers an automated solution for tracking objects in horse racing videos with high accuracy and real-time performance. The system identifies and tracks essential racing elements including horses, riders, horse numbers, and other race-related objects throughout video sequences.
 
-The core computer vision task involves Object Detection and Multi-Object Tracking - precisely identifying and tracking objects throughout the video frames. Once these objects are detected and tracked, analysts can monitor race performance, analyze race dynamics, and extract valuable insights from the video footage.
+Our solution combines two core computer vision techniques: **Object Detection** (locating objects in individual frames) and **Multi-Object Tracking** (following objects across consecutive frames). This enables analysts to monitor race performance, study racing dynamics, and extract actionable insights from video footage.
 
 **Data type:** Video  
 **Task types:** Object Detection, Multi-Object Tracking  
-**Used models:** [DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train), [Florence 2](https://huggingface.co/microsoft/Florence-2-large), [YOLOv12](https://ecosystem.supervisely.com/apps/yolo/supervisely_integration/train)  
-**Techniques:** Zero-shot pre-labeling and Active Learning for efficient annotation, TensorRT optimization, Nvidia DeepStream integration with NvSORT tracker.  
-**Object classes:** horse, horse head, rider, number plate, white stick, yellow stick
+**Models used:** [DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train), [Florence 2](https://huggingface.co/microsoft/Florence-2-large), [YOLOv12](https://ecosystem.supervisely.com/apps/yolo/supervisely_integration/train)  
+**Key techniques:** Zero-shot pre-labeling with Active Learning for efficient annotation, TensorRT optimization, NVIDIA DeepStream integration with NvSORT tracker  
+**Target objects:** horse, horse head, rider, number plate, white stick, yellow stick
 
 ## Solution Approach
 
-The Supervisely Team focused on finding the optimal solution that can be used to solve this case in the most effective way. The solution is based on the following steps:
+Our team focused on finding the optimal solution that can be used to solve this case in the most effective way. The solution follows these key steps:
 
-1. **Import video files** to the Supervisely platform. The dataset consists of 107 horse racing videos that need to be analyzed.
-2. **Data annotation with Active Learning** approach to make the labeling process more efficient. We started with zero-shot pre-labeling using [Florence 2](https://huggingface.co/microsoft/Florence-2-large) model and iteratively trained custom detectors to improve annotations.
-3. **Train Object Detection model** using the [DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train) architecture, which significantly outperformed alternative models like YOLOv12 in our tests.
-4. **Model optimization and export** to TensorRT for maximum inference speed while maintaining accuracy.
-5. **Deployment** with the Nvidia DeepStream framework integrated with NvSORT tracker for an accelerated pipeline that achieves 275 FPS on NVIDIA RTX 4090 GPU.
+1. **Video Import**: Upload 107 horse racing videos to the Supervisely platform for processing and analysis.
+2. **Smart Data Annotation**: Implement an Active Learning approach to streamline the labeling process. We begin with zero-shot pre-labeling using the [Florence 2](https://huggingface.co/microsoft/Florence-2-large) model, then iteratively train custom detectors to continuously improve annotation quality.
+3. **Model Training**: Train our object detection model using the [DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train) architecture, which demonstrated superior performance compared to alternative models like YOLOv12 in our testing.
+4. **Performance Optimization**: Export the trained model to TensorRT format to maximize inference speed while preserving detection accuracy.
+5. **Production Deployment**: Deploy using NVIDIA's DeepStream framework integrated with the NvSORT tracker, creating an accelerated pipeline that achieves 275 FPS on NVIDIA RTX 4090 GPU.
 
-![Solution Approach](../../assets/solution/object_tracking/solution-approach.png)
+![Solution Approach](/assets/solution/object_tracking/solution-approach.png)
 
-The complete workflow of the solution contains several steps, each of them described in the corresponding section below. The solution is implemented using the Supervisely platform and its features, such as video annotation, model training, and deploying optimized inference pipelines.
+The solution is implemented using the Supervisely platform and its features, such as video annotation, model training, and deploying optimized inference pipelines. Each step is detailed in the corresponding sections below.
+
 
 **Table of Contents:**
+
 1. [Import Data](#1-import-data)
 2. [Annotation & Active Learning](#2-annotation--active-learning)
 3. [Training Experiments](#3-training-experiments)
