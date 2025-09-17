@@ -60,7 +60,6 @@ In the initial phase when no trained models were available suitable for our task
 3. Applied this pipeline to automatically pre-label the first 500 frames
 4. Sent these preliminary annotations for manual review and correction
 
-
 After manual correction, we evaluated the quality of pre-labeling with Florence 2.
 
 | Model | Validation Size | F1-score (avg. per-image) | Average Recall (AR) | mAP* |
@@ -70,6 +69,8 @@ After manual correction, we evaluated the quality of pre-labeling with Florence 
 *\*mAP is reported for reference. It is not the main metric for evaluating pre-labeling quality.*
 
 The model performed well for initial pre-labeling. The **F1-score** of 0.49 indicates that nearly half of the objects were correctly identified, which is a solid starting point for manual refinement of annotations.
+
+![Florence 2 Auto Pre-labeling](/assets/solution/horse-racing/florence2-prelabeling.jpg)
 
 ### Active Learning Labeling Process
 
@@ -112,6 +113,8 @@ We tested the YOLOv12-L model using the same dataset and training methodology. *
 
 Based on these results, **DEIM** was confirmed as the superior architecture for this application.
 
+![DEIM vs YOLOv12 Comparison](/assets/solution/horse-racing/deim-vs-yolo.png)
+
 ### Training with Different Resolution
 
 We also experimented with training DEIM model at different input resolutions: **640x640**, **1536x864**, and **1920x1088** (Note, that DEIM input size should be divisible by 32) on the same GPU NVIDIA RTX 4090 with 24GB VRAM. We selected model variants and batch sizes that fit into the GPU memory.
@@ -144,6 +147,8 @@ We integrated our TensorRT-optimized model into the [Nvidia DeepStream](https://
 3. NvSORT tracker for associating detections across frames
 
 This setup achieves real-time performance with **275 FPS** on NVIDIA RTX 4090 GPU, significantly exceeding the 50 FPS requirement.
+
+<!-- ![Demo video of the deployed solution](/assets/solution/horse-racing/result-demo.gif) -->
 
 > See our DeepStream setup guide and details in this repository: [DEIM DeepStream](https://github.com/supervisely-research/deepstream/)
 
