@@ -148,7 +148,7 @@ We integrated our TensorRT-optimized model into the [Nvidia DeepStream](https://
 
 This setup achieves real-time performance with **275 FPS** on NVIDIA RTX 4090 GPU, significantly exceeding the 50 FPS requirement.
 
-<!-- ![Demo video of the deployed solution](/assets/solution/horse-racing/result-demo.gif) -->
+![Demo video](/assets/solution/horse-racing/demo.webm)
 
 {% hint style="info" %}
 See our DeepStream setup guide and other details in this repository: [DEIM DeepStream](https://github.com/supervisely-research/deepstream/)
