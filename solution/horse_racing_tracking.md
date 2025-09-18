@@ -1,6 +1,6 @@
 # Object Tracking for Horse Racing with DEIM
 
-The Supervisely Team is pleased to share a successful solution for tracking objects in horse racing videos using a [DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train) detector combined with **NvSort** tracking algorithm  within NVIDIA's accelerated [DeepStream](https://developer.nvidia.com/deepstream-sdk) environment to achieve real-time, high-performance object tracking in video streams. We efficiently annotated our dataset using an **Active Learning** approach and a pre-labeling pipeline that leverages the [Florence 2](https://huggingface.co/microsoft/Florence-2-large) model to minimize manual labeling efforts. Our optimized pipeline achieves **275 FPS** on NVIDIA RTX 4090 GPU while maintaining high detection accuracy with **72.93 mAP**.
+The Supervisely Team is pleased to share a successful solution for tracking objects in horse racing videos using a [DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train) detector combined with **NvSort** tracking algorithm  within NVIDIA's accelerated [DeepStream](https://developer.nvidia.com/deepstream-sdk) environment to achieve real-time, high-performance object tracking in video streams. We efficiently annotated our dataset using an **Active Learning** approach and a pre-labeling pipeline that leverages [Florence 2](https://huggingface.co/microsoft/Florence-2-large) model to minimize manual labeling efforts. Our optimized pipeline achieves **275 FPS** on NVIDIA RTX 4090 GPU while maintaining high detection accuracy with **72.93 mAP**.
 
 ## Project Overview
 
@@ -19,8 +19,8 @@ Our solution combines two core computer vision techniques: **Object Detection** 
 Our team focused on finding the optimal solution that can be used to solve this case in the most effective way. The solution follows these key steps:
 
 1. **Video Import**: Upload 107 horse racing videos to the Supervisely platform for processing and analysis.
-2. **Smart Data Annotation**: Implement an Active Learning approach to streamline the labeling process. We begin with zero-shot pre-labeling using the [Florence 2](https://huggingface.co/microsoft/Florence-2-large) model, then iteratively train custom detectors to continuously improve annotation quality.
-3. **Model Training**: Train our object detection model using the [DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train) architecture, which demonstrated superior performance compared to alternative models like YOLOv12 in our testing.
+2. **Smart Data Annotation**: Implement an Active Learning approach to streamline the labeling process. We begin with zero-shot pre-labeling using [Florence 2](https://huggingface.co/microsoft/Florence-2-large) model, then iteratively train custom detectors to continuously improve annotation quality.
+3. **Model Training**: Train our object detection model using [DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train) architecture, which demonstrated superior performance compared to alternative models like YOLOv12 in our testing.
 4. **Performance Optimization**: Export the trained model to TensorRT format to maximize inference speed while preserving detection accuracy.
 5. **Production Deployment**: Deploy using NVIDIA's DeepStream framework integrated with the NvSORT tracker, creating an accelerated pipeline that achieves 275 FPS on NVIDIA RTX 4090 GPU.
 
@@ -39,7 +39,7 @@ The solution is implemented using the Supervisely platform and its features, suc
 
 ## 1. Import data
 
-The first step is to import the video files into the Supervisely platform. There are plenty of ways to do that, and all of them are described in the [Import](https://docs.supervisely.com/import-and-export/import) section of the Supervisely documentation. In this case, we'll briefly describe one of the options - manual upload of the data from the local machine.
+The first step is to import the video files into the Supervisely platform. There are plenty of ways to do that, and all of them are described in the [Import](/data-organization/import/import/import.md) section of the Supervisely documentation. In this case, we'll briefly describe one of the options - manual upload of the data from the local machine.
 
 1. Create a new project in Supervisely (If your workspace is empty, you can just click the **Import Data** button).
 2. Choose the **Videos** option in the **Type** of project section, and click **Create**.
@@ -53,7 +53,7 @@ For efficient annotation of a large dataset, we implemented an Active Learning a
 
 ### Pre-labeling with Florence 2
 
-In the initial phase when no trained models were available suitable for our task, we utilized the [Florence 2](https://huggingface.co/microsoft/Florence-2-large) model with zero-shot capabilities to generate preliminary annotations for the first **500 frames** which were uniformly sampled across the videos.
+In the initial phase when no trained models were available suitable for our task, we utilized [Florence 2](https://huggingface.co/microsoft/Florence-2-large) model with zero-shot capabilities to generate preliminary annotations for the first **500 frames** which were uniformly sampled across the videos.
 
 1. Sampled 500 frames from the input videos uniformly.
 2. Crafted a custom pipeline for Florence 2 to achieve the best possible accuracy from a zero-shot model
@@ -68,7 +68,7 @@ After manual correction, we evaluated the quality of pre-labeling with Florence 
 
 *\*mAP is reported for reference. It is not the main metric for evaluating pre-labeling quality.*
 
-The model performed well for initial pre-labeling. The **F1-score** of 0.49 indicates that nearly half of the objects were correctly identified, which is a solid starting point for manual refinement of annotations.
+The model performed quite well for initial pre-labeling. The **F1-score** of 0.49 indicates that nearly half of the objects were correctly identified, which is a solid starting point for manual refinement of annotations.
 
 ![Florence 2 Auto Pre-labeling](/assets/solution/horse-racing/florence2-prelabeling.jpg)
 
@@ -150,17 +150,17 @@ This setup achieves real-time performance with **275 FPS** on NVIDIA RTX 4090 GP
 
 <!-- ![Demo video of the deployed solution](/assets/solution/horse-racing/result-demo.gif) -->
 
-> See our DeepStream setup guide and details in this repository: [DEIM DeepStream](https://github.com/supervisely-research/deepstream/)
-
----
+{% hint style="info" %}
+See our DeepStream setup guide and other details in this repository: [DEIM DeepStream](https://github.com/supervisely-research/deepstream/)
+{% endhint %}
 
 ## 5. Exporting Data and Models
 
 #### Exporting the data
 
-At any time, you can export your assets from the Supervisely platform. This applies to both the data (video files with annotations) and the trained models. There are several ways to download and export the data, which are described in the [Export](https://docs.supervisely.com/import-and-export/export) section of the Supervisely documentation. In this case, we'll briefly describe one of the options - exporting the data from the platform's UI.
+At any time, you can export your assets from the Supervisely platform. This applies to both the data (video files with annotations) and the trained models. There are several ways to download and export the data, which are described in the [Export](/data-organization/import/export/export.md) section of the Supervisely documentation. In this case, we'll briefly describe one of the options - exporting the data from the platform's UI.
 
-![Export Project](/assets/solution/temporal_action_localization/export1.png)
+![Export Project](/assets/solution/horse-racing/download-data.png)
 
 #### Exporting the models
 
@@ -168,4 +168,8 @@ All of the artifacts that were created during the training process, including th
 
 > Note: there's no vendor lock in Supervisely, so you can use the models completely outside of the Supervisely platform, for example, in your own Python scripts or in Docker containers.
 
-![Export Model](/assets/solution/temporal_action_localization/export2.png)
+![Export Model](/assets/solution/horse-racing/download-model.png)
+
+{% hint style="info" %}
+Check our documentation on how you can use and deploy trained models: [Inference & Deployment](/neural-networks/inference-and-deployment/README.md)
+{% endhint %}
