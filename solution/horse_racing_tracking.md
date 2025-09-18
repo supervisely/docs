@@ -148,11 +148,11 @@ We integrated our TensorRT-optimized model into the [Nvidia DeepStream](https://
 
 This setup achieves real-time performance with **275 FPS** on NVIDIA RTX 4090 GPU, significantly exceeding the 50 FPS requirement.
 
-![Demo video](/assets/solution/horse-racing/demo.webp)
-
 {% hint style="info" %}
 See our DeepStream setup guide and other details in this repository: [DEIM DeepStream](https://github.com/supervisely-research/deepstream/)
 {% endhint %}
+
+![Demo video](/assets/solution/horse-racing/demo.webp)
 
 ## 5. Exporting Data and Models
 
@@ -168,8 +168,8 @@ All of the artifacts that were created during the training process, including th
 
 > Note: there's no vendor lock in Supervisely, so you can use the models completely outside of the Supervisely platform, for example, in your own Python scripts or in Docker containers.
 
-![Export Model](/assets/solution/horse-racing/download-model.png)
-
 {% hint style="info" %}
 Check our documentation on how you can use and deploy trained models: [Inference & Deployment](/neural-networks/inference-and-deployment/README.md)
 {% endhint %}
+
+![Export Model](/assets/solution/horse-racing/download-model.png)
