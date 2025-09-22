@@ -98,6 +98,10 @@ The mAP improved significantly from **58.71** in the first iteration to **71.98*
 
 After the annotation process was completed with 6000 annotated frames, we proceeded to train the final object detection model. We evaluated two architectures: **YOLOv12-L** and **DEIM D-FINE-L**, and selected the one that provided the best balance of accuracy and inference speed for our use case.
 
+{% hint style="info" %}
+**Training Experiments**: while experimenting, it is important to keep track of all the training sessions, configurations, and results. In Supervisely, you can explore all your training runs on the [Experiments](https://docs.supervisely.com/neural-networks/training/experiments) page. From there, you can start a new training session, compare results, and manage your models effectively.
+{% endhint %}
+
 **Model Architectures:**
 
 - **YOLO**: A popular object detection model recognized for its speed and decent accuracy. It is widely used in various real-time applications.
