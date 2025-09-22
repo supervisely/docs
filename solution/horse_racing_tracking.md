@@ -24,7 +24,7 @@ Our team focused on finding the optimal solution that can be used to solve this 
 4. **Performance Optimization**: Export the trained model to TensorRT format to maximize inference speed while preserving detection accuracy.
 5. **Production Deployment**: Deploy using NVIDIA's DeepStream framework integrated with the NvSORT tracker, creating an accelerated pipeline that achieves 275 FPS on NVIDIA RTX 4090 GPU.
 
-The solution is implemented using the Supervisely platform and its features, such as video annotation, model training and experiments (see [Experiment Management](https://docs.supervisely.com/neural-networks/training/experiments)), model evaluation and comparison ([Model Evaluation Benchmark](https://docs.supervisely.com/neural-networks/model-evaluation-benchmark/)), and deploying models for inference ([Inference & Deployment](https://docs.supervisely.com/neural-networks/inference-and-deployment/)). Each step is detailed in the corresponding sections below.
+The solution is implemented using the Supervisely platform and its features, such as video annotation, model training and experiments (see [Experiment Management](/neural-networks/training/experiments.md)), model evaluation and comparison ([Model Evaluation Benchmark](/neural-networks/model-evaluation-benchmark/README.md)), and deploying models for inference ([Inference & Deployment](/neural-networks/inference-and-deployment/README.md)). Each step is detailed in the corresponding sections below.
 
 **Table of Contents:**
 
@@ -80,7 +80,7 @@ We performed **3 iterations** of this process with the following dataset sizes:
 - **Iteration 2:** 2000 annotated frames
 - **Iteration 3:** 6000 annotated frames
 
-After this, we re-evaluated all intermediate models on the final validation set of **725 images**. The results of each iteration are summarized in the table below:
+After this, we re-evaluated all intermediate models on the final validation set of **725 images**. To evaluate and compare models fairly, we used a **consistent validation set** of 725 images which were not included in training set of any iteration. The validation set was incrementally built along with the training set during the active learning process. Here are the resulting metrics after each iteration:
 
 | Iteration | Training Size | Validation Size | mAP  |
 |-----------|--------------|-----------------|-------|
@@ -91,16 +91,12 @@ After this, we re-evaluated all intermediate models on the final validation set 
 The mAP improved significantly from **58.71** in the first iteration to **71.98** in the second iteration with the addition of 1500 more annotated frames. The improvement from the second to the third iteration was smaller, gaining only **+0.95** points, indicating that the model was approaching its performance ceiling with 6000 data examples (5275 in training set).
 
 {% hint style="info" %}
-**Collections**: To evaluate and compare models fairly, we used a consistent validation set of 725 images which were not included in any training iterations. The validation set was incrementally built during the active learning process. The Supervisely's   [Collections](https://docs.supervisely.com/data-organization/project-dataset/collections) feature was used to manage and maintain train/validation splits effectively.
+**Data Collections**: The Supervisely's [Collections](/data-organization/project-dataset/collections.md) feature was used in managing and organizing train/validation splits effectively. Once training is complete, the validation set used in this training automatically becomes a collection, which can be reused later. See the [Collections](/data-organization/project-dataset/collections.md) documentation.
 {% endhint %}
 
 ## 3. Training Experiments
 
 After the annotation process was completed with 6000 annotated frames, we proceeded to train the final object detection model. We evaluated two architectures: **YOLOv12-L** and **DEIM D-FINE-L**, and selected the one that provided the best balance of accuracy and inference speed for our use case.
-
-{% hint style="info" %}
-**Training Experiments**: while experimenting, it is important to keep track of all the training sessions, configurations, and results. In Supervisely, you can explore all your training runs on the [Experiments](https://docs.supervisely.com/neural-networks/training/experiments) page. From there, you can start a new training session, compare results, and manage your models effectively.
-{% endhint %}
 
 **Model Architectures:**
 
@@ -131,10 +127,10 @@ Based on these results, **DEIM** was confirmed as the superior architecture for 
 
 #### Model Evaluation & Comparison in Supervisely
 
-To evaluate and compare the models in-depth, we used Supervisely's [Model Evaluation Benchmark](https://docs.supervisely.com/neural-networks/model-evaluation-benchmark/) - an excellent tool to analyze and compare the performance of different models in detail. It provides a comprehensive suite of metrics and visualizations allowing you to not only assess common metrics like mAP or accuracy, but also to understand model behavior through comprehensive tables with per-image metrics, looking at the model predictions, confusion matrices, precision-recall curves, and more.
+To evaluate and compare the models in-depth, we used Supervisely's [Model Evaluation Benchmark](/neural-networks/model-evaluation-benchmark/README.md) - an excellent tool to analyze and compare the performance of different models in detail. It provides a comprehensive suite of metrics and visualizations allowing you to not only assess common metrics like mAP or accuracy, but also to understand model behavior through comprehensive tables with per-image metrics, looking at the model predictions, confusion matrices, precision-recall curves, and more.
 
 {% hint style="info" %}
-See the [Model Evaluation Benchmark](https://docs.supervisely.com/neural-networks/model-evaluation-benchmark/) to learn how to evaluate and compare models in Supervisely.
+See the [Model Evaluation Benchmark](/neural-networks/model-evaluation-benchmark/README.md) to learn how to evaluate and compare models in Supervisely.
 {% endhint %}
 
 ### Training with Different Resolution
@@ -150,6 +146,10 @@ We also experimented with training DEIM model at different input resolutions: **
 We observed that training at higher resolutions did not yield better accuracy. Training at higher resolutions required either smaller batch size or a model variant with fewer parameters to fit into GPU memory. The **DEIM D-FINE-L** model trained at **640x640** resolution achieved the highest mAP of **72.93**.
 
 Finally, we chose the **DEIM D-FINE-L** at **640x640** for further deployment.
+
+{% hint style="info" %}
+**Training Experiments**: while experimenting, it is important to keep track of all the training sessions, configurations, and results. In Supervisely, you can explore all your training runs on the [Experiments](/neural-networks/training/experiments.md) page. From there, you can start a new training session, compare results, and manage your models effectively. Check the [Experiments](/neural-networks/training/experiments.md) documentation for more details.
+{% endhint %}
 
 ## 4. Optimization & Deployment
 
