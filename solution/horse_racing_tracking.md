@@ -24,7 +24,7 @@ Our team focused on finding the optimal solution that can be used to solve this 
 4. **Performance Optimization**: Export the trained model to TensorRT format to maximize inference speed while preserving detection accuracy.
 5. **Production Deployment**: Deploy using NVIDIA's DeepStream framework integrated with the NvSORT tracker, creating an accelerated pipeline that achieves 275 FPS on NVIDIA RTX 4090 GPU.
 
-The solution is implemented using the Supervisely platform and its features, such as video annotation, model training and experiments (see [Experiment Management](/neural-networks/training/experiments.md)), model evaluation and comparison ([Model Evaluation Benchmark](/neural-networks/model-evaluation-benchmark/README.md)), and deploying models for inference ([Inference & Deployment](/neural-networks/inference-and-deployment/README.md)). Each step is detailed in the corresponding sections below.
+The solution is implemented using the Supervisely platform and its features, such as video annotation, model training and experiments, model evaluation and comparison, and deploying models for inference (you can check corresponding documentations to learn how these features work: [Experiments](https://ecosystem.supervisely.com/docs/neural-networks/training/experiments.md), [Model Evaluation](https://ecosystem.supervisely.com/docs/neural-networks/model-evaluation-benchmark/README.md), [Inference & Deployment](https://ecosystem.supervisely.com/docs/neural-networks/inference-and-deployment/README.md)). Each step is detailed in the corresponding sections below.
 
 **Table of Contents:**
 
@@ -101,7 +101,7 @@ After the annotation process was completed with 6000 annotated frames, we procee
 **Model Architectures:**
 
 - **YOLO**: A popular object detection model recognized for its speed and decent accuracy. It is widely used in various real-time applications.
-- **DEIM**: A state-of-the-art real-time object detection model based on DETR architecture. The work follows RT-DETR principles ([DETRs Beat YOLOs on Real-time Object Detection](https://arxiv.org/abs/2304.08069)) and not only outperforms YOLO in real-time detection but also provides effective strategies to accelerate training convergence. See [DEIM Paper](https://arxiv.org/abs/2412.04234) for more details. The work was presented at CVPR 2025 and has Apache 2.0 open-source license.
+- **DEIM**: A state-of-the-art real-time object detection model based on DETR architecture. The work follows RT-DETR principles ([DETRs Beat YOLOs on Real-time Object Detection](https://arxiv.org/abs/2304.08069)) and not only outperforms YOLO in real-time detection but also provides effective strategies to accelerate training convergence (see [DEIM Paper](https://arxiv.org/abs/2412.04234)). DEIM was presented at **CVPR 2025** and has **Apache 2.0** open-source license.
 
 #### Comparing DEIM with YOLOv12
 
@@ -127,10 +127,14 @@ Based on these results, **DEIM** was confirmed as the superior architecture for 
 
 #### Model Evaluation & Comparison in Supervisely
 
-To evaluate and compare the models in-depth, we used Supervisely's [Model Evaluation Benchmark](/neural-networks/model-evaluation-benchmark/README.md) - an excellent tool to analyze and compare the performance of different models in detail. It provides a comprehensive suite of metrics and visualizations allowing you to not only assess common metrics like mAP or accuracy, but also to understand model behavior through comprehensive tables with per-image metrics, looking at the model predictions, confusion matrices, precision-recall curves, and more.
+To evaluate and compare the models in-depth, we used Supervisely's [Model Evaluation Benchmark](/neural-networks/model-evaluation-benchmark/README.md) – an excellent tool to analyze and compare the performance of different models in detail. It provides a comprehensive suite of metrics and visualizations allowing you to not only assess common metrics like mAP or accuracy, but also to understand model behavior through comprehensive tables with per-image metrics, looking at the model predictions, confusion matrices, precision-recall curves, and more.
+
+![F1-score DEIM vs YOLOv12](/assets/solution/horse-racing/f1-score-deim-vs-yolo.png)
+
+In this f1-score comparison, we can see that **DEIM** consistently outperforms **YOLOv12** across all classes, with a particularly significant advantage in detecting smaller objects like "number plate" and "white stick".
 
 {% hint style="info" %}
-See the [Model Evaluation Benchmark](/neural-networks/model-evaluation-benchmark/README.md) to learn how to evaluate and compare models in Supervisely.
+Learn how to evaluate and compare models in Supervisely in the [Model Evaluation Benchmark](/neural-networks/model-evaluation-benchmark/README.md) documentation.
 {% endhint %}
 
 ### Training with Different Resolution
