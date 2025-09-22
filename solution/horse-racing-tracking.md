@@ -1,4 +1,4 @@
-# Object Tracking for Horse Racing with DEIM
+# Horse Racing: Detection & Tracking in Real-time
 
 The Supervisely Team is pleased to share a successful solution for tracking objects in horse racing videos using a [DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train) detector combined with **NvSort** tracking algorithm  within NVIDIA's accelerated [DeepStream](https://developer.nvidia.com/deepstream-sdk) environment to achieve real-time, high-performance object tracking in video streams. We efficiently annotated our dataset using an **Active Learning** approach and a pre-labeling pipeline that leverages [Florence 2](https://ecosystem.supervisely.com/apps/apply-florence-2-to-images-project) model to minimize manual labeling efforts. Our optimized pipeline achieves **275 FPS** on NVIDIA RTX 4090 GPU while maintaining high detection accuracy with **72.93 mAP**.
 
