@@ -103,7 +103,7 @@ After the annotation process was completed with 6000 annotated frames, we procee
 - **YOLO**: A popular object detection model recognized for its speed and decent accuracy. It is widely used in various real-time applications.
 - **DEIM**: A state-of-the-art real-time object detection model based on DETR architecture. The work follows RT-DETR principles ([DETRs Beat YOLOs on Real-time Object Detection](https://arxiv.org/abs/2304.08069)) and not only outperforms YOLO in real-time detection but also provides effective strategies to accelerate training convergence (see [DEIM Paper](https://arxiv.org/abs/2412.04234)). DEIM was presented at **CVPR 2025** and has **Apache 2.0** open-source license.
 
-#### Comparing DEIM with YOLOv12
+### Comparing DEIM with YOLOv12
 
 We tested the YOLOv12-L model using the same dataset and training methodology. **YOLOv12-L** achieved only **45.53** mAP on the first training iteration, and **53.4** mAP on the final iteration, significantly underperforming compared to **DEIM**.
 
