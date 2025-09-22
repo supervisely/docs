@@ -24,7 +24,7 @@ Our team focused on finding the optimal solution that can be used to solve this 
 4. **Performance Optimization**: Export the trained model to TensorRT format to maximize inference speed while preserving detection accuracy.
 5. **Production Deployment**: Deploy using NVIDIA's DeepStream framework integrated with the NvSORT tracker, creating an accelerated pipeline that achieves 275 FPS on NVIDIA RTX 4090 GPU.
 
-The solution is implemented using the Supervisely platform and its features, such as video annotation, model training and experiments, model evaluation and comparison, and deploying models for inference (you can check corresponding documentations to learn how these features work: [Experiments](https://ecosystem.supervisely.com/docs/neural-networks/training/experiments.md), [Model Evaluation](https://ecosystem.supervisely.com/docs/neural-networks/model-evaluation-benchmark/README.md), [Inference & Deployment](https://ecosystem.supervisely.com/docs/neural-networks/inference-and-deployment/README.md)). Each step is detailed in the corresponding sections below.
+The solution is implemented using the Supervisely platform and its features, such as video annotation, model training and experiments, model evaluation and comparison, and deploying models for inference (you can check corresponding documentations to learn how these features work in Supervisely: [Experiments](/neural-networks/training/experiments.md), [Model Evaluation](/neural-networks/model-evaluation-benchmark/README.md), [Inference & Deployment](/neural-networks/inference-and-deployment/README.md)). Each step is detailed in the corresponding sections below.
 
 **Table of Contents:**
 
