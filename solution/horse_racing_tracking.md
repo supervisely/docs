@@ -1,6 +1,6 @@
 # Object Tracking for Horse Racing with DEIM
 
-The Supervisely Team is pleased to share a successful solution for tracking objects in horse racing videos using a [DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train) detector combined with **NvSort** tracking algorithm  within NVIDIA's accelerated [DeepStream](https://developer.nvidia.com/deepstream-sdk) environment to achieve real-time, high-performance object tracking in video streams. We efficiently annotated our dataset using an **Active Learning** approach and a pre-labeling pipeline that leverages [Florence 2](https://huggingface.co/microsoft/Florence-2-large) model to minimize manual labeling efforts. Our optimized pipeline achieves **275 FPS** on NVIDIA RTX 4090 GPU while maintaining high detection accuracy with **72.93 mAP**.
+The Supervisely Team is pleased to share a successful solution for tracking objects in horse racing videos using a [DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train) detector combined with **NvSort** tracking algorithm  within NVIDIA's accelerated [DeepStream](https://developer.nvidia.com/deepstream-sdk) environment to achieve real-time, high-performance object tracking in video streams. We efficiently annotated our dataset using an **Active Learning** approach and a pre-labeling pipeline that leverages [Florence 2](https://ecosystem.supervisely.com/apps/apply-florence-2-to-images-project) model to minimize manual labeling efforts. Our optimized pipeline achieves **275 FPS** on NVIDIA RTX 4090 GPU while maintaining high detection accuracy with **72.93 mAP**.
 
 ## Project Overview
 
@@ -10,7 +10,7 @@ Our solution combines two core computer vision techniques: **Object Detection** 
 
 **Data type:** Video  
 **Task types:** Object Detection, Multi-Object Tracking  
-**Models used:** [DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train), [Florence 2](https://huggingface.co/microsoft/Florence-2-large), [YOLOv12](https://ecosystem.supervisely.com/apps/yolo/supervisely_integration/train)  
+**Models used:** [DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train), [Florence 2](https://ecosystem.supervisely.com/apps/apply-florence-2-to-images-project), [YOLOv12](https://ecosystem.supervisely.com/apps/yolo/supervisely_integration/train)  
 **Key techniques:** Zero-shot pre-labeling with Active Learning for efficient annotation, TensorRT optimization, NVIDIA DeepStream integration with NvSORT tracker  
 **Target objects:** horse, horse head, rider, number plate, white stick, yellow stick
 
@@ -19,15 +19,12 @@ Our solution combines two core computer vision techniques: **Object Detection** 
 Our team focused on finding the optimal solution that can be used to solve this case in the most effective way. The solution follows these key steps:
 
 1. **Video Import**: Upload 107 horse racing videos to the Supervisely platform for processing and analysis.
-2. **Smart Data Annotation**: Implement an Active Learning approach to streamline the labeling process. We begin with zero-shot pre-labeling using [Florence 2](https://huggingface.co/microsoft/Florence-2-large) model, then iteratively train custom detectors to continuously improve annotation quality.
+2. **Smart Data Annotation**: Implement an Active Learning approach to streamline the labeling process. We begin with zero-shot pre-labeling using [Florence 2](https://ecosystem.supervisely.com/apps/apply-florence-2-to-images-project) model, then iteratively train custom detectors to continuously improve annotation quality.
 3. **Model Training**: Train our object detection model using [DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train) architecture, which demonstrated superior performance compared to alternative models like YOLOv12 in our testing.
 4. **Performance Optimization**: Export the trained model to TensorRT format to maximize inference speed while preserving detection accuracy.
 5. **Production Deployment**: Deploy using NVIDIA's DeepStream framework integrated with the NvSORT tracker, creating an accelerated pipeline that achieves 275 FPS on NVIDIA RTX 4090 GPU.
 
-![Solution Approach](/assets/solution/object_tracking/solution-approach.png)
-
-The solution is implemented using the Supervisely platform and its features, such as video annotation, model training, and deploying optimized inference pipelines. Each step is detailed in the corresponding sections below.
-
+The solution is implemented using the Supervisely platform and its features, such as video annotation, model training and experiments (see [Experiment Management](https://docs.supervisely.com/neural-networks/training/experiments)), model evaluation and comparison ([Model Evaluation Benchmark](https://docs.supervisely.com/neural-networks/model-evaluation-benchmark/)), and deploying models for inference ([Inference & Deployment](https://docs.supervisely.com/neural-networks/inference-and-deployment/)). Each step is detailed in the corresponding sections below.
 
 **Table of Contents:**
 
@@ -66,7 +63,9 @@ After manual correction, we evaluated the quality of pre-labeling with Florence 
 |-------|-----------------|---------------------------|---------------------|-----|
 | Florence-2 pipeline | 500 frames | 0.4869 | 0.411 | 0.089 |
 
-*\*mAP is reported for reference. It is not the main metric for evaluating pre-labeling quality.*
+{% hint style="info" %}
+*\* mAP is reported for reference. It is not the main metric for evaluating pre-labeling quality. Additionally, Florence 2 architecture does not generate confidence scores for detected objects. To calculate mAP, we set all confidence scores to 1, which, obviously, does not reflect the model's performance accurately.*
+{% endhint %}
 
 The model performed quite well for initial pre-labeling. The **F1-score** of 0.49 indicates that nearly half of the objects were correctly identified, which is a solid starting point for manual refinement of annotations.
 
@@ -89,9 +88,20 @@ After this, we re-evaluated all intermediate models on the final validation set 
 | 2         | 1675         | 725             | 71.98 |
 | 3         | 5275         | 725             | 72.93 |
 
+The mAP improved significantly from **58.71** in the first iteration to **71.98** in the second iteration with the addition of 1500 more annotated frames. The improvement from the second to the third iteration was smaller, gaining only **+0.95** points, indicating that the model was approaching its performance ceiling with 6000 data examples (5275 in training set).
+
+{% hint style="info" %}
+**Collections**: To evaluate and compare models fairly, we used a consistent validation set of 725 images which were not included in any training iterations. The validation set was incrementally built during the active learning process. The Supervisely's   [Collections](https://docs.supervisely.com/data-organization/project-dataset/collections) feature was used to manage and maintain train/validation splits effectively.
+{% endhint %}
+
 ## 3. Training Experiments
 
-After the annotation process was completed with 6000 annotated frames, we proceeded to train the final object detection model. We evaluated two architectures: **YOLOv12-L** and **DEIM D-FINE-L**, and selected the one that provided the best balance of accuracy and inference speed for our specific use case.
+After the annotation process was completed with 6000 annotated frames, we proceeded to train the final object detection model. We evaluated two architectures: **YOLOv12-L** and **DEIM D-FINE-L**, and selected the one that provided the best balance of accuracy and inference speed for our use case.
+
+**Model Architectures:**
+
+- **YOLO**: A popular object detection model recognized for its speed and decent accuracy. It is widely used in various real-time applications.
+- **DEIM**: A state-of-the-art real-time object detection model based on DETR architecture. The work follows RT-DETR principles ([DETRs Beat YOLOs on Real-time Object Detection](https://arxiv.org/abs/2304.08069)) and not only outperforms YOLO in real-time detection but also provides effective strategies to accelerate training convergence. See [DEIM Paper](https://arxiv.org/abs/2412.04234) for more details. The work was presented at CVPR 2025 and has Apache 2.0 open-source license.
 
 #### Comparing DEIM with YOLOv12
 
@@ -114,6 +124,14 @@ We tested the YOLOv12-L model using the same dataset and training methodology. *
 Based on these results, **DEIM** was confirmed as the superior architecture for this application.
 
 ![DEIM vs YOLOv12 Comparison](/assets/solution/horse-racing/deim-vs-yolo.png)
+
+#### Model Evaluation & Comparison in Supervisely
+
+To evaluate and compare the models in-depth, we used Supervisely's [Model Evaluation Benchmark](https://docs.supervisely.com/neural-networks/model-evaluation-benchmark/) - an excellent tool to analyze and compare the performance of different models in detail. It provides a comprehensive suite of metrics and visualizations allowing you to not only assess common metrics like mAP or accuracy, but also to understand model behavior through comprehensive tables with per-image metrics, looking at the model predictions, confusion matrices, precision-recall curves, and more.
+
+{% hint style="info" %}
+See the [Model Evaluation Benchmark](https://docs.supervisely.com/neural-networks/model-evaluation-benchmark/) to learn how to evaluate and compare models in Supervisely.
+{% endhint %}
 
 ### Training with Different Resolution
 
