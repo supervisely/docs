@@ -100,8 +100,8 @@ After the annotation process was completed with 6000 annotated frames, we procee
 
 **Model Architectures:**
 
-- **YOLO**: A popular object detection model recognized for its speed and decent accuracy. It is widely used in various real-time applications.
-- **DEIM**: A state-of-the-art real-time object detection model based on DETR architecture. The work follows RT-DETR principles ([DETRs Beat YOLOs on Real-time Object Detection](https://arxiv.org/abs/2304.08069)) and not only outperforms YOLO in real-time detection but also provides effective strategies to accelerate training convergence (see [DEIM research paper](https://arxiv.org/abs/2412.04234) for details). DEIM was presented at **CVPR 2025** and has **Apache 2.0** open-source license.
+- **YOLO**: A popular object detection model family recognized for speed and decent accuracy. While widely used in real-time applications, it is not the most efficient model available today. Additionally, its **AGPL-3.0** license restricts commercial use.
+- **DEIM**: A state-of-the-art real-time object detection model based on DETR architecture. The work follows RT-DETR principles (as described in [DETRs Beat YOLOs on Real-time Object Detection](https://arxiv.org/abs/2304.08069)), DEIM not only outperforms YOLO in real-time detection but also provides effective strategies for accelerating training convergence (detailed in the [DEIM research paper](https://arxiv.org/abs/2412.04234)). DEIM was accepted to **CVPR 2025** and has **Apache 2.0** open-source license.
 
 ### Comparing DEIM with YOLOv12
 
@@ -112,16 +112,18 @@ We tested the YOLOv12-L model using the same dataset and training methodology. *
 | YOLOv12-L | 1         | 400           | 45.53 |
 | YOLOv12-L | 3         | 5275          | 53.4  |
 | DEIM D-FINE-L | 1         | 400           | **58.71** |
-| DEIM D-FINE-L | 3         | 5275          | **72.93** |
+| DEIM D-FINE-L | 3         | 5275          | **72.93**🏆 |
 
 **Architecture Comparison:**
 
 | Model   | Dataset size | mAP | Params | Latency | GFLOPs |
 |---------|---------------|-----|--------|---------|--------|
 | YOLOv12-L | 6000        | 53.4  | 26.4M   | 6.77ms  | 88.9 |
-| DEIM D-FINE-L | 6000    | **72.93** | 31M     | 8.07ms  | 91   |
+| DEIM D-FINE-L | 6000    | **72.93**🏆 | 31M     | 8.07ms  | 91   |
 
+{% hint style="success" %}
 Based on these results, **DEIM** was confirmed as the superior architecture for this application.
+{% endhint %}
 
 ![DEIM vs YOLOv12 Comparison](/assets/solution/horse-racing/deim-vs-yolo.png)
 
@@ -145,7 +147,7 @@ We also experimented with training DEIM model at different input resolutions: **
 |---------------|------------|------------|--------|-------|
 | DEIM D-FINE-S | 1536x864   | 4          | 100    | 64.87 |
 | DEIM D-FINE-N | 1920x1088  | 12         | 110    | 70.88 |
-| DEIM D-FINE-L | 640x640    | 8          | 100    | **72.93** |
+| DEIM D-FINE-L | 640x640    | 8          | 100    | **72.93**🏆 |
 
 We observed that training at higher resolutions did not yield better accuracy. Training at higher resolutions required either smaller batch size or a model variant with fewer parameters to fit into GPU memory. The **DEIM D-FINE-L** model trained at **640x640** resolution achieved the highest mAP of **72.93**.
 
