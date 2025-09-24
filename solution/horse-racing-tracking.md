@@ -122,7 +122,7 @@ We tested the YOLOv12-L model using the same dataset and training methodology. *
 | DEIM D-FINE-L | 6000    | **72.93**🏆 | 31M     | 8.07ms  | 91   |
 
 {% hint style="success" %}
-Based on these results, **DEIM** was confirmed as the superior architecture for this application.
+Based on these results, **DEIM** was confirmed as the superior architecture for this application. Supervisely has DEIM integrated into the Ecosystem. You can train, evaluate, deploy and export DEIM models to ONNX or TensorRT directly in Supervisely using the [Train DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train) and [Serve DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/serve) applications.
 {% endhint %}
 
 ![DEIM vs YOLOv12 Comparison](/assets/solution/horse-racing/deim-vs-yolo.png)
@@ -165,6 +165,10 @@ To meet the requirement of processing video at 50+ FPS in 1920x1080 resolution, 
 
 We exported our trained model to TensorRT engine. [TensorRT](https://developer.nvidia.com/tensorrt) provides significant acceleration through hardware-specific optimizations on NVIDIA GPUs.
 
+{% hint style="info" %}
+In Supervisely you can export models to ONNX or TensorRT directly in train applications (e.g., [Train DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train)), just select the **"Export to TensorRT"** option in the training configuration. The model will be automatically converted after training and saved in Team Files.
+{% endhint %}
+
 ### Nvidia DeepStream Integration
 
 We integrated our TensorRT-optimized model into the [Nvidia DeepStream](https://developer.nvidia.com/deepstream-sdk) framework. This framework is designed for high-performance video analytics and supports efficient processing pipelines. It also provides built-in multi-object tracking algorithms. We selected the **NvSORT** tracker for its balance of speed and accuracy.
@@ -176,11 +180,76 @@ We integrated our TensorRT-optimized model into the [Nvidia DeepStream](https://
 
 This setup achieves real-time performance with **275 FPS** on NVIDIA RTX 4090 GPU, significantly exceeding the 50 FPS requirement.
 
-{% hint style="info" %}
-See our DeepStream setup guide and other details in this repository: [DEIM DeepStream](https://github.com/supervisely-research/deepstream/)
-{% endhint %}
-
 ![Demo video](/assets/solution/horse-racing/demo.webp)
+
+### Quick Start with DEIM and DeepStream
+
+After training a model with [Train DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train) app, you can easily integrate it with DeepStream tracking pipeline. We prepared a quick start guide and dockerfile in this [GitHub repository](https://github.com/supervisely-ecosystem/deim/tree/master/supervisely_integration/deepstream).
+
+#### 1. Clone repository
+
+```bash
+git clone https://github.com/supervisely-ecosystem/deim
+cd deim
+```
+
+#### 2. Build Docker image
+
+```bash
+docker build -f supervisely_integration/deepstream/Dockerfile -t deim-deepstream .
+```
+
+This will create a docker image with DeepStream SDK and all necessary dependencies installed. It c
+
+#### 3. Prepare data and model
+
+After training your model, download the files `model.pth` (or `best.pth`), `model_config.yml`, and `model_meta.json` from Supervisely Team Files. Create a `data` folder on your machine and place your input video and model files there. The folder structure should look like this:
+
+```
+data/
+├── input_video.mp4      # your input video
+└── model/               # your model folder
+    ├── model.pth        # your PyTorch trained model weights  
+    ├── model_config.yml # DEIM model configuration file
+    └── model_meta.json  # Supervisely export metadata (classes info)
+```
+
+#### 4. Run inference
+
+When running the container, you mount your local `data/` directory into the container (`-v $(pwd)/data:/data`) and pass environment variables to specify the input video (`INPUT_VIDEO`), the model directory (`MODEL_DIR`), and the output path (`OUTPUT_FILE`). These variables must point to the paths inside the container. This way the container can access your video and model files, and save the results back to your local machine.
+
+You can choose the output mode: either render the output video with predicted bounding boxes, or output a JSON file with predictions.
+
+### Video output (MP4 with bounding boxes):
+```bash
+docker run --gpus all --rm \
+    -v $(pwd)/data:/data \
+    -e OUTPUT_MODE=video \
+    -e INPUT_VIDEO=/data/input_video.mp4 \
+    -e MODEL_DIR=/data/model \
+    -e OUTPUT_FILE=/data/result \
+    deim-deepstream
+```
+Output: `data/result.mp4`
+
+### JSON output (coordinates data):
+```bash
+docker run --gpus all --rm \
+    -v $(pwd)/data:/data \
+    -e OUTPUT_MODE=json \
+    -e INPUT_VIDEO=/data/input_video.mp4 \
+    -e MODEL_DIR=/data/model \
+    -e OUTPUT_FILE=/data/predictions \
+    deim-deepstream
+```
+Output: `data/predictions.json`
+
+JSON format:
+```json
+{"frame_id":0,"timestamp":1234567890,"objects":[{"bbox":{"left":100.5,"top":200.3,"width":50.2,"height":80.1},"confidence":0.85,"class_id":0,"track_id":1,"class_name":"person"}]}
+{"frame_id":1,"timestamp":1234567891,"objects":[{"bbox":{"left":102.1,"top":201.8,"width":49.8,"height":79.5},"confidence":0.83,"class_id":0,"track_id":1,"class_name":"person"}]}
+```
+
 
 ## 5. Exporting Data and Models
 
@@ -194,10 +263,17 @@ At any time, you can export your assets from the Supervisely platform. This appl
 
 All of the artifacts that were created during the training process, including the trained models, are stored in the Team Files. You can just right-click on any folder or file and download it to your local machine.
 
-> Note: there's no vendor lock in Supervisely, so you can use the models completely outside of the Supervisely platform, for example, in your own Python scripts or in Docker containers.
-
 {% hint style="info" %}
-Check our documentation on how you can use and deploy trained models: [Inference & Deployment](/neural-networks/inference-and-deployment/README.md)
+There's no vendor lock in Supervisely, so you can use the models completely outside of the Supervisely platform, for example, in your own Python scripts or in Docker containers. Check our documentation on how you can use and deploy trained models: [Inference & Deployment](/neural-networks/inference-and-deployment/README.md), and [Using trained models outside of Supervisely](/neural-networks/inference-and-deployment/using-standalone-pytorch-models.md).
 {% endhint %}
 
 ![Export Model](/assets/solution/horse-racing/download-model.png)
+
+We prepared a demo script that shows how to load the trained DEIM model and get predictions on images in pure PyTorch code (outside of Supervisely):
+- [demo_pytorch.py](https://github.com/supervisely-ecosystem/deim/blob/master/supervisely_integration/demo/demo_pytorch.py).
+
+This way, you can download the trained model from Team Files and use it in your own code.
+
+There are also demos for using the model in ONNX and TensorRT formats:
+- [demo_onnx.py](https://github.com/supervisely-ecosystem/deim/blob/master/supervisely_integration/demo/demo_onnx.py)
+- [demo_tensorrt.py](https://github.com/supervisely-ecosystem/deim/blob/master/supervisely_integration/demo/demo_tensorrt.py)
