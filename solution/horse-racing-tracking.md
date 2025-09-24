@@ -122,7 +122,7 @@ We tested the YOLOv12-L model using the same dataset and training methodology. *
 | DEIM D-FINE-L | 6000    | **72.93**🏆 | 31M     | 8.07ms  | 91   |
 
 {% hint style="success" %}
-Based on these results, **DEIM** was confirmed as the superior architecture for this application. Supervisely has DEIM integrated into the Ecosystem. You can train, evaluate, deploy and export DEIM models to ONNX or TensorRT directly in Supervisely using the [Train DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train) and [Serve DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/serve) applications.
+Based on these results, **DEIM** was confirmed as the superior architecture for this application. Supervisely has DEIM integrated into the Ecosystem. You can **train, evaluate, deploy and export** DEIM models to ONNX or TensorRT directly in Supervisely using the **[Train DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train)** and **[Serve DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/serve)** applications.
 {% endhint %}
 
 ![DEIM vs YOLOv12 Comparison](/assets/solution/horse-racing/deim-vs-yolo.png)
@@ -163,10 +163,10 @@ To meet the requirement of processing video at 50+ FPS in 1920x1080 resolution, 
 
 ### TensorRT Export
 
-We exported our trained model to TensorRT engine. [TensorRT](https://developer.nvidia.com/tensorrt) provides significant acceleration through hardware-specific optimizations on NVIDIA GPUs.
+We exported our trained model to [Nvidia TensorRT](https://developer.nvidia.com/tensorrt) engine. TensorRT provides significant acceleration through hardware-specific optimizations on NVIDIA GPUs.
 
 {% hint style="info" %}
-In Supervisely you can export models to ONNX or TensorRT directly in train applications (e.g., [Train DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train)), just select the **"Export to TensorRT"** option in the training configuration. The model will be automatically converted after training and saved in Team Files.
+In Supervisely you can export models to ONNX or TensorRT directly in train applications ([Train DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train)), just select the **"Export to TensorRT"** option in the training configuration. The model will be automatically converted after training and saved in Team Files.
 {% endhint %}
 
 ### Nvidia DeepStream Integration
@@ -220,7 +220,7 @@ When running the container, you mount your local `data/` directory into the cont
 
 You can choose the output mode: either render the output video with predicted bounding boxes, or output a JSON file with predictions.
 
-### Video output (MP4 with bounding boxes):
+**Video output (MP4 with bounding boxes):**
 ```bash
 docker run --gpus all --rm \
     -v $(pwd)/data:/data \
@@ -232,7 +232,7 @@ docker run --gpus all --rm \
 ```
 Output: `data/result.mp4`
 
-### JSON output (coordinates data):
+**JSON output (coordinates data):**
 ```bash
 docker run --gpus all --rm \
     -v $(pwd)/data:/data \
@@ -253,13 +253,13 @@ JSON format:
 
 ## 5. Exporting Data and Models
 
-#### Exporting the data
+### Exporting the data
 
 At any time, you can export your assets from the Supervisely platform. This applies to both the data (video files with annotations) and the trained models. There are several ways to download and export the data, which are described in the [Export](/data-organization/import/export/export.md) section of the Supervisely documentation. In this case, we'll briefly describe one of the options - exporting the data from the platform's UI.
 
 ![Export Project](/assets/solution/horse-racing/download-data.png)
 
-#### Exporting the models
+### Exporting the models
 
 All of the artifacts that were created during the training process, including the trained models, are stored in the Team Files. You can just right-click on any folder or file and download it to your local machine.
 
@@ -269,11 +269,11 @@ There's no vendor lock in Supervisely, so you can use the models completely outs
 
 ![Export Model](/assets/solution/horse-racing/download-model.png)
 
-We prepared a demo script that shows how to load the trained DEIM model and get predictions on images in pure PyTorch code (outside of Supervisely):
+### Using trained models outside of Supervisely
+
+We prepared a **demo script** that shows how to load the trained DEIM model and get predictions on images in pure PyTorch code (and outside of Supervisely):
 - [demo_pytorch.py](https://github.com/supervisely-ecosystem/deim/blob/master/supervisely_integration/demo/demo_pytorch.py).
 
-This way, you can download the trained model from Team Files and use it in your own code.
-
-There are also demos for using the model in ONNX and TensorRT formats:
+This way, you can download the trained model from Team Files and use it in your own code. There are also demos for using the model in **ONNX** and **TensorRT** formats:
 - [demo_onnx.py](https://github.com/supervisely-ecosystem/deim/blob/master/supervisely_integration/demo/demo_onnx.py)
 - [demo_tensorrt.py](https://github.com/supervisely-ecosystem/deim/blob/master/supervisely_integration/demo/demo_tensorrt.py)
