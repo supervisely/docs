@@ -199,8 +199,6 @@ cd deim
 docker build -f supervisely_integration/deepstream/Dockerfile -t deim-deepstream .
 ```
 
-This will create a docker image with DeepStream SDK and all necessary dependencies installed. It c
-
 #### 3. Prepare data and model
 
 After training your model, download the files `model.pth` (or `best.pth`), `model_config.yml`, and `model_meta.json` from Supervisely Team Files. Create a `data` folder on your machine and place your input video and model files there. The folder structure should look like this:
@@ -271,7 +269,7 @@ There's no vendor lock in Supervisely, so you can use the models completely outs
 
 ### Using trained models outside of Supervisely
 
-We prepared a **demo script** that shows how to load the trained DEIM model and get predictions on images in pure PyTorch code (and outside of Supervisely):
+We prepared a **demo script** that shows how to load the trained **DEIM** model and get predictions on images in pure PyTorch code (and outside of Supervisely):
 - [demo_pytorch.py](https://github.com/supervisely-ecosystem/deim/blob/master/supervisely_integration/demo/demo_pytorch.py).
 
 This way, you can download the trained model from Team Files and use it in your own code. There are also demos for using the model in **ONNX** and **TensorRT** formats:
