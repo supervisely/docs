@@ -184,7 +184,7 @@ This setup achieves real-time performance with **275 FPS** on NVIDIA RTX 4090 GP
 
 ### Quick Start with DEIM and DeepStream
 
-After training a model with [Train DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train) app, you can easily integrate it with DeepStream tracking pipeline. We prepared a quick start guide and dockerfile in this [GitHub repository](https://github.com/supervisely-ecosystem/deim/tree/master/supervisely_integration/deepstream).
+After training a model with [Train DEIM](https://ecosystem.supervisely.com/apps/deim/supervisely_integration/train) app, you can easily integrate it with DeepStream tracking pipeline. We prepared a quick start guide in this [GitHub repository](https://github.com/supervisely-ecosystem/deim/tree/master/supervisely_integration/deepstream). This guide will help you set up the environment using our prepared [Dockerfile](https://github.com/supervisely-ecosystem/deim/blob/master/supervisely_integration/deepstream/Dockerfile) and run inference on your video file using a trained DEIM model and NvSORT tracker in DeepStream framework. Here are the steps:
 
 #### 1. Clone repository
 
