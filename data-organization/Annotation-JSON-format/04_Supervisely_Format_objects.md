@@ -168,7 +168,7 @@ Fields definitions:
 - `exterior` - list of points [point1, point2, point3, etc ...] where each point is a list of two numbers (coordinates) [col, row]
 - `interior` - list of elements with the same structure as the "exterior" field. In other words, this is the list of polygons that define object holes. For polygons without holes in them, this field is empty
 
-## Polygon (without holes)
+## Polygon (with holes)
 
 Example:
 
