@@ -49,8 +49,6 @@ In this guide we will cover all three options.
 ---
 ### Option 1: Predict APP 
 
-**Predict APP (through the interface)** provides a quick and convenient way to apply neural networks to images or datasets.
-
 Launch [Predict APP](https://ecosystem.supervisely.com/apps/apply-nn) app in the Supervisely platform, deploy a detection model, configure inference and tracking settings, and apply the model to your video project.
 
 1. [Deploy a model](https://docs.supervisely.com/neural-networks/overview-1/supervisely-serving-apps#how-to-deploy-a-model) for Object Detection or Instance Segmentation.  
