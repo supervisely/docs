@@ -127,12 +127,12 @@ To disable it at any time, use:
 sudo supervisely disable-remote-logs
 ```
 
-**What’s sent? Only system logs.**  
+**What's sent? Only error-level system logs.**  
 
-Remote logging transmits **only non-sensitive system-level diagnostics** such as service status, error traces, and performance metrics.  
-It does **not include any personal data, customer content, project files, credentials, or identifiable information**.  
+Remote logging transmits **only error-level system logs** that are non-sensitive and necessary for technical troubleshooting, such as error traces, service failures, and critical system diagnostics.
+It does **not include any personal data, customer content, project files, credentials, or identifiable information**.
 
-We take customer privacy seriously. Remote logs are strictly limited to what’s necessary for technical troubleshooting and are handled securely by the Supervisely team.  
+We take customer privacy seriously. Remote logs are strictly limited to error-level entries required for technical troubleshooting and are handled securely by the Supervisely team.
 This ensures faster support without compromising your data integrity or confidentiality.
 
 ### Slow performance
