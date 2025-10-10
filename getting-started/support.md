@@ -127,12 +127,12 @@ To disable it at any time, use:
 sudo supervisely disable-remote-logs
 ```
 
-**What’s sent? Only system logs.**  
+**What's sent? Only error-level system logs.**  
 
-Remote logging transmits **only non-sensitive system-level diagnostics** such as service status, error traces, and performance metrics.  
-It does **not include any personal data, customer content, project files, credentials, or identifiable information**.  
+Remote logging transmits **only error-level system logs** that are non-sensitive and necessary for technical troubleshooting, such as error traces, service failures, and critical system diagnostics.
+It does **not include any personal data, customer content, project files, credentials, or identifiable information**.
 
-We take customer privacy seriously. Remote logs are strictly limited to what’s necessary for technical troubleshooting and are handled securely by the Supervisely team.  
+We take customer privacy seriously. Remote logs are strictly limited to error-level entries required for technical troubleshooting and are handled securely by the Supervisely team.
 This ensures faster support without compromising your data integrity or confidentiality.
 
 ### Slow performance
@@ -164,13 +164,34 @@ If you don't see any errors, but it looks like that something is not working as 
 4. Clear your browser cache and cookies.
 5. Try using a different browser or device.
 
-If it did not help, check if there any errors appear on the Developer Console. To do it:
+If it did not help, check for errors in the browser's Developer Console by following these steps:
 
+#### Step 1: Open Developer Console
 1. Right-click on the page and select "Inspect" (or press Ctrl+Shift+I) to open the Developer Console.
-2. Go to the "Console" tab and look for any error messages.
 
-If the issue persists, please contact our support team with a detailed description of the problem, including any steps to reproduce it as well as screenshots from the Developer Console.  
-In some cases the screen recording of the issue can be helpful as well.
+#### Step 2: Check Console Tab for Errors
+1. Go to the "Console" tab.
+2. Look for any error messages (usually displayed in red).
+3. Take a screenshot of any errors you find.
+
+#### Step 3: Check Network Tab for Failed Requests
+1. Switch to the "Network" tab in the developer tools.
+2. Check the "Disable cache" option (usually located at the top of the Network tab).
+3. Clear the current log by clicking the clear button (🚫 icon).
+4. Reload the page (press F5 or Ctrl+R).
+5. Apply the "Fetch/XHR" filter to show only API requests.
+6. Look for any entries marked in red or with error status codes (4xx, 5xx).
+7. Click on each failed request to see details.
+8. Copy the response content (in JSON format if available) and take screenshots.
+
+#### What to Share with Us
+When contacting our team, please include:
+- Screenshots from both Console and Network tabs showing any errors
+- JSON responses from failed network requests
+- A detailed description of the steps that led to the issue
+- Screen recording of the issue (if possible)
+
+This information will help us analyze the exact network behavior and pinpoint any failed requests.
 
 ### Python SDK or API issues
 
