@@ -97,6 +97,25 @@ Draw the first segment of the object by clicking and dragging over the area you 
 
 </div>
 
+### Zoom Independent Brush Size
+
+The brush tool allows you to paint or annotate objects using a circular cursor whose diameter depends on the selected brush thickness. The brush size can vary from 1 px to 600 px.
+
+The **Zoom Independent Brush Size** option defines how the brush cursor behaves when you zoom in or out of the image.
+
+**How It Works**
+
+When this option is **disabled**, the brush size is zoom-dependent — the diameter of the brush cursor changes visually depending on the current zoom level of the image.
+
+For example, if you zoom out to 50% of the original image resolution, the brush cursor will appear two times smaller on the screen.
+
+<figure><img src="../../.gitbook/assets/brush-tool/zoom-independent-brush-size-off.jpg" alt=""><figcaption></figcaption></figure>
+
+When zoom independent brush size is **enabled**, the brush diameter on the screen remains constant, regardless of the zoom level.
+In this mode, the cursor always represents the actual brush size defined in pixels (e.g., a 100 px brush will always appear as a 100 px circle on the screen), maintaining consistent stroke width during annotation.
+
+<figure><img src="../../.gitbook/assets/brush-tool/zoom-independent-brush-size-on.jpg" alt=""><figcaption></figcaption></figure>
+
 ### Pro Tips <a href="#tips" id="tips"></a>
 
 * Use the **Object Color Randomizer** to instantly change the color of any object with a single click, as often as you like. This is particularly useful if you have many objects of the same class, or if they are close together, so you can easily differentiate between masks.
