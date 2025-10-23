@@ -53,9 +53,11 @@ Launch [Predict APP](https://ecosystem.supervisely.com/apps/apply-nn) app in the
 
 1. [Deploy a model](https://docs.supervisely.com/neural-networks/overview-1/supervisely-serving-apps#how-to-deploy-a-model) for Object Detection or Instance Segmentation.  
 2. Launch the **[Predict APP](https://ecosystem.supervisely.com/apps/apply-nn)** in one of the following ways:  
-   2.1. From the **APP Ecosystem** or **Neural Networks** section on the platform.  
-   2.2. From the **Projects** section, applied to a specific project.  
-   2.3. From the **Datasets** section, applied to one or multiple videos.  
+   - From the **APP Ecosystem** or **Neural Networks** section on the platform.  
+   - From the **Projects** section, applied to a specific project.  
+     ![Predict App from Projects](../../.gitbook/assets/neural-networks/predict_app_from_projects.jpg)
+   - From the **Datasets** section, applied to one or multiple videos.  
+     ![Predict App from Datasets](../../.gitbook/assets/neural-networks/predict_app_from_datasets.jpg)
 3. Select a project, dataset, and video, choose a model, select classes to run inference on, and enable the **Tracking** option.  
    For more details about configuring the Predict APP, see the [documentation](https://ecosystem.supervisely.com/apps/apply-nn).  
 4. In **Advanced Settings**, you can specify hyperparameters (see [Hyperparameter Configuration](#hyperparameter-configuration)).  
@@ -65,6 +67,13 @@ Launch [Predict APP](https://ecosystem.supervisely.com/apps/apply-nn) app in the
 
 
 ### Option 2: Apply NN to Video
+
+### Option 2: Apply NN to Video *(Legacy)*
+
+> ⚠️ **Note:** This is a legacy option kept for backward compatibility.  
+> We now recommend using the **[Predict APP](#option-1-predict-app)** instead.  
+>  
+> You can still use the **[Apply NN to Video](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project)** app in Supervisely.
 
 Launch [Apply NN to Video](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project) app in the Supervisely platform, deploy a detection model, configure inference and tracking settings, and apply the model to your video project.
 
