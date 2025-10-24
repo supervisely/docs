@@ -2,6 +2,22 @@ In Enterprise Edition you can not only store files on a hard drive, but also con
 
 You can upload files from your PC to connected cloud storage or use already uploaded files from cloud storage as a source (without duplicating it).
 
+## Data Storage Options
+
+Supervisely Enterprise Edition provides flexible data storage approaches:
+
+### 1. Direct Cloud Storage
+Configure Supervisely to store all new uploads directly in your cloud storage instead of local storage. This approach moves the entire platform storage to your cloud infrastructure.
+
+### 2. Data Linking (No Duplication)
+Keep your existing data in your cloud storage and link it to Supervisely without duplication. When using this approach:
+- **Your files stay put**: Images and videos remain in their original cloud storage location
+- **Links, not copies**: Supervisely creates references to your files rather than copying them
+- **Zero duplication**: No additional storage space is consumed
+- **Direct access**: The platform accesses files directly from your cloud storage when needed
+
+This linking mechanism is particularly useful when you have large datasets already stored in cloud storage and want to avoid the time and cost of duplicating that data.
+
 ## How we store files
 
 Supervisely uses `DATA_PATH` from `.env` (defaults to `/supervisely/data`) to keep caches, database and etc. But we are interested in `storage` subfolder generated content, like uploaded images or neural networks are stored.
@@ -222,11 +238,34 @@ services:
       CACHE_IMAGE_CONVERTER_EXPIRES: 7d
 ```
 
-## Links plugin cloud providers support
+## Data Linking (No Duplication)
 
-If you already have some files on Amazon S3/Google Cloud Storage/Azure Storage and you don't want to upload and store those files in Supervisely, you can use the "Links" plugin to link the files to Supervisely server.
+If you already have files stored in Amazon S3, Google Cloud Storage, or Azure Storage and want to use them in Supervisely without duplication, you can easily connect your existing data to the platform.
 
-Instead of uploading actual files (i.e. images), you will need to upload .txt file(s) that contains a list of URLs to your files. If your URLs are publicly available (i.e. link looks like `https://s3-us-west-2.amazonaws.com/test1/abc` and you can open it in your web browser directly), then you can stop reading and start uploading.
+**How it works:**
+- Your files remain in their original cloud storage location
+- Supervisely creates links/references to your files instead of copying them
+- No additional storage space is consumed
+- Files are accessed directly from your cloud storage when needed
+
+**Setup options:**
+
+**1. Using Import Applications:**
+1. **Configure cloud credentials** in your [instance settings](../post-installation/#cloud-credentials) for your cloud provider (AWS, Google Cloud, Azure, etc.)
+2. **Import data** using any of the cloud import applications:
+   - [Import images from cloud storage](https://ecosystem.supervisely.com/apps/import-images-from-cloud-storage)
+   - [Import videos from cloud storage](https://ecosystem.supervisely.com/apps/import-videos-from-cloud-storage)
+   - [Import images with annotations from cloud storage](https://ecosystem.supervisely.com/apps/import-images-in-sly-format-from-cloud-storage)
+3. **Select your cloud storage** in the import interface
+4. **Choose "Upload as links"** option to avoid data duplication
+
+**2. Automated via API/SDK:**
+For programmatic access and automation, you can use Supervisely's API or Python SDK to connect cloud storage and import data with links. This approach is perfect for:
+- Automated data pipelines
+- Large-scale data integration
+- Custom workflows and integrations
+
+Learn more about [importing from cloud storage](../../data-organization/import/import/Import-from-Cloud.md) and explore our [Python SDK documentation](https://supervisely.readthedocs.io/) for automation options.
 
 If your files are protected, however, you will need to provide credentials in the [instance settings](/enterprise/post-installation#configure-your-instance) or manually create configuration file.
 
