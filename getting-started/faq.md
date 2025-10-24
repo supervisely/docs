@@ -69,7 +69,11 @@ Absolutely! You can connect your own GPU hardware to any Supervisely platform - 
 
 <summary>Can I keep my data in my own cloud storage?</summary>
 
-Yes, with Supervisely Enterprise Edition you can integrate your own cloud storage (AWS S3, Azure Blob Storage, Google Cloud Storage, etc.) directly with the platform. Your data stays in your environment without duplication, while being accessible through Supervisely. This feature is available for Enterprise editions only. Learn more about [cloud storage integration](../enterprise/s3/).
+Yes, with Supervisely Enterprise Edition you can integrate your own cloud storage (AWS S3, Azure Blob Storage, Google Cloud Storage, etc.) directly with the platform. Your data stays in your environment without duplication, while being accessible through Supervisely. 
+
+**How it works:** Supervisely creates links/references to your files in cloud storage instead of copying them. This means your images and videos remain in their original location, no additional storage space is consumed, and files are accessed directly from your cloud storage when needed.
+
+This feature is available for Enterprise editions only. Learn more about [cloud storage integration](../enterprise/s3/).
 
 </details>
 
