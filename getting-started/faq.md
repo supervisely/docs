@@ -32,7 +32,44 @@ We respect your privacy and when you create an account you don't grant us any ri
 
 <summary>Do you have an on-premises version?</summary>
 
-We do! Drop us an email at [hello@supervisely.com](mailto:hello@supervisely.com) or fill the form [here](https://supervisely.com/enterprise).
+We do! Supervisely Enterprise Edition can be deployed entirely on your own infrastructure - whether on-premises servers, in your cloud environment (AWS, Azure, Google Cloud), or in a hybrid configuration. We also offer managed hosting options where we deploy a dedicated instance for you in our cloud. Learn more about all available [deployment options](../enterprise/deployment-options/).
+
+</details>
+
+<details>
+
+<summary>Can Supervisely run completely within my cloud environment?</summary>
+
+Yes! Supervisely Enterprise Edition can be deployed entirely within your own cloud infrastructure (Azure, AWS, Google Cloud, etc.) without relying on external resources during operation. Some external connections are required during initial setup for license validation and Docker registry access. For environments requiring complete isolation, we offer an offline mode available in Enterprise Premium edition. See our [deployment options guide](../enterprise/deployment-options/) for details.
+
+</details>
+
+<details>
+
+<summary>Where are Supervisely servers located?</summary>
+
+Server location depends on your deployment choice:
+- **Community Edition (SaaS)**: Hosted in Germany
+- **Enterprise Managed Hosting**: Flexible server locations across multiple regions to meet your data residency requirements
+- **Self-Hosted Enterprise**: Runs on your own infrastructure wherever you choose to deploy it
+
+For Enterprise managed hosting, we can align server location with your specific compliance and data residency needs.
+
+</details>
+
+<details>
+
+<summary>Can I use my own compute resources with Supervisely?</summary>
+
+Absolutely! You can connect your own GPU hardware to any Supervisely platform - whether using Community Edition, Enterprise self-hosted, or Enterprise managed hosting. This includes servers from your office, home, or any cloud provider. Learn how to [connect your compute resources](connect-your-computer/) to get started.
+
+</details>
+
+<details>
+
+<summary>Can I keep my data in my own cloud storage?</summary>
+
+Yes, with Supervisely Enterprise Edition you can integrate your own cloud storage (AWS S3, Azure Blob Storage, Google Cloud Storage, etc.) directly with the platform. Your data stays in your environment without duplication, while being accessible through Supervisely. This feature is available for Enterprise editions only. Learn more about [cloud storage integration](../enterprise/s3/).
 
 </details>
 

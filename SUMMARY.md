@@ -191,6 +191,7 @@
 ## 👔 Enterprise Edition
 
 * [Get Supervisely](enterprise-edition/get-supervisely/README.md)
+  * [Deployment Options](enterprise/deployment-options/README.md)
   * [Installation](enterprise/installation/README.md)
   * [Post-installation](enterprise/post-installation/README.md)
   * [Upgrade](enterprise/update/upgrade.md)
