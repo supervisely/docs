@@ -41,10 +41,10 @@ When creating annotations, it's important to:
 - Carefully outline all visible berries using bounding boxes
 - Not miss any objects, as this will affect the quality of automatic labeling
 
-Example of good input prompt:
+Here are examples of good and bad class names:
+
 ![Good input prompt](../../assets/solution/image_labeling_assistant/good-input_prompt.png)
 
-Example of bad input prompt:
 ![Bad input prompt](../../assets/solution/image_labeling_assistant/bad-input_prompt.png)
 
 #### Step 3: Move to Next Image
