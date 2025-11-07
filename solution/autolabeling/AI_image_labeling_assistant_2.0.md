@@ -23,9 +23,13 @@ The process of manual labeling of such images requires significant time investme
 
 ### How We Solved the Problem: Step-by-Step Process
 
+![How We Solved the Problem: Step-by-Step Process](../../assets/solution/image_labeling_assistant/process.gif)
+
 #### Step 1: Launch Application and Open Dataset
 
 We launch AI Image Labeling Assistant 2.0 and open our strawberry image dataset for labeling. The application automatically loads the first image from the dataset.
+
+![Step-by-Step Process](../../assets/solution/image_labeling_assistant/step-by-step.png)
 
 #### Step 2: Manual Labeling of the First Frame
 
@@ -38,7 +42,10 @@ When creating annotations, it's important to:
 - Not miss any objects, as this will affect the quality of automatic labeling
 
 Example of good input prompt:
+![Good input prompt](../../assets/solution/image_labeling_assistant/good-input_prompt.png)
+
 Example of bad input prompt:
+![Bad input prompt](../../assets/solution/image_labeling_assistant/bad-input_prompt.png)
 
 #### Step 3: Move to Next Image
 
@@ -50,6 +57,8 @@ On the second (and subsequent) images, we launch the automatic labeling function
 
 - **Batch processing**: select a specific number of images for automatic labeling
 - **Full processing**: process all remaining images in the dataset
+
+![Processing options](../../assets/solution/image_labeling_assistant/quick-actions.png)
 
 #### Step 5: Quality Control and Correction
 
