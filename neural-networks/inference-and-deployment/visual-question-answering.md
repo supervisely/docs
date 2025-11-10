@@ -200,7 +200,7 @@ Answer:
 
 `The clock in the image shows 1:52 for New York. This time is displayed on the leftmost clock, which represents New York. The other two clocks in the image show different times for London and Tokyo, but the question specifically asks about New York, so I'm focusing on that clock`.
 
-Image captioninng using Florence 2:
+Image captioning using Florence 2:
 
 Input image:
 
@@ -225,7 +225,7 @@ Object counting using Kosmos 2:
 
 Input image:
 
-<figure><img src="../../.gitbook/assets/neural-networks/inference-and-deployment/kosmos_2_prompt.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/inference-and-deployment/kosmos_2_prompt.png" alt=""><figcaption></figcaption></figure>
 
 Code:
 
