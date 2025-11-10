@@ -179,7 +179,7 @@ print(response["answer"])
 
 ### Examples
 
-Image question answering using Molmo:
+**Image question answering using Molmo:**
 
 Input image:
 
@@ -200,7 +200,7 @@ Answer:
 
 `The clock in the image shows 1:52 for New York. This time is displayed on the leftmost clock, which represents New York. The other two clocks in the image show different times for London and Tokyo, but the question specifically asks about New York, so I'm focusing on that clock`.
 
-Image captioning using Florence 2:
+**Image captioning using Florence 2:**
 
 Input image:
 
@@ -221,7 +221,7 @@ Answer:
 
 `The image shows a red car parked on the side of a street next to a building. There is a person sitting in the car, and a bicycle parked nearby. The street is lined with plants with flowers, and there are steps with railings leading up to the building`.
 
-Object counting using Kosmos 2:
+**Object counting using Kosmos 2:**
 
 Input image:
 
