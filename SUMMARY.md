@@ -172,6 +172,7 @@
   * [Prediction API](neural-networks/inference-and-deployment/prediction-api.md)
   * [Model API](neural-networks/inference-and-deployment/model-api.md)
   * [Video Object Tracking](neural-networks/inference-and-deployment/video-object-tracking.md)
+  * [Visual Question Answering](neural-networks/inference-and-deployment/visual-question-answering.md)
   * [Using trained models outside of Supervisely](neural-networks/inference-and-deployment/using-standalone-pytorch-models.md)
 * [Model Evaluation Benchmark](neural-networks/model-evaluation-benchmark/README.md)
   * [Object Detection](neural-networks/model-evaluation-benchmark/object-detection.md)
