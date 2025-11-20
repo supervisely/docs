@@ -1,5 +1,3 @@
-<h1 align="left" style="border-bottom: 0"> <img align="left" src="https://github.com/supervisely-ecosystem/import-wizard-docs/releases/download/v0.0.1/multi_view_logo.png" width="80" style="padding-right: 20px;"> Multiview Video Format</h1>
-
 # Overview
 
 Import format for multiview video projects in Supervisely. Videos are grouped by datasets - all videos within one dataset form a synchronized multiview group.
