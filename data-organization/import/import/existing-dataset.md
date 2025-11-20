@@ -2,7 +2,7 @@
 
 It is possible to add more assets such as images to the existing project or dataset.
 
-Just go o to the **Projects** or **Datasets** page and click on interactive tile.
+Just go on to the **Projects** or **Datasets** page and click on interactive tile.
 
 <figure><img src="../../../.gitbook/assets/import-into-dataset.png" alt=""><figcaption></figcaption></figure>
 
@@ -13,6 +13,8 @@ Depending on the [Supervisely App](https://app.supervisely.com/ecosystem/all-app
 {% endhint %}
 
 Go to the **Projects** or **Data** page, select any dataset and use the context menu by **three dots icon (⋮)** and select Add more items → Import. You find the list of [Supervisely Apps](https://app.supervisely.com/ecosystem/all-apps) that support project as an input and allow adding more content to it.
+
+<figure><img src="../../../.gitbook/assets/add-more-items.png" alt=""><figcaption></figcaption></figure>
 
 ## Example: add more images to a dataset
 
