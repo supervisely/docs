@@ -2,7 +2,7 @@
 
 It is possible to add more assets such as images to the existing project or dataset.
 
-Just go on to the **Projects** or **Datasets** page and click on interactive tile.
+Just go to the **Projects** or **Datasets** page and click on interactive tile.
 
 <figure><img src="../../../.gitbook/assets/import-into-dataset.png" alt=""><figcaption></figcaption></figure>
 
