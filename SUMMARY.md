@@ -38,6 +38,7 @@
       * [High Color Depth](data-organization/import/import/supported-formats-images/high-color-depth.md)
     * [Videos](import-and-export/import/supported-annotation-formats/videos/README.md)
       * [Supervisely](data-organization/import/import/supported-formats-videos/supervisely.md)
+      * [Multiview](data-organization/import/import/supported-formats-videos/multiview.md)
     * [Pointclouds](import-and-export/import/supported-annotation-formats/pointclouds/README.md)
       * [Supervisely](data-organization/import/import/supported-formats-pointcloud/supervisely.md)
       * [.PCD, .PLY, .LAS, .LAZ pointclouds](data-organization/import/import/supported-formats-pointcloud/point_clouds.md)
