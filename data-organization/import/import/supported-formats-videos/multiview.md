@@ -2,7 +2,7 @@
 
 Import format for multiview video projects in Supervisely. Videos are grouped by datasets - all videos within one dataset form a synchronized multiview group.
 
-![](./images/multi_view.jpg)
+![](./images/multi_view.png)
 
 # Format description
 
