@@ -16,12 +16,24 @@ Go to the **Projects** or **Data** page, select any dataset and use the context 
 
 ## Example: add more images to a dataset
 
-Step 1: Go to the **Data** page
+- Enter the required dataset and click "import more data" ①
 
-Step 2: Select Add more items → Import → Import Images
+<figure><img src="../../../.gitbook/assets/import-into-dataset-1.png" alt=""><figcaption></figcaption></figure>
 
-Step 3: Drag and drop additional images you want to add and click `Run App` button.
+- A page will open showing an indicator that you are adding data to the selected dataset ②, and its name cannot be changed (in your screenshot, you are adding data as a new dataset).
 
-Step 4: You will be redirected to the **Tasks** page where you can watch import progress. When it is done, you will see the link to your updated project (or find it at the Projects page).
+- On the upload page, you can review the required format by selecting it ③.
 
-<figure><img src="../../../.gitbook/assets/add-more-items.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/import-into-dataset-2.png" alt=""><figcaption></figcaption></figure>
+
+- On the page with the format description, you can find example data ④, download it and compare the structure. You can read more about the structure on the page or via the provided link.
+
+- Additionally, this page features a simplified example of the Supervisely format structure ⑤. Please double-check the data you are uploading.
+
+<figure><img src="../../../.gitbook/assets/import-into-dataset-3.png" alt=""><figcaption></figcaption></figure>
+
+- The screenshots (⑥ and ⑦ points) show that the images from the example data have been uploaded.
+
+<figure><img src="../../../.gitbook/assets/import-into-dataset-4.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/import-into-dataset-5.png" alt=""><figcaption></figcaption></figure>
