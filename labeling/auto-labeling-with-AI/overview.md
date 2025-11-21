@@ -15,34 +15,28 @@ Traditional manual data labeling can be time-consuming and expensive. Data annot
 
 Supervisely Ecosystem provides numerous ways of data labeling optimization with AI across several modalities: images, videos, 3D point clouds and DICOM volumes.
 
-<table data-view="cards">
-   <thead>
-      <tr>
-         <th></th>
-         <th></th>
-         <th data-hidden data-card-target data-type="content-ref"></th>
-      </tr>
-   </thead>
-   <tbody>
-      <tr>
-         <td><strong>Images</strong></td>
-         <td>Accelerate image labeling with AI-driven algorithms that instantly detect and segment objects with high accuracy, reducing annotation time by up to 80%.</td>
-         <td><a href="images/README.md">Images</a></td>
-      </tr>
-    <tr>
-         <td><strong>Videos</strong></td>
-         <td>Level up your frame-level and sequence-level annotations with the help of object detection, object segmentation, object tracking and action recognition ML models.</td>
-         <td><a href="videos/README.md">Videos</a></td>
-    </tr>
-    <tr>
-         <td><strong>3D Point Clouds</strong></td>
-         <td>Unlock fast and precise 3D annotations with the help spatial understanding and sensor fusion algorithms - perfect for robotics and autonomous systems.</td>
-         <td><a href="3d-point-clouds/README.md">3D Point Clouds</a></td>
-    </tr>
-    <tr>
-         <td><strong>DICOM volumes</strong></td>
-         <td>Leverage medical imaging AI models to simplify annotation of CT, MRI and X-ray scans.</td>
-         <td><a href="dicom/README.md">DICOMs</a></td>
-    </tr>
-   </tbody>
-</table>
+[Images](images/README.md)
+
+- [Pretrained models](images/README.md#pretrained-models)
+- [Interactive labeling models](images/README.md#interactive-labeling-models)
+- [Foundation models](images/README.md#foundation-models)
+- [Model ensembles](images/README.md#model-ensembles)
+- [Online learning](images/README.md#online-learning)
+- [Image filtering](images/README.md#image-filtering)
+- [Custom models](images/README.md#custom-models)
+
+[Videos](videos/README.md)
+
+- [Tracking by detection](videos/README.md#tracking-by-detection)
+- [First frame initialized trackers](videos/README.md#first-frame-initialized-trackers)
+- [Model ensembles](videos/README.md#model-ensembles)
+
+[3D point clouds](3d-point-clouds/README.md)
+
+- [Pretrained models](3d-point-clouds/README.md#pretrained-models)
+- [First frame initialized trackers](3d-point-clouds/README.md#first-frame-initialized-trackers)
+- [3D AI assistant](3d-point-clouds/README.md#3d-ai-assistant)
+
+[DICOM](dicom/README.md)
+
+- [Interactive labeling models](dicom/README.md#interactive-labeling-models)

@@ -21,7 +21,9 @@ How tracking by detection works:
 
 Tracking by detection works with any detector, what makes this approach highly scalable.
 
-Supervisely Ecosystem uses enhanced custom implementation of BoT-SORT algorithm (you can read more details about our enhaced version of BoT-SORT [here](https://docs.supervisely.com/neural-networks/inference-and-deployment/video-object-tracking)), which can be used with any detector with the help of corresponding app - [Apply NN to Videos project](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project).
+Supervisely Ecosystem uses enhanced custom implementation of BoT-SORT algorithm (you can read more details about our enhaced version of BoT-SORT [here](https://docs.supervisely.com/neural-networks/inference-and-deployment/video-object-tracking)), which can be used with any detector with the help of corresponding app - [Predict App](https://ecosystem.supervisely.com/apps/apply-nn) - it allows to conveniently deploy ML models and apply them to input data.
+
+screen_record.mp4
 
 ## First frame initialized trackers
 
@@ -49,10 +51,14 @@ Types of first frame initialized trackers:
 
 First frame initialized trackers significantly reduce manual work because annotators label only one (or several in case of manual corrections) frame instead of hundreds or thousands.
 
-Supervisely Ecosystem provides convenient usage of modern first frame initialized trackers in Video Annotation Tool:
+Supervisely Ecosystem provides convenient usage of modern first frame initialized trackers in Video Annotation Tool. You can use apps specialized for specific figures tracking (e.g. MixFormer - for bounding boxes, SAM 2 - for masks, CoTracker - for keypoints, etc.) or use [Auto Track](https://ecosystem.supervisely.com/apps/auto-track) - unversal tarcking app which allows to deploy necessary trackers and automatically find suitable model for tracking of desired figures:
+
+screen_record.mp4
 
 ## Model ensembles
 
 Model ensembles in video annotation integrate outputs from multiple computer vision models to achieve superior detection, segmentation and tracking performance across frames. By leveraging diverse architectures such as different object detection and segmentation models, motion estimators and trackers, the system compensates for the weaknesses of individual models and produces more robust video labels.
 
 Example of model ensembles for video annotation is Supervisely's AI image labeling assistant - it can be used for both image and video annotation and works by combining several foundation models to find the algorithm which fits given dataset best. Unlike first frame initialized trackers, AI image labeling assistant automatically detects new objects appearing on frame sequence and tracks them until they disappear. It also overcomes another limitation of first frame initialized trackers - memory consumption. In case of first frame initialized trackers, memory consumption is directly proportional to the number of frames in the sequence. For example, if you will try to track segmentation masks from first frame on 400 frames forward with the help of XMem, you will probably face CUDA Out of Memory Error - GPU memory consumption will be too significant. AI image labeling assistant can label video sequences whose length surpasses 1000 frames in one iteration - GPU memory consumtion will be stable throughout whole labeling process.
+
+screen_record.mp4

@@ -11,6 +11,8 @@ Using pretrained models for labeling 3D point clouds is a powerful way to automa
 
 Supervisely Ecosystem allows to use pretrained models for 3D object detection - such as CenterFormer, CenterPoint, PV-RCNN, Part-A2, 3DSSD, PointPillars and others with the help of [Serve MMDetection3D](https://ecosystem.supervisely.com/apps/mmdetection3d-v1.x/supervisely-serve) app. All these architectures can also be trained on custom dataset with the help of corresponding train app - [Train MMDetection3D](https://ecosystem.supervisely.com/apps/mmdetection3d-v1.x/supervisely-train).
 
+screen_record.mp4
+
 ## First frame initialized trackers
 
 First-frame initialized trackers for 3D point clouds are tracking models that begin with a single human annotation on the first frame (usually a cuboid or a point-level mask) and then automatically follow that same object through the remainder of the point cloud sequence. This approach mirrors 2D video object tracking, but adapted to the unique geometry, sparsity and motion characteristics of 3D LiDAR data.
@@ -29,6 +31,8 @@ How first frame initialized 3D trackers work:
 
 An example of first frame initialized tracker for 3D point clouds in MBPTrack, which can be easily used in Supervisely 3D Point Cloud labeling tool.
 
+screen_record.mp4
+
 
 ## 3D AI assistant
 
@@ -38,10 +42,18 @@ Here is a brief overview of tasks which can be solved with 3D AI assistant:
 
 Interactive 3D object detection:
 
+screen_record.mp4
+
 3D point cloud ground segmentation:
+
+screen_record.mp4
 
 3D cuboid tracking:
 
+screen_record.mp4
+
 Transfer of annotations from 2D photo context images to 3D point clouds:
+
+screen_record.mp4
 
 For more details, check our [3D Point Cloud and Episodes](https://docs.supervisely.com/labeling/labeling-toolbox/3d-point-cloud-episodes-2) tutorial.
