@@ -18,23 +18,27 @@ Go to the **Projects** or **Data** page, select any dataset and use the context 
 
 ## Example: add more images to a dataset
 
-- Enter the required dataset and click "import more data" ①
+### Method 1: Using dataset context menu
+
+Go to the **Projects** or **Data** page, select the target dataset and use the context menu (three dots icon **⋮**). Select **Add more items → Import** to find the list of [Supervisely Apps](https://app.supervisely.com/ecosystem/all-apps) that support adding content to existing datasets.
+
+### Method 2: Import from within the dataset
+
+1. Enter the required dataset and click **"import more data"**
 
 <figure><img src="../../../.gitbook/assets/import-into-dataset-1.png" alt=""><figcaption></figcaption></figure>
 
-- A page will open showing an indicator that you are adding data to the selected dataset ②, and its name cannot be changed (in your screenshot, you are adding data as a new dataset).
-
-- On the upload page, you can review the required format by selecting it ③.
+2. A page will open showing an indicator that you are adding data to the selected dataset. The dataset name cannot be changed as you are adding to an existing dataset.
 
 <figure><img src="../../../.gitbook/assets/import-into-dataset-2.png" alt=""><figcaption></figcaption></figure>
 
-- On the page with the format description, you can find example data ④, download it and compare the structure. You can read more about the structure on the page or via the provided link.
-
-- Additionally, this page features a simplified example of the Supervisely format structure ⑤. Please double-check the data you are uploading.
+3. On the upload page, you can review the required format by selecting it.
 
 <figure><img src="../../../.gitbook/assets/import-into-dataset-3.png" alt=""><figcaption></figcaption></figure>
 
-- The screenshots (⑥ and ⑦ points) show that the images from the example data have been uploaded.
+4. On the format description page, you can find example data, download it and compare the structure. This page also features a simplified example of the Supervisely format structure. Please double-check the data you are uploading.
+
+5. After uploading, the new images will be added to your existing dataset.
 
 <figure><img src="../../../.gitbook/assets/import-into-dataset-4.png" alt=""><figcaption></figcaption></figure>
 
