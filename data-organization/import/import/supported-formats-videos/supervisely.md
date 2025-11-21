@@ -56,7 +56,7 @@ Project meta file `meta.json` is recommended to be present in the project direct
 
 For each video, we store the annotations in a separate `json` file named `video_name.video_format.json` with the following file structure:
 
-![](videos/video_example1.jpg)
+![](./images/video_example1.jpg)
 
 ```json
 {
