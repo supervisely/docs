@@ -185,6 +185,8 @@
   * [Custom Training](neural-networks/custom-model-integration/integrate-custom-training.md)
 * Solutions
   * [Temporal Action Localization with MVD](solution/action_recognition/temporal_action_localization_with_mvd.md)
+  * [Automatic Strawberry Image Labeling with AI Image Labeling Assistant 2.0
+    ](solution/autolabeling/AI_image_labeling_assistant_2.0.md)
 * [Legacy](neural-networks/legacy/README.md)
   * [Starting with Neural Networks](neural-networks/legacy/overview/overview.md)
   * [Train custom Neural Networks](neural-networks/legacy/custom-nn/custom-nn.md)
