@@ -16,7 +16,7 @@ This is particularly useful for:
 - **Sports analytics** — tracking athletes from multiple viewpoints
 - **3D reconstruction** — multi-camera setups for depth estimation
 
-<!-- TODO: Add screenshot/gif of multiview interface -->
+![](multi-view-tracking.gif)
 
 ---
 
@@ -52,31 +52,30 @@ All videos in a multiview group can be played back synchronously:
 
 ### Via UI (Drag & Drop)
 
+0. Prepare your data according to the required structure (see below):
+   - Create a folder for each multiview group (dataset)
+   - Place all camera videos inside the corresponding folder
+
+```text
+📂 .
+└── 📂 scene_01
+    ├── 🎥 camera_left.mp4
+    ├── 🎥 camera_top.mp4
+    ├── 🎥 camera_front.mp4
+    └── 🎥 camera_right.mp4
+```
+
+![](./prepared_data.jpg)
+
 1. Go to your workspace and start from creating a new project (`+ New` ⇨ `New Project Wizard`)
 2. Select **Videos** ⇨ **Multi-view** labeling interface and proceed
 3. Press `Import` to open the import app wizard
-4. Prepare your data according to the required structure (see below):
-   - Create a folder for each multiview group (dataset)
-   - Place all camera videos inside the corresponding folder
-5. Drag and drop your prepared folder or archive
-6. The import app will automatically group videos by datasets
+4. Drag and drop your prepared folder or archive
+5. The import app will automatically group videos by datasets
 
-```text
-📂 project_name
-    ┣ 📂 dataset_01
-    ┃  ┣ 🎥 camera_front.mp4
-    ┃  ┣ 🎥 camera_left.mp4
-    ┃  ┗ 🎥 camera_right.mp4
-    ┗ 📂 dataset_03
-       ┣ 🎥 camera_front.mp4
-       ┣ 🎥 camera_left.mp4
-       ┗ 🎥 camera_right.mp4
-```
+![](import-multi-view-videos.gif)
 
-<!-- TODO: Add step-by-step gif -->
-
-<!-- TODO Add sample-->
-<!-- 📥 [Download example data](https://github.com/user-attachments/files/23659139/multiview-videos-sample.zip) -->
+📥 [Download example data](https://github.com/supervisely-ecosystem/import-wizard-docs/releases/download/v0.0.3/multi-view-videos.zip)
 
 For detailed import format specification, see [Multiview Import Format](../../../data-organization/import/import/supported-formats-videos/multiview.md).
 
@@ -117,6 +116,10 @@ for video_path in video_paths:
     )
 ```
 
+Open the project in the Supervisely UI to start annotating in multiview mode.
+
+![](./multi-view-interface.jpg)
+
 ### Optional: Specify Video Order
 
 To control the order of videos in the multiview labeling interface, you can create a metadata JSON file for each video with the suffix `.meta.json`. This file should include the `videoStreamIndex` to define its position.
@@ -149,13 +152,19 @@ For example, for a video named `camera_front.mp4`, create a file named `camera_f
 
 ### Interface Overview
 
-The multiview labeling interface displays all videos from the dataset simultaneously:
+The multiview labeling interface includes the following key elements:
 
-<!-- TODO: Add annotated screenshot of interface elements -->
+- **Video panels & Synchronized timeline** — each video is displayed in its own panel with a shared timeline for synchronized navigation:
 
-- **Video panels** — each video is displayed in its own panel
-- **Synchronized timeline** — single timeline controls all videos
-- **Objects & Tags panel** — shows objects across all videos and video-specific tags
+![](multi-view-panels.jpg)
+
+- **Objects & Tags panel** — shows objects across all videos and video-specific tags:
+
+![](multi-view-objects.png)
+
+- **Multiview settings** — configure frame offsets to align videos temporally to ensure synchronized playback. You can specify number of frames or time in milliseconds for each video:
+
+![](multi-view-settings.jpg)
 
 ### Annotating Objects & Tags
 
@@ -167,9 +176,9 @@ Note: When annotating in multiview mode, you can create unified objects across v
 2. **The same object** can be annotated on other videos in the group
 3. Objects with the same ID are linked across all videos
 
-<!-- TODO: Add gif showing cross-video object annotation -->
+![](multi-view-labeling.gif)
 
-<!-- ### Auto-tracking
+### Auto-tracking
 
 Multiview mode supports automatic object tracking:
 
@@ -182,11 +191,11 @@ Multiview mode supports automatic object tracking:
    - Set number of frames
 5. The tracker will follow the object across frames
 
-
 {% hint style="info" %}
 Tracking is applied per-video. You may need to track the same object separately on each camera view.
-{% endhint %} -->
-<!-- TODO: Add gif demonstrating autotrack in multiview -->
+{% endhint %}
+
+![](multi-view-tracking.gif)
 
 ---
 
