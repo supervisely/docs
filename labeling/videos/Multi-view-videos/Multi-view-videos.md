@@ -28,15 +28,6 @@ If you have a common object appearing across different videos (e.g., a car visib
 
 - The object maintains its identity across all videos in the multiview group
 - When you export and re-import the project, the object is recreated as a unified entity
-- This enables consistent tracking and analysis across all camera views
-
-### Video-specific Tags
-
-Unlike objects, **tags apply only within a specific video**:
-
-- When you tag a figure, frame, or video, that tag is associated only with that particular video
-- Tags are displayed only on the video where they were created
-- This allows for view-specific annotations (e.g., "occluded" tag on one camera angle)
 
 ### Synchronized Playback
 
@@ -44,7 +35,8 @@ All videos in a multiview group can be played back synchronously:
 
 - Navigate through frames simultaneously across all views
 - Configure frame offsets if videos have different starting points
-- Maintain temporal alignment for accurate cross-view annotation
+- Control the order of videos in the labeling interface using metadata files with `videoStreamIndex` (see "How to Create Multiview Project" section below)
+- Easily compare and analyze object behavior from multiple angles in real-time
 
 ---
 
@@ -68,7 +60,7 @@ All videos in a multiview group can be played back synchronously:
 ![](./prepared_data.jpg)
 
 1. Go to your workspace and start from creating a new project (`+ New` ⇨ `New Project Wizard`)
-2. Select **Videos** ⇨ **Multi-view** labeling interface and proceed
+2. Select `Videos` ⇨ `Multi-view` labeling interface and proceed
 3. Press `Import` to open the import app wizard
 4. Drag and drop your prepared folder or archive
 5. The import app will automatically group videos by datasets
@@ -166,7 +158,7 @@ The multiview labeling interface includes the following key elements:
 
 ![](multi-view-settings.jpg)
 
-### Annotating Objects & Tags
+### Annotating Objects
 
 {% hint style="info" %}
 Note: When annotating in multiview mode, you can create unified objects across videos, but tags remain video-specific.
@@ -177,6 +169,14 @@ Note: When annotating in multiview mode, you can create unified objects across v
 3. Objects with the same ID are linked across all videos
 
 ![](multi-view-labeling.gif)
+
+### Video-specific Tags
+
+Unlike objects, **tags apply only within a specific video**:
+
+- When you tag a figure, frame, or video, that tag is associated only with that particular video
+- Tags are displayed only on the video where they were created
+- This allows for view-specific annotations (e.g., "occluded" tag on one camera angle)
 
 ### Auto-tracking
 
