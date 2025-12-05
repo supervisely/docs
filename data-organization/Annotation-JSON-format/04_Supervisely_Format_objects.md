@@ -6,6 +6,7 @@ Supervisely Annotation Format supports the following figures:
 
 - point
 - rectangle
+- oriented_bbox
 - polygon
 - line / polyline
 - bitmap
@@ -126,6 +127,92 @@ Fields definitions:
 - `points` - object with two fields:
 - `exterior` - list of two lists, each containing two coordinates (`x` and `y` in that order), with the following structure: [[left, top], [right, bottom]]
 - `interior` - always an empty list for this type of figure
+
+## Oriented Bounding Box
+
+Oriented Bounding Box (OBB) is a rotated rectangle defined by two corner points and a rotation angle. Unlike axis-aligned rectangles, OBBs can be rotated to better fit objects at arbitrary angles, making them ideal for annotating elongated or tilted objects like vehicles, ships, or text.
+
+Example:
+
+<!-- ![oriented bbox example](./figures_images/oriented_bbox.png) -->
+
+JSON format for this figure:
+
+```json
+{
+  "id": 503051991,
+  "classId": 1693352,
+  "labelerLogin": "alexxx",
+  "createdAt": "2020-08-22T09:32:48.010Z",
+  "updatedAt": "2020-08-22T09:33:08.926Z",
+  "nnCreated": false,
+  "nnUpdated": false,
+  "description": "",
+  "geometryType": "oriented_bbox",
+  "tags": [],
+  "classTitle": "vehicle",
+  "points": {
+    "exterior": [
+      [100, 100],
+      [900, 700]
+    ],
+    "interior": []
+  },
+  "angle": 15
+}
+```
+
+Fields definitions:
+
+- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
+- `description` - string - text description (optional)
+- `geometryType: "oriented_bbox"` - class shape
+- `tags` - list of tags assigned to the current object
+- `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
+- `points` - object with two fields:
+  - `exterior` - list of two lists, each containing two coordinates (`x` and `y` in that order), with the following structure: [[left, top], [right, bottom]] - these define the **unrotated** bounding box (as if angle = 0)
+  - `interior` - always an empty list for this type of figure
+- `angle` - rotation angle in degrees. Positive values mean clockwise rotation around the center of the bounding box
+
+{% hint style="info" %}
+The `top`, `left`, `bottom`, `right` coordinates stored in `exterior` represent the bounding box **before rotation** (i.e., at angle = 0). To get the actual corner coordinates of the rotated bounding box, use the `calculate_rotated_corners()` method in Python SDK.
+{% endhint %}
+
+### Python SDK Example
+
+```python
+import supervisely as sly
+
+# Create an oriented bounding box
+top = 100
+left = 100
+bottom = 700
+right = 900
+angle = 15
+
+obb = sly.OrientedBBox(top, left, bottom, right, angle=angle)
+
+# Convert to JSON
+json_data = obb.to_json()
+print(json_data)
+# Output:
+# {
+#     "points": {
+#         "exterior": [[100, 100], [900, 700]],
+#         "interior": []
+#     },
+#     "angle": 15
+# }
+
+# Create from JSON
+obb_restored = sly.OrientedBBox.from_json(json_data)
+
+# Get axis-aligned bounding box that contains the rotated OBB
+axis_aligned_bbox = obb.to_bbox()
+
+# Get rotated corner points
+corners = obb.calculate_rotated_corners()
+```
 
 ## Polygon (without holes)
 
