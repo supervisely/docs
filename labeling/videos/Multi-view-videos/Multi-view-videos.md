@@ -180,20 +180,31 @@ Unlike objects, **tags apply only within a specific video**:
 
 ### Auto-tracking
 
-Multiview mode supports automatic object tracking:
+{% hint style="success" %}
+To speed up the annotation process, you can use the **Auto Track** app to automatically track objects across multiple videos in a multiview project.
+{% endhint %}
 
-1. **Annotate the first frame** on one or more videos
-2. **Select the object** you want to track
-3. **Click Track** (or use `Shift + T` shortcut)
-4. Configure tracking settings:
-   - Select tracking model
+To use auto-tracking in multiview mode:
+
+1. **Open a multiview video project** and navigate to the desired frame.
+2. **Configure the tracking settings** in the tracking tool:
+   - Set number of frames to track
    - Choose direction (forward/backward)
-   - Set number of frames
-5. The tracker will follow the object across frames
+   - Select the tracking engine ([Auto Track](https://app.supervisely.com/ecosystem/apps/supervisely-ecosystem/auto-track) app)
+   - Enable/Disable automatic tracking
+  ![](auto-track-settings.jpg)
+
+3. **Annotate the object** on one of the videos and start the tracker.
+4. After tracking is complete on one video, **switch to another video** in the multiview interface.
+5. **Create a new figure** for the same object and press `Alt + Space` (or `Option + Space` on Mac) to complete the figure. This will trigger the tracker to extend the annotation for the same number of frames as before.
 
 {% hint style="info" %}
-Tracking is applied per-video. You may need to track the same object separately on each camera view.
+There are two options for using auto-tracking: enabling automatic tracking when annotating or editing an object, or manually running the tracker using the hotkey `Shift + T`. If automatic tracking is enabled, the tracker runs automatically on all figures of objects across all videos.
 {% endhint %}
+
+![](https://github.com/supervisely-ecosystem/import-wizard-docs/releases/download/v0.0.3/multi-view-objects-1.gif)
+
+Auto-tracking in multiview mode allows you to efficiently annotate the same object across multiple camera views by leveraging synchronized tracking capabilities.
 
 ![](multi-view-tracking.gif)
 
@@ -228,5 +239,5 @@ The exported structure can be re-imported to recreate the exact same multiview s
 
 - [Multiview Import Format Specification](../../../data-organization/import/import/supported-formats-videos/multiview.md)
 - [Video Annotation Format](../../../data-organization/Annotation-JSON-format/00_ann_format_navi.md)
-- [Export Videos in Supervisely Format](https://ecosystem.supervisely.com/apps/export-videos-in-supervisely-format)
+- [Export Videos in Supervisely Format](https://ecosystem.supervisely.com/apps/export-videos-project-in-supervisely-format)
 - [Video Labeling Toolbox](../README.md)
