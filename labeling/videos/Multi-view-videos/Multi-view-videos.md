@@ -181,7 +181,7 @@ Unlike objects, **tags apply only within a specific video**:
 ### Auto-tracking
 
 {% hint style="success" %}
-To speed up the annotation process, you can use the **Auto Track** app to automatically track objects across multiple videos in a multiview project.
+To speed up the annotation process, you can use the **Auto Track** app to automatically track objects across multiple videos simultaneously.
 {% endhint %}
 
 To use auto-tracking in multiview mode:
@@ -192,6 +192,7 @@ To use auto-tracking in multiview mode:
    - Choose direction (forward/backward)
    - Select the tracking engine ([Auto Track](https://app.supervisely.com/ecosystem/apps/supervisely-ecosystem/auto-track) app)
    - Enable/Disable automatic tracking
+
   ![](auto-track-settings.jpg)
 
 3. **Annotate the object** on one of the videos and start the tracker.
@@ -204,7 +205,7 @@ There are two options for using auto-tracking: enabling automatic tracking when 
 
 ![](https://github.com/supervisely-ecosystem/import-wizard-docs/releases/download/v0.0.3/multi-view-objects-1.gif)
 
-Auto-tracking in multiview mode allows you to efficiently annotate the same object across multiple camera views by leveraging synchronized tracking capabilities.
+Simple example result of auto-tracking in multiview mode:
 
 ![](multi-view-tracking.gif)
 
