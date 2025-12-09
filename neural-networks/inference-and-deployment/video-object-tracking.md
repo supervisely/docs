@@ -37,17 +37,42 @@ Additionally, we found some improvements in the original codebase and fixed mino
 
 ## How to Use Tracker
 
-Users have three ways to apply a tracker in different scenarios:
+Users have four ways to apply a tracker in different scenarios:
 
-1. **[Apply NN to Video](#option-1-apply-nn-to-video)**: the most convenient way is to use our [Apply NN to Video](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project) app on the Supervisely platform.
-2. **[Tracking via API](#option-2-tracking-via-api)**: programmatic access through the python API - you send requests and receive predictions while tracking runs on the server.
-3. **[Run Tracker Locally](#option-3-run-tracker-locally)**: use the tracker inside your own code or application with the Supervisely SDK on your machine.
+1. **[Predict APP](https://ecosystem.supervisely.com/apps/apply-nn)**: the most convenient way is to use our [Predict APP](https://ecosystem.supervisely.com/apps/apply-nn) app on the Supervisely platform.
+2. **[Apply NN to Video (Legacy)](#option-1-apply-nn-to-video)**: an additional option to apply neural networks to videos is to use our [Apply NN to Video](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project) app on the Supervisely platform.
+3. **[From labeling tool](../../labeling/labeling-toolbox/videos-3.0.md)**: run object tracking directly from the labeling tool to automatically pre-annotate your videos.
+4. **[Tracking via API](#option-2-tracking-via-api)**: programmatic access through the python API - you send requests and receive predictions while tracking runs on the server.
+5. **[Run Tracker Locally](#option-3-run-tracker-locally)**: use the tracker inside your own code or application with the Supervisely SDK on your machine.
 
 In this guide we will cover all three options.
 
 ---
+### Option 1: Predict APP 
 
-### Option 1: Apply NN to Video
+Launch [Predict APP](https://ecosystem.supervisely.com/apps/apply-nn) app in the Supervisely platform, deploy a detection model, configure inference and tracking settings, and apply the model to your video project.
+
+- [Deploy a model](supervisely-serving-apps.md#how-to-deploy-a-model) for Object Detection or Instance Segmentation.  
+- Launch the **[Predict APP](https://ecosystem.supervisely.com/apps/apply-nn)** in one of the following ways:  
+   - From the **APP Ecosystem** or **Neural Networks** section on the platform.  
+   - From the **Projects** section, applied to a specific project.  
+     ![Predict App from Projects](../../.gitbook/assets/neural-networks/predict_app_from_projects.jpg)
+   - From the **Datasets** section, applied to one or multiple videos.  
+     ![Predict App from Datasets](../../.gitbook/assets/neural-networks/predict_app_from_datasets.jpg)
+- Select a project, dataset, and video, choose a model, select classes to run inference on, and enable the **Tracking** option.  
+   For more details about configuring the Predict APP, see the [documentation](https://ecosystem.supervisely.com/apps/apply-nn).  
+- In **Advanced Settings**, you can specify hyperparameters (see [Hyperparameter Configuration](#hyperparameter-configuration)).  
+- Click **RUN** to start the inference process.
+
+<figure><img src="../../.gitbook/assets/neural-networks/predict_app_tracking_settings.jpg" alt="Apply NN with tracker screenshot"><figcaption>Tracking settings</figcaption></figure>
+
+
+### Option 2: Apply NN to Video *(Legacy)*
+
+> ⚠️ **Note:** This is a legacy option kept for backward compatibility.  
+> We now recommend using the **[Predict APP](#option-1-predict-app)** instead.  
+>  
+> You can still use the **[Apply NN to Video](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project)** app in Supervisely.
 
 Launch [Apply NN to Video](https://ecosystem.supervisely.com/apps/apply-nn-to-videos-project) app in the Supervisely platform, deploy a detection model, configure inference and tracking settings, and apply the model to your video project.
 
@@ -75,7 +100,24 @@ track_buffer: 30
 
 > Read more about applying neural networks in [**Supervisely Serving Apps**](supervisely-serving-apps.md).
 
-### Option 2: Tracking via API
+
+### Option 3: Tracking via Labeling tool
+
+This method allows you to start tracking-by-detection right inside the labeling tool. It helps you automatically create preliminary annotations of objects and their tracks in a video before you begin manual refinement.
+
+1. [Deploy a model](supervisely-serving-apps.md#how-to-deploy-a-model) for Object Detection or Instance Segmentation.
+2. Open the [labeling tool](../../labeling/labeling-toolbox/videos-3.0.md) from your video dataset on the platform.
+3. Open the Track section by clicking the blue button at the top of the interface.
+4. In the tracking-by-detection engine field, select the model you deployed in step 1.
+5. Click the “tracking-by-detection” button to start the tracking process.
+6. The annotations with tracks will be automatically loaded into your video opened in the labeling tool.
+
+<figure><img src="../../.gitbook/assets/neural-networks/tracking_labeling_tool.jpg" alt="tracking-by-detection in labeling tool"><figcaption>Tracking via labeling tool</figcaption></figure>
+
+
+> Read more about labeling tool in [**Documentation**](../../labeling/labeling-toolbox/videos-3.0.md).
+
+### Option 4: Tracking via API
 
 > This section is based on the [Prediction API](prediction-api.md), check it for more details.
 
@@ -136,7 +178,7 @@ output_path = "output.mp4"
 visualize(predictions, video_path, output_path)
 ```
 
-### Option 3: Run Tracker Locally
+### Option 5: Run Tracker Locally
 
 This approach allows you to use the tracker inside your own code or application using the Supervisely SDK on the same machine/hardware, without sending requests to the server.
 

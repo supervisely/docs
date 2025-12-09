@@ -132,6 +132,7 @@
   * [Labeling Quality Control](labeling/jobs/Labeling-Quality-Control.md)
 * [Labeling Performance](labeling/labeling-performance.md)
 * [Labeling with AI-Assistance](labeling/AI-labeling/AI-Labeling.md)
+* [Automatic Video Object Tracking](labeling/AI-labeling/auto-tracking.md)
 
 ## 🤝 Collaboration
 
