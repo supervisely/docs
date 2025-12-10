@@ -6,6 +6,7 @@ Supervisely Annotation Format supports the following figures:
 
 - point
 - rectangle
+- oriented_bbox
 - polygon
 - line / polyline
 - bitmap
@@ -126,6 +127,80 @@ Fields definitions:
 - `points` - object with two fields:
 - `exterior` - list of two lists, each containing two coordinates (`x` and `y` in that order), with the following structure: [[left, top], [right, bottom]]
 - `interior` - always an empty list for this type of figure
+
+## Oriented Bounding Box
+
+Oriented Bounding Box (OBB) is a rotated rectangle defined by two corner points and a rotation angle. Unlike axis-aligned Rectangle, OBBs can be rotated to better fit objects at arbitrary angles, making them ideal for annotating elongated or tilted objects like vehicles, ships, or text.
+
+![oriented bbox example](./figures_images/obb.gif)
+
+Example:
+
+![oriented bbox example](./figures_images/obb.jpg)
+
+JSON format for this figure:
+
+```json
+{
+  "id": 18660867,
+  "classId": 149558,
+  "objectId": null,
+  "description": "",
+  "geometryType": "oriented_bbox",
+  "nnCreated": false,
+  "nnUpdated": false,
+  "labelerLogin": "almaz",
+  "createdAt": "2025-12-10T13:17:11.035Z",
+  "updatedAt": "2025-12-10T13:17:11.035Z",
+  "tags": [],
+  "classTitle": "cucumber",
+  "points": [
+    [100, 380],
+    [440, 500]
+  ],
+  "angle": 0.785398 // 45 degrees in radians
+}
+```
+
+Fields definitions:
+
+- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
+- `description` - string - text description (optional)
+- `geometryType: "oriented_bbox"` - class shape
+- `tags` - list of tags assigned to the current object
+- `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
+- `points` - list of two lists, each containing two coordinates (`x` and `y` in that order), with the following structure: [[left, top], [right, bottom]]. These points define the axis-aligned **bounding box that contains the oriented bounding box before rotation**.
+- `angle` - rotation angle in radians. The angle is measured clockwise. For example, an angle of 0 means the box is axis-aligned, while an angle of π/4 (45 degrees) indicates a box rotated 45 degrees clockwise.
+
+{% hint style="info" %}
+The `top`, `left`, `bottom`, `right` coordinates stored in `points` represent the bounding box **before rotation** (i.e., at angle = 0). To get the actual corner coordinates of the rotated bounding box, use the `calculate_rotated_corners()` method in Python SDK.
+
+```python
+import math
+import supervisely as sly
+
+left, top, right, bottom = 100, 380, 440, 500
+angle = math.radians(45)  # 45 degrees in radians
+
+obb = sly.OrientedBBox(top, left, bottom, right, angle=angle)
+
+corners = obb.calculate_rotated_corners()
+corner_names = ["Top-Left", "Top-Right", "Bottom-Right", "Bottom-Left"]
+
+print(f"{'Corner':<15}| {'in JSON':<13}| {'Rotated':<12}|")
+for name, _p, p in zip(corner_names, obb.corners, corners):
+    print(f"{name:<15}| {_p.row:<5}| {_p.col:<5} | {p.row:<5}| {p.col:<5}|")
+
+# Output:
+# Corner         | in JSON      | Rotated     |
+# Top-Left       | 380  | 100   | 277  | 192  |
+# Top-Right      | 380  | 440   | 517  | 432  |
+# Bottom-Right   | 500  | 440   | 602  | 347  |
+# Bottom-Left    | 500  | 100   | 362  | 107  |
+```
+
+{% endhint %}
+
 
 ## Polygon (without holes)
 
