@@ -170,7 +170,7 @@ Fields definitions:
 - `tags` - list of tags assigned to the current object
 - `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
 - `points` - list of two lists, each containing two coordinates (`x` and `y` in that order), with the following structure: [[left, top], [right, bottom]]. These points define the axis-aligned **bounding box that contains the oriented bounding box before rotation**.
-- `angle` - rotation angle in radians. The angle is measured counterclockwise. For example, an angle of 0 means the box is axis-aligned, while an angle of π/4 (45 degrees) indicates a box rotated 45 degrees counterclockwise.
+- `angle` - rotation angle in radians. The angle is measured clockwise. For example, an angle of 0 means the box is axis-aligned, while an angle of π/4 (45 degrees) indicates a box rotated 45 degrees clockwise.
 
 {% hint style="info" %}
 The `top`, `left`, `bottom`, `right` coordinates stored in `points` represent the bounding box **before rotation** (i.e., at angle = 0). To get the actual corner coordinates of the rotated bounding box, use the `calculate_rotated_corners()` method in Python SDK.
