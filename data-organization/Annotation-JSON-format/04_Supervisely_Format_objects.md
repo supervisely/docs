@@ -132,33 +132,33 @@ Fields definitions:
 
 Oriented Bounding Box (OBB) is a rotated rectangle defined by two corner points and a rotation angle. Unlike axis-aligned rectangles, OBBs can be rotated to better fit objects at arbitrary angles, making them ideal for annotating elongated or tilted objects like vehicles, ships, or text.
 
+![oriented bbox example](./figures_images/obb.gif)
+
 Example:
 
-<!-- ![oriented bbox example](./figures_images/oriented_bbox.png) -->
+![oriented bbox example](./figures_images/obb.jpg)
 
 JSON format for this figure:
 
 ```json
 {
-  "id": 503051991,
-  "classId": 1693352,
-  "labelerLogin": "alexxx",
-  "createdAt": "2020-08-22T09:32:48.010Z",
-  "updatedAt": "2020-08-22T09:33:08.926Z",
-  "nnCreated": false,
-  "nnUpdated": false,
+  "id": 18660867,
+  "classId": 149558,
+  "objectId": null,
   "description": "",
   "geometryType": "oriented_bbox",
+  "nnCreated": false,
+  "nnUpdated": false,
+  "labelerLogin": "almaz",
+  "createdAt": "2025-12-10T13:17:11.035Z",
+  "updatedAt": "2025-12-10T13:17:11.035Z",
   "tags": [],
-  "classTitle": "vehicle",
-  "points": {
-    "exterior": [
-      [100, 100],
-      [900, 700]
-    ],
-    "interior": []
-  },
-  "angle": 15
+  "classTitle": "cucumber",
+  "points": [
+    [100, 380],
+    [440, 500]
+  ],
+  "angle": 0.785398 // 45 degrees in radians
 }
 ```
 
@@ -169,18 +169,44 @@ Fields definitions:
 - `geometryType: "oriented_bbox"` - class shape
 - `tags` - list of tags assigned to the current object
 - `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
-- `points` - object with two fields:
-  - `exterior` - list of two lists, each containing two coordinates (`x` and `y` in that order), with the following structure: [[left, top], [right, bottom]] - these define the **unrotated** bounding box (as if angle = 0)
-  - `interior` - always an empty list for this type of figure
-- `angle` - rotation angle in degrees. Positive values mean clockwise rotation around the center of the bounding box
+- `points` - list of two lists, each containing two coordinates (`x` and `y` in that order), with the following structure: [[left, top], [right, bottom]]. These points define the axis-aligned **bounding box that contains the oriented bounding box before rotation**.
+- `angle` - rotation angle in radians. The angle is measured counterclockwise. For example, an angle of 0 means the box is axis-aligned, while an angle of π/4 (45 degrees) indicates a box rotated 45 degrees counterclockwise.
 
 {% hint style="info" %}
-The `top`, `left`, `bottom`, `right` coordinates stored in `exterior` represent the bounding box **before rotation** (i.e., at angle = 0). To get the actual corner coordinates of the rotated bounding box, use the `calculate_rotated_corners()` method in Python SDK.
+The `top`, `left`, `bottom`, `right` coordinates stored in `points` represent the bounding box **before rotation** (i.e., at angle = 0). To get the actual corner coordinates of the rotated bounding box, use the `calculate_rotated_corners()` method in Python SDK.
+
+```python
+import math
+import supervisely as sly
+
+# Create an oriented bounding box
+left = 100
+top = 380
+right = 440
+bottom = 500
+angle = math.radians(45)  # 45 degrees in radians
+
+obb = sly.OrientedBBox(top, left, bottom, right, angle=angle)
+# Get rotated corner points
+corners = obb.calculate_rotated_corners()
+corner_names = ["Top-Left", "Top-Right", "Bottom-Right", "Bottom-Left"]
+
+for name, point in zip(corner_names, corners):
+    print(f"{name:<15}| {point.row:<4}| {point.col:<4}")
+
+# Output:
+# Top-Left       | 277 | 192 
+# Top-Right      | 517 | 432 
+# Bottom-Right   | 602 | 347 
+# Bottom-Left    | 362 | 107 
+```
+
 {% endhint %}
 
 ### Python SDK Example
 
 ```python
+import math
 import supervisely as sly
 
 # Create an oriented bounding box
@@ -188,7 +214,7 @@ top = 100
 left = 100
 bottom = 700
 right = 900
-angle = 15
+angle = math.radians(15)  # 15 degrees in radians
 
 obb = sly.OrientedBBox(top, left, bottom, right, angle=angle)
 
