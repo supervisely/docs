@@ -130,7 +130,7 @@ Fields definitions:
 
 ## Oriented Bounding Box
 
-Oriented Bounding Box (OBB) is a rotated rectangle defined by two corner points and a rotation angle. Unlike axis-aligned rectangles, OBBs can be rotated to better fit objects at arbitrary angles, making them ideal for annotating elongated or tilted objects like vehicles, ships, or text.
+Oriented Bounding Box (OBB) is a rotated rectangle defined by two corner points and a rotation angle. Unlike axis-aligned Rectangle, OBBs can be rotated to better fit objects at arbitrary angles, making them ideal for annotating elongated or tilted objects like vehicles, ships, or text.
 
 ![oriented bbox example](./figures_images/obb.gif)
 
@@ -179,66 +179,28 @@ The `top`, `left`, `bottom`, `right` coordinates stored in `points` represent th
 import math
 import supervisely as sly
 
-# Create an oriented bounding box
-left = 100
-top = 380
-right = 440
-bottom = 500
+left, top, right, bottom = 100, 380, 440, 500
 angle = math.radians(45)  # 45 degrees in radians
 
 obb = sly.OrientedBBox(top, left, bottom, right, angle=angle)
-# Get rotated corner points
+
 corners = obb.calculate_rotated_corners()
 corner_names = ["Top-Left", "Top-Right", "Bottom-Right", "Bottom-Left"]
 
-for name, point in zip(corner_names, corners):
-    print(f"{name:<15}| {point.row:<4}| {point.col:<4}")
+print(f"{'Corner':<15}| {'in JSON':<13}| {'Rotated':<12}|")
+for name, _p, p in zip(corner_names, obb.corners, corners):
+    print(f"{name:<15}| {_p.row:<5}| {_p.col:<5} | {p.row:<5}| {p.col:<5}|")
 
 # Output:
-# Top-Left       | 277 | 192 
-# Top-Right      | 517 | 432 
-# Bottom-Right   | 602 | 347 
-# Bottom-Left    | 362 | 107 
+# Corner         | in JSON      | Rotated     |
+# Top-Left       | 380  | 100   | 277  | 192  |
+# Top-Right      | 380  | 440   | 517  | 432  |
+# Bottom-Right   | 500  | 440   | 602  | 347  |
+# Bottom-Left    | 500  | 100   | 362  | 107  |
 ```
 
 {% endhint %}
 
-### Python SDK Example
-
-```python
-import math
-import supervisely as sly
-
-# Create an oriented bounding box
-top = 100
-left = 100
-bottom = 700
-right = 900
-angle = math.radians(15)  # 15 degrees in radians
-
-obb = sly.OrientedBBox(top, left, bottom, right, angle=angle)
-
-# Convert to JSON
-json_data = obb.to_json()
-print(json_data)
-# Output:
-# {
-#     "points": {
-#         "exterior": [[100, 100], [900, 700]],
-#         "interior": []
-#     },
-#     "angle": 15
-# }
-
-# Create from JSON
-obb_restored = sly.OrientedBBox.from_json(json_data)
-
-# Get axis-aligned bounding box that contains the rotated OBB
-axis_aligned_bbox = obb.to_bbox()
-
-# Get rotated corner points
-corners = obb.calculate_rotated_corners()
-```
 
 ## Polygon (without holes)
 
