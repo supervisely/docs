@@ -23,7 +23,7 @@ Tracking by detection works with any detector, what makes this approach highly s
 
 Supervisely Ecosystem uses enhanced custom implementation of BoT-SORT algorithm (you can read more details about our enhaced version of BoT-SORT [here](https://docs.supervisely.com/neural-networks/inference-and-deployment/video-object-tracking)), which can be used with any detector with the help of corresponding app - [Predict App](https://ecosystem.supervisely.com/apps/apply-nn) - it allows to conveniently deploy ML models and apply them to input data.
 
-screen_record.mp4
+{% embed url="https://github.com/user-attachments/assets/dd107021-4a32-4522-942b-66d3bd8f7a1e" %}
 
 ## First frame initialized trackers
 
@@ -53,7 +53,7 @@ First frame initialized trackers significantly reduce manual work because annota
 
 Supervisely Ecosystem provides convenient usage of modern first frame initialized trackers in Video Annotation Tool. You can use apps specialized for specific figures tracking (e.g. MixFormer - for bounding boxes, SAM 2 - for masks, CoTracker - for keypoints, etc.) or use [Auto Track](https://ecosystem.supervisely.com/apps/auto-track) - unversal tarcking app which allows to deploy necessary trackers and automatically find suitable model for tracking of desired figures:
 
-screen_record.mp4
+{% embed url="https://github.com/user-attachments/assets/5714d5d9-dce0-4b64-901e-71cae4d86064" %}
 
 ## Model ensembles
 
@@ -61,4 +61,4 @@ Model ensembles in video annotation integrate outputs from multiple computer vis
 
 Example of model ensembles for video annotation is Supervisely's AI image labeling assistant - it can be used for both image and video annotation and works by combining several foundation models to find the algorithm which fits given dataset best. Unlike first frame initialized trackers, AI image labeling assistant automatically detects new objects appearing on frame sequence and tracks them until they disappear. It also overcomes another limitation of first frame initialized trackers - memory consumption. In case of first frame initialized trackers, memory consumption is directly proportional to the number of frames in the sequence. For example, if you will try to track segmentation masks from first frame on 400 frames forward with the help of XMem, you will probably face CUDA Out of Memory Error - GPU memory consumption will be too significant. AI image labeling assistant can label video sequences whose length surpasses 1000 frames in one iteration - GPU memory consumtion will be stable throughout whole labeling process.
 
-screen_record.mp4
+{% embed url="https://github.com/user-attachments/assets/6b70ca1d-5651-4b74-bb0b-6d3565f4bcfa" %}

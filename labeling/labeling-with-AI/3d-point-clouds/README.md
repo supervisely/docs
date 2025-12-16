@@ -11,7 +11,13 @@ Using pretrained models for labeling 3D point clouds is a powerful way to automa
 
 Supervisely Ecosystem allows to use pretrained models for 3D object detection - such as CenterFormer, CenterPoint, PV-RCNN, Part-A2, 3DSSD, PointPillars and others with the help of [Serve MMDetection3D](https://ecosystem.supervisely.com/apps/mmdetection3d-v1.x/supervisely-serve) app. All these architectures can also be trained on custom dataset with the help of corresponding train app - [Train MMDetection3D](https://ecosystem.supervisely.com/apps/mmdetection3d-v1.x/supervisely-train).
 
-screen_record.mp4
+Here is how to apply pretrained 3D object detection model to a sequence of 3D point clouds with the help of [Apply 3D Detection to Pointcloud Project](https://ecosystem.supervisely.com/apps/apply-det3d-to-project-dataset) app:
+
+{% embed url="https://github.com/user-attachments/assets/73e234b7-a6e7-4e89-909b-e73455177906" %}
+
+Result:
+
+<figure><img src="https://github.com/user-attachments/assets/e8f8cd4e-4fc8-4a85-8fb3-d9a2d1f741bf" alt=""><figcaption></figcaption></figure>
 
 ## First frame initialized trackers
 
@@ -29,9 +35,9 @@ How first frame initialized 3D trackers work:
 
 5. Optional human corrections - if the tracker begins to make mistakes, a single correction re-stabilizes it  and further frames benefit automatically.
 
-An example of first frame initialized tracker for 3D point clouds in MBPTrack, which can be easily used in Supervisely 3D Point Cloud labeling tool.
+An example of first frame initialized tracker for 3D point clouds in [MBPTrack](https://ecosystem.supervisely.com/apps/mbptrack3d/supervisely_integration/serve), which can be easily used in Supervisely 3D Point Cloud labeling tool:
 
-screen_record.mp4
+{% embed url="https://github.com/user-attachments/assets/c8f88dd6-6882-43cd-86c1-7ba1ed16aadd" %}
 
 
 ## 3D AI assistant
@@ -42,18 +48,32 @@ Here is a brief overview of tasks which can be solved with 3D AI assistant:
 
 Interactive 3D object detection:
 
-screen_record.mp4
+{% embed url="https://github.com/user-attachments/assets/dd5618d8-410f-4783-b7d7-d5c80974147a" %}
+
+Automatic correction of manually created 3D cuboid:
+
+{% embed url="https://github.com/user-attachments/assets/984e91ba-1237-428f-9857-82f9470c48a7" %}
 
 3D point cloud ground segmentation:
 
-screen_record.mp4
+{% embed url="https://github.com/user-attachments/assets/4fc84ce7-60ac-432e-a75a-1257daf88828" %}
 
 3D cuboid tracking:
 
-screen_record.mp4
+{% embed url="https://github.com/user-attachments/assets/93ede72a-7003-4e1e-b9d6-aa790487c346" %}
 
-Transfer of annotations from 2D photo context images to 3D point clouds:
+Transfer of annotations from 2D photo context images to 3D point clouds, including:
 
-screen_record.mp4
+2D bounding boxes to 3D cuboids:
+
+{% embed url="https://github.com/user-attachments/assets/84b744e5-ade0-49d1-81f1-61e0748726f8" %}
+
+2D masks to 3D masks:
+
+{% embed url="https://github.com/user-attachments/assets/b658cfd4-8d11-498d-90e5-f9b0b7da2ae7" %}
+
+2D polylines to 3D polylines:
+
+{% embed url="https://github.com/user-attachments/assets/3c59ca1a-88a9-4440-bc6a-01a87bdbf2c4" %}
 
 For more details, check our [3D Point Cloud and Episodes](https://docs.supervisely.com/labeling/labeling-toolbox/3d-point-cloud-episodes-2) tutorial.
