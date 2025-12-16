@@ -16,7 +16,7 @@ This is particularly useful for:
 - **Sports analytics** — tracking athletes from multiple viewpoints
 - **3D reconstruction** — multi-camera setups for depth estimation
 
-![](multi-view-tracking.gif)
+![](multi-view-results.gif)
 
 ---
 
@@ -49,15 +49,13 @@ All videos in a multiview group can be played back synchronously:
    - Place all camera videos inside the corresponding folder
 
 ```text
-📂 .
-└── 📂 scene_01
-    ├── 🎥 camera_left.mp4
-    ├── 🎥 camera_top.mp4
-    ├── 🎥 camera_front.mp4
-    └── 🎥 camera_right.mp4
+📂 project
+└── 📂 ds1
+    ├── 🎥 aerial_scene_1.mp4
+    └── 🎥 ground_scene_2.mp4
 ```
 
-![](./prepared_data.jpg)
+![](./data_structure.jpg)
 
 1. Go to your workspace and start from creating a new project (`+ New` ⇨ `New Project Wizard`)
 2. Select `Videos` ⇨ `Multi-view` labeling interface and proceed
@@ -65,9 +63,26 @@ All videos in a multiview group can be played back synchronously:
 4. Drag and drop your prepared folder or archive
 5. The import app will automatically group videos by datasets
 
-![](import-multi-view-videos.gif)
+{% embed url="https://youtu.be/xdhboatcXoY" %}
 
-📥 [Download example data](https://github.com/supervisely-ecosystem/import-wizard-docs/releases/download/v0.0.3/multi-view-videos.zip)
+In this example we use videos from the [MAVREC Dataset](https://mavrec.github.io) (CC BY 4.0) annotated by Supervisely team.
+
+<details>
+
+<summary>Citation for MAVREC Dataset</summary>
+
+```txt
+InProceedings{Dutta_2024_CVPR,
+    author = {Dutta, Aritra and Das, Srijan and Nielsen, Jacob and Chakraborty, Rajatsubhra and Shah, Mubarak},
+    title = {Multiview Aerial Visual RECognition (MAVREC): Can Multi-view Improve Aerial Visual Perception?},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month = {June},
+    year = {2024},
+    pages = {22678-22690}
+}
+```
+
+</details>
 
 For detailed import format specification, see [Multiview Import Format](../../../data-organization/import/import/supported-formats-videos/multiview.md).
 
@@ -91,13 +106,12 @@ project = api.project.create(
 api.project.set_multiview_settings(project.id)
 
 # Create a dataset (each dataset = one multiview group)
-dataset = api.dataset.create(project.id, "scene_01")
+dataset = api.dataset.create(project.id, "ds1")
 
 # Upload videos to the dataset
 video_paths = [
-    "/path/to/camera_front.mp4",
-    "/path/to/camera_left.mp4",
-    "/path/to/camera_right.mp4"
+    "/path/to/aerial_scene_1.mp4",
+    "/path/to/ground_scene_2.mp4"
 ]
 
 for video_path in video_paths:
@@ -110,12 +124,12 @@ for video_path in video_paths:
 
 Open the project in the Supervisely UI to start annotating in multiview mode.
 
-![](./multi-view-interface.jpg)
+![](./toolbox-interface.png)
 
 ### Optional: Specify Video Order
 
 To control the order of videos in the multiview labeling interface, you can create a metadata JSON file for each video with the suffix `.meta.json`. This file should include the `videoStreamIndex` to define its position.
-For example, for a video named `camera_front.mp4`, create a file named `camera_front.mp4.meta.json` with the following content:
+For example, for a video named `aerial_scene_1.mp4`, create a file named `aerial_scene_1.mp4.meta.json` with the following content:
 
 ```json
 {
@@ -125,14 +139,12 @@ For example, for a video named `camera_front.mp4`, create a file named `camera_f
 
 ```text
 📂 project_name
-    ┣ 📂 dataset_01
-    ┃  ┣ 🎥 camera_front.mp4
-    ┃  ┣ 🎥 camera_front.mp4.meta.json  # ⬅︎ meta file with videoStreamIndex
-    ┃  ┣ 🎥 camera_left.mp4
-    ┃  ┣ 🎥 camera_left.mp4.meta.json  # ⬅︎ meta file with videoStreamIndex
-    ┃  ┣ 🎥 camera_right.mp4
-    ┃  ┗ 🎥 camera_right.mp4.meta.json  # ⬅︎ meta file with videoStreamIndex
-    ┗ 📂 dataset_03
+    ┣ 📂 ds1
+    ┃  ┣ 🎥 aerial_scene_1.mp4
+    ┃  ┣ 🎥 aerial_scene_1.mp4.meta.json  # ⬅︎ meta file with videoStreamIndex
+    ┃  ┣ 🎥 ground_scene_2.mp4
+    ┃  ┗ 🎥 ground_scene_2.mp4.meta.json  # ⬅︎ meta file with videoStreamIndex
+    ┗ 📂 ds2
        ┣ 🎥 camera_front.mp4
        ┣ 🎥 camera_left.mp4
        ┗ 🎥 camera_right.mp4
@@ -147,9 +159,6 @@ For example, for a video named `camera_front.mp4`, create a file named `camera_f
 The multiview labeling interface includes the following key elements:
 
 - **Video panels & Synchronized timeline** — each video is displayed in its own panel with a shared timeline for synchronized navigation:
-
-![](multi-view-panels.jpg)
-
 - **Objects & Tags panel** — shows objects across all videos and video-specific tags:
 
 ![](multi-view-objects.png)
@@ -168,7 +177,8 @@ Note: When annotating in multiview mode, you can create unified objects across v
 2. **The same object** can be annotated on other videos in the group
 3. Objects with the same ID are linked across all videos
 
-![](multi-view-labeling.gif)
+
+{% embed url="https://youtu.be/5MOF7OwkJKM" %}
 
 ### Video-specific Tags
 
@@ -203,11 +213,11 @@ To use auto-tracking in multiview mode:
 There are two options for using auto-tracking: enabling automatic tracking when annotating or editing an object, or manually running the tracker using the hotkey `Shift + T`. If automatic tracking is enabled, the tracker runs automatically on all figures of objects across all videos.
 {% endhint %}
 
-![](https://github.com/supervisely-ecosystem/import-wizard-docs/releases/download/v0.0.3/multi-view-objects-1.gif)
+{% embed url="https://youtu.be/8j6pC4VSX94" %}
 
 Simple example result of auto-tracking in multiview mode:
 
-![](multi-view-tracking.gif)
+{% embed url="https://youtu.be/nWpSnCBI_OU" %}
 
 ---
 
