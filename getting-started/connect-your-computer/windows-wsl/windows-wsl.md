@@ -2,9 +2,9 @@
 description: Everything you need to know about deploying Supervisely agent on Windows WSL
 ---
 
-# Windows WSL
+# Windows
 
-![Poster](poster.png)
+![Poster](../../../.gitbook/assets/poster.png)
 
 ## Deploy Supervisely agent with GPU on Windows WSL
 
@@ -68,23 +68,23 @@ and
 
 Use windows search to find "Turn Windows features on or off" and open it.
 
-![Turn Windows features on or off](search-windows-features.png)
+![Turn Windows features on or off](../../../.gitbook/assets/search-windows-features.png)
 
 Scroll down and locate "Windows Subsystem for Linux", check the box and **restart your computer**. If the box is already checked proceed to the next step.
 
-![Windows Subsystem for Linux](enable-wsl.png)
+![Windows Subsystem for Linux](../../../.gitbook/assets/enable-wsl.png)
 
 ### Step 2. Install Windows Terminal
 
 Open Microsoft Store and find **Windows Terminal** and press **Get**.
 
-![Windows Terminal](windows-store-terminal.png)
+![Windows Terminal](../../../.gitbook/assets/windows-store-terminal.png)
 
 ### Step 3. Install Ubuntu
 
 Open Microsoft Store and find **Ubuntu 22.04.2** and press **Get**.
 
-![Ubuntu 22.04.2](ubuntu-microsoft-store.png)
+![Ubuntu 22.04.2](../../../.gitbook/assets/ubuntu-microsoft-store.png)
 
 ### Step 4. Install NVIDIA GPU Driver
 
@@ -92,11 +92,11 @@ Go to [NVIDIA](https://www.nvidia.com/Download/index.aspx?lang=en-us) site and d
 
 Fill the form and press **Search**.
 
-![NVIDIA Search](nvidia-search.png)
+![NVIDIA Search](../../../.gitbook/assets/nvidia-search.png)
 
 Press **Download** button and install the driver.
 
-![NVIDIA Download](nvidia-download.png)
+![NVIDIA Download](../../../.gitbook/assets/nvidia-download.png)
 
 ### Step 5. Docker Desktop
 
@@ -108,9 +108,9 @@ If you have problems running Docker Desktop, check out the possible problems whe
 
 <summary>Possible problems when running Docker Desktop</summary>
 
-#### Docker Desktop - WSL Kernel version too low
+**Docker Desktop - WSL Kernel version too low**
 
-![Docker Desktop WSL Kernel version too low](docker-wsl-kernel-problem.png)
+<img src="../../../.gitbook/assets/docker-wsl-kernel-problem.png" alt="Docker Desktop WSL Kernel version too low" data-size="original">
 
 Open Windows Terminal and run the following command:
 
@@ -118,15 +118,15 @@ Open Windows Terminal and run the following command:
 wsl --update
 ```
 
-#### Docker Desktop Windows Hypervision is not present
+**Docker Desktop Windows Hypervision is not present**
 
-![Docker Desktop Windows Hypervisor is not present](docker-hypervisor-problem.png)
+<img src="../../../.gitbook/assets/docker-hypervisor-problem.png" alt="Docker Desktop Windows Hypervisor is not present" data-size="original">
 
 Restart you computer and go to BIOS settings and enable Virtualization.
 
-#### Docker Desktop Resources - You don't have any WSL 2 distros installed
+**Docker Desktop Resources - You don't have any WSL 2 distros installed**
 
-![Docker Desktop Resources - You don't have any WSL 2 distros installed](docker-resources-problem.png)
+<img src="../../../.gitbook/assets/docker-resources-problem.png" alt="Docker Desktop Resources - You don&#x27;t have any WSL 2 distros installed" data-size="original">
 
 In this case you need to update your WSL distro to version 2.
 
@@ -176,7 +176,7 @@ The operation completed successfully.
 
 Open Docker Desktop and go to **Settings -> Resources -> WSL integration**. Check "Enable integration with my default WSL distro" and "Ubuntu 22.04" and press **Apply & Restart** as shown below.
 
-![Docker Desktop Resources](docker-resources.png)
+![Docker Desktop Resources](../../../.gitbook/assets/docker-resources.png)
 
 Open Docker Desktop and go to **Settings -> Docker engine** and add runtime to the docker config file as shown below and press Apply & Restart:
 
@@ -215,13 +215,13 @@ Or you can copy and paste merged config file from here:
 }
 ```
 
-![Docker engine](docker-engine.png)
+![Docker engine](../../../.gitbook/assets/docker-engine.png)
 
 ### Step 6. Install NVIDIA Container Toolkit
 
 Open Ubuntu terminal via Windows terminal
 
-![Ubuntu Windows Terminal](nvidia-w-terminal.png)
+![Ubuntu Windows Terminal](../../../.gitbook/assets/nvidia-w-terminal.png)
 
 Install [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#step-1-install-nvidia-container-toolkit) repository for your distribution by running the following command:
 
@@ -255,7 +255,7 @@ If you have problems running this container, try upgrading [CUDA Toolkit](https:
 
 After docker image is pulled, you will see nvidia-smi output.
 
-![NVIDIA SMI](nvidia-smi.png)
+![NVIDIA SMI](../../../.gitbook/assets/nvidia-smi.png)
 
 ### Step 7. Deploy Supervisely Agent
 
@@ -263,24 +263,24 @@ Deploy Supervisely Agent with GPU support on Windows WSL.
 
 Open Supervisely instance and go to the **Start -> Team Cluster** page and press "**Add**" button
 
-![Add Agent](supervisely-agent-add.png)
+![Add Agent](../../../.gitbook/assets/supervisely-agent-add.png)
 
 Select "Supervisely agent".
 
-![Select Agent](supervisely-agent-select.png)
+![Select Agent](../../../.gitbook/assets/supervisely-agent-select.png)
 
 In the modal window go to "advanced settings" and check "Use nvidia runtime" option to enable GPU support.
 
-![Agent Settings](supervisely-agent-settings.png)
+![Agent Settings](../../../.gitbook/assets/supervisely-agent-settings.png)
 
 Copy the instructions command and run it in the Ubuntu terminal.
 
-![Agent Instructions](supervisely-agent-paste.png)
+![Agent Instructions](../../../.gitbook/assets/supervisely-agent-paste.png)
 
 After the agent docker image is pulled you will see this message in the terminal. It means that agent is successfully deployed.
 
-![Agent Instructions](supervisely-agent-finish.png)
+![Agent Instructions](../../../.gitbook/assets/supervisely-agent-finish.png)
 
 Go to the Team Cluster page and open your agent, check that agent is running. That's it! Now you can run GPU tasks on your Windows machine.
 
-![Agent Running](supervisely-agent-ready.png)
+![Agent Running](../../../.gitbook/assets/supervisely-agent-ready.png)

@@ -4,20 +4,19 @@
 
 This converter allows to import images with `.json` annotations in [LabelStudio](https://labelstud.io/guide/export#Label-Studio-JSON-format-of-annotated-tasks) format. Supported LabelStuidio format geometry types: `polygonlabels` (`polygon`), `rectanglelabels` (`rectangle`), `brushlabels` (RLE masks), and `choices` (`tags`)
 
-![Result of the import](images/labelstudio\_res.png)
+![Result of the import](../../../../.gitbook/assets/labelstudio_res.png)
 
 ## Format description
 
 **Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`\
 **With annotations:** yes\
 **Supported annotation file extension:** `.json`.\
-**Grouped by:** Any structure (will be uploaded as a single dataset)\
-
+**Grouped by:** Any structure (will be uploaded as a single dataset)\\
 
 ## Input files structure
 
 {% hint style="success" %}
-Example data: [download ⬇️](https://github.com/user-attachments/files/16183688/label\_studio\_demo.zip)
+Example data: [download ⬇️](https://github.com/user-attachments/files/16183688/label_studio_demo.zip)
 {% endhint %}
 
 ⚠️ **Note:** image names should correspond to the names in the annotation files (`data` > `image` field in the JSON file).

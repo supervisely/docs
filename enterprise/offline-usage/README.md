@@ -1,6 +1,8 @@
+# Offline usage
+
 Sometimes you may want to use Supervisely without internet connection. In this case you can tweak offline mode for different Supervisely components.
 
-## Offline mode for Supervisely CLI
+### Offline mode for Supervisely CLI
 
 To enable offline mode for Supervisely CLI you need to run the following command:
 
@@ -14,7 +16,7 @@ If you want to disable it instead:
 supervisely disable-offline-mode
 ```
 
-## Offline mode for Supervisely instance
+### Offline mode for Supervisely instance
 
 To enable offline mode for Supervisely instance you need to run the following commands:
 
@@ -37,11 +39,11 @@ sudo supervisely up -d
 
 If you want to disable it instead, just set `OFFLINE_MODE` to `false` and deploy the changes the same way.
 
-## Offline mode for Supervisely Agents
+### Offline mode for Supervisely Agents
 
 To enable offline mode for Supervisely Agents you need to open the Supervisely page in your browser, go to `Team Cluster` -> 3 dots button -> Instructions -> Advanced Settings and select `Enable offline mode`.
 
-![](images/agent_offline_usage.png)
+![](../../.gitbook/assets/agent_offline_usage.png)
 
 After that use the blue clipboard button to copy the command and then run it in your terminal on the server where the agent is running.
 

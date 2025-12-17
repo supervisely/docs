@@ -6,7 +6,7 @@ description: >-
 
 # 🚀 Ecosystem of Supervisely Apps
 
-![](ecosystem-main.png)
+![](../.gitbook/assets/ecosystem-main.png)
 
 Before we dive into the world of annotation, dataset management and neural networks, it is important to understand how Supervisely is different from other similar solutions.
 
@@ -28,7 +28,7 @@ Label your data, perform quality assurance, inspect every aspect of your data, c
 
 ## Customization
 
-![](ecsystem-scripts.png)
+![](../.gitbook/assets/ecsystem-scripts.png)
 
 {% embed url="https://developer.supervisely.com" %}
 

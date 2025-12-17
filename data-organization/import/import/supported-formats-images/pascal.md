@@ -9,13 +9,12 @@ The Pascal VOC (Visual Object Classes) format stands as one of the benchmarks es
 **Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`\
 **With annotations:** Yes\
 **Supported annotation files extensions:** `.xml` (bounding boxes), `.png` (segmentation masks)\
-**Grouped by:** Any structure (will be uploaded as a single dataset)\
-
+**Grouped by:** Any structure (will be uploaded as a single dataset)<br>
 
 ## Input files structure
 
 {% hint style="success" %}
-Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-pascal-voc/files/12600118/sample\_project.zip)
+Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-pascal-voc/files/12600118/sample_project.zip)
 {% endhint %}
 
 Pascal VOC archive or directory must have the following structure:
@@ -51,7 +50,7 @@ Action and Layout Classification Image Sets are not supported by import applicat
 ## Useful links
 
 * [The PASCAL Visual Object Classes Homepage](http://host.robots.ox.ac.uk/pascal/VOC/)
-* [Pascal VOC Ground Truth Annotation](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/htmldoc/devkit\_doc.html#SECTION00035000000000000000)
+* [Pascal VOC Ground Truth Annotation](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/htmldoc/devkit_doc.html#SECTION00035000000000000000)
 *   [\[Supervisely Ecosystem\] Import Pascal VOC](https://ecosystem.supervisely.com/apps/import-pascal-voc)
 
     ![](https://github.com/supervisely-ecosystem/import-pascal-voc/assets/57998637/147d2ad4-327e-462a-b5b5-bc0887ac3c19)

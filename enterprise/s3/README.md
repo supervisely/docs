@@ -1,22 +1,24 @@
+# Remote Storage
+
 In Enterprise Edition you can not only store files on a hard drive, but also connect Azure Blob Storage, Google Cloud or any S3 compatible storage (i.e. AWS S3).
 
 You can upload files from your PC to connected cloud storage or use already uploaded files from cloud storage as a source (without duplicating it).
 
-## How we store files
+### How we store files
 
 Supervisely uses `DATA_PATH` from `.env` (defaults to `/supervisely/data`) to keep caches, database and etc. But we are interested in `storage` subfolder generated content, like uploaded images or neural networks are stored.
 
 You can find two subfolders here:
 
-- `<something>-public/`
-- `<something>-private/`
+* `<something>-public/`
+* `<something>-private/`
 
 That's because we maintain the same structure in local storage as if you would use a remote storage. In that case those two folders are _buckets_ or _containers_. You may notice that one has "public" in it's name, but it only reflects the kind of data we store in it. Both buckets are private and does not provide anonymous read.
 
-## Configure Supervisely to use S3 compatible storage (Amazon S3, Minio)
+### Configure Supervisely to use S3 compatible storage (Amazon S3, Minio)
 
 {% hint style="warning" %}
-This section describes how to configure Supervisely to store its data on a cloud storage rather than on a hard drive. This won't allow you to use existing images and videos on your cloud. If you need to use existing images and videos, please check [the section below](#links-plugin-cloud-providers-support).
+This section describes how to configure Supervisely to store its data on a cloud storage rather than on a hard drive. This won't allow you to use existing images and videos on your cloud. If you need to use existing images and videos, please check [the section below](./#links-plugin-cloud-providers-support).
 {% endhint %}
 
 Edit `.env` configuration file - you can find it by running `supervisely where` command.
@@ -27,8 +29,8 @@ Also, you need to provide `STORAGE_ACCESS_KEY` and `STORAGE_SECRET_KEY` credenti
 
 For example, here are settings for Amazon S3:
 
-- `STORAGE_ENDPOINT=s3.amazonaws.com`
-- `STORAGE_PORT=443`
+* `STORAGE_ENDPOINT=s3.amazonaws.com`
+* `STORAGE_PORT=443`
 
 So in the end, here is how your `.env` settings could look like:
 
@@ -46,10 +48,10 @@ Execute `sudo supervisely up -d` to apply the new settings.
 
 If you're working with large files (4GB+) you might also want to add permission for "s3:ListBucketMultipartUploads" at the bucket level, so Supervisely can initiate multipart uploads for larger artifacts.
 
-## Configure Supervisely to use Azure Blob Storage
+### Configure Supervisely to use Azure Blob Storage
 
 {% hint style="warning" %}
-This section describes how to configure Supervisely to store its data on a cloud storage rather than on a hard drive. This won't allow you to use existing images and videos on your cloud. If you need to use existing images and videos, please check [the section below](#links-plugin-cloud-providers-support).
+This section describes how to configure Supervisely to store its data on a cloud storage rather than on a hard drive. This won't allow you to use existing images and videos on your cloud. If you need to use existing images and videos, please check [the section below](./#links-plugin-cloud-providers-support).
 {% endhint %}
 
 Edit `.env` configuration file - you can find it by running `supervisely where` command.
@@ -71,10 +73,10 @@ STORAGE_SECRET_KEY=<secret key 88 chars long or so: aflmg+wg23fWA+6gAafWmgF4a>
 
 Execute `sudo supervisely up -d` to apply the new settings
 
-## Configure Supervisely to use Google Cloud Storage
+### Configure Supervisely to use Google Cloud Storage
 
 {% hint style="warning" %}
-This section describes how to configure Supervisely to store its data on a cloud storage rather than on a hard drive. This won't allow you to use existing images and videos on your cloud. If you need to use existing images and videos, please check [the section below](#links-plugin-cloud-providers-support).
+This section describes how to configure Supervisely to store its data on a cloud storage rather than on a hard drive. This won't allow you to use existing images and videos on your cloud. If you need to use existing images and videos, please check [the section below](./#links-plugin-cloud-providers-support).
 {% endhint %}
 
 Edit `.env` configuration file - you can find it by running `supervisely where` command.
@@ -104,7 +106,7 @@ services:
 
 Execute `sudo supervisely up -d` to apply the new settings
 
-## Migration from local storage
+### Migration from local storage
 
 Now, copy your current storage to an S3. As we mentioned before, because we maintain the same structure in local filesystem, copying will be enough.
 
@@ -120,7 +122,7 @@ mc cp <DATA_STORAGE_FROM_HOST>/<your-buckets-prefix>-private s3/<your-buckets-pr
 
 Finally, restart services to apply new configuration: `supervisely up -d`.
 
-## Keys from IAM Role
+### Keys from IAM Role
 
 > IAM Roles are only supported for AWS S3.
 
@@ -136,7 +138,7 @@ Steps to configure IAM Roles Anywhere:
 
 **1. Generate certificates and keys.**
 
-We've prepared two bash scripts for you. Download [⬇︎ cert.zip](./cert.zip) and extract them. Update `genCACert.sh` and `genCert.sh` scripts with your values for `DURATION_DAYS`, `CN`, `OU`, `O` variables. You can set any values you want.
+We've prepared two bash scripts for you. Download [⬇︎ cert.zip](cert.zip) and extract them. Update `genCACert.sh` and `genCert.sh` scripts with your values for `DURATION_DAYS`, `CN`, `OU`, `O` variables. You can set any values you want.
 
 Generate master certificate and key (will be used in the AWS trust anchor)
 
@@ -154,11 +156,11 @@ Generate certificates and keys for the client (Supervisely):
 
 Open AWS Console and go to `Roles Anywhere` service and create a trust anchor.
 
-![Roles Anywhere](/.gitbook/assets/iam_roles_anywhere_0-frame.png)
+![Roles Anywhere](../../.gitbook/assets/iam_roles_anywhere_0-frame.png)
 
-![Roles Anywhere](/.gitbook/assets/iam_roles_anywhere_1-frame.png)
+![Roles Anywhere](../../.gitbook/assets/iam_roles_anywhere_1-frame.png)
 
-![Create trust anchor](/.gitbook/assets/iam_create_trust_anchor-frame.png)
+![Create trust anchor](../../.gitbook/assets/iam_create_trust_anchor-frame.png)
 
 Copy contents of the `ca.crt` file, generated earlier, and paste it into the `External certificate bundle` field.
 
@@ -168,25 +170,25 @@ To create a profile, you need to create an IAM role. Refer to the [AWS documenta
 
 Once you have created the IAM role, go to the IAM role trust policy settings and add a new trust relationship (you can copy it from the created trust anchor).
 
-![Trust relationships](/.gitbook/assets/iam_role_trust_policy-frame.png)
+![Trust relationships](../../.gitbook/assets/iam_role_trust_policy-frame.png)
 
 **4. Create a profile.**
 
 Return to the Roles Anywhere service and create a new profile.
 
-![Roles Anywhere](/.gitbook/assets/iam_roles_anywhere_2-frame.png)
+![Roles Anywhere](../../.gitbook/assets/iam_roles_anywhere_2-frame.png)
 
 Select the IAM role you've created earlier.
 
-![Create profile](/.gitbook/assets/iam_profile-frame.jpg)
+![Create profile](../../.gitbook/assets/iam_profile-frame.jpg)
 
 **5. Configure remote storage settings in Supervisely.**
 
 Open the remote storage settings in Supervisely, switch to the IAM Anywhere tab and fill in the fields.
 
-![Remote storage settings](/.gitbook/assets/remote_storage_1-frame.png)
+![Remote storage settings](../../.gitbook/assets/remote_storage_1-frame.png)
 
-![Remote storage settings](/.gitbook/assets/remote_storage_2.jpg)
+![Remote storage settings](../../.gitbook/assets/remote_storage_2.jpg)
 
 In the certificate field, you need to paste the content of the `company.pem` file. Please note that the content must be `base64` encoded. You can get it by running the following command:
 
@@ -202,7 +204,7 @@ cat company.key | base64 -w 0
 
 Don't forget to add S3 bucket name and save the settings.
 
-## Frontend caching
+### Frontend caching
 
 Since AWS and Azure can be quite price in case of heavy reads, we enable image caching by default.
 
@@ -222,33 +224,32 @@ services:
       CACHE_IMAGE_CONVERTER_EXPIRES: 7d
 ```
 
-## Links plugin cloud providers support
+### Links plugin cloud providers support
 
 If you already have some files on Amazon S3/Google Cloud Storage/Azure Storage and you don't want to upload and store those files in Supervisely, you can use the "Links" plugin to link the files to Supervisely server.
 
 Instead of uploading actual files (i.e. images), you will need to upload .txt file(s) that contains a list of URLs to your files. If your URLs are publicly available (i.e. link looks like `https://s3-us-west-2.amazonaws.com/test1/abc` and you can open it in your web browser directly), then you can stop reading and start uploading.
 
-If your files are protected, however, you will need to provide credentials in the [instance settings](/enterprise/post-installation#configure-your-instance) or manually create configuration file.
+If your files are protected, however, you will need to provide credentials in the [instance settings](../post-installation/#configure-your-instance) or manually create configuration file.
 
-![](configure-cloud-1.png)
+![](../../.gitbook/assets/configure-cloud-1.png)
 
-![](configure-cloud-2.png)
+![](../../.gitbook/assets/configure-cloud-2.png)
 
-#### Azure SAS Token minimal permissions
+**Azure SAS Token minimal permissions**
 
-![](azure_sas_permissions.png)
+![](../../.gitbook/assets/azure_sas_permissions.png)
 
-### File system provider
+#### File system provider
 
-If you want to use images from your host where supervisely instance running, you can use "File system" provider
-![image](https://user-images.githubusercontent.com/30120872/140936210-cf1b68ec-f2ba-4094-a2f5-fc4d37b77d49.png)
+If you want to use images from your host where supervisely instance running, you can use "File system" provider ![image](https://user-images.githubusercontent.com/30120872/140936210-cf1b68ec-f2ba-4094-a2f5-fc4d37b77d49.png)
 
-- _Folder path on the server_ - path to folder on the host server that will be mounted
-- _Storage ID (bucket)_ - mouted folder identifyer. It will be used in links to mounted folder
+* _Folder path on the server_ - path to folder on the host server that will be mounted
+* _Storage ID (bucket)_ - mouted folder identifyer. It will be used in links to mounted folder
 
 For instance, for the example above, when you want to add a new assets (image or video) with local path on your hard drive `/data/datasets/persons/image1.jpg`, use the following format in API, SDK or corresponding application: `fs://local-datasets/persons/image1.jpg`
 
-### Manual configuration
+#### Manual configuration
 
 If you are brave enough, you can create configuration files manually:
 
@@ -329,19 +330,19 @@ services:
       - <path to the secret file>:/secret_planes.json:ro
 ```
 
-## Migrating existing projects to Cloud Storage
+### Migrating existing projects to Cloud Storage
 
 If you want to migrate only some of the projects that exist in the Supervisely storage to the linked cloud, you can achieve this using the following code snippet.
 
 The code snippet:
 
-- Is designed to change links only for entities that are not linked yet, it means they are stored in Supervisely storage.
-- Will change links only when all entities are uploaded to remote storage.
-- Can be run again in case of failure. Will not re-upload entities that are already uploaded to remote storage.
-- Save nested datasets in remote storage as a flat structure. All datasets will be placed in the project directory.
-- Will not delete entities from Supervisely storage after migration.
+* Is designed to change links only for entities that are not linked yet, it means they are stored in Supervisely storage.
+* Will change links only when all entities are uploaded to remote storage.
+* Can be run again in case of failure. Will not re-upload entities that are already uploaded to remote storage.
+* Save nested datasets in remote storage as a flat structure. All datasets will be placed in the project directory.
+* Will not delete entities from Supervisely storage after migration.
 
-#### Function to use in your code: `migrate_project(project: Union[sly.ProjectInfo, int])`
+**Function to use in your code: `migrate_project(project: Union[sly.ProjectInfo, int])`**
 
 {% hint style="info" %}
 Remember to configure the `REMOTE_BUCKET` and `MIGRATION_DIR` constants in the code snippet before use.
@@ -617,20 +618,16 @@ def migrate_project(project: Union[sly.ProjectInfo, int]):
 
 </details>
 
-### If you need to keep the nested dataset structure in remote storage
+#### If you need to keep the nested dataset structure in remote storage
 
-You can modify the script to create nested directories in the remote storage.
-To do this, you need to change the remote path of the entity to include the dataset name.
-For that, you can replace `api.dataset.get_tree(...)` with `api.dataset.get_list(...)` and iterate over the tree.
-Then, you can modify the remote path of the entity to include the nested dataset ID.
+You can modify the script to create nested directories in the remote storage. To do this, you need to change the remote path of the entity to include the dataset name. For that, you can replace `api.dataset.get_tree(...)` with `api.dataset.get_list(...)` and iterate over the tree. Then, you can modify the remote path of the entity to include the nested dataset ID.
 
-### If you have already uploaded entities to remote storage
+#### If you have already uploaded entities to remote storage
 
 You will be able just set remote links for them. There are two ways:
 
 1. To create your own `entities_map`, that corresponds to the structure used in code above and redefine in section **Global Variables**
 2. To use SDK API methods with the lists of entity IDs and remote links:
-   - `ImageApi(...).set_remote(...)`
-   - `VideoApi(...).set_remote(...)`
-     <br>For better performance, you can use the function `sly.batched` to split the list of entities and remote links into batches.
-     It is recommended to create batches not more than `1000` items per batch.
+   * `ImageApi(...).set_remote(...)`
+   * `VideoApi(...).set_remote(...)`\
+     For better performance, you can use the function `sly.batched` to split the list of entities and remote links into batches. It is recommended to create batches not more than `1000` items per batch.

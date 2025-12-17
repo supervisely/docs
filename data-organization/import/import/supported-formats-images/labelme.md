@@ -4,20 +4,19 @@
 
 This converter allows to import images with `.json` annotations in [LabelMe](https://github.com/labelmeai/labelme?tab=readme-ov-file) format. Supported LabelMe format geometry types: `polygon`, `rectangle`, `circle`, `point`, `linestring`, `mask`, `line`.
 
-![Result of the import](images/labelme\_res.png)
+![Result of the import](../../../../.gitbook/assets/labelme_res.png)
 
 ## Format description
 
 **Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`\
 **With annotations:** yes\
 **Supported annotation file extension:** `.json`.\
-**Grouped by:** Any structure (will be uploaded as a single dataset)\
-
+**Grouped by:** Any structure (will be uploaded as a single dataset)\\
 
 ## Input files structure
 
 {% hint style="success" %}
-Example data: [download ⬇️](https://github.com/user-attachments/files/16179633/labelme\_demo.zip)
+Example data: [download ⬇️](https://github.com/user-attachments/files/16179633/labelme_demo.zip)
 {% endhint %}
 
 Example directory structure:

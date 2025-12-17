@@ -120,7 +120,7 @@ Supervisely provides a variety of annotation tools tailored for different data t
 
 <summary>How does Supervisely help me collaborate?</summary>
 
-Supervisely provides powerful collaboration features, including teams, shared workspaces, project sharing, role-based access control, and tools for quality assurance and data statistics. Team members can create labeling jobs, leave issues, make and review annotations, and track annotation updates in real time. The platform also supports versioning in the Pro and Enterprise editions, so you can track the history of annotations made to your data. For more information, see our [Collaboration](broken-reference) section.
+Supervisely provides powerful collaboration features, including teams, shared workspaces, project sharing, role-based access control, and tools for quality assurance and data statistics. Team members can create labeling jobs, leave issues, make and review annotations, and track annotation updates in real time. The platform also supports versioning in the Pro and Enterprise editions, so you can track the history of annotations made to your data. For more information, see our [Collaboration](/broken/pages/-M4ZA797pP7MQduL6ZXV) section.
 
 </details>
 
@@ -136,7 +136,7 @@ Supervisely provides built-in machine learning tools that allow you to train mod
 
 <summary>Is there a community or support forum for Supervisely users?</summary>
 
-Yes, we have an active community [Slack chat](https://supervisely.slack.com/join/shared\_invite/enQtNzUwMDYwNTMzODI1LWJlNTFiM2VkYzQ1ZDg1NmU4MWJkNzY1NDRjMDYzMWVlZDQwNzk5YzI0YTZiOWI3NDcwMjgzNDJhMDNlMzFhYzk#/shared-invite/email) where users can ask questions, share insights and get help from other users and the Supervisely team. You can join the chat through our website or directly [here](https://supervisely.slack.com/join/shared\_invite/enQtNzUwMDYwNTMzODI1LWJlNTFiM2VkYzQ1ZDg1NmU4MWJkNzY1NDRjMDYzMWVlZDQwNzk5YzI0YTZiOWI3NDcwMjgzNDJhMDNlMzFhYzk#/shared-invite/email).
+Yes, we have an active community [Slack chat](https://supervisely.slack.com/join/shared_invite/enQtNzUwMDYwNTMzODI1LWJlNTFiM2VkYzQ1ZDg1NmU4MWJkNzY1NDRjMDYzMWVlZDQwNzk5YzI0YTZiOWI3NDcwMjgzNDJhMDNlMzFhYzk#/shared-invite/email) where users can ask questions, share insights and get help from other users and the Supervisely team. You can join the chat through our website or directly [here](https://supervisely.slack.com/join/shared_invite/enQtNzUwMDYwNTMzODI1LWJlNTFiM2VkYzQ1ZDg1NmU4MWJkNzY1NDRjMDYzMWVlZDQwNzk5YzI0YTZiOWI3NDcwMjgzNDJhMDNlMzFhYzk#/shared-invite/email).
 
 </details>
 
@@ -144,7 +144,7 @@ Yes, we have an active community [Slack chat](https://supervisely.slack.com/join
 
 <summary>What is the process for reporting bugs or requesting new features in Supervisely?</summary>
 
-Users can report bugs or request new features through our support channel <mark style="color:blue;">support@supervisely.com</mark> or our community [Slack chat](https://supervisely.slack.com/join/shared\_invite/enQtNzUwMDYwNTMzODI1LWJlNTFiM2VkYzQ1ZDg1NmU4MWJkNzY1NDRjMDYzMWVlZDQwNzk5YzI0YTZiOWI3NDcwMjgzNDJhMDNlMzFhYzk#/shared-invite/email). We prioritize these reports based on their impact and relevance to our user base.
+Users can report bugs or request new features through our support channel <mark style="color:blue;">support@supervisely.com</mark> or our community [Slack chat](https://supervisely.slack.com/join/shared_invite/enQtNzUwMDYwNTMzODI1LWJlNTFiM2VkYzQ1ZDg1NmU4MWJkNzY1NDRjMDYzMWVlZDQwNzk5YzI0YTZiOWI3NDcwMjgzNDJhMDNlMzFhYzk#/shared-invite/email). We prioritize these reports based on their impact and relevance to our user base.
 
 </details>
 

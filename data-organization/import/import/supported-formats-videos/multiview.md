@@ -1,17 +1,18 @@
-# Overview
+# Multiview
+
+## Overview
 
 Import format for multiview video projects in Supervisely. Videos are grouped by datasets - all videos within one dataset form a synchronized multiview group.
 
-![](./images/multi_view.png)
+![](../../../../.gitbook/assets/multi_view.png)
 
-# Format description
+## Format description
 
-**Supported video formats:** `.mp4`, `.avi`, `.mov`, `.webm`, `.wmv`, `.3gp`, `.flv`, `.mkv`, `.mpeg`, `.mpg`<br>
-**With annotations:** Yes<br>
+**Supported video formats:** `.mp4`, `.avi`, `.mov`, `.webm`, `.wmv`, `.3gp`, `.flv`, `.mkv`, `.mpeg`, `.mpg`\
+**With annotations:** Yes\
 **Grouped by:** Datasets (each dataset = one multiview group)<br>
 
-
-## When to Use Multiview
+### When to Use Multiview
 
 Multiview mode is particularly useful when you have multiple videos of the same scene captured from different angles or cameras, featuring a specific object of interest.
 
@@ -19,79 +20,78 @@ Multiview mode is particularly useful when you have multiple videos of the same 
 
 **Tags are video-specific:** Unlike objects, tags apply only within a specific video. When you tag a figure, frame, or video on a particular video, that tag will be associated only with that video and displayed only on it.
 
-## Key Features
+### Key Features
 
-- Videos are grouped by datasets
-- Synchronized playback of multiple video streams
-- Unified object annotations across all videos in the multiview group
-- Video-specific tags
-- Optional annotations in Supervisely video format
-- Optional metadata files for keeping video frame offset information
+* Videos are grouped by datasets
+* Synchronized playback of multiple video streams
+* Unified object annotations across all videos in the multiview group
+* Video-specific tags
+* Optional annotations in Supervisely video format
+* Optional metadata files for keeping video frame offset information
 
-## How to Use
+### How to Use
 
-#### Prepare structure:
+**Prepare structure:**
 
 Example data: [download ⬇️](https://github.com/user-attachments/files/23659139/multiview-videos-sample.zip)<br>
 
-- **Archive** `zip`, `tar`, `tar.xz`, `tar.gz`
+*   **Archive** `zip`, `tar`, `tar.xz`, `tar.gz`
 
-  ```text
-  📦 archive.zip
-   ┗ 📂 project_name
-      ┣ 📂 dataset_01
-      ┃  ┣ 📂 video
-      ┃  ┃  ┣ 🎥 camera_front.mp4
-      ┃  ┃  ┣ 🎥 camera_left.mp4
-      ┃  ┃  ┗ 🎥 camera_right.mp4
-      ┃  ┣ 📂 ann (optional)
-      ┃  ┃  ┣ 📄 camera_front.mp4.json
-      ┃  ┃  ┣ 📄 camera_left.mp4.json
-      ┃  ┃  ┗ 📄 camera_right.mp4.json
-      ┃  ┗ 📂 metadata (optional)
-      ┃     ┣ 📄 camera_front.mp4.meta.json
-      ┃     ┣ 📄 camera_left.mp4.meta.json
-      ┃     ┗ 📄 camera_right.mp4.meta.json
-      ┣ 📂 dataset_02
-      ┃  ┣ 📂 video
-      ┃  ┃  ┗ ...
-      ┃  ┣ 📂 ann (optional)
-      ┃  ┃  ┗ ...
-      ┃  ┗ 📂 metadata (optional)
-      ┃     ┗ ...
-      ┗ 📄 meta.json (optional)
-  ```
+    ```
+    📦 archive.zip
+     ┗ 📂 project_name
+        ┣ 📂 dataset_01
+        ┃  ┣ 📂 video
+        ┃  ┃  ┣ 🎥 camera_front.mp4
+        ┃  ┃  ┣ 🎥 camera_left.mp4
+        ┃  ┃  ┗ 🎥 camera_right.mp4
+        ┃  ┣ 📂 ann (optional)
+        ┃  ┃  ┣ 📄 camera_front.mp4.json
+        ┃  ┃  ┣ 📄 camera_left.mp4.json
+        ┃  ┃  ┗ 📄 camera_right.mp4.json
+        ┃  ┗ 📂 metadata (optional)
+        ┃     ┣ 📄 camera_front.mp4.meta.json
+        ┃     ┣ 📄 camera_left.mp4.meta.json
+        ┃     ┗ 📄 camera_right.mp4.meta.json
+        ┣ 📂 dataset_02
+        ┃  ┣ 📂 video
+        ┃  ┃  ┗ ...
+        ┃  ┣ 📂 ann (optional)
+        ┃  ┃  ┗ ...
+        ┃  ┗ 📂 metadata (optional)
+        ┃     ┗ ...
+        ┗ 📄 meta.json (optional)
+    ```
+*   **Folder**
 
-- **Folder**
-
-  ```text
-  📂 project_name
-   ┣ 📂 dataset_01
-   ┃  ┣ 📂 video
-   ┃  ┃  ┣ 🎥 video_001.mp4
-   ┃  ┃  ┣ 🎥 video_002.mp4
-   ┃  ┃  ┗ 🎥 video_003.mp4
-   ┃  ┣ 📂 ann (optional)
-   ┃  ┃  ┣ 📄 video_001.mp4.json
-   ┃  ┃  ┣ 📄 video_002.mp4.json
-   ┃  ┃  ┗ 📄 video_003.mp4.json
-   ┃  ┗ 📂 metadata (optional)
-   ┃     ┣ 📄 video_001.mp4.meta.json
-   ┃     ┣ 📄 video_002.mp4.meta.json
-   ┃     ┗ 📄 video_003.mp4.meta.json
-   ┗ 📄 meta.json
-  ```
+    ```
+    📂 project_name
+     ┣ 📂 dataset_01
+     ┃  ┣ 📂 video
+     ┃  ┃  ┣ 🎥 video_001.mp4
+     ┃  ┃  ┣ 🎥 video_002.mp4
+     ┃  ┃  ┗ 🎥 video_003.mp4
+     ┃  ┣ 📂 ann (optional)
+     ┃  ┃  ┣ 📄 video_001.mp4.json
+     ┃  ┃  ┣ 📄 video_002.mp4.json
+     ┃  ┃  ┗ 📄 video_003.mp4.json
+     ┃  ┗ 📂 metadata (optional)
+     ┃     ┣ 📄 video_001.mp4.meta.json
+     ┃     ┣ 📄 video_002.mp4.meta.json
+     ┃     ┗ 📄 video_003.mp4.meta.json
+     ┗ 📄 meta.json
+    ```
 
 **Structure explained:**
 
-- Inside project directory can be one or multiple dataset directories
-- **Each dataset = one multiview group:** All videos within the same dataset will be displayed together
-- Each dataset directory can contain:
-- `video/` - directory with video files
-- `ann/` - (optional) directory with annotations in Supervisely format
-- `metadata/` - (optional) directory with video metadata files
-- Annotation file names pattern: `{video_name}.{video_ext}.json`
-- Metadata file names pattern: `{video_name}.{video_ext}.meta.json`
+* Inside project directory can be one or multiple dataset directories
+* **Each dataset = one multiview group:** All videos within the same dataset will be displayed together
+* Each dataset directory can contain:
+* `video/` - directory with video files
+* `ann/` - (optional) directory with annotations in Supervisely format
+* `metadata/` - (optional) directory with video metadata files
+* Annotation file names pattern: `{video_name}.{video_ext}.json`
+* Metadata file names pattern: `{video_name}.{video_ext}.meta.json`
 
 **Meta explained**
 
@@ -139,13 +139,13 @@ Optional JSON file with custom video information:
 }
 ```
 
-`offsetType` - type of offset, can be `frame` or `time (ms)`<br>
-`offsetValue` - offset value in frames or milliseconds<br>
+`offsetType` - type of offset, can be `frame` or `time (ms)`\
+`offsetValue` - offset value in frames or milliseconds\
 `videoStreamIndex` - index of the video stream in the multiview group (starting from 0)<br>
 
 Can contain offset value, video stream index and offset type.
 
-# Useful links
+## Useful links
 
-- [[Supervisely Documentation] Video Annotation Format](https://docs.supervisely.com/data-organization/00_ann_format_navi/04_supervisely_format_videos)
-- [[Supervisely Ecosystem] Export Videos in Supervisely Format](https://ecosystem.supervisely.com/apps/export-videos-in-supervisely-format)
+* [\[Supervisely Documentation\] Video Annotation Format](https://docs.supervisely.com/data-organization/00_ann_format_navi/04_supervisely_format_videos)
+* [\[Supervisely Ecosystem\] Export Videos in Supervisely Format](https://ecosystem.supervisely.com/apps/export-videos-in-supervisely-format)

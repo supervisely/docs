@@ -32,17 +32,17 @@ You will be redirected to the **Tasks** page where you can monitor the upload pr
 
 To check application logs, click the **three dots (⋮)** icon next to the task.
 
-<figure><img src="../../../.gitbook/assets/tasks.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/tasks (1).png" alt=""><figcaption></figcaption></figure>
 
 Once the import is finished, you will see the link to your new project in the `Output` column of the table (or find it at the **Projects** page).
 
-<figure><img src="../../../.gitbook/assets/projects.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/projects (1).png" alt=""><figcaption></figcaption></figure>
 
 ### **How to import images with applications.**
 
 1. Click the `More Features` tab. Navigate to the **Import** page in the `Categories` section. Locate the **Import Images** application.&#x20;
 
-<figure><img src="../../../.gitbook/assets/import-apps.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/import-apps (1).png" alt=""><figcaption></figcaption></figure>
 
 2. Move the cursor over the application and click the `Run Application` button. You can always have a look at the description on the application page and follow the instructions.
 

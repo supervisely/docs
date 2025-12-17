@@ -1,15 +1,15 @@
-# Fisheye Images
+# Fisheye
 
 ## Overview
 
 Annotate fisheye images with ease using the fisheye labeling interface in Supervisely.
 
-![](./images/fisheye_interface-frame.jpg)
+![](../../../../.gitbook/assets/fisheye_interface-frame.jpg)
 
 To use the fisheye labeling interface, you need to:
 
 1. create a project with the `Fisheye` labeling interface enabled.
-2. prepare calibration files with parameters for fisheye images (metadata files). Check out the [Fisheye Lens Metadata](#fisheye-lens-metadata) section for more details.
+2. prepare calibration files with parameters for fisheye images (metadata files). Check out the [Fisheye Lens Metadata](fisheye.md#fisheye-lens-metadata) section for more details.
 3. import fisheye images with the calibration parameters and annotations (optional).
 
 {% hint style="info" %}
@@ -26,7 +26,7 @@ The `Fisheye` labeling interface in Supervisely provides the new labeling tool 2
 
 ## Data structure
 
-- **Folder** or **Archive** (`zip`, `tar`)
+* **Folder** or **Archive** (`zip`, `tar`)
 
 ```
 📦 my_project.zip or 📂 my_project
@@ -94,21 +94,14 @@ It is essential to provide calibration data for fisheye images to allow the fish
 
 Here are the key points and fields descriptions:
 
-- Extrinsic calibration data is used to describe the coordinate transformation from the camera coordinate system to the vehicle coordinate system.
-- The vehicle coordinate system, which follows the ISO 8855 convention, is anchored to the ground below the midpoint of the rear axle. The X-axis points in the driving direction, the Y-axis points to the left side of the vehicle and the Z-axis points up from the ground.
-- The camera sensor's coordinate system is based on OpenCV. The X axis points to the right along the horizontal sensor axis, the Y axis points downwards along the vertical sensor axis and the Z-axis points in viewing direction along the optical axis to maintain the right-handed system.
-- The values of the translation are given in meters and the rotation is given as a quaternion.
-- The intrinsic calibration is given in a calibration model that describes the radial distortion using an Nth-order polynomial. The radial distortion is given by the formula:
+* Extrinsic calibration data is used to describe the coordinate transformation from the camera coordinate system to the vehicle coordinate system.
+* The vehicle coordinate system, which follows the ISO 8855 convention, is anchored to the ground below the midpoint of the rear axle. The X-axis points in the driving direction, the Y-axis points to the left side of the vehicle and the Z-axis points up from the ground.
+* The camera sensor's coordinate system is based on OpenCV. The X axis points to the right along the horizontal sensor axis, the Y axis points downwards along the vertical sensor axis and the Z-axis points in viewing direction along the optical axis to maintain the right-handed system.
+* The values of the translation are given in meters and the rotation is given as a quaternion.
+* The intrinsic calibration is given in a calibration model that describes the radial distortion using an Nth-order polynomial. The radial distortion is given by the formula:
 
-<div align="center p-2">
+![](../../../../.gitbook/assets/formula.svg)
 
-<img src="./images/formula.svg" width="550" alt="">
-
-</div>
-
-
-- Formula: `theta` is the angle of incidence with respect to the optical axis and rho is the distance between the image center and projected point - focal distance.
-
-- Offsets (`cxOffset`, `cyOffset`) of the principal point are given in pixels.
-
-- `vfov` is the vertical field of view of the camera in degrees and the aspect ratio is the ratio of the width to the height of the image.
+* Formula: `theta` is the angle of incidence with respect to the optical axis and rho is the distance between the image center and projected point - focal distance.
+* Offsets (`cxOffset`, `cyOffset`) of the principal point are given in pixels.
+* `vfov` is the vertical field of view of the camera in degrees and the aspect ratio is the ratio of the width to the height of the image.

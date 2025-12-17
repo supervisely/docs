@@ -3,12 +3,12 @@
 ## Overview
 
 {% hint style="success" %}
-Easiest way to import your images with annotations is to use the Supervisely format. Check out the [Supervisely JSON format](../../../Annotation-JSON-format/00\_ann\_format\_navi.md) documentation for more details.
+Easiest way to import your images with annotations is to use the Supervisely format. Check out the [Supervisely JSON format](../../../Annotation-JSON-format/00_ann_format_navi.md) documentation for more details.
 {% endhint %}
 
 The Supervisely json-based annotation format supports such figures: `rectangle`, `line (polyline)`, `polygon`, `point`, `bitmap` (`mask`), `graph` (`keypoints`), `alpha mask`, `2D cuboid`. It is a universal format for various task types and is used in the Supervisely platform.
 
-Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process. 
+Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process.
 
 To step up import speed even further you can compress all annotation files (`.json`'s) into an archive and import it together with the images. (Note: This method is format-dependent and may not apply to all formats.)
 
@@ -17,13 +17,12 @@ To step up import speed even further you can compress all annotation files (`.js
 **Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`\
 **With annotations:** Yes\
 **Supported annotation file extension:** `.json`.\
-**Grouped by:** Any structure (will be uploaded as a single dataset)\
-
+**Grouped by:** Any structure (will be uploaded as a single dataset)\\
 
 ## Input files structure
 
 {% hint style="success" %}
-Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-images-in-sly-format/files/12537201/robots\_project.zip).
+Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-images-in-sly-format/files/12537201/robots_project.zip).
 {% endhint %}
 
 Both directory and archive are supported.
@@ -45,7 +44,7 @@ Both directory and archive are supported.
    ┗ 📄meta.json
 ```
 
-Project meta file `meta.json` is recommended to be present in the project directory. It contains classes and tags definitions for the project. If it is not present, app will try to create it from the annotations (if possible). Learn more about the `meta.json` file [here](https://docs.supervisely.com/customization-and-integration/00\_ann\_format\_navi/02\_project\_classes\_and\_tags).
+Project meta file `meta.json` is recommended to be present in the project directory. It contains classes and tags definitions for the project. If it is not present, app will try to create it from the annotations (if possible). Learn more about the `meta.json` file [here](https://docs.supervisely.com/customization-and-integration/00_ann_format_navi/02_project_classes_and_tags).
 
 {% hint style="info" %}
 **Struggled with the structure?** No worries!
@@ -85,12 +84,12 @@ For each image, we store the annotations in a separate `json` file named `image_
 * `size` - stores image size. Mostly, it is used to get the image size without the actual image reading to speed up some data processing steps.
 * `width` - image width in pixels
 * `height` - image height in pixels
-* `tags` - **list** of strings that will be interpreted as image [tags](https://docs.supervisely.com/customization-and-integration/00\_ann\_format\_navi/03\_supervisely\_format\_tags)
-* `objects` - **list** of [objects on the image](https://docs.supervisely.com/customization-and-integration/00\_ann\_format\_navi/04\_supervisely\_format\_objects)
+* `tags` - **list** of strings that will be interpreted as image [tags](https://docs.supervisely.com/customization-and-integration/00_ann_format_navi/03_supervisely_format_tags)
+* `objects` - **list** of [objects on the image](https://docs.supervisely.com/customization-and-integration/00_ann_format_navi/04_supervisely_format_objects)
 
 ### Image annotation example with objects and tags
 
-![Image annotation example](images/sly\_ann.png)
+![Image annotation example](../../../../.gitbook/assets/sly_ann.png)
 
 Example:
 
@@ -167,4 +166,4 @@ Example:
 * [\[CLI Tool Beta\] Upload projects in Supervisely format](https://developer.supervisely.com/getting-started/command-line-interface/cli-tool/workflow-automation#upload-projects-in-supervisely-format)
 *   [\[Supervisely Ecosystem\] Import images in Supervisely format](https://ecosystem.supervisely.com/apps/import-images-in-sly-format)
 
-    <img src="https://i.imgur.com/Y6RcQPT.png" height="60">
+    ![](https://i.imgur.com/Y6RcQPT.png)

@@ -12,7 +12,7 @@ Note: To use the multiview import feature, you need to create a project with the
 
 ![Import Multiview images](https://github.com/supervisely-ecosystem/import-wizard-docs/assets/79905215/81e7c8d1-dc38-4baf-bcef-165521a33c2a)
 
-Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process. 
+Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process.
 
 To step up import speed even further you can compress all annotation files (`.json`'s) into an archive and import it together with the images. (Note: This method is format-dependent and may not apply to all formats.)
 
@@ -21,8 +21,7 @@ To step up import speed even further you can compress all annotation files (`.js
 **Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`\
 **With annotations:** Yes\
 **Annotation types:** Tags in Supervisely format\
-**Grouped by:** Folders (corresponding tags will be assigned to images)\
-
+**Grouped by:** Folders (corresponding tags will be assigned to images)\\
 
 ### Key Features
 
@@ -81,18 +80,17 @@ To step up import speed even further you can compress all annotation files (`.js
     * Inside the project directory must be 1 dataset directory.
     * Group directories must be populated with images and placed inside the dataset directory. All images inside the group will be tagged with folder name value.
     * All images in the root dataset directory will be uploaded as regular images and will not be tagged.
-
--   🏷️ **NEW: Supervisely Project Folder or Archive with label groups**
+*   🏷️ **NEW: Supervisely Project Folder or Archive with label groups**
 
     This type of structure will work only if you have the required data in the files:
 
-    -   All images must be tagged with a group tag of the same value.
-    -   All necessary labels must be tagged with a label group tag of the same value.
-    -   The project settings in `meta.json` must contain a `multiView` section with the correct data.
+    * All images must be tagged with a group tag of the same value.
+    * All necessary labels must be tagged with a label group tag of the same value.
+    * The project settings in `meta.json` must contain a `multiView` section with the correct data.
 
     **Recommended structure**
 
-    ```text
+    ```
     📦archive
      ┗📂project folder
        ┣ 📂dataset_name_01
@@ -164,8 +162,8 @@ To step up import speed even further you can compress all annotation files (`.js
 
     **Image Labeling Tool Interface**
 
-      - 1 Multiview group
-      - 2 Labeling group
+    * 1 Multiview group
+    * 2 Labeling group
 
     ![Labeling Tool Interface](https://github.com/user-attachments/assets/5283e0b7-eb22-48ce-ae3b-e991191857da)
 
@@ -178,17 +176,17 @@ We prepared sample datasets for you to try the import process:
 
 *   To display single images switch off `Images Grouping` setting.
 
-    ![Switch off multiview mode](images/multi\_view\_toggle.gif)
+    ![Switch off multiview mode](../../../../.gitbook/assets/multi_view_toggle.gif)
 *   If you want to disable images grouping for the whole project, go to `Project` → `Settings` → `Visuals` and uncheck
 
-    ![Disable multiview in project settings](images/multi\_view\_1.png)
+    ![Disable multiview in project settings](../../../../.gitbook/assets/multi_view_1.png)
 *   Windowing tool is available when working with `.nrrd` files. It helps to filter pixels to see bones, air, liquids etc.
 
-    ![Nrrd windowing tool](images/multi\_view\_2.png)
+    ![Nrrd windowing tool](../../../../.gitbook/assets/multi_view_2.png)
 *   Images view synchronization
 
-    | Synchronization OFF ![](images/multi\_view\_3.png) | Synchronization ON ![](images/multi\_view\_4.png) |
-    | -------------------------------------------------- | ------------------------------------------------- |
+    | Synchronization OFF ![](../../../../.gitbook/assets/multi_view_3.png) | Synchronization ON ![](../../../../.gitbook/assets/multi_view_4.png) |
+    | --------------------------------------------------------------------- | -------------------------------------------------------------------- |
 
 ## Useful links
 
@@ -223,7 +221,7 @@ images_paths = ['path/to/audi_01.png', 'path/to/audi_02.png']
 api.image.upload_multiview_images(dataset_id, "audi", images_paths)
 ```
 
-In the example above we uploaded two groups of multiview images. Before or after uploading images, we also need to enable image grouping in the project settings.\
+In the example above we uploaded two groups of multiview images. Before or after uploading images, we also need to enable image grouping in the project settings.\\
 
 ### Group existing images for multiview
 
@@ -243,14 +241,11 @@ api.image.group_images_for_multiview(images_1, group_name_1, multiview_tag_name)
 ```
 
 {% hint style="success" %}
-
-- If the tag does not exist, it will be created automatically.
-- If multiview mode is not enabled in the project settings, it will be enabled automatically.
-
+* If the tag does not exist, it will be created automatically.
+* If multiview mode is not enabled in the project settings, it will be enabled automatically.
 {% endhint %}
 
-Let's consider a more complex example.
-For instance, you have a project with several datasets containing images and you want to group them by dataset name. Here is an example of how you can do it.
+Let's consider a more complex example. For instance, you have a project with several datasets containing images and you want to group them by dataset name. Here is an example of how you can do it.
 
 ```python
 GROUP_SIZE = 6  # number of images in one group
@@ -274,7 +269,6 @@ with sly.ApiContext(api, project_id=project_id, project_meta=meta):
 We recommend grouping images in batches of 6-12 images (depending on the size of your display).
 {% endhint %}
 
-
 ### How to upload label groups
 
 {% hint style="info" %}
@@ -293,7 +287,7 @@ Let's group it all together and upload local images and labels to Supervisely us
 
 Our sample data directory structure:
 
-```text
+```
  📂 data
  ┣ 📂 images
  ┃ ┣ 🏞️ car_01.jpeg
@@ -358,6 +352,7 @@ api.annotation.append_labels_group(
     project_meta=meta,
 )
 ```
+
 **Result:**
 
 ![result](https://github.com/user-attachments/assets/6a89c945-529a-4125-98c3-6d0582ce05dd)

@@ -6,8 +6,8 @@ To organize data for labeling and neural net training is not an easy task. If th
 
 Project is a combination of datasets and related meta information (like classes and tags) and it's a major building block of data organization in Supervisely.
 
-{% content-ref url="project/projects.md" %}
-[projects.md](project/projects.md)
+{% content-ref url="/broken/pages/-M54fC5kfcVDMQPT05GQ" %}
+[Broken link](/broken/pages/-M54fC5kfcVDMQPT05GQ)
 {% endcontent-ref %}
 
 ## 📂 Datasets
@@ -18,8 +18,8 @@ This is where your labeled and unlabeled images, videos and point clouds live. A
 You can upload images multiple times, but only one copy will be stored inside Supervisely. This approach allows us to effectively work with cloud storage. Also this has a good effect on system performance and backup speed.
 {% endhint %}
 
-{% content-ref url="project/datasets/datasets.md" %}
-[datasets.md](project/datasets/datasets.md)
+{% content-ref url="/broken/pages/-M54fC5lCGh1KuU-VTCW" %}
+[Broken link](/broken/pages/-M54fC5lCGh1KuU-VTCW)
 {% endcontent-ref %}
 
 ## 📖 Definitions
@@ -34,8 +34,8 @@ Classes are pre-defined types of your annotations, for example `Person` or `Back
 
 To associate some extra information with annotations (or images, or videos, ...) you can define a Tag, for example `Needs review`.
 
-{% content-ref url="projects/definitions.md" %}
-[definitions.md](projects/definitions.md)
+{% content-ref url="/broken/pages/bjYPjkKuRAhywYT2m24B" %}
+[Broken link](/broken/pages/bjYPjkKuRAhywYT2m24B)
 {% endcontent-ref %}
 
 ## Example

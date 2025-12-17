@@ -31,6 +31,7 @@ model = api.nn.deploy(
 )
 ```
 {% endtab %}
+
 {% tab title="ONNX Runtime" %}
 ```python
 import supervisely as sly
@@ -46,6 +47,7 @@ model = api.nn.deploy(
 )
 ```
 {% endtab %}
+
 {% tab title="TensorRT" %}
 ```python
 import supervisely as sly
@@ -61,6 +63,7 @@ model = api.nn.deploy(
 )
 ```
 {% endtab %}
+
 {% tab title="Convert to TensorRT" %}
 ```python
 import supervisely as sly
@@ -101,6 +104,7 @@ model = api.nn.deploy(
 )
 ```
 {% endtab %}
+
 {% tab title="Convert to ONNX" %}
 ```python
 import supervisely as sly
@@ -117,6 +121,7 @@ model = api.nn.deploy(
 )
 ```
 {% endtab %}
+
 {% tab title="Convert to TensorRT" %}
 ```python
 import supervisely as sly
@@ -139,23 +144,21 @@ model = api.nn.deploy(
 
 You can specify additional arguments for the `api.nn.deploy()` method, such as `device`, `runtime`, and `agent_id`.
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| `model` | `str` | Can be a path to your checkpoint in Team Files or a pretrained model name in the format `framework/model_name` (e.g., `"rt-detrv2/rt-detrv2-s"`). For a custom checkpoint, the checkpoint can be in PyTorch format (`.pt` or `.pth`), ONNX format (`.onnx`), or TensorRT format (`.engine`). For a pretrained model, the framework name is the name of the corresponding Serving App in Supervisely, and the model name is the name of a pretrained model from the models table in the Serving App. |
-| `device` | `str` | Device to run the model on, e.g., `"cuda:0"` or `"cpu"`. If not specified, will automatically use `cuda` device, if available on the agent, otherwise `cpu` will be used. |
-| `runtime` | `str` | Runtime to convert the model to before deploying. Options: `"onnx"`, `"tensorrt"`. Used for pretrained checkpoints. |
-| `workspace_id` | `int` | Workspace where serving app will be deployed. |
-| `agent_id` | `int` | ID of the Supervisely Agent, a machine that is connected to Supervisely where the model will be deployed. If not specified, the agent will be selected automatically depending on GPU usage. |
-
+| Argument       | Type  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| -------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `model`        | `str` | Can be a path to your checkpoint in Team Files or a pretrained model name in the format `framework/model_name` (e.g., `"rt-detrv2/rt-detrv2-s"`). For a custom checkpoint, the checkpoint can be in PyTorch format (`.pt` or `.pth`), ONNX format (`.onnx`), or TensorRT format (`.engine`). For a pretrained model, the framework name is the name of the corresponding Serving App in Supervisely, and the model name is the name of a pretrained model from the models table in the Serving App. |
+| `device`       | `str` | Device to run the model on, e.g., `"cuda:0"` or `"cpu"`. If not specified, will automatically use `cuda` device, if available on the agent, otherwise `cpu` will be used.                                                                                                                                                                                                                                                                                                                           |
+| `runtime`      | `str` | Runtime to convert the model to before deploying. Options: `"onnx"`, `"tensorrt"`. Used for pretrained checkpoints.                                                                                                                                                                                                                                                                                                                                                                                 |
+| `workspace_id` | `int` | Workspace where serving app will be deployed.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `agent_id`     | `int` | ID of the Supervisely Agent, a machine that is connected to Supervisely where the model will be deployed. If not specified, the agent will be selected automatically depending on GPU usage.                                                                                                                                                                                                                                                                                                        |
 
 #### Notes
 
-- The `api.nn.deploy()` method will start a new Serving App in Supervisely, deploy the model, and return a `ModelAPI` object for running predictions.
-- When deploying a custom checkpoint, you need to provide the `checkpoint` argument. When deploying a pretrained model, you need to provide both `framework` and `pretrained_model` arguments.
-- The `runtime` argument is used when deploying a pretrained model.
-- If `device` argument is not specified, the model will automatically use GPU device if available, otherwise CPU.
-- If `agent_id` argument is not specified, the agent will be selected automatically depending on GPU usage.
-
+* The `api.nn.deploy()` method will start a new Serving App in Supervisely, deploy the model, and return a `ModelAPI` object for running predictions.
+* When deploying a custom checkpoint, you need to provide the `checkpoint` argument. When deploying a pretrained model, you need to provide both `framework` and `pretrained_model` arguments.
+* The `runtime` argument is used when deploying a pretrained model.
+* If `device` argument is not specified, the model will automatically use GPU device if available, otherwise CPU.
+* If `agent_id` argument is not specified, the agent will be selected automatically depending on GPU usage.
 
 ### Connect
 
@@ -174,6 +177,7 @@ model = api.nn.connect(
 )
 ```
 {% endtab %}
+
 {% tab title="Local model in Docker Container" %}
 ```python
 from supervisely.nn import ModelAPI
@@ -186,15 +190,13 @@ model = ModelAPI(
 {% endtab %}
 {% endtabs %}
 
-
 #### Connect Arguments
 
 A table with arguments for the `api.nn.connect()` method:
 
-| Argument | Type | Description |
-| --- | --- | --- |
+| Argument  | Type  | Description                                      |
+| --------- | ----- | ------------------------------------------------ |
 | `task_id` | `int` | Task ID of a running Serving App in Supervisely. |
-
 
 ## ModelAPI methods
 
@@ -206,30 +208,30 @@ The ModelAPI class provides convenient methods for predictions. You can use `pre
 
 The difference between `predict()` and `predict_detached()` is that the first one will wait until all images are processed by a model and then will return a complete list of predictions, while the second one will return a `PredictionSession` immediately, which allows you to track the process in asynchronous, non-blocking mode. The `PredictionSession` object provides methods for checking the status of predictions and iterating over the results as soon as they are processed.
 
-> See the full guide on the usage of predict methods and its settings in [Prediction API](./prediction-api.md).
+> See the full guide on the usage of predict methods and its settings in [Prediction API](/broken/pages/8jEYLLHFgT4VJLoSJrnM).
 
 #### Predict arguments
 
 Here is a full table of `predict()` and `predict_detached()` arguments:
 
-| Argument | Type | Default | Description |
-| --- | --- | --- | --- |
-| `input` | `str`, `Path`, `np.ndarray`, `PIL.Image`, `list` | `None` | Input source: local path to an image or video, directory of images, local Supervisely project, numpy array, PIL.Image, URL |
-| `project_id` | `int` or `list` | `None` | Project IDs from Supervisely platform. You can use both `project_id` and `project_ids` arguments, they are aliases. |
-| `dataset_id` | `int` or `list` | `None` | Dataset IDs from Supervisely platform. You can use both `dataset_id` and `dataset_ids` arguments, they are aliases. |
-| `image_id` | `int` or `list` | `None` | Image IDs from Supervisely platform. You can use both `image_id` and `image_ids` arguments, they are aliases. |
-| `video_id` | `int` or `list` | `None` | Video IDs from Supervisely platform. The video will be processed frame by frame. You can use both `video_id` and `video_ids` arguments, they are aliases. |
-| `conf` | `float` | `None` | Confidence threshold for filtering out low confident predictions. If `None`, the model's default confidence threshold will be used. |
-| `batch_size` | `int` | `None` | Number of images to process in a single batch. If `None`, the model will use its default batch size. |
-| `img_size` | `int` or `tuple` | `None` | Size of input images: `int` resizes to a square size, a tuple of (height, width) resizes to exact size. Also applicable to video inference. `None` will use the model's default input size |
-| `classes` | `List[str]` | `None` | List of classes to predict |
-| `upload_mode` | `str` | `None` | If not `None`, predictions will be uploaded to the platform. Upload modes: `create`, `append`, `replace`, `iou_merge`. See more in [Uploading predictions](./prediction-api.md#uploading-predictions) section. |
-| `recursive` | `bool` | `False` | Whether to search for images in subdirectories. Applicable when the `input` is a directory. |
-| `**kwargs` | `dict` | `None` | All additional settings, such as inference settings, sliding window settings and video processing settings can be passed here. See more in [Advanced settings](./prediction-api.md#predict-settings-kwargs). |
+| Argument      | Type                                             | Default | Description                                                                                                                                                                                                                   |
+| ------------- | ------------------------------------------------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `input`       | `str`, `Path`, `np.ndarray`, `PIL.Image`, `list` | `None`  | Input source: local path to an image or video, directory of images, local Supervisely project, numpy array, PIL.Image, URL                                                                                                    |
+| `project_id`  | `int` or `list`                                  | `None`  | Project IDs from Supervisely platform. You can use both `project_id` and `project_ids` arguments, they are aliases.                                                                                                           |
+| `dataset_id`  | `int` or `list`                                  | `None`  | Dataset IDs from Supervisely platform. You can use both `dataset_id` and `dataset_ids` arguments, they are aliases.                                                                                                           |
+| `image_id`    | `int` or `list`                                  | `None`  | Image IDs from Supervisely platform. You can use both `image_id` and `image_ids` arguments, they are aliases.                                                                                                                 |
+| `video_id`    | `int` or `list`                                  | `None`  | Video IDs from Supervisely platform. The video will be processed frame by frame. You can use both `video_id` and `video_ids` arguments, they are aliases.                                                                     |
+| `conf`        | `float`                                          | `None`  | Confidence threshold for filtering out low confident predictions. If `None`, the model's default confidence threshold will be used.                                                                                           |
+| `batch_size`  | `int`                                            | `None`  | Number of images to process in a single batch. If `None`, the model will use its default batch size.                                                                                                                          |
+| `img_size`    | `int` or `tuple`                                 | `None`  | Size of input images: `int` resizes to a square size, a tuple of (height, width) resizes to exact size. Also applicable to video inference. `None` will use the model's default input size                                    |
+| `classes`     | `List[str]`                                      | `None`  | List of classes to predict                                                                                                                                                                                                    |
+| `upload_mode` | `str`                                            | `None`  | If not `None`, predictions will be uploaded to the platform. Upload modes: `create`, `append`, `replace`, `iou_merge`. See more in [Uploading predictions](/broken/pages/8jEYLLHFgT4VJLoSJrnM#uploading-predictions) section. |
+| `recursive`   | `bool`                                           | `False` | Whether to search for images in subdirectories. Applicable when the `input` is a directory.                                                                                                                                   |
+| `**kwargs`    | `dict`                                           | `None`  | All additional settings, such as inference settings, sliding window settings and video processing settings can be passed here. See more in [Advanced settings](/broken/pages/8jEYLLHFgT4VJLoSJrnM#predict-settings-kwargs).   |
 
 ### Load checkpoint
 
-The `ModelAPI.load()` method is used to change the deployed model to a different one or load another checkpoint. The method accepts similar arguments to the [`api.nn.deploy()`](#deploy-and-connect) method. You can load a custom checkpoint by providing the path to a checkpoint file in Team Files using `model=` argument. The checkpoint can be in PyTorch format, ONNX format (`.onnx`), or TensorRT format (`.engine`). You can also load a pretrained model by specifying the `model=` argument in the format of `framework/model_name`, for example, `"RT-DETRv2/RT-DETRv2-M"`.
+The `ModelAPI.load()` method is used to change the deployed model to a different one or load another checkpoint. The method accepts similar arguments to the [`api.nn.deploy()`](model-api.md#deploy-and-connect) method. You can load a custom checkpoint by providing the path to a checkpoint file in Team Files using `model=` argument. The checkpoint can be in PyTorch format, ONNX format (`.onnx`), or TensorRT format (`.engine`). You can also load a pretrained model by specifying the `model=` argument in the format of `framework/model_name`, for example, `"RT-DETRv2/RT-DETRv2-M"`.
 
 {% tabs %}
 {% tab title="Custom checkpoint" %}
@@ -240,6 +242,7 @@ model.load(
 )
 ```
 {% endtab %}
+
 {% tab title="Pretrained checkpoint" %}
 ```python
 # Load pretrained checkpoint
@@ -264,6 +267,7 @@ model.load(
 )
 ```
 {% endtab %}
+
 {% tab title="CPU device" %}
 ```python
 # Load model on CPU
@@ -288,6 +292,7 @@ model.load(
 )
 ```
 {% endtab %}
+
 {% tab title="TensorRT checkpoint" %}
 ```python
 # Loading TensorRT checkpoint
@@ -296,6 +301,7 @@ model.load(
 )
 ```
 {% endtab %}
+
 {% tab title="Convert to ONNX" %}
 ```python
 # Load pretrained checkpoint and convert to ONNX
@@ -305,6 +311,7 @@ model.load(
 )
 ```
 {% endtab %}
+
 {% tab title="Convert to TensorRT" %}
 ```python
 # Load pretrained checkpoint and convert to TensorRT
@@ -320,11 +327,11 @@ model.load(
 
 Here is a table with description of arguments of the `ModelAPI.load()` method:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| `model` | `str` | Can be a path to your checkpoint in Team Files or a pretrained model name in the format `framework/model_name` (e.g., `"rt-detrv2/rt-detrv2-s"`). For a custom checkpoint, the checkpoint can be in PyTorch format (`.pt` or `.pth`), ONNX format (`.onnx`), or TensorRT format (`.engine`). For a pretrained model, the framework name is the name of the corresponding Serving App in Supervisely, and the model name is the name of a pretrained model from the models table in the Serving App. |
-| `device` | `str` | Device to run the model on, e.g., `"cuda:0"` or `"cpu"`. If not specified, will automatically use `cuda` device, if available on the agent, otherwise `cpu` will be used. |
-| `runtime` | `str` | Runtime to convert the model to before deploying. Options: `"onnx"`, `"tensorrt"`. Used for pretrained checkpoints. |
+| Argument  | Type  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `model`   | `str` | Can be a path to your checkpoint in Team Files or a pretrained model name in the format `framework/model_name` (e.g., `"rt-detrv2/rt-detrv2-s"`). For a custom checkpoint, the checkpoint can be in PyTorch format (`.pt` or `.pth`), ONNX format (`.onnx`), or TensorRT format (`.engine`). For a pretrained model, the framework name is the name of the corresponding Serving App in Supervisely, and the model name is the name of a pretrained model from the models table in the Serving App. |
+| `device`  | `str` | Device to run the model on, e.g., `"cuda:0"` or `"cpu"`. If not specified, will automatically use `cuda` device, if available on the agent, otherwise `cpu` will be used.                                                                                                                                                                                                                                                                                                                           |
+| `runtime` | `str` | Runtime to convert the model to before deploying. Options: `"onnx"`, `"tensorrt"`. Used for pretrained checkpoints.                                                                                                                                                                                                                                                                                                                                                                                 |
 
 ### Get available models & checkpoints
 

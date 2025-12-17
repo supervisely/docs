@@ -34,7 +34,7 @@ services:
       replicas: 3
 ```
 
-The values provided above are just examples. You can adjust the number of replicas and pool size based on your server's load.
+The values provided above are just examples. You can adjust the number of replicas and pool size based on your server's load.\
 If you notice "Timeout acquiring a connection. The pool is probably full" in the logs, you may need to increase the `POSTGRES_POOL_MAX` / replicas value.
 
 After creating or modifying this file, apply the changes by redeploying the services:
@@ -137,7 +137,7 @@ sudo supervisely restart postgres
 
 ### Increasing PostgreSQL Container Memory Limit
 
-After tuning the PostgreSQL configuration, you may need to increase the container memory limit to accommodate the new settings.
+After tuning the PostgreSQL configuration, you may need to increase the container memory limit to accommodate the new settings.\
 To increase the PostgreSQL container memory limit, create or edit the `docker-compose.override.yml` file:
 
 ```bash

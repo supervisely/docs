@@ -16,7 +16,7 @@ Why do we need **Labeling Guides** and **Labeling Exams**? Let’s consider seve
 
 **Labeling Guides** are videos, documents and markdown posts. You can pin here your annotation policy, examples of good and bad labeling and so on. **Labeling Guides** can later be attached to Labeling Jobs and Exams.
 
-<figure><img src="../../.gitbook/assets/guides.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guides (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/create-guides.png" alt=""><figcaption></figcaption></figure>
 

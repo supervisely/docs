@@ -2,7 +2,7 @@
 
 Supervisely allows you to manage and develop datasets, models, apps and many other entities. It is important to understand how we organize users, resources and access permissions.
 
-![](teams-diagramm.png)
+![](../.gitbook/assets/teams-diagramm.png)
 
 ## **Teams**
 

@@ -1,14 +1,13 @@
 # Deploy & Predict with Supervisely SDK
 
-This section involves using Python code together with [Supervisely SDK](https://github.com/supervisely/supervisely) to automate deployment and inference in different scenarios and environments. Supervisely also has a convenient [Prediction API](prediction-api.md) that allows you to deploy models and get predictions in a couple of lines of code (check our [Tutorial](prediction-api.md)).
-In this tutorial you will deploy models directly on your local machine. This is a more advanced variant, it can slightly differ from one model to another, because you need to set up python environment by yourself, but the main code of loading model and getting predictions will be the same.
+This section involves using Python code together with [Supervisely SDK](https://github.com/supervisely/supervisely) to automate deployment and inference in different scenarios and environments. Supervisely also has a convenient [Prediction API](/broken/pages/8jEYLLHFgT4VJLoSJrnM) that allows you to deploy models and get predictions in a couple of lines of code (check our [Tutorial](/broken/pages/8jEYLLHFgT4VJLoSJrnM)). In this tutorial you will deploy models directly on your local machine. This is a more advanced variant, it can slightly differ from one model to another, because you need to set up python environment by yourself, but the main code of loading model and getting predictions will be the same.
 
 There are several approaches of how you can deploy and apply your model locally:
 
-* **[Load and Predict in Your Code](#load-and-predict-in-your-code)**: Load your checkpoint and get predictions in your code or in a script.
-* **[Deploy Model as a Server](#deploy-model-as-a-server)**: Deploy your model as a server on your machine, and interact with it through API requests.
-* **[🐋 Deploy in Docker Container](#deploy-in-docker-container)**: Deploy model as a server in a docker container on your local machine.
-* **[Deploy Model as a Serving App with web UI](#deploy-model-as-a-serving-app-with-web-ui)**: Deploy model as a server with a web UI and interact with it through API. ❓ - This feature is mostly for debugging and testing purposes.
+* [**Load and Predict in Your Code**](deploy_and_predict_with_supervisely_sdk.md#load-and-predict-in-your-code): Load your checkpoint and get predictions in your code or in a script.
+* [**Deploy Model as a Server**](deploy_and_predict_with_supervisely_sdk.md#deploy-model-as-a-server): Deploy your model as a server on your machine, and interact with it through API requests.
+* [**🐋 Deploy in Docker Container**](deploy_and_predict_with_supervisely_sdk.md#deploy-in-docker-container): Deploy model as a server in a docker container on your local machine.
+* [**Deploy Model as a Serving App with web UI**](deploy_and_predict_with_supervisely_sdk.md#deploy-model-as-a-serving-app-with-web-ui): Deploy model as a server with a web UI and interact with it through API. ❓ - This feature is mostly for debugging and testing purposes.
 
 ## Load and Predict in Your Code
 
@@ -36,7 +35,7 @@ pip install supervisely
 
 Download your checkpoint and model files from Team Files.
 
-![Download checkpoint from Team Files](/.gitbook/assets/deploy-predict-download-local.png)
+![Download checkpoint from Team Files](../../.gitbook/assets/deploy-predict-download-local.png)
 
 #### 4. Predict
 
@@ -118,14 +117,12 @@ pip install supervisely
 #### 3. Download checkpoint (optional)
 
 {% hint style="info" %}
-
 You can skip this step and pass a remote path to checkpoint in Team Files.
-
 {% endhint %}
 
 Download your checkpoint, model files and `experiment_info.json` from Team Files or the whole artifacts directory.
 
-![Download checkpoint from Team Files](/.gitbook/assets/deploy-predict-download-local-serve.png)
+![Download checkpoint from Team Files](../../.gitbook/assets/deploy-predict-download-local-serve.png)
 
 You can place downloaded files in the folder within app repo, for example you can create `models` folder inside root directory of the repository and place all files there.
 
@@ -157,11 +154,11 @@ This command will start the server on [http://0.0.0.0:8000](http://0.0.0.0:8000)
 
 **Arguments description**
 
-- `mode` - **(required)** mode of operation, can be `deploy` or `predict`.
-- `--model` - name of a model from pre-trained models table (see [models.json](../custom-model-integration/integrate-custom-training.md#1-prepare-model-configurations)), or a path to your custom checkpoint file either local path or remote path in Team Files. If not provided the first model from the models table will be loaded.
-- `--device` - device to run the model on, can be `cpu` or `cuda`.
-- `--runtime` - runtime to run the model on, can be `PyTorch`, `ONNXRuntime` or `TensorRT` if supported.
-- `--settings` - inference settings, can be a path to a `.json`, `yaml`, `yml` file or a list of key-value pairs e.g. `--settings confidence_threshold=0.5`.
+* `mode` - **(required)** mode of operation, can be `deploy` or `predict`.
+* `--model` - name of a model from pre-trained models table (see [models.json](../custom-model-integration/integrate-custom-training.md#1-prepare-model-configurations)), or a path to your custom checkpoint file either local path or remote path in Team Files. If not provided the first model from the models table will be loaded.
+* `--device` - device to run the model on, can be `cpu` or `cuda`.
+* `--runtime` - runtime to run the model on, can be `PyTorch`, `ONNXRuntime` or `TensorRT` if supported.
+* `--settings` - inference settings, can be a path to a `.json`, `yaml`, `yml` file or a list of key-value pairs e.g. `--settings confidence_threshold=0.5`.
 
 ```bash
 PYTHONPATH="${PWD}:${PYTHONPATH}" \
@@ -181,11 +178,11 @@ python ./supervisely_integration/serve/main.py deploy \
   --settings confidence_threshold=0.5
 ```
 
-
 **If you are a VSCode user you can use the following configurations for your `launch.json` file:**
 
 <details>
-<summary> <b> .vscode/launch.json </b> </summary>
+
+<summary>.vscode/launch.json</summary>
 
 ```json
 {
@@ -229,6 +226,7 @@ python ./supervisely_integration/serve/main.py deploy \
     ]
 }
 ```
+
 </details>
 
 #### 5. Predict
@@ -261,7 +259,7 @@ url = "https://images.unsplash.com/photo-1674552791148-c756b0899dba?ixlib=rb-4.0
 pred = session.inference_image_url(url)
 ```
 
-##### Predict with CLI
+**Predict with CLI**
 
 Instead of using the `Session`, you can deploy and predict in one command.
 
@@ -274,15 +272,15 @@ You can predict both local images or data on Supervisely platform. By default pr
 
 To predict data on the platform use one of the following arguments:
 
-- `--project_id` - id of Supervisely project to predict. If use `--upload` a new project with predictions will be created on the platform.
-- `--dataset_id` - id(s) of Supervisely dataset(s) to predict e.g. `--dataset_id "505,506"`. If use `--upload` a new project with predictions will be created on the platform.
-- `--image_id` - id of Supervisely image to predict. If `--upload` is passed, prediction will be added to the provided image.
+* `--project_id` - id of Supervisely project to predict. If use `--upload` a new project with predictions will be created on the platform.
+* `--dataset_id` - id(s) of Supervisely dataset(s) to predict e.g. `--dataset_id "505,506"`. If use `--upload` a new project with predictions will be created on the platform.
+* `--image_id` - id of Supervisely image to predict. If `--upload` is passed, prediction will be added to the provided image.
 
 You can specify additional settings:
 
-- `--output` - a local directory where predictions will be saved.
-- `--upload` - upload predictions to the platform. Works only with: `--project_id`, `--dataset_id`, `--image_id`.
-- `--draw` - save image with prediction visualization in `--output-dir`. Works only with: `input` and `--image_id`.
+* `--output` - a local directory where predictions will be saved.
+* `--upload` - upload predictions to the platform. Works only with: `--project_id`, `--dataset_id`, `--image_id`.
+* `--draw` - save image with prediction visualization in `--output-dir`. Works only with: `input` and `--image_id`.
 
 **Example to predict with CLI arguments:**
 
@@ -296,9 +294,7 @@ python ./supervisely_integration/serve/main.py predict \
 ```
 
 {% hint style="info" %}
-
 Server will shut down automatically after the prediction is done.
-
 {% endhint %}
 
 ## 🐋 Deploy in Docker Container
@@ -374,7 +370,7 @@ After the model is deployed, you can use the `Session` object for inference ([In
 
 #### Deploy and Predict with CLI arguments
 
-You can use the same arguments as seen in the previous [deploy](#4-deploy) and [predict](#predict-with-cli) sections for running docker container.
+You can use the same arguments as seen in the previous [deploy](deploy_and_predict_with_supervisely_sdk.md#4-deploy) and [predict](deploy_and_predict_with_supervisely_sdk.md#predict-with-cli) sections for running docker container.
 
 Example to deploy model as a server:
 
@@ -411,16 +407,14 @@ docker run \
 ```
 
 {% hint style="info" %}
-
 Container will be stopped automatically after the prediction is done.
-
 {% endhint %}
 
 ## Deploy Model as a Serving App with web UI
 
 In this variant, you will run a full [Serving App](supervisely-serving-apps.md) with web UI, in which you can deploy a model. This is useful for debugging and testing purposes, for example, when you're integrating your [Custom Inference App](../custom-model-integration/integrate-custom-inference.md) with the Supervisely Platform.
 
-Follow the steps from the [previous](#deploy-model-as-a-server) section, but instead of running the server, you need to run the following command:
+Follow the steps from the [previous](deploy_and_predict_with_supervisely_sdk.md#deploy-model-as-a-server) section, but instead of running the server, you need to run the following command:
 
 #### Deploy
 

@@ -1,16 +1,18 @@
+# Installation
+
 Follow these simple steps to install a new instance of Supervisely to your server.
 
-## Pre-requirements
+### Pre-requirements
 
 Before you start the installation of Supervisely to your host, please make sure your server meets the hardware & software requirements below.
 
-### Hardware
+#### Hardware
 
-| Component | Minimum    | Recommended | Videos                    |
-|-----------|------------|-------------|---------------------------|
-| CPU       | 4          | 8           | 8+                        |
-| RAM       | 8Gb        | 32Gb        | 32Gb+                     |
-| Disk      | 100Gb SSD  | 200Gb SSD   | 200Gb SSD + Cloud storage |
+| Component | Minimum   | Recommended | Videos                    |
+| --------- | --------- | ----------- | ------------------------- |
+| CPU       | 4         | 8           | 8+                        |
+| RAM       | 8Gb       | 32Gb        | 32Gb+                     |
+| Disk      | 100Gb SSD | 200Gb SSD   | 200Gb SSD + Cloud storage |
 
 Choose the disk size according to your needs. There is also an option to attach any S3 compatible storage to distribute the data in your cloud.
 
@@ -21,14 +23,14 @@ Make sure you are using SSD disk for OS, docker data and `DATA_PATH/db`. Otherwi
 {% hint style="info" %}
 If you don't have enough free space on a system drive, but you have another one mounted, you can change the place where the data is stored by changing `DATA_PATH` in `.env` file.
 
-Please check [this article](../data-folder/README.md) for more details.
+Please check [this article](../data-folder/) for more details.
 {% endhint %}
 
 {% hint style="danger" %}
 Never set `DATA_PATH` pointing to a network share (NFS/SMB/ESB/etc), because it affects the performance significantly. Set `DATA_PATH` pointing to an actual directory on your local disk and then mount `storage` subfolder of `DATA_PATH` directory as a network share - this way "hot" subfolders like `db` or `proxy_cache` will be on a local disk and image / videos storage on a network share.
 {% endhint %}
 
-### Network
+#### Network
 
 By default Supervisely exposes 2 ports on its host. Both ports are configurable.
 
@@ -45,67 +47,69 @@ Make sure that the agent can reach the WireGuard server via `{SERVER_ADDRESS}:{N
 {% endhint %}
 
 You can find the configuration file `.env` in the Supervisely workdir:
+
 ```bash
 cd $(sudo supervisely where)
 ```
 
 After changing the values you have to redeploy Supervisely services:
+
 ```bash
 sudo supervisely up -d
 ```
 
-#### GPU instance deployment
+**GPU instance deployment**
 
 If you plan to use Smart Tool (AI powered semantic segmentation) or Neural Networks (human-in-the-loop) you will need a server with GPU. The requirements are as follows:
 
- - GPU Memory: 8 GB or more (GeForce GTX 1080, Tesla K80, Tesla P100)
+* GPU Memory: 8 GB or more (GeForce GTX 1080, Tesla K80, Tesla P100)
 
-You can install Supervisely and run GPU computations on different machines using agents (see [How to connect agents](../../getting-started/connect-your-computer/README.md)).
+You can install Supervisely and run GPU computations on different machines using agents (see [How to connect agents](../../getting-started/connect-your-computer/)).
 
-#### AWS & cloud providers
+**AWS & cloud providers**
 
 We recommend to use the following EC2-instances for deployment in AWS:
 
-- 1 × m5.2xlarge — the platform itself
-- 1 × p2.xlarge — (for Neural Network Module only)
+* 1 × m5.2xlarge — the platform itself
+* 1 × p2.xlarge — (for Neural Network Module only)
 
-### Software
+#### Software
 
 To run Supervisely you will need Linux OS with kernel 3.10 or newer. The following configuration is recommended:
 
-- OS: Ubuntu 18.04 or later
-- NVIDIA graphics driver: 460.27.03 or later (for Neural Network module only)
-- nvidia-docker2 (for Neural Network module only)
+* OS: Ubuntu 18.04 or later
+* NVIDIA graphics driver: 460.27.03 or later (for Neural Network module only)
+* nvidia-docker2 (for Neural Network module only)
 
 All pre-requirements can be automatically installed via `supervisely` utility for Ubuntu 18.04 and later. In case of a different Linux distribution, you can install Supervisely and pre-requirements manually, but we won't be able to provide installation support.
 
-## Installation
+### Installation
 
 When all requirements above have been installed, you can deploy Supervisely. Please follow those steps one by one. Read each step carefully and complete it fully before going to the next step.
 
-### Step 1. Get your unique key from us
+#### Step 1. Get your unique key from us
 
 Before the installation we will send you a license key and a `supervisely` installation command. Please run it on the machine where you want to install Supervisely.
 
-### Step 2. Install pre-requirements
+#### Step 2. Install pre-requirements
 
 Run `sudo supervisely install-all` in your terminal. We will detect the necessary dependencies and install them. The following software may be installed:
 
-- [Docker CE](https://docs.docker.com/engine/installation/)
-- [Docker Compose](https://github.com/docker/compose/releases)
-- [NVIDIA Driver](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/#driver-installation) (for Training Module)
-- [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) (for Training Module)
+* [Docker CE](https://docs.docker.com/engine/installation/)
+* [Docker Compose](https://github.com/docker/compose/releases)
+* [NVIDIA Driver](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/#driver-installation) (for Training Module)
+* [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) (for Training Module)
 
 If you don't have NVIDIA drivers, you will be asked if you need to install it. Choose `y` if you have GPU on your server. Your computer will be rebooted during the installation of the NVIDIA driver.
 
-In case `install-all` doesn't support your OS, you can install the dependencies manually.
+In case `install-all` doesn't support your OS, you can install the dependencies manually.\
 This script should work on most of the Linux distributions:
 
 ```bash
 curl -fsSL https://get.docker.com | sh
 ```
 
-### Step 3. Run the installation command
+#### Step 3. Run the installation command
 
 Run `sudo supervisely init "<your license key>"`. If this is your first time running this command, you will see three prompts, asking you to choose where to store the CLI configuration file (first prompt), Supervisely configuration files (second prompt) and backups (the last prompt).
 
@@ -123,7 +127,7 @@ You can select one of the suggested options or enter your custom location. If yo
 
 You can always check where your configuration and backups locations are stored using `supervisely where` command.
 
-### Step 4. Wait for the installation to complete
+#### Step 4. Wait for the installation to complete
 
 Now, the CLI will automatically do the following steps, required to set your Supervisely instance:
 
@@ -134,33 +138,33 @@ Now, the CLI will automatically do the following steps, required to set your Sup
 5. Install the license key
 6. Deploy the default Supervisely Agent
 
-### Step 5. Start using Supervisely!
+#### Step 5. Start using Supervisely!
 
 Now you can refresh the current page. You will see the login box:
 
-![](screenshot-dev-supervise-ly-login-1658511306465.jpg)
+![](../../.gitbook/assets/screenshot-dev-supervise-ly-login-1658511306465.jpg)
 
 Enter the default credentials: login and password `admin`. Now you are in. Welcome!
 
 {% hint style="info" %}
-We strongly advice you to complete [the post-installation steps](../post-installation) after the initial setup.
+We strongly advice you to complete [the post-installation steps](../post-installation/) after the initial setup.
 {% endhint %}
 
-## Troubleshooting
+### Troubleshooting
 
-#### I open "http://localhost" but see an error
+**I open "http://localhost" but see an error**
 
 Database is still initializing. Wait a minute and try again.
 
-#### I try to login but see "You have no permissions for this action. Please, contact administrator."
+**I try to login but see "You have no permissions for this action. Please, contact administrator."**
 
 One of our internal services haven't got the license key. Refresh the page and try again.
 
-#### My "admin / Main Node" agent is stuck in "Waiting" status
+**My "admin / Main Node" agent is stuck in "Waiting" status**
 
 It seems the agent has tried to wait for Supervisely to start. Restart agent manually: `sudo supervisely deploy-agent`.
 
-#### When i deploy an agent i see a "runtime" error
+**When i deploy an agent i see a "runtime" error**
 
 Nvidia container runtime has not been installed. Try to run command `docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi` to see if it works.
 

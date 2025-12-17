@@ -248,8 +248,7 @@ Real-time image resizing adapts to various project needs, ensuring optimal viewi
 * **Tags:** show frames with tags
 * **Auto:** show frames with figures/tags based current selection
 
-\
-
+<br>
 
 <figure><img src="https://docs.supervisely.com/~gitbook/image?url=https%3A%2F%2F1080806899-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-M4BHwRbuyIoH-xoF3Gv%252Fuploads%252Fimt4uuoukdHC37UgRV1C%252Fplayback.png%3Falt%3Dmedia%26token%3Df8dce6e7-c6d2-45d0-8f71-4358ba78b309&#x26;width=768&#x26;dpr=4&#x26;quality=100&#x26;sign=a60fbe3c&#x26;sv=1" alt=""><figcaption></figcaption></figure>
 

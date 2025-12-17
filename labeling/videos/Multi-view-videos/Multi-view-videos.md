@@ -1,9 +1,10 @@
 ---
 description: >-
-  Annotate multiple synchronized videos from different camera angles as a unified scene with shared objects and synchronized playback.
+  Annotate multiple synchronized videos from different camera angles as a
+  unified scene with shared objects and synchronized playback.
 ---
 
-# Multiview Videos
+# Multiview videos
 
 ## Overview
 
@@ -11,14 +12,14 @@ Multiview mode allows you to work with multiple videos of the same scene capture
 
 This is particularly useful for:
 
-- **Autonomous driving** — multiple cameras mounted on a vehicle
-- **Surveillance** — security cameras covering the same area from different angles
-- **Sports analytics** — tracking athletes from multiple viewpoints
-- **3D reconstruction** — multi-camera setups for depth estimation
+* **Autonomous driving** — multiple cameras mounted on a vehicle
+* **Surveillance** — security cameras covering the same area from different angles
+* **Sports analytics** — tracking athletes from multiple viewpoints
+* **3D reconstruction** — multi-camera setups for depth estimation
 
-![](multi-view-results.gif)
+![](../../../.gitbook/assets/multi-view-results.gif)
 
----
+***
 
 ## Key Concepts
 
@@ -26,36 +27,36 @@ This is particularly useful for:
 
 If you have a common object appearing across different videos (e.g., a car visible from front, left, and right cameras), you can annotate it as a **single Supervisely object with a shared ID**.
 
-- The object maintains its identity across all videos in the multiview group
-- When you export and re-import the project, the object is recreated as a unified entity
+* The object maintains its identity across all videos in the multiview group
+* When you export and re-import the project, the object is recreated as a unified entity
 
 ### Synchronized Playback
 
 All videos in a multiview group can be played back synchronously:
 
-- Navigate through frames simultaneously across all views
-- Configure frame offsets if videos have different starting points
-- Control the order of videos in the labeling interface using metadata files with `videoStreamIndex` (see "How to Create Multiview Project" section below)
-- Easily compare and analyze object behavior from multiple angles in real-time
+* Navigate through frames simultaneously across all views
+* Configure frame offsets if videos have different starting points
+* Control the order of videos in the labeling interface using metadata files with `videoStreamIndex` (see "How to Create Multiview Project" section below)
+* Easily compare and analyze object behavior from multiple angles in real-time
 
----
+***
 
 ## How to Create Multiview Project
 
 ### Via UI (Drag & Drop)
 
-0. Prepare your data according to the required structure (see below):
-   - Create a folder for each multiview group (dataset)
-   - Place all camera videos inside the corresponding folder
+1. Prepare your data according to the required structure (see below):
+   * Create a folder for each multiview group (dataset)
+   * Place all camera videos inside the corresponding folder
 
-```text
+```
 📂 project
 └── 📂 ds1
     ├── 🎥 aerial_scene_1.mp4
     └── 🎥 ground_scene_2.mp4
 ```
 
-![](./data_structure.jpg)
+![](../../../.gitbook/assets/data_structure.jpg)
 
 1. Go to your workspace and start from creating a new project (`+ New` ⇨ `New Project Wizard`)
 2. Select `Videos` ⇨ `Multi-view` labeling interface and proceed
@@ -124,12 +125,11 @@ for video_path in video_paths:
 
 Open the project in the Supervisely UI to start annotating in multiview mode.
 
-![](./toolbox-interface.png)
+![](../../../.gitbook/assets/toolbox-interface.png)
 
 ### Optional: Specify Video Order
 
-To control the order of videos in the multiview labeling interface, you can create a metadata JSON file for each video with the suffix `.meta.json`. This file should include the `videoStreamIndex` to define its position.
-For example, for a video named `aerial_scene_1.mp4`, create a file named `aerial_scene_1.mp4.meta.json` with the following content:
+To control the order of videos in the multiview labeling interface, you can create a metadata JSON file for each video with the suffix `.meta.json`. This file should include the `videoStreamIndex` to define its position. For example, for a video named `aerial_scene_1.mp4`, create a file named `aerial_scene_1.mp4.meta.json` with the following content:
 
 ```json
 {
@@ -137,7 +137,7 @@ For example, for a video named `aerial_scene_1.mp4`, create a file named `aerial
 }
 ```
 
-```text
+```
 📂 project_name
     ┣ 📂 ds1
     ┃  ┣ 🎥 aerial_scene_1.mp4
@@ -150,7 +150,7 @@ For example, for a video named `aerial_scene_1.mp4`, create a file named `aerial
        ┗ 🎥 camera_right.mp4
 ```
 
----
+***
 
 ## Labeling in Multiview Mode
 
@@ -158,14 +158,14 @@ For example, for a video named `aerial_scene_1.mp4`, create a file named `aerial
 
 The multiview labeling interface includes the following key elements:
 
-- **Video panels & Synchronized timeline** — each video is displayed in its own panel with a shared timeline for synchronized navigation:
-- **Objects & Tags panel** — shows objects across all videos and video-specific tags:
+* **Video panels & Synchronized timeline** — each video is displayed in its own panel with a shared timeline for synchronized navigation:
+* **Objects & Tags panel** — shows objects across all videos and video-specific tags:
 
-![](multi-view-objects.png)
+![](../../../.gitbook/assets/multi-view-objects.png)
 
-- **Multiview settings** — configure frame offsets to align videos temporally to ensure synchronized playback. You can specify number of frames or time in milliseconds for each video:
+* **Multiview settings** — configure frame offsets to align videos temporally to ensure synchronized playback. You can specify number of frames or time in milliseconds for each video:
 
-![](multi-view-settings.jpg)
+![](../../../.gitbook/assets/multi-view-settings.jpg)
 
 ### Annotating Objects
 
@@ -177,16 +177,15 @@ Note: When annotating in multiview mode, you can create unified objects across v
 2. **The same object** can be annotated on other videos in the group
 3. Objects with the same ID are linked across all videos
 
-
 {% embed url="https://youtu.be/5MOF7OwkJKM" %}
 
 ### Video-specific Tags
 
 Unlike objects, **tags apply only within a specific video**:
 
-- When you tag a figure, frame, or video, that tag is associated only with that particular video
-- Tags are displayed only on the video where they were created
-- This allows for view-specific annotations (e.g., "occluded" tag on one camera angle)
+* When you tag a figure, frame, or video, that tag is associated only with that particular video
+* Tags are displayed only on the video where they were created
+* This allows for view-specific annotations (e.g., "occluded" tag on one camera angle)
 
 ### Auto-tracking
 
@@ -198,12 +197,12 @@ To use auto-tracking in multiview mode:
 
 1. **Open a multiview video project** and navigate to the desired frame.
 2. **Configure the tracking settings** in the tracking tool:
-   - Set number of frames to track
-   - Choose direction (forward/backward)
-   - Select the tracking engine ([Auto Track](https://app.supervisely.com/ecosystem/apps/supervisely-ecosystem/auto-track) app)
-   - Enable/Disable automatic tracking
+   * Set number of frames to track
+   * Choose direction (forward/backward)
+   * Select the tracking engine ([Auto Track](https://app.supervisely.com/ecosystem/apps/supervisely-ecosystem/auto-track) app)
+   * Enable/Disable automatic tracking
 
-  ![](auto-track-settings.jpg)
+![](../../../.gitbook/assets/auto-track-settings.jpg)
 
 3. **Annotate the object** on one of the videos and start the tracker.
 4. After tracking is complete on one video, **switch to another video** in the multiview interface.
@@ -219,20 +218,20 @@ Simple example result of auto-tracking in multiview mode:
 
 {% embed url="https://youtu.be/nWpSnCBI_OU" %}
 
----
+***
 
 ## Export
 
 Use the **Export Videos in Supervisely Format** app to export your multiview project:
 
-- All videos are exported with their annotations in Supervisely format
-- Object relationships across videos are preserved via shared object keys
-- Metadata files contain `videoStreamIndex` for maintaining video order
-- Project meta include settings for multiview configuration
+* All videos are exported with their annotations in Supervisely format
+* Object relationships across videos are preserved via shared object keys
+* Metadata files contain `videoStreamIndex` for maintaining video order
+* Project meta include settings for multiview configuration
 
 The exported structure can be re-imported to recreate the exact same multiview setup.
 
----
+***
 
 ## Use Cases
 
@@ -244,11 +243,11 @@ The exported structure can be re-imported to recreate the exact same multiview s
 | **Retail Analytics**   | Monitor customer behavior from multiple store cameras                           |
 | **3D Reconstruction**  | Annotate corresponding points across stereo or multi-camera setups              |
 
----
+***
 
 ## Useful Links
 
-- [Multiview Import Format Specification](../../../data-organization/import/import/supported-formats-videos/multiview.md)
-- [Video Annotation Format](../../../data-organization/Annotation-JSON-format/00_ann_format_navi.md)
-- [Export Videos in Supervisely Format](https://ecosystem.supervisely.com/apps/export-videos-project-in-supervisely-format)
-- [Video Labeling Toolbox](../README.md)
+* [Multiview Import Format Specification](../../../data-organization/import/import/supported-formats-videos/multiview.md)
+* [Video Annotation Format](../../../data-organization/Annotation-JSON-format/00_ann_format_navi.md)
+* [Export Videos in Supervisely Format](https://ecosystem.supervisely.com/apps/export-videos-project-in-supervisely-format)
+* [Video Labeling Toolbox](../)

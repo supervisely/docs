@@ -4,7 +4,7 @@ Data Commander is a tool that combines the classic approach of file management w
 
 Data Commander is a dual pane data manager (just like Double Commander), but not files — it's for training data.
 
-![](<data-commander (1).png>)
+![](<../../.gitbook/assets/data-commander (1).png>)
 
 ## What you can do with Data Commander:
 

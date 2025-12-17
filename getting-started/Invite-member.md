@@ -22,7 +22,7 @@ We have now learned how to [upload](How-to-import.md) and [annotate](How-to-anno
 
 First, login to Supervisely and click `Current Team members` — you will see the list of users who are members of the current  [team](../collaboration/teams.md) (which you can find right under the `Team` drop-down list). Presumably, it’s just you alone now. Let’s fix that!
 
-<figure><img src="../.gitbook/assets/team-members.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/team-members (1).png" alt=""><figcaption></figcaption></figure>
 
 Click the `Invite` button at the top right corner. You will need to enter a login of an existing user and a role in the current team you want them to have. [Roles](../collaboration/members.md) can be used to limit which actions the user can perform in your team. You, as an admin of the team, can do anything, delete things, invite and pick other users — but, say, a user with the “labeler” role can do none of the above: they can only label existing images.
 

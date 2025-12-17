@@ -109,7 +109,7 @@
   * [3D Point Cloud and Episodes](labeling/3D-Point-Clouds/3D-point-cloud-episodes-2.md)
   * [DICOM](labeling/DICOM/DICOM.md)
   * [Multiview images](<labeling/images/Multi-view images/Multi-view-images.md>)
-  * [Multiview videos](<labeling/videos/Multi-view-videos/Multi-view-videos.md>)
+  * [Multiview videos](labeling/videos/Multi-view-videos/Multi-view-videos.md)
   * [Fisheye](labeling/images/Fisheye/Fisheye.md)
   * [Video tracking](labeling/videos/video-tracking.md)
   * [3D Point Clouds](labeling/3D-Point-Clouds/3D-Point-Clouds.md)
@@ -184,7 +184,7 @@
 * [Custom Model Integration](neural-networks/custom-model-integration/README.md)
   * [Custom Inference](neural-networks/custom-model-integration/integrate-custom-inference.md)
   * [Custom Training](neural-networks/custom-model-integration/integrate-custom-training.md)
-* Solutions
+* [Solutions](neural-networks/solutions/README.md)
   * [Temporal Action Localization with MVD](solution/action_recognition/temporal_action_localization_with_mvd.md)
 * [Legacy](neural-networks/legacy/README.md)
   * [Starting with Neural Networks](neural-networks/legacy/overview/overview.md)

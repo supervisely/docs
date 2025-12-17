@@ -1,6 +1,6 @@
 # Labeling Jobs
 
-Labeling jobs is a powerful tool for efficiently organizing and distributing data annotation tasks within a [team](../../collaboration/teams.md). It is designed to ensure that annotators work on well-defined and manageable portions of the [dataset](../../data-organization/project/datasets/datasets.md), follow consistent guidelines, and contribute to the overall success of the annotation project while maintaining data quality and accuracy. It is a critical component of effective team coordination in data annotation efforts.
+Labeling jobs is a powerful tool for efficiently organizing and distributing data annotation tasks within a [team](../../collaboration/teams.md). It is designed to ensure that annotators work on well-defined and manageable portions of the [dataset](/broken/pages/-M54fC5lCGh1KuU-VTCW), follow consistent guidelines, and contribute to the overall success of the annotation project while maintaining data quality and accuracy. It is a critical component of effective team coordination in data annotation efforts.
 
 {% hint style="info" %}
 Learn more about Labeling Jobs in [Mastering Labeling Jobs: Your Ultimate Guide.](https://supervisely.com/blog/labeling-jobs)

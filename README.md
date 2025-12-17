@@ -16,9 +16,9 @@ Supervisely is available [online](https://app.supervisely.com/signup) for free, 
 
 <figure><img src=".gitbook/assets/labeling-jobs (1).jpg" alt=""><figcaption></figcaption></figure>
 
-* **Train** [neural networks](neural-networks/overview/overview.md) on your custom datasets or use pre-trained models to speed up manual labeling.
+* **Train** [neural networks](neural-networks/overview.md) on your custom datasets or use pre-trained models to speed up manual labeling.
 
-![](assets/main-nntrain.png)
+![](.gitbook/assets/main-nntrain.png)
 
 * Use the best machine learning tools, visualize and improve your data with hundreds of applications from [Ecosystem](https://ecosystem.supervisely.com/)
 

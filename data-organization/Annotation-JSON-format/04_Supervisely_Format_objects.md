@@ -1,25 +1,25 @@
-# Supervisely JSON Annotation Format Objects
+# Objects
 
 ## Supported Shapes
 
 Supervisely Annotation Format supports the following figures:
 
-- point
-- rectangle
-- oriented_bbox
-- polygon
-- line / polyline
-- bitmap
-- alpha_mask
-- keypoint structures
-- cuboid
-- mask_3d
+* point
+* rectangle
+* oriented\_bbox
+* polygon
+* line / polyline
+* bitmap
+* alpha\_mask
+* keypoint structures
+* cuboid
+* mask\_3d
 
 ## Coordinate System
 
 For two-dimensional mediums (images and videos) we use the following coordinate system (it's similar to a two-dimensional NumPy coordinate system):
 
-![coordinate system](./figures_images/coordinate_system.png)
+![coordinate system](../../.gitbook/assets/coordinate_system.png)
 
 All numerical values are provided in pixels.
 
@@ -39,19 +39,19 @@ When generating JSON annotation files, we assign each figure a mix of general fi
 
 Fields definitions:
 
-- `id` - unique identifier of the current object
-- `classId` - unique class identifier of the current object
-- `labelerLogin` - string - the name of user who created the current figure
-- `createdAt` - string - date and time of figure creation
-- `updatedAt` - string - date and time of the last figure update
-- `nnCreated` - boolean - indicates if the object was created by a neural network
-- `nnUpdated` - boolean - indicates if the object was updated or corrected by a neural network or manually by the user
+* `id` - unique identifier of the current object
+* `classId` - unique class identifier of the current object
+* `labelerLogin` - string - the name of user who created the current figure
+* `createdAt` - string - date and time of figure creation
+* `updatedAt` - string - date and time of the last figure update
+* `nnCreated` - boolean - indicates if the object was created by a neural network
+* `nnUpdated` - boolean - indicates if the object was updated or corrected by a neural network or manually by the user
 
 ## Point
 
 Example:
 
-![point example](./figures_images/point.png)
+![point example](<../../.gitbook/assets/point (1).png>)
 
 JSON format for this shape:
 
@@ -77,20 +77,20 @@ JSON format for this shape:
 
 Fields definitions:
 
-- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
-- `description` - string - text description (optional)
-- `geometryType: "point"` - class shape
-- `tags` - list of tags assigned to the current object
-- `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
-- `points` - object with two fields:
-  - `exterior` - list of 2 values for coordinates (`x` and `y` in that order) for every figure
-  - `interior` - always an empty field for this type of figure
+* Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](04_Supervisely_Format_objects.md#general-fields)
+* `description` - string - text description (optional)
+* `geometryType: "point"` - class shape
+* `tags` - list of tags assigned to the current object
+* `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
+* `points` - object with two fields:
+  * `exterior` - list of 2 values for coordinates (`x` and `y` in that order) for every figure
+  * `interior` - always an empty field for this type of figure
 
 ## Rectangle
 
 Example:
 
-![rectangle example](./figures_images/rectangle.png)
+![rectangle example](../../.gitbook/assets/rectangle.png)
 
 JSON format for this figure:
 
@@ -119,24 +119,24 @@ JSON format for this figure:
 
 Fields definitions:
 
-- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
-- `description` - string - text description (optional)
-- `geometryType: "rectangle"` - class shape
-- `tags` - list of tags assigned to the current object
-- `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
-- `points` - object with two fields:
-- `exterior` - list of two lists, each containing two coordinates (`x` and `y` in that order), with the following structure: [[left, top], [right, bottom]]
-- `interior` - always an empty list for this type of figure
+* Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](04_Supervisely_Format_objects.md#general-fields)
+* `description` - string - text description (optional)
+* `geometryType: "rectangle"` - class shape
+* `tags` - list of tags assigned to the current object
+* `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
+* `points` - object with two fields:
+* `exterior` - list of two lists, each containing two coordinates (`x` and `y` in that order), with the following structure: \[\[left, top], \[right, bottom]]
+* `interior` - always an empty list for this type of figure
 
 ## Oriented Bounding Box
 
 Oriented Bounding Box (OBB) is a rotated rectangle defined by two corner points and a rotation angle. Unlike axis-aligned Rectangle, OBBs can be rotated to better fit objects at arbitrary angles, making them ideal for annotating elongated or tilted objects like vehicles, ships, or text.
 
-![oriented bbox example](./figures_images/obb.gif)
+![oriented bbox example](../../.gitbook/assets/obb.gif)
 
 Example:
 
-![oriented bbox example](./figures_images/obb.jpg)
+![oriented bbox example](../../.gitbook/assets/obb.jpg)
 
 JSON format for this figure:
 
@@ -164,13 +164,13 @@ JSON format for this figure:
 
 Fields definitions:
 
-- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
-- `description` - string - text description (optional)
-- `geometryType: "oriented_bbox"` - class shape
-- `tags` - list of tags assigned to the current object
-- `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
-- `points` - list of two lists, each containing two coordinates (`x` and `y` in that order), with the following structure: [[left, top], [right, bottom]]. These points define the axis-aligned **bounding box that contains the oriented bounding box before rotation**.
-- `angle` - rotation angle in radians. The angle is measured clockwise. For example, an angle of 0 means the box is axis-aligned, while an angle of π/4 (45 degrees) indicates a box rotated 45 degrees clockwise.
+* Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](04_Supervisely_Format_objects.md#general-fields)
+* `description` - string - text description (optional)
+* `geometryType: "oriented_bbox"` - class shape
+* `tags` - list of tags assigned to the current object
+* `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
+* `points` - list of two lists, each containing two coordinates (`x` and `y` in that order), with the following structure: \[\[left, top], \[right, bottom]]. These points define the axis-aligned **bounding box that contains the oriented bounding box before rotation**.
+* `angle` - rotation angle in radians. The angle is measured clockwise. For example, an angle of 0 means the box is axis-aligned, while an angle of π/4 (45 degrees) indicates a box rotated 45 degrees clockwise.
 
 {% hint style="info" %}
 The `top`, `left`, `bottom`, `right` coordinates stored in `points` represent the bounding box **before rotation** (i.e., at angle = 0). To get the actual corner coordinates of the rotated bounding box, use the `calculate_rotated_corners()` method in Python SDK.
@@ -198,15 +198,13 @@ for name, _p, p in zip(corner_names, obb.corners, corners):
 # Bottom-Right   | 500  | 440   | 602  | 347  |
 # Bottom-Left    | 500  | 100   | 362  | 107  |
 ```
-
 {% endhint %}
-
 
 ## Polygon (without holes)
 
 Example:
 
-![polygon example](./figures_images/polygon.png)
+![polygon example](../../.gitbook/assets/polygon.png)
 
 ```json
 {
@@ -234,20 +232,20 @@ Example:
 
 Fields definitions:
 
-- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
-- `description` - string - text description (optional)
-- `geometryType: "polygon"` - class shape
-- `tags` - list of tags assigned to the current object
-- `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
-- `points` - object with two fields:
-- `exterior` - list of points [point1, point2, point3, etc ...] where each point is a list of two numbers (coordinates) [col, row]
-- `interior` - list of elements with the same structure as the "exterior" field. In other words, this is the list of polygons that define object holes. For polygons without holes in them, this field is empty
+* Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](04_Supervisely_Format_objects.md#general-fields)
+* `description` - string - text description (optional)
+* `geometryType: "polygon"` - class shape
+* `tags` - list of tags assigned to the current object
+* `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
+* `points` - object with two fields:
+* `exterior` - list of points \[point1, point2, point3, etc ...] where each point is a list of two numbers (coordinates) \[col, row]
+* `interior` - list of elements with the same structure as the "exterior" field. In other words, this is the list of polygons that define object holes. For polygons without holes in them, this field is empty
 
 ## Polygon (without holes)
 
 Example:
 
-![polygon example](./figures_images/polygon_hole.png)
+![polygon example](../../.gitbook/assets/polygon_hole.png)
 
 ```json
 {
@@ -281,20 +279,20 @@ Example:
 
 Fields definitions:
 
-- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
-- `description` - string - text description (optional)
-- `geometryType: "polygon"` - class shape
-- `tags` - list of tags assigned to the current object
-- `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
-- `points` - object with two fields:
-- `exterior` - list of points [point1, point2, point3, etc ...] where each point is a list of two numbers (coordinates) [col, row]
-- `interior` - list of elements with the same structure as the "exterior" field. In other words, this is the list of polygons that define object holes.
+* Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](04_Supervisely_Format_objects.md#general-fields)
+* `description` - string - text description (optional)
+* `geometryType: "polygon"` - class shape
+* `tags` - list of tags assigned to the current object
+* `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
+* `points` - object with two fields:
+* `exterior` - list of points \[point1, point2, point3, etc ...] where each point is a list of two numbers (coordinates) \[col, row]
+* `interior` - list of elements with the same structure as the "exterior" field. In other words, this is the list of polygons that define object holes.
 
 ## Polyline
 
 Example:
 
-![polyline example](./figures_images/polyline.png)
+![polyline example](<../../.gitbook/assets/polyline (1).png>)
 
 ```json
 {
@@ -322,14 +320,14 @@ Example:
 
 Fields definitions:
 
-- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
-- `description` - string - text description (optional)
-- `geometryType: "line"` - class shape
-- `tags` - list of tags assigned to the current object
-- `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
-- `points` - object with two fields:
-- `exterior` - list of points [point1, point2, point3, etc ...] where each point is a list of two numbers (coordinates) [col, row]
-- `interior` - always an empty list for this type of figure
+* Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](04_Supervisely_Format_objects.md#general-fields)
+* `description` - string - text description (optional)
+* `geometryType: "line"` - class shape
+* `tags` - list of tags assigned to the current object
+* `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
+* `points` - object with two fields:
+* `exterior` - list of points \[point1, point2, point3, etc ...] where each point is a list of two numbers (coordinates) \[col, row]
+* `interior` - always an empty list for this type of figure
 
 ## Bitmap
 
@@ -337,7 +335,7 @@ Bitmap is a figure that is described by a point of "origin"(upper left corner), 
 
 Example:
 
-![bitmap example](./figures_images/bitmap.png)
+![bitmap example](<../../.gitbook/assets/bitmap (1).png>)
 
 ```json
 {
@@ -361,14 +359,14 @@ Example:
 
 Fields description:
 
-- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
-- `description` - string - text description (optional)
-- `geometryType: "bitmap"` - class shape
-- `tags` - list of tags assigned to the current object
-- `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
-- `bitmap` - object with two fields:
-  - `origin` - points (`x` and `y` coordinates) of the top left corner of the bitmap, i.e. the position of the bitmap within the image
-  - `data` - string - encoded representation of a string
+* Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](04_Supervisely_Format_objects.md#general-fields)
+* `description` - string - text description (optional)
+* `geometryType: "bitmap"` - class shape
+* `tags` - list of tags assigned to the current object
+* `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
+* `bitmap` - object with two fields:
+  * `origin` - points (`x` and `y` coordinates) of the top left corner of the bitmap, i.e. the position of the bitmap within the image
+  * `data` - string - encoded representation of a string
 
 A few words about `bitmap` → `data`. You can use these two python methods to convert a base64 encoded string to NumPy and vice versa.
 
@@ -438,7 +436,7 @@ Alpha Mask is a figure that is described by a point of "origin"(upper left corne
 
 Example:
 
-![alpha mask example](./figures_images/alpha_mask.jpg)
+![alpha mask example](../../.gitbook/assets/alpha_mask.jpg)
 
 ```json
 {
@@ -462,14 +460,14 @@ Example:
 
 Fields description:
 
-- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
-- `description` - string - text description (optional)
-- `geometryType: "alpha_mask"` - class shape
-- `tags` - list of tags assigned to the current object
-- `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
-- `bitmap` - object with two fields:
-  - `origin` - points (`x` and `y` coordinates) of the top left corner of the alpha mask, i.e. the position of the alpha mask within the image
-  - `data` - string - encoded representation of a string
+* Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](04_Supervisely_Format_objects.md#general-fields)
+* `description` - string - text description (optional)
+* `geometryType: "alpha_mask"` - class shape
+* `tags` - list of tags assigned to the current object
+* `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
+* `bitmap` - object with two fields:
+  * `origin` - points (`x` and `y` coordinates) of the top left corner of the alpha mask, i.e. the position of the alpha mask within the image
+  * `data` - string - encoded representation of a string
 
 A few words about `bitmap` → `data`. You can use these two Python methods to convert a base64 encoded string to NumPy and vice versa.
 
@@ -539,7 +537,7 @@ Keypoint structures consist of vertices (also called nodes or points) which are 
 
 Example:
 
-![key_point_structurebitmap example](./figures_images/graph.png)
+![key\_point\_structurebitmap example](../../.gitbook/assets/graph.png)
 
 ```json
 {
@@ -576,19 +574,19 @@ Example:
 
 Fields definitions:
 
-- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
-- `description` - string - text description (optional)
-- `geometryType: "graph"` - class shape
-- `tags` - list of tags assigned to the current object
-- `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
-- `nodes` - is a dictionary, where keys denote the names of the graph vertices and values in a dictionary, and where values denote location of a node on image
-  - `loc` - list of single points (`x` and `y` coordinates) of a vertices
+* Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](04_Supervisely_Format_objects.md#general-fields)
+* `description` - string - text description (optional)
+* `geometryType: "graph"` - class shape
+* `tags` - list of tags assigned to the current object
+* `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
+* `nodes` - is a dictionary, where keys denote the names of the graph vertices and values in a dictionary, and where values denote location of a node on image
+  * `loc` - list of single points (`x` and `y` coordinates) of a vertices
 
 ## Cuboids (2D annotation)
 
 Example:
 
-![cuboid 2d example](./figures_images/cuboid_2D_new.jpg)
+![cuboid 2d example](../../.gitbook/assets/cuboid_2D_new.jpg)
 
 ```json
 {
@@ -635,20 +633,19 @@ Example:
 
 Fields definitions:
 
-- Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#general-fields)
-- `description` - string - text description (optional)
-- `geometryType: "cuboid_2d"` - class shape
-- `tags` - list of tags assigned to the current object
-- `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
-- `vertices` - is a dictionary, where keys denote the names of the cuboid vertices, and values in a dictionary with a location of a vertex on the image:
-  - `loc` - list of single points (`x` and `y` coordinates) of a vertex
+* Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](04_Supervisely_Format_objects.md#general-fields)
+* `description` - string - text description (optional)
+* `geometryType: "cuboid_2d"` - class shape
+* `tags` - list of tags assigned to the current object
+* `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
+* `vertices` - is a dictionary, where keys denote the names of the cuboid vertices, and values in a dictionary with a location of a vertex on the image:
+  * `loc` - list of single points (`x` and `y` coordinates) of a vertex
 
 ## Mask3D (3D annotation)
 
-Mask3D is a figure that is described by a 3D array corresponding to the dimensionality of the volume. It is used as an annotation type for volume projects.
-Geometry `data` stores in NRRD files and defines each pixel of the Mask3D. In the previous version whole `data` could be stored in JSON annotations as a base64 encoded string.
+Mask3D is a figure that is described by a 3D array corresponding to the dimensionality of the volume. It is used as an annotation type for volume projects. Geometry `data` stores in NRRD files and defines each pixel of the Mask3D. In the previous version whole `data` could be stored in JSON annotations as a base64 encoded string.
 
-![mask3d example](./images/volume_mask3d.png)
+![mask3d example](../../.gitbook/assets/volume_mask3d.png)
 
 💡 It's strictly recommended to store whole `data` into NRRD files.
 
@@ -678,13 +675,13 @@ Below is an example of what the object looks like in the annotation file:
 
 Fields definitions:
 
-- `key` -
-- `objectKey` -
-- `geometryType: "mask_3d"` - class shape
-- `geometry` - describes geometry of the object, consist of:
-  - `mask_3d` - object with one field:
-    - `data`- string - encoded representation of a string.
-  - `shape: "mask_3d"` - geometry name
-  - `geometryType": "mask_3d"` geometry type
+* `key` -
+* `objectKey` -
+* `geometryType: "mask_3d"` - class shape
+* `geometry` - describes geometry of the object, consist of:
+  * `mask_3d` - object with one field:
+    * `data`- string - encoded representation of a string.
+  * `shape: "mask_3d"` - geometry name
+  * `geometryType": "mask_3d"` geometry type
 
 If the geometry data is stored in NRRD files, `mask_3d` → `data` will store an empty array represented as base64 encoded string.

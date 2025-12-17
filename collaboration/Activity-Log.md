@@ -13,7 +13,7 @@ Here is a more in-depth look at its capabilities:
 * **Number of labeled objects:** Tracks the count of annotated objects within images.
 * **Reviewed images:** Records images that have been reviewed, useful for quality control and verifying completed work.
 
-![](activity-log3.png)
+![](../.gitbook/assets/activity-log3.png)
 
 Additionally, the **Activity Log** allows you to export activity logs in CSV format, opening opportunities for further data analysis and processing. You can upload the CSV file from the context menu of a project, job, or team and work with the data according to your needs. This feature makes team activity management more flexible and adaptable to your goals and tasks.
 

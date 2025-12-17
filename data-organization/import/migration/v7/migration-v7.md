@@ -1,9 +1,8 @@
 ---
-description: >-
-  Convert and copy multiple V7 datasets into Supervisely at once.
+description: Convert and copy multiple V7 datasets into Supervisely at once.
 ---
 
-# V7 to Supervisely Migration Tool
+# V7 to Supervisely
 
 [This application](https://ecosystem.supervisely.com/apps/v7-to-supervisely/migration_tool) allows you to copy multiple datasets from V7 instance to Supervisely instance, you can select which projects should be copied, labels and tags will be converted automatically. You can preview the results in the table, which will show URLs to corresdponding projects in V7 and Supervisely. Every V7 dataset will be converted in a separate Supervisely project.
 
@@ -27,25 +26,25 @@ You can download an example of the .env file [here](https://github.com/supervise
 
 NOTE: you need to unzip the file before using it.
 
-1. Create a .env file with the following content: V7_API_KEY="JUFxKUH.wfjargM-xZ3-K2wR2kkZaxFM-AqTiZWs"
+1. Create a .env file with the following content: V7\_API\_KEY="JUFxKUH.wfjargM-xZ3-K2wR2kkZaxFM-AqTiZWs"
 2. Upload the .env file to the team files.
 3. Right-click on the .env file, select Run app and choose the V7 to Supervisely Migration Tool app.
 
 The app will be launched with the API key from the .env file and you won't need to enter it manually. If everything was done correctly, you will see the following message in the app UI:
 
-- ℹ️ Connection settings was loaded from .env file.
-- ✅ Successfully connected to V7.
-  
+* ℹ️ Connection settings was loaded from .env file.
+* ✅ Successfully connected to V7.
+
 ### Entering credentials manually
 
 1. Launch the app from the Ecosystem.
 2. Enter the V7 api key.
 3. Press the Connect to V7 button.
 
-![](migratin-v7.png)
+![](../../../../.gitbook/assets/migratin-v7.png)
 
 If everything was done correctly, you will see the following message in the app UI:
 
-- ✅ Successfully connected to V7.
+* ✅ Successfully connected to V7.
 
 **NOTE:** The app will not save your API key, you will need to enter it every time you launch the app. To save your time you can use the team files to store your credentials.

@@ -1,13 +1,15 @@
 ---
 description: >-
-  This article explains how to create and manage classes and tags for data annotation in the Labeling Tool to ensure structured and consistent labeling within a project.
+  This article explains how to create and manage classes and tags for data
+  annotation in the Labeling Tool to ensure structured and consistent labeling
+  within a project.
 ---
 
 # Define Classes & Tags
 
-Definitions are a centralized place where all classes and tags used for data annotation are managed.
-A class defines an object category and specifies the type of geometry that will represent this class in annotations, such as bounding boxes, masks, polygons, etc.
-Tags describe not only the annotations themselves but can also apply to frames, images, and more.
+Definitions are a centralized place where all classes and tags used for data annotation are managed.\
+A class defines an object category and specifies the type of geometry that will represent this class in annotations, such as bounding boxes, masks, polygons, etc.\
+Tags describe not only the annotations themselves but can also apply to frames, images, and more.\
 Properly defined classes and tags ensure consistent and structured annotations throughout the entire project
 
 The **Definitions** tab, available both in the Project and in the Labeling Tool, is divided into two main categories:
@@ -28,17 +30,7 @@ The **Definitions** tab, available both in the Project and in the Labeling Tool,
   * **Name (A-Z)** and **Name (Z-A)** — sorts items alphabetically in ascending or descending order.
   * **Shape (A-Z)** and **Shape (Z-A)** — **(for classes only)** sorts items by shape type in ascending or descending order.
 
-<div>
-
-<figure><img src="../../.gitbook/assets/classes0.png" alt=""><figcaption></figcaption></figure>
-
- 
-
-<figure><img src="../../.gitbook/assets/tags.png" alt=""><figcaption></figcaption></figure>
-
-</div>
-
-
+<div><figure><img src="../../.gitbook/assets/classes0.png" alt=""><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/tags.png" alt=""><figcaption></figcaption></figure></div>
 
 ## Classes & Tags: distinctions <a href="#tags--classes-distinctions" id="tags--classes-distinctions"></a>
 
@@ -136,8 +128,6 @@ To learn more about the practical uses of tags and explore advanced tools, check
 
 {% embed url="https://supervisely.com/blog/mastering-image-tagging/" %}
 
-[^1]: You can only set a single latin character (because other combinations may be unavailable).
-
 ## 2. Defining Classes and Tags Directly in Labeling Toolbox
 
 **Classes** and **Tags** created manually by an annotator inside the Labeling Tool (during the annotation process) are automatically added to the project’s **Definitions** on the Projects page.
@@ -146,11 +136,9 @@ These classes and tags immediately become available to all team members — they
 
 **This behavior enables the following:**
 
-- Dynamic expansion of the project structure, even if the Definitions were not configured in advance.
-
-- Consistency across the team, by maintaining a single, shared list of classes and tags.
-
-- Avoiding duplication, since new items are added directly to the central schema.
+* Dynamic expansion of the project structure, even if the Definitions were not configured in advance.
+* Consistency across the team, by maintaining a single, shared list of classes and tags.
+* Avoiding duplication, since new items are added directly to the central schema.
 
 ### Where to Define Classes and Tags in the Labeling Tool
 
@@ -163,6 +151,7 @@ Let’s go through each case one by one.
 When working with images, the **Definitions panel** is located on the left side of the Labeling Tool.
 
 To add a new class or tag:
+
 1. click the plus **`+`** on the panel, then choose whether you want to add a class or a tag.
 2. In the modal window that appears, configure the class or tag parameters, then click **`Create`** to save it.
 
@@ -189,6 +178,7 @@ The new class will immediately appear in the Definitions panel on the left and w
 When working with videos, the **Definitions panel** is located on the right side of the Labeling Tool.
 
 To add a new class or tag:
+
 1. click the plus **`+`** on the panel, then choose whether you want to add a class or a tag.
 2. In the modal window that appears, configure the class or tag parameters, then click **`Create`** to save it.
 
@@ -227,3 +217,5 @@ In the modal window that appears, configure the new tag parameters, then click *
 <figure><img src="../../.gitbook/assets/define-classes-tags/definitions-labtool-volume-tags1.png" alt="" width="359"><figcaption></figcaption></figure>
 
 The newly created tag will immediately appear in the **Objects panel** for all annotators and become available for annotation.
+
+[^1]: You can only set a single latin character (because other combinations may be unavailable).

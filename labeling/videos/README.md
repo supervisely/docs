@@ -222,7 +222,7 @@ It’s easy to get frustrated with thousands of frames and objects labeled!
 
 The tracks panel offers controls for managing tracks, tags, and navigating through video frames. It provides a clear overview of the video's structure, answers questions about what has already been labeled, and simplifies editing tag segments and tracked objects.
 
-![](Timeline-panel.png)
+![](../../.gitbook/assets/Timeline-panel.png)
 
 ### **Manage tracks**
 
@@ -370,9 +370,9 @@ The settings panel is the control center for personalizing the interface. It hou
 
 Video labeling toolbox has countless features, but most importantly, it provides integrations with the best AI models that dramatically improve your labeling performance. For example:
 
-* [MixFormer](https://ecosystem.supervisely.com/apps/mixformer/serve/serve?utm\_source=blog) for bounding box detection and tracking
-* [RITM](https://ecosystem.supervisely.com/apps/ritm-interactive-segmentation/supervisely?utm\_source=blog) and [SAM](https://ecosystem.supervisely.com/apps/serve-segment-anything-model?utm\_source=blog) for mask segmentation and tracking
-* [TAP-Net](https://ecosystem.supervisely.com/apps/serve-tapnet/tapnet/supervisely/serve?utm\_source=blog) for polygon segmentation and tracking
+* [MixFormer](https://ecosystem.supervisely.com/apps/mixformer/serve/serve?utm_source=blog) for bounding box detection and tracking
+* [RITM](https://ecosystem.supervisely.com/apps/ritm-interactive-segmentation/supervisely?utm_source=blog) and [SAM](https://ecosystem.supervisely.com/apps/serve-segment-anything-model?utm_source=blog) for mask segmentation and tracking
+* [TAP-Net](https://ecosystem.supervisely.com/apps/serve-tapnet/tapnet/supervisely/serve?utm_source=blog) for polygon segmentation and tracking
 
 You can check this short video to get an overview on AI capabilities in the video labeling toolbox:
 

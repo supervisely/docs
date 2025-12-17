@@ -1,10 +1,10 @@
-# Supervisely JSON Annotation Format Tags
+# Tags
 
 In Supervisely tags provide an option to associate some additional information with the labeled image or the labels on it. Each individual tag can be attached to a single image or asingle annotation only once, but there's not limit on how many times the same tag can be attached to different parts of the scene. There are different lists of tags for images and figures in the annotation file.
 
-When defining a tag, you assign it a name, possible values for a tag instance and what types of things it can be attached to. We support values of the following types: None (without an assigned value), Text, Number, and One of. 
+When defining a tag, you assign it a name, possible values for a tag instance and what types of things it can be attached to. We support values of the following types: None (without an assigned value), Text, Number, and One of.
 
-## Tags With 'None' Value 
+## Tags With 'None' Value
 
 Tags of 'none' type can't be assigned a value. Adding one manually will result in an error. Also it [could not be used](../supervisely-annotation-json-format/project-classes-and-tags.md#fields-definitions) as a group tag for the multiview mode.
 
@@ -24,9 +24,9 @@ Json format for 'None' tags:
 
 Fields definitions:
 
-- `name` - string - name of the tag
-- `value` - value of the current tag (always null for any tag of type 'none')
-- Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](#Optional-fields)
+* `name` - string - name of the tag
+* `value` - value of the current tag (always null for any tag of type 'none')
+* Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](03_Supervisely_format_tags.md#Optional-fields)
 
 ## Tag with 'Number' Value
 
@@ -48,9 +48,9 @@ Json format for 'Number' tags:
 
 Fields definitions:
 
-- `name` - string - name of the tag
-- `value` - value of the current tag
-- Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](#Optional-fields)
+* `name` - string - name of the tag
+* `value` - value of the current tag
+* Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](03_Supervisely_format_tags.md#Optional-fields)
 
 ## Tag with String('Text') Value
 
@@ -72,9 +72,9 @@ Json format for 'text' tags:
 
 Fields definitions:
 
-- `name` - string - name of the tag
-- `value` - value of current tag
-- Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](#Optional-fields)
+* `name` - string - name of the tag
+* `value` - value of current tag
+* Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](03_Supervisely_format_tags.md#Optional-fields)
 
 ## Tag with value from a given list ('One Of')
 
@@ -96,13 +96,13 @@ Json format for 'one of' tags:
 
 Fields definitions:
 
-- `name` - string - name of the tag
-- `value` - value of current tag
-- Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](#Optional-fields)
+* `name` - string - name of the tag
+* `value` - value of current tag
+* Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](03_Supervisely_format_tags.md#Optional-fields)
 
 ## Optional fields
 
-The following fields are created and assigned automatically by the system when the tags are first created in it (or the data is uploaded). This means these fields are optional and you don't have to assign them during manual annotation. 
+The following fields are created and assigned automatically by the system when the tags are first created in it (or the data is uploaded). This means these fields are optional and you don't have to assign them during manual annotation.
 
 Optional fields:
 
@@ -116,18 +116,17 @@ Optional fields:
 
 Fields definitions:
 
-- `id` - unique identifier of the current object
-- `tagId` - unique tag identifier of the current object
-- `labelerLogin` - string - the name of user who created the current figure
-- `createdAt` - string - date and time of figure creation
-- `updatedAt` - string - date and time of the last figure update
+* `id` - unique identifier of the current object
+* `tagId` - unique tag identifier of the current object
+* `labelerLogin` - string - the name of user who created the current figure
+* `createdAt` - string - date and time of figure creation
+* `updatedAt` - string - date and time of the last figure update
 
-
-## Examples 
+## Examples
 
 **Image tags:**
 
-![](./figures_images/image_tags.png)
+![](../../.gitbook/assets/image_tags.png)
 
 Json format for image tags:
 
@@ -156,14 +155,13 @@ Json format for image tags:
 
 Fields definitions:
 
-- `name` - string - name of the tag
-- `value` - value of current tag
-- Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#Optional-fields)
-
+* `name` - string - name of the tag
+* `value` - value of current tag
+* Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](03_Supervisely_format_tags.md#Optional-fields)
 
 **Objects tags:**
 
-![](./figures_images/object_tags.png)
+![](../../.gitbook/assets/object_tags.png)
 
 Json format for object tags:
 
@@ -192,7 +190,6 @@ Json format for object tags:
 
 Fields definitions:
 
-- `name` - string - name of the tag
-- `value` - value of current tag
-- Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](#Optional-fields)
-
+* `name` - string - name of the tag
+* `value` - value of current tag
+* Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](03_Supervisely_format_tags.md#Optional-fields)

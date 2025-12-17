@@ -9,11 +9,11 @@ description: >-
 
 Supervisely's MultiView Image Labeling Toolbox allows simultaneous annotation of multiple images on a single screen, significantly streamlining the data annotation process. This guide covers key features, tools, and steps for annotating multiview images, enabling you to build custom training datasets quickly and effectively.
 
-Check out our comprehensive guide on uploading and annotating multiview images for custom training datassets simultaneously using multiview mode.&#x20;
+Check out our comprehensive guide on uploading and annotating multiview images for custom training datassets simultaneously using multiview mode.
 
 {% embed url="https://supervisely.com/blog/multi-view-image-annotation/" %}
 
-![](<Multi-view images1.gif>)
+![](<../../../.gitbook/assets/Multi-view images1.gif>)
 
 ## Key Features
 
@@ -35,7 +35,7 @@ Check out our comprehensive guide on uploading and annotating multiview images f
 
 Organize images into groups by creating a project directory. Example:
 
-```text
+```
 📂 dataset_name
  ┣ 📂 group_name_1
  ┃ ┣ 🏞️ image_1.png
@@ -71,7 +71,7 @@ Convert existing projects to a multiview setup using the "Group Images for Multi
 
 Automate your multiview annotation processes with the Supervisely Python SDK. This allows for efficient batch processing, custom integrations, and more streamlined workflows.
 
-![](<Multi-view images2.png>)
+![](<../../../.gitbook/assets/Multi-view images2.png>)
 
 ## Video tutorial <a href="#video-tutorial" id="video-tutorial"></a>
 

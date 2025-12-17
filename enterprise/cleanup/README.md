@@ -20,7 +20,7 @@ CLEANUP_DOCKER_UNTIL=24h
 
 ## Manual agent cleanup
 
-At the Cluster section for each agent you can [monitor storage](broken-reference) in real time. You will find there a few buttons that clean agent cache.
+At the Cluster section for each agent you can [monitor storage](/broken/pages/N4wuosmpY0ZZmmWK0lfz) in real time. You will find there a few buttons that clean agent cache.
 
 ## Automatic agent cleanup
 

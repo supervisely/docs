@@ -1,4 +1,4 @@
-# Data usage & Cleanup
+# Disk usage & Cleanup
 
 One of the important clarifications. [Team Files](../team-files/) is an exception and it needs to be cleared specifically from Team Files and the deleted files will not go to the trash bin and they cannot be recovered.
 
@@ -6,7 +6,7 @@ One of the important clarifications. [Team Files](../team-files/) is an exceptio
 
 To view disk usage in current team you can visit **Disk usage** page.
 
-<figure><img src="../../.gitbook/assets/disk-usage.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/disk-usage (1).png" alt=""><figcaption></figcaption></figure>
 
 Here you can see Projects from all Workspaces in current Team.
 
@@ -16,7 +16,7 @@ Here you can see Projects from all Workspaces in current Team.
 
 When you remove Projects they will be moved to Trash Bin.
 
-<figure><img src="../../.gitbook/assets/trash-bin.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/trash-bin (1).png" alt=""><figcaption></figcaption></figure>
 
 All removed Projects from current Team are located here.
 

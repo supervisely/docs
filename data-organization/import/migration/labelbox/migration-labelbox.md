@@ -1,4 +1,4 @@
-# Labelbox to Supervisely Migration Tool
+# Labelbox to Supervisely
 
 [This application](https://ecosystem.supervisely.com/apps/labelbox-to-sly) allows you to copy multiple projects from Labelbox instance to Supervisely instance, you can select which projects should be copied. You can preview the results in the table, which will show URLs to corresponding projects in Labelbox and Supervisely.
 
@@ -22,8 +22,7 @@ Now you have two options to use your API key: you can use team files to store an
 
 ### Using team files
 
-You can download an example of the .env file [here](https://github.com/supervisely-ecosystem/labelbox-to-sly/files/13227776/labelbox.env.zip) and edit it without any additional software in any text editor.
-ℹ️ NOTE: you need to unzip the file before using it.
+You can download an example of the .env file [here](https://github.com/supervisely-ecosystem/labelbox-to-sly/files/13227776/labelbox.env.zip) and edit it without any additional software in any text editor. ℹ️ NOTE: you need to unzip the file before using it.
 
 1. Create a .env file with the following content: `LB_API_KEY=<your Labelbox API key>`
 2. Upload the .env file to the team files.
@@ -31,22 +30,22 @@ You can download an example of the .env file [here](https://github.com/supervise
 
 The app will be launched with the API key from the .env file and you won't need to enter it manually. If everything was done correctly, you will see the following message in the app UI:
 
-- ℹ️ Connection settings was loaded from .env file.
-- ✅ Successfully connected to https://app.labelbox.com.
+* ℹ️ Connection settings was loaded from .env file.
+* ✅ Successfully connected to https://app.labelbox.com.
 
 ## Entering credentials manually
 
 1. Launch the app from the Ecosystem.
 2. Enter the API key.
-3. Press the Connect to Labelbox button.
+3.  Press the Connect to Labelbox button.
 
-    ![](migration-labelbox1.png)
+    ![](../../../../.gitbook/assets/migration-labelbox1.png)
 
-    ![](migration-labelbox2.png)
+    ![](../../../../.gitbook/assets/migration-labelbox2.png)
 
 If everything was done correctly, you will see the following message in the app UI:
 
-- ✅ Successfully connected to https://app.labelbox.com.
+* ✅ Successfully connected to https://app.labelbox.com.
 
 **ℹ️ NOTE:** The app will not save your API key, you will need to enter it every time you launch the app. To save your time you can use the team files to store your credentials.
 

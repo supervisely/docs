@@ -9,16 +9,14 @@ This converter allows to import `.PDF` files as images in `.PNG` format. Each pa
 **Supported image formats:** `.pdf`\
 **With annotations:** No\
 **Supported annotation file extension:** Not applicable\
-**Grouped by:** Any structure (will be uploaded as a single dataset)\
-
+**Grouped by:** Any structure (will be uploaded as a single dataset)<br>
 
 ![PDF import results](https://github.com/supervisely-ecosystem/import-wizard-docs/assets/48913536/488fec72-f2fe-4078-a4b3-3105a06e1b8a)
 
 ## Input files structure
 
 {% hint style="success" %}
-Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14905329/Sample\_PDF.zip)\
-
+Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14905329/Sample_PDF.zip)<br>
 {% endhint %}
 
 Recommended directory structure:

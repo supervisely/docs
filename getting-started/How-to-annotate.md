@@ -30,7 +30,7 @@ Don’t worry — you can move and copy images between datasets (and even projec
 
 <figure><img src="../.gitbook/assets/dataset (1).png" alt=""><figcaption></figcaption></figure>
 
-At the top of this page you will find more tabs, such as classes and tags. There you can define a meta information, shared across all of the datasets inside a particular project. Let’s focus on [classes](broken-reference) first.
+At the top of this page you will find more tabs, such as classes and tags. There you can define a meta information, shared across all of the datasets inside a particular project. Let’s focus on [classes](/broken/pages/-M54fC5m23ZkaIuwxE1C) first.
 
 A class allows you to define a type of your annotations. Every annotation object must have exactly one class. For example, you can define a class “Car” and limit it the shape “bounding box”: now, if you define a [labeling job](../labeling/jobs/) and assign your [team member](../collaboration/members.md) to annotate a bunch of images with “Cars”, they will only be able to place bounding boxes and label them as “Cars” (unless you configure more classes, of course).
 

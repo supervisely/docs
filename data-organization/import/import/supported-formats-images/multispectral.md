@@ -3,8 +3,7 @@
 ## Overview
 
 This converter allows to import of multispectral images as channels or as separate images without annotations.\
-Images will be grouped by directories, files from the "split" directory will be split into separate images by channels and the files from the "images" directory will be uploaded as they are.\
-
+Images will be grouped by directories, files from the "split" directory will be split into separate images by channels and the files from the "images" directory will be uploaded as they are.\\
 
 {% hint style="info" %}
 Note: To use the multispectral import feature, you need to create a project with the `Multispectral image annotation` setting enabled. You can also enable this setting in the project settings after the import. Here is a illustration of how to upload multispectral images:
@@ -14,21 +13,19 @@ Note: To use the multispectral import feature, you need to create a project with
 
 Result of the import:
 
-![Result of the import](images/multispectral\_res.png)
+![Result of the import](../../../../.gitbook/assets/multispectral_res.png)
 
 ## Format description
 
 **Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`\
 **With annotations:** No\
 **Supported annotation file extension:** Not applicable\
-**Grouped by:** Folders (corresponding tags will be assigned to images)\
-
+**Grouped by:** Folders (corresponding tags will be assigned to images)\\
 
 ## Input files structure
 
 {% hint style="success" %}
-Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-multispectral-images/files/13487269/demo\_data.zip)\
-
+Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-multispectral-images/files/13487269/demo_data.zip)\\
 {% endhint %}
 
 Recommended directory structure:
@@ -51,8 +48,7 @@ Recommended directory structure:
          ┗ 🏞️demo8-rgb.png
 ```
 
-In this example, we have 3 groups with images. In the first group, we have one image, which should be split. In the second group, we have one image, which should be split and two images, which should be uploaded as is. In the third group, we have three images, which should be uploaded as is.\
-
+In this example, we have 3 groups with images. In the first group, we have one image, which should be split. In the second group, we have one image, which should be split and two images, which should be uploaded as is. In the third group, we have three images, which should be uploaded as is.\\
 
 ## Useful links
 
@@ -86,4 +82,4 @@ channels = [image[:, :, i] for i in range(image.shape[2])]
 image_infos = api.image.upload_multispectral(dataset.id, image_name, channels, images)
 ```
 
-In the example above we uploaded two images as they are and also split a thermal image into separate channels\
+In the example above we uploaded two images as they are and also split a thermal image into separate channels\\

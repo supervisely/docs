@@ -1,8 +1,8 @@
-# Single-Image Annotation JSON
+# Single-Image Annotation
 
 ### Structure
 
-For each image, we store the annotations in a separate json file named `image_name.image_format.json` with the following file structure: 
+For each image, we store the annotations in a separate json file named `image_name.image_format.json` with the following file structure:
 
 ```json
 {
@@ -19,21 +19,17 @@ For each image, we store the annotations in a separate json file named `image_na
 
 Fields definitions:
 
-- `name` - string - image name
-- `description` - string - (optional) - This field is used to store the text we want to assign to the image. In the labeling intrface it corresponds to the 'data' filed. 
-- `size` - stores image size. Mostly, it is used to get the image size without the actual image reading to speed up some data processing steps.
-  - `width` - image width in pixels
-  - `height` - image height in pixels
-- `tags` - list of strings that will be interpreted as image [tags](./03_Supervisely_format_tags.md)
-- `objects` - list of [objects on the image](./04_Supervisely_Format_objects.md)
-
-
+* `name` - string - image name
+* `description` - string - (optional) - This field is used to store the text we want to assign to the image. In the labeling intrface it corresponds to the 'data' filed.
+* `size` - stores image size. Mostly, it is used to get the image size without the actual image reading to speed up some data processing steps.
+  * `width` - image width in pixels
+  * `height` - image height in pixels
+* `tags` - list of strings that will be interpreted as image [tags](03_Supervisely_format_tags.md)
+* `objects` - list of [objects on the image](04_Supervisely_Format_objects.md)
 
 ## Full image annotation example with objects and tags
 
-![image example](./figures_images/image.png)
-
-
+![image example](../../.gitbook/assets/image.png)
 
 Example:
 
@@ -117,14 +113,15 @@ Example:
 
 ### How the Label Group Is Described in Project Files
 
-![Label Group](./figures_images/label-group-example.png)
+![Label Group](../../.gitbook/assets/label-group-example.png)
 
-1. **Project Meta**
+1.  **Project Meta**
 
     In the **tags** section of project `meta.json`, you must include a tag named **`@label-group-id`** with the following properties:
-    - **`name`**: `"@label-group-id"`  
-    - **`value_type`**: `"any_string"` (allows flexible naming for groups)  
-    - **`applicable_type`**: `"objectsOnly"` (ensures the tag is only assigned to labeled objects)  
+
+    * **`name`**: `"@label-group-id"`
+    * **`value_type`**: `"any_string"` (allows flexible naming for groups)
+    * **`applicable_type`**: `"objectsOnly"` (ensures the tag is only assigned to labeled objects)
 
     This tag is essential for defining and managing label groups within the project, allowing grouped labels to be linked and organized effectively.
 
@@ -145,13 +142,12 @@ Example:
         ... // more elements here
     }
     ```
-
-2. **Image Annotation**
+2.  **Image Annotation**
 
     To add an object to a label group, you must assign the `@label-group-id` tag with the corresponding group name as its value.
 
-    - This ensures that all objects with the same tag value are recognized as part of the same group.
-    - Grouped labels will be visually linked and managed together in the annotation interface.
+    * This ensures that all objects with the same tag value are recognized as part of the same group.
+    * Grouped labels will be visually linked and managed together in the annotation interface.
 
     ```json
     "objects": [
@@ -170,5 +166,3 @@ Example:
             }
         ]
     ```
-
-

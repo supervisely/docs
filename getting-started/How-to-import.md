@@ -18,7 +18,7 @@ This 5-minute tutorial is a part of introduction to Supervisely series. You can 
 {% endhint %}
 
 {% hint style="success" %}
-You can learn more about Import, such as importing different formats, import from the cloud or adding data to existing datasets in [this section.](broken-reference)
+You can learn more about Import, such as importing different formats, import from the cloud or adding data to existing datasets in [this section.](broken-reference/)
 {% endhint %}
 
 ### Supported formats and modalities
@@ -27,22 +27,10 @@ You can learn more about Import, such as importing different formats, import fro
 
 <summary><strong>Image Datasets</strong></summary>
 
-* Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/supervisely.md), [COCO](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/coco.md), [YOLO](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/yolo.md), [Pascal VOC](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/pascal.md), [Cityscapes](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/cityscapes.md), [Images with PNG masks formats](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/masks.md).&#x20;
-
-<!---->
-
-* Import images for [Multiview](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/multiview.md), [Multispectral](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/multispectral.md), [Medical 2D (single)](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/medical\_2d.md) labeling.&#x20;
-
-<!---->
-
-* Upload images as [links from CSV or TXT files](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/csv.md) or [convert PDF pages to images](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/pdf.md).
-
-<!---->
-
+* Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter_docs/images/supervisely.md), [COCO](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter_docs/images/coco.md), [YOLO](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter_docs/images/yolo.md), [Pascal VOC](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter_docs/images/pascal.md), [Cityscapes](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter_docs/images/cityscapes.md), [Images with PNG masks formats](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter_docs/images/masks.md).
+* Import images for [Multiview](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter_docs/images/multiview.md), [Multispectral](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter_docs/images/multispectral.md), [Medical 2D (single)](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter_docs/images/medical_2d.md) labeling.
+* Upload images as [links from CSV or TXT files](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter_docs/images/csv.md) or [convert PDF pages to images](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter_docs/images/pdf.md).
 * Images in any directory structure without annotations.
-
-<!---->
-
 * **Supported image formats:** `.jpg`, `.jpeg`, `jpe`, `.bmp`, `.png`, `.webp`, `.mpo`, `.tiff`, `.nrrd`, `.jfif`, `.avif`, `.heic`.
 
 </details>
@@ -51,14 +39,8 @@ You can learn more about Import, such as importing different formats, import fro
 
 <summary><strong>Video Datasets</strong></summary>
 
-* Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/videos/supervisely.md), DAVIS (coming soon), MOT (coming soon) formats.&#x20;
-
-<!---->
-
+* Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter_docs/videos/supervisely.md), DAVIS (coming soon), MOT (coming soon) formats.
 * Videos in any directory structure without annotations.
-
-<!---->
-
 * **Supported video formats:** `.avi`, `.mov`, `.wmv`, `.webm`, `.3gp`, `.mp4`, `.flv`. ⚠️ All videos will be converted to `.mp4` format during import.
 
 </details>
@@ -67,11 +49,8 @@ You can learn more about Import, such as importing different formats, import fro
 
 <summary><strong>Point Cloud Datasets</strong></summary>
 
-* &#x20;Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/point\_cloud/supervisely.md) format.
-
-<!---->
-
-* &#x20;Point clouds in any directory structure without annotations in `PCD`, `LAS`, `LAZ`, `PLY` formats.
+* Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter_docs/point_cloud/supervisely.md) format.
+* Point clouds in any directory structure without annotations in `PCD`, `LAS`, `LAZ`, `PLY` formats.
 
 </details>
 
@@ -79,7 +58,7 @@ You can learn more about Import, such as importing different formats, import fro
 
 <summary><strong>Point Cloud Episode Datasets</strong></summary>
 
-* Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/point\_cloud\_episodes/supervisely.md) format.&#x20;
+* Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter_docs/point_cloud_episodes/supervisely.md) format.
 * Point cloud episodes without annotations in `PCD` format.
 
 </details>
@@ -88,32 +67,29 @@ You can learn more about Import, such as importing different formats, import fro
 
 <summary><strong>Volume Datasets</strong></summary>
 
-* Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/volumes/supervisely.md) format.
-
-<!---->
-
+* Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter_docs/volumes/supervisely.md) format.
 * Volumes in any directory structure without annotations in `DICOM`, `NRRD` formats.
 
 </details>
 
 You can always use applications to import different formats and modalities from our [Ecosystem](https://ecosystem.supervisely.com/):
 
-[Import Images](https://ecosystem.supervisely.com/apps/import-images) | [Import Videos](https://ecosystem.supervisely.com/apps/import-videos-supervisely) | [Import Pointclouds](https://ecosystem.supervisely.com/apps/import-pointcloud-pcd) | [Import Pointcloud Episodes](https://ecosystem.supervisely.com/apps/import-pointcloud-episode) |  [Import DICOM Volumes](https://ecosystem.supervisely.com/apps/import-dicom-volumes) | [Import COCO Keypoints](https://ecosystem.supervisely.com/apps/import-coco-keypoints) | [Import Volumes in Supervisely format](https://ecosystem.supervisely.com/apps/import-volumes-with-anns) | [Import KITTI-360](https://ecosystem.supervisely.com/apps/import-kitti-360/supervisely\_app) | [Import Multispectral Images](https://ecosystem.supervisely.com/apps/import-multispectral-images) | and [many other formats](https://ecosystem.supervisely.com/import).
+[Import Images](https://ecosystem.supervisely.com/apps/import-images) | [Import Videos](https://ecosystem.supervisely.com/apps/import-videos-supervisely) | [Import Pointclouds](https://ecosystem.supervisely.com/apps/import-pointcloud-pcd) | [Import Pointcloud Episodes](https://ecosystem.supervisely.com/apps/import-pointcloud-episode) | [Import DICOM Volumes](https://ecosystem.supervisely.com/apps/import-dicom-volumes) | [Import COCO Keypoints](https://ecosystem.supervisely.com/apps/import-coco-keypoints) | [Import Volumes in Supervisely format](https://ecosystem.supervisely.com/apps/import-volumes-with-anns) | [Import KITTI-360](https://ecosystem.supervisely.com/apps/import-kitti-360/supervisely_app) | [Import Multispectral Images](https://ecosystem.supervisely.com/apps/import-multispectral-images) | and [many other formats](https://ecosystem.supervisely.com/import).
 
 🪄 Here we will look at the fastest and easiest import option!
 
 ***
 
-Let's start our journey with Supervisely by uploading our very first image. Of course, like we said before, you can import more complex dataset formats like [COCO](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter\_docs/images/coco.md), or modalities, such as DICOM, connect a S3 cloud and much more, but let’s begin with a simple one.
+Let's start our journey with Supervisely by uploading our very first image. Of course, like we said before, you can import more complex dataset formats like [COCO](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter_docs/images/coco.md), or modalities, such as DICOM, connect a S3 cloud and much more, but let’s begin with a simple one.
 
 We assume that you have already created an account in Supervisely. If not, you can create a free account in our Community Edition [here.](https://app.supervisely.com/signup)
 
-First thing you will see after you login to Supervisely, is your [Projects](../data-organization/project/projects.md) page where you can find your data. But there is nothing here yet — let’s fix that!
+First thing you will see after you login to Supervisely, is your [Projects](/broken/pages/-M54fC5kfcVDMQPT05GQ) page where you can find your data. But there is nothing here yet — let’s fix that!
 
 <figure><img src="../.gitbook/assets/import-project.png" alt=""><figcaption></figcaption></figure>
 
 1. Click the `Import Data` button. Enter a unique name for the project, keeping in mind that it must be unique in the workspace and case-sensitive. You can also add a description of the project to provide additional information or to track project updates.
-2. Next, select the `Project type` by defining the content modality: images, videos, point clouds, or DICOM 3D volumes.&#x20;
+2. Next, select the `Project type` by defining the content modality: images, videos, point clouds, or DICOM 3D volumes.
 
 {% hint style="warning" %}
 Note that you can't mix multiple content types in the same project, and this setting can't be changed later.
@@ -124,17 +100,17 @@ Note that you can't mix multiple content types in the same project, and this set
 
 <figure><img src="../.gitbook/assets/create-project-easy.png" alt=""><figcaption></figcaption></figure>
 
-5. In the modal window, drag and drop one or more images in one of the supported formats, such as `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.nrrd`, `.jfif`, `.avif`, `.heic`, `NIfTI`, `DICOM` . You can also check out the supported annotation formats.&#x20;
+5. In the modal window, drag and drop one or more images in one of the supported formats, such as `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.nrrd`, `.jfif`, `.avif`, `.heic`, `NIfTI`, `DICOM` . You can also check out the supported annotation formats.
 
 🤗 Congratulations, the hardest part is over!
 
 <figure><img src="../.gitbook/assets/drag-and-drop.png" alt=""><figcaption></figcaption></figure>
 
-You will be redirected to the Tasks page where you can watch the progress of the application (your files are actually being uploaded to your [Team Files](https://docs.supervisely.com/data-organization/team-files)).&#x20;
+You will be redirected to the Tasks page where you can watch the progress of the application (your files are actually being uploaded to your [Team Files](https://docs.supervisely.com/data-organization/team-files)).
 
 You can click **three dots (⋮)** icon and check the application logs.
 
-<figure><img src="../.gitbook/assets/tasks.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/tasks (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 🤓 **Nerd alert! Skip this section if you aren't interested how Supervisely works inside.**
@@ -146,6 +122,6 @@ It will pull your images uploaded to the Team Files in the modal window, convert
 
 Once the import is finished, you will see the link to your new project in the `Output` column of the table.
 
-<figure><img src="../.gitbook/assets/projects.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/projects (1).png" alt=""><figcaption></figcaption></figure>
 
 All set! Now, in the [next section](How-to-annotate.md), let’s annotate your uploaded images.

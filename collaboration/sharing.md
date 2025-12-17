@@ -18,7 +18,7 @@ For more flexible resource sharing, you can create a unique link to grant access
 
 For more complex and extensive data exchange operations between teams and workspaces, you can make use of the [Data Commander](../data-organization/data-commander/) tool. This tool provides additional capabilities for more flexible and controlled data movement and copying.
 
-<figure><img src="../.gitbook/assets/data-commander.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/data-commander (2).png" alt=""><figcaption></figcaption></figure>
 
 ### [Instance Copying Application](https://app.supervisely.com/ecosystem/apps/copy-project-between-instances?id=40)
 

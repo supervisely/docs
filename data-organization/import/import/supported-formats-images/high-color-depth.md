@@ -8,19 +8,17 @@ This option allows you to upload images with high color depth to the platform wi
 
 After uploading high color depth images, you will be able to use windowing feature to adjust the brightness and contrast of the images.
 
-![windowing](images/high\_color\_depth.png)
+![windowing](../../../../.gitbook/assets/high_color_depth.png)
 
 ## Format description
 
 **Supported image formats:** `.exr`, `.hdr` **With annotations:** No\
 **Supported annotation format:** Not applicable.\
-**Grouped by:** Any structure (will be uploaded as a single dataset).\
-
+**Grouped by:** Any structure (will be uploaded as a single dataset).<br>
 
 ## Input files structure
 
-Example data: [download ⬇️](https://github.com/user-attachments/files/17310984/high-color-depth-sample.zip)\
-
+Example data: [download ⬇️](https://github.com/user-attachments/files/17310984/high-color-depth-sample.zip)<br>
 
 Recommended directory structure:
 

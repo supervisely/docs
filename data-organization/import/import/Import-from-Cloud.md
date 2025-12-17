@@ -10,17 +10,17 @@ No matter which method you choose, you have the option to import files by links,
 
 **List of providers:**
 
-- Amazon s3
-- Google Cloud Storage (CS)
-- Microsoft Azure
-- and others with s3 compatible interfaces
+* Amazon s3
+* Google Cloud Storage (CS)
+* Microsoft Azure
+* and others with s3 compatible interfaces
 
 **App supports two types of import:**
 
-- copy images from cloud to Supervisely Storage
-- add images by link
+* copy images from cloud to Supervisely Storage
+* add images by link
 
-{% embed url="https://www.youtube.com/watch?v=LJRA84FXHl4&ab_channel=Supervisely" %}{% endembed %}
+{% embed url="https://www.youtube.com/watch?v=LJRA84FXHl4&ab_channel=Supervisely" %}
 
 ## Import images **with** labels from S3, Google Cloud, Azure and others
 
@@ -30,12 +30,12 @@ No matter which method you choose, you have the option to import files by links,
 
 [This apps](https://ecosystem.supervisely.com/apps/import-videos-from-cloud-storage) allows to import videos from most popular cloud storage providers to Supervisely Private instance.
 
-List of providers:  
+List of providers:
 
-- Amazon s3
-- Google Cloud Storage (CS)
-- Microsoft Azure
-- and others with s3 compatible interfaces
+* Amazon s3
+* Google Cloud Storage (CS)
+* Microsoft Azure
+* and others with s3 compatible interfaces
 
 **App supports two types of import:**
 
@@ -48,14 +48,14 @@ You also have the opportunity to use applications [Import images from cloud stor
 
 ## Apps for importing public data
 
-- [Pexels downloader](https://ecosystem.supervisely.com/apps/pexels-downloader)
-- [Flickr downloader](https://ecosystem.supervisely.com/apps/flickr-downloader)
-- [Import Cityscapes](https://ecosystem.supervisely.com/apps/import-cityscapes)
+* [Pexels downloader](https://ecosystem.supervisely.com/apps/pexels-downloader)
+* [Flickr downloader](https://ecosystem.supervisely.com/apps/flickr-downloader)
+* [Import Cityscapes](https://ecosystem.supervisely.com/apps/import-cityscapes)
 
 ## **Import in Supervisely Format from a Web-server**
 
 [Remote import](https://ecosystem.supervisely.com/apps/remote-import) allows you connect your remote data storage to Supervisely Platform without data duplication.
 
-Most frequent use case is when Enterprise Customer would like to connect huge existing data storage (tens of terabytes) and avoid data duplication. In other cases we recommend to use general import procedure to store data in [Supervisely Data Storage](.../../storage/README.md)
+Most frequent use case is when Enterprise Customer would like to connect huge existing data storage (tens of terabytes) and avoid data duplication. In other cases we recommend to use general import procedure to store data in [Supervisely Data Storage](storage/)
 
-![Remote Import APP](remote-import.png)
+![Remote Import APP](../../../.gitbook/assets/remote-import.png)

@@ -6,9 +6,9 @@ This converter allows to import images with `.json` annotations in [Cityscapes](
 
 ⚠️ **Note:** images must have suffix `_leftImg8bit` and annotations suffix `_gtFine_polygons` and `.json` extension. Check the example of the file structure below.
 
-![Result of the import](images/cityscapes\_res.png)
+![Result of the import](../../../../.gitbook/assets/cityscapes_res.png)
 
-Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process. 
+Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process.
 
 To step up import speed even further you can compress all annotation files (`.json`'s) into an archive and import it together with the images. (Note: This method is format-dependent and may not apply to all formats.)
 
@@ -17,14 +17,12 @@ To step up import speed even further you can compress all annotation files (`.js
 **Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`\
 **With annotations:** yes\
 **Supported annotation file extension:** `.json`.\
-**Grouped by:** any structure (uploaded to a single dataset)\
-
+**Grouped by:** any structure (uploaded to a single dataset)\\
 
 ## Input files structure
 
 {% hint style="success" %}
-Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14908276/sample\_cityscapes.zip)\
-
+Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14908276/sample_cityscapes.zip)\\
 {% endhint %}
 
 Recommended directory structure:

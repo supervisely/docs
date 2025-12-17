@@ -32,5 +32,5 @@ Before you can identify and label an object of interest you need to see it clear
 
 Along with additional viewports with top-side-front perspectives using orthographic projections, it gives accurate representation of what you are dealing with.
 
-![](Voyaging.gif)
+![](../../.gitbook/assets/Voyaging.gif)
 

@@ -1,24 +1,26 @@
+# Connect cluster
+
 Follow these steps to connect Kubernetes cluster with Supervisely to run Apps on it.
 
 {% hint style="warning" %}
 **BETA** Keep in mind that this is a beta version and some features may not work as expected.
 {% endhint %}
 
-## Add a Kubernetes cluster
+### Add a Kubernetes cluster
 
 Go to the `Team Cluster` page, click `Add` button and select `Kubernetes` in the popup window.
 
-![](screenshot-2023-06-24-192432.png)
+![](../../.gitbook/assets/screenshot-2023-06-24-192432.png)
 
 You will see the following window:
 
-![](screenshot-2023-06-24-193246.png)
+![](../../.gitbook/assets/screenshot-2023-06-24-193246.png)
 
-## Deploy required resources
+### Deploy required resources
 
 You can either download the configuration and deploy it manually or use the command provided in the window above to deploy the resources automatically.
 
-## Configure the options
+### Configure the options
 
 `Server address` - this is the address of your Supervisely server that is accessible from Kubernetes cluster.
 
@@ -38,5 +40,4 @@ You can either download the configuration and deploy it manually or use the comm
 
 `GPU capability of the cluster` - this setting notifies Supervisely that it can use this cluster for GPU deployments. Make sure that you have installed [NVIDIA Device plugin](https://github.com/NVIDIA/k8s-device-plugin) on your cluster first and confirm the installation by checking nvidia node labels via `kubectl get nodes --show-labels`.
 
-`Ingress manifest for Apps routing` - this is the manifest that will be used to route traffic to the Supervisely Apps. You can use the default NGINX manifest or provide your own.
-This is a work in progress and we will be adding more manifests in the future.
+`Ingress manifest for Apps routing` - this is the manifest that will be used to route traffic to the Supervisely Apps. You can use the default NGINX manifest or provide your own. This is a work in progress and we will be adding more manifests in the future.

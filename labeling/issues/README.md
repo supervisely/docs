@@ -7,7 +7,7 @@ description: >-
 
 # Issues
 
-![](1\_vcZ1gdoUaVT6J\_uJ5q4x0w.jpeg)
+![](../../.gitbook/assets/1_vcZ1gdoUaVT6J_uJ5q4x0w.jpeg)
 
 ## What are Supervisely Issues?
 
@@ -36,7 +36,7 @@ A big part of managing issues is focusing on important tasks and keep plans up t
 
 A typical issue looks like this:
 
-![](1\_YF1U4Wl\_1SxKOdVXQexmXg.png)
+![](../../.gitbook/assets/1_YF1U4Wl_1SxKOdVXQexmXg.png)
 
 #### Issue page
 

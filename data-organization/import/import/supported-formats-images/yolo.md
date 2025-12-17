@@ -14,9 +14,9 @@ YOLO format data should have a specific configuration file that contains informa
 
 ⚠️ **Note:** If the input data does not contain `data_config.yaml` file, it will use default COCO class names.
 
-![Result of the import](images/yolo\_res.png)
+![Result of the import](../../../../.gitbook/assets/yolo_res.png)
 
-Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process. 
+Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process.
 
 To step up import speed even further you can compress all annotation files (`.txt`'s) into an archive and import it together with the images. (Note: This method is format-dependent and may not apply to all formats.)
 
@@ -118,14 +118,12 @@ names:
 **Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`\
 **With annotations:** Yes\
 **Supported annotation file extension:** `.txt`.\
-**Grouped by:** Any structure (will be uploaded as a single dataset)\
-
+**Grouped by:** Any structure (will be uploaded as a single dataset)\\
 
 ## Input files structure
 
 {% hint style="success" %}
-Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14919196/sample\_yolo.zip)\
-
+Example data: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14919196/sample_yolo.zip)\\
 {% endhint %}
 
 Recommended directory structure:
@@ -233,7 +231,7 @@ The label file corresponding to the below image contains 2 persons (class 0) and
 27 0.364844 0.795833 0.078125 0.400000
 ```
 
-![Yolo coordinates explanation](images/yolo\_coords.png)
+![Yolo coordinates explanation](../../../../.gitbook/assets/yolo_coords.png)
 
 ## Useful links
 

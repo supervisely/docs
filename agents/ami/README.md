@@ -8,13 +8,13 @@ If you have an account on EC2, deploying Supervisely agent is easy as one-two-th
 
 [Sign in](https://console.aws.amazon.com/console/home) into your account. We suppose you already have an account on AWS. If not, [signup](https://portal.aws.amazon.com/billing/signup).
 
-![](screenshot-signin-aws-amazon-com-signin-1533487048057.jpg)
+![](../../.gitbook/assets/screenshot-signin-aws-amazon-com-signin-1533487048057.jpg)
 
 ### Step 2: Select AMI
 
 Select EC2, open "Instances" section and click "Launch Instance" button.
 
-![](<Screenshot 2021-03-18 at 21.33.21.png>)
+![](<../../.gitbook/assets/Screenshot 2021-03-18 at 21.33.21.png>)
 
 Search for "Deep Learning AMI". You will see a bunch of out-of-the-box images that have Docker and CUDA installed - exactly what we are looking for. We suggest to use "Deep Learning AMI". Click "Select" button.
 
@@ -28,7 +28,7 @@ Different AMIs need different storage — i.e. "Deep Learning AMI (Ubuntu)" come
 
 Click "Review and Launch" to start your instance.
 
-![](screenshot-us-west-2-console-aws-amazon-com-ec2-v2-home-1533486990103.png)
+![](../../.gitbook/assets/screenshot-us-west-2-console-aws-amazon-com-ec2-v2-home-1533486990103.png)
 
 ### Step 4: Copy-paste command in the instance terminal
 

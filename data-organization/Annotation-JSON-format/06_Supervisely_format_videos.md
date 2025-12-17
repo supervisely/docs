@@ -1,10 +1,10 @@
-# Single-Video Annotation JSON
+# Single-Video Annotation
 
 For each video file, we store the annotations in a separate json file named `video_name.video_format.json` with the following file structure:
 
 Example:
 
-![](figures\_images/video\_frame.png)
+![](../../.gitbook/assets/video_frame.png)
 
 Json format of annotation for video format:
 
@@ -97,10 +97,10 @@ Json format of annotation for video format:
 * `updatedAt` - string - the date and time when the figure was updated in format "YYYY-MM-DDTHH:MM:SS.MMMZ"
 * `nnCreated` - boolean - indicates if the object was created by a neural network
 * `nnUpdated` - boolean - indicates if the object was updated or corrected by a neural network or manually by the user
-* `meta` - [Optional] dictionary, contains additional information about the figure
-* `smartToolInput` - [Optional] dictionary, if the figure was created by smart tool, contains geometries of the box and points
-* `priority` - [Optional] integer, priority of the figure
-* `trackId` - [Optional] string, if the figure was created by tracker, contains the track ID
+* `meta` - \[Optional] dictionary, contains additional information about the figure
+* `smartToolInput` - \[Optional] dictionary, if the figure was created by smart tool, contains geometries of the box and points
+* `priority` - \[Optional] integer, priority of the figure
+* `trackId` - \[Optional] string, if the figure was created by tracker, contains the track ID
 
 ## Key id map file
 

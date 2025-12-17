@@ -1,9 +1,11 @@
 ---
 description: >-
-  This article explains the Data structure in Supervisely, including how Projects, Datasets, and Files are organized in Team and Workspace. Learn how to navigate, manage, and structure your data.
+  This article explains the Data structure in Supervisely, including how
+  Projects, Datasets, and Files are organized in Team and Workspace. Learn how
+  to navigate, manage, and structure your data.
 ---
 
-# Data Structure in Supervisely
+# Data Structure
 
 ### Teams and Workspaces
 
@@ -21,7 +23,7 @@ And this is how it looks schematically:
 
 #### 2. Team & Workspace Structure Rules
 
-Every Member with [Full-scope Permission](../../collaboration/admin-panel/users-management.md) is always a part of at least one **Team**.
+Every Member with [Full-scope Permission](../../collaboration/admin-panel/users-management.md) is always a part of at least one **Team**.\
 A member may leave or delete a personal **Team**, provided that they remain associated with at least one **Team** that includes at least one **Workspace** at all times.
 
 Each **Team** must always have at least one **Workspace**, although it doesn't have to be the original one created at registration.
@@ -38,22 +40,22 @@ In addition to their default **Team**, a Member can also create new **Teams** to
 
 #### 4. Switching Between Teams
 
-To manage or switch between **Teams**, click the arrow next to the name of your current Team.
+To manage or switch between **Teams**, click the arrow next to the name of your current Team.\
 A menu will appear with a list of all Teams you are a member of (not necessarily the ones you created) along with other settings.
 
 <figure><img src="../../.gitbook/assets/data-structure/d-s-teams.png" alt=""><figcaption></figcaption></figure>
 
-When you [invite other Members]() to your **Team**, make sure you have the correct **Team** selected as active.
+When you [invite other Members](data-structure.md) to your **Team**, make sure you have the correct **Team** selected as active.\
 The invitations will be sent specifically to the currently active **Team** that you created.
 
 ### Projects and Datasets
 
-Inside a **Workspace**, a Member can create an unlimited number of Projects.
+Inside a **Workspace**, a Member can create an unlimited number of Projects.\
 Each **Project** can contain multiple **Datasets**, which store the actual data and annotations.
 
 This flexible structure allows Members to organize data in a way that fits their workflow.
 
-Furthermore, a Member can create additional **Workspaces** inside any **Team** where they have the Admin role.
+Furthermore, a Member can create additional **Workspaces** inside any **Team** where they have the Admin role.\
 Inside a **Dataset**, you can create **Sub-Datasets**, enabling flexible and deeply nested data structures — just like folders and subfolders on your computer. There are no limitations on nesting depth, so you can organize your data in whatever hierarchy makes sense for your workflow.
 
 <figure><img src="../../.gitbook/assets/data-structure/d-s-default-scheme3.jpg" alt=""><figcaption></figcaption></figure>
@@ -63,9 +65,10 @@ Let’s repeat an important rule: at the **Project** level, you cannot store fil
 You can think of **Datasets** as folders and **Sub-Datasets** as **subfolders**. This allows you to recreate complex directory structures exactly the way you organize data on your local machine or in your company’s cloud storage. It’s especially useful if you’re working with a shared storage system that already follows a specific hierarchy — you can mirror that same structure inside Supervisely without restrictions.
 
 To create a sub-dataset inside an existing dataset:
+
 1. Click the `Add` button
-2. Select **Create New Dataset**
-Then, you can navigate into the newly created sub-dataset and upload your files there.
+2. Select **Create New Dataset**\
+   Then, you can navigate into the newly created sub-dataset and upload your files there.
 
 <figure><img src="../../.gitbook/assets/data-structure/d-s-create_new_dataset_in_dataset-1.png" alt=""><figcaption></figcaption></figure>
 
@@ -78,10 +81,11 @@ Great! Your sub-dataset with files is now ready.
 [**Data Versioning**](https://supervisely.com/blog/mlops-workflow-and-data-versioning/) allows you to manage and track different versions of a project over time. It allows you to save, restore, and compare different states of a project.
 
 Key features of project versioning include:
-- **Version Control**: Track and manage changes made to the project over time, ensuring every specific state is recorded.
-- **History Tracking**: Maintain a comprehensive history of all modifications, making it easy to understand the project's evolution.
-- **Reverting Changes**: Restore any previous version of the project, allowing you to get a new project with a specific state of data.
-- [**MLOps Execution**](https://docs.supervisely.com/data-organization/mlops-workflow): Execute machine learning tasks on specific versions of the project data, ensuring that the exact state of the data used is known. This guarantees consistency and reproducibility of results.
+
+* **Version Control**: Track and manage changes made to the project over time, ensuring every specific state is recorded.
+* **History Tracking**: Maintain a comprehensive history of all modifications, making it easy to understand the project's evolution.
+* **Reverting Changes**: Restore any previous version of the project, allowing you to get a new project with a specific state of data.
+* [**MLOps Execution**](https://docs.supervisely.com/data-organization/mlops-workflow): Execute machine learning tasks on specific versions of the project data, ensuring that the exact state of the data used is known. This guarantees consistency and reproducibility of results.
 
 <figure><img src="../../.gitbook/assets/data-structure/project-versions.jpg" alt=""><figcaption></figcaption></figure>
 

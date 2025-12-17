@@ -126,6 +126,6 @@ for result in results:
 
 You can check the main section of the documentation on neural networks:
 
-{% content-ref url="../neural-networks/overview/overview.md" %}
-[overview.md](../neural-networks/overview/overview.md)
+{% content-ref url="../neural-networks/overview.md" %}
+[overview.md](../neural-networks/overview.md)
 {% endcontent-ref %}

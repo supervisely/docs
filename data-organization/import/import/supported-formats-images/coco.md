@@ -6,9 +6,9 @@ This converter allows to import images with annotations in [COCO](https://cocoda
 
 "Auto Import" app supports the following COCO annotation types: **instances**, **keypoints**, **captions**.
 
-![Result of the import](images/coco\_res.png)
+![Result of the import](../../../../.gitbook/assets/coco_res.png)
 
-Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process. 
+Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process.
 
 To step up import speed even further you can compress all annotation files (`.json`'s) into an archive and import it together with the images. (Note: This method is format-dependent and may not apply to all formats.)
 
@@ -17,8 +17,7 @@ To step up import speed even further you can compress all annotation files (`.js
 **Supported image formats:** `.jpg`, `.jpeg`, `.mpo`, `.bmp`, `.png`, `.webp`, `.tiff`, `.tif`, `.jfif`, `.avif`, `.heic`, and `.heif`\
 **With annotations:** yes\
 **Supported annotation file extension:** `.json`.\
-**Grouped by:** any structure (will be uploaded as a single dataset)\
-
+**Grouped by:** any structure (will be uploaded as a single dataset)\\
 
 ## Default option: Import images and annotations together
 
@@ -27,8 +26,8 @@ Use this option **if you have images and annotations in COCO format** and you wa
 {% hint style="success" %}
 We prepared sample datasets in COCO format for you to try the import process:
 
-* instances: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918161/sample\_coco.zip)
-* keypoints: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918389/sample\_coco\_keypoints.zip)
+* instances: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918161/sample_coco.zip)
+* keypoints: [download ⬇️](https://github.com/supervisely-ecosystem/import-wizard-docs/files/14918389/sample_coco_keypoints.zip)
 {% endhint %}
 
 Recommended directory structure:

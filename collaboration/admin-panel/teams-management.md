@@ -13,7 +13,7 @@ The team list provides administrators with an overview of all registered teams a
 * **Created:** The date and time when the team was created.
 * **Team Icon:** A visual identifier for the team.
 
-<figure><img src="../../.gitbook/assets/teams.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/teams (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Customizing the Team List Display
 

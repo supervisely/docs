@@ -1,50 +1,53 @@
+# Private Apps
+
 You can extend existing library of ready Supervisely Apps available at Ecosystem page with new applications, only available at your Supervisely instance. This tutorial will show you how to create and deploy new private applications as private GitHub and GitLab repositories. You can also check out our in-depth guide on [how to create custom Apps](https://github.com/supervisely-ecosystem/how-to-create-app).
 
-## Step 1. Generate new personal token
+### Step 1. Generate new personal token
 
-### GitHub
+#### GitHub
+
 To access private GitHub repositories, you will need to generate a personal token. Please note, that this token will provide your Supervisely instance a read access to all repositories, available for this GitHub account — you may want to create a dedicated GutHub account for a single Supervisely App repository.
 
 Open GitHub → Settings → Developer settings → [Personal access tokens](https://github.com/settings/tokens) and click Generate new token.
 
 Select "repo" access scope and click "Generate token" button. Save generated token — you will need it later.
 
-![](personal-token.png)
+![](../../.gitbook/assets/personal-token.png)
 
-### GitLab
+#### GitLab
+
 To access private GitLab repositories, you will need to generate a personal token. Please note, that this token will provide your Supervisely instance a read access to all repositories, available for this GitLab account — you may want to create a dedicated GutLab account for a single Supervisely App repository.
 
 Open GilLab → Settings → [Access Tokens](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token)
 
-Select with "read_api", "read_repository" scopes enabled and click "Create personal access token" button. Save generated token — you will need it later.
+Select with "read\_api", "read\_repository" scopes enabled and click "Create personal access token" button. Save generated token — you will need it later.
 
-![](personal-token-gitlab.png)
+![](../../.gitbook/assets/personal-token-gitlab.png)
 
+### Step 2. Create repository
 
-## Step 2. Create repository
+#### GitHub
 
-### GitHub
+Let's create a new GitHub repository that we will use to deploy a new Supervisely application. Create a [new private GitHub repository](https://github.com/new): do not forget to choose "Private" visibility option.
 
-Let's create a new GitHub repository that we will use to deploy a new Supervisely application.  Create a [new private GitHub repository](https://github.com/new): do not forget to choose "Private" visibility option.
-  
-![](new-repo.png)
+![](../../.gitbook/assets/new-repo.png)
 
-### GitLab
+#### GitLab
 
-Let's create a new GitLab repository that we will use to deploy a new Supervisely application.  Create a new project.
+Let's create a new GitLab repository that we will use to deploy a new Supervisely application. Create a new project.
 
-![](new-repo-gitlab.png)
+![](../../.gitbook/assets/new-repo-gitlab.png)
 
 {% hint style="info" %}
 You can create a public repositry alright — you will still need a personal token and further steps are gonna be the same.
 {% endhint %}
-  
-## Step 3. Make it a Supervisely App repository
+
+### Step 3. Make it a Supervisely App repository
 
 In this tutorial we will use [While(true) app](https://github.com/supervisely-ecosystem/while-true-script) code-base as a starting point — it's a bare minimum sample application that, basically, just runs an infinite loop.
-  
+
 We will download it's source code, extract it, create a new repository and initialize it:
-  
+
 ```
 wget -O while-true-app.zip  https://github.com/supervisely-ecosystem/while-true-script/archive/refs/heads/master.zip
 unzip while-true-app.zip
@@ -58,30 +61,28 @@ git push -u origin main
 ```
 
 You will find a few files in your new application:
-  
-- `config.json` describes your app name, type, etc.
-- `requirements.txt` list python packages you will need
-- `README.md` in markdown format
-- `src/main.py` your entry-point python file
-  
+
+* `config.json` describes your app name, type, etc.
+* `requirements.txt` list python packages you will need
+* `README.md` in markdown format
+* `src/main.py` your entry-point python file
+
 Let's leave it as is for now
 
-## Step 4. Add Application to Supervisely
-  
+### Step 4. Add Application to Supervisely
+
 Go to Ecosystem page → Private apps → Click "Add private app"
-  
-![](add-app-page.png)
 
-![](add-app-modal.png)
+![](../../.gitbook/assets/add-app-page.png)
 
-## Step 5. Check your first application
-  
+![](../../.gitbook/assets/add-app-modal.png)
+
+### Step 5. Check your first application
+
 Now, open Ecosystem page in the left menu and choose "Private Apps" in the right menu. You should see here your new application after a minute. Add it to your team and try it out!
-  
+
 Next time you push a new update to your repository, do not forget to open application in Ecosystem and click "Refresh" button to update it.
 
-## Optional: Releases
-  
-Supervisely Apps support multiple versions via GitHub releases — this is a convenient feature once you are ready to mark your first version as a release. Just go to Releases section of your GitHub repository, click "Create a new release" button and choose a "v1.0.0" tag — next time you refresh your app in Ecosystem, you will see your release and will be able to switch between them.
+### Optional: Releases
 
-  
+Supervisely Apps support multiple versions via GitHub releases — this is a convenient feature once you are ready to mark your first version as a release. Just go to Releases section of your GitHub repository, click "Create a new release" button and choose a "v1.0.0" tag — next time you refresh your app in Ecosystem, you will see your release and will be able to switch between them.

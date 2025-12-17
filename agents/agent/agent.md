@@ -1,25 +1,20 @@
+# How agents work
 
 Supervisely Agent is a small but powerful task manager. It automatically consumes and manages tasks via Supervisely API.
 
 Task lifecycle is the following:
 
 1. User chooses the Node that will consume the task.
-
 2. User starts the task (i.e. NN training).
-
 3. Agent (that is running on selected Node) consumes the task.
-
 4. Agent downloads the data (project and/or neural network) necessary for the task and puts it into the task directory.
-
 5. Agent spawns docker container associated with that task.
-
 6. While the task is in progress, Agent reads all logs from `stdout` and `stderr` and streams them to the server.
-
 7. When the task has been finished, Agent uploads the results to Supervisely Server if necessary.
 
 Also, agent sends necessary system information to Supervisely Server in the background. This information is used for healthcheck and server monitoring.
 
-## Agent token
+### Agent token
 
 When you add a new node, we will generate unique secret token associated with your agent and include it in the run command.
 
@@ -27,8 +22,7 @@ Token is used for authorization and you should keep it secret.
 
 Token looks like this: `mZVdyTnTGSPQz2iM4kkiNhH2IlqiOmnt`.
 
-
-## Agent local storage
+### Agent local storage
 
 By default, agent stores models, images, logs and other useful stuff in `~/.supervisely-agent/<token>` (you can change storage folder by modifying `AGENT_HOST_DIR` in deploy script).
 
@@ -77,11 +71,10 @@ By default, agent stores models, images, logs and other useful stuff in `~/.supe
 
 ```
 
-
-## Agent settings
+### Agent settings
 
 To rename an agent or change the list of tasks that can be run on it, go to the agents page and click on the "edit" button next to this agent.
 
-![](agent_edit_a.png)
+![](../../.gitbook/assets/agent_edit_a.png)
 
-![](agent_edit_b.png)
+![](../../.gitbook/assets/agent_edit_b.png)

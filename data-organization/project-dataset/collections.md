@@ -1,6 +1,7 @@
 ---
 description: >-
-  Collections are custom selections of data within a project. They enable flexible filtering and control over annotation workflows.
+  Collections are custom selections of data within a project. They enable
+  flexible filtering and control over annotation workflows.
 ---
 
 # Collections
@@ -9,11 +10,11 @@ Collections are custom groups of images, videos, or other items within a single 
 
 ## Key concepts
 
-- A collection is always linked to a specific **project**.
-- Each collection contains only **one data type** — images, videos, or point clouds — consistent with the project type.
-- Collections are **independent of datasets**. A collection can include items from different datasets within the same project.
-- You can **add or remove** items from a collection at any time.
-- Internally, a collection is just a **list of item IDs**, along with a name and optional description.
+* A collection is always linked to a specific **project**.
+* Each collection contains only **one data type** — images, videos, or point clouds — consistent with the project type.
+* Collections are **independent of datasets**. A collection can include items from different datasets within the same project.
+* You can **add or remove** items from a collection at any time.
+* Internally, a collection is just a **list of item IDs**, along with a name and optional description.
 
 ## Step 1. Creating collection
 
@@ -21,24 +22,27 @@ For creating collection open any dataset and switch to a flat list view like _**
 
 <figure><img src="../../.gitbook/assets/collections/collections_flat-list_view.png" alt=""><figcaption></figcaption></figure>
 
-<br></br>
-1. If you want to create collection from all dataset items do not select any items, just click the _**Arrow**_ to the right of the _**Annotate**_ button and select option _**Add to collection**_.
+\
+<br>
+
+1.  If you want to create collection from all dataset items do not select any items, just click the _**Arrow**_ to the right of the _**Annotate**_ button and select option _**Add to collection**_.
 
     <figure><img src="../../.gitbook/assets/collections/collections_create_all_items1.png" alt=""><figcaption></figcaption></figure>
 
-    <br></br>
+    \
+    \
     If you want to create collection from several items, select the desired items **using filters** (1.1) or/and manual (1.2) selection and click the _**With (number) selected**_ button and select option _**Add to collection**_ (1.3).
 
     <figure><img src="../../.gitbook/assets/collections/collections_create_selected_items.png" alt=""><figcaption></figcaption></figure>
 
-    <br></br>
-2. A modal window will appear. Give a name for new collection and press _**Add**_ button.
+    \
+    <br>
+2.  A modal window will appear. Give a name for new collection and press _**Add**_ button.
 
     <figure><img src="../../.gitbook/assets/collections/collections_create_all_items2.png" alt=""><figcaption></figcaption></figure>
 
     You can also add descriptions when creating a collection for better organization.
-
-3. From this moment, your newly created collection will be available in the list of collections.
+3.  From this moment, your newly created collection will be available in the list of collections.
 
     <figure><img src="../../.gitbook/assets/collections/collections_create_all_items3.png" alt=""><figcaption></figcaption></figure>
 
@@ -86,7 +90,7 @@ Open a collection, browse through items, and annotate them just like in any regu
 
 #### 2. Labeling Queue source
 
-Create a **Labeling Queue** based on a collection:
+Create a **Labeling Queue** based on a collection:\
 Use a collection as the data source when setting up a **Labeling Queue**. This allows you to assign specific items from the collection to annotation teams or individuals.
 
 Collections maintain a dynamic link to their items. Any annotations made within a collection are instantly reflected in the dataset of origin.
@@ -94,9 +98,7 @@ Collections maintain a dynamic link to their items. Any annotations made within 
 For example, to create a Labeling Queue based on an existing Collection:
 
 1. Go to **Labeling Job** from the main menu,
-
 2. Select the **Queue** tab,
-
 3. In the **Data to Annotate section**, choose Collection as the source and then select the specific collection you want to use.
 
 <figure><img src="../../.gitbook/assets/collections/collections_queue.png" alt=""><figcaption></figcaption></figure>
@@ -114,7 +116,9 @@ You can create a queue with **Collection** as the source, and later add the desi
 This setup allows dynamic control over labeling pipelines, especially useful when data arrives in batches or needs manual pre-selection.
 {% endhint %}
 
-{% hint style="info" %} Note: Collections do not duplicate data — they act as smart references to existing items across multiple datasets. {% endhint %}
+{% hint style="info" %}
+Note: Collections do not duplicate data — they act as smart references to existing items across multiple datasets.
+{% endhint %}
 
 ## Data filtering
 
@@ -122,18 +126,17 @@ Collections are ideal for creating reusable subsets of data. For example, after 
 
 **Benefits:**
 
-- Simplifies repeated access to specific groups of items
-- No need to store or pass item ID lists in code
-- Easily maintain and update the selection over time
+* Simplifies repeated access to specific groups of items
+* No need to store or pass item ID lists in code
+* Easily maintain and update the selection over time
 
 ## Automating Collection Management with Python SDK
 
-Learn how to programmatically create, retrieve, and manage collections using the Supervisely Python SDK. The following examples provide step-by-step guidance for efficient collection handling.
+Learn how to programmatically create, retrieve, and manage collections using the Supervisely Python SDK. The following examples provide step-by-step guidance for efficient collection handling.\
 Check out the [SDK Reference](https://supervisely.readthedocs.io/en/stable/sdk/supervisely.api.entity_collections.EntitiesCollectionApi.html) for more details.
 
 {% tabs %}
 {% tab title="Create" %}
-
 ```python
 import supervisely as sly
 
@@ -147,10 +150,9 @@ new = api.entity_collections.create(
 print(new.id)
 # Output: 123
 ```
-
 {% endtab %}
-{% tab title="Get info" %}
 
+{% tab title="Get info" %}
 ```python
 import supervisely as sly
 
@@ -161,10 +163,9 @@ info = api.entities_collection.get_info_by_id(collection_id)
 print(info.name)
 # Output: my collection
 ```
-
 {% endtab %}
-{% tab title="List Collections" %}
 
+{% tab title="List Collections" %}
 ```python
 import supervisely as sly
 
@@ -176,10 +177,9 @@ for collection in collections:
     print(collection.name)
 # Output: ["my collection", "another collection"]
 ```
-
 {% endtab %}
-{% tab title="Add items" %}
 
+{% tab title="Add items" %}
 ```python
 import supervisely as sly
 
@@ -194,10 +194,9 @@ print(res)
 #   {"id": 2, "entityId": 526, 'createdAt': '2025-04-10T08:49:41.852Z'}
 # ]
 ```
-
 {% endtab %}
-{% tab title="Get items" %}
 
+{% tab title="Get items" %}
 ```python
 import supervisely as sly
 
@@ -212,10 +211,9 @@ print(res)
 #   ImageInfo(id=526, name='image2.jpg', ...)
 # ]
 ```
-
 {% endtab %}
-{% tab title="Remove items" %}
 
+{% tab title="Remove items" %}
 ```python
 import supervisely as sly
 
@@ -227,10 +225,9 @@ res = api.entities_collection.remove_items(collection_id, item_ids)
 # print(res)
 # Output: [{"id": 1, "entityId": 525}, {"id": 2, "entityId": 526}]
 ```
-
 {% endtab %}
-{% tab title="Remove collection" %}
 
+{% tab title="Remove collection" %}
 ```python
 import supervisely as sly
 
@@ -239,7 +236,6 @@ api = sly.Api()
 collection_id = 2
 api.entities_collection.remove(collection_id)
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -305,6 +301,7 @@ python script1.py
 ```
 
 </details>
+
 <details>
 
 <summary><strong>Script 2 (get labeled items and remove them from collection)</strong></summary>
@@ -349,11 +346,13 @@ api.entities_collection.remove_items(
 ```bash
 python script2.py
 ```
+
 </details>
 
 ## API support
 
 Collections are fully accessible through the Supervisely API. With these [Entity Collections](https://api.docs.supervisely.com/#tag/Entities-Collections), you can:
+
 * [Add Items to Entities Collection](https://api.docs.supervisely.com/#tag/Entities-Collections/paths/~1entities-collections.items.bulk.add/post)
 * [Create Entities Collection](https://api.docs.supervisely.com/#tag/Entities-Collections/paths/~1entities-collections.add/post)
 * [Get Entities Collection info by ID](https://api.docs.supervisely.com/#tag/Entities-Collections/paths/~1entities-collections.info/get)
@@ -364,6 +363,6 @@ Collections are fully accessible through the Supervisely API. With these [Entity
 
 ## Limitations
 
-- Collections are limited to a **single project**.
-- Only one **data type per collection** is supported.
-- There’s currently no dedicated collections page — access and management is done through flat views or Labeling Queue creation.
+* Collections are limited to a **single project**.
+* Only one **data type per collection** is supported.
+* There’s currently no dedicated collections page — access and management is done through flat views or Labeling Queue creation.
