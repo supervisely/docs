@@ -130,7 +130,7 @@
   * [Labeling Quality Control](labeling/jobs/Labeling-Quality-Control.md)
 * [Labeling Performance](labeling/labeling-performance.md)
 * [Labeling with Smart Tool](labeling/smart-tool-labeling/README.md)
-* [Labeling with AI](labeling/labeling-with-ai/overview.md)
+* [Labeling with AI](labeling/labeling-with-AI/overview.md)
 
 ## 🤝 Collaboration
 
