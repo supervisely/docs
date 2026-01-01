@@ -132,23 +132,9 @@
 * [Labeling with Smart Tool](labeling/smart-tool-labeling/README.md)
 * [Labeling with AI](labeling/labeling-with-AI/overview.md)
   * [Images](labeling/labeling-with-AI/images/README.md)
-  * [Pretrained models](labeling/labeling-with-AI/images/README.md#pretrained-models)
-  * [Interactive labeling models](labeling/labeling-with-AI/images/README.md#interactive-labeling-models)
-  * [Foundation models](labeling/labeling-with-AI/images/README.md#foundation-models)
-  * [Model ensembles](labeling/labeling-with-AI/images/README.md#model-ensembles)
-  * [Online learning](labeling/labeling-with-AI/images/README.md#online-learning)
-  * [Image filtering](labeling/labeling-with-AI/images/README.md#image-filtering)
-  * [Custom models](labeling/labeling-with-AI/images/README.md#custom-models)
   * [Videos](labeling/labeling-with-AI/videos/README.md)
-  * [Tracking by detection](labeling/labeling-with-AI/videos/README.md#tracking-by-detection)
-  * [First frame initialized trackers](labeling/labeling-with-AI/videos/README.md#first-frame-initialized-trackers)
-  * [Model ensembles](labeling/labeling-with-AI/videos/README.md#model-ensembles)
   * [3D point clouds](labeling/labeling-with-AI/3d-point-clouds/README.md)
-  * [Pretrained models](labeling/labeling-with-AI/3d-point-clouds/README.md#pretrained-models)
-  * [First frame initialized trackers](labeling/labeling-with-AI/3d-point-clouds/README.md#first-frame-initialized-trackers)
-  * [3D AI assistant](labeling/labeling-with-AI/3d-point-clouds/README.md#3d-ai-assistant)
   * [DICOM](labeling/labeling-with-AI/dicom/README.md)
-  * [Interactive labeling models](labeling/labeling-with-AI/dicom/README.md#interactive-labeling-models)
 
 ## 🤝 Collaboration
 
