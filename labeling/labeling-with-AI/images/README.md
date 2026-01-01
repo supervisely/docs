@@ -19,6 +19,10 @@ You can use [NN Image Labeling](https://ecosystem.supervisely.com/apps/nn-image-
 
 {% embed url="https://github.com/user-attachments/assets/7e65824c-c0f1-432c-b300-41489b3a5e18" %}
 
+For dataset-level annotation, [Predict App](https://ecosystem.supervisely.com/apps/apply-nn) will be more suitable option. This app allows to conveniently deploy ML models and apply them to input data in just few clicks:
+
+{% embed url="https://github.com/user-attachments/assets/012de0b0-b274-4a90-b253-7bd15e822c40" %}
+
 Some neural networks can take reference objects as input prompts. For example, [OWL-ViT](https://ecosystem.supervisely.com/apps/serve-owl-vit) can take image with bounding box annotation as target object example and detect similar objects on other images. If you want to use OWL-ViT in reference image mode, you can create bounding box for target object and click on "Apply model to ROI" button:
 
 {% embed url="https://github.com/user-attachments/assets/58a378e1-212e-4db6-86bd-a708630820e3" %}
@@ -32,10 +36,6 @@ Open your images project, open project settings, go to Visuals, select image mat
 Select smart tool, create annotation class of shape 'Alpha mask' and draw a bounding box around target object on image (you can also adjust mask by adding positive and negative points if necessary):
 
 {% embed url="https://github.com/user-attachments/assets/6086a807-dcce-4592-a1a9-fc2edd38f8d7" %}
-
-For dataset-level annotation, [Predict App](https://ecosystem.supervisely.com/apps/apply-nn) will be more suitable option. This app allows to conveniently deploy ML models and apply them to input data in just few clicks:
-
-{% embed url="https://github.com/user-attachments/assets/012de0b0-b274-4a90-b253-7bd15e822c40" %}
 
 ## Interactive labeling models
 
