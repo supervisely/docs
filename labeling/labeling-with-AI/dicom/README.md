@@ -15,6 +15,10 @@ Interactive segmentation models like SAM, RITM and ClickSeg can significantly re
 
 {% embed url="https://github.com/user-attachments/assets/4981345f-1043-42df-b111-f360c00e2a5e" %}
 
-This process is repeated for each plane, but not every slice needs to be annotated - you can label only key slices and use [Volume Interpolation](https://ecosystem.supervisely.com/apps/volume-interpolation) app which reconstructs the object across other slices, with the ability to preview and edit in 3D. The Volume Interpolation app uses an [ITK-based implementation](https://github.com/KitwareMedical/ITKContourInterpolation) of morphological contour interpolation. Interpolation is done by first determining correspondence between shapes on adjacent segmented slices by detecting overlaps, then aligning the corresponding shapes, generating a transition sequence of one-pixel dilations, and taking the median as a result.
+This process is repeated for each plane, but not every slice needs to be annotated - you can label only key slices and use [Volume Interpolation](https://ecosystem.supervisely.com/apps/volume-interpolation) app which reconstructs the object across other slices, with the ability to preview and edit in 3D.
+
+## Volume interpolation
+
+The Volume Interpolation app uses an [ITK-based implementation](https://github.com/KitwareMedical/ITKContourInterpolation) of morphological contour interpolation. Interpolation is done by first determining correspondence between shapes on adjacent segmented slices by detecting overlaps, then aligning the corresponding shapes, generating a transition sequence of one-pixel dilations, and taking the median as a result.
 
 {% embed url="https://github.com/user-attachments/assets/75c58ce7-28e6-41e1-9494-0dab021e0187" %}
