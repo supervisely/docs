@@ -40,3 +40,4 @@ Supervisely Ecosystem provides numerous ways of data labeling optimization with 
 [DICOM](dicom/README.md)
 
 - [Interactive labeling models](dicom/README.md#interactive-labeling-models)
+- [Volume interpolation](dicom/README.md#volume-interpolation)
