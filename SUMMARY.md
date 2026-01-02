@@ -131,7 +131,12 @@
   * [Labeling Statistics](labeling/jobs/Labeling-Statistics.md)
   * [Labeling Quality Control](labeling/jobs/Labeling-Quality-Control.md)
 * [Labeling Performance](labeling/labeling-performance.md)
-* [Labeling with AI-Assistance](labeling/AI-labeling/AI-Labeling.md)
+* [Labeling with Smart Tool](labeling/smart-tool-labeling/README.md)
+* [Labeling with AI](labeling/labeling-with-AI/overview.md)
+  * [Images](labeling/labeling-with-AI/images/README.md)
+  * [Videos](labeling/labeling-with-AI/videos/README.md)
+  * [3D point clouds](labeling/labeling-with-AI/3d-point-clouds/README.md)
+  * [DICOM](labeling/labeling-with-AI/dicom/README.md)
 
 ## 🤝 Collaboration
 

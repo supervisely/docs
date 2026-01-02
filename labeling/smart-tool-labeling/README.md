@@ -4,7 +4,7 @@ description: >-
   with the help of interactive smart tools.
 ---
 
-# Labeling with AI-Assistance
+# Labeling with Smart Tool
 
 ## What is Smart Tool?
 
