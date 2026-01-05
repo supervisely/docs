@@ -265,7 +265,7 @@ We’ve kept the floating zoomed timeline as well, but now it’s much smaller a
 1. **Access the Objects & Tags Panel**: This panel displays a timeline for each object and tag, making it easy to see when and where tags have been applied across the video.
 2. **Navigate and Select Objects**: Each object (e.g., "car," "bus") has an assigned ID and color-coded timeline. You can select specific objects or tags by clicking on them directly in the panel, allowing you to focus on individual elements without switching frames.
 3. **Adjust Tag Ranges**: Each tag (e.g., "Road position," "Lane change") is shown on the timeline with segmented bars indicating its duration. Tags like "On-lane" or "Off-lane" help indicate changes across the timeline.
-   - To edit a tag, click on it directly on the timeline. You can drag the edges to adjust its duration or click within the segment to modify it further.
+   * To edit a tag, click on it directly on the timeline. You can drag the edges to adjust its duration or click within the segment to modify it further.
 4. **Remove Tags**: To delete a tag, click on the **three dots menu** next to the tag entry. Select **Remove Tag** from the dropdown menu, as shown in the screenshot, to delete it from the selected range.
 5. **Control Visibility and Filter**: Use the **Visible/All** filter toggle at the top of the panel to control which objects and tags are visible on the timeline. This helps to declutter the view and focus on specific elements.
 6. **Use Timeline for Precision**: Each object and tag timeline is color-coded, allowing for easy identification. The minimized timeline view lets you accurately pinpoint where tags start and end, making adjustments quick and precise.
