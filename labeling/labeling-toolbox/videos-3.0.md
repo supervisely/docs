@@ -28,7 +28,7 @@
 2. [Basic interface elements](videos-3.0.md#basic-interface-elements) — basic settings, such as history of operations, theme, a hotkeys map and more useful features.
 3. [Auto-Tracking](videos-3.0.md#auto-tracking) — button to start tracking and adjust tracking settings.
 4. [Main scene & labeling scene settings & playback](videos-3.0.md#main-scene-and-labeling-scene-settings-and-playback) — annotation area for current video and its labels.
-5. [Objects & Tags & Timeline](videos-3.0.md#objects-and-tags-and-timeline) —  video timeline and overview of all objects and tags throughout the entire video.
+5. [Objects & Tags & Timeline](videos-3.0.md#objects-and-tags-and-timeline) — video timeline and overview of all objects and tags throughout the entire video.
 6. [Instruments panel](videos-3.0.md#instruments-panel) — annotation tools used to create annotations.
 7. [Definitions panel](videos-3.0.md#definitions-panel) — make it easy to create, manage and assign classes and tags.
 8. [Videos/Apps/Settings panel](videos-3.0.md#images-panel) — list of videos in your dataset, list of additional apps you can embed into the labeling toolbox, visualization and other settings.
@@ -50,8 +50,6 @@ This guide provides detailed instructions for using auto-tracking and tagging fe
    * **Detect off-screen**: Automatically stops tracking and removes objects when they go off-screen.
    * **Tracking By Detection**: Automatically finds and tracks new objects in the scene when you extend the track by clicking forward in the video.
 6. **Scroll through the video** to view auto-generated label predictions and updates. If the object leaves the frame, tracking will automatically stop.
-
-
 
 ### Step 2. Configuring the Definitions Panel
 
@@ -271,6 +269,26 @@ We’ve kept the floating zoomed timeline as well, but now it’s much smaller a
 4. **Remove Tags**: To delete a tag, click on the **three dots menu** next to the tag entry. Select **Remove Tag** from the dropdown menu, as shown in the screenshot, to delete it from the selected range.
 5. **Control Visibility and Filter**: Use the **Visible/All** filter toggle at the top of the panel to control which objects and tags are visible on the timeline. This helps to declutter the view and focus on specific elements.
 6. **Use Timeline for Precision**: Each object and tag timeline is color-coded, allowing for easy identification. The minimized timeline view lets you accurately pinpoint where tags start and end, making adjustments quick and precise.
+
+## Merge Objects
+
+You can merge multiple objects into one. This is particularly useful when you have annotated the same object multiple times and want to consolidate them for better organization.
+
+All step numbers align with those on the accompanying image:
+
+1. Select the “Merge objects” mode on the timeline.
+<figure><img src="../../labeling/2026-01-05_16-08.png" alt=""><figcaption></figcaption></figure>
+
+2. Move the slider to the desired frames to view the relevant objects in the preview.
+3. Select the object you wish to merge.
+4. Click “Add to merger.”
+5. An indicator will confirm that the object has been added.
+<figure><img src="../../labeling/2026-01-05_16-08_1.png" alt=""><figcaption></figcaption></figure>
+
+6. Move the slider on the timeline to the frame containing the next object of interest.
+7. Click “Add to merger” for this object as well.
+8. Once both objects are selected, click the now-active “Merge 2 objects” button.
+<figure><img src="../../labeling/2026-01-05_16-09.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
