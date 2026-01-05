@@ -4,7 +4,7 @@
 
 <figure><img src="../../.gitbook/assets/cover.jpg" alt=""><figcaption></figcaption></figure>
 
----
+***
 
 **Auto Tracking**: This AI-powered functionality leverages Supervisely Apps and advanced tracking models like MixFormer to automatically choose the best model for various geometry types (bounding box, skeleton, mask, etc.). Auto Tracking not only predicts labels as you move through frames but can also stop tracking when an object leaves the scene, significantly boosting labeling efficiency.
 
@@ -18,7 +18,7 @@
 
 **Quick Actions Panel**: To save time when annotating large videos, the floating quick actions panel appears beside the annotation object, enabling rapid access to functions such as moving, deleting, or adjusting bounding boxes, thereby minimizing unnecessary cursor movements.
 
----
+***
 
 ## **Overview**
 
@@ -33,7 +33,7 @@
 7. [Definitions panel](videos-3.0.md#definitions-panel) — make it easy to create, manage and assign classes and tags.
 8. [Videos/Apps/Settings panel](videos-3.0.md#images-panel) — list of videos in your dataset, list of additional apps you can embed into the labeling toolbox, visualization and other settings.
 
----
+***
 
 ## Video Annotation Tool 3.0 Tagging and Tracking Guide
 
@@ -46,9 +46,9 @@ This guide provides detailed instructions for using auto-tracking and tagging fe
 3. **Select the object** you want to track by clicking on it within the video frame.
 4. **Click the Auto Tracking button** to activate the Auto Track application. By default, Auto Track will be used, but you can also select other models, like [**Serve Segment Anything**](https://app.supervisely.com/ecosystem/apps/serve-segment-anything-2) or [**MixFormer**](https://app.supervisely.com/ecosystem/apps/supervisely-ecosystem/mixformer/serve/serve), depending on your tracking needs.
 5. **Configure tracking settings** by adjusting options such as:
-   - **Auto-tracking mode**: Automatically re-tracks the object when labels change or as you move forward through frames.
-   - **Detect off-screen**: Automatically stops tracking and removes objects when they go off-screen.
-   - **Tracking By Detection**: Automatically finds and tracks new objects in the scene when you extend the track by clicking forward in the video.
+   * **Auto-tracking mode**: Automatically re-tracks the object when labels change or as you move forward through frames.
+   * **Detect off-screen**: Automatically stops tracking and removes objects when they go off-screen.
+   * **Tracking By Detection**: Automatically finds and tracks new objects in the scene when you extend the track by clicking forward in the video.
 6. **Scroll through the video** to view auto-generated label predictions and updates. If the object leaves the frame, tracking will automatically stop.
 
 ### Step 2. Configuring the Definitions Panel
@@ -92,61 +92,61 @@ The top toolbar contains options for personalizing the interface and managing da
 
 **More options:**
 
-- **Enter fullscreen** - this option allows the user to switch the interface to fullscreen mode, maximizing the workspace area. It hides browser toolbars and other elements
-- **Screenshot** - the screenshot function enables users to take a snapshot of the current workspace, including the video and any annotations displayed. This can be useful for documentation, sharing progress, or reviewing annotations with team members.
-- **Enter restore mode** - enter restore mode provides tools to recover lost or corrupted annotations. When enabled, it offers options to revert changes to a previous state or repair specific parts of the annotation dataset.
-- **Restore default layout** - this function resets the interface layout to its default configuration. It is useful when the layout has been modified (e.g., panels moved or resized) and the user wants to return to the original setup.
+* **Enter fullscreen** - this option allows the user to switch the interface to fullscreen mode, maximizing the workspace area. It hides browser toolbars and other elements
+* **Screenshot** - the screenshot function enables users to take a snapshot of the current workspace, including the video and any annotations displayed. This can be useful for documentation, sharing progress, or reviewing annotations with team members.
+* **Enter restore mode** - enter restore mode provides tools to recover lost or corrupted annotations. When enabled, it offers options to revert changes to a previous state or repair specific parts of the annotation dataset.
+* **Restore default layout** - this function resets the interface layout to its default configuration. It is useful when the layout has been modified (e.g., panels moved or resized) and the user wants to return to the original setup.
 
----
+***
 
 ## Auto-Tracking
 
 This smart functionality is powered by Supervisely Apps that work on top of existing tracking apps from our [ecosystem](https://ecosystem.supervisely.com/), such as [MixFormer](https://ecosystem.supervisely.com/apps/mixformer/serve/serve). Auto Tracking intelligently selects the right model based on the type of geometry you’re working with — whether it’s a bounding box, skeleton, mask, or other types.\
 As you move through your video or modify labels, **Auto Tracking** predicts labels automatically. But it gets better! The feature is now enhanced with the latest AI developments. For example, it can detect when an **object leaves the scene and stop tracking it**.
 
----
+***
 
 **1. Auto-Tracking Mode**
 
-- **Automatic Tracking Extension**: Auto-Tracking Mode automatically extends tracking when the user reaches the last 10 frames of the current tracked segment. This feature prevents the need to manually restart tracking, ensuring seamless object tracking, especially in long or dynamic videos.
-- **Re-tracking on Label Changes**: When Auto-Tracking Mode is enabled, the tool will automatically re-track the object if labels are modified or as you move through frames. This is useful for dynamic scenes where the object may change shape or position, such as tracking people or vehicles.
+* **Automatic Tracking Extension**: Auto-Tracking Mode automatically extends tracking when the user reaches the last 10 frames of the current tracked segment. This feature prevents the need to manually restart tracking, ensuring seamless object tracking, especially in long or dynamic videos.
+* **Re-tracking on Label Changes**: When Auto-Tracking Mode is enabled, the tool will automatically re-track the object if labels are modified or as you move through frames. This is useful for dynamic scenes where the object may change shape or position, such as tracking people or vehicles.
 
----
+***
 
 **2. Track Frames**
 
-- This setting allows you to specify the number of frames to track and the direction of tracking (forward or backward).
-- For example, setting "Track 10 frames forward" will extend tracking of the object for the next 10 frames, which is ideal for short but predictable movements, like a car moving a short distance on a road.
+* This setting allows you to specify the number of frames to track and the direction of tracking (forward or backward).
+* For example, setting "Track 10 frames forward" will extend tracking of the object for the next 10 frames, which is ideal for short but predictable movements, like a car moving a short distance on a road.
 
----
+***
 
 **3. Interpolate Until Next Real Frame**
 
-- **Interpolation** allows the system to fill intermediate frames between keyframes, creating smoother transitions and enhancing annotation accuracy.
-- This feature is ideal for scenes with steady movement, such as a person walking along a straight path, where it’s unnecessary to manually label every frame.
+* **Interpolation** allows the system to fill intermediate frames between keyframes, creating smoother transitions and enhancing annotation accuracy.
+* This feature is ideal for scenes with steady movement, such as a person walking along a straight path, where it’s unnecessary to manually label every frame.
 
----
+***
 
 **4. Detect Off-Screen**
 
-- **Automatic Removal of Off-Screen Objects**: If an object moves out of the camera’s view, the Detect Off-Screen feature will automatically stop tracking it and remove the label from subsequent frames.
-- This feature is useful for videos where objects may leave the frame, such as a vehicle exiting the scene.
+* **Automatic Removal of Off-Screen Objects**: If an object moves out of the camera’s view, the Detect Off-Screen feature will automatically stop tracking it and remove the label from subsequent frames.
+* This feature is useful for videos where objects may leave the frame, such as a vehicle exiting the scene.
 
----
+***
 
 **5. Tracking By Detection**
 
-- **Detecting and Tracking New Objects**: This feature enables the system to automatically detect and start tracking new objects as you extend tracking by moving forward through frames.
-- Tracking By Detection is ideal for crowded scenes, like busy streets, where new objects, such as pedestrians or vehicles, frequently enter the frame and require immediate tracking.
+* **Detecting and Tracking New Objects**: This feature enables the system to automatically detect and start tracking new objects as you extend tracking by moving forward through frames.
+* Tracking By Detection is ideal for crowded scenes, like busy streets, where new objects, such as pedestrians or vehicles, frequently enter the frame and require immediate tracking.
 
----
+***
 
 **6. Tracking Engine**
 
-- **Selecting a Tracking Model**: Auto-Tracking supports multiple models, such as **Auto Track**, **MixFormer**, and **Serve Segment Anything**. Each model is suited to different tracking tasks — from general object tracking to precise segmentation tracking.
-- Users can choose the model that best fits their project needs, such as tracking complex shapes or small objects.
+* **Selecting a Tracking Model**: Auto-Tracking supports multiple models, such as **Auto Track**, **MixFormer**, and **Serve Segment Anything**. Each model is suited to different tracking tasks — from general object tracking to precise segmentation tracking.
+* Users can choose the model that best fits their project needs, such as tracking complex shapes or small objects.
 
----
+***
 
 ## Main scene & labeling scene settings & playback <a href="#main-scene-and-labeling-scene-settings-and-playback" id="main-scene-and-labeling-scene-settings-and-playback"></a>
 
@@ -182,9 +182,9 @@ Main scene shows the video currently being worked on. Users can interact directl
 
 **Change Visibility Mode:** This option allows users to switch between different visibility modes, optimizing the scene display as per the user's preference. You can choose how to show the attributes:
 
-- **Always** | Users can select full tag display, which means that the information will be visible directly on Objects or Videos in the project.
-- **Show on hover** | Tags are only displayed when the cursor is hovered over the annotated object.
-- **Show when selected** | The ability to hide Tags until the Object is selected provides a cleaner look and feel to the interface and prevents information overload when working with a project.
+* **Always** | Users can select full tag display, which means that the information will be visible directly on Objects or Videos in the project.
+* **Show on hover** | Tags are only displayed when the cursor is hovered over the annotated object.
+* **Show when selected** | The ability to hide Tags until the Object is selected provides a cleaner look and feel to the interface and prevents information overload when working with a project.
 
 <figure><img src="https://docs.supervisely.com/~gitbook/image?url=https%3A%2F%2F1080806899-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-M4BHwRbuyIoH-xoF3Gv%252Fuploads%252FLs4S38C5rQW84ghxq6yO%252Fattr-frame.png%3Falt%3Dmedia%26token%3De94383ec-785b-4e90-8700-bc1b7efd41f8&#x26;width=768&#x26;dpr=4&#x26;quality=100&#x26;sign=eeaa66ed&#x26;sv=1" alt=""><figcaption></figcaption></figure>
 
@@ -196,9 +196,9 @@ Main scene shows the video currently being worked on. Users can interact directl
 
 You can customize the way the trajectory looks using the following settings:
 
-- **Width (px):** This setting controls the thickness of the trajectory line in pixels. A higher value makes the line thicker, making the trajectory more visible, while a lower value makes the line thinner.
-- **Draw backward frames:** This option controls how many frames in the past are drawn to represent the object's trajectory. Users can adjust the number of frames using a slider, allowing them to visualize the object's past movements over a longer or shorter period of time.
-- **Draw forward frames:** This option controls how many frames in the future are drawn to represent the predicted path of the object. Users can adjust the number of frames using a slider, which helps plan and visualize future motion.
+* **Width (px):** This setting controls the thickness of the trajectory line in pixels. A higher value makes the line thicker, making the trajectory more visible, while a lower value makes the line thinner.
+* **Draw backward frames:** This option controls how many frames in the past are drawn to represent the object's trajectory. Users can adjust the number of frames using a slider, allowing them to visualize the object's past movements over a longer or shorter period of time.
+* **Draw forward frames:** This option controls how many frames in the future are drawn to represent the predicted path of the object. Users can adjust the number of frames using a slider, which helps plan and visualize future motion.
 
 <figure><img src="https://docs.supervisely.com/~gitbook/image?url=https%3A%2F%2F1080806899-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-M4BHwRbuyIoH-xoF3Gv%252Fuploads%252FnwOy2jDMdS6tyhgBMYlK%252Fauto-select.png%3Falt%3Dmedia%26token%3Dff5e4a46-518d-4026-a81a-ee73e5122a2b&#x26;width=768&#x26;dpr=4&#x26;quality=100&#x26;sign=78f53a27&#x26;sv=1" alt=""><figcaption></figcaption></figure>
 
@@ -242,9 +242,9 @@ Real-time image resizing adapts to various project needs, ensuring optimal viewi
 
 **Navigation bar settings:** Switches between different modes for the navigation bar, such as
 
-- **Figures:** show frames with objects
-- **Tags:** show frames with tags
-- **Auto:** show frames with figures/tags based current selection
+* **Figures:** show frames with objects
+* **Tags:** show frames with tags
+* **Auto:** show frames with figures/tags based current selection
 
 <br>
 
@@ -290,7 +290,7 @@ All step numbers align with those on the accompanying image:
 8. Once both objects are selected, click the now-active “Merge 2 objects” button.
 <figure><img src="../../labeling/2026-01-05_16-09.png" alt=""><figcaption></figcaption></figure>
 
----
+***
 
 ### **Instruments panel** <a href="#instruments-panel" id="instruments-panel"></a>
 
@@ -318,7 +318,7 @@ All step numbers align with those on the accompanying image:
 
 <figure><img src="https://docs.supervisely.com/~gitbook/image?url=https%3A%2F%2F1080806899-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-M4BHwRbuyIoH-xoF3Gv%252Fuploads%252FOowe8nt7sESGdAaE31Ss%252Fannotation-tools-frame.png%3Falt%3Dmedia%26token%3D7cda84d5-de62-44ac-b58c-b1136d743428&#x26;width=768&#x26;dpr=4&#x26;quality=100&#x26;sign=5e7a721a&#x26;sv=1" alt=""><figcaption></figcaption></figure>
 
----
+***
 
 ## Definitions Panel
 
@@ -340,23 +340,23 @@ If you want to change the class of the selected object, you can click the small 
 
 **Improved Search:** To find classes or tags more easily in a long list, click the magnifying glass icon in the top right corner of the panel. Type your query and select the desired class or tag to continue your workflow.
 
----
+***
 
 ## Videos panel <a href="#images-panel" id="images-panel"></a>
 
 The videos panel provides a comprehensive view of all the videos within a selected dataset. Key functionalities include:
 
-- **Tag Management** - Clone tags from the previous video, assign new ones, or modify existing tags to maintain consistency and organization.
-- **Filter and Manage** - View and edit metadata details or filter through videos to find exactly what you need.
-- **Video Operations** - Delete videos, download them individually, or download annotations for external use.
+* **Tag Management** - Clone tags from the previous video, assign new ones, or modify existing tags to maintain consistency and organization.
+* **Filter and Manage** - View and edit metadata details or filter through videos to find exactly what you need.
+* **Video Operations** - Delete videos, download them individually, or download annotations for external use.
 
----
+***
 
 ## Apps panel: expand your capabilities <a href="#apps-panel-expand-your-capabilities" id="apps-panel-expand-your-capabilities"></a>
 
 In an ever-evolving ML landscape, the apps panel serves as a portal to a wide range of applications from the [Computer Vision Ecosystem](https://ecosystem.supervisely.com/), enhancing the functionality of your workspace. This window allows you to run and open the public or private apps and extend the Labeling Toolbox with custom UI and functionality.
 
----
+***
 
 ## Settings panel <a href="#settings-panel" id="settings-panel"></a>
 
