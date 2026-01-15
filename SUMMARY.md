@@ -139,7 +139,7 @@
   * [DICOM](labeling/labeling-with-AI/dicom/README.md)
   * Live Training
     * Use Cases
-      * [Tomato Phenotyping](labeling/labeling-with-AI/live-training/use-cases/tomatoes.md)
+      * [Live Training Use Case: Automated Tomato Phenotyping and Segmentation](labeling/labeling-with-AI/live-training/use-cases/tomatoes.md)
 
 ## 🤝 Collaboration
 
