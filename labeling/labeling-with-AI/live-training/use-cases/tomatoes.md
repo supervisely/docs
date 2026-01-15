@@ -2,7 +2,7 @@
 
 ## **Introduction**
 
-We demonstrate Live Training on a real-world agricultural segmentation task: extracting phenotypic measurements from tomato fruit cross-sections. Traditional annotation approaches require weeks of coordination between plant scientists and ML engineers, with annotators waiting days between training cycles while interactive segmentation models are suboptimal on specialized anatomical structures. Live Training eliminates this overhead by training models continuously during annotation, providing useful predictions after just 5-7 labeled images and achieving comparable accuracy to models trained offline while reducing project costs and time.
+We demonstrate Live Training on a real-world agricultural segmentation task: extracting phenotypic measurements from tomato fruit cross-sections. Live Training achieves [XX]% time savings compared to interactive segmentation with SAM and [YY]% savings compared to traditional Human-in-the-Loop workflows while reaching equivalent model quality ([X.XX] mIoU). The approach provides useful predictions after just 3-4 labeled images and eliminates the coordination overhead that fragments annotation projects into multi-week cycles with idle time between training phases. This addresses a fundamental challenge in domain-specific computer vision: zero-shot foundation models fail completely on specialized data like plant anatomy, yet traditional training requires substantial annotated datasets before providing any assistance, creating an expensive cold start problem that Live Training solves through continuous learning from the first annotations onward.
 
 ## **Use Case Overview**
 
