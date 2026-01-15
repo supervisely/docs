@@ -137,8 +137,8 @@
   * [Videos](labeling/labeling-with-AI/videos/README.md)
   * [3D point clouds](labeling/labeling-with-AI/3d-point-clouds/README.md)
   * [DICOM](labeling/labeling-with-AI/dicom/README.md)
-  * [Live Training]
-    * [Use Cases]
+  * Live Training
+    * Use Cases
       * [Tomato Phenotyping](labeling/labeling-with-AI/live-training/use-cases/tomatoes.md)
 
 ## 🤝 Collaboration
