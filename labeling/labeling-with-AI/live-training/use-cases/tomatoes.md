@@ -1,4 +1,4 @@
-# Live Training Use Case: Automated Tomato Phenotyping for Agricultural Research
+# Live Training Use Case: Automated Tomato Phenotyping and Segmentation
 
 ## **Introduction**
 
