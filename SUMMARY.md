@@ -74,6 +74,7 @@
 * [Project and Dataset](data-organization/project-dataset/README.md)
   * [Create](data-organization/project-dataset/create.md)
   * [Data Structure](data-organization/project-dataset/data-structure.md)
+  * [Project Versions](data-organization/project-dataset/project-versions.md)
   * [Define Classes & Tags](data-organization/project-dataset/define-classes-tags.md)
   * [Gallery & Table views](data-organization/project-dataset/gallery-table-views.md)
   * [Collections](data-organization/project-dataset/collections.md)
