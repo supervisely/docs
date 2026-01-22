@@ -78,14 +78,14 @@ Great! Your sub-dataset with files is now ready.
 
 ### Project versions
 
-[**Data Versioning**](https://supervisely.com/blog/mlops-workflow-and-data-versioning/) allows you to manage and track different versions of a project over time. It allows you to save, restore, and compare different states of a project.
+[**Project Versions**](project-versions.md) allow you to manage and track different versions of a project over time. It allows you to save, restore, and compare different states of a project.
 
 Key features of project versioning include:
 
 * **Version Control**: Track and manage changes made to the project over time, ensuring every specific state is recorded.
 * **History Tracking**: Maintain a comprehensive history of all modifications, making it easy to understand the project's evolution.
 * **Reverting Changes**: Restore any previous version of the project, allowing you to get a new project with a specific state of data.
-* [**MLOps Execution**](https://docs.supervisely.com/data-organization/mlops-workflow): Execute machine learning tasks on specific versions of the project data, ensuring that the exact state of the data used is known. This guarantees consistency and reproducibility of results.
+* [**MLOps Workflow**](../mlops-workflow.md): Execute machine learning tasks on specific versions of the project data, ensuring that the exact state of the data used is known. This guarantees consistency and reproducibility of results.
 
 <figure><img src="../../.gitbook/assets/data-structure/project-versions.jpg" alt=""><figcaption></figcaption></figure>
 
