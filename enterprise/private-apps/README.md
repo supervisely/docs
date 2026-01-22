@@ -6,21 +6,21 @@ You can extend existing library of ready Supervisely Apps available at Ecosystem
 
 #### GitHub
 
-To access private GitHub repositories, you will need to generate a personal token. Please note, that this token will provide your Supervisely instance a read access to all repositories, available for this GitHub account — you may want to create a dedicated GutHub account for a single Supervisely App repository.
+To access private GitHub repositories, you will need to generate a personal token. Please note, that this token will provide your Supervisely instance a read access to all repositories, available for this GitHub account - you may want to create a dedicated GutHub account for a single Supervisely App repository.
 
 Open GitHub → Settings → Developer settings → [Personal access tokens](https://github.com/settings/tokens) and click Generate new token.
 
-Select "repo" access scope and click "Generate token" button. Save generated token — you will need it later.
+Select "repo" access scope and click "Generate token" button. Save generated token - you will need it later.
 
 ![](../../.gitbook/assets/personal-token.png)
 
 #### GitLab
 
-To access private GitLab repositories, you will need to generate a personal token. Please note, that this token will provide your Supervisely instance a read access to all repositories, available for this GitLab account — you may want to create a dedicated GutLab account for a single Supervisely App repository.
+To access private GitLab repositories, you will need to generate a personal token. Please note, that this token will provide your Supervisely instance a read access to all repositories, available for this GitLab account - you may want to create a dedicated GutLab account for a single Supervisely App repository.
 
 Open GilLab → Settings → [Access Tokens](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token)
 
-Select with "read\_api", "read\_repository" scopes enabled and click "Create personal access token" button. Save generated token — you will need it later.
+Select with "read\_api", "read\_repository" scopes enabled and click "Create personal access token" button. Save generated token - you will need it later.
 
 ![](../../.gitbook/assets/personal-token-gitlab.png)
 
@@ -39,12 +39,12 @@ Let's create a new GitLab repository that we will use to deploy a new Supervisel
 ![](../../.gitbook/assets/new-repo-gitlab.png)
 
 {% hint style="info" %}
-You can create a public repositry alright — you will still need a personal token and further steps are gonna be the same.
+You can create a public repositry alright - you will still need a personal token and further steps are gonna be the same.
 {% endhint %}
 
 ### Step 3. Make it a Supervisely App repository
 
-In this tutorial we will use [While(true) app](https://github.com/supervisely-ecosystem/while-true-script) code-base as a starting point — it's a bare minimum sample application that, basically, just runs an infinite loop.
+In this tutorial we will use [While(true) app](https://github.com/supervisely-ecosystem/while-true-script) code-base as a starting point - it's a bare minimum sample application that, basically, just runs an infinite loop.
 
 We will download it's source code, extract it, create a new repository and initialize it:
 
@@ -85,4 +85,4 @@ Next time you push a new update to your repository, do not forget to open applic
 
 ### Optional: Releases
 
-Supervisely Apps support multiple versions via GitHub releases — this is a convenient feature once you are ready to mark your first version as a release. Just go to Releases section of your GitHub repository, click "Create a new release" button and choose a "v1.0.0" tag — next time you refresh your app in Ecosystem, you will see your release and will be able to switch between them.
+Supervisely Apps support multiple versions via GitHub releases - this is a convenient feature once you are ready to mark your first version as a release. Just go to Releases section of your GitHub repository, click "Create a new release" button and choose a "v1.0.0" tag - next time you refresh your app in Ecosystem, you will see your release and will be able to switch between them.

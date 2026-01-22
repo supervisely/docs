@@ -25,7 +25,7 @@ Once you've [uploaded your first images](How-to-import.md), let’s annotate the
 Click on the project you’ve just created. This will open the list of datasets (subfolders) inside your project (you can learn more about data organization [here](../data-organization/overview.md)). Depending on whether you uploaded a set of folders with images or just images directly, there may be one or more datasets.&#x20;
 
 {% hint style="info" %}
-Don’t worry — you can move and copy images between datasets (and even projects) using the “three dots” (⋮) or [Data Commander.](../data-organization/data-commander/)&#x20;
+Don’t worry - you can move and copy images between datasets (and even projects) using the “three dots” (⋮) or [Data Commander.](../data-organization/data-commander/)&#x20;
 {% endhint %}
 
 <figure><img src="../.gitbook/assets/dataset (1).png" alt=""><figcaption></figcaption></figure>
@@ -37,7 +37,7 @@ A class allows you to define a type of your annotations. Every annotation object
 Now, let’s go to the classes tab and click the `New` button. Let’s enter some title to it, select a shape (let’s select “bounding box” for this one) and click `Save`.
 
 {% hint style="info" %}
-You can select “Any Shape” — that will allow to mark annotations of any shape with this class, so can have both “bounding box” and “mask” marked as this class at the same time. Be worried, that could potentially create issues when you try to train a neural network.
+You can select “Any Shape” - that will allow to mark annotations of any shape with this class, so can have both “bounding box” and “mask” marked as this class at the same time. Be worried, that could potentially create issues when you try to train a neural network.
 {% endhint %}
 
 <figure><img src="../.gitbook/assets/create-class.png" alt=""><figcaption></figcaption></figure>
@@ -64,4 +64,4 @@ You can also check our blog post on how to label with bounding boxes:
 
 {% embed url="https://supervisely.com/blog/bounding-box-annotation-for-object-detection/" %}
 
-You rock! Now, you can explore other labeling tools (such as [polygons](https://supervisely.com/blog/how-to-use-polygon-anotation-tool-for-image-segmentation/), [<mark style="color:blue;">masks</mark>](https://supervisely.com/blog/smarttool-annotation/) or [<mark style="color:blue;">skeleton shapes</mark>](https://supervisely.com/blog/human-pose-estimation/)), more advanced tools, such as video or [<mark style="color:blue;">3D point clouds</mark>](https://supervisely.com/blog/3d-object-interpolation-in-point-clouds/) — or continue our journey and see how [collaboration](../collaboration/members.md) works in Supervisely.
+You rock! Now, you can explore other labeling tools (such as [polygons](https://supervisely.com/blog/how-to-use-polygon-anotation-tool-for-image-segmentation/), [<mark style="color:blue;">masks</mark>](https://supervisely.com/blog/smarttool-annotation/) or [<mark style="color:blue;">skeleton shapes</mark>](https://supervisely.com/blog/human-pose-estimation/)), more advanced tools, such as video or [<mark style="color:blue;">3D point clouds</mark>](https://supervisely.com/blog/3d-object-interpolation-in-point-clouds/) - or continue our journey and see how [collaboration](../collaboration/members.md) works in Supervisely.

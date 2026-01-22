@@ -56,13 +56,13 @@ Each **Project** can contain multiple **Datasets**, which store the actual data 
 This flexible structure allows Members to organize data in a way that fits their workflow.
 
 Furthermore, a Member can create additional **Workspaces** inside any **Team** where they have the Admin role.\
-Inside a **Dataset**, you can create **Sub-Datasets**, enabling flexible and deeply nested data structures — just like folders and subfolders on your computer. There are no limitations on nesting depth, so you can organize your data in whatever hierarchy makes sense for your workflow.
+Inside a **Dataset**, you can create **Sub-Datasets**, enabling flexible and deeply nested data structures - just like folders and subfolders on your computer. There are no limitations on nesting depth, so you can organize your data in whatever hierarchy makes sense for your workflow.
 
 <figure><img src="../../.gitbook/assets/data-structure/d-s-default-scheme3.jpg" alt=""><figcaption></figcaption></figure>
 
-Let’s repeat an important rule: at the **Project** level, you cannot store files directly — only **Datasets** can exist there. Files and **Sub-Datasets** can only be added inside a **Dataset**.
+Let’s repeat an important rule: at the **Project** level, you cannot store files directly - only **Datasets** can exist there. Files and **Sub-Datasets** can only be added inside a **Dataset**.
 
-You can think of **Datasets** as folders and **Sub-Datasets** as **subfolders**. This allows you to recreate complex directory structures exactly the way you organize data on your local machine or in your company’s cloud storage. It’s especially useful if you’re working with a shared storage system that already follows a specific hierarchy — you can mirror that same structure inside Supervisely without restrictions.
+You can think of **Datasets** as folders and **Sub-Datasets** as **subfolders**. This allows you to recreate complex directory structures exactly the way you organize data on your local machine or in your company’s cloud storage. It’s especially useful if you’re working with a shared storage system that already follows a specific hierarchy - you can mirror that same structure inside Supervisely without restrictions.
 
 To create a sub-dataset inside an existing dataset:
 

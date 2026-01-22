@@ -10,7 +10,7 @@ Usually, enabling HTTPS can be done in just a few clicks. Please login as the "a
 
 ![](../../.gitbook/assets/instance-settings.png)
 
-Now, open "HTTPS" section and switch "Let's encrypt" option on. Enter the address you access the instance now, without "http://" (i.e. `supervisely.my-company.com`) and your email. Click "Save" — your Supervisely instance will apply the new configuration and restart itself: you should be able to access Supervisely now via `https://supervisely.my-company.com`.
+Now, open "HTTPS" section and switch "Let's encrypt" option on. Enter the address you access the instance now, without "http://" (i.e. `supervisely.my-company.com`) and your email. Click "Save" - your Supervisely instance will apply the new configuration and restart itself: you should be able to access Supervisely now via `https://supervisely.my-company.com`.
 
 ![](../../.gitbook/assets/instance-settings-https.png)
 
@@ -54,7 +54,7 @@ services:
       - /supervisely/data/certs:/etc/nginx/certs:rw
 ```
 
-Run `supervisely up -d` to apply changes. It will take a few minutes to issue your new certificates. After `default.crt` fill appear in the `data/certs` folder, run `supervisely restart proxy` — now your Supervisely instance works over HTTPS! Please do not forget to change `SERVER_ADDRESS` in your `.env` file accordingly.
+Run `supervisely up -d` to apply changes. It will take a few minutes to issue your new certificates. After `default.crt` fill appear in the `data/certs` folder, run `supervisely restart proxy` - now your Supervisely instance works over HTTPS! Please do not forget to change `SERVER_ADDRESS` in your `.env` file accordingly.
 
 #### Option 2. Built-in SSL support
 

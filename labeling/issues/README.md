@@ -24,7 +24,7 @@ Github Issues are the perfect example of efficient collaboration between thousan
 
 ## Organize + Search + Filter
 
-Issues has its own section in every team. There are two types of issues: **private** and **public** ones. Private issues help to discuss project-related questions and are available only for team members. Public issues are designed to keep everybody in your organization on the same page, share ideas, hear all voices, consider all options — and establish consensus.
+Issues has its own section in every team. There are two types of issues: **private** and **public** ones. Private issues help to discuss project-related questions and are available only for team members. Public issues are designed to keep everybody in your organization on the same page, share ideas, hear all voices, consider all options - and establish consensus.
 
 <figure><img src="../../.gitbook/assets/issues.png" alt=""><figcaption></figcaption></figure>
 
@@ -44,7 +44,7 @@ A typical issue looks like this:
 * **Links** associate your issues with any Supervisely entities like projects, labeling jobs, neural networks and so on and help you categorize and filter your issues based on that
 * **Assignees** are responsible for working on the issue
 * **Comments** allow anyone with access to the Issues to provide feedback
-* **Markdown** support — it is a lightweight and easy-to-use syntax for styling all your comments: add tables, images, coloring, lists, links and so on
+* **Markdown** support - it is a lightweight and easy-to-use syntax for styling all your comments: add tables, images, coloring, lists, links and so on
 
 ## Assignees + Links
 

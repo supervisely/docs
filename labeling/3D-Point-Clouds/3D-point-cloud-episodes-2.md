@@ -9,7 +9,7 @@ The 3D Point Cloud labeling tool in Supervisely is designed for visualizing, ann
 
 The latest version introduces a completely redesigned interface that unifies both **single-frame** and **episode-based** workflows. It brings a more streamlined and powerful experience with features such as:
 
-- **Optimized visualization** and interaction with extremely large point clouds — **up to 50 million points per frame** — enabling smooth annotation and review even for high-resolution lidar scans.
+- **Optimized visualization** and interaction with extremely large point clouds - **up to 50 million points per frame** - enabling smooth annotation and review even for high-resolution lidar scans.
 - **AI-assisted tools** for faster and more accurate labeling
 - **Auto Labeling with Cuboid Tool**
 - Interactive **3D Object Detection**
@@ -57,7 +57,7 @@ Supervisely's 3D AI assistant is a universal tool for automating 3D point cloud 
 
 - The labeled object will now be **selected automatically**.
 - The **Select Figure tool** becomes active by default, while the Cuboid auto-labeling tool remains enabled in the background.
-- To label the next object, press `Space` to deselect the current object — the **Cuboid tool reattaches** to your cursor and you’re ready to click on the next group of points.
+- To label the next object, press `Space` to deselect the current object - the **Cuboid tool reattaches** to your cursor and you’re ready to click on the next group of points.
 
 This loop allows for rapid labeling of multiple objects in sequence with minimal effort.
 
@@ -118,11 +118,11 @@ The **Point Cloud Pen** is a versatile tool designed for direct point-level edit
 
 You can use it in two main ways:
 
-As an **editing** tool — to add or remove points from an existing point cloud object.
+As an **editing** tool - to add or remove points from an existing point cloud object.
 
 {% embed url="https://youtu.be/egdhoPKd10A" %}
 
-As a **creation** tool — to define and create a new object.
+As a **creation** tool - to define and create a new object.
 
 {% embed url="https://youtu.be/sLefC2-0r3w" %}
 
@@ -156,7 +156,7 @@ The **3D Cuboid Tracking** tool allows you to automatically propagate annotation
 
 Unlike learning-based approaches, the **3D AI Assistant** focuses on calculating the offset between neighboring point clouds using **Point Cloud Registration Algorithms**. It does **not** require any additional training to track 3D objects across unseen point cloud sequences.
 
-**Point Cloud Registration Algorithms** are designed to find the transformation that aligns a pair of point clouds—originally located in different coordinate systems—into a shared coordinate space.
+**Point Cloud Registration Algorithms** are designed to find the transformation that aligns a pair of point clouds - originally located in different coordinate systems - into a shared coordinate space.
 
 Below is a visualization of two neighboring point clouds displayed in the same scene **before** applying registration: you can clearly observe a spatial shift between them.
 
@@ -173,7 +173,7 @@ By applying this transformation to the **source point cloud**, the spatial shift
 The photo context panel is now an interactive part of the 3D labeling workspace.
 
 You can annotate context images directly using standard image labeling tools. These annotations are automatically synchronized with the 3D space and become part of the same object instance.  
-2D and 3D annotations now coexist at the same level — edits or creation in one view are instantly reflected in the other. This improves labeling precision and scene understanding, especially when certain features are more visible in 2D.
+2D and 3D annotations now coexist at the same level - edits or creation in one view are instantly reflected in the other. This improves labeling precision and scene understanding, especially when certain features are more visible in 2D.
 
 Let’s walk through how to use each image annotation tool:
 
@@ -184,7 +184,7 @@ Let’s walk through how to use each image annotation tool:
     1. **Activate the image window** by clicking directly on a photo context image.
 
     2. In the **left sidebar**, select the **Bounding Box Tool**.  
-    If you don’t have a class created yet for this geometry type, a modal window will open — configure and create a new class, then close the modal.
+    If you don’t have a class created yet for this geometry type, a modal window will open - configure and create a new class, then close the modal.
 
     3. **Draw a bounding box** around the desired object in the image window.  
     A rectangular shape (2D mask) will appear and be added to the **Definitions panel** and the **timeline**.
@@ -217,7 +217,7 @@ Let’s walk through how to use each image annotation tool:
 
     <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-2to3-brush1.jpg" alt=""><figcaption></figcaption></figure>
 
-    Instead of manually painting the interior, simply click inside the outlined area — the entire enclosed region will be filled automatically.
+    Instead of manually painting the interior, simply click inside the outlined area - the entire enclosed region will be filled automatically.
 
     <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-2to3-brush2.jpg" alt=""><figcaption></figcaption></figure>
 
@@ -231,7 +231,7 @@ Let’s walk through how to use each image annotation tool:
     1. **Activate the image window** by clicking on a photo context image.
 
     2. In the **left sidebar**, select the **Smart Tool**.  
-    If you don’t have a bitmap class created yet, a modal window will open — configure and create a new class of type bitmap, then close the modal.
+    If you don’t have a bitmap class created yet, a modal window will open - configure and create a new class of type bitmap, then close the modal.
 
     3. **Draw the mask** over the desired object using your mouse.  
     The SmartTool will automatically detect the object shape and generate a **bitmap mask**.  
@@ -294,8 +294,8 @@ To apply a tag to an object:
 
 3. After selecting the object, two tagging options will appear in the Definitions panel:
 
-- **Global Tags on Object** — if enabled, the tag will apply to this object across all frames/episodes where the object exists.
-- **Frame Based Tags on Object** — if enabled, the tag will apply only on the currently active frame (the one open in the selected viewport).
+- **Global Tags on Object** - if enabled, the tag will apply to this object across all frames/episodes where the object exists.
+- **Frame Based Tags on Object** - if enabled, the tag will apply only on the currently active frame (the one open in the selected viewport).
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-tag2.jpg" alt=""><figcaption></figcaption></figure>
 
@@ -312,7 +312,7 @@ To change the class of a selected object:
 
 ## Settings Panel
 
-In addition to repositioning view panels, the Settings panel provides advanced customization options — such as adjusting cuboid thickness, customizing class appearance, controlling point cloud display settings, toggling object IDs, and more.
+In addition to repositioning view panels, the Settings panel provides advanced customization options - such as adjusting cuboid thickness, customizing class appearance, controlling point cloud display settings, toggling object IDs, and more.
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-settings.jpg" alt=""><figcaption></figcaption></figure>
 
@@ -333,12 +333,12 @@ To enable this feature:
 1. Go to the **Settings** tab.  
 2. Scroll down to the **Cloud Points** section.  
 3. Find the **Color Mode** setting.  
-4. Click it — in the dropdown menu, you will see the following options:
+4. Click it - in the dropdown menu, you will see the following options:
 
-    - **Z Code Height** *(default)* — uses a gradient based on point height (Z coordinate).
-    - **RGB** — displays points using their original RGB values (if available).
-    - **Distance From Center** — colors points based on their distance from the scanning device.
-    - **Camera Device** — transfers real image colors from the photo context to the 3D point cloud.
+    - **Z Code Height** *(default)* - uses a gradient based on point height (Z coordinate).
+    - **RGB** - displays points using their original RGB values (if available).
+    - **Distance From Center** - colors points based on their distance from the scanning device.
+    - **Camera Device** - transfers real image colors from the photo context to the 3D point cloud.
 
 When **Camera Device** is selected, colors from the photo context are projected onto the 3D points across **all frames** of a point cloud episode, not just the current one.
 
@@ -358,9 +358,9 @@ As a result, you'll be able to clearly see how the photo has been projected onto
   - Move the scene by holding **left or right mouse button**.
 
 - **Perspective viewport**:
-  - **Right mouse button** — pan the scene.
-  - **Left mouse button** — rotate the scene.
-  - **Mouse scroll** — zoom in/out.
+  - **Right mouse button** - pan the scene.
+  - **Left mouse button** - rotate the scene.
+  - **Mouse scroll** - zoom in/out.
 
 Additionally, navigation inside the **Perspective Viewport** is also available using **keyboard shortcuts**, as shown in the illustration below.
 
@@ -373,9 +373,9 @@ Additionally, navigation inside the **Perspective Viewport** is also available u
 
 - **Perspective viewport**:
   - Navigation works **the same** as in **Move tool** mode:
-    - **Right mouse button** — pan.
-    - **Left mouse button** — rotate.
-    - **Mouse scroll** — zoom.
+    - **Right mouse button** - pan.
+    - **Left mouse button** - rotate.
+    - **Mouse scroll** - zoom.
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-orbit-select.jpg" alt=""><figcaption></figcaption></figure>
 

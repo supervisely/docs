@@ -17,7 +17,7 @@ Supervisely is available [online](https://app.supervisely.com/signup) for free, 
 
 ![](assets/jobs-ui.jpg)
 
-* **Train** and **apply** Neural Networks on your data — from our Model Zoo or your custom ones!
+* **Train** and **apply** Neural Networks on your data - from our Model Zoo or your custom ones!
 
 ![](assets/neural-networks-ui.jpg)
 
@@ -27,7 +27,7 @@ Supervisely is available [online](https://app.supervisely.com/signup) for free, 
 
 ### What's next?
 
-The best way to explore Supervisely is to try it out — so don't wait and [create an account](https://app.supervisely.com/signup) \(it's completely free!\). Here are some things to start with:
+The best way to explore Supervisely is to try it out - so don't wait and [create an account](https://app.supervisely.com/signup) \(it's completely free!\). Here are some things to start with:
 
 {% page-ref page="getting-started/first-steps.md" %}
 

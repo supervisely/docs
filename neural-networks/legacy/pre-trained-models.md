@@ -24,6 +24,6 @@ You can deploy your trained model in Supervisely with just a click or pick one o
 ## Guides on running models in Supervisely:
 
 * [How to auto-label images with OWL-ViT - SOTA Google's foundation object detector](https://supervisely.com/blog/owl-vit/)
-* [ViTPose — How to use the best Pose Estimation Model on Humans & Animals](https://supervisely.com/blog/vitpose-state-of-the-art-pose-estimation-model-in-supervisely/)
+* [ViTPose - How to use the best Pose Estimation Model on Humans & Animals](https://supervisely.com/blog/vitpose-state-of-the-art-pose-estimation-model-in-supervisely/)
 * [Unlocking Text - OCR with Supervisely](https://supervisely.com/blog/mmocr/)
 * [MBPTrack Tutorial - SOTA 3D Point Cloud Object Tracking in 2023 for LiDAR & Radar](https://supervisely.com/blog/mbptrack-point-cloud-3d-object-tracking/)

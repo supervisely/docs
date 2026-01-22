@@ -104,10 +104,10 @@ Unfinished tags remain accessible even after closing the tool, allowing others t
 
 Click the _**Extend tag range**_ button represented by arrows pointing in opposite directions (1), next to the frame-based tag in the **Definitions** panel and choose:
 
-* **From start to here** — Apply the tag from the beginning of the video to the current frame.  
-* **Few frames forward / backward** — Apply the tag for a fixed number of frames forward or backward. Use the **+** and **−** buttons to adjust the frame count.  
-* **Whole range** — Tag the entire timeline of the object.  
-* **From here to end** — Apply the tag from the current frame to the end of the video.
+* **From start to here** - Apply the tag from the beginning of the video to the current frame.  
+* **Few frames forward / backward** - Apply the tag for a fixed number of frames forward or backward. Use the **+** and **−** buttons to adjust the frame count.  
+* **Whole range** - Tag the entire timeline of the object.  
+* **From here to end** - Apply the tag from the current frame to the end of the video.
 
 <figure><img src="../../.gitbook/assets/frame-based-tagging/f-b-t_edit_custom_options.png" alt=""><figcaption></figcaption></figure>
 
@@ -146,15 +146,15 @@ Click the **Hotkeys** menu item at the top right of the **Definitions** panel to
 #### 1. **Timeline Navigation**
 In the **Timeline** section, you’ll find navigation hotkeys:
 
-- **Go to next tag segment** — `CTRL` + `SHIFT` + `→`  
-- **Go to previous tag segment** — `CTRL` + `SHIFT` + `←`
+- **Go to next tag segment** - `CTRL` + `SHIFT` + `→`  
+- **Go to previous tag segment** - `CTRL` + `SHIFT` + `←`
 
 #### 2. **Tag Creation & Editing**
 In the **Tags** section, you’ll find hotkeys for creating and editing tags:
 
-- **Add tag on selected frames or current frame** — `SHIFT` + `Q`  
-- **Change value of the current tag segment** — `SHIFT` + `E`  
-- **Remove current tag segment** — `SHIFT` + `W`
+- **Add tag on selected frames or current frame** - `SHIFT` + `Q`  
+- **Change value of the current tag segment** - `SHIFT` + `E`  
+- **Remove current tag segment** - `SHIFT` + `W`
 
 You can customize all hotkeys to fit your workflow.
 

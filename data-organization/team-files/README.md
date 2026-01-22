@@ -14,7 +14,7 @@ It is a key tool for managing and organizing files and data within the team work
 
 ### Data Storage
 
-Team Files allows users to store various types of files — images, videos, annotations, neural network models, reports and more. This makes it convenient to work on projects and applications, as all necessary data is stored in one accessible location for the whole team.
+Team Files allows users to store various types of files - images, videos, annotations, neural network models, reports and more. This makes it convenient to work on projects and applications, as all necessary data is stored in one accessible location for the whole team.
 
 
 

@@ -14,7 +14,7 @@ Supervisely is excited to introduce advanced interactive statistics designed to 
 * Improve data acquisition methods, draw the right conclusions on annotation distributions.
 * Enhance neural network performance and much more.
 
-To view statistics for an entire project — that is, across all datasets within the project — select the desired project and, just below the project name, click on the **QA & Stats** tab.
+To view statistics for an entire project - that is, across all datasets within the project - select the desired project and, just below the project name, click on the **QA & Stats** tab.
 
 <figure><img src="../../../.gitbook/assets/quality-assurance-statistics-tab.png" alt=""><figcaption></figcaption></figure>
 

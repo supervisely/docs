@@ -14,9 +14,9 @@ There are several supported types of formats.
 
 **Most popular:**
 
-* Images (Default) — upload directories with images 
+* Images (Default) - upload directories with images 
 
-* Supervisely Format — upload directories with images and their annotations in [Supervisely format](../../supervisely-format.md)
+* Supervisely Format - upload directories with images and their annotations in [Supervisely format](../../supervisely-format.md)
 
 **Less popular:**
 

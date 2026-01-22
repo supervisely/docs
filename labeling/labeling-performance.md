@@ -64,7 +64,7 @@ The number of assets (images, videos, DICOM volumes, point clouds) whose status 
 
 **Asset Statuses Explained:**
 
-* **Pending** — the asset is waiting to be annotated:
+* **Pending** - the asset is waiting to be annotated:
 
   * In **Labeling Jobs**, this means the asset has been assigned but annotation hasn't started yet.
   * In **Queues**, this status may include both assets waiting to be annotated and those currently in progress.
@@ -73,11 +73,11 @@ The number of assets (images, videos, DICOM volumes, point clouds) whose status 
 **Note:** The **Pending** status does **not** depend on the job’s creation date. Even if a Labeling Job was created a year ago, its assets will still appear in this chart as long as the job remains active and is not finished or stopped.
 {% endhint %}
 
-* **Submitted** — annotation has been completed and the asset has been submitted for review.
+* **Submitted** - annotation has been completed and the asset has been submitted for review.
 
-* **Rejected** — the asset was reviewed and marked as rejected. Depending on your workflow, it may stay as is, be returned for revision (e.g., in queues), or be included in a new job for re-annotation.
+* **Rejected** - the asset was reviewed and marked as rejected. Depending on your workflow, it may stay as is, be returned for revision (e.g., in queues), or be included in a new job for re-annotation.
 
-* **Accepted** — the asset was reviewed and approved. No further actions are required.
+* **Accepted** - the asset was reviewed and approved. No further actions are required.
 
 {% hint style="info" %}
 **Note:** A status change doesn’t always mean the annotations themselves were edited. For example, an asset’s status can change even if no actual labels were modified, and vice versa.
@@ -125,7 +125,7 @@ Example of **annotation object**:<br>
   * May include **tags** (e.g., “color: red”, “moving”)
 
 {% hint style="info" %}
-**Also note:** Objects are **grouped only by class name** — **regardless of project or geometry type**. If multiple projects use the same class name (e.g., “Car”), they will be counted together in this section.
+**Also note:** Objects are **grouped only by class name** - **regardless of project or geometry type**. If multiple projects use the same class name (e.g., “Car”), they will be counted together in this section.
 {% endhint %}
 
 ### Bar Chart
@@ -135,7 +135,7 @@ A list of objects grouped by their class names, sorted in descending order of ob
 
 **How to use:**<br>
 Understand which object classes dominate your annotations.
-Useful for identifying class imbalance across your team’s annotations — especially important when training AI models.
+Useful for identifying class imbalance across your team’s annotations - especially important when training AI models.
 
 ### Scatter Chart
 
@@ -166,7 +166,7 @@ This is especially helpful for comparing annotation trends of specific classes o
 The number of assets (images, videos, DICOM volumes, point clouds) that had annotation activity (e.g., label creation or editing) during the selected period.
 
 {% hint style="info" %}
-**Note**: On this chart, only the asset types that are actually present in the team's projects are included in the totals. If the team works with only one type of asset — for example, images — then only those will be counted in this section. In such cases, the section will be titled accordingly (e.g., "Images" instead of "Assets").
+**Note**: On this chart, only the asset types that are actually present in the team's projects are included in the totals. If the team works with only one type of asset - for example, images - then only those will be counted in this section. In such cases, the section will be titled accordingly (e.g., "Images" instead of "Assets").
 {% endhint %}
 
 **How to Use:**<br>
@@ -194,7 +194,7 @@ This chart visualizes the daily annotation activity of team members, measured by
 Labeling actions in this chart include:
 - Creating, editing, and deleting objects (geometries) in the labeling tool
 - Assigning tags, editing tag values, and removing tags within the labeling tool
-- Changing the status of an asset (Submitted, Accepted, or Rejected) — performed by either annotators or reviewers
+- Changing the status of an asset (Submitted, Accepted, or Rejected) - performed by either annotators or reviewers
 
 **How to Use:**<br>
 * Quickly identify high-activity and low-activity days across the team.
@@ -274,7 +274,7 @@ The percentage of assets accepted during the review stage in Labeling Jobs.
 **How to Use:**<br>
 A key metric for assessing annotation quality.<br>
 In Queue workflows, the total number of reviewed images does not necessarily equal the sum of accepted and rejected items.
-The same image can be reviewed multiple times — for example, if it was rejected and later sent back for re-annotation, it may appear again in the queue and be reviewed again. This affects how assets are counted in the Acceptance Rate.
+The same image can be reviewed multiple times - for example, if it was rejected and later sent back for re-annotation, it may appear again in the queue and be reviewed again. This affects how assets are counted in the Acceptance Rate.
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-a-rate.jpg" alt=""><figcaption></figcaption></figure>
 <br>
@@ -305,7 +305,7 @@ The **average time** a reviewer actively spent per **asset** (e.g., image, video
 **Formula:**<br>
 `Average Review Time = Total Review Time / Number of reviewed assets`
 
-This metric reflects the **average amount of active time** a reviewer spent evaluating each asset — including actions such as opening the asset, viewing the annotations, and accepting or rejecting them.
+This metric reflects the **average amount of active time** a reviewer spent evaluating each asset - including actions such as opening the asset, viewing the annotations, and accepting or rejecting them.
 
 {% hint style="info" %}
 **Note:** The system does **not track interactions with individual annotation objects** during review. Therefore, this time is calculated **per asset**, not per object or tag.

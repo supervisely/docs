@@ -12,7 +12,7 @@ Supervisely provides a ready-to-use tracker that works with any detector availab
 **[BoT-SORT](https://github.com/NirAharon/BoT-SORT)** is a modern tracker that we use as a base. It is a lightweight algorithm that works by the principle of **tracking by detection**:
 
 1. Suppose, we have a detector (e.g. YOLO). We run it on each frame of the video to get bounding boxes of detected objects. These boxes are not linked between frames so far, they are just independent detections.
-2. Then we apply a tracker — it links the detected objects between frames and assigns a unique ID for each object, resulting in trajectories of objects over time.
+2. Then we apply a tracker - it links the detected objects between frames and assigns a unique ID for each object, resulting in trajectories of objects over time.
 
 We chose BoT-SORT because it provides an excellent balance between speed and accuracy. In MOT17-style benchmarks BoT-SORT achieves strong tracking metrics while keeping high throughput.
 
@@ -25,7 +25,7 @@ We chose BoT-SORT because it provides an excellent balance between speed and acc
 | MAATrack           |   79.4 |   75.9 |   62.0 |
 
 
-Its main advantage is speed — e.g. **~38.4 FPS** — which makes it suitable for real-time use while preserving good tracking quality.
+Its main advantage is speed - e.g. **~38.4 FPS** - which makes it suitable for real-time use while preserving good tracking quality.
 
 #### Our enhancement: ReID with OSNet
 
@@ -79,7 +79,7 @@ track_buffer: 30
 
 > This section is based on the [Prediction API](prediction-api.md), check it for more details.
 
-This option is intended for developers who want to control tracking via the API. In this workflow you do not run the tracking code locally — you call the Prediction API and receive predictions from the server.
+This option is intended for developers who want to control tracking via the API. In this workflow you do not run the tracking code locally - you call the Prediction API and receive predictions from the server.
 
 Steps:
 
@@ -150,13 +150,13 @@ You can apply the tracker directly to annotations that you obtain from a detecto
 
 Input parameters `frames` and `annotations`:
 
-* `frames` — a list of numpy arrays representing video frames.
-* `annotations` — a list of `sly.Annotation`, where each element is the annotation for the corresponding frame. See the Supervisely docs for the `Annotation` object. The output is a `VideoAnnotation` object.
+* `frames` - a list of numpy arrays representing video frames.
+* `annotations` - a list of `sly.Annotation`, where each element is the annotation for the corresponding frame. See the Supervisely docs for the `Annotation` object. The output is a `VideoAnnotation` object.
 
 There are two ways to use the tracker with SDK:
 
-* **Method 1: `update()`** — processes frame by frame and is convenient for online/streaming usage.
-* **Method 2: `track()`** — processes the whole sequence or chunks and returns a `VideoAnnotation` in one call.
+* **Method 1: `update()`** - processes frame by frame and is convenient for online/streaming usage.
+* **Method 2: `track()`** - processes the whole sequence or chunks and returns a `VideoAnnotation` in one call.
 
 {% tabs %}
 {% tab title="Method 1:  Predictions" %}
@@ -266,7 +266,7 @@ Additional options:
 
 ## Metrics Evaluation
 
-Input for metrics evaluation: the function accepts two `sly.VideoAnnotation` objects — predicted annotations (`video_ann_pred`) and ground truth annotations (`video_ann_true`).
+Input for metrics evaluation: the function accepts two `sly.VideoAnnotation` objects - predicted annotations (`video_ann_pred`) and ground truth annotations (`video_ann_true`).
 
 If you have ground truth data in the form of video annotations, you can evaluate the tracker’s performance using the `evaluate` function.
 
@@ -319,24 +319,24 @@ The output includes several groups of metrics:
 
 #### Basic Detection Metrics
 
-* **Precision** — ratio of correct detections among all detections.
-* **Recall** — ratio of detected objects among all ground truth objects.
-* **F1** — harmonic mean of precision and recall.
-* **Average IoU** — average overlap between predicted and true bounding boxes.
+* **Precision** - ratio of correct detections among all detections.
+* **Recall** - ratio of detected objects among all ground truth objects.
+* **F1** - harmonic mean of precision and recall.
+* **Average IoU** - average overlap between predicted and true bounding boxes.
 
 #### MOT (Multiple Object Tracking) Metrics
 
-* **MOTA** (Multi-Object Tracking Accuracy) — overall accuracy, combining misses, false positives, and ID switches.
-* **MOTP** (Multi-Object Tracking Precision) — how precisely the tracker matches predicted and true positions.
-* **IDF1** — measures how well object identities are preserved across frames.
-* **ID Switches** — number of times the tracker assigned the wrong ID to the same object.
-* **Fragmentations** — how often a trajectory is broken into parts.
-* **Misses / False Positives** — counts of missed objects and false alarms.
+* **MOTA** (Multi-Object Tracking Accuracy) - overall accuracy, combining misses, false positives, and ID switches.
+* **MOTP** (Multi-Object Tracking Precision) - how precisely the tracker matches predicted and true positions.
+* **IDF1** - measures how well object identities are preserved across frames.
+* **ID Switches** - number of times the tracker assigned the wrong ID to the same object.
+* **Fragmentations** - how often a trajectory is broken into parts.
+* **Misses / False Positives** - counts of missed objects and false alarms.
 
 #### Count Metrics
 
-* **True Positives / False Positives / False Negatives** — raw counts of detection outcomes.
-* **Total GT Objects / Predicted Objects** — number of objects in ground truth and predictions.
+* **True Positives / False Positives / False Negatives** - raw counts of detection outcomes.
+* **Total GT Objects / Predicted Objects** - number of objects in ground truth and predictions.
 
 These metrics give both a high-level and detailed view of how well the tracker performs.
 

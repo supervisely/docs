@@ -37,13 +37,13 @@ Each project type is tailored to its specific data format, making it easier to m
 
 After entering a **Name** and **Description** for your project, make sure to select the correct **Project type** based on your data format, as each project can contain only one type of data.
 
-Next, select a **Labeling interface** — you can read a description of each one by hovering over the question mark icon next to it.
+Next, select a **Labeling interface** - you can read a description of each one by hovering over the question mark icon next to it.
 
 Finally, click the **`Create`** button.
 
 <figure><img src="../../.gitbook/assets/create-project-dataset/projects_create5.jpg" alt=""><figcaption></figcaption></figure>
 
-🎉 Great! The project has been successfully created — you are now inside it.
+🎉 Great! The project has been successfully created - you are now inside it.
 
 {% hint style="info" %}
 **Note:** Once the project is created, its type cannot be changed.
@@ -78,10 +78,10 @@ You can then go to your **Dataset** by clicking the link (1) in the task card or
 
 <figure><img src="../../.gitbook/assets/create-project-dataset/tasks_done.jpg" alt=""><figcaption></figcaption></figure>
 
-And here it is — your **Dataset** with the imported data!
+And here it is - your **Dataset** with the imported data!
 
 Now let’s take a quick look at how to rename your project.\
-Just follow the simple steps shown in the illustrations below — you'll see how easy it is to change the **Project Name**, as well as explore other features and options available for managing your projects in Supervisely.
+Just follow the simple steps shown in the illustrations below - you'll see how easy it is to change the **Project Name**, as well as explore other features and options available for managing your projects in Supervisely.
 
 <figure><img src="../../.gitbook/assets/create-project-dataset/project_edit_1.jpg" alt=""><figcaption></figcaption></figure>
 

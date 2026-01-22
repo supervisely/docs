@@ -12,7 +12,7 @@ There is no real limitation on the file size. By default every upload is limited
 
 ## Length limitation
 
-There is no real limitation on the video length, but the longer your video, the longer it would take to import your file. This happens because when you upload video file the first time, Supervisely calculates mapping between frame numbers and frame timestamps — thus, the more frames video has, the more work we need to do during import.
+There is no real limitation on the video length, but the longer your video, the longer it would take to import your file. This happens because when you upload video file the first time, Supervisely calculates mapping between frame numbers and frame timestamps - thus, the more frames video has, the more work we need to do during import.
 
 ## Resolution limitation
 

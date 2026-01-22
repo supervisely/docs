@@ -26,7 +26,7 @@ Supervisely is available [online](https://app.supervisely.com/signup) for free, 
 
 ### What's next?
 
-The best way to explore Supervisely is to try it out — so don't wait and [create an account](https://app.supervisely.com/signup) (it's completely free!). Here are some things to start with:
+The best way to explore Supervisely is to try it out - so don't wait and [create an account](https://app.supervisely.com/signup) (it's completely free!). Here are some things to start with:
 
 {% content-ref url="getting-started/How-to-import.md" %}
 [How-to-import.md](getting-started/How-to-import.md)

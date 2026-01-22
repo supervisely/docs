@@ -39,19 +39,19 @@ Clicking on the title of the **Quality Control Task** opens the Labeling Tool wi
 
 ## 1. Extended Accept/Reject Functionality
 
-Each object includes an additional panel called **Quality Check**, which contains two buttons: **`Accept`** and **`Reject`** — used to evaluate both the **geometry** and the **class** of the object.
+Each object includes an additional panel called **Quality Check**, which contains two buttons: **`Accept`** and **`Reject`** - used to evaluate both the **geometry** and the **class** of the object.
 
 <figure><img src="../../.gitbook/assets/labeling-quality-control/labeling-q-c-4a.jpg" alt=""><figcaption></figcaption></figure>
 
 This functionality allows the reviewer to indicate exactly what needs to be fixed by the annotator.
 
- For example, a reviewer can **reject** one or more **classes** or **geometries** in the image, providing detailed feedback on what needs to be fixed. The final click on the main **`Accept`** or **`Reject`** button—applied to the entire image—determines the status of all remaining classes and geometries that haven't been individually reviewed.
+ For example, a reviewer can **reject** one or more **classes** or **geometries** in the image, providing detailed feedback on what needs to be fixed. The final click on the main **`Accept`** or **`Reject`** button - applied to the entire image and determines the status of all remaining classes and geometries that haven't been individually reviewed.
  
 {% hint style="info" %}
 **Note**: This functionality is only displayed for those jobs that were created via the **Send Sample to QC** function.
 {% endhint %}
 
-This allows the reviewer to selectively reject only those elements that require changes, while all other classes and geometries will be **automatically** accepted when the reviewer clicks the **main `Accept` button—and vice versa**, if the reviewer accepts only specific elements and then clicks **Reject**, all others will be automatically rejected.
+This allows the reviewer to selectively reject only those elements that require changes, while all other classes and geometries will be **automatically** accepted when the reviewer clicks the **main `Accept` button and vice versa**, if the reviewer accepts only specific elements and then clicks **Reject**, all others will be automatically rejected.
 
 <figure><img src="../../.gitbook/assets/labeling-quality-control/labeling-q-c-5a.jpg" alt=""><figcaption></figcaption></figure>
 

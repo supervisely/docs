@@ -24,14 +24,14 @@
 
 <figure><img src="../../.gitbook/assets/interface-vlt-3.png" alt=""><figcaption></figcaption></figure>
 
-1. **Home button** — returns user to the main menu (Projects page)
-2. [Basic interface elements](videos-3.0.md#basic-interface-elements) — basic settings, such as history of operations, theme, a hotkeys map and more useful features.
-3. [Auto-Tracking](videos-3.0.md#auto-tracking) — button to start tracking and adjust tracking settings.
-4. [Main scene & labeling scene settings & playback](videos-3.0.md#main-scene-and-labeling-scene-settings-and-playback) — annotation area for current video and its labels.
-5. [Objects & Tags & Timeline](videos-3.0.md#objects-and-tags-and-timeline) — video timeline and overview of all objects and tags throughout the entire video.
-6. [Instruments panel](videos-3.0.md#instruments-panel) — annotation tools used to create annotations.
-7. [Definitions panel](videos-3.0.md#definitions-panel) — make it easy to create, manage and assign classes and tags.
-8. [Videos/Apps/Settings panel](videos-3.0.md#images-panel) — list of videos in your dataset, list of additional apps you can embed into the labeling toolbox, visualization and other settings.
+1. **Home button** - returns user to the main menu (Projects page)
+2. [Basic interface elements](videos-3.0.md#basic-interface-elements) - basic settings, such as history of operations, theme, a hotkeys map and more useful features.
+3. [Auto-Tracking](videos-3.0.md#auto-tracking) - button to start tracking and adjust tracking settings.
+4. [Main scene & labeling scene settings & playback](videos-3.0.md#main-scene-and-labeling-scene-settings-and-playback) - annotation area for current video and its labels.
+5. [Objects & Tags & Timeline](videos-3.0.md#objects-and-tags-and-timeline) - video timeline and overview of all objects and tags throughout the entire video.
+6. [Instruments panel](videos-3.0.md#instruments-panel) - annotation tools used to create annotations.
+7. [Definitions panel](videos-3.0.md#definitions-panel) - make it easy to create, manage and assign classes and tags.
+8. [Videos/Apps/Settings panel](videos-3.0.md#images-panel) - list of videos in your dataset, list of additional apps you can embed into the labeling toolbox, visualization and other settings.
 
 ***
 
@@ -101,7 +101,7 @@ The top toolbar contains options for personalizing the interface and managing da
 
 ## Auto-Tracking
 
-This smart functionality is powered by Supervisely Apps that work on top of existing tracking apps from our [ecosystem](https://ecosystem.supervisely.com/), such as [MixFormer](https://ecosystem.supervisely.com/apps/mixformer/serve/serve). Auto Tracking intelligently selects the right model based on the type of geometry you’re working with — whether it’s a bounding box, skeleton, mask, or other types.\
+This smart functionality is powered by Supervisely Apps that work on top of existing tracking apps from our [ecosystem](https://ecosystem.supervisely.com/), such as [MixFormer](https://ecosystem.supervisely.com/apps/mixformer/serve/serve). Auto Tracking intelligently selects the right model based on the type of geometry you’re working with - whether it’s a bounding box, skeleton, mask, or other types.\
 As you move through your video or modify labels, **Auto Tracking** predicts labels automatically. But it gets better! The feature is now enhanced with the latest AI developments. For example, it can detect when an **object leaves the scene and stop tracking it**.
 
 ***
@@ -143,7 +143,7 @@ As you move through your video or modify labels, **Auto Tracking** predicts labe
 
 **6. Tracking Engine**
 
-* **Selecting a Tracking Model**: Auto-Tracking supports multiple models, such as **Auto Track**, **MixFormer**, and **Serve Segment Anything**. Each model is suited to different tracking tasks — from general object tracking to precise segmentation tracking.
+* **Selecting a Tracking Model**: Auto-Tracking supports multiple models, such as **Auto Track**, **MixFormer**, and **Serve Segment Anything**. Each model is suited to different tracking tasks - from general object tracking to precise segmentation tracking.
 * Users can choose the model that best fits their project needs, such as tracking complex shapes or small objects.
 
 ***

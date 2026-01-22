@@ -7,12 +7,12 @@ Whether you're using our Community Edition or Enterprise Edition, this page is y
 
 ## Community Edition or Enterprise Edition?
 
-Not sure what edition you're using? No worries—we’ve got you covered.
+Not sure what edition you're using? No worries - we’ve got you covered.
 
 * If you open Supervisely at `https://app.supervisely.com`, you're using the **Community Edition**.
 * If you're accessing it through any other address, you're on the **Enterprise Edition**.
 
-Enterprise users receive **high-priority support**—you can reach out to us directly, and we’ll do our best to resolve your issue as soon as possible.\
+Enterprise users receive **high-priority support** - you can reach out to us directly, and we’ll do our best to resolve your issue as soon as possible.\
 If you're contacting us from a personal email address, please mention that you're an Enterprise user to help us prioritize your request.
 
 ### Cloud-hosted Enterprise Instances
@@ -77,7 +77,7 @@ Now, when you downloaded the logs, please share them with our support team for f
 
 In some cases, we'll need additional logs to diagnose the issue. You can change the log level in two ways:
 
-**Option A** — Start a new app session with a different log level
+**Option A** - Start a new app session with a different log level
 
 1. Launch the application and click on the `Advanced settings` option.
 2. Set the `Log Level` to `Debug` or `Trace` to capture more detailed logs.
@@ -85,7 +85,7 @@ In some cases, we'll need additional logs to diagnose the issue. You can change 
 
 <figure><img src="../.gitbook/assets/support/log-level-a.jpg" alt="Change Log Level"><figcaption></figcaption></figure>
 
-**Option B** — Re-run the same session with a different log level
+**Option B** - Re-run the same session with a different log level
 
 1. Open `Tasks & Apps` and find the previous session.
 2. Click `Run Again`.
@@ -111,7 +111,7 @@ If you encounter an error in the graphical user interface while not using any sp
 #### Enabling Remote Logs
 
 When something goes wrong, the fastest way for our team to help is by seeing what the system sees.\
-Remote logs allow Enterprise customers to securely send system-level logs to the Supervisely team in real time—so we can diagnose and resolve issues without needing a manual troubleshooting archive.
+Remote logs allow Enterprise customers to securely send system-level logs to the Supervisely team in real time - so we can diagnose and resolve issues without needing a manual troubleshooting archive.
 
 To enable remote log forwarding, run:
 

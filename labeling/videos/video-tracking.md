@@ -21,10 +21,10 @@ Creating custom datasets for tracking is labor-intensive. For example, a one-hou
 
 ## Deploying an AI tracking model
 
-Apart from other solutions, Supervisely is built like an OS. Instead of having a fixed number of video tracking algorithms, we provide a constantly growing Ecosystem of the best models. Pick the one you like, deploy it on your agent, select it in the Track Settings panel — and enjoy!
+Apart from other solutions, Supervisely is built like an OS. Instead of having a fixed number of video tracking algorithms, we provide a constantly growing Ecosystem of the best models. Pick the one you like, deploy it on your agent, select it in the Track Settings panel - and enjoy!
 
 {% hint style="info" %}
-For our Community Edition users we have a MixFormer model deployed on our GPUs and shared with everyone — but you can always run an agent on your computer and deploy any other model you like!
+For our Community Edition users we have a MixFormer model deployed on our GPUs and shared with everyone - but you can always run an agent on your computer and deploy any other model you like!
 {% endhint %}
 
 ## Some of the integrated AI tracking models:

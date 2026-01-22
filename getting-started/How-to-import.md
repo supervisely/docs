@@ -84,7 +84,7 @@ Let's start our journey with Supervisely by uploading our very first image. Of c
 
 We assume that you have already created an account in Supervisely. If not, you can create a free account in our Community Edition [here.](https://app.supervisely.com/signup)
 
-First thing you will see after you login to Supervisely, is your [Projects](/broken/pages/-M54fC5kfcVDMQPT05GQ) page where you can find your data. But there is nothing here yet — let’s fix that!
+First thing you will see after you login to Supervisely, is your [Projects](/broken/pages/-M54fC5kfcVDMQPT05GQ) page where you can find your data. But there is nothing here yet - let’s fix that!
 
 <figure><img src="../.gitbook/assets/import-project.png" alt=""><figcaption></figcaption></figure>
 

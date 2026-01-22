@@ -13,8 +13,8 @@ Custom Data allows you to store additional technical information in JSON format 
 
 Navigate to any project or dataset and click the **Info** tab. You'll find two sections:
 
-- **README** — Documentation in Markdown format
-- **Custom Data** — Technical data in JSON format
+- **README** - Documentation in Markdown format
+- **Custom Data** - Technical data in JSON format
 
 <figure><img src="../../../.gitbook/assets/custom-data/custom-data1.jpg" alt=""><figcaption></figcaption></figure>
 

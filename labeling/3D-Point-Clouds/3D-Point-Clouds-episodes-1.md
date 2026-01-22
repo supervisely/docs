@@ -20,12 +20,12 @@ Just like as specially designed [video labeling toolbox](../videos/) is remarkab
 
 <figure><img src="../../.gitbook/assets/3d-pc-interface (1).png" alt=""><figcaption></figcaption></figure>
 
-1. **Home button** — returns user to the main menu (Projects page)
-2. [Basic interface elements](3D-Point-Clouds-episodes-1.md#basic-interface-elements) — basic settings, such as history of operations, theme, a hotkeys map and more useful features.
-3. [Main scene & playback](3D-Point-Clouds-episodes-1.md#main-scene-and-playback) — annotation area for current point cloud episodes and its labels.
-4. [Timeline and track controls](3D-Point-Clouds-episodes-1.md#timeline-and-track-controls) —  video timeline and controls for managing tracks and frames.
-5. [Instruments panel](3D-Point-Clouds-episodes-1.md#instruments-panel) — annotation tools used to create annotations.
-6. [Objects & Settings panel](3D-Point-Clouds-episodes-1.md#objects-panel) — list of figures on the current pcd with additional information like classes, tags, and visualization and other settings.
+1. **Home button** - returns user to the main menu (Projects page)
+2. [Basic interface elements](3D-Point-Clouds-episodes-1.md#basic-interface-elements) - basic settings, such as history of operations, theme, a hotkeys map and more useful features.
+3. [Main scene & playback](3D-Point-Clouds-episodes-1.md#main-scene-and-playback) - annotation area for current point cloud episodes and its labels.
+4. [Timeline and track controls](3D-Point-Clouds-episodes-1.md#timeline-and-track-controls) -  video timeline and controls for managing tracks and frames.
+5. [Instruments panel](3D-Point-Clouds-episodes-1.md#instruments-panel) - annotation tools used to create annotations.
+6. [Objects & Settings panel](3D-Point-Clouds-episodes-1.md#objects-panel) - list of figures on the current pcd with additional information like classes, tags, and visualization and other settings.
 
 ***
 
@@ -63,7 +63,7 @@ This is the **main 3D window**, where users interact with the point cloud. It pr
 * **Cuboids**: These are 3D rectangular boxes drawn around objects within the point cloud. In this example, a car is outlined with a cuboid. These boxes are used to define the boundaries of objects, which are critical for subsequent object detection and classification tasks.
 * **Navigation and Manipulation**:
   * In the top-right corner of this window, there’s an indicator for the total number of points in the scene (62,364 in this case).
-  * The cuboids have **coordinate axes (X, Y, Z)** — colored arrows (blue, red, and green) to help users orient objects in space and adjust the annotations precisely.
+  * The cuboids have **coordinate axes (X, Y, Z)** - colored arrows (blue, red, and green) to help users orient objects in space and adjust the annotations precisely.
   * Users can navigate through the scene using the "Q, W, E, A, S, D" keys for camera movement, and the arrow keys for rotating the camera. This allows for a better understanding of the scene geometry.
 
 ### **Playback controls**
@@ -88,9 +88,9 @@ This is the **main 3D window**, where users interact with the point cloud. It pr
 
 These are **camera windows** displaying images from real-world camera setups. In this example, there are three camera views:
 
-1. **CAM\_FRONT\_LEFT** — showing the front-left view from the camera.
-2. **CAM\_BACK** — showing the rear view from the camera.
-3. **CAM\_BACK\_LEFT** — showing the back-left view.
+1. **CAM\_FRONT\_LEFT** - showing the front-left view from the camera.
+2. **CAM\_BACK** - showing the rear view from the camera.
+3. **CAM\_BACK\_LEFT** - showing the back-left view.
 
 These camera views work in sync with the main point cloud window, providing **additional visual information** about the scene. Users can:
 
@@ -103,9 +103,9 @@ Each camera window has small control icons, such as a **lock (to freeze the view
 
 These are views that show the annotated objects from different angles:
 
-1. **TOP View** — displays the object (e.g., a car) from above. This is useful for aligning object boundaries on the horizontal plane.
-2. **SIDE View** — shows the side view of the object, useful for adjusting height.
-3. **FRONT View** — provides a front-facing view, helping to place and refine the cuboid's dimensions.
+1. **TOP View** - displays the object (e.g., a car) from above. This is useful for aligning object boundaries on the horizontal plane.
+2. **SIDE View** - shows the side view of the object, useful for adjusting height.
+3. **FRONT View** - provides a front-facing view, helping to place and refine the cuboid's dimensions.
 
 These windows allow for **precise manipulation of cuboids** on all axes (X, Y, Z). Each window shows the object as a set of points, with white circles representing the cuboid’s corners that users can drag to adjust the size and position.
 

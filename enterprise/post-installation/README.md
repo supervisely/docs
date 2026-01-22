@@ -52,17 +52,17 @@ A good idea would be to check the "Instance Settings" page located in the admin'
 
 The **Server Configuration** section includes the necessary settings for the proper functioning of a server instance. The key components are:
 
-* **Core Instance Settings** — Critical parameters required for the Supervisely instance. Edit with extreme caution, as incorrect values may bring the instance down, requiring manual `.env` file adjustments.
-* [**Applications Autostart Settings**](./#configuring-automatic-launch-of-system-applications) — Configures the automatic start of applications on the instance, enabling required applications to launch automatically upon system startup.
-* **Server Address** — The public or local network address of the server where Supervisely is deployed. This address must be accessible by the machines running agents. Note: `localhost` is not a valid option here.
-* **Server Port** — The port used by Supervisely, with defaults of HTTP (80) and HTTPS (443) if HTTPS is configured. This can be changed if another application uses the same ports or if a reverse-proxy is configured. Ensure that ports 80 and 443 are enabled in the firewall or AWS security group.
-* **CDN Domain** — The network address of the server where Supervisely stores data. It should be publicly accessible or accessible within the local network.
-* **Data Folder** — The folder where Supervisely stores temporary and, if remote storage is not configured, permanent files. If this location is changed, existing files need to be moved to the new location. Avoid setting it to a network share (NFS or SMB), as this significantly impacts performance.
-* **Disable Plugins** — A flag to disable plugins. The default is set to OFF.
-* **Enable Apps Background Updates** — Enables background updates for applications. If disabled, applications are only updated when the instance itself is upgraded.
-* **Public API Pagination Limit** — Sets the number of items returned by the Public API per page. The default value is 500.
-* **Docker Compose Project** — The Docker Compose `COMPOSE_PROJECT_NAME` variable. Ensure it is unique across your server.
-* **Postgres Memory** — The shared memory size allocated for Postgres.
+* **Core Instance Settings** - Critical parameters required for the Supervisely instance. Edit with extreme caution, as incorrect values may bring the instance down, requiring manual `.env` file adjustments.
+* [**Applications Autostart Settings**](./#configuring-automatic-launch-of-system-applications) - Configures the automatic start of applications on the instance, enabling required applications to launch automatically upon system startup.
+* **Server Address** - The public or local network address of the server where Supervisely is deployed. This address must be accessible by the machines running agents. Note: `localhost` is not a valid option here.
+* **Server Port** - The port used by Supervisely, with defaults of HTTP (80) and HTTPS (443) if HTTPS is configured. This can be changed if another application uses the same ports or if a reverse-proxy is configured. Ensure that ports 80 and 443 are enabled in the firewall or AWS security group.
+* **CDN Domain** - The network address of the server where Supervisely stores data. It should be publicly accessible or accessible within the local network.
+* **Data Folder** - The folder where Supervisely stores temporary and, if remote storage is not configured, permanent files. If this location is changed, existing files need to be moved to the new location. Avoid setting it to a network share (NFS or SMB), as this significantly impacts performance.
+* **Disable Plugins** - A flag to disable plugins. The default is set to OFF.
+* **Enable Apps Background Updates** - Enables background updates for applications. If disabled, applications are only updated when the instance itself is upgraded.
+* **Public API Pagination Limit** - Sets the number of items returned by the Public API per page. The default value is 500.
+* **Docker Compose Project** - The Docker Compose `COMPOSE_PROJECT_NAME` variable. Ensure it is unique across your server.
+* **Postgres Memory** - The shared memory size allocated for Postgres.
 
 #### Configuring automatic launch of system applications
 

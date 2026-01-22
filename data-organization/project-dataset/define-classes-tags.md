@@ -25,10 +25,10 @@ The **Definitions** tab, available both in the Project and in the Labeling Tool,
 * **Editing**: each class and tag can be edited by changing its parameters such as name, color, scope and value type.
 * **Archiving**: if a class or tag is not needed temporarily, it can be archived so that it is not displayed in the list of active elements but remains in the project. Archived classes and tags can be restored at any time.
 * **Sorting**: Sort classes and tags to quickly find the elements you need.
-  * **Newest (default)** — displays the most recently created items first.
-  * **Oldest** — displays the oldest items first.
-  * **Name (A-Z)** and **Name (Z-A)** — sorts items alphabetically in ascending or descending order.
-  * **Shape (A-Z)** and **Shape (Z-A)** — **(for classes only)** sorts items by shape type in ascending or descending order.
+  * **Newest (default)** - displays the most recently created items first.
+  * **Oldest** - displays the oldest items first.
+  * **Name (A-Z)** and **Name (Z-A)** - sorts items alphabetically in ascending or descending order.
+  * **Shape (A-Z)** and **Shape (Z-A)** - **(for classes only)** sorts items by shape type in ascending or descending order.
 
 <div><figure><img src="../../.gitbook/assets/classes0.png" alt=""><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/tags.png" alt=""><figcaption></figcaption></figure></div>
 
@@ -49,10 +49,10 @@ Tags provide a more flexible and free way to describe, while classes provide a f
 
 **Classes** are object categories used to annotate images and video by creating shapes on objects. Each class represents an object type, and each annotated object in an image or video frame has exactly one class associated with it.
 
-* **TITLE** — the name of the class. The name should be unique and clearly describe the object, for example, "Person," "Car," or "Tree."
-* **SHAPE** — the annotation shape for the class. Available options include [Bounding Box](../../labeling/labeling-tools/bounding-box-rectangle-tool.md), [Mask](../../labeling/labeling-tools/mask-pen-tool.md), [Polygon](../../labeling/labeling-tools/polygon-tool.md), [Keypoints](../../labeling/labeling-tools/graph-keypoints-tool.md), [Points](../../labeling/labeling-tools/point-tool.md), [Line](../../labeling/labeling-tools/polyline-tool.md), Cuboid 2D, Alpha Mask, and Any Shape.
-* **COLOR** — the color assigned to the class, displayed on the screen to visually differentiate the annotation.
-* **HOTKEY** — a shortcut key assigned to the class for quick annotation during labeling.
+* **TITLE** - the name of the class. The name should be unique and clearly describe the object, for example, "Person," "Car," or "Tree."
+* **SHAPE** - the annotation shape for the class. Available options include [Bounding Box](../../labeling/labeling-tools/bounding-box-rectangle-tool.md), [Mask](../../labeling/labeling-tools/mask-pen-tool.md), [Polygon](../../labeling/labeling-tools/polygon-tool.md), [Keypoints](../../labeling/labeling-tools/graph-keypoints-tool.md), [Points](../../labeling/labeling-tools/point-tool.md), [Line](../../labeling/labeling-tools/polyline-tool.md), Cuboid 2D, Alpha Mask, and Any Shape.
+* **COLOR** - the color assigned to the class, displayed on the screen to visually differentiate the annotation.
+* **HOTKEY** - a shortcut key assigned to the class for quick annotation during labeling.
 
 <figure><img src="../../.gitbook/assets/classes-1.png" alt=""><figcaption></figcaption></figure>
 
@@ -75,22 +75,22 @@ Tags provide a more flexible and free way to describe, while classes provide a f
 
 **Tags** serve as data annotation and classification tool. These attributes, assigned to images/videos or labeled objects, make it simple to sort things and give important information about what's in an image.
 
-* **TITLE** — the name of the tag. Like classes, tags should have unique names, for example, "Highway", "Traffic Density", "Action".
-* **APPLICABLE TO** — the scope of the tag's application (e.g., video only, objects only, videos and objects).
+* **TITLE** - the name of the tag. Like classes, tags should have unique names, for example, "Highway", "Traffic Density", "Action".
+* **APPLICABLE TO** - the scope of the tag's application (e.g., video only, objects only, videos and objects).
   *   **Image Tags:** Apply to images and provide information like category, properties (resolution), geographic details, and content.
 
       **Object Tags:** Apply to objects within images, detailing characteristics (e.g., "broken" equipment), state (e.g., "ripe" fruit), and localization (e.g., "anterior" placenta).
   * Some tags can be applied to **both images and objects**. Such Tags may describe both image characteristics and individual objects at the same time, providing comprehensive labeling.
-* **SCOPE** (**for videos project)** — the tag’s range of application:
-  * **Global** — the tag applies to the entire video or object.
-  * **Frame-based** — the tag applies only to specific frames in the video.
-  * **Global and Frame-based** — allows you to use a tag for the entire video or object as well as for individual frames at the same time. This means that you can set a global tag for the entire video or object, denoting a permanent property, and apply it to individual frames to label temporary changes or events.
-* **TAG VALUE TYPE** — the type of value associated with the tag:
+* **SCOPE** (**for videos project)** - the tag’s range of application:
+  * **Global** - the tag applies to the entire video or object.
+  * **Frame-based** - the tag applies only to specific frames in the video.
+  * **Global and Frame-based** - allows you to use a tag for the entire video or object as well as for individual frames at the same time. This means that you can set a global tag for the entire video or object, denoting a permanent property, and apply it to individual frames to label temporary changes or events.
+* **TAG VALUE TYPE** - the type of value associated with the tag:
   * **None (Tag without Value):** Used to flag specific properties. For example, a tag "train" might mark data for neural network training.
   * **Text Tag:** Contains textual descriptions or comments about the object or image.
   * **Number Tag:** Represents numeric properties, useful for regression tasks (e.g., size, weight).
   * **One of:** Indicates that the value must be one of a predefined set, such as colors (Red, Blue, Green).
-* **COLOR** — the color displayed on the screen to make the tag easily identifiable.
+* **COLOR** - the color displayed on the screen to make the tag easily identifiable.
 
 <figure><img src="../../.gitbook/assets/tags-1.png" alt=""><figcaption></figcaption></figure>
 
@@ -132,7 +132,7 @@ To learn more about the practical uses of tags and explore advanced tools, check
 
 **Classes** and **Tags** created manually by an annotator inside the Labeling Tool (during the annotation process) are automatically added to the project’s **Definitions** on the Projects page.
 
-These classes and tags immediately become available to all team members — they appear in the Labeling Tool for other annotators as well.
+These classes and tags immediately become available to all team members - they appear in the Labeling Tool for other annotators as well.
 
 **This behavior enables the following:**
 
