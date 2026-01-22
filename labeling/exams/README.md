@@ -2,7 +2,7 @@
 
 Creating large and diverse computer vision datasets requires working with a huge labeling workforce. That, in turn, requires professional tools to educate and examine them.
 
-Why do we need **Labeling Guides** and **Labeling Exams**? Let’s consider several important observations:
+Why do we need **Labeling Guides** and **Labeling Exams**? Let's consider several important observations:
 
 * Usually, an annotator has concrete **domain specialization**: self-driving cars, agriculture, satellite imagery, medicine, and so on
 * Not every annotator **properly understands** labeling requirements, thus sometimes they make **systematic errors** during labeling
@@ -40,6 +40,6 @@ Detailed error analysis at your fingertips. There are several tables with **geom
 
 ### Notifications for managers and reviewers
 
-Notifications allow you to don’t miss relevant information and stay informed of what’s going on.
+Notifications allow you to don't miss relevant information and stay informed of what's going on.
 
 <figure><img src="../../.gitbook/assets/notification.png" alt=""><figcaption></figcaption></figure>

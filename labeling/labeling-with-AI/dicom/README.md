@@ -7,7 +7,7 @@ description: >-
 
 ## Interactive labeling models
 
-Medical 3D volumes (CT/MRI) can have hundreds of slices per plane. After DICOM data is imported to Supervisely, slices are generated in 3 planes: axial, sagittal and coronal. Even though segmentation is done on 2D images, you always know each slice’s location in the 3D volume. In Supervisely DICOM labeling tool you can label volume slices as usual 2D images with the help of interactive segmention models.
+Medical 3D volumes (CT/MRI) can have hundreds of slices per plane. After DICOM data is imported to Supervisely, slices are generated in 3 planes: axial, sagittal and coronal. Even though segmentation is done on 2D images, you always know each slice's location in the 3D volume. In Supervisely DICOM labeling tool you can label volume slices as usual 2D images with the help of interactive segmention models.
 
 <figure><img src="https://github.com/user-attachments/assets/073e1cca-1b12-4820-9240-14cc506f0ca7" alt=""><figcaption></figcaption></figure>
 

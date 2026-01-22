@@ -57,7 +57,7 @@ Supervisely's 3D AI assistant is a universal tool for automating 3D point cloud 
 
 - The labeled object will now be **selected automatically**.
 - The **Select Figure tool** becomes active by default, while the Cuboid auto-labeling tool remains enabled in the background.
-- To label the next object, press `Space` to deselect the current object - the **Cuboid tool reattaches** to your cursor and you’re ready to click on the next group of points.
+- To label the next object, press `Space` to deselect the current object - the **Cuboid tool reattaches** to your cursor and you're ready to click on the next group of points.
 
 This loop allows for rapid labeling of multiple objects in sequence with minimal effort.
 
@@ -175,16 +175,16 @@ The photo context panel is now an interactive part of the 3D labeling workspace.
 You can annotate context images directly using standard image labeling tools. These annotations are automatically synchronized with the 3D space and become part of the same object instance.  
 2D and 3D annotations now coexist at the same level - edits or creation in one view are instantly reflected in the other. This improves labeling precision and scene understanding, especially when certain features are more visible in 2D.
 
-Let’s walk through how to use each image annotation tool:
+Let's walk through how to use each image annotation tool:
 
 - #### **Bounding Box Tool**
 
-    We’ll start with the **Bounding Box Tool**:
+    We'll start with the **Bounding Box Tool**:
 
     1. **Activate the image window** by clicking directly on a photo context image.
 
     2. In the **left sidebar**, select the **Bounding Box Tool**.  
-    If you don’t have a class created yet for this geometry type, a modal window will open - configure and create a new class, then close the modal.
+    If you don't have a class created yet for this geometry type, a modal window will open - configure and create a new class, then close the modal.
 
     3. **Draw a bounding box** around the desired object in the image window.  
     A rectangular shape (2D mask) will appear and be added to the **Definitions panel** and the **timeline**.
@@ -231,7 +231,7 @@ Let’s walk through how to use each image annotation tool:
     1. **Activate the image window** by clicking on a photo context image.
 
     2. In the **left sidebar**, select the **Smart Tool**.  
-    If you don’t have a bitmap class created yet, a modal window will open - configure and create a new class of type bitmap, then close the modal.
+    If you don't have a bitmap class created yet, a modal window will open - configure and create a new class of type bitmap, then close the modal.
 
     3. **Draw the mask** over the desired object using your mouse.  
     The SmartTool will automatically detect the object shape and generate a **bitmap mask**.  

@@ -144,13 +144,13 @@ When you need to adjust or remove an existing tag's range, select the frame-base
 Click the **Hotkeys** menu item at the top right of the **Definitions** panel to view or customize shortcuts.
 
 #### 1. **Timeline Navigation**
-In the **Timeline** section, you’ll find navigation hotkeys:
+In the **Timeline** section, you'll find navigation hotkeys:
 
 - **Go to next tag segment** - `CTRL` + `SHIFT` + `→`  
 - **Go to previous tag segment** - `CTRL` + `SHIFT` + `←`
 
 #### 2. **Tag Creation & Editing**
-In the **Tags** section, you’ll find hotkeys for creating and editing tags:
+In the **Tags** section, you'll find hotkeys for creating and editing tags:
 
 - **Add tag on selected frames or current frame** - `SHIFT` + `Q`  
 - **Change value of the current tag segment** - `SHIFT` + `E`  

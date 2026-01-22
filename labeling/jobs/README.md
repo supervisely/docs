@@ -16,7 +16,7 @@ Learn more about Labeling Jobs in [Mastering Labeling Jobs: Your Ultimate Guide.
 
 ### Roles in Labeling Jobs
 
-Roles define team members’ responsibilities and permissions within the annotation process. Each member is assigned a role on the Members page, and a single user can have different roles across teams.
+Roles define team members' responsibilities and permissions within the annotation process. Each member is assigned a role on the Members page, and a single user can have different roles across teams.
 
 #### 📋 Manager
 
@@ -89,7 +89,7 @@ Annotators should:
 1. Read technical specifications.
 2. Use the annotation toolbox to label data with predefined classes.
 3. Confirm the task is completed and submit it for review.
-4. Once submitted, the job is marked as completed and removed from the Annotator’s list.
+4. Once submitted, the job is marked as completed and removed from the Annotator's list.
 
 ### Step 3. Review and Quality Control
 

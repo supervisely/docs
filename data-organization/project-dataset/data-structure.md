@@ -28,7 +28,7 @@ A member may leave or delete a personal **Team**, provided that they remain asso
 
 Each **Team** must always have at least one **Workspace**, although it doesn't have to be the original one created at registration.
 
-The Supervisely system strictly enforces these rules and will not allow any actions that would violate them. For example, you won’t be able to delete your last remaining Team or its only Workspace.
+The Supervisely system strictly enforces these rules and will not allow any actions that would violate them. For example, you won't be able to delete your last remaining Team or its only Workspace.
 
 #### 3. Creating & Managing Teams
 
@@ -60,9 +60,9 @@ Inside a **Dataset**, you can create **Sub-Datasets**, enabling flexible and dee
 
 <figure><img src="../../.gitbook/assets/data-structure/d-s-default-scheme3.jpg" alt=""><figcaption></figcaption></figure>
 
-Let’s repeat an important rule: at the **Project** level, you cannot store files directly - only **Datasets** can exist there. Files and **Sub-Datasets** can only be added inside a **Dataset**.
+Let's repeat an important rule: at the **Project** level, you cannot store files directly - only **Datasets** can exist there. Files and **Sub-Datasets** can only be added inside a **Dataset**.
 
-You can think of **Datasets** as folders and **Sub-Datasets** as **subfolders**. This allows you to recreate complex directory structures exactly the way you organize data on your local machine or in your company’s cloud storage. It’s especially useful if you’re working with a shared storage system that already follows a specific hierarchy - you can mirror that same structure inside Supervisely without restrictions.
+You can think of **Datasets** as folders and **Sub-Datasets** as **subfolders**. This allows you to recreate complex directory structures exactly the way you organize data on your local machine or in your company's cloud storage. It's especially useful if you're working with a shared storage system that already follows a specific hierarchy - you can mirror that same structure inside Supervisely without restrictions.
 
 To create a sub-dataset inside an existing dataset:
 

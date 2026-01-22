@@ -42,4 +42,4 @@ Admins have the ability to temporarily log in as a team member for troubleshooti
 
 **Permission Verification:** Confirm that team members have the correct access rights.
 
-**Data Review:** Ensure the integrity and organization of a team’s workspace.
+**Data Review:** Ensure the integrity and organization of a team's workspace.

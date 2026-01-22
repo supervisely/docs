@@ -7,9 +7,9 @@ description: >-
 If you are looking for the 3D Point Cloud Labeling Toolbox page, you can find it [here](./3D-Point-Clouds/3D-point-cloud-episodes-2.md)
 {% endhint %}
 
-The **Labeling Performance** page is a powerful analytics tool designed to provide detailed statistics about the data annotation process within your projects. It helps you track team efficiency, monitor each member’s contributions, identify bottlenecks, manage annotation quality, and make informed decisions based on real data.
+The **Labeling Performance** page is a powerful analytics tool designed to provide detailed statistics about the data annotation process within your projects. It helps you track team efficiency, monitor each member's contributions, identify bottlenecks, manage annotation quality, and make informed decisions based on real data.
 
-# Why it’s beneficial to use Supervisely statistics
+# Why it's beneficial to use Supervisely statistics
 
 **Supervisely** provides an extended analytics system that allows users to analyze labeling performance across the entire team and all projects simultaneously. This system is available absolutely free of charge for all users, including those on the Free plan.
 The platform offers a wide range of filters to enable flexible, personalized, and in-depth analytics. This is especially valuable for companies and teams looking to improve annotation processes, utilize resources efficiently, and increase the quality of data used for training AI models.
@@ -17,7 +17,7 @@ The platform offers a wide range of filters to enable flexible, personalized, an
 ## How to use the Labeling Performance page
 
 **Filters**
-In the upper-right corner of the page, you’ll find several filters that directly affect the data shown in all the charts:
+In the upper-right corner of the page, you'll find several filters that directly affect the data shown in all the charts:
 
 * **Time period filter**
 * **Data type filter** (images, videos, DICOM volumes, point clouds, point cloud episodes)
@@ -70,7 +70,7 @@ The number of assets (images, videos, DICOM volumes, point clouds) whose status 
   * In **Queues**, this status may include both assets waiting to be annotated and those currently in progress.
 
 {% hint style="info" %}
-**Note:** The **Pending** status does **not** depend on the job’s creation date. Even if a Labeling Job was created a year ago, its assets will still appear in this chart as long as the job remains active and is not finished or stopped.
+**Note:** The **Pending** status does **not** depend on the job's creation date. Even if a Labeling Job was created a year ago, its assets will still appear in this chart as long as the job remains active and is not finished or stopped.
 {% endhint %}
 
 * **Submitted** - annotation has been completed and the asset has been submitted for review.
@@ -80,7 +80,7 @@ The number of assets (images, videos, DICOM volumes, point clouds) whose status 
 * **Accepted** - the asset was reviewed and approved. No further actions are required.
 
 {% hint style="info" %}
-**Note:** A status change doesn’t always mean the annotations themselves were edited. For example, an asset’s status can change even if no actual labels were modified, and vice versa.
+**Note:** A status change doesn't always mean the annotations themselves were edited. For example, an asset's status can change even if no actual labels were modified, and vice versa.
 {% endhint %}
 
 **How to use it:**<br>
@@ -135,7 +135,7 @@ A list of objects grouped by their class names, sorted in descending order of ob
 
 **How to use:**<br>
 Understand which object classes dominate your annotations.
-Useful for identifying class imbalance across your team’s annotations - especially important when training AI models.
+Useful for identifying class imbalance across your team's annotations - especially important when training AI models.
 
 ### Scatter Chart
 
@@ -179,7 +179,7 @@ Enables you to evaluate the overall annotation workload and how productivity cha
 
 **What it shows:**<br>
 The total number of labeling actions, specifically including the creation of objects (geometries) and the assignment of pre-existing tags directly within the labeling tool.<br>
-It **does not** include actions like creating or defining classes or tags as entities in the project’s Definitions tab.
+It **does not** include actions like creating or defining classes or tags as entities in the project's Definitions tab.
 
 **How to Use:**<br>
 Provides a detailed view of actual annotation activity, independent of asset status.
@@ -236,7 +236,7 @@ Where:
 
 **How to Use:**<br>
 Helps assess efficiency and compare team performance.<br>
-If the team’s overall labeling speed has suddenly decreased, it may indicate that specific team members are slowing down the process. To investigate, go to the **Members Performance Table**, locate the **Labeling Speed** column, and sort it in ascending order. This will bring the slowest-performing members to the top of the list for further analysis.
+If the team's overall labeling speed has suddenly decreased, it may indicate that specific team members are slowing down the process. To investigate, go to the **Members Performance Table**, locate the **Labeling Speed** column, and sort it in ascending order. This will bring the slowest-performing members to the top of the list for further analysis.
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-labeling-speed.jpg" alt=""><figcaption></figcaption></figure>
 <br>
@@ -356,7 +356,7 @@ This table consolidates statistics by **class** or **tag**. By default, class st
 
 **In Class mode:**
 
-* **Class name** - The name of the class as defined in the project’s labeling configuration (e.g., "Car", "Person", "Tree"),
+* **Class name** - The name of the class as defined in the project's labeling configuration (e.g., "Car", "Person", "Tree"),
 * **Objects** – The total number of objects assigned to this class during the selected time period. These are counted across all projects and data types,
 * **Assets** – The number of unique assets (images, videos, DICOM volumes, point clouds, point cloud episodes) containing this class,
 * **Labeling Time per Object (seconds)** - The average time spent actively creating or editing each object of this class, excluding idle time and non-annotation activity,
@@ -372,7 +372,7 @@ This table consolidates statistics by **class** or **tag**. By default, class st
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-tag.jpg" alt=""><figcaption></figcaption></figure>
 
-Here’s a clear and user-friendly addition in English for the article, explaining all the ways to navigate to the **Labeling Performance** page with contextual filters applied:
+Here's a clear and user-friendly addition in English for the article, explaining all the ways to navigate to the **Labeling Performance** page with contextual filters applied:
 
 # How to Access the Labeling Performance Page
 
@@ -394,7 +394,7 @@ There are several convenient ways to navigate to the **Labeling Performance** pa
    <figure><img src="../.gitbook/assets/labeling-performance/lp-3a.jpg" alt=""><figcaption></figcaption></figure>
    <br>
 4. **From the Labeling Jobs Page**
-   On the **Labeling Jobs** page, you’ll find a **Performance** button located under each job. Clicking it will take you directly to the Labeling Performance page with the **corresponding job filter** automatically applied.
+   On the **Labeling Jobs** page, you'll find a **Performance** button located under each job. Clicking it will take you directly to the Labeling Performance page with the **corresponding job filter** automatically applied.
    <br>
    <figure><img src="../.gitbook/assets/labeling-performance/lp-4.jpg" alt=""><figcaption></figcaption></figure>
    <br>

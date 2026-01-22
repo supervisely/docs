@@ -83,7 +83,7 @@ You can close the entire issue or you can create a single issue and attach a lof
 
 ## Difference
 
-Supervisely’s issue tracking is special because of our focus on collaboration and visualization tools during labeling. Every item can be discussed and resolved separately. For images and objects, a user sees initial labels (when the issue was created) and a final result.
+Supervisely's issue tracking is special because of our focus on collaboration and visualization tools during labeling. Every item can be discussed and resolved separately. For images and objects, a user sees initial labels (when the issue was created) and a final result.
 
 It is especially useful for tracking how labeling mistakes are fixed over time. Managers and reviewers can easily track changes by comparing the differences between initial and final labels.
 
@@ -95,4 +95,4 @@ Issues evolve over time: titles change, items resolve, new items appear, discuss
 
 <figure><img src="../../.gitbook/assets/conversation.png" alt=""><figcaption></figcaption></figure>
 
-**Notifications** provide important updates about the conversations and activities you’re involved in. Users don’t miss relevant information and stay informed of what’s going on. Notifications are available through email or right in Supervisely dashboard.
+**Notifications** provide important updates about the conversations and activities you're involved in. Users don't miss relevant information and stay informed of what's going on. Notifications are available through email or right in Supervisely dashboard.

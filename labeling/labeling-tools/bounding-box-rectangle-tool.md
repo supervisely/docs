@@ -77,7 +77,7 @@ Bounding boxes can be seamlessly combined with both semi-automated and fully aut
 
 ### **Semi-Automated Object Detection with OWL-ViT**
 
-[OWL-ViT](https://ecosystem.supervisely.com/apps/serve-owl-vit?utm\_source=blog) (Vision Transformer for Open-World Localization) uses bounding boxes as a reference to improve object detection. Here’s how it works:
+[OWL-ViT](https://ecosystem.supervisely.com/apps/serve-owl-vit?utm\_source=blog) (Vision Transformer for Open-World Localization) uses bounding boxes as a reference to improve object detection. Here's how it works:
 
 * **Reference Image Mode**: Annotate an object with a bounding box in a reference image, and OWL-ViT will use this to identify similar objects in other images.
 * **Text Prompt Mode**: Define objects using text descriptions, and OWL-ViT will detect these objects across your dataset.

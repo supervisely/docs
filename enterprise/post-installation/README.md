@@ -34,7 +34,7 @@ To invite a new user to a specific team:
   1. Select the desired team from the list.
   2. Click "Manage members" from the dropdown menu.
   3. Click the "Invite" button in the upper right corner.
-  4. Enter the user’s login and assign a role.
+  4. Enter the user's login and assign a role.
   5. Confirm the invitation.
 
 The invited user will receive a notification.
@@ -156,7 +156,7 @@ At the moment, there are three system apps available:
 
 The **Default Agent Options** define the configuration and behavior of agents when they are deployed for the first time. These settings will not affect agents that have already been deployed; if you want changes to apply to an existing agent, you need to **re-deploy it** from the **Cluster page** using the "Instructions" button.
 
-Here’s an overview of each default option:
+Here's an overview of each default option:
 
 ***
 
@@ -265,7 +265,7 @@ The **Labeling Settings** section controls various aspects of the annotation pro
 
 * **Description**: Controls the default JPEG quality for previewing images during labeling.
 * **Default Value**: **100** (highest quality).
-* **Use Case**: Lowering the quality can speed up image loading for previews in large projects, especially when detailed analysis isn’t required.
+* **Use Case**: Lowering the quality can speed up image loading for previews in large projects, especially when detailed analysis isn't required.
 
 ***
 
@@ -301,7 +301,7 @@ The **Authorization Settings** section controls who can log in to Supervisely an
 
 **LDAP Authorization**
 
-LDAP (Lightweight Directory Access Protocol) settings enable authentication using an organization’s directory service.
+LDAP (Lightweight Directory Access Protocol) settings enable authentication using an organization's directory service.
 
 * **Server URL**:
   * The URL of the LDAP server.
@@ -336,7 +336,7 @@ LDAP (Lightweight Directory Access Protocol) settings enable authentication usin
 
 **Disable Built-in Logins**
 
-* **Description**: Disables Supervisely’s native login system to allow only LDAP or OpenID authentication.
+* **Description**: Disables Supervisely's native login system to allow only LDAP or OpenID authentication.
 * **Default Status**: **OFF** (disabled).
 * **Use Case**: Enable if you want to centralize login management through LDAP or OpenID only.
 
@@ -369,7 +369,7 @@ LDAP (Lightweight Directory Access Protocol) settings enable authentication usin
 
 ### Miscellaneous Settings
 
-The **Miscellaneous Settings** category includes options that don’t fit into specific categories but provide important functionality for security, notifications, and file upload verification. Here’s an explanation of each setting:
+The **Miscellaneous Settings** category includes options that don't fit into specific categories but provide important functionality for security, notifications, and file upload verification. Here's an explanation of each setting:
 
 ***
 
@@ -415,7 +415,7 @@ Cloud credentials allow Supervisely to connect to external cloud services or rem
 #### **Key Features**
 
 1. **Supported Providers**:
-   * **AWS (Amazon Web Services)**: Access S3 buckets for importing data stored in Amazon’s cloud.
+   * **AWS (Amazon Web Services)**: Access S3 buckets for importing data stored in Amazon's cloud.
    * **Google Cloud**: Connect to Google Cloud Storage buckets.
    * **Azure**: Access data stored in Microsoft Azure Storage.
    * **Server File System**: For remote imports from file systems on network servers or similar setups.
@@ -482,9 +482,9 @@ The **HTTPS** section in Supervisely allows you to configure secure communicatio
 
 ***
 
-**Let’s Encrypt**
+**Let's Encrypt**
 
-* **Description**: Automatically acquires a free SSL/TLS certificate from Let’s Encrypt.
+* **Description**: Automatically acquires a free SSL/TLS certificate from Let's Encrypt.
 * **Requirements**:
   * A **publicly accessible server address** is required.
   * Supervisely will handle certificate renewal automatically.

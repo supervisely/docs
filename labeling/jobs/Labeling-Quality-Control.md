@@ -1,6 +1,6 @@
 ---
 description: >-
- This article provides an overview of the Labeling Quality Control process in image projects using Supervisely’s dedicated functionality.
+ This article provides an overview of the Labeling Quality Control process in image projects using Supervisely's dedicated functionality.
 ---
 
 # Labeling Quality Control

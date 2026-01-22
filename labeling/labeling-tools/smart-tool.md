@@ -30,7 +30,7 @@ Different models work better for different types of tasks or images. The Smart T
 
 #### **Model Customization**
 
-Supervisely offers the ability to integrate custom-trained AI models into the Smart Tool. This is particularly useful for specialized tasks where default models may not achieve the desired accuracy. Simply upload and configure your custom model to enhance the tool’s capabilities for your unique segmentation requirements.
+Supervisely offers the ability to integrate custom-trained AI models into the Smart Tool. This is particularly useful for specialized tasks where default models may not achieve the desired accuracy. Simply upload and configure your custom model to enhance the tool's capabilities for your unique segmentation requirements.
 
 ***
 
@@ -53,7 +53,7 @@ While the AI does most of the heavy lifting, manual fine-tuning tools such as th
 
 ### Create class with Mask shape
 
-You can create a new class directly from the Annotation Toolbox to use with the Smart Tool. Here’s how to do it:
+You can create a new class directly from the Annotation Toolbox to use with the Smart Tool. Here's how to do it:
 
 1. Click on the **Smart Tool icon** in the toolbar of the labeling interface.
 2. Alternatively, select an existing object class or add a new class by clicking **Add new class definition**.
@@ -71,7 +71,7 @@ Select an appropriate model (e.g., RITM or SAM) based on your specific task. The
 **Define Object Boundaries**
 
 {% hint style="info" %}
-**Pro Tip**: The initial bounding box doesn’t need to be tightly aligned with the object. Leave about 10% padding from the object’s boundary to give the model more context.
+**Pro Tip**: The initial bounding box doesn't need to be tightly aligned with the object. Leave about 10% padding from the object's boundary to give the model more context.
 {% endhint %}
 
 1. Click on the regions or draw rough boundaries around objects in the image.
@@ -94,8 +94,8 @@ Use the **Brush** or **Pen Tool** for any necessary manual adjustments
 
 ### Pro Tips
 
-* **Initial bounding box placement:** You don’t need to draw the bounding box precisely around the object’s boundaries. Leave about a **10% padding** around the object. This allows the AI to capture more context, resulting in more accurate segmentation, especially near the object’s edges.
-* **Model switching for best results:** If you’re working with a variety of images or tasks, experiment with different models to identify which one yields the most accurate segmentation for your data.
+* **Initial bounding box placement:** You don't need to draw the bounding box precisely around the object's boundaries. Leave about a **10% padding** around the object. This allows the AI to capture more context, resulting in more accurate segmentation, especially near the object's edges.
+* **Model switching for best results:** If you're working with a variety of images or tasks, experiment with different models to identify which one yields the most accurate segmentation for your data.
 * **Leverage custom models:** For highly specialized tasks, integrating a custom-trained model can significantly enhance accuracy and efficiency.
 
 

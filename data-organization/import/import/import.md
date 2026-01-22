@@ -4,7 +4,7 @@ As you already know, we have a concept of [projects and datasets](../../overview
 
 Dataset formats are very different (coco, cityscapes and others), and there are many more modalities (images, videos and others), and even just with images, there are many variations of file formats.
 
-We don’t want you to convert anything yourself, so, to deal with that, here at Supervisely we’ve put together a number of [Supervisely Apps](https://ecosystem.supervisely.com/import) for every format out there (and if we don’t have one, you can write an [app import yourself](https://supervisely.readthedocs.io/en/latest/sdk\_packages.html) or use the [API](https://api.docs.supervisely.com/)).
+We don't want you to convert anything yourself, so, to deal with that, here at Supervisely we've put together a number of [Supervisely Apps](https://ecosystem.supervisely.com/import) for every format out there (and if we don't have one, you can write an [app import yourself](https://supervisely.readthedocs.io/en/latest/sdk\_packages.html) or use the [API](https://api.docs.supervisely.com/)).
 
 Using Supervisely Apps or API, you can turn your images, videos and annotations into Supervisely projects and datasets: they will be stored in the [Supervisely Format](../../supervisely-format.md) and at any time you can [download](../export/export.md) them in this or another format.
 

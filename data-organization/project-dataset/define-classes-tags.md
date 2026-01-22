@@ -81,7 +81,7 @@ Tags provide a more flexible and free way to describe, while classes provide a f
 
       **Object Tags:** Apply to objects within images, detailing characteristics (e.g., "broken" equipment), state (e.g., "ripe" fruit), and localization (e.g., "anterior" placenta).
   * Some tags can be applied to **both images and objects**. Such Tags may describe both image characteristics and individual objects at the same time, providing comprehensive labeling.
-* **SCOPE** (**for videos project)** - the tag’s range of application:
+* **SCOPE** (**for videos project)** - the tag's range of application:
   * **Global** - the tag applies to the entire video or object.
   * **Frame-based** - the tag applies only to specific frames in the video.
   * **Global and Frame-based** - allows you to use a tag for the entire video or object as well as for individual frames at the same time. This means that you can set a global tag for the entire video or object, denoting a permanent property, and apply it to individual frames to label temporary changes or events.
@@ -104,7 +104,7 @@ Tags provide a more flexible and free way to describe, while classes provide a f
    * Images and objects
    * Images only
    * Objects only
-6. Define the **tag’s value type**:
+6. Define the **tag's value type**:
    * **None**: a tag without a value.
    * **Text**: allows adding a text description or comments.
    * **Number**: represents numerical properties.
@@ -130,7 +130,7 @@ To learn more about the practical uses of tags and explore advanced tools, check
 
 ## 2. Defining Classes and Tags Directly in Labeling Toolbox
 
-**Classes** and **Tags** created manually by an annotator inside the Labeling Tool (during the annotation process) are automatically added to the project’s **Definitions** on the Projects page.
+**Classes** and **Tags** created manually by an annotator inside the Labeling Tool (during the annotation process) are automatically added to the project's **Definitions** on the Projects page.
 
 These classes and tags immediately become available to all team members - they appear in the Labeling Tool for other annotators as well.
 
@@ -144,7 +144,7 @@ These classes and tags immediately become available to all team members - they a
 
 The locations where classes and tags can be defined directly in the Labeling Tool vary depending on the type of data being annotated. This is expected, since the interface of the Labeling Tool also slightly differs based on the data type in use.
 
-Let’s go through each case one by one.
+Let's go through each case one by one.
 
 #### 1. When annotating an Images:
 
@@ -190,7 +190,7 @@ The newly created class or tag will immediately appear in the **Definitions pane
 
 The locations where classes and tags can be defined in the Labeling Tool are the same for **Dicom Volume** and **Point Cloud**.
 
-Let’s walk through the process using **Dicom Volume** as an example.
+Let's walk through the process using **Dicom Volume** as an example.
 
 So you can create a new class directly from the Objects panel and simultaneously reassign it to an existing object in the project.
 

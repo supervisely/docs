@@ -64,7 +64,7 @@ These artifacts are automatically stored in Team Files, making it easy to access
 Team Files contains important system directories that help you manage temporary files and offline sessions:
 
 * **/tmp/supervisely/export:** This directory stores temporary files created during the export process. Once you have exported data, these files will remain here so that you can access them later. These files allow for a smooth export process without affecting the main data storage.
-* **/offline-sessions:** This directory stores the settings (UI) for all sessions of all applications, including NN trainings and ML pipelines. It is particularly relevant for stopped applications, as it allows you to reopen a previously saved session and view their configurations. To ensure continued access to your sessions and their settings, don’t delete this directory, or you’ll lose progress.
+* **/offline-sessions:** This directory stores the settings (UI) for all sessions of all applications, including NN trainings and ML pipelines. It is particularly relevant for stopped applications, as it allows you to reopen a previously saved session and view their configurations. To ensure continued access to your sessions and their settings, don't delete this directory, or you'll lose progress.
 
 
 
@@ -92,7 +92,7 @@ The platform includes version control features, allowing your team to track chan
 
 ## Limits
 
-Supervisely’s tiered file limits offer a range of options that can accommodate everything from hobby projects to enterprise-level workflows, ensuring that teams of all sizes have the resources they need to manage and store their data.
+Supervisely's tiered file limits offer a range of options that can accommodate everything from hobby projects to enterprise-level workflows, ensuring that teams of all sizes have the resources they need to manage and store their data.
 
 ### General file types covered by limits
 

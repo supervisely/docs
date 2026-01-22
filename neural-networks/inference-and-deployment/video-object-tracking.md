@@ -268,7 +268,7 @@ Additional options:
 
 Input for metrics evaluation: the function accepts two `sly.VideoAnnotation` objects - predicted annotations (`video_ann_pred`) and ground truth annotations (`video_ann_true`).
 
-If you have ground truth data in the form of video annotations, you can evaluate the tracker’s performance using the `evaluate` function.
+If you have ground truth data in the form of video annotations, you can evaluate the tracker's performance using the `evaluate` function.
 
 First, install Supervisely SDK with tracking requirements:
 

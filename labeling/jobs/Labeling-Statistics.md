@@ -2,7 +2,7 @@
 
 ## Applications in the Ecosystem
 
-Understanding your data is extremely important if you want to have precise annotations and consistent training data. There are the quality of annotations, data anomalies, performance of your labeling team and many other visualizations you could need. It is impossible to put all the charts and tables in a single interface. That’s why having a constantly growing [Ecosystem](https://ecosystem.supervisely.com/) of various applications is so important. There are just some examples:
+Understanding your data is extremely important if you want to have precise annotations and consistent training data. There are the quality of annotations, data anomalies, performance of your labeling team and many other visualizations you could need. It is impossible to put all the charts and tables in a single interface. That's why having a constantly growing [Ecosystem](https://ecosystem.supervisely.com/) of various applications is so important. There are just some examples:
 
 ### [Labeling Jobs Stats](https://ecosystem.supervisely.com/apps/labeling-jobs-stats)
 

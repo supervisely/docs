@@ -3,38 +3,38 @@
 Whether you're using our Community Edition or Enterprise Edition, this page is your starting point for getting help, and resolving issues quickly. If you need immediate assistance, please reach out to our support team.\
 **Email:** support@supervisely.com\
 **Community Edition Slack:** [Join here](https://supervisely.com/slack)\
-**Enterprise Edition Slack:** for our Enterprise customers, we typically set up a private Slack channel for faster, real-time support. If you're an Enterprise user and not yet a member of your dedicated Slack channel, just let us know and we’ll get you added right away.
+**Enterprise Edition Slack:** for our Enterprise customers, we typically set up a private Slack channel for faster, real-time support. If you're an Enterprise user and not yet a member of your dedicated Slack channel, just let us know and we'll get you added right away.
 
 ## Community Edition or Enterprise Edition?
 
-Not sure what edition you're using? No worries - we’ve got you covered.
+Not sure what edition you're using? No worries - we've got you covered.
 
 * If you open Supervisely at `https://app.supervisely.com`, you're using the **Community Edition**.
 * If you're accessing it through any other address, you're on the **Enterprise Edition**.
 
-Enterprise users receive **high-priority support** - you can reach out to us directly, and we’ll do our best to resolve your issue as soon as possible.\
+Enterprise users receive **high-priority support** - you can reach out to us directly, and we'll do our best to resolve your issue as soon as possible.\
 If you're contacting us from a personal email address, please mention that you're an Enterprise user to help us prioritize your request.
 
 ### Cloud-hosted Enterprise Instances
 
 If your Supervisely server address ends with `enterprise.supervisely.com`, you're using an **Enterprise instance hosted in our Cloud**.\
-This means the Supervisely team is actively managing the server, including updates, backups, maintenance, logs, and troubleshooting. You **do not need to collect or send a troubleshooting archive**, just contact us directly, and we’ll take it from there.
+This means the Supervisely team is actively managing the server, including updates, backups, maintenance, logs, and troubleshooting. You **do not need to collect or send a troubleshooting archive**, just contact us directly, and we'll take it from there.
 
 ## I Have an Issue
 
-If something’s not working as expected in Supervisely, let’s first narrow down what kind of issue you're facing:
+If something's not working as expected in Supervisely, let's first narrow down what kind of issue you're facing:
 
 1. You're having [trouble with an app from the Supervisely Ecosystem](support.md#issues-with-applications) (or a custom app).
 2. You see an [error message in the UI outside](support.md#issues-with-the-platform) of the app (e.g. "Something went wrong").
 
 <figure><img src="../.gitbook/assets/support/went-wrong.jpg" alt="Something went wrong"><figcaption></figcaption></figure>
 
-3. The platform isn’t throwing errors, but it feels [slow or laggy](support.md#slow-performance).
+3. The platform isn't throwing errors, but it feels [slow or laggy](support.md#slow-performance).
 4. Things technically work, but the [behavior seems off or unexpected](support.md#unexpected-behavior).
 5. You're running into a technical issue with the [API or SDK](support.md#python-sdk-or-api-issues).
 6. You're an Enterprise technical engineer and need [help with deployment](support.md#deployment-issues).
 
-Once you’ve identified the type of issue, scroll down to find the best way to get support.
+Once you've identified the type of issue, scroll down to find the best way to get support.
 
 ### Issues with Applications
 
@@ -61,7 +61,7 @@ If you're having trouble with an app from the Supervisely Ecosystem (or a custom
 
 <figure><img src="../.gitbook/assets/support/error-log-5.jpg" alt="Download Logs"><figcaption></figcaption></figure>
 
-If you didn’t find anything in the **Tasks tab**, then go to the **Apps tab**:
+If you didn't find anything in the **Tasks tab**, then go to the **Apps tab**:
 
 1. Open the `Apps` tab, find the needed application and click on the button under it. Then simply click on the `Open error log`.
 

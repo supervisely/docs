@@ -29,7 +29,7 @@ How first frame initialized 3D trackers work:
 
 2. Feature extraction - model encodes 3D geometry of the object, surface structure abd motion context.
 
-3. Temporal propagation - for each new LiDAR frame, tracker predicts the object’s new pose, estimates displacement and rotation, matches object-specific features (geometry, shape signatures) and applies motion models (Kalman, constant velocity, flow-based).
+3. Temporal propagation - for each new LiDAR frame, tracker predicts the object's new pose, estimates displacement and rotation, matches object-specific features (geometry, shape signatures) and applies motion models (Kalman, constant velocity, flow-based).
 
 4. Identity preservation - tracker maintains a persistent object ID, ensiring the same object keeps the same ID across all point clouds in sequence.
 

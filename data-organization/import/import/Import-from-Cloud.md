@@ -1,6 +1,6 @@
 # Import from Cloud
 
-It’s also worth mentioning that we have applications to import data not from your computer, but from cloud services.
+It's also worth mentioning that we have applications to import data not from your computer, but from cloud services.
 
 No matter which method you choose, you have the option to import files by links, meaning they won't be stored directly on the Supervisely disk. These files will only be accessible through the provided links. This method offers flexibility in data management, and you can still use both this approach and the traditional file import for the convenience of your workflows.
 
@@ -10,10 +10,10 @@ No matter which method you choose, you have the option to import files by links,
 
 **List of providers:**
 
-* Amazon s3
-* Google Cloud Storage (CS)
+* Amazon S3
+* Google Cloud Storage (GCS)
 * Microsoft Azure
-* and others with s3 compatible interfaces
+* and others with S3 compatible interfaces
 
 **App supports two types of import:**
 
@@ -32,10 +32,10 @@ No matter which method you choose, you have the option to import files by links,
 
 List of providers:
 
-* Amazon s3
-* Google Cloud Storage (CS)
+* Amazon S3
+* Google Cloud Storage (GCS)
 * Microsoft Azure
-* and others with s3 compatible interfaces
+* and others with S3 compatible interfaces
 
 **App supports two types of import:**
 

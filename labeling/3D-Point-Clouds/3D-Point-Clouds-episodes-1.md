@@ -51,7 +51,7 @@ The top toolbar contains options for personalizing the interface and managing da
 
 Main scene shows the point cloud episodes currently being worked on. Users can interact directly with this area using the annotation tools from the sidebar.
 
-This interface for annotating 3D point clouds is designed for precise labeling of objects in a 3D environment. Each part of the scene serves a specific role, helping the user accurately annotate objects. Here’s a detailed breakdown of what’s on the screen and how the different components interact:
+This interface for annotating 3D point clouds is designed for precise labeling of objects in a 3D environment. Each part of the scene serves a specific role, helping the user accurately annotate objects. Here's a detailed breakdown of what's on the screen and how the different components interact:
 
 <figure><img src="../../.gitbook/assets/main-scene-pcd.png" alt=""><figcaption></figcaption></figure>
 
@@ -62,7 +62,7 @@ This is the **main 3D window**, where users interact with the point cloud. It pr
 * **Point Cloud**: A dense collection of points, each corresponding to a specific coordinate in space. These points represent real objects scanned by lidar sensors (in this case, from the LYFT dataset).
 * **Cuboids**: These are 3D rectangular boxes drawn around objects within the point cloud. In this example, a car is outlined with a cuboid. These boxes are used to define the boundaries of objects, which are critical for subsequent object detection and classification tasks.
 * **Navigation and Manipulation**:
-  * In the top-right corner of this window, there’s an indicator for the total number of points in the scene (62,364 in this case).
+  * In the top-right corner of this window, there's an indicator for the total number of points in the scene (62,364 in this case).
   * The cuboids have **coordinate axes (X, Y, Z)** - colored arrows (blue, red, and green) to help users orient objects in space and adjust the annotations precisely.
   * Users can navigate through the scene using the "Q, W, E, A, S, D" keys for camera movement, and the arrow keys for rotating the camera. This allows for a better understanding of the scene geometry.
 
@@ -107,7 +107,7 @@ These are views that show the annotated objects from different angles:
 2. **SIDE View** - shows the side view of the object, useful for adjusting height.
 3. **FRONT View** - provides a front-facing view, helping to place and refine the cuboid's dimensions.
 
-These windows allow for **precise manipulation of cuboids** on all axes (X, Y, Z). Each window shows the object as a set of points, with white circles representing the cuboid’s corners that users can drag to adjust the size and position.
+These windows allow for **precise manipulation of cuboids** on all axes (X, Y, Z). Each window shows the object as a set of points, with white circles representing the cuboid's corners that users can drag to adjust the size and position.
 
 ### How All Windows Interact:
 
@@ -121,7 +121,7 @@ These windows allow for **precise manipulation of cuboids** on all axes (X, Y, Z
 
 ## **Timeline** and track controls
 
-It’s easy to get frustrated with hundreds of clouds and objects labeled.
+It's easy to get frustrated with hundreds of clouds and objects labeled.
 
 Episode timeline panel provides overall structure, answers questions like what is already labeled and simplifies editing tag segments and tracked objects.&#x20;
 
@@ -201,12 +201,12 @@ The **Cuboid** tool is fundamental for creating 3D bounding boxes around objects
 
 **Toggle Planes**: The toggle planes function allows users to switch the display of planes, which represent various sections and surfaces in three-dimensional space. This enables the user to better understand spatial relationships between objects and their surroundings, as well as simplifies the annotation process by providing additional contextual information about the scene.
 
-**Toggle Arrows**: This enables the visibility of **orientation arrows** along the X, Y, and Z axes, which allow users to see and adjust the cuboid’s rotation in space. It’s especially helpful when an object is rotated or angled differently from the standard axes, like a car parked at an angle. By clicking and dragging the arrows, users can adjust the cuboid’s rotation to match the object’s true orientation.&#x20;
+**Toggle Arrows**: This enables the visibility of **orientation arrows** along the X, Y, and Z axes, which allow users to see and adjust the cuboid's rotation in space. It's especially helpful when an object is rotated or angled differently from the standard axes, like a car parked at an angle. By clicking and dragging the arrows, users can adjust the cuboid's rotation to match the object's true orientation.&#x20;
 
 {% hint style="info" %}
 **Pay attention to cuboid orientation!**
 
-When using the **Cuboid** tool, it’s crucial to remember that each cuboid has an **orientation guide**. These guides indicate the **directional alignment** of the cuboid in the 3D space.
+When using the **Cuboid** tool, it's crucial to remember that each cuboid has an **orientation guide**. These guides indicate the **directional alignment** of the cuboid in the 3D space.
 
 Failing to align the cuboid correctly can lead to **inaccurate annotations**, which might cause issues during model training or scene interpretation. Always ensure that the cuboid is properly oriented along the object's natural direction, especially for vehicles or objects that have a clear front and rear.
 {% endhint %}
@@ -221,13 +221,13 @@ The 3D Smart Tool can automatically generate cuboids around detected objects, sp
 
 **Toggle Planes**: Like the [cuboid tool](3D-Point-Clouds-episodes-1.md#cuboid), this function makes the **bounding planes** of the automatically created cuboids visible. This helps users verify the accuracy of the smart detection and make adjustments if needed.
 
-**Toggle Arrows**: This enables the **axis arrows** for rotating and orienting cuboids generated by the smart tool. If the automatic annotation is slightly off, users can use these arrows to fine-tune the cuboid’s rotation and orientation.
+**Toggle Arrows**: This enables the **axis arrows** for rotating and orienting cuboids generated by the smart tool. If the automatic annotation is slightly off, users can use these arrows to fine-tune the cuboid's rotation and orientation.
 
 ***
 
 ## Objects Panel
 
-The **Objects Panel** provides a detailed view of the objects in a 3D annotation scene. Here’s a breakdown of the components and their functionality:
+The **Objects Panel** provides a detailed view of the objects in a 3D annotation scene. Here's a breakdown of the components and their functionality:
 
 **Objects list**: This section shows the total number of objects currently annotated in the scene. In our case, 32 objects are listed, mostly categorized as **cars**.
 
@@ -257,8 +257,8 @@ This section provides detailed information on the selected object.&#x20;
 * **Figures on screen**: This label indicates that there is **X number of figure** visible on the screen for this object and **X number of figures** in total over the entire sequence of frames.
 * **Zoom, Remove, Split, Move**: The dropdown next to the figure name provides additional tools:
   * **Zoom**: Zooms into the selected cuboid or object in the 3D view for a closer inspection.
-  * **Remove figures after this figure**: Deletes any figures that appear after the current one in the timeline, allowing for refinement of the object’s tracking.
-  * **Split object track starting from this frame**: Creates a new object starting from the current frame, splitting the object’s track into two.
+  * **Remove figures after this figure**: Deletes any figures that appear after the current one in the timeline, allowing for refinement of the object's tracking.
+  * **Split object track starting from this frame**: Creates a new object starting from the current frame, splitting the object's track into two.
   * **Move figure to new object**: Allows this figure to be reassigned to a different object, which is useful if a mistake was made during annotation.
 
 **Tags and Metadata**

@@ -218,7 +218,7 @@ Real-time image resizing adapts to various project needs, ensuring optimal viewi
 
 ## Timeline and track controls
 
-It’s easy to get frustrated with thousands of frames and objects labeled!
+It's easy to get frustrated with thousands of frames and objects labeled!
 
 The tracks panel offers controls for managing tracks, tags, and navigating through video frames. It provides a clear overview of the video's structure, answers questions about what has already been labeled, and simplifies editing tag segments and tracked objects.
 
