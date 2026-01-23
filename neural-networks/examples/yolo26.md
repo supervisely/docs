@@ -143,3 +143,46 @@ Supervisely Ecosystem provided convenient apps for labeling data with trained ne
 
 <figure><img src="https://github.com/user-attachments/assets/1c35e352-17e4-41a0-87c6-58c2b124c68a" alt=""><figcaption></figcaption></figure>
 
+### Step 2 — Select input data
+
+1. Select datasets from images project to which model will be applied
+
+<figure><img src="https://github.com/user-attachments/assets/e02147ff-9170-4926-979a-2566d4f2370e" alt=""><figcaption></figcaption></figure>
+
+### Step 3 — Connect to served model
+
+1. Select app session with custom YOLO26 model:
+
+<figure><img src="https://github.com/user-attachments/assets/e0bd8d12-dcd9-4024-a1c5-902b3241bcf0" alt=""><figcaption></figcaption></figure>
+
+### Step 4 — Select classes
+
+1. Select classes which will be used for prediction, other classes will be ignored:
+
+<figure><img src="https://github.com/user-attachments/assets/0ffb9bab-ab9b-4260-9d54-a454757eeb74" alt=""><figcaption></figcaption></figure>
+
+### Step 5 — Set inference settings
+
+1. Select inference settings (like confidence threshold) and run Preview:
+
+<figure><img src="https://github.com/user-attachments/assets/af6f1531-4d87-4d1d-8343-2503a7dbe138" alt=""><figcaption></figcaption></figure>
+
+### Step 6 — Enter output project name
+
+1. Write output project name and press **Run**:
+
+<figure><img src="https://github.com/user-attachments/assets/5e64f6d3-46f1-409a-beb5-301faeb593f5" alt=""><figcaption></figcaption></figure>
+
+### Step 7 — Enter output project name
+
+1. Write output project name and press **Run**:
+
+<figure><img src="https://github.com/user-attachments/assets/5e64f6d3-46f1-409a-beb5-301faeb593f5" alt=""><figcaption></figcaption></figure>
+
+After inference will be finished, link to labeled project will appear in app UI:
+
+<figure><img src="https://github.com/user-attachments/assets/10616bc0-024a-4ba5-8e39-a0b0f2775774" alt=""><figcaption></figcaption></figure>
+
+Now you can open labeled project with images and check how your trained model performed:
+
+<figure><img src="https://github.com/user-attachments/assets/d6869081-2692-4473-82c6-67f6b503bf55" alt=""><figcaption></figcaption></figure>
