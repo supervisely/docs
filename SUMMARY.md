@@ -189,6 +189,8 @@
 * [Custom Model Integration](neural-networks/custom-model-integration/README.md)
   * [Custom Inference](neural-networks/custom-model-integration/integrate-custom-inference.md)
   * [Custom Training](neural-networks/custom-model-integration/integrate-custom-training.md)
+* [Examples](neural-networks/examples/README.md)
+  * [Object detection with YOLO26](neural-networks/examples/yolo26.md)
 * [Solutions](neural-networks/solutions/README.md)
   * [Temporal Action Localization with MVD](solution/action_recognition/temporal_action_localization_with_mvd.md)
 * [Legacy](neural-networks/legacy/README.md)
