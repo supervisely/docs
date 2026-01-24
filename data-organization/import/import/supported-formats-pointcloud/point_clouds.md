@@ -4,7 +4,7 @@ This option allows you to upload point clouds to the platform without any annota
 
 # Format description
 
-**Supported image formats:** `.pcd`, `.ply`, `.las`, `.laz`.<br>
+**Supported point cloud formats:** `.pcd`, `.ply`, `.las`, `.laz`.<br>
 **With annotations:** No<br>
 **Supported annotation format:** Not applicable.<br>
 **Grouped by:** Any structure (will be uploaded to a single dataset).<br>
@@ -31,6 +31,34 @@ Recommended directory structure:
 ┗ 📦item_10.pcd
 ```
 
+# Format LAS/LAZ 
+
+During import, LAS and LAZ files are automatically converted to PCD (Point Cloud Data) format.
+
+## ⚠️ Important: Coordinate Shift
+
+During LAS/LAZ to PCD conversion, **coordinate shift is automatically applied** to all point clouds. This is necessary to:
+
+- Avoid floating-point precision issues with large geodetic coordinates
+- Prevent visual artifacts and rendering problems
+- Ensure proper visualization in point cloud viewers
+
+The shift values (X, Y, Z offsets) are **logged for each converted file**. Look for messages like:
+
+```
+Applied coordinate shift for filename: X=1234567.89, Y=9876543.21, Z=123.45
+```
+
+**If you need to use annotations with original LAS files or convert back to LAS format:**
+
+- Save the shift values from the logs
+- Add these shift values back to your PCD/annotation coordinates to restore original geodetic coordinates:
+  ```
+  original_x = pcd_x + shift_x
+  original_y = pcd_y + shift_y
+  original_z = pcd_z + shift_z
+  ```
+  
 # Useful links
 
 - <a href="https://ecosystem.supervisely.com/apps/import-pointcloud-pcd" target="_blank">[Supervisely Ecosystem] Import Pointclouds PCD</a>
