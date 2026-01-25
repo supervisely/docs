@@ -135,7 +135,7 @@ Now, when we got custom YOLO26 checkpoint, we can use the **Serve YOLO v8–26**
 
 ## Using trained YOLO26 model inside Supervisely Platform
 
-Supervisely Ecosystem provided convenient apps for labeling data with trained neural networks. You can use [Predict App](https://ecosystem.supervisely.com/apps/apply-nn) to label your data with both pretrained and custom neural networks.
+Supervisely Ecosystem provides convenient apps for labeling data with trained neural networks. You can use [Predict App](https://ecosystem.supervisely.com/apps/apply-nn) to label your data with both pretrained and custom neural networks.
 
 ### Step 1 — Launch Predict App
 
@@ -186,3 +186,134 @@ After inference will be finished, link to labeled project will appear in app UI:
 Now you can open labeled project with images and check how your trained model performed:
 
 <figure><img src="https://github.com/user-attachments/assets/d6869081-2692-4473-82c6-67f6b503bf55" alt=""><figcaption></figcaption></figure>
+
+## Using trained YOLO26 model outside Supervisely Platform
+
+After you've trained a model in Supervisely, you can download the checkpoint from Team Files and use it as a simple PyTorch model without Supervisely Platform.
+
+**Quick start:**
+
+1. **Set up environment**. Install [requirements](https://github.com/supervisely-ecosystem/yolo/blob/master/dev_requirements.txt) manually, or use our pre-built docker image from [DockerHub](https://hub.docker.com/r/supervisely/yolo/tags). Clone [YOLO](https://github.com/supervisely-ecosystem/yolo) repository with model implementation.
+2. **Download** your checkpoint from Supervisely Platform.
+3. **Run inference**. Refer to our demo scripts: [demo_pytorch.py](https://github.com/supervisely-ecosystem/yolo/blob/master/supervisely_integration/demo/demo_pytorch.py), [demo_onnx.py](https://github.com/supervisely-ecosystem/yolo/blob/master/supervisely_integration/demo/demo_onnx.py), [demo_tensorrt.py](https://github.com/supervisely-ecosystem/yolo/blob/master/supervisely_integration/demo/demo_tensorrt.py)
+
+## Step-by-step guide:
+
+### 1. Set up environment
+
+**Manual installation:**
+
+```bash
+git clone https://github.com/supervisely-ecosystem/yolo
+cd yolo
+pip install -r requirements.txt
+```
+
+**Using docker image (advanced):**
+
+We provide a pre-built docker image with all dependencies installed [DockerHub](https://hub.docker.com/r/supervisely/yolo/tags). The image includes installed packages for ONNXRuntime and TensorRT inference.
+
+```bash
+docker pull supervisely/yolo:1.0.28-deploy
+```
+
+See our [Dockerfile](https://github.com/supervisely-ecosystem/yolo/blob/master/docker/Dockerfile) for more details.
+
+Docker image already includes the source code.
+
+### 2. Download checkpoint and model files from Supervisely Platform
+
+For YOLO, you need to download only the checkpoint file.
+
+- **For PyTorch inference:** models can be found in the `checkpoints` folder in Team Files after training.
+- **For ONNXRuntime and TensorRT inference:** models can be found in the `export` folder in Team Files after training. If you don't see the `export` folder, please ensure that the model was exported to `ONNX` or `TensorRT` format during training.
+
+Go to Team Files in Supervisely Platform and download the files.
+
+![team_files_download](https://github.com/user-attachments/assets/865dea6a-298e-4896-bad9-4066769c0abd)
+
+### 3. Run inference
+
+Here are demo scripts to run inference with your checkpoints in PyTorch, ONNX or TensorRT runtimes:
+
+
+{% tabs %}
+{% tab title="PyTorch" %}
+```python
+from os.path import join
+import torch
+from ultralytics import YOLO
+from supervisely.io.fs import get_file_ext, get_file_name
+
+
+# Predict settings
+device = "cuda" if torch.cuda.is_available() else "cpu"
+task = "detect"
+
+# Put your files here
+demo_dir = join("supervisely_integration", "demo")
+checkpoint_name = "best.pt"
+checkpoint_path = join(demo_dir, "model", checkpoint_name)
+image_path = join(demo_dir, "img", "coco_sample.jpg")
+result_path = join(demo_dir, "img", f"result_{get_file_name(image_path)}{get_file_ext(image_path)}")
+
+# Load model and predict
+model = YOLO(checkpoint_path, task)
+results = model.predict(source=image_path, device=device)
+for result in results:
+    result.save(filename=result_path)
+```
+{% endtab %}
+{% tab title="ONNXRuntime" %}
+```python
+from os.path import join
+import torch
+from ultralytics import YOLO
+from supervisely.io.fs import get_file_ext, get_file_name
+
+
+# Predict settings
+device = "cuda" if torch.cuda.is_available() else "cpu"
+task = "detect"
+
+# Put your files here
+demo_dir = join("supervisely_integration", "demo")
+checkpoint_name = "best.onnx"
+checkpoint_path = join(demo_dir, "model", checkpoint_name)
+image_path = join(demo_dir, "img", "coco_sample.jpg")
+result_path = join(demo_dir, "img", f"result_{get_file_name(image_path)}{get_file_ext(image_path)}")
+
+# Load model and predict
+model = YOLO(checkpoint_path, task)
+results = model.predict(source=image_path, device=device)
+for result in results:
+   result.save(filename=result_path)
+```
+{% endtab %}
+{% tab title="TensorRT" %}
+```python
+from os.path import join
+import torch
+from ultralytics import YOLO
+from supervisely.io.fs import get_file_ext, get_file_name
+
+
+# Predict settings
+device = "cuda" if torch.cuda.is_available() else "cpu"
+task = "detect"
+
+# Put your files here
+demo_dir = join("supervisely_integration", "demo")
+checkpoint_name = "best.engine"
+checkpoint_path = join(demo_dir, "model", checkpoint_name)
+image_path = join(demo_dir, "img", "coco_sample.jpg")
+result_path = join(demo_dir, "img", f"result_{get_file_name(image_path)}{get_file_ext(image_path)}")
+
+# Load model and predict
+model = YOLO(checkpoint_path, task)
+results = model.predict(source=image_path, device=device)
+for result in results:
+   result.save(filename=result_path)
+```
+{% endtab %}
+{% endtabs %}
