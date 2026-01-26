@@ -100,6 +100,20 @@ Alternatively, you can launch training app from context menu of your images proj
 
 <figure><img src="https://github.com/user-attachments/assets/13e5f578-4411-43d1-8a00-b16720557b9c" alt=""><figcaption></figcaption></figure>
 
+If user has enabled model benchmark option in training settings, then model performance evaluation report will be generated in the end of the training session.
+
+Model benchmark will generate comprehensive report on model performance from different angles: general metrics, per class metrics, optimal confindence threshold estimation and much more.
+
+<figure><img src="https://github.com/user-attachments/assets/10fe8e4c-11c6-4800-8471-31d89e8493a1" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="https://github.com/user-attachments/assets/f8f53613-7f2a-4516-a46f-e69b30c68f57" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="https://github.com/user-attachments/assets/aa8eb43e-ac5b-43ad-a6d2-1358b4cff33b" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="https://github.com/user-attachments/assets/a3a68d35-0406-4e27-845a-813c46391ab3" alt=""><figcaption></figcaption></figure>
+
+You can find more information about Supervisely model benchmark [here](https://docs.supervisely.com/neural-networks/model-evaluation-benchmark).
+
 ## Deploying YOLO26 as a REST API service
 
 Now, when we got custom YOLO26 checkpoint, we can use the **Serve YOLO v8–26** app to deploy YOLO26 models as a REST API service.
