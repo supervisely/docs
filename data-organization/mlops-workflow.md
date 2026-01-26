@@ -18,7 +18,7 @@ MLOps Workflow streamlines the machine learning lifecycle, focusing on data vers
 
 ## 1. Data Version Control
 
-Data version control simplifies managing changes in datasets throughout the project lifecycle.
+Data version control simplifies managing changes in datasets throughout the project lifecycle. Learn more about [Project Versions](project-dataset/project-versions.md).
 
 **Capabilities:**
 

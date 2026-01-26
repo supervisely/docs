@@ -15,6 +15,10 @@ Project Versions currently support the following project types:
 - Videos
 - Pointclouds
 
+
+<figure><img src="../../.gitbook/assets/project-versions/project-versions.png" alt=""><figcaption></figcaption></figure>
+
+
 ## Why tracking and reproducibility matter
 
 - Data evolves over time. Track when and how changes occur to maintain model accuracy.
@@ -44,7 +48,7 @@ Use the Versions tab on a project to:
 You can create a version only if the project has changed since the last version. If there are no changes, creating a new version is not available.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/project-versions.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/project-versions/project-versions-page.png" alt=""><figcaption></figcaption></figure>
 
 ## Typical workflow
 
@@ -66,9 +70,6 @@ The MLOps Workflow provides a visual map of how data flows through apps and oper
 
 See the dedicated guide for details and best practices: [MLOps Workflow](../mlops-workflow.md).
 
-<figure><img src="../../.gitbook/assets/workflow.png" alt=""><figcaption></figcaption></figure>
-<figure><img src="../../.gitbook/assets/workflow-menu.png" alt=""><figcaption></figcaption></figure>
-
 ### Minor versions on the Workflow graph
 
 Minor versions indicate that the project changed after the last major version was cut and before the next major version is created.
@@ -80,3 +81,5 @@ Minor versions indicate that the project changed after the last major version wa
 - If nothing changed after a major version, minor versions will not appear.
 
 Example: you cut version 2. Then you edited annotations manually — the input of a subsequent app shows 2.1 indicating the project was modified. The app changes annotations further, if you still do not cut a new major version, the app output shows 2.2.
+
+<figure><img src="../../.gitbook/assets/project-versions/project-versions-minor.png" alt=""><figcaption></figcaption></figure>
