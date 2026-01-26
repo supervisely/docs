@@ -9,6 +9,12 @@ description: >-
 
 Project Versions let you capture, restore, and compare specific states of your project data over time. Combined with the visual MLOps Workflow, this ensures reproducibility, traceability, and efficient collaboration across labeling, augmentation, training, and evaluation stages.
 
+Project Versions currently support the following project types:
+
+- Images
+- Videos
+- Pointclouds
+
 ## Why tracking and reproducibility matter
 
 - Data evolves over time. Track when and how changes occur to maintain model accuracy.
@@ -62,3 +68,15 @@ See the dedicated guide for details and best practices: [MLOps Workflow](../mlop
 
 <figure><img src="../../.gitbook/assets/workflow.png" alt=""><figcaption></figcaption></figure>
 <figure><img src="../../.gitbook/assets/workflow-menu.png" alt=""><figcaption></figcaption></figure>
+
+### Minor versions on the Workflow graph
+
+Minor versions indicate that the project changed after the last major version was cut and before the next major version is created.
+
+- Shown as 2.1, 2.2, 2.3 and etc. Where 2 is the last restorable (major) version.
+- Each minor version reflects the current state of the project at that point on the graph.
+- You cannot restore a project from a minor version; only major versions are restorable.
+- Minor versions appear automatically on the graph when the project changes (manual edits or app sessions) without cutting a new major version.
+- If nothing changed after a major version, minor versions will not appear.
+
+Example: you cut version 2. Then you edited annotations manually — the input of a subsequent app shows 2.1 indicating the project was modified. The app changes annotations further, if you still do not cut a new major version, the app output shows 2.2.
