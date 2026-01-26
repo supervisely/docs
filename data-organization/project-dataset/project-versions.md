@@ -74,12 +74,14 @@ See the dedicated guide for details and best practices: [MLOps Workflow](../mlop
 
 Minor versions indicate that the project changed after the last major version was cut and before the next major version is created.
 
-- Shown as 2.1, 2.2, 2.3 and etc. Where 2 is the last restorable (major) version.
+On the screenshot below, minor versions are underlined (e.g., **1.1** and **2.1**).
+
+<figure><img src="../../.gitbook/assets/project-versions/project-versions-minor.png" alt=""><figcaption></figcaption></figure>
+
+- Shown as 1.1, 2.1, ... where 2 is the last restorable (major) version.
 - Each minor version reflects the current state of the project at that point on the graph.
 - You cannot restore a project from a minor version; only major versions are restorable.
 - Minor versions appear automatically on the graph when the project changes (manual edits or app sessions) without cutting a new major version.
 - If nothing changed after a major version, minor versions will not appear.
 
-Example: you cut version 2. Then you edited annotations manually — the input of a subsequent app shows 2.1 indicating the project was modified. The app changes annotations further, if you still do not cut a new major version, the app output shows 2.2.
-
-<figure><img src="../../.gitbook/assets/project-versions/project-versions-minor.png" alt=""><figcaption></figcaption></figure>
+Example (as shown on the screenshot): you cut version **2** (major). After that, you changed the project (e.g., edited annotations manually or ran an app without cutting a new major version) — the graph displays **2.1** to indicate the project state has changed since version 2.
