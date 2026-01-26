@@ -100,7 +100,7 @@ Here are the key points and fields descriptions:
 * The values of the translation are given in meters and the rotation is given as a quaternion.
 * The intrinsic calibration is given in a calibration model that describes the radial distortion using an Nth-order polynomial. The radial distortion is given by the formula:
 
-![](../../../../.gitbook/assets/formula.svg)
+![](../../../../.gitbook/assets/formula_img.svg)
 
 * Formula: `theta` is the angle of incidence with respect to the optical axis and rho is the distance between the image center and projected point - focal distance.
 * Offsets (`cxOffset`, `cyOffset`) of the principal point are given in pixels.
