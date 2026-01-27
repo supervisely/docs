@@ -6,9 +6,9 @@ One of the most frequently asked questions is how to move an existing Supervisel
 
 First, we need to transfer data and configuration files to the new machine. Run the following commands:
 
-- `sudo supervisely where` — where your instance configuration is at
-- `sudo supervisely where config` — where your cli configuration is at
-- `sudo supervisely where data` — where your data is at
+- `sudo supervisely where` - where your instance configuration is at
+- `sudo supervisely where config` - where your cli configuration is at
+- `sudo supervisely where data` - where your data is at
 
 ## Step 2. Stop the original server
 
@@ -26,4 +26,4 @@ rsync -azP /opt/supervisely new_server:/opt/supervisely
 
 ## Step 4. Install Supervisely on a new machine
 
-Install `supervisely-cli`, run `sudo sueprvisely install-all` and run `supervisely init`. Your license has already been copied on the previous step — just wait a bit for the installation to complete and you are good to go!
+Install `supervisely-cli`, run `sudo sueprvisely install-all` and run `supervisely init`. Your license has already been copied on the previous step - just wait a bit for the installation to complete and you are good to go!

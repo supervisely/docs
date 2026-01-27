@@ -14,7 +14,7 @@ Supervisely is excited to introduce advanced interactive statistics designed to 
 * Improve data acquisition methods, draw the right conclusions on annotation distributions.
 * Enhance neural network performance and much more.
 
-To view statistics for an entire project — that is, across all datasets within the project — select the desired project and, just below the project name, click on the **QA & Stats** tab.
+To view statistics for an entire project - that is, across all datasets within the project - select the desired project and, just below the project name, click on the **QA & Stats** tab.
 
 <figure><img src="../../../.gitbook/assets/quality-assurance-statistics-tab.png" alt=""><figcaption></figcaption></figure>
 
@@ -57,7 +57,7 @@ Class imbalance table helps you to adjust and modify data sampling algorithms du
 
 **Components**:
 
-The class statistics table provides a comprehensive overview of the dataset. Here’s a breakdown of each column in the table:
+The class statistics table provides a comprehensive overview of the dataset. Here's a breakdown of each column in the table:
 
 **Class**: Lists the annotation classes present in the dataset. Datasets can contain a large number of classes, in some cases 1000+. To view all available classes, just scroll the rows.
 
@@ -278,7 +278,7 @@ Class and tag co-occurrence matrix provides a powerful way to explore relationsh
 
 In Supervisely, you can create [categorical (OneOf) key-value tags](https://supervisely.com/blog/mastering-image-tagging/#types-of-tag-values) and use them in various Computer Vision tasks, such as image retrieval and classification. These tags have the defined set of possible values. For every tag in the dataset, categorical tag distribution chart shows the number of objects and images, that contain this tag with its specific value. This chart provides a clear view of how frequently different values of the categorical tags occur in the dataset. All cells are clickable and the corresponding images with their annotations will be opened in dialog window in thumbnails preview mode.
 
-Analyze occurrences of categorical key-value tags (OneOf) assigned to images or objects. The row for every tag includes it’s all possible values and shows the number of images or objects containing corresponding tag with this specific value.&#x20;
+Analyze occurrences of categorical key-value tags (OneOf) assigned to images or objects. The row for every tag includes it's all possible values and shows the number of images or objects containing corresponding tag with this specific value.&#x20;
 
 Note that you can always change the applicability of tags (images or objects) in the `Tags` tab.
 

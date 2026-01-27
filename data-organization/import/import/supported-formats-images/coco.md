@@ -156,7 +156,7 @@ Example annotation for instances for one image in COCO format:
 Annotations for keypoints are just like in Object Detection (Segmentation) above, except a number of keypoints is specified in sets of 3, (x, y, v).
 
 * **x** and **y** indicate pixel positions in the image.
-* **v** indicates visibility — v=0: not labeled (in which case x=y=0), v=1: labeled but not visible (behind an object for example), and v=2: labeled and visible. Only keypoints with v=2 will be uploaded to the project.
+* **v** indicates visibility - v=0: not labeled (in which case x=y=0), v=1: labeled but not visible (behind an object for example), and v=2: labeled and visible. Only keypoints with v=2 will be uploaded to the project.
 
 Example of the annotation file with keypoints:
 

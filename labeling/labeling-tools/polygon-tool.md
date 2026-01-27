@@ -10,7 +10,7 @@ description: >-
 
 The **Polygon** is a powerful tool for outlining the boundaries of objects in images or other data. It works by connecting a series of points to create polygonal figures that accurately represent the shape of an object. Usually, Polygon annotation is used to address semantic segmentation and instance segmentation tasks in computer vision.&#x20;
 
-Unlike bounding boxes, which use rectangles to enclose objects, polygons offer greater flexibility by allowing any number of points to closely follow an object’s exact shape. This tool is ideal for complex or irregular shapes where precise object boundaries are necessary.
+Unlike bounding boxes, which use rectangles to enclose objects, polygons offer greater flexibility by allowing any number of points to closely follow an object's exact shape. This tool is ideal for complex or irregular shapes where precise object boundaries are necessary.
 
 <figure><img src="../../.gitbook/assets/poly.png" alt=""><figcaption></figcaption></figure>
 

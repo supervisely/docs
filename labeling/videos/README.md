@@ -25,13 +25,13 @@ description: >-
 
 <figure><img src="../../.gitbook/assets/video-tool-2.png" alt=""><figcaption></figcaption></figure>
 
-1. **Home button** — returns user to the main menu (Projects page)
-2. [Basic interface elements](./#basic-interface-elements) — basic settings, such as history of operations, theme, a hotkeys map and more useful features.
-3. [Main scene & labeling scene settings & playback](./#main-scene-and-labeling-scene-settings-and-playback) — annotation area for current video and its labels.
-4. [Timeline and track controls](./#timeline-and-track-controls) —  video timeline and controls for managing tracks and frames.
-5. [Instruments panel](./#instruments-panel) — annotation tools used to create annotations.
-6. [Objects panel](./#objects-panel) — list of figures on the current video with additional information like classes and tags.
-7. [Videos/Apps/Settings panel](./#images-panel) — list of videos in your dataset, list of additional apps you can embed into the labeling toolbox, visualization and other settings.
+1. **Home button** - returns user to the main menu (Projects page)
+2. [Basic interface elements](./#basic-interface-elements) - basic settings, such as history of operations, theme, a hotkeys map and more useful features.
+3. [Main scene & labeling scene settings & playback](./#main-scene-and-labeling-scene-settings-and-playback) - annotation area for current video and its labels.
+4. [Timeline and track controls](./#timeline-and-track-controls) -  video timeline and controls for managing tracks and frames.
+5. [Instruments panel](./#instruments-panel) - annotation tools used to create annotations.
+6. [Objects panel](./#objects-panel) - list of figures on the current video with additional information like classes and tags.
+7. [Videos/Apps/Settings panel](./#images-panel) - list of videos in your dataset, list of additional apps you can embed into the labeling toolbox, visualization and other settings.
 
 ***
 
@@ -218,7 +218,7 @@ Real-time image resizing adapts to various project needs, ensuring optimal viewi
 
 ## Timeline and track controls
 
-It’s easy to get frustrated with thousands of frames and objects labeled!
+It's easy to get frustrated with thousands of frames and objects labeled!
 
 The tracks panel offers controls for managing tracks, tags, and navigating through video frames. It provides a clear overview of the video's structure, answers questions about what has already been labeled, and simplifies editing tag segments and tracked objects.
 

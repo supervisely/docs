@@ -77,6 +77,7 @@
   * [Define Classes & Tags](data-organization/project-dataset/define-classes-tags.md)
   * [Gallery & Table views](data-organization/project-dataset/gallery-table-views.md)
   * [Collections](data-organization/project-dataset/collections.md)
+  * [Project Versions](data-organization/project-dataset/project-versions.md)
   * [AI Search](data-organization/project-dataset/ai-search.md)
   * [Quality Assurance & Statistics](data-organization/project-dataset/quality-assurance-and-statistics/README.md)
     * [Practical applications of statistics](data-organization/project-dataset/quality-assurance-and-statistics/practical-applications-of-statistics.md)

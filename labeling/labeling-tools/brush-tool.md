@@ -105,7 +105,7 @@ The **Zoom Independent Brush Size** option defines how the brush cursor behaves 
 
 **How It Works**
 
-When this option is **disabled**, the brush size is zoom-dependent — the diameter of the brush cursor changes visually depending on the current zoom level of the image.
+When this option is **disabled**, the brush size is zoom-dependent - the diameter of the brush cursor changes visually depending on the current zoom level of the image.
 
 For example, if you zoom out to 50% of the original image resolution, the brush cursor will appear two times smaller on the screen.
 

@@ -16,7 +16,7 @@ Import format for multiview video projects in Supervisely. Videos are grouped by
 
 Multiview mode is particularly useful when you have multiple videos of the same scene captured from different angles or cameras, featuring a specific object of interest.
 
-**Unified object across all videos:** If you have a common object appearing in different videos, you can annotate it as a single Supervisely object (with a shared ID). When you export and re-import the project, this object will be recreated as a unified entity — a cross-video object spanning all videos in the dataset (multiview set).
+**Unified object across all videos:** If you have a common object appearing in different videos, you can annotate it as a single Supervisely object (with a shared ID). When you export and re-import the project, this object will be recreated as a unified entity - a cross-video object spanning all videos in the dataset (multiview set).
 
 **Tags are video-specific:** Unlike objects, tags apply only within a specific video. When you tag a figure, frame, or video on a particular video, that tag will be associated only with that video and displayed only on it.
 

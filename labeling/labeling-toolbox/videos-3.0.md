@@ -24,14 +24,14 @@
 
 <figure><img src="../../.gitbook/assets/interface-vlt-3.png" alt=""><figcaption></figcaption></figure>
 
-1. **Home button** — returns user to the main menu (Projects page)
-2. [Basic interface elements](videos-3.0.md#basic-interface-elements) — basic settings, such as history of operations, theme, a hotkeys map and more useful features.
-3. [Auto-Tracking](videos-3.0.md#auto-tracking) — button to start tracking and adjust tracking settings.
-4. [Main scene & labeling scene settings & playback](videos-3.0.md#main-scene-and-labeling-scene-settings-and-playback) — annotation area for current video and its labels.
-5. [Objects & Tags & Timeline](videos-3.0.md#objects-and-tags-and-timeline) — video timeline and overview of all objects and tags throughout the entire video.
-6. [Instruments panel](videos-3.0.md#instruments-panel) — annotation tools used to create annotations.
-7. [Definitions panel](videos-3.0.md#definitions-panel) — make it easy to create, manage and assign classes and tags.
-8. [Videos/Apps/Settings panel](videos-3.0.md#images-panel) — list of videos in your dataset, list of additional apps you can embed into the labeling toolbox, visualization and other settings.
+1. **Home button** - returns user to the main menu (Projects page)
+2. [Basic interface elements](videos-3.0.md#basic-interface-elements) - basic settings, such as history of operations, theme, a hotkeys map and more useful features.
+3. [Auto-Tracking](videos-3.0.md#auto-tracking) - button to start tracking and adjust tracking settings.
+4. [Main scene & labeling scene settings & playback](videos-3.0.md#main-scene-and-labeling-scene-settings-and-playback) - annotation area for current video and its labels.
+5. [Objects & Tags & Timeline](videos-3.0.md#objects-and-tags-and-timeline) - video timeline and overview of all objects and tags throughout the entire video.
+6. [Instruments panel](videos-3.0.md#instruments-panel) - annotation tools used to create annotations.
+7. [Definitions panel](videos-3.0.md#definitions-panel) - make it easy to create, manage and assign classes and tags.
+8. [Videos/Apps/Settings panel](videos-3.0.md#images-panel) - list of videos in your dataset, list of additional apps you can embed into the labeling toolbox, visualization and other settings.
 
 ***
 
@@ -101,7 +101,7 @@ The top toolbar contains options for personalizing the interface and managing da
 
 ## Auto-Tracking
 
-This smart functionality is powered by Supervisely Apps that work on top of existing tracking apps from our [ecosystem](https://ecosystem.supervisely.com/), such as [MixFormer](https://ecosystem.supervisely.com/apps/mixformer/serve/serve). Auto Tracking intelligently selects the right model based on the type of geometry you’re working with — whether it’s a bounding box, skeleton, mask, or other types.\
+This smart functionality is powered by Supervisely Apps that work on top of existing tracking apps from our [ecosystem](https://ecosystem.supervisely.com/), such as [MixFormer](https://ecosystem.supervisely.com/apps/mixformer/serve/serve). Auto Tracking intelligently selects the right model based on the type of geometry you're working with - whether it's a bounding box, skeleton, mask, or other types.\
 As you move through your video or modify labels, **Auto Tracking** predicts labels automatically. But it gets better! The feature is now enhanced with the latest AI developments. For example, it can detect when an **object leaves the scene and stop tracking it**.
 
 ***
@@ -123,13 +123,13 @@ As you move through your video or modify labels, **Auto Tracking** predicts labe
 **3. Interpolate Until Next Real Frame**
 
 * **Interpolation** allows the system to fill intermediate frames between keyframes, creating smoother transitions and enhancing annotation accuracy.
-* This feature is ideal for scenes with steady movement, such as a person walking along a straight path, where it’s unnecessary to manually label every frame.
+* This feature is ideal for scenes with steady movement, such as a person walking along a straight path, where it's unnecessary to manually label every frame.
 
 ***
 
 **4. Detect Off-Screen**
 
-* **Automatic Removal of Off-Screen Objects**: If an object moves out of the camera’s view, the Detect Off-Screen feature will automatically stop tracking it and remove the label from subsequent frames.
+* **Automatic Removal of Off-Screen Objects**: If an object moves out of the camera's view, the Detect Off-Screen feature will automatically stop tracking it and remove the label from subsequent frames.
 * This feature is useful for videos where objects may leave the frame, such as a vehicle exiting the scene.
 
 ***
@@ -143,7 +143,7 @@ As you move through your video or modify labels, **Auto Tracking** predicts labe
 
 **6. Tracking Engine**
 
-* **Selecting a Tracking Model**: Auto-Tracking supports multiple models, such as **Auto Track**, **MixFormer**, and **Serve Segment Anything**. Each model is suited to different tracking tasks — from general object tracking to precise segmentation tracking.
+* **Selecting a Tracking Model**: Auto-Tracking supports multiple models, such as **Auto Track**, **MixFormer**, and **Serve Segment Anything**. Each model is suited to different tracking tasks - from general object tracking to precise segmentation tracking.
 * Users can choose the model that best fits their project needs, such as tracking complex shapes or small objects.
 
 ***
@@ -258,7 +258,7 @@ Instead of relying on a single, zoomed-in timeline (which only shows about 50 fr
 
 <figure><img src="https://cdn.supervisely.com/blog/video-annotation-update-2024/timeline.png?width=800" alt=""><figcaption></figcaption></figure>
 
-We’ve kept the floating zoomed timeline as well, but now it’s much smaller and designed to help you focus on precision while the Objects & Tags Panel gives you the full picture. You may click on the interesting frame or use your mouse scroll.
+We've kept the floating zoomed timeline as well, but now it's much smaller and designed to help you focus on precision while the Objects & Tags Panel gives you the full picture. You may click on the interesting frame or use your mouse scroll.
 
 ![](https://cdn.supervisely.com/blog/video-annotation-update-2024/timeline-floating-window.png?width=800)
 
@@ -322,11 +322,11 @@ All step numbers align with those on the accompanying image:
 
 ## Definitions Panel
 
-In Video Toolbox 3.0, the Definitions Panel has been revamped for video labeling, building on what we’ve previously [introduced](https://supervisely.com/blog/definitions-panel/) for image labeling.
+In Video Toolbox 3.0, the Definitions Panel has been revamped for video labeling, building on what we've previously [introduced](https://supervisely.com/blog/definitions-panel/) for image labeling.
 
 Just like with image labeling, you can now quickly search for classes and start labeling right away without needing to manually select the appropriate tool. All your classes of labels are presented clearly on your screen for fast access.
 
-For video, we’ve added the ability to assign tags globally or frame-by-frame. Global tags can be applied to entire videos or specific objects, while frame-based tags let you mark specific ranges. You can even configure whether a tag is assigned only to the video, only to objects, or both. Global tags are assigned as usual: to the selected annotation object or to the current video, if none selected.
+For video, we've added the ability to assign tags globally or frame-by-frame. Global tags can be applied to entire videos or specific objects, while frame-based tags let you mark specific ranges. You can even configure whether a tag is assigned only to the video, only to objects, or both. Global tags are assigned as usual: to the selected annotation object or to the current video, if none selected.
 
 In previous versions, this was done by clicking the "clip" icon near the tag.
 

@@ -39,7 +39,7 @@ Administrators can create new user accounts directly from the user management pa
 
 * **Login**: Enter a unique username for the new user.
 * **Password**: Set a secure password for the user.
-*   **Permissions**: Set instance-level permissions for this user. This setting applies globally, while the member role controls the user’s access in a specific team.
+*   **Permissions**: Set instance-level permissions for this user. This setting applies globally, while the member role controls the user's access in a specific team.
 
     There are three categories of permissions:
 

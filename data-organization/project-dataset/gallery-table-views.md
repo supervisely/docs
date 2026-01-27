@@ -35,7 +35,7 @@ Projects are listed in a tabular format, which allows for sorting by various par
 
 ## Inside a Project
 
-Within a specific project — whether on the datasets overview page or inside an individual dataset — you have additional display modes to choose from. These let you control how files and annotations are visualized.
+Within a specific project - whether on the datasets overview page or inside an individual dataset - you have additional display modes to choose from. These let you control how files and annotations are visualized.
 
 Use the display settings icon located in the upper-right corner of the screen (next to the **Add** button) to switch between modes:
 
@@ -59,7 +59,7 @@ Displays a **nested table** that shows the list of datasets and their files at t
 
 ### Table Expanded
 
-Displays all data from all datasets — including nested sub-datasets — in a **single-level table**. Ideal for **sorting and comparing** files across the entire project, regardless of their position in the dataset hierarchy.
+Displays all data from all datasets - including nested sub-datasets - in a **single-level table**. Ideal for **sorting and comparing** files across the entire project, regardless of their position in the dataset hierarchy.
 
 <figure><img src="../../.gitbook/assets/gallery-tables-views/table-expanded.jpg" alt=""><figcaption></figcaption></figure>
 
@@ -78,4 +78,4 @@ This allows users to **customize the visual density** of the gallery depending o
 
 #### Summary
 
-Different display modes are tailored for different stages of dataset management — from **visual exploration** to **structured inspection and filtering**. By choosing the right view, users can better navigate complex projects, understand dataset composition, and prepare data for annotation workflows.
+Different display modes are tailored for different stages of dataset management - from **visual exploration** to **structured inspection and filtering**. By choosing the right view, users can better navigate complex projects, understand dataset composition, and prepare data for annotation workflows.

@@ -11,7 +11,7 @@ Collections are custom groups of images, videos, or other items within a single 
 ## Key concepts
 
 * A collection is always linked to a specific **project**.
-* Each collection contains only **one data type** — images, videos, or point clouds — consistent with the project type.
+* Each collection contains only **one data type** - images, videos, or point clouds - consistent with the project type.
 * Collections are **independent of datasets**. A collection can include items from different datasets within the same project.
 * You can **add or remove** items from a collection at any time.
 * Internally, a collection is just a **list of item IDs**, along with a name and optional description.
@@ -62,7 +62,7 @@ You can add items to an existing collection from any dataset inside one project.
 
 <figure><img src="../../.gitbook/assets/collections/collections_add_selected_items2.png" alt=""><figcaption></figcaption></figure>
 
-3. Now, while in any dataset, you can select the desired collection from the filter bar, and you’ll see that you are taken directly to the selected collection.
+3. Now, while in any dataset, you can select the desired collection from the filter bar, and you'll see that you are taken directly to the selected collection.
 
 <figure><img src="../../.gitbook/assets/collections/collections_add_selected_items3.png" alt=""><figcaption></figcaption></figure>
 
@@ -78,7 +78,7 @@ For deleting items from collection just select the desired items using **filters
 
 ## Annotating collections
 
-Collections provide a powerful way to organize and manage subsets of data across different datasets. Once you’ve grouped items into a collection, you can send them for annotation with full flexibility and control.
+Collections provide a powerful way to organize and manage subsets of data across different datasets. Once you've grouped items into a collection, you can send them for annotation with full flexibility and control.
 
 There are two main ways to annotate collections:
 
@@ -117,7 +117,7 @@ This setup allows dynamic control over labeling pipelines, especially useful whe
 {% endhint %}
 
 {% hint style="info" %}
-Note: Collections do not duplicate data — they act as smart references to existing items across multiple datasets.
+Note: Collections do not duplicate data - they act as smart references to existing items across multiple datasets.
 {% endhint %}
 
 ## Data filtering
@@ -365,4 +365,4 @@ Collections are fully accessible through the Supervisely API. With these [Entity
 
 * Collections are limited to a **single project**.
 * Only one **data type per collection** is supported.
-* There’s currently no dedicated collections page — access and management is done through flat views or Labeling Queue creation.
+* There's currently no dedicated collections page - access and management is done through flat views or Labeling Queue creation.

@@ -39,7 +39,7 @@ Ensure that the box includes the object with a 10% padding for better segmentati
 
 1. Place **positive points** (🟢) on areas of the object you want to include in the mask.
 2. Place **negative points** (🔴) on areas you want to exclude (e.g., background or overlapping objects).
-3. Adjust the mask by adding or moving points until the segmentation aligns with the object’s boundaries.
+3. Adjust the mask by adding or moving points until the segmentation aligns with the object's boundaries.
 4. Press the **SPACE** key to finalize the segmentation mask. The mask will be saved as a labeled object in the project.
 
 ### Step 5. Refine the Segmentation (Optional)
@@ -52,7 +52,7 @@ Ensure that the box includes the object with a 10% padding for better segmentati
 
 #### Switch Models for Improved Results (Optional)
 
-1. If the current model doesn’t produce satisfactory results, return to the **Model ID** button.
+1. If the current model doesn't produce satisfactory results, return to the **Model ID** button.
 2. Select a different model and repeat the segmentation steps.
 3. Experiment with multiple models to achieve the best performance for your specific dataset.
 

@@ -8,7 +8,7 @@ description: >-
 
 The Supervisely Image Annotation Tool is a web-based image annotation toolbox specifically developed to address the needs of computer vision projects. It is fully web-based, allowing users to access and use the tool from any browser without the need for local installations. The platform provides powerful tools for annotating different types of images, supports different formats, and integrates neural networks to increase the speed and accuracy of annotation tasks.
 
-1. Web-based interfaces — you just need a browser.
+1. Web-based interfaces - you just need a browser.
 2. Fully customizable interface with easy-to-tune visualization settings: light and dark theme, flexible layout, multiple image view modes, multi-spectral view and grid.
 3. Supports complex image formats: high-resolution images, high-color depth images with 16-bit per pixel or more, customizable image visualization settings, filter images with conditions, additional image metadata, restore mode and undo/redo functionality.
 4. Advanced labeling capabilities: multiple annotation tools -[ Bounding Box](https://supervisely.com/blog/bounding-box-annotation-for-object-detection/),[ Polygon Tool](https://supervisely.com/blog/how-to-use-polygon-anotation-tool-for-image-segmentation/),[ Brush and Eraser Tool](https://supervisely.com/blog/brush/),[ Mask Pen Tool](https://supervisely.com/blog/mask-pen-tool/),[ Smart Tool](https://supervisely.com/blog/smarttool-annotation/),[ Graph (Keypoins) Tool](https://supervisely.com/blog/animal-pose-estimation/), effectively supports 1000+ objects per image, image and object tags and attributes, customizable hotkeys.
@@ -21,13 +21,13 @@ The Supervisely Image Annotation Tool is a web-based image annotation toolbox sp
 
 <figure><img src="../../.gitbook/assets/interface.png" alt=""><figcaption></figcaption></figure>
 
-1. **Home button** — returns user to the main menu (`Projects` page)
-2. [**Basic interface elements**](./#explore-basic-interface-elements) — basic settings, such as history of operations, theme, a hotkeys map and more useful features.
-3. [**Main scene & labeling scene settings**](./#main-scene-and-labeling-scene-settings)— annotation area for current image and its labels.
-4. [**Definitions panel**](./#definitions-panel) — make it easy to create and manage classes and tags.
-5. [**Instruments panel**](./#instruments-panel) — annotation tools used to create annotations.
-6. [**Objects panel**](./#objects-panel) — list of figures on the current image with additional information like classes and tags.
-7. [**Images/Apps/Settings panel**](./#images-panel) — list of images in your dataset, list of additional apps you can embed into the labeling toolbox, visualization and other settings.
+1. **Home button** - returns user to the main menu (`Projects` page)
+2. [**Basic interface elements**](./#explore-basic-interface-elements) - basic settings, such as history of operations, theme, a hotkeys map and more useful features.
+3. [**Main scene & labeling scene settings**](./#main-scene-and-labeling-scene-settings)- annotation area for current image and its labels.
+4. [**Definitions panel**](./#definitions-panel) - make it easy to create and manage classes and tags.
+5. [**Instruments panel**](./#instruments-panel) - annotation tools used to create annotations.
+6. [**Objects panel**](./#objects-panel) - list of figures on the current image with additional information like classes and tags.
+7. [**Images/Apps/Settings panel**](./#images-panel) - list of images in your dataset, list of additional apps you can embed into the labeling toolbox, visualization and other settings.
 
 ***
 

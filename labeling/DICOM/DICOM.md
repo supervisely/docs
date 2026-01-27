@@ -19,12 +19,12 @@ description: >-
 
 <figure><img src="../../.gitbook/assets/dicom-interface.png" alt=""><figcaption></figcaption></figure>
 
-1. **Home button** — returns user to the main menu (Projects page)
-2. [Basic interface elements](DICOM.md#basic-interface-elements) — highly important "Interpolation" tool, basic settings, such as history of operations, theme, a hotkeys map and more useful features.
-3. [Main scene & settings & contols](DICOM.md#main-scene) — workspace with the Volume images at the planes and a 3D perspective.
-4. [Instruments panel](DICOM.md#instruments-panel) — toolbar for navigating through planes and working with annotations.
-5. [Objects panel](DICOM.md#objects-panel) — list of figures on the current volume with additional information like classes and tags.
-6. [Volumes /Settings panel](DICOM.md#volumes-panel) — list of volumes in your dataset, visualization and other settings.
+1. **Home button** - returns user to the main menu (Projects page)
+2. [Basic interface elements](DICOM.md#basic-interface-elements) - highly important "Interpolation" tool, basic settings, such as history of operations, theme, a hotkeys map and more useful features.
+3. [Main scene & settings & contols](DICOM.md#main-scene) - workspace with the Volume images at the planes and a 3D perspective.
+4. [Instruments panel](DICOM.md#instruments-panel) - toolbar for navigating through planes and working with annotations.
+5. [Objects panel](DICOM.md#objects-panel) - list of figures on the current volume with additional information like classes and tags.
+6. [Volumes /Settings panel](DICOM.md#volumes-panel) - list of volumes in your dataset, visualization and other settings.
 
 ***
 
@@ -136,7 +136,7 @@ In the **PERSPECTIVE** view, the only available setting is **Invert Colors**, wh
 
 ## **Instruments panel**
 
-Full variety of instruments from our best-in-class [image labeling toolbox](../images/) — plus, extra tools for medical imaging, like window adjustments.
+Full variety of instruments from our best-in-class [image labeling toolbox](../images/) - plus, extra tools for medical imaging, like window adjustments.
 
 [**Pan & Move Scene Tool:**](../labeling-tools/navigation-and-selection-tools.md) Quickly navigate around the image without modifying annotations.
 

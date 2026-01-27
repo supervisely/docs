@@ -96,7 +96,7 @@ Multi-model detection ensemble is implemented in a form of AI image labeling ass
 
 ## Online learning
 
-Online learning enables a model to continuously improve by training on new human annotations in real time. As annotators correct predictions or add new labels, the model updates its parameters on the fly - it allows to instantly adapt to the dataset’s style, domain and corner cases. Instead of waiting until dataset will be labeled completely, model learns incrementally from each interaction, steadily reducing error rates and boosting pre-labeling quality.
+Online learning enables a model to continuously improve by training on new human annotations in real time. As annotators correct predictions or add new labels, the model updates its parameters on the fly - it allows to instantly adapt to the dataset's style, domain and corner cases. Instead of waiting until dataset will be labeled completely, model learns incrementally from each interaction, steadily reducing error rates and boosting pre-labeling quality.
 
 This approach allows the model to rapidly internalize rare classes, domain-specific nuances and ambiguous scenarios as soon as they appear in the labeling workflow. Over time, the model becomes increasingly tailored to the project, leading to fewer manual corrections. Online learning transforms model training into a dynamic feedback loop, where every human interaction makes the system smarter and more efficient.
 
@@ -106,7 +106,7 @@ Supervisely Ecosystem supports online learning for two task types: object detect
 
 ## Image filtering
 
-Prompt-based image filtering uses a model that understands both images and text (most commonly [CLIP](https://arxiv.org/abs/2103.00020) or similar vision–language foundation models) to filter large image collections through natural language instructions. You provide a text prompt and the model evaluates each image’s similarity to that text prompt.
+Prompt-based image filtering uses a model that understands both images and text (most commonly [CLIP](https://arxiv.org/abs/2103.00020) or similar vision–language foundation models) to filter large image collections through natural language instructions. You provide a text prompt and the model evaluates each image's similarity to that text prompt.
 
 Image filtering based on text prompt creates numerous data processing opportunities:
 

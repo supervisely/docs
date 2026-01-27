@@ -24,7 +24,7 @@ Github Issues are the perfect example of efficient collaboration between thousan
 
 ## Organize + Search + Filter
 
-Issues has its own section in every team. There are two types of issues: **private** and **public** ones. Private issues help to discuss project-related questions and are available only for team members. Public issues are designed to keep everybody in your organization on the same page, share ideas, hear all voices, consider all options — and establish consensus.
+Issues has its own section in every team. There are two types of issues: **private** and **public** ones. Private issues help to discuss project-related questions and are available only for team members. Public issues are designed to keep everybody in your organization on the same page, share ideas, hear all voices, consider all options - and establish consensus.
 
 <figure><img src="../../.gitbook/assets/issues.png" alt=""><figcaption></figcaption></figure>
 
@@ -44,7 +44,7 @@ A typical issue looks like this:
 * **Links** associate your issues with any Supervisely entities like projects, labeling jobs, neural networks and so on and help you categorize and filter your issues based on that
 * **Assignees** are responsible for working on the issue
 * **Comments** allow anyone with access to the Issues to provide feedback
-* **Markdown** support — it is a lightweight and easy-to-use syntax for styling all your comments: add tables, images, coloring, lists, links and so on
+* **Markdown** support - it is a lightweight and easy-to-use syntax for styling all your comments: add tables, images, coloring, lists, links and so on
 
 ## Assignees + Links
 
@@ -83,7 +83,7 @@ You can close the entire issue or you can create a single issue and attach a lof
 
 ## Difference
 
-Supervisely’s issue tracking is special because of our focus on collaboration and visualization tools during labeling. Every item can be discussed and resolved separately. For images and objects, a user sees initial labels (when the issue was created) and a final result.
+Supervisely's issue tracking is special because of our focus on collaboration and visualization tools during labeling. Every item can be discussed and resolved separately. For images and objects, a user sees initial labels (when the issue was created) and a final result.
 
 It is especially useful for tracking how labeling mistakes are fixed over time. Managers and reviewers can easily track changes by comparing the differences between initial and final labels.
 
@@ -95,4 +95,4 @@ Issues evolve over time: titles change, items resolve, new items appear, discuss
 
 <figure><img src="../../.gitbook/assets/conversation.png" alt=""><figcaption></figcaption></figure>
 
-**Notifications** provide important updates about the conversations and activities you’re involved in. Users don’t miss relevant information and stay informed of what’s going on. Notifications are available through email or right in Supervisely dashboard.
+**Notifications** provide important updates about the conversations and activities you're involved in. Users don't miss relevant information and stay informed of what's going on. Notifications are available through email or right in Supervisely dashboard.

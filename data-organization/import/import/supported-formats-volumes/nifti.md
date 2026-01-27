@@ -111,7 +111,7 @@ The NIfTI file should be structured as follows:
 
 **Note:** Filenames can include other descriptive parts such as patient or case UIDs, body parts, arbituary strings or other identifiers, as long as the required plane and type identifiers are present and the file extension is `.nii` or `.nii.gz`.
 
-The plane identifier must be one of: `cor`, `sag`, or `axl`. The converter uses these prefixes to group volumes and their annotation files, requiring exactly three volumes — one for each prefix per folder.
+The plane identifier must be one of: `cor`, `sag`, or `axl`. The converter uses these prefixes to group volumes and their annotation files, requiring exactly three volumes - one for each prefix per folder.
 
 Structure example for semantic segmentation:
 

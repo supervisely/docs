@@ -12,10 +12,10 @@ Multiview mode allows you to work with multiple videos of the same scene capture
 
 This is particularly useful for:
 
-* **Autonomous driving** — multiple cameras mounted on a vehicle
-* **Surveillance** — security cameras covering the same area from different angles
-* **Sports analytics** — tracking athletes from multiple viewpoints
-* **3D reconstruction** — multi-camera setups for depth estimation
+* **Autonomous driving** - multiple cameras mounted on a vehicle
+* **Surveillance** - security cameras covering the same area from different angles
+* **Sports analytics** - tracking athletes from multiple viewpoints
+* **3D reconstruction** - multi-camera setups for depth estimation
 
 ![](../../../.gitbook/assets/multi-view-results.gif)
 
@@ -158,12 +158,12 @@ To control the order of videos in the multiview labeling interface, you can crea
 
 The multiview labeling interface includes the following key elements:
 
-* **Video panels & Synchronized timeline** — each video is displayed in its own panel with a shared timeline for synchronized navigation:
-* **Objects & Tags panel** — shows objects across all videos and video-specific tags:
+* **Video panels & Synchronized timeline** - each video is displayed in its own panel with a shared timeline for synchronized navigation:
+* **Objects & Tags panel** - shows objects across all videos and video-specific tags:
 
 ![](../../../.gitbook/assets/multi-view-objects.png)
 
-* **Multiview settings** — configure frame offsets to align videos temporally to ensure synchronized playback. You can specify number of frames or time in milliseconds for each video:
+* **Multiview settings** - configure frame offsets to align videos temporally to ensure synchronized playback. You can specify number of frames or time in milliseconds for each video:
 
 ![](../../../.gitbook/assets/multi-view-settings.jpg)
 

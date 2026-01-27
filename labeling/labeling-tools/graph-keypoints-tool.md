@@ -6,7 +6,7 @@ The **Graph (Keypoints) Tool** is designed for annotating key points on images a
 
 ## Video Tutorial
 
-To better understand how to use the **Graph (Keypoints) Tool** for pose estimation, watch our video tutorial. For animal pose estimation, you can also check out the video: [**"ViTPose — How to Use the Best Pose Estimation Model on Animals | Computer Vision Tutorial"**](https://www.youtube.com/watch?v=piryWAGuyZk\&ab\_channel=Supervisely). These tutorials provide straightforward instructions on using the Keypoints Tool for both human and animal pose estimation.
+To better understand how to use the **Graph (Keypoints) Tool** for pose estimation, watch our video tutorial. For animal pose estimation, you can also check out the video: [**"ViTPose - How to Use the Best Pose Estimation Model on Animals | Computer Vision Tutorial"**](https://www.youtube.com/watch?v=piryWAGuyZk\&ab\_channel=Supervisely). These tutorials provide straightforward instructions on using the Keypoints Tool for both human and animal pose estimation.
 
 {% embed url="https://www.youtube.com/watch?ab_channel=Supervisely&v=CQBN5e-t_GE" %}
 

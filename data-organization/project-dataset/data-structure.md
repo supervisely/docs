@@ -28,7 +28,7 @@ A member may leave or delete a personal **Team**, provided that they remain asso
 
 Each **Team** must always have at least one **Workspace**, although it doesn't have to be the original one created at registration.
 
-The Supervisely system strictly enforces these rules and will not allow any actions that would violate them. For example, you won’t be able to delete your last remaining Team or its only Workspace.
+The Supervisely system strictly enforces these rules and will not allow any actions that would violate them. For example, you won't be able to delete your last remaining Team or its only Workspace.
 
 #### 3. Creating & Managing Teams
 
@@ -56,13 +56,13 @@ Each **Project** can contain multiple **Datasets**, which store the actual data 
 This flexible structure allows Members to organize data in a way that fits their workflow.
 
 Furthermore, a Member can create additional **Workspaces** inside any **Team** where they have the Admin role.\
-Inside a **Dataset**, you can create **Sub-Datasets**, enabling flexible and deeply nested data structures — just like folders and subfolders on your computer. There are no limitations on nesting depth, so you can organize your data in whatever hierarchy makes sense for your workflow.
+Inside a **Dataset**, you can create **Sub-Datasets**, enabling flexible and deeply nested data structures - just like folders and subfolders on your computer. There are no limitations on nesting depth, so you can organize your data in whatever hierarchy makes sense for your workflow.
 
 <figure><img src="../../.gitbook/assets/data-structure/d-s-default-scheme3.jpg" alt=""><figcaption></figcaption></figure>
 
-Let’s repeat an important rule: at the **Project** level, you cannot store files directly — only **Datasets** can exist there. Files and **Sub-Datasets** can only be added inside a **Dataset**.
+Let's repeat an important rule: at the **Project** level, you cannot store files directly - only **Datasets** can exist there. Files and **Sub-Datasets** can only be added inside a **Dataset**.
 
-You can think of **Datasets** as folders and **Sub-Datasets** as **subfolders**. This allows you to recreate complex directory structures exactly the way you organize data on your local machine or in your company’s cloud storage. It’s especially useful if you’re working with a shared storage system that already follows a specific hierarchy — you can mirror that same structure inside Supervisely without restrictions.
+You can think of **Datasets** as folders and **Sub-Datasets** as **subfolders**. This allows you to recreate complex directory structures exactly the way you organize data on your local machine or in your company's cloud storage. It's especially useful if you're working with a shared storage system that already follows a specific hierarchy - you can mirror that same structure inside Supervisely without restrictions.
 
 To create a sub-dataset inside an existing dataset:
 
@@ -78,14 +78,14 @@ Great! Your sub-dataset with files is now ready.
 
 ### Project versions
 
-[**Data Versioning**](https://supervisely.com/blog/mlops-workflow-and-data-versioning/) allows you to manage and track different versions of a project over time. It allows you to save, restore, and compare different states of a project.
+[**Project Versions**](project-versions.md) allow you to manage and track different versions of a project over time. It allows you to save, restore, and compare different states of a project.
 
 Key features of project versioning include:
 
 * **Version Control**: Track and manage changes made to the project over time, ensuring every specific state is recorded.
 * **History Tracking**: Maintain a comprehensive history of all modifications, making it easy to understand the project's evolution.
 * **Reverting Changes**: Restore any previous version of the project, allowing you to get a new project with a specific state of data.
-* [**MLOps Execution**](https://docs.supervisely.com/data-organization/mlops-workflow): Execute machine learning tasks on specific versions of the project data, ensuring that the exact state of the data used is known. This guarantees consistency and reproducibility of results.
+* [**MLOps Workflow**](../mlops-workflow.md): Execute machine learning tasks on specific versions of the project data, ensuring that the exact state of the data used is known. This guarantees consistency and reproducibility of results.
 
 <figure><img src="../../.gitbook/assets/data-structure/project-versions.jpg" alt=""><figcaption></figcaption></figure>
 

@@ -78,7 +78,7 @@ Steps to Solve Using Co-Occurrence Matrix and Spatial Heatmap 👇
 
 #### **Step 2. Spatial Heatmap**
 
-1. Examine the spatial heatmap to understand where objects are typically located in the images. This can reveal biases in the model’s learning, such as consistently predicting objects in certain areas.
+1. Examine the spatial heatmap to understand where objects are typically located in the images. This can reveal biases in the model's learning, such as consistently predicting objects in certain areas.
 
 #### **Step 3. Data Analysis and Augmentation**
 

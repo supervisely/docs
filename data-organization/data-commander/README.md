@@ -2,7 +2,7 @@
 
 Data Commander is a tool that combines the classic approach of file management with the modern needs of handling data for training Computer Vision models. The primary goal of this tool is to simplify and speed up data manipulation processes by providing an interface similar to traditional file managers like Double Commander or Total Commander, but tailored to the specific requirements of working with annotations and other training data components.
 
-Data Commander is a dual pane data manager (just like Double Commander), but not files — it's for training data.
+Data Commander is a dual pane data manager (just like Double Commander), but not files - it's for training data.
 
 ![](<../../.gitbook/assets/data-commander (1).png>)
 

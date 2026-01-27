@@ -12,7 +12,7 @@ The **Pan & Move Scene Tool** **`(1)`** enables users to quickly navigate around
 
 ## Select Figure
 
-The **Select Figure Tool `(2)`** allows you to select and modify existing annotations. It’s essential for refining objects, making adjustments, or accessing properties for any annotated figure in the labeling toolbox.
+The **Select Figure Tool `(2)`** allows you to select and modify existing annotations. It's essential for refining objects, making adjustments, or accessing properties for any annotated figure in the labeling toolbox.
 
 **Click** on any annotation to select it. Once selected, you can rotate or adjust the annotation using the control points or settings panel.
 

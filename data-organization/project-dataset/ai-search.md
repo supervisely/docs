@@ -66,7 +66,7 @@ Search for images using a natural language prompt.
 
 **Example:**
 
-> _"A person riding a bicycle"_ returns images that visually and semantically match this description — regardless of labeling.
+> _"A person riding a bicycle"_ returns images that visually and semantically match this description - regardless of labeling.
 
 #### Filter by Score Range
 

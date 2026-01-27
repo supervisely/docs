@@ -46,7 +46,7 @@ Suppose you want to train a model to recognize strawberries in images. You have 
 1. Reviewers sequentially verify the annotations for accuracy.
 2. Approved annotations are finalized.
 3. Incorrect annotations are sent back to the original Annotator for correction.
-4. Reviewed images do not return to the general queue but stay in the original Annotator’s job.
+4. Reviewed images do not return to the general queue but stay in the original Annotator's job.
 
 ***
 

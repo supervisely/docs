@@ -7,12 +7,12 @@ Sounds good, huh? Onboarding takes no more than five minutes, so let's go! 💥
 Supervisely is free for non-commercial usage and requires no card info. Go to the [**signup page**](https://app.supervisely.com/signup), choose login and password to create your personal account. You can sign in through the GitHub or Google Account too.
 
 {% hint style="info" %}
-If you feel Supervisely is the right fit for you and your company,  feel free to [contact us](https://supervisely.com/contact) and get an Enterprise Edition — a self-hosted version with advanced data security, customization and [more](https://supervisely.com/enterprise)!
+If you feel Supervisely is the right fit for you and your company,  feel free to [contact us](https://supervisely.com/contact) and get an Enterprise Edition - a self-hosted version with advanced data security, customization and [more](https://supervisely.com/enterprise)!
 {% endhint %}
 
 ### 👋 Invite more people
 
-When you create an account we automatically create a new **team** for you that has the same name as your login. You are the only member right now — but you can invite your colleagues and work on the same data together!
+When you create an account we automatically create a new **team** for you that has the same name as your login. You are the only member right now - but you can invite your colleagues and work on the same data together!
 
 {% page-ref page="../collaboration/teams.md" %}
 
@@ -38,7 +38,7 @@ Go to the **projects** page to see your new project: a set of datasets \(aka fol
 
 ### 🖥 Connect your PC and run a neural net
 
-Get some benefit from your datasets — train a new neural network or apply an existing one. By the way, we have a bunch of them in our model zoo: like UNet or DeepLab.
+Get some benefit from your datasets - train a new neural network or apply an existing one. By the way, we have a bunch of them in our model zoo: like UNet or DeepLab.
 
 Before you start, you need to connect a computer with GPU on board to the platform, so that you can deploy new tasks right from the web interface.
 

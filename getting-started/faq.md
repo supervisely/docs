@@ -40,7 +40,7 @@ We do! Drop us an email at [hello@supervisely.com](mailto:hello@supervisely.com)
 
 <summary>What does “Supervisely” mean?</summary>
 
-The name Supervisely comes from machine learning term supervised learning — when we use a known dataset (called the training dataset) to make predictions. And, well, Supervisely is all about datasets and using them to build models.
+The name Supervisely comes from machine learning term supervised learning - when we use a known dataset (called the training dataset) to make predictions. And, well, Supervisely is all about datasets and using them to build models.
 
 </details>
 

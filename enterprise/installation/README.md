@@ -70,8 +70,8 @@ You can install Supervisely and run GPU computations on different machines using
 
 We recommend to use the following EC2-instances for deployment in AWS:
 
-* 1 × m5.2xlarge — the platform itself
-* 1 × p2.xlarge — (for Neural Network Module only)
+* 1 × m5.2xlarge - the platform itself
+* 1 × p2.xlarge - (for Neural Network Module only)
 
 #### Software
 

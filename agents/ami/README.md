@@ -24,7 +24,7 @@ Search for "Deep Learning AMI". You will see a bunch of out-of-the-box images th
 
 On a next step select "GPU compute" filter and select "p3.\*" instance type. We suggest using "p3.2xlarge".
 
-Different AMIs need different storage — i.e. "Deep Learning AMI (Ubuntu)" comes with Anaconda and multiple versions of CUDA so it's 100 Gb of already taken space. We suggest to configure at least 200 Gb volume size, because agent will download pretty large docker images. You can also attach additional EBS volume and create a symlink to `~/.supervisely-agent` - this is where your model weights and images will be stored.
+Different AMIs need different storage - i.e. "Deep Learning AMI (Ubuntu)" comes with Anaconda and multiple versions of CUDA so it's 100 Gb of already taken space. We suggest to configure at least 200 Gb volume size, because agent will download pretty large docker images. You can also attach additional EBS volume and create a symlink to `~/.supervisely-agent` - this is where your model weights and images will be stored.
 
 Click "Review and Launch" to start your instance.
 
