@@ -1,4 +1,4 @@
-# Object detection with YOLO 26
+# Object detection with YOLO26
 
 ## Overview
 
