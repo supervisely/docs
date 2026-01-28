@@ -1,12 +1,12 @@
-# Object detection with YOLO26
+# Object Detection with YOLO26
 
 ## Overview
 
 YOLO26 is the latest version of YOLO model family developed by [Ultralytics](https://www.ultralytics.com/). It demonstrates decent accuracy in real-time computer vision tasks and proposes accessible deployment. YOLO26 is integrated into Supervisely Ecosystem in the form of [Train YOLO v8-26](https://ecosystem.supervisely.com/apps/yolo/supervisely_integration/train) and [Serve YOLO v8-26 apps](https://ecosystem.supervisely.com/apps/yolo/supervisely_integration/serve) - for training and inference respectively.
 
-<figure><img src="https://github.com/user-attachments/assets/48b2f60a-1c25-4dd1-a235-b676ac3ad39d" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_comparison.png" alt=""><figcaption></figcaption></figure>
 
-## What's new
+## What's New
 
 **DFL Elimination**
 
@@ -130,7 +130,7 @@ F1-optimal confidence threshold = 0.2737
 
 You can find more information about Supervisely model benchmark [here](https://docs.supervisely.com/neural-networks/model-evaluation-benchmark).
 
-## Deploying YOLO26 as a REST API service
+## Deploying YOLO26 as a REST API Service
 
 Now, when we got custom YOLO26 checkpoint, we can use the **Serve YOLO v8–26** app to deploy YOLO26 models as a REST API service.
 
@@ -162,7 +162,7 @@ Click **Serve** and wait for the service status to become **running** in the app
 <figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_serve_select_model_deployed.png" alt=""><figcaption></figcaption></figure>
 
 
-## Using trained YOLO26 model inside Supervisely
+## Using Trained YOLO26 Model Inside Supervisely
 
 Supervisely Ecosystem provides convenient apps for labeling data with trained neural networks. You can use [Predict App](https://ecosystem.supervisely.com/apps/apply-nn) to label your data with both pretrained and custom neural networks.
 
@@ -170,48 +170,44 @@ Supervisely Ecosystem provides convenient apps for labeling data with trained ne
 
 Run Predict app from the Ecosystem
 
-<figure><img src="https://github.com/user-attachments/assets/1c35e352-17e4-41a0-87c6-58c2b124c68a" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_predict_app.png" alt=""><figcaption></figcaption></figure>
 
 ### Step 2: Select input data
 
 Select datasets from images project to which model will be applied
 
-<figure><img src="https://github.com/user-attachments/assets/e02147ff-9170-4926-979a-2566d4f2370e" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_select_data.png" alt=""><figcaption></figcaption></figure>
 
 ### Step 3: Connect to served model
 
 Select app session with custom YOLO26 model:
 
-<figure><img src="https://github.com/user-attachments/assets/e0bd8d12-dcd9-4024-a1c5-902b3241bcf0" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_select_inference_model.png" alt=""><figcaption></figcaption></figure>
 
 ### Step 4: Select classes
 
 Select classes which will be used for prediction, other classes will be ignored:
 
-<figure><img src="https://github.com/user-attachments/assets/0ffb9bab-ab9b-4260-9d54-a454757eeb74" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_select_inference_classes.png" alt=""><figcaption></figcaption></figure>
 
 ### Step 5: Set inference settings
 
 Select inference settings (like confidence threshold) and run Preview:
 
-<figure><img src="https://github.com/user-attachments/assets/af6f1531-4d87-4d1d-8343-2503a7dbe138" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_select_inference_settings.png" alt=""><figcaption></figcaption></figure>
 
 
 ### Step 6: Enter output project name
 
-Write output project name and press **Run**:
+Write output project name and press **Run**. After inference will be finished, link to labeled project will appear in app UI.
 
-<figure><img src="https://github.com/user-attachments/assets/5e64f6d3-46f1-409a-beb5-301faeb593f5" alt=""><figcaption></figcaption></figure>
-
-After inference will be finished, link to labeled project will appear in app UI:
-
-<figure><img src="https://github.com/user-attachments/assets/10616bc0-024a-4ba5-8e39-a0b0f2775774" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_inference_results.png" alt=""><figcaption></figcaption></figure>
 
 Now you can open labeled project with images and check how your trained model performed:
 
 <figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_result_project.png" alt=""><figcaption></figcaption></figure>
 
-## Using trained YOLO26 model outside Supervisely
+## Using Trained YOLO26 Model Outside Supervisely
 
 After you've trained a model in Supervisely, you can download the checkpoint from Team Files and use it as a simple PyTorch model without Supervisely Platform.
 
