@@ -39,13 +39,13 @@ This section shows how to train YOLO26 using [Train YOLO v8–26](https://ecosys
 ### Prerequisites
 
 - A Supervisely project with annotated images for **object detection** or **instance segmentation**.  
-- A running [agent](https://docs.supervisely.com/agents/connect-your-computer) with GPU access (recommended for training).
+- A running [agent](../../getting-started/connect-your-computer.md) with GPU access (recommended for training).
 
 We will take [Surgical Tools dataset](https://datasetninja.com/labeled-surgical-tools-and-images) from Dataset Ninja as an example.
 
 <figure><img src="../../.gitbook/assets/neural-networks/yolo26/ds-ninja.jpg" alt=""><figcaption></figcaption></figure>
 
-### Step 1: Launch the training app
+### Step 1: Launch the Training App
 
 1. Open App Ecosystem.  
 2. Choose Train YOLO v8 – 26 app.  
@@ -57,25 +57,25 @@ Alternatively, you can launch training app from context menu of your images proj
 
 <figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_launch_context.png" alt=""><figcaption></figcaption></figure>
 
-### Step 2: Choose YOLO26 model variant and task type
+### Step 2: Choose YOLO26 Model Variant and Task Type
 
 Choose a YOLO26 pretrained checkpoint, either from Ultralytics (COCO) or from your previous experiment in Team Files, adjusting the variant to your preferred balance of speed, accuracy, and hardware performance.
 
 <figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_select_model.png" alt=""><figcaption></figcaption></figure>
 
-### Step 3: Select annotation classes for training
+### Step 3: Select Annotation Classes for Training
 
 Pick the subset of classes that YOLO26 should learn (you can train on all or only a part of total).
 
 <figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_select_classes.png" alt=""><figcaption></figcaption></figure>
 
-### Step 4: Configure dataset split
+### Step 4: Configure Dataset Split
 
 Select suitable data split method (random / based on item tags / based on datasets / based on collections).
 
 <figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_select_dataset_split.png" alt=""><figcaption></figcaption></figure>
 
-### Step 5: Configure training hyperparameters
+### Step 5: Configure Training Hyperparameters
 
 Set training parameters such as batch size, number of epochs, learning rate and many others.
 
@@ -134,13 +134,13 @@ You can find more information about Supervisely model benchmark [here](https://d
 
 Now, when we got custom YOLO26 checkpoint, we can use the **Serve YOLO v8–26** app to deploy YOLO26 models as a REST API service.
 
-### Step 1: Launch the serve app
+### Step 1: Launch the Serve App
 
 Run **Serve YOLO v8 – 26** from the Ecosystem choosing the target agent (GPU or CPU) that will host the model service.
 
 <figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_serve_ecosystem.png" alt=""><figcaption></figcaption></figure>
 
-### Step 2: Select model and runtime
+### Step 2: Select Model and Runtime
 
 Choose one either model pretrained on COCO dataset 
 
@@ -155,7 +155,7 @@ Pick the runtime engine:
 - **ONNXRuntime**  - acts like a universal translator for ML models, useful if you want framework-agnostic deployment
 - **TensorRT** - high-performance inference runtime which optimizes models specifically for NVIDIA GPUs
 
-### Step 3: Deploy selected model
+### Step 3: Deploy Selected Model
 
 Click **Serve** and wait for the service status to become **running** in the app UI.  
 
@@ -172,32 +172,32 @@ Run Predict app from the Ecosystem
 
 <figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_predict_app.png" alt=""><figcaption></figcaption></figure>
 
-### Step 2: Select input data
+### Step 2: Select Input Data
 
 Select datasets from images project to which model will be applied
 
 <figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_select_data.png" alt=""><figcaption></figcaption></figure>
 
-### Step 3: Connect to served model
+### Step 3: Connect to Served Model
 
 Select app session with custom YOLO26 model:
 
 <figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_select_inference_model.png" alt=""><figcaption></figcaption></figure>
 
-### Step 4: Select classes
+### Step 4: Select Classes
 
 Select classes which will be used for prediction, other classes will be ignored:
 
 <figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_select_inference_classes.png" alt=""><figcaption></figcaption></figure>
 
-### Step 5: Set inference settings
+### Step 5: Set Inference Settings
 
 Select inference settings (like confidence threshold) and run Preview:
 
 <figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_select_inference_settings.png" alt=""><figcaption></figcaption></figure>
 
 
-### Step 6: Enter output project name
+### Step 6: Enter Output Project Name
 
 Write output project name and press **Run**. After inference will be finished, link to labeled project will appear in app UI.
 
@@ -223,9 +223,9 @@ After you've trained a model in Supervisely, you can download the checkpoint fro
    - [demo_tensorrt.py](https://github.com/supervisely-ecosystem/yolo/blob/master/supervisely_integration/demo/demo_tensorrt.py)
 
 
-### Step 1: Set up environment
+### Step 1: Set Up Environment
 
-#### Manual installation
+#### Manual Installation
 
 ```bash
 git clone https://github.com/supervisely-ecosystem/yolo
@@ -233,7 +233,7 @@ cd yolo
 pip install -r requirements.txt
 ```
 
-#### Using docker image (advanced)
+#### Using Docker Image (advanced)
 
 We provide a pre-built docker image with all dependencies installed [DockerHub](https://hub.docker.com/r/supervisely/yolo/tags). The image includes installed packages for ONNXRuntime and TensorRT inference.
 
@@ -245,9 +245,11 @@ See our [Dockerfile](https://github.com/supervisely-ecosystem/yolo/blob/master/d
 
 Docker image already includes the source code.
 
-### Step 2: Prepare checkpoint and model files
+### Step 2: Prepare Checkpoint and Model Files
 
 Go to Team Files in Supervisely Platform and download the files.
+
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_exported_checkpoints.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 For YOLO, you need to download only the checkpoint file.
@@ -256,9 +258,8 @@ For YOLO, you need to download only the checkpoint file.
 - **For PyTorch inference:** models can be found in the `checkpoints` folder in Team Files after training.
 - **For ONNXRuntime and TensorRT inference:** models can be found in the `export` folder in Team Files after training. If you don't see the `export` folder, please ensure that the model was exported to `ONNX` or `TensorRT` format during training.
 
-![team_files_download](https://github.com/user-attachments/assets/865dea6a-298e-4896-bad9-4066769c0abd)
 
-### Step 3: Run inference
+### Step 3: Run Inference
 
 Here are demo scripts to run inference with your checkpoints in PyTorch, ONNX or TensorRT runtimes:
 
