@@ -79,25 +79,21 @@ Select suitable data split method (random / based on item tags / based on datase
 
 Set training parameters such as batch size, number of epochs, learning rate and many others.
 
-<figure><img src="https://github.com/user-attachments/assets/2f1abd97-3782-4c60-93f4-ce05012fc8a9" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_hyperparameters.png" alt=""><figcaption></figcaption></figure>
 
 ### Step 6: Run Training
 
-Enter an experiment name and click **Start** to launch training.  
+Enter an experiment name and click **Start** to launch training. Monitor training progress epoch by epoch in app UI.
 
-<figure><img src="https://github.com/user-attachments/assets/aa587e24-06be-4030-8954-13716820ebba" alt=""><figcaption></figcaption></figure>
-
-Monitor training progress epoch by epoch in app UI.
-
-<figure><img src="https://github.com/user-attachments/assets/d688062c-3b7f-47f6-abf7-010a5cc1756d" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_training_process.png" alt=""><figcaption></figcaption></figure>
 
 Click **Open Tensorboard** to monitor key performance metrics and loss function values.
 
-<figure><img src="https://github.com/user-attachments/assets/411f257e-3439-4129-84a3-869f0c5667ef" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_tensorboard.png" alt=""><figcaption></figcaption></figure>
 
 Once training finishes, links to checkpoints and logs will appear in app UI - they are stored under **Team Files → experiments → <your_experiment_name>**.
 
-<figure><img src="https://github.com/user-attachments/assets/13e5f578-4411-43d1-8a00-b16720557b9c" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_training_artifacts.png" alt=""><figcaption></figcaption></figure>
 
 If user has enabled model benchmark option in training settings, then model performance evaluation report will be generated in the end of the training session.
 
@@ -142,30 +138,28 @@ Now, when we got custom YOLO26 checkpoint, we can use the **Serve YOLO v8–26**
 
 Run **Serve YOLO v8 – 26** from the Ecosystem choosing the target agent (GPU or CPU) that will host the model service.
 
-<figure><img src="https://github.com/user-attachments/assets/e618e083-ac5a-41ef-b65a-c904439b58f7" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_serve_ecosystem.png" alt=""><figcaption></figcaption></figure>
 
 ### Step 2: Select model and runtime
 
 Choose one either model pretrained on COCO dataset 
 
-<figure><img src="https://github.com/user-attachments/assets/68e45a5d-aee7-465e-8c08-a857545d16c4" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_serve_select_model.png" alt=""><figcaption></figcaption></figure>
 
 Or custom checkpoint fine-tuned on one of your own dataset.
 
-<figure><img src="https://github.com/user-attachments/assets/e404a9d5-479d-4c93-ae88-5c1b494d7023" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_serve_select_model_custom.png" alt=""><figcaption></figcaption></figure>
 
 Pick the runtime engine:
 - **Pytorch** - classic runtime for ML models 
 - **ONNXRuntime**  - acts like a universal translator for ML models, useful if you want framework-agnostic deployment
 - **TensorRT** - high-performance inference runtime which optimizes models specifically for NVIDIA GPUs
 
-<figure><img src="https://github.com/user-attachments/assets/86ea5e40-044c-445e-ac2f-7f1787d61ff7" alt=""><figcaption></figcaption></figure>
-
 ### Step 3: Deploy selected model
 
 Click **Serve** and wait for the service status to become **running** in the app UI.  
 
-<figure><img src="https://github.com/user-attachments/assets/8fae6e25-d7d7-4688-91c3-0d15dc0617ce" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_serve_select_model_deployed.png" alt=""><figcaption></figcaption></figure>
 
 
 ## Using trained YOLO26 model inside Supervisely
@@ -297,7 +291,7 @@ result_path = join(demo_dir, "img", f"result_{get_file_name(image_path)}{get_fil
 model = YOLO(checkpoint_path, task)
 results = model.predict(source=image_path, device=device)
 for result in results:
-    result.save(filename=result_path)
+   result.save(filename=result_path)
 ```
 {% endtab %}
 {% tab title="ONNXRuntime" %}
