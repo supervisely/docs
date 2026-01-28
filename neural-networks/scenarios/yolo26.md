@@ -128,7 +128,7 @@ F1-optimal confidence threshold = 0.2737
 
 <figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_conf_thresh.png" alt=""><figcaption></figcaption></figure>
 
-You can find more information about Supervisely model benchmark [here](https://docs.supervisely.com/neural-networks/model-evaluation-benchmark).
+You can find more information about Supervisely model benchmark [here](../model-evaluation-benchmark/README.md).
 
 ## Deploying YOLO26 as a REST API Service
 
