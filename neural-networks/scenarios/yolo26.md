@@ -51,29 +51,29 @@ We will take [Surgical Tools dataset](https://datasetninja.com/labeled-surgical-
 2. Choose Train YOLO v8 – 26 app.  
 3. Select images project for model training.
 
-<figure><img src="https://github.com/user-attachments/assets/eb582192-bc1d-4d89-b9e7-2ba5eb95046c" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_launch_ecosytem.png" alt=""><figcaption></figcaption></figure>
 
 Alternatively, you can launch training app from context menu of your images project:
 
-<figure><img src="https://github.com/user-attachments/assets/b239da79-1430-4cd1-8b3e-31c021261d83" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_launch_context.png" alt=""><figcaption></figcaption></figure>
 
 ### Step 2: Choose YOLO26 model variant and task type
 
 Choose a YOLO26 pretrained checkpoint, either from Ultralytics (COCO) or from your previous experiment in Team Files, adjusting the variant to your preferred balance of speed, accuracy, and hardware performance.
 
-<figure><img src="https://github.com/user-attachments/assets/c5d041b8-f0b3-4fe5-bd01-2d147abebc6a" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_select_model.png" alt=""><figcaption></figcaption></figure>
 
-### Step 3: Configure dataset split
-
-Select suitable data split method (random / based on item tags / based on datasets / based on collections).
-
-<figure><img src="https://github.com/user-attachments/assets/c5d041b8-f0b3-4fe5-bd01-2d147abebc6a" alt=""><figcaption></figcaption></figure>
-
-### Step 4: Select annotation classes for training
+### Step 3: Select annotation classes for training
 
 Pick the subset of classes that YOLO26 should learn (you can train on all or only a part of total).
 
-<figure><img src="https://github.com/user-attachments/assets/25867c61-a201-4922-b191-95fa9e0e60d9" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_select_classes.png" alt=""><figcaption></figcaption></figure>
+
+### Step 4: Configure dataset split
+
+Select suitable data split method (random / based on item tags / based on datasets / based on collections).
+
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_select_dataset_split.png" alt=""><figcaption></figcaption></figure>
 
 ### Step 5: Configure training hyperparameters
 
@@ -101,15 +101,36 @@ Once training finishes, links to checkpoints and logs will appear in app UI - th
 
 If user has enabled model benchmark option in training settings, then model performance evaluation report will be generated in the end of the training session.
 
-Model benchmark will generate comprehensive report on model performance from different angles: general metrics, per class metrics, optimal confindence threshold estimation and much more.
+Model benchmark will generate comprehensive report on model performance from different angles: general metrics, per class metrics, optimal confidence threshold estimation and much more.
 
-<figure><img src="https://github.com/user-attachments/assets/10fe8e4c-11c6-4800-8471-31d89e8493a1" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_general_metrics.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://github.com/user-attachments/assets/f8f53613-7f2a-4516-a46f-e69b30c68f57" alt=""><figcaption></figcaption></figure>
+**Recall vs. Precision**
 
-<figure><img src="https://github.com/user-attachments/assets/aa8eb43e-ac5b-43ad-a6d2-1358b4cff33b" alt=""><figcaption></figcaption></figure>
+This section compares Precision and Recall in one graph, identifying imbalance between these two.
 
-<figure><img src="https://github.com/user-attachments/assets/a3a68d35-0406-4e27-845a-813c46391ab3" alt=""><figcaption></figcaption></figure>
+Bars in the chart are sorted by F1-score to keep a unified order of classes between different charts.
+
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_precision_vs_recall.png" alt=""><figcaption></figcaption></figure>
+
+**Frequently Confused Classes**
+
+This chart displays the most frequently confused pairs of classes. In general, it finds out which classes visually seem very similar to the model.
+
+The chart calculates the probability of confusion between different pairs of classes. For instance, if the probability of confusion for the pair "straight mayo scissor - curved mayo scissor" is 0.17, this means that when the model predicts either "straight mayo scissor" or "curved mayo scissor", there is a 17.0% chance that the model might mistakenly predict one instead of the other.
+
+The measure is class-symmetric, meaning that the probability of confusing a straight mayo scissor with a curved mayo scissor is equal to the probability of confusing a curved mayo scissor with a straight mayo scissor.
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_frequently_confused.png" alt=""><figcaption></figcaption></figure>
+
+**Confidence Score Profile**
+
+This section is going deeper in analyzing confidence scores. It gives you an intuition about how these scores are distributed and helps to find the best confidence threshold suitable for your task or application.
+
+{% hint style="info" %}
+F1-optimal confidence threshold = 0.2737
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_conf_thresh.png" alt=""><figcaption></figcaption></figure>
 
 You can find more information about Supervisely model benchmark [here](https://docs.supervisely.com/neural-networks/model-evaluation-benchmark).
 
