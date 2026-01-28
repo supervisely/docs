@@ -209,7 +209,7 @@ After inference will be finished, link to labeled project will appear in app UI:
 
 Now you can open labeled project with images and check how your trained model performed:
 
-<figure><img src="https://github.com/user-attachments/assets/d6869081-2692-4473-82c6-67f6b503bf55" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/neural-networks/yolo26/yolo26_result_project.png" alt=""><figcaption></figcaption></figure>
 
 ## Using trained YOLO26 model outside Supervisely
 
