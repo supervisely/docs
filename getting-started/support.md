@@ -125,6 +125,32 @@ To disable it at any time, use:
 sudo supervisely disable-remote-logs
 ```
 
+##### Extended Remote Logs
+
+For more detailed troubleshooting, you can enable extended remote logs that include more verbose log levels.
+
+To enable extended remote logs, do the following:
+
+1. Open the Supervisely configuration file:
+
+```bash
+cd $(sudo supervisely where) nano ./.env
+```
+
+2. Find the line that starts with `SEND_LOGS_REMOTE_SERVER_MODE=`.
+3. Change its value to `all`. The resulting line should look like this:
+
+```text
+SEND_LOGS_REMOTE_SERVER_MODE=all
+```
+
+4. Save the file and execute the following command to apply the changes:
+
+```bash
+sudo supervisely up -d vector
+```
+
+
 **What's sent? Only error-level system logs.**
 
 Remote logging transmits **only error-level system logs** that are non-sensitive and necessary for technical troubleshooting, such as error traces, service failures, and critical system diagnostics. It does **not include any personal data, customer content, project files, credentials, or identifiable information**.
