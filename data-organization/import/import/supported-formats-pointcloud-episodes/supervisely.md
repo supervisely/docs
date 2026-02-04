@@ -8,6 +8,8 @@ Easily import your pointcloud episodes with annotations in the Supervisely forma
 All information about the Supervisely JSON format can be found <a href="https://docs.supervise.ly/data-organization/00_ann_format_navi" target="_blank">here</a>
 {% endhint %}
 
+Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process.
+
 # Format description
 
 **Supported point cloud format:** `.pcd`<br>
