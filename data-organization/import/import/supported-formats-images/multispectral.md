@@ -50,6 +50,14 @@ Recommended directory structure:
 
 In this example, we have 3 groups with images. In the first group, we have one image, which should be split. In the second group, we have one image, which should be split and two images, which should be uploaded as is. In the third group, we have three images, which should be uploaded as is.\\
 
+# Enable "Windowing" tool
+
+In some cases, you may need to filter out certain pixels to better visualize specific elements like bones, air, or liquids. The Windowing tool allows you to adjust the visible range and filter pixels by their values, making it easier to see important details.
+
+![Nrrd windowing tool](https://i.imgur.com/gW37Tyn.png)
+
+The Windowing tool is available when working with `.nrrd` files. If you have 16-bit `.tiff` files or `.nrrd` files with pixel values greater than 8 bits, they will be automatically converted to `.nrrd` format during import, enabling the Windowing tool.
+
 ## Useful links
 
 * [\[Supervisely Developer Portal\] Multispectral Images](https://developer.supervisely.com/getting-started/python-sdk-tutorials/images/multispectral-images)

@@ -32,9 +32,7 @@ To step up import speed even further you can compress all annotation files (`.js
 * Tag value is defined by the group directory name
 * Works with `.nrrd` image format (2D only)
 
-### How to Use
-
-**1. Prepare structure:**
+### Supported directory structures
 
 *   **Archive** `zip`, `tar`, `tar.xz`, `tar.gz`
 
