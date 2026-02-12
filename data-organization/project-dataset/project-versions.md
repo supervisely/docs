@@ -13,7 +13,7 @@ Project Versions currently support the following project types:
 
 - Images
 - Videos
-- Pointclouds
+- Volumes
 
 
 <figure><img src="../../.gitbook/assets/project-versions/project-versions.png" alt=""><figcaption></figcaption></figure>
