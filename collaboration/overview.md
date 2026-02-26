@@ -81,7 +81,10 @@ In the context of labeling, **Managers** create and manage jobs, provide instruc
 
 ### Labeling Jobs Workflow
 
-The labeling process follows a simple, structured workflow. First, a Manager creates a labeling job by defining the task, providing instructions, selecting the data, and assigning Annotators and Reviewers. Next, Annotators complete the job by labeling the data according to the specifications and submitting their work. Finally, Reviewers check the submitted annotations, either accepting them or rejecting them for re-annotation. Throughout this process, Managers and Reviewers can track progress and view performance metrics such as completion rates and quality scores.
+The labeling process follows a simple, structured workflow. 
+- First, a **Manager** creates a labeling job by defining the task, providing instructions, selecting the data, and assigning **Annotators** and **Reviewers**. 
+- Next, **Annotators** complete the job by labeling the data according to the specifications and submitting their work. 
+- Finally, **Reviewers** check the submitted annotations, either accepting them or rejecting them for re-annotation. Throughout this process, **Managers** and **Reviewers** can track progress and view performance metrics such as completion rates and quality scores.
 
 ### Labeling Queues
 
@@ -142,15 +145,6 @@ the tools to educate annotators and measure their understanding of your annotati
 Monitor and track all team activities for effective project management and team oversight. 
 The Activity Log records detailed information about your team's collaborative efforts.
 
-**Tracked Metrics:**
-
-- **Editing duration** - Time spent editing data and documents
-- **Labeling time** - Hours invested in annotation tools
-- **Completed jobs** - Finished tasks and resolved issues
-- **Labeled images** - Total count of processed images
-- **Labeled objects** - Total count of annotated objects
-- **Reviewed images** - Images that have undergone quality review
-
 **Capabilities:**
 
 - Export activity logs to CSV for analysis and reporting
@@ -165,21 +159,12 @@ maintaining security and organization.
 
 **Sharing Methods:**
 
-### Cloning
-The simplest way to copy resources between teams. Select "Clone to..." from the context menu 
-and specify the target team. You can only clone to teams where you're already a member.
-
-### Share as Link
-Generate unique links to grant access to resources. Share links work across team boundaries - 
-when opened in another team, users see the option to clone the resource to their workspace.
-
-### Data Commander
-For complex data exchange operations between teams and workspaces. Provides advanced capabilities 
-for controlled data movement and copying.
-
-### Instance Copying
-Dedicated application for transferring resources between different platform instances or 
-environments. Useful for multi-instance deployments.
+ - **Cloning** - the simplest way to copy resources between teams from the context menu 
+specifying the target team.
+ - **Share as Link** - generate unique links to grant access to resources. 
+ - **Data Commander** - advanced tool for complex data exchange operations between teams and workspaces.
+ - **Instance Copying** - dedicated application for transferring resources between different platform instances or 
+environments.
 
 ## Admin Panel
 
@@ -200,16 +185,19 @@ not regular team administrators.
 
 ## Collaboration Workflow
 
-A typical team collaboration workflow in Supervisely follows this pattern:
+A typical team collaboration workflow in Supervisely follows a structured, iterative process designed to ensure high-quality data annotation at scale:
 
-1. Organize - Create teams and workspaces
-2. Assign - Add members with appropriate roles
-3. Create Jobs - Set up labeling tasks with guidelines
-4. Execute - Annotators label data (direct assignment, queues, or consensus)
-5. Monitor - Track performance via Labeling Performance analytics
-6. Control Quality - Use Quality Control sampling and Consensus validation
-7. Review & Finalize - Reviewers accept/reject work
-8. Collaborate - Use Issues for discussions and feedback
-9. Analyze - Review Members Performance Table, Acceptance Rates, Labeling Speed
-10. Share - Clone or link resources to other teams
-11. Improve - Export Activity Logs, optimize workflows based on metrics
+**1. Setup & Organization**
+Start by creating **Teams** and **Workspaces** to organize your projects. Invite members and assign appropriate **Roles** (Managers, Annotators, Reviewers) to establish clear access control.
+
+**2. Task Distribution**
+Managers create **Labeling Jobs** with clear guidelines or set up **Labeling Queues** for flexible task distribution. For complex tasks, **Consensus** labeling can be configured to ensure accuracy.
+
+**3. Execution & Monitoring**
+Annotators process the data while Managers track progress in real-time using **Labeling Performance Analytics**. Any questions or edge cases are discussed directly in the labeling interface using **Issues**.
+
+**4. Quality Assurance**
+Reviewers check the submitted work, accepting or rejecting annotations. **Quality Control** sampling can be used for unbiased validation, and **Exams** help maintain team skill levels.
+
+**5. Analysis & Optimization**
+Finally, teams analyze performance metrics, export **Activity Logs**, and share resources across the organization to continuously improve the annotation pipeline.
