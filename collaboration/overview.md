@@ -1,0 +1,215 @@
+# Collaboration
+
+Supervisely provides a comprehensive suite of tools for team management, user coordination, 
+and collaborative workflows. The Collaboration section enables seamless teamwork across your organization with capabilities designed for scale - from small teams to enterprise-level operations.
+
+## Supervisely Collaboration Ecosystem
+
+Supervisely's collaboration ecosystem is built to support large-scale annotation teams and complex 
+project workflows. The platform organizes users, resources, and access permissions through a 
+hierarchical structure of teams and workspaces, complemented by powerful tools for job management, 
+performance tracking, issue resolution, quality assurance, and team coordination.
+
+**Collaboration features include:**
+
+- **Team Management**: Organize users into teams with role-based access control
+- **Workspace Organization**: Create and manage multiple workspaces within teams to organize projects
+- **Member Roles & Permissions**: Fine-grained control with 6 role types (Admin, Developer, Manager, Annotator, Reviewer, Viewer)
+- **Labeling Jobs**: Distribute annotation tasks to team members with built-in quality control
+- **Labeling Queues**: Queue-based task distribution for flexible team workflows
+- **Labeling Consensus**: Multiple annotators independently label the same data for validation
+- **Quality Control**: Built-in validation mechanism for annotation accuracy
+- **Labeling Performance Analytics**: Track team productivity and performance metrics
+- **Issues & Discussion**: Integrated issue tracking system for collaborative problem-solving
+- **Activity Monitoring**: Real-time tracking of team activities, editing duration, and labeling progress
+- **Guides & Exams**: Educational tools for annotator training and quality assessment
+- **Resource Sharing**: Multiple methods to share resources between teams and users
+- **Admin Panel**: Server-level management for administrators
+
+## Teams & Workspaces
+
+**Teams** are the fundamental organizational unit in Supervisely - a group of users who share the 
+same resources such as projects, models, and datasets.
+Users can be members of multiple teams, and all entities like projects and models belong to a specific team. You can easily switch between teams using the sidebar menu.
+
+**Workspaces** provide a secondary organizational layer within teams, acting as folders to separate different sets of experiments and projects. Every team has at least one workspace to organize projects, datasets, and tasks, though workspaces themselves do not have separate access control mechanisms.
+
+## Members & Roles
+
+Access control in Supervisely is managed through member roles. Each team member has a role that 
+determines their permissions and capabilities within that team.
+
+**Available Roles:**
+
+1. **Admin** - Full access to team resources and management; can invite members and remove entities
+2. **Developer** - Similar to Admin but can only remove own entities; cannot invite new members
+3. **Manager** - Can view and modify projects and labeling jobs; no access to Neural Networks
+4. **Annotator** - Access only to Labeling Jobs page
+5. **Reviewer** - Same as Annotator but can also create new labeling jobs
+6. **Viewer** - Read-only access to team resources
+
+Every team must have at least one Admin, but can have multiple Admins.
+
+![Team Members and Roles](../.gitbook/assets/collaboration/team-roles.png)
+
+**Roles in Labeling Context:**
+The role system is especially important when managing Labeling Jobs. Managers, Annotators, and 
+Reviewers have distinct responsibilities in the annotation workflow.
+
+## Labeling Jobs - Core Collaboration Feature
+
+Labeling Jobs is the central mechanism for efficiently organizing and distributing data annotation 
+tasks within a team. It enables managers to assign well-defined annotation tasks to team members, 
+ensure consistent quality, and track progress in real time.
+
+**Why Labeling Jobs Matter:**
+Data annotation at scale requires careful coordination. Labeling Jobs solve this by preventing task overlap through explicit assignment, maintaining quality through built-in review mechanisms, ensuring consistency with predefined guidelines, and providing real-time progress tracking.
+
+**Core Features:**
+
+- **Annotation Quality Control** - Includes inspections and re-labeling options when necessary
+- **Task Distribution** - Prevents overlap by assigning jobs to specific team members
+- **Consistent Guidelines** - Eliminates subjective errors through clear technical requirements and restrictions
+- **Real-Time Monitoring** - Tracks progress and allows iterations to improve results
+- **Access Control** - Limits access to specific datasets as needed
+
+![Labeling Jobs Dashboard](../.gitbook/assets/collaboration/labeling-jobs.png)
+
+### Roles in Labeling Jobs
+
+In the context of labeling, **Managers** create and manage jobs, provide instructions, assign tasks, and monitor team performance. **Annotators** label the assigned data according to the instructions and submit their work for review, with access limited only to the Labeling Jobs page. **Reviewers** check the submitted annotations, either accepting them or sending them back for re-labeling, and can also create new jobs and analyze statistics.
+
+### Labeling Jobs Workflow
+
+The labeling process follows a simple, structured workflow. First, a Manager creates a labeling job by defining the task, providing instructions, selecting the data, and assigning Annotators and Reviewers. Next, Annotators complete the job by labeling the data according to the specifications and submitting their work. Finally, Reviewers check the submitted annotations, either accepting them or rejecting them for re-annotation. Throughout this process, Managers and Reviewers can track progress and view performance metrics such as completion rates and quality scores.
+
+### Labeling Queues
+
+**Queue-Based Task Distribution**
+
+Labeling Queues provide a systematic method for distributing tasks using a "pool" approach. Instead of direct assignment, tasks are grouped into queues and sequentially distributed to the first available annotator. This automatically balances the workload based on availability, making it ideal for large teams with varying speeds or continuous annotation workflows where flexible, independent work is preferred.
+
+### Labeling Consensus
+
+**Collaborative Quality Validation**
+
+Consensus labeling is an advanced annotation approach where multiple annotators independently 
+label the same set of images, and the system combines their labels to produce consensus results.
+
+**Key Concepts:**
+In this approach, multiple team members independently annotate identical images, and the system combines their labels using consensus algorithms. It calculates a consensus score (0-100%) to measure agreement between annotators. This method is highly recommended for tasks with strict accuracy requirements, complex or ambiguous data, quality assurance, and dataset validation before model training across various tasks like object detection and segmentation.
+
+### Labeling Quality Control
+
+**Automated Validation System**
+
+Quality Control functionality enables you to assign random samples of annotated images to reviewers 
+for validation. The system automatically generates summary reports with quality insights.
+
+**QC Process & Benefits:**
+You can easily send a random sample of annotated images to reviewers for validation directly from the project interface. Reviewers assess the correctness of assigned classes, object geometries, and applied tags. The system then automatically generates a quality report, providing unbiased assessment, early identification of issues, and actionable insights for process improvement.
+
+## Labeling Performance Analytics
+
+Labeling Performance is a powerful analytics tool that provides detailed statistics about the data annotation process. It helps you track team efficiency, monitor individual contributions, identify bottlenecks, and manage annotation quality across all projects.
+
+![Performance Analytics Dashboard](../.gitbook/assets/collaboration/performance-analytics.png)
+
+You can use flexible filtering by time period, data type, project, or specific labeling jobs to get precise insights. The analytics dashboard offers a comprehensive view of key performance indicators, including labeling speed, acceptance rates, average time per object, and detailed member performance tables. This allows managers to easily assess both the speed and quality of the team's work, making it an essential tool for optimizing the annotation workflow.
+
+## Issues
+
+Issues are an integrated collaboration tool for tracking and resolving annotation problems at scale. 
+Built with professional labeling teams in mind, Issues enable your team to discuss, track, and 
+resolve quality issues without switching interfaces.
+
+**Core Features & Use Cases:**
+Issues can be private for project-specific discussions or public for organization-wide visibility. The system features a rich discussion interface with markdown support, flexible filtering, and real-time notifications. Integrated directly into the annotation tool, it allows teams to track and resolve individual image or object issues seamlessly. This makes it ideal for coordinating review processes, discussing edge cases, and maintaining quality standards across large teams.
+
+![Issues in Labeling Interface](../.gitbook/assets/integration.png)
+
+## Guides & Exams
+
+Training and assessing your annotation team is critical for quality data. Guides & Exams provide 
+the tools to educate annotators and measure their understanding of your annotation policies.
+
+**Labeling Guides** are educational resources that document your annotation policy using videos, documents, and examples of correct and incorrect annotations. They can be easily attached to Labeling Jobs and Exams for reference.
+
+**Labeling Exams** allow you to measure annotator comprehension by testing their understanding of requirements. You receive detailed quality scores and reports to identify top performers and track accuracy. These tools are essential for ensuring all annotators understand the labeling requirements, assessing their skills, and retraining them when policies change.
+
+## Activity Log
+
+Monitor and track all team activities for effective project management and team oversight. 
+The Activity Log records detailed information about your team's collaborative efforts.
+
+**Tracked Metrics:**
+
+- **Editing duration** - Time spent editing data and documents
+- **Labeling time** - Hours invested in annotation tools
+- **Completed jobs** - Finished tasks and resolved issues
+- **Labeled images** - Total count of processed images
+- **Labeled objects** - Total count of annotated objects
+- **Reviewed images** - Images that have undergone quality review
+
+**Capabilities:**
+
+- Export activity logs to CSV for analysis and reporting
+- Access via API for integration with external systems
+- Create custom dashboards and reports based on activity data
+- Monitor team productivity and project progress
+
+## Sharing & Resource Distribution
+
+Supervisely provides multiple methods to share resources between teams and users while 
+maintaining security and organization.
+
+**Sharing Methods:**
+
+### Cloning
+The simplest way to copy resources between teams. Select "Clone to..." from the context menu 
+and specify the target team. You can only clone to teams where you're already a member.
+
+### Share as Link
+Generate unique links to grant access to resources. Share links work across team boundaries - 
+when opened in another team, users see the option to clone the resource to their workspace.
+
+### Data Commander
+For complex data exchange operations between teams and workspaces. Provides advanced capabilities 
+for controlled data movement and copying.
+
+### Instance Copying
+Dedicated application for transferring resources between different platform instances or 
+environments. Useful for multi-instance deployments.
+
+## Admin Panel
+
+System administrators have access to server-level management tools through the Admin Panel. 
+These tools are designed for infrastructure management and server oversight.
+
+**Admin Features:**
+
+- **Users Management** - Manage user accounts and access
+- **Teams Management** - Oversee teams and team settings
+- **Server Disk Usage** - Monitor storage utilization
+- **Server Trash Bin** - Manage deleted items recovery
+- **Server Cleanup** - Optimize and clean server resources
+- **Server Stats & Errors** - View system statistics and error logs
+
+**Note:** Admin panel features are typically available only to system administrators, 
+not regular team administrators.
+
+## Collaboration Workflow
+
+A typical team collaboration workflow in Supervisely follows this pattern:
+
+1. Organize - Create teams and workspaces
+2. Assign - Add members with appropriate roles
+3. Create Jobs - Set up labeling tasks with guidelines
+4. Execute - Annotators label data (direct assignment, queues, or consensus)
+5. Monitor - Track performance via Labeling Performance analytics
+6. Control Quality - Use Quality Control sampling and Consensus validation
+7. Review & Finalize - Reviewers accept/reject work
+8. Collaborate - Use Issues for discussions and feedback
+9. Analyze - Review Members Performance Table, Acceptance Rates, Labeling Speed
+10. Share - Clone or link resources to other teams
+11. Improve - Export Activity Logs, optimize workflows based on metrics

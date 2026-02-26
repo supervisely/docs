@@ -141,6 +141,7 @@
 
 ## 🤝 Collaboration
 
+* [Overview](collaboration/overview.md)
 * [Account Settings](collaboration/account-settings.md)
 * [Admin panel](collaboration/admin-panel/README.md)
   * [Users management](collaboration/admin-panel/users-management.md)
