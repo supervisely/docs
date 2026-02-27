@@ -12,19 +12,19 @@ performance tracking, issue resolution, quality assurance, and team coordination
 
 **Collaboration features include:**
 
-- **Team Management**: Organize users into teams with role-based access control
-- **Workspace Organization**: Create and manage multiple workspaces within teams to organize projects
-- **Member Roles & Permissions**: Fine-grained control with 6 role types (Admin, Developer, Manager, Annotator, Reviewer, Viewer)
-- **Labeling Jobs**: Distribute annotation tasks to team members with built-in quality control
-- **Labeling Queues**: Queue-based task distribution for flexible team workflows
-- **Labeling Consensus**: Multiple annotators independently label the same data for validation
-- **Quality Control**: Built-in validation mechanism for annotation accuracy
-- **Labeling Performance Analytics**: Track team productivity and performance metrics
-- **Issues & Discussion**: Integrated issue tracking system for collaborative problem-solving
-- **Activity Monitoring**: Real-time tracking of team activities, editing duration, and labeling progress
-- **Guides & Exams**: Educational tools for annotator training and quality assessment
-- **Resource Sharing**: Multiple methods to share resources between teams and users
-- **Admin Panel**: Server-level management for administrators
+- **[Team Management](/collaboration/teams.md#teams)**: Organize users into teams with role-based access control
+- **[Workspace Organization](/collaboration/teams.md#workspaces)**: Create and manage multiple workspaces within teams to organize projects
+- **[Member Roles & Permissions](/collaboration/members.md)**: Fine-grained control with 6 role types (Admin, Developer, Manager, Annotator, Reviewer, Viewer)
+- **[Labeling Jobs](/labeling/jobs/README.md)**: Distribute annotation tasks to team members with built-in quality control
+- **[Labeling Queues](/labeling/jobs/Labeling-Queues.md)**: Queue-based task distribution for flexible team workflows
+- **[Labeling Consensus](/labeling/jobs/Labeling-Consensus.md)**: Multiple annotators independently label the same data for validation
+- **[Quality Control](/labeling/jobs/Labeling-Quality-Control.md)**: Built-in validation mechanism for annotation accuracy
+- **[Labeling Performance Analytics](/labeling/labeling-performance.md)**: Track team productivity and performance metrics
+- **[Issues & Discussion](/labeling/issues/README.md)**: Integrated issue tracking system for collaborative problem-solving
+- **[Activity Monitoring](/collaboration/Activity-Log.md)**: Real-time tracking of team activities, editing duration, and labeling progress
+- **[Guides & Exams](/labeling/exams/README.md)**: Educational tools for annotator training and quality assessment
+- **[Resource Sharing](/collaboration/sharing.md)**: Multiple methods to share resources between teams and users
+- **[Admin Panel](/collaboration/admin-panel/README.md)**: Server-level management for administrators
 
 ## Teams & Workspaces
 
@@ -36,7 +36,7 @@ Users can be members of multiple teams, and all entities like projects and model
 
 ## Members & Roles
 
-Access control in Supervisely is managed through member roles. Each team member has a role that 
+Access control in Supervisely is managed through [member roles](/collaboration/members.md). Each team member has a role that 
 determines their permissions and capabilities within that team.
 
 **Available Roles:**
@@ -58,7 +58,7 @@ Reviewers have distinct responsibilities in the annotation workflow.
 
 ## Labeling Jobs - Core Collaboration Feature
 
-Labeling Jobs is the central mechanism for efficiently organizing and distributing data annotation 
+[Labeling Jobs](/labeling/jobs/README.md) is the central mechanism for efficiently organizing and distributing data annotation 
 tasks within a team. It enables managers to assign well-defined annotation tasks to team members, 
 ensure consistent quality, and track progress in real time.
 
@@ -90,14 +90,13 @@ The labeling process follows a simple, structured workflow.
 
 **Queue-Based Task Distribution**
 
-Labeling Queues provide a systematic method for distributing tasks using a "pool" approach. Instead of direct assignment, tasks are grouped into queues and sequentially distributed to the first available annotator. This automatically balances the workload based on availability, making it ideal for large teams with varying speeds or continuous annotation workflows where flexible, independent work is preferred.
+[Labeling Queues](/labeling/jobs/Labeling-Queues.md) provide a systematic method for distributing tasks using a "pool" approach. Instead of direct assignment, tasks are grouped into queues and sequentially distributed to the first available annotator. This automatically balances the workload based on availability, making it ideal for large teams with varying speeds or continuous annotation workflows where flexible, independent work is preferred.
 
 ### Labeling Consensus
 
 **Collaborative Quality Validation**
 
-Consensus labeling is an advanced annotation approach where multiple annotators independently 
-label the same set of images, and the system combines their labels to produce consensus results.
+[Labeling Consensus](/labeling/jobs/Labeling-Consensus.md) is an advanced annotation approach where multiple annotators independently label the same set of images, and the system combines their labels to produce consensus results.
 
 **Key Concepts:**
 In this approach, multiple team members independently annotate identical images, and the system combines their labels using consensus algorithms. It calculates a consensus score (0-100%) to measure agreement between annotators. This method is highly recommended for tasks with strict accuracy requirements, complex or ambiguous data, quality assurance, and dataset validation before model training across various tasks like object detection and segmentation.
@@ -106,7 +105,7 @@ In this approach, multiple team members independently annotate identical images,
 
 **Automated Validation System**
 
-Quality Control functionality enables you to assign random samples of annotated images to reviewers 
+[Quality Control](/labeling/jobs/Labeling-Quality-Control.md) functionality enables you to assign random samples of annotated images to reviewers 
 for validation. The system automatically generates summary reports with quality insights.
 
 **QC Process & Benefits:**
@@ -114,7 +113,7 @@ You can easily send a random sample of annotated images to reviewers for validat
 
 ## Labeling Performance Analytics
 
-Labeling Performance is a powerful analytics tool that provides detailed statistics about the data annotation process. It helps you track team efficiency, monitor individual contributions, identify bottlenecks, and manage annotation quality across all projects.
+[Labeling Performance](/labeling/labeling-performance.md) is a powerful analytics tool that provides detailed statistics about the data annotation process. It helps you track team efficiency, monitor individual contributions, identify bottlenecks, and manage annotation quality across all projects.
 
 ![Performance Analytics Dashboard](../.gitbook/assets/collaboration/performance-analytics.png)
 
@@ -122,7 +121,7 @@ You can use flexible filtering by time period, data type, project, or specific l
 
 ## Issues
 
-Issues are an integrated collaboration tool for tracking and resolving annotation problems at scale. 
+[Issues](/labeling/issues/README.md) are an integrated collaboration tool for tracking and resolving annotation problems at scale. 
 Built with professional labeling teams in mind, Issues enable your team to discuss, track, and 
 resolve quality issues without switching interfaces.
 
@@ -133,7 +132,7 @@ Issues can be private for project-specific discussions or public for organizatio
 
 ## Guides & Exams
 
-Training and assessing your annotation team is critical for quality data. Guides & Exams provide 
+Training and assessing your annotation team is critical for quality data. [Guides & Exams](/labeling/exams/README.md) provide 
 the tools to educate annotators and measure their understanding of your annotation policies.
 
 **Labeling Guides** are educational resources that document your annotation policy using videos, documents, and examples of correct and incorrect annotations. They can be easily attached to Labeling Jobs and Exams for reference.
@@ -143,7 +142,7 @@ the tools to educate annotators and measure their understanding of your annotati
 ## Activity Log
 
 Monitor and track all team activities for effective project management and team oversight. 
-The Activity Log records detailed information about your team's collaborative efforts.
+The [Activity Log](/collaboration/Activity-Log.md) records detailed information about your team's collaborative efforts.
 
 **Capabilities:**
 
@@ -154,7 +153,7 @@ The Activity Log records detailed information about your team's collaborative ef
 
 ## Sharing & Resource Distribution
 
-Supervisely provides multiple methods to share resources between teams and users while 
+Supervisely provides multiple methods to [share resources](/collaboration/sharing.md) between teams and users while 
 maintaining security and organization.
 
 **Sharing Methods:**
@@ -168,7 +167,7 @@ environments.
 
 ## Admin Panel
 
-System administrators have access to server-level management tools through the Admin Panel. 
+System administrators have access to server-level management tools through the [Admin Panel](/collaboration/admin-panel/README.md). 
 These tools are designed for infrastructure management and server oversight.
 
 **Admin Features:**

@@ -153,7 +153,7 @@
 * [Teams & workspaces](collaboration/teams.md)
 * [Members](collaboration/members.md)
 * [Issues](labeling/issues/README.md)
-* [Guides & exams](labeling/exams/README.md)
+* [Guides & Exams](labeling/exams/README.md)
 * [Activity log](collaboration/Activity-Log.md)
 * [Sharing](collaboration/sharing.md)
 
