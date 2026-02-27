@@ -18,32 +18,49 @@ To speed up the annotation process, the Oriented Bounding Box tool can be used t
 ### Setup
 
 1. In the main menu, go to App Ecosystem and start Auto Track.
+
 <figure><img src="../../.gitbook/assets/oriented-b-box/oriented-bbox-1.jpg" alt=""><figcaption></figcaption></figure>
 
 2. Then open Tasks & Apps from the main menu.
 Navigate to the Apps tab.
 Find the recently launched Auto Track application and click Open.
+
 <figure><img src="../../.gitbook/assets/oriented-b-box/oriented-bbox-2.jpg" alt=""><figcaption></figcaption></figure>
 
 3. You will be redirected to the settings page containing all annotation tools compatible with Auto Track.
 Scroll down to the Oriented Bounding Box section.
-In the Select model for predictions dropdown, choose Interpolation (No model).
-Return to the labeling tool.
+In the Select model for predictions dropdown, choose **Interpolation (No model)** - this is the SmartInterpolation method described below.
+
 <figure><img src="../../.gitbook/assets/oriented-b-box/oriented-bbox-3.jpg" alt=""><figcaption></figcaption></figure>
+
+Return to the labeling tool.
+
+### SmartInterpolation
+
+**SmartInterpolation** is a non-neural tracking method built into the Auto Track app that predicts object motion based on geometry and temporal consistency rather than GPU-based inference. Because it does not use neural networks, it runs entirely on the CPU and works exceptionally well in scenes where object motion is structured and predictable.
+
+**When to use SmartInterpolation:**
+- The camera is static or moves smoothly (e.g., slowly zooming into a scene).
+- Objects move along clear, constrained trajectories (e.g., vehicles in a top-down traffic scene).
+- Object shapes and orientations change smoothly from frame to frame.
+
+Under these conditions, SmartInterpolation is highly effective: once a few keyframes are labeled manually, the tool can interpolate the object’s position, scale, and rotation across frames with high stability. This allows you to build a lightweight tracking workflow without GPU requirements and significantly reduces manual labeling effort.
 
 ### Usage Scenarios - Automatic annotation across frames.
 
 <figure><img src="../../.gitbook/assets/oriented-b-box/oriented-bbox-4.jpg" alt=""><figcaption></figcaption></figure>
 
-In the Quick Actions section of the Auto Track settings, there is an option to automatically apply annotations to any desired number of frames in either direction from the frame where the object was annotated using the Oriented Bounding Box tool.
-
-For Auto Track to work, at least two consecutive frames must be manually annotated. The underlying principle is as follows: the model compares the annotation on one frame with the annotation on another frame, calculates the differences in rotation angle, size, and position of the oriented bounding box, and then propagates these differences forward or backward, creating bounding boxes on subsequent frames as if by inertia.
+In the Quick Actions section of the Auto Track settings, there is an option to automatically apply annotations to any desired number of frames from the frame where the object was annotated using the Oriented Bounding Box tool.
 
 This simple method can be used on a small number of frames to quickly verify the correctness and consistency of the annotation.
 
 ### Usage Scenarios - Interpolation between keyframes.
 
-The most effective use of the Oriented Bounding Box together with Auto Track is achieved using the Interpolate until next real frame function. This allows the system to automatically interpolate object positions and orientations between manually annotated keyframes.
+The most effective use of the Oriented Bounding Box together with Auto Track is achieved using the **Interpolate until next real frame** function powered by SmartInterpolation. This allows the system to automatically interpolate object positions and orientations between manually annotated keyframes.
+
+{% hint style="success" %}
+For **Interpolate until next real frame** to work, at least two frames must be manually annotated. The underlying principle is as follows: the model compares the annotation on one frame with the annotation on another frame, calculates the differences in rotation angle, size, and position of the oriented bounding box, and then propagates these differences forward or backward, creating bounding boxes on subsequent frames as if by inertia.
+{% endhint %}
 
 Let’s consider an example of annotating a vehicle moving along a complex trajectory with changes in body orientation.
 
