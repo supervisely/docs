@@ -142,6 +142,7 @@
 
 ## 🤝 Collaboration
 
+* [Overview](collaboration/overview.md)
 * [Account Settings](collaboration/account-settings.md)
 * [Admin panel](collaboration/admin-panel/README.md)
   * [Users management](collaboration/admin-panel/users-management.md)
@@ -153,7 +154,7 @@
 * [Teams & workspaces](collaboration/teams.md)
 * [Members](collaboration/members.md)
 * [Issues](labeling/issues/README.md)
-* [Guides & exams](labeling/exams/README.md)
+* [Guides & Exams](labeling/exams/README.md)
 * [Activity log](collaboration/Activity-Log.md)
 * [Sharing](collaboration/sharing.md)
 

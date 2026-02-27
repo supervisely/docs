@@ -1,4 +1,4 @@
-# Guides & exams
+# Guides & Exams
 
 Creating large and diverse computer vision datasets requires working with a huge labeling workforce. That, in turn, requires professional tools to educate and examine them.
 
