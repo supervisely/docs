@@ -119,6 +119,7 @@
   * [Navigation & Selection Tools](labeling/labeling-tools/navigation-and-selection-tools.md)
   * [Point Tool](labeling/labeling-tools/point-tool.md)
   * [Bounding Box (Rectangle) Tool](labeling/labeling-tools/bounding-box-rectangle-tool.md)
+  * [Oriented Bounding Box Tool](labeling/labeling-tools/oriented-bounding-box-tool.md)
   * [Polyline Tool](labeling/labeling-tools/polyline-tool.md)
   * [Polygon Tool](labeling/labeling-tools/polygon-tool.md)
   * [Brush Tool](labeling/labeling-tools/brush-tool.md)
