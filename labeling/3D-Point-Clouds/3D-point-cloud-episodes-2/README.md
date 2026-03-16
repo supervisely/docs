@@ -420,7 +420,6 @@ You can find all available import and export apps in the **Import → Pointcloud
 For more details about Supervisely's native format for 3D point cloud episodes, see the
 [Supervisely Point Cloud Episode Annotation Format](https://docs.supervisely.com/customization-and-integration/00_ann_format_navi/07_supervisely_format_pointcloud_episode).
 
-{% include "3D-point-cloud-optimizations.md" %}
 
 ## Summary
 

@@ -48,3 +48,5 @@ redirects:
   data-organization/projects/collections/: data-organization/project-dataset/collections.md
   data-organization/import-export/upload: data-organization/import/upload/README.md
   data-organization/import-export/upload/: data-organization/import/upload/README.md
+  labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/: labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md
+  labeling/3D-Point-Clouds/3D-point-cloud-episodes-2: labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md

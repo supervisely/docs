@@ -5,7 +5,7 @@ description: >-
 
 # 3D Point Cloud Performance Optimizations
 
-To handle the increasing scale and complexity of modern 3D datasets, the [3D Point Cloud labeling tool](./3D-point-cloud-episodes-2.md) has undergone a series of significant performance improvements. The most impactful change is the migration of the rendering pipeline from **WebGL** to **WebGPU** — a next-generation graphics API that enables substantially better GPU utilization directly in the browser.
+To handle the increasing scale and complexity of modern 3D datasets, the [3D Point Cloud labeling tool](./README.md) has undergone a series of significant performance improvements. The most impactful change is the migration of the rendering pipeline from **WebGL** to **WebGPU** — a next-generation graphics API that enables substantially better GPU utilization directly in the browser.
 
 As a result, the tool now handles **point clouds of unprecedented scale** without sacrificing responsiveness or annotation quality. Users on everyday hardware can comfortably work with datasets that were previously impractical, while high-end workstations can push into entirely new territory.
 
