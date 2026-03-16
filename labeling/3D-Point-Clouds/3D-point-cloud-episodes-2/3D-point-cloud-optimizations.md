@@ -36,7 +36,7 @@ The table below shows measured frame rates across a range of devices and point c
 | MacBook Air (M-series) | 40,000,000 | ~20 fps |
 | MacBook Air M4 | 40,000,000 | ~52 fps |
 | MacBook M1 Pro | 40,000,000 | ~100 fps |
-| MacBook Pro (M4 Pro) | 100,000,000 | 11+ fps |
+| MacBook Pro (M4 Pro) | 100,000,000 | 115+ fps |
 | NVIDIA RTX 5090 | 100,000,000 | 120+ fps |
 
 {% hint style="info" %}
