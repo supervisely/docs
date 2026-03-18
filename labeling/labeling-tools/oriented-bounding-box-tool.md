@@ -121,6 +121,6 @@ Control the Oriented BBox tool more efficiently with `HOTKEYS`.
 <tr><th width="454">Oriented Bounding Box Tool</th><th></th></tr>
 </thead>
 <tbody>
-<tr><td>Switch between drag modes<br>(Corner Drag ⇄ Center-Out)</td><td>Hold<br>Control<br>or Ctrl</td></tr>
+<tr><td>Switch between drag modes<br>(Corner Drag ⇄ Center-Out)</td><td>Hold Control or Ctrl</td></tr>
 </tbody>
 </table>
