@@ -75,7 +75,7 @@ The Bounding Box Tool supports two editing modes:
 **2. Center Out Mode:**
 
 - In this mode, the rectangle is resized relative to its center point.
--  Dragging any side or corner scales the rectangle uniformly from the center.
+- Dragging any side or corner scales the rectangle uniformly from the center.
 - The center point remains fixed.
 
 <figure><img src="../../.gitbook/assets/b-box-tool/bbox-dragmode-center.jpg" alt=""><figcaption></figcaption></figure>
