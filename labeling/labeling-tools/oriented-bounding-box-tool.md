@@ -104,7 +104,7 @@ The Oriented Bounding Box Tool supports two editing modes:
 
 <figure><img src="../../.gitbook/assets/oriented-b-box/oriented-bbox-dragmode.jpg" alt=""><figcaption></figcaption></figure>
 
-**2. Center-Out Mode:**
+**2. Center Out Mode:**
 
 - In this mode, the rectangle is resized relative to its center point.
 - Dragging any side or corner scales the rectangle uniformly from the center.
