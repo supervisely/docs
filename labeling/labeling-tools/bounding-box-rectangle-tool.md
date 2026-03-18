@@ -66,18 +66,17 @@ The Bounding Box Tool supports two editing modes:
 **1. Corner Drag Mode (Default):**
 
 - This is the standard editing behavior.
-- Dragging a side adjusts the rectangle along its local axis.
+- Dragging a side adjusts the rectangle along that axis.
 - Dragging a corner adjusts both width and height simultaneously in the dragged direction.
-- The rectangle expands or contracts from the side or corner being manipulated, preserving its current rotation.
+- The rectangle expands or contracts from the side or corner being manipulated.
 
 <figure><img src="../../.gitbook/assets/b-box-tool/bbox-drag-mode.jpg" alt=""><figcaption></figcaption></figure>
 
 **2. Center Out Mode:**
 
 - In this mode, the rectangle is resized relative to its center point.
-- Dragging any side or corner scales the rectangle uniformly from the center.
+-  Dragging any side or corner scales the rectangle uniformly from the center.
 - The center point remains fixed.
-- The rectangle expands or contracts evenly in all directions, while preserving its orientation, regardless of which handle is used.
 
 <figure><img src="../../.gitbook/assets/b-box-tool/bbox-dragmode-center.jpg" alt=""><figcaption></figcaption></figure>
 

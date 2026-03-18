@@ -109,6 +109,5 @@ The Oriented Bounding Box Tool supports two editing modes:
 - In this mode, the rectangle is resized relative to its center point.
 - Dragging any side or corner scales the rectangle uniformly from the center.
 - The center point remains fixed.
-- The rectangle expands or contracts evenly in all directions, while preserving its orientation, regardless of which handle is used.
 
 <figure><img src="../../.gitbook/assets/oriented-b-box/oriented-bbox-dragmode-center.jpg" alt=""><figcaption></figcaption></figure>
