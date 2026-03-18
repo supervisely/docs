@@ -111,3 +111,16 @@ The Oriented Bounding Box Tool supports two editing modes:
 - The center point remains fixed.
 
 <figure><img src="../../.gitbook/assets/oriented-b-box/oriented-bbox-dragmode-center.jpg" alt=""><figcaption></figcaption></figure>
+
+## Hotkeys
+
+Control the Oriented BBox tool more efficiently with `HOTKEYS`.
+
+<table data-full-width="false">
+<thead>
+<tr><th width="454">Oriented Bounding Box Tool</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Switch between drag modes<br>(Corner Drag ⇄ Center-Out)</td><td>Hold<br>Control<br>or Ctrl</td></tr>
+</tbody>
+</table>
