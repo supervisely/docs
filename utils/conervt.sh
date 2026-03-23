@@ -2,8 +2,9 @@
 # Usage:
 #   convert.sh <file|folder> [--force] [--scale=WIDTH]
 #
-# Converts video/gif files to .webm and places them next to originals.
-# Skips .webm files unless --force is passed.
+# Converts video/gif files to .webm + .mp4 (fallback) next to originals.
+# Skips .webm/.mp4 sources unless --force is passed.
+# --force backs up any existing output to <name>.bak.<ext> before overwriting.
 # --scale=600 resizes width to 600px keeping aspect ratio (disabled by default).
 # Compatible with macOS, Linux, and Windows (Git Bash / WSL).
 
@@ -30,23 +31,46 @@ convert_file() {
   ext="${src##*.}"
   lower_ext=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
 
-  if [ "$lower_ext" = "webm" ] && [ "$FORCE" -eq 0 ]; then
-    echo "Skipping (already webm): $src"
-    return
-  fi
+  local base="${src%.*}"
+  local dst_webm="${base}.webm"
+  local dst_mp4="${base}.mp4"
 
-  dst="${src%.*}.webm"
-
-  if [ -f "$dst" ] && [ "$FORCE" -eq 0 ]; then
-    echo "Skipping (output exists): $dst"
-    return
-  fi
-
-  echo "Converting: $src -> $dst"
+  # Build shared scale filter arg
+  local vf_arg=""
   if [ -n "$SCALE" ]; then
-    ffmpeg -y -i "$src" -crf 40 -deadline best -vf "scale=${SCALE}:-2" -an "$dst"
+    vf_arg="-vf scale=${SCALE}:-2"
+  fi
+
+  # Backup helper: copies $1 to $1.bak.ext if it exists and FORCE is set
+  backup_if_needed() {
+    local f="$1"
+    if [ "$FORCE" -eq 1 ] && [ -f "$f" ]; then
+      local bak="${f%.*}.bak.${f##*.}"
+      echo "Backing up: $f -> $bak"
+      cp "$f" "$bak"
+    fi
+  }
+
+  # --- webm ---
+  if [ "$lower_ext" = "webm" ] && [ "$FORCE" -eq 0 ]; then
+    echo "Skipping webm (already webm): $src"
+  elif [ -f "$dst_webm" ] && [ "$FORCE" -eq 0 ]; then
+    echo "Skipping webm (output exists): $dst_webm"
   else
-    ffmpeg -y -i "$src" -crf 40 -deadline best -an "$dst"
+    backup_if_needed "$dst_webm"
+    echo "Converting to webm: $src -> $dst_webm"
+    ffmpeg -y -i "$src" -crf 40 -deadline best $vf_arg -an "$dst_webm"
+  fi
+
+  # --- mp4 fallback ---
+  if [ "$lower_ext" = "mp4" ] && [ "$FORCE" -eq 0 ]; then
+    echo "Skipping mp4 (already mp4): $src"
+  elif [ -f "$dst_mp4" ] && [ "$FORCE" -eq 0 ]; then
+    echo "Skipping mp4 (output exists): $dst_mp4"
+  else
+    backup_if_needed "$dst_mp4"
+    echo "Converting to mp4: $src -> $dst_mp4"
+    ffmpeg -y -i "$src" -c:v libx264 -preset slow -crf 22 $vf_arg -an "$dst_mp4"
   fi
 }
 

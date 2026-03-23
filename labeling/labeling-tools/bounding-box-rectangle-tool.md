@@ -15,8 +15,18 @@ Rectangles that precisely enclose an object are commonly referred to as bounding
 
 The main goal of a bounding box is to provide a clear boundary that the machine learning model can use to identify and locate objects in images or videos.
 
-<video class="video rounded" playsinline muted loop autoplay><source src="../../.gitbook/assets/b-box-tool/easy-clicks.webm" type="video/webm"></video>
-
+```html
+<video class="video rounded" playsinline muted loop autoplay>
+  <source
+    src="../../.gitbook/assets/b-box-tool/easy-clicks.webm"
+    type="video/webm"
+  />
+  <source
+    src="../../.gitbook/assets/b-box-tool/easy-clicks.mp4"
+    type="video/mp4"
+  />
+</video>
+```
 
 ## Video Tutorial
 
@@ -30,7 +40,7 @@ We'll explore how to create and manually apply bounding boxes, including advance
 
 ### Create class with Bounding Box shape
 
-You can create a new class directly from the [Annotation Toolbox](https://app.supervisely.com/ecosystem/annotation\_tools/image-labeling-tool-v2?). To do this:
+You can create a new class directly from the [Annotation Toolbox](https://app.supervisely.com/ecosystem/annotation_tools/image-labeling-tool-v2?). To do this:
 
 1. Click the **Rectangle Icon** in the toolbar of the labeling interface.
 2. **Or** select an existing object class or add a new class by clicking **Add new class definition**.
@@ -55,8 +65,8 @@ Always aim to create bounding boxes that tightly fit around the object to minimi
 
 ### Pro Tips
 
-* Use **Auto-select** to switch between classes by hovering over the desired object. Also easily edit existing bounding boxes, including those predicted by Neural Networks.
-* Use the **Object Color Randomizer** to instantly change the color of any object with a single click, as often as you like. This is particularly useful if you have many objects of the same class, or if they are close together, so you can easily differentiate between bounding boxes.
+- Use **Auto-select** to switch between classes by hovering over the desired object. Also easily edit existing bounding boxes, including those predicted by Neural Networks.
+- Use the **Object Color Randomizer** to instantly change the color of any object with a single click, as often as you like. This is particularly useful if you have many objects of the same class, or if they are close together, so you can easily differentiate between bounding boxes.
 
 <figure><img src="../../.gitbook/assets/bbox-labeling.png" alt=""><figcaption></figcaption></figure>
 
@@ -95,7 +105,7 @@ Control the BBox tool more efficiently with `HOTKEYS`.
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Zoom with `Mouse wheel`. Hold <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiB3aWR0aD0iMTAwLjAwMDAwMHB0IiBoZWlnaHQ9IjEwMC4wMDAwMDBwdCIgdmlld0JveD0iMCAwIDEwMC4wMDAwMDAgMTAwLjAwMDAwMCIKIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgoKPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsMTAwLjAwMDAwMCkgc2NhbGUoMC4xMDAwMDAsLTAuMTAwMDAwKSIgc3Ryb2tlPSJub25lIj4KPHBhdGggZD0iTTQzMiA5MTAgYy0xMDUgLTIyIC0yMDQgLTEwNyAtMjQyIC0yMDYgLTI5IC04MCAtMjkgLTMyOCAwIC00MDggMjkKLTc2IDg4IC0xMzkgMTY2IC0xNzcgNTcgLTI4IDc2IC0zMyAxNDQgLTMzIDY4IDAgODcgNSAxNDQgMzMgNzggMzggMTM3IDEwMQoxNjYgMTc3IDI5IDgwIDI5IDMyOCAwIDQwOCAtNTUgMTQ1IC0yMjQgMjM4IC0zNzggMjA2eiBtMjggLTIwNSBsMCAtMTI1IC0xMDYKMCAtMTA3IDAgNyA0MSBjOSA1OSA0MCAxMTMgODUgMTUwIDMzIDI4IDg2IDU1IDExNCA1OCA0IDEgNyAtNTUgNyAtMTI0eiBtMjg4Ci0yODIgYy02IC05NCAtMjkgLTE0NSAtOTAgLTE5NyAtODkgLTc3IC0yMjcgLTc3IC0zMTYgMCAtNjEgNTIgLTg0IDEwMyAtOTAKMTk3IGwtNSA3NyAyNTMgMCAyNTMgMCAtNSAtNzd6Ii8+CjwvZz4KPC9zdmc+Cg==" alt="" data-size="line"> to move scene. |
 
-***
+---
 
 ## Integrating Bounding Boxes with Semi-Automated and Automated Tools
 
@@ -103,18 +113,18 @@ Bounding boxes can be seamlessly combined with both semi-automated and fully aut
 
 ### **Semi-Automated Object Detection with OWL-ViT**
 
-[OWL-ViT](https://ecosystem.supervisely.com/apps/serve-owl-vit?utm\_source=blog) (Vision Transformer for Open-World Localization) uses bounding boxes as a reference to improve object detection. Here's how it works:
+[OWL-ViT](https://ecosystem.supervisely.com/apps/serve-owl-vit?utm_source=blog) (Vision Transformer for Open-World Localization) uses bounding boxes as a reference to improve object detection. Here's how it works:
 
-* **Reference Image Mode**: Annotate an object with a bounding box in a reference image, and OWL-ViT will use this to identify similar objects in other images.
-* **Text Prompt Mode**: Define objects using text descriptions, and OWL-ViT will detect these objects across your dataset.
+- **Reference Image Mode**: Annotate an object with a bounding box in a reference image, and OWL-ViT will use this to identify similar objects in other images.
+- **Text Prompt Mode**: Define objects using text descriptions, and OWL-ViT will detect these objects across your dataset.
 
 ### **Automated Pre-Labeling with YOLOv8**
 
-[YOLOv8](https://ecosystem.supervisely.com/apps/yolov8/serve?utm\_source=blog) offers a fully automated approach to object detection. It uses bounding boxes to quickly and accurately label objects in large datasets:
+[YOLOv8](https://ecosystem.supervisely.com/apps/yolov8/serve?utm_source=blog) offers a fully automated approach to object detection. It uses bounding boxes to quickly and accurately label objects in large datasets:
 
-* **Automatic Detection**: YOLOv8 generates bounding boxes around objects without the need for manual input.
-* **Batch Processing**: Apply the model to all images in a project for efficient pre-labeling.
+- **Automatic Detection**: YOLOv8 generates bounding boxes around objects without the need for manual input.
+- **Batch Processing**: Apply the model to all images in a project for efficient pre-labeling.
 
-For more information on using bounding boxes with [OWL-ViT](https://ecosystem.supervisely.com/apps/serve-owl-vit?utm\_source=blog) and [YOLOv8](https://ecosystem.supervisely.com/apps/yolov8/serve?utm\_source=blog) models, check out our [**comprehensive Bounding Box guide.**](https://supervisely.com/blog/bounding-box-annotation-for-object-detection/#what-is-object-detection)
+For more information on using bounding boxes with [OWL-ViT](https://ecosystem.supervisely.com/apps/serve-owl-vit?utm_source=blog) and [YOLOv8](https://ecosystem.supervisely.com/apps/yolov8/serve?utm_source=blog) models, check out our [**comprehensive Bounding Box guide.**](https://supervisely.com/blog/bounding-box-annotation-for-object-detection/#what-is-object-detection)
 
 {% embed url="https://supervisely.com/blog/bounding-box-annotation-for-object-detection/#what-is-object-detection" %}
