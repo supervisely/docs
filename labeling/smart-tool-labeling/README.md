@@ -12,7 +12,7 @@ description: >-
 
 ## Availability of SmartTool
 
-Access to Smart Tool features depends on your Supervisely plan. In the Community version you get access to an already running Smart Tool that works with the ClickSEG or Segment Anything 2 (SAM 2)  model.
+Access to Smart Tool features depends on your Supervisely plan. In the Community version you get access to an already running Smart Tool that works with the ClickSEG or Segment Anything 2 (SAM 2) model.
 
 ## Step-by-Step Usage Guide
 
@@ -80,7 +80,7 @@ We also provide detailed guide on [how to deploy your own computer agent](../../
 
 ### Learn More
 
-In Supervisely, you have the capability to train the Smart Tool specifically for your data directly within the platform, and the best part is, that no coding is required! We're actively experimenting with this feature and are impressed by the results. Feel free to explore other **blog posts** dedicated to this topic.&#x20;
+In Supervisely, you have the capability to train the Smart Tool specifically for your data directly within the platform, and the best part is, that no coding is required! We're actively experimenting with this feature and are impressed by the results. Feel free to explore other **blog posts** dedicated to this topic.
 
 * [How to Train Smart Tool for Precise Cracks Segmentation in Industrial Inspection](https://supervisely.com/blog/industrial-inspection-cracks-segmentation/)
 * [Automate manual labeling with custom interactive segmentation model for agricultural images](https://supervisely.com/blog/custom-smarttool-wheat/)
@@ -109,7 +109,7 @@ These tools use training of specific models like RITM, YOLOv8, UNet, and MMDetec
 
 Another substantial thing about neural networks is that it's easy to adapt it to different modalities. That means, that the Smart Tools not only work on images, but on sequential frames, such as videos or multi-slice medial imaging and even 3D point clouds with more than two dimensions!
 
-<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Images</strong></td><td><a href="../ai-images.gif">ai-images.gif</a></td><td><a href="images/">images</a></td></tr><tr><td><strong>Video</strong></td><td><a href="../ai-video.gif">ai-video.gif</a></td><td><a href="videos/">videos</a></td></tr><tr><td><strong>3D Point Cloud</strong></td><td><a href="../ai-pontcloud.gif">ai-pontcloud.gif</a></td><td><a href="3D-Point-Clouds/3D-Point-Clouds.md">3D-Point-Clouds.md</a></td></tr><tr><td><strong>DICOM</strong></td><td><a href="../ai-dicom.gif">ai-dicom.gif</a></td><td><a href="DICOM/DICOM.md">DICOM.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Images</strong></td><td><a href="../../.gitbook/assets/ai-images (1).gif">ai-images (1).gif</a></td><td><a href="images/">images</a></td></tr><tr><td><strong>Video</strong></td><td><a href="../../.gitbook/assets/ai-video (1).gif">ai-video (1).gif</a></td><td><a href="videos/">videos</a></td></tr><tr><td><strong>3D Point Cloud</strong></td><td><a href="../../.gitbook/assets/ai-pontcloud (1).gif">ai-pontcloud (1).gif</a></td><td><a href="3D-Point-Clouds/3D-Point-Clouds.md">3D-Point-Clouds.md</a></td></tr><tr><td><strong>DICOM</strong></td><td><a href="../../.gitbook/assets/ai-dicom (1).gif">ai-dicom (1).gif</a></td><td><a href="DICOM/DICOM.md">DICOM.md</a></td></tr></tbody></table>
 
 {% hint style="info" %}
 Please check the those awesome tutorials and guides:
