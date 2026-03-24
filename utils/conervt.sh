@@ -2,9 +2,9 @@
 # Usage:
 #   convert.sh <file|folder> [--force] [--scale=WIDTH]
 #
-# Converts video/gif files to .webm + .mp4 (fallback) next to originals.
-# Skips .webm/.mp4 sources unless --force is passed.
-# --force backs up any existing output to <name>.bak.<ext> before overwriting.
+# Converts video/gif files to .mp4 next to originals.
+# Skips .mp4 sources unless --force is passed.
+# --force backs up any existing output to <name>.bak.mp4 before overwriting.
 # --scale=600 resizes width to 600px keeping aspect ratio (disabled by default).
 # Compatible with macOS, Linux, and Windows (Git Bash / WSL).
 
@@ -32,7 +32,6 @@ convert_file() {
   lower_ext=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
 
   local base="${src%.*}"
-  local dst_webm="${base}.webm"
   local dst_mp4="${base}.mp4"
 
   # Build shared scale filter arg
@@ -51,18 +50,7 @@ convert_file() {
     fi
   }
 
-  # --- webm ---
-  if [ "$lower_ext" = "webm" ] && [ "$FORCE" -eq 0 ]; then
-    echo "Skipping webm (already webm): $src"
-  elif [ -f "$dst_webm" ] && [ "$FORCE" -eq 0 ]; then
-    echo "Skipping webm (output exists): $dst_webm"
-  else
-    backup_if_needed "$dst_webm"
-    echo "Converting to webm: $src -> $dst_webm"
-    ffmpeg -y -i "$src" -crf 40 -deadline best $vf_arg -an "$dst_webm"
-  fi
-
-  # --- mp4 fallback ---
+  # --- mp4 ---
   if [ "$lower_ext" = "mp4" ] && [ "$FORCE" -eq 0 ]; then
     echo "Skipping mp4 (already mp4): $src"
   elif [ -f "$dst_mp4" ] && [ "$FORCE" -eq 0 ]; then
