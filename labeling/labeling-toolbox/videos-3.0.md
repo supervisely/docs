@@ -252,7 +252,7 @@ Real-time image resizing adapts to various project needs, ensuring optimal viewi
 
 ## Objects & Tags & Timeline
 
-The **Objects & Tags Panel** provides a clear overview of all objects and tags in your video, allowing for efficient navigation and editing.&#x20;
+The **Objects & Tags Panel** provides a clear overview of all objects and tags in your video, allowing for efficient navigation and editing.
 
 Instead of relying on a single, zoomed-in timeline (which only shows about 50 frames at a time), this panel gives you a **clear overview** of all objects and tags throughout the entire video. You can easily jump to specific segments, adjust tag values, or use various actions from the context menu.
 
@@ -277,18 +277,21 @@ You can merge multiple objects into one. This is particularly useful when you ha
 All step numbers align with those on the accompanying image:
 
 1. Select the “Merge objects” mode on the timeline.
-<figure><img src="../../labeling/2026-01-05_16-08.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/2026-01-05_16-08.png" alt=""><figcaption></figcaption></figure>
 
 2. Move the slider to the desired frames to view the relevant objects in the preview.
 3. Select the object you wish to merge.
 4. Click “Add to merger.”
 5. An indicator will confirm that the object has been added.
-<figure><img src="../../labeling/2026-01-05_16-08_1.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/2026-01-05_16-08_1.png" alt=""><figcaption></figcaption></figure>
 
 6. Move the slider on the timeline to the frame containing the next object of interest.
 7. Click “Add to merger” for this object as well.
 8. Once both objects are selected, click the now-active “Merge 2 objects” button.
-<figure><img src="../../labeling/2026-01-05_16-09.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/2026-01-05_16-09.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
