@@ -50,7 +50,7 @@ You can create a new class directly from the [Annotation Toolbox](https://app.su
 Always aim to create bounding boxes that tightly fit around the object to minimize background noise and enhance model performance.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/bbox-place.gif" alt=""><figcaption></figcaption></figure>
+{% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-M4BHwRbuyIoH-xoF3Gv%2Fuploads%2FGURMVPQngvBGJWzqq8vo%2Fbbox-place.mp4?alt=media&token=68bfb6b8-1249-440e-8662-df43a2ea90d2&autoplay=1&loop=1" %}
 
 ### Pro Tips
 
