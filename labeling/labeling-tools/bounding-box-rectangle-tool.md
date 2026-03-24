@@ -16,7 +16,7 @@ Rectangles that precisely enclose an object are commonly referred to as bounding
 The main goal of a bounding box is to provide a clear boundary that the machine learning model can use to identify and locate objects in images or videos.
 
 
-{% embed url="https://www.youtube.com/v/FAIs0BdPYdo?version=3&loop=1&playlist=PLDo7qx2mEhsoa_TMlGmw7LYoUputAsaAF&autoplay=1" %}
+{% embed url="https://www.youtube.com/embed/FAIs0BdPYdo?autoplay=1&loop=1" %}
 
 
 ## Video Tutorial
