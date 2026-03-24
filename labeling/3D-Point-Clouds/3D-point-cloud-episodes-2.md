@@ -61,7 +61,7 @@ Supervisely's 3D AI assistant is a universal tool for automating 3D point cloud 
 
 This loop allows for rapid labeling of multiple objects in sequence with minimal effort.
 
-{% embed url="https://youtu.be/ysin0aIet5c?loop=1&playlist=ysin0aIet5c" %}
+{% embed url="https://youtu.be/ysin0aIet5c" %}
 
 ### Interactive 3D Object Detection with Smart Tool
 
