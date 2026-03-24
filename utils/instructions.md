@@ -2,11 +2,9 @@
 
 ## What the script does
 
-Converts video and GIF files into two formats placed next to the original:
-- **`.webm`** — primary format (VP8, smaller file size)
-- **`.mp4`** — fallback for browsers without WebM support (H.264)
+Converts GIF and video files to **`.mp4`** (H.264, no audio) for uploading to GitBook.
 
-Audio is stripped (`-an`) — intended for silent demo recordings.
+Use this script only when looping playback is required (GIF replacement). For all other video content, use YouTube (see below).
 
 ## Requirements
 
@@ -22,14 +20,14 @@ bash convert.sh <file|folder> [--scale=WIDTH] [--force]
 ### Examples
 
 ```bash
-# Convert a single file
+# Convert a single GIF
 bash convert.sh demo.gif
 
-# Convert all videos in a folder
+# Convert all files in a folder
 bash convert.sh .gitbook/assets/my-feature/
 
 # Resize width to 800px
-bash convert.sh demo.mov --scale=800
+bash convert.sh demo.gif --scale=800
 
 # Overwrite existing files (with backup)
 bash convert.sh .gitbook/assets/ --force
@@ -41,57 +39,58 @@ bash convert.sh .gitbook/assets/ --force
 |---|---|
 | `<file\|folder>` | Path to a file or folder (folder processes top-level files only) |
 | `--scale=WIDTH` | Scales video to the given width, preserving aspect ratio. Omit to keep original size |
-| `--force` / `-f` | Overwrites existing `.webm`/`.mp4`. Creates a backup (`*.bak.webm` / `*.bak.mp4`) before overwriting |
+| `--force` / `-f` | Overwrites existing `.mp4`. Creates a backup (`*.bak.mp4`) before overwriting |
 
 ### Skip logic (without `--force`)
 
-- Source is `.webm` → `.webm` generation is skipped, `.mp4` is still created
-- Source is `.mp4` → `.mp4` generation is skipped, `.webm` is still created
+- Source is `.mp4` → skipped
 - Output file already exists → skipped
 
 ---
 
-## Embedding video in GitBook
+## When to use what
 
-GitBook does not support the `<video>` HTML tag directly in Markdown. Use a raw HTML block via the GitBook editor (**Insert > HTML block**).
+| Content type | Method |
+|---|---|
+| GIF replacement / looping demo | Convert to `.mp4`, upload via GitBook interface |
+| Any other video content | Upload to YouTube, embed via `{% embed %}` |
 
-### HTML snippet
+---
 
-```html
-<video autoplay loop muted playsinline>
-  <source src="../../.gitbook/assets/my-feature/demo.webm" type="video/webm">
-  <source src="../../.gitbook/assets/my-feature/demo.mp4" type="video/mp4">
-</video>
+## Embedding looping MP4 via GitBook interface
+
+GitBook supports uploading `.mp4` files directly through the editor (limit: **2 MB**).
+
+1. In the GitBook editor, place the cursor where you want the video.
+2. Click **Insert > File** (or drag and drop the `.mp4` file).
+3. GitBook uploads the file and creates an "Insert files" card.
+4. Click the **Open** button — the video opens in a new tab.
+5. Add `?autoplay=1&loop=1` to the end of the URL and copy the full URL.
+6. Paste the URL on the next line and press Enter — an embed will be inserted.
+7. Remove the "Insert files" card.
+
+> If the file exceeds 2 MB, re-convert with for example `--scale=800` to reduce size.
+
+---
+
+## Embedding YouTube videos
+
+For all non-looping video content, use YouTube:
+
+1. Create a **playlist** for the documentation section.
+2. Set the playlist visibility to **Unlisted** (accessible only by link).
+3. Upload all required videos, setting each to **Unlisted** as well.
+4. Use consistent thumbnail and title style matching existing videos in other playlists.
+5. Embed in the documentation using:
+
+```
+{% embed url="https://youtu.be/VIDEO_ID" %}
 ```
 
-**Attributes:**
-- `autoplay` — starts playing automatically
-- `loop` — loops the video
-- `muted` — required for autoplay in all modern browsers
-- `playsinline` — required on iOS Safari to prevent fullscreen takeover
-- First `<source>` — WebM (smaller, preferred)
-- Second `<source>` — MP4 fallback (Safari, older browsers)
+**URL parameters:**
+- `autoplay=1` — starts playing automatically
+- `loop=1` — loops the video
 
-### File paths
+> **Note:** `loop=1` currently does not work for YouTube embeds in GitBook.
 
-Files live in `.gitbook/assets/`. The `src` path in `<source>` is **relative to the current page**.
-
-Example structure:
-```
-.gitbook/assets/
-  my-feature/
-    demo.gif          ← original
-    demo.webm         ← output (primary)
-    demo.mp4          ← output (fallback)
-```
-
-Page at `docs/my-feature/overview.md` → path:
-```
-../../.gitbook/assets/my-feature/demo.webm
-```
-
-### Tips
-
-- Use `--scale=800` or `--scale=600` to reduce file size
-- Always convert GIFs — they are significantly larger than video formats
-- Original files (`.gif`, `.mov`, etc.) can be deleted after verifying the output
+> Do **not** use HTML `<video>` blocks — they are not supported in GitBook.
