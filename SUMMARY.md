@@ -81,6 +81,7 @@
   * [AI Search](data-organization/project-dataset/ai-search.md)
   * [Quality Assurance & Statistics](data-organization/project-dataset/quality-assurance-and-statistics/README.md)
     * [Practical applications of statistics](data-organization/project-dataset/quality-assurance-and-statistics/practical-applications-of-statistics.md)
+  * [Project Settings](data-organization/project-dataset/project-settings.md)
   * [Advanced](data-organization/project-dataset/advanced/README.md)
     * [Custom Data](data-organization/project-dataset/advanced/custom-data.md)
     * [Validation Schemas](data-organization/project-dataset/advanced/validation-schemas.md)
