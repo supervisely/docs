@@ -112,7 +112,31 @@ Videos projects have a single **Settings** page without the Basic/Advanced split
 
 ---
 
+## Volume Project
+
+Volume projects have a single **Settings** page without the Basic/Advanced split.
+
+- **Hide unavailable tools** — hides disabled annotation tools from the toolbar instead of showing them as inactive.
+- **How to handle mask overlaps in brush tool** — defines behavior when brush strokes overlap existing masks:
+  - **Overlay (default)** — draws on top of existing masks without modifying them.
+  - **Overwrite** — replaces the pixels of existing masks where they overlap.
+  - **Preserve** — draws only on unpainted areas; existing masks are never changed.
+
+---
+
+## Point Cloud and Episodes Project
+
+Point Cloud and Episodes projects have a single **Settings** page without the Basic/Advanced split.
+
+- **Hide unavailable tools** — hides disabled annotation tools from the toolbar instead of showing them as inactive.
+
+---
+
 ## Read-only mode
+
+{% hint style="info" %}
+Images and Videos only
+{% endhint %}
 
 The **Read-only project** setting is available for both Images and Videos projects. It puts the project into a protected state that prevents accidental edits through the UI while keeping full access for viewing and exporting data.
 
