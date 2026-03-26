@@ -50,7 +50,7 @@ You can create a version only if the project has changed since the last version.
 
 <figure><img src="../../.gitbook/assets/project-versions/project-versions-page.png" alt="Versions Tab Interface"><figcaption></figcaption></figure>
 
-## Project Previews
+## Version Previews
 
 For Image and Video projects, you can instantly inspect a version's data using **Project Previews**. A preview acts like a standard project but operates in a [read-only state](./project-settings.md#read-only-mode), allowing you to verify data without waiting for a full project restoration from a binary version.
 
