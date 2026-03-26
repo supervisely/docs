@@ -78,17 +78,19 @@ Great! Your sub-dataset with files is now ready.
 
 ### Project versions
 
-[**Project Versions**](project-versions.md) allow you to manage and track different versions of a project over time. It allows you to save, restore, and compare different states of a project.
+[**Project Versions**](project-versions.md) let you manage and track project states over time, allowing you to save, instantly preview, restore, and compare different iterations of your data.
 
 Key features of project versioning include:
 
 * **Version Control**: Track and manage changes made to the project over time, ensuring every specific state is recorded.
-* **History Tracking**: Maintain a comprehensive history of all modifications, making it easy to understand the project's evolution.
+* **History Tracking & Metadata**: Maintain a comprehensive history of all modifications, making it easy to understand the project's evolution. You can edit version titles and descriptions at any time to keep context clear.
+* **Instant Previews**: Create read-only project snapshots (for Images and Videos) to instantly inspect annotations in the labeling toolbox, use AI Search, and filter data without requiring a full project restore.
 * **Reverting Changes**: Restore any previous version of the project, allowing you to get a new project with a specific state of data.
-* [**MLOps Workflow**](../mlops-workflow.md): Execute machine learning tasks on specific versions of the project data, ensuring that the exact state of the data used is known. This guarantees consistency and reproducibility of results.
+* [**MLOps Workflow**](../mlops-workflow.md): Execute machine learning tasks on specific versions of the project data, ensuring that the exact state of the data used is known. Previews are also fully integrated into the workflow graph. This guarantees consistency and reproducibility of results.
 
-<figure><img src="../../.gitbook/assets/data-structure/project-versions.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/data-structure/project-versions.jpg" alt="Project versions overview"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-**Note**: **Project versions** is not available on the Free Plan.
+**Note**: **Project versions** are not available on the Free plan.
 {% endhint %}
+
