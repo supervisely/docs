@@ -177,6 +177,7 @@
 * [Overview](neural-networks/overview.md)
 * [Training](neural-networks/training/README.md)
   * [Experiments](neural-networks/training/experiments.md)
+  * [Live Training](neural-networks/training/live-training.md)
 * [Inference & Deployment](neural-networks/inference-and-deployment/README.md)
   * [Supervisely Serving Apps](neural-networks/inference-and-deployment/supervisely-serving-apps.md)
   * [Deploy & Predict with Supervisely SDK](neural-networks/inference-and-deployment/deploy_and_predict_with_supervisely_sdk.md)
