@@ -86,4 +86,6 @@ The training quality will improve over time.
 
 **5. Labeling with Live Training assistance**
 
+As you can see, the model’s prediction accuracy gradually improves during training. At a certain point, the model begins to automatically suggest shapes (annotations). You can add, modify, or delete them, as well as either accept or reject the suggestions and move on to the next image, where Live Training will again propose annotations.
+
 {% embed url="https://youtu.be/H1aJknl1NtM" %}
