@@ -38,9 +38,9 @@ Segmentation is used when you need pixel-level precision. The model learns to ge
 
 *Typical use cases:*
 
-*Medical imaging (organs, tumors)*<br>
-*Industrial inspection (defects, surface anomalies)*<br>
-*Agriculture (plants, crops, diseases)*
+- Medical imaging (organs, tumors)<br>
+- Industrial inspection (defects, surface anomalies)<br>
+- Agriculture (plants, crops, diseases)
 
 As you annotate, the model begins producing pre-labeled masks that closely follow object boundaries, significantly reducing manual effort.
 
@@ -50,9 +50,9 @@ Detection is used when you need to identify and localize objects using bounding 
 
 *Typical use cases:*
 
-*Autonomous driving (vehicles, pedestrians, signs)*<br>
-*Retail analytics (products, shelves)*<br>
-*Security and surveillance (people, events)*
+- Autonomous driving (vehicles, pedestrians, signs)<br>
+- Retail analytics (products, shelves)<br>
+- Security and surveillance (people, events)
 
 With each labeled image, the model improves its ability to generate accurate pre-labeled bounding boxes, speeding up the annotation process.
 
@@ -62,12 +62,28 @@ While the app is launching, you can view the logs here.
 
 **3. Start Live Training**
 
-<figure><img src="../../.gitbook/assets/live-training/live-training-3.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/live-training/live-training-3.1.jpg" alt=""><figcaption></figcaption></figure>
 
-**4. Start training the model**
+**4. Annotate initial samples**
 
 The AI needs a few labeled images before it can generate predictions.
-Annotate each image completely and click Finish & Next to add it to the training data.
+Annotate each image completely and click `Finish & Next` to add it to the training data and to proceed to the next image.
 The more you annotate, the better the AI gets. Once quality is sufficient, it will start suggesting predictions automatically.
 
-<figure><img src="../../.gitbook/assets/live-training/live-training-4.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/live-training/live-training-4.1.jpg" alt=""><figcaption></figcaption></figure>
+
+Even after just 2 annotated images, the **Predict** button will appear. However, at the very beginning, the prediction accuracy will be close to zero, and **Live Training** will not yet suggest annotations automatically.
+
+At this stage, you can continue annotating images manually until the **Live Training** quality improves to an acceptable level and starts suggesting annotations automatically. Alternatively, you can already request predictions from Live Training by clicking the **Predict** button.
+
+<figure><img src="../../.gitbook/assets/live-training/live-training-5.jpg" alt=""><figcaption></figcaption></figure>
+
+If you are not satisfied with the result, you can reject the proposed annotations by clicking **Discard**, or edit/add shapes and continue training and annotation by clicking **Finish and Next**.
+
+The training quality will improve over time.
+
+<figure><img src="../../.gitbook/assets/live-training/live-training-6.jpg" alt=""><figcaption></figcaption></figure>
+
+**5. Labeling with Live Training assistance**
+
+{% embed url="https://youtu.be/H1aJknl1NtM" %}
