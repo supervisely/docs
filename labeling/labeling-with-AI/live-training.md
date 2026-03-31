@@ -64,7 +64,7 @@ While the app is launching, you can view the logs here.
 
 ### 3. Start Live Training
 
-After launching the Live Training application, click the **Start** button to confirm the beginning of real-time training and data analysis from that moment onward.
+After launching the **Live Training** application, click the **Start** button to confirm the beginning of real-time training and data analysis from that moment onward.
 
 <figure><img src="../../.gitbook/assets/live-training/live-training-3.jpg" alt=""><figcaption></figcaption></figure>
 
