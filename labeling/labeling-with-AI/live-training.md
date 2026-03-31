@@ -19,56 +19,29 @@ Conventional workflows such as Human-in-the-loop and Active Learning involve man
 
 ## How to use
 
-### 1. Launch the Application
+### 1. Launch Live Training
 
-To start Live Training, click the **Launch App** button in your project workspace. This opens the configuration interface where you can initialize the training session. We need to make the model available for real data processing.
+  - To start Live Training, click the blue ✨ **Auto Labeling** button in the Labeling Interface. This opens the configuration interface of AI assistance. Choose the **Live Training** option. Then click the **Launch App** button in your project workspace. This opens the configuration interface where you can initialize the training session. We need to make the model available for real data processing.
 
-<figure><img src="../../.gitbook/assets/live-training/live-training0.jpg" alt=""><figcaption></figcaption></figure>
+  <figure><img src="../../.gitbook/assets/live-training/live-training0.jpg" alt=""><figcaption></figcaption></figure>
 
-### 2. Choose a Model Type
+ - **Choose a Model Type**<br>
+  You will be prompted to select the type of model that fits your annotation task. There are two main options: **Live Training Segmentation**, **Live Training Detection**.
 
-You will be prompted to select the type of model that fits your annotation task. There are two main options:
+  <figure><img src="../../.gitbook/assets/live-training/live-training1.jpg" alt=""><figcaption></figcaption></figure>
 
-- Live Training Segmentation
-- Live Training Detection
+  With each labeled image, the model improves its ability to generate accurate pre-labeled bounding boxes, speeding up the annotation process.
 
-<figure><img src="../../.gitbook/assets/live-training/live-training1.jpg" alt=""><figcaption></figcaption></figure>
+  While the app is launching, you can view the logs here.
 
-**Live Training Segmentation**
+  <figure><img src="../../.gitbook/assets/live-training/live-training2.jpg" alt=""><figcaption></figcaption></figure>
 
-Segmentation is used when you need pixel-level precision. The model learns to generate detailed masks that outline the exact shape of objects in an image.
+  - **Start Live Training**<br>
+  After launching the **Live Training** application, click the **Start** button to confirm the beginning of real-time training and data analysis from that moment onward.
 
-*Typical use cases:*
+  <figure><img src="../../.gitbook/assets/live-training/live-training-3.jpg" alt=""><figcaption></figcaption></figure>
 
-- Medical imaging (organs, tumors)<br>
-- Industrial inspection (defects, surface anomalies)<br>
-- Agriculture (plants, crops, diseases)
-
-As you annotate, the model begins producing pre-labeled masks that closely follow object boundaries, significantly reducing manual effort.
-
-**Live Trainig Detection**
-
-Detection is used when you need to identify and localize objects using bounding boxes. The model predicts rectangular regions around objects of interest.
-
-*Typical use cases:*
-
-- Autonomous driving (vehicles, pedestrians, signs)<br>
-- Retail analytics (products, shelves)<br>
-- Security and surveillance (people, events)
-
-With each labeled image, the model improves its ability to generate accurate pre-labeled bounding boxes, speeding up the annotation process.
-
-While the app is launching, you can view the logs here.
-
-<figure><img src="../../.gitbook/assets/live-training/live-training2.jpg" alt=""><figcaption></figcaption></figure>
-
-### 3. Start Live Training
-
-After launching the **Live Training** application, click the **Start** button to confirm the beginning of real-time training and data analysis from that moment onward.
-
-<figure><img src="../../.gitbook/assets/live-training/live-training-3.jpg" alt=""><figcaption></figcaption></figure>
-
-### 4. Annotate initial samples
+### 2. Annotate initial samples
 
 The AI needs a few labeled images before it can generate predictions.
 Annotate each image completely and click `Finish & Next` to add it to the training data and to proceed to the next image.
@@ -88,13 +61,13 @@ The training quality will improve over time.
 
 <figure><img src="../../.gitbook/assets/live-training/live-training6.jpg" alt=""><figcaption></figcaption></figure>
 
-### 5. Labeling with Live Training assistance
+### 3. Labeling with Live Training assistance
 
 As you can see, the model’s prediction accuracy gradually improves during training. At a certain point, the model begins to automatically suggest shapes (annotations). You can add, modify, or delete them, as well as either accept or reject the suggestions and move on to the next image, where Live Training will again propose annotations.
 
 {% embed url="https://youtu.be/H1aJknl1NtM" %}
 
-### 6. Save and Load your trained models
+### 4. Save and Load your trained models
 
 During training, your model automatically appears on the Experiments page. From there, you can access and manage training runs, as well as load a model to continue training at any time.
 
