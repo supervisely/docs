@@ -5,7 +5,7 @@ description: >-
 
 # Live Training
 
-### Introduction
+## Introduction
 
 Live Training is a novel framework built by Supervisely where AI models train in parallel with human annotation. As annotators label images, the model quickly adapts to the domain-specific data and annotation patterns. After just 5-10 labeled images, it begins generating useful predictions (pre-labels) that accelerate labeling. The quality of these predictions continuously improves with every new image labeled.
 
@@ -17,13 +17,13 @@ Live Training transforms annotation projects from a multi-week, multi-team coord
 Zero-shot foundation models (SAM, GroundingDINO) are helpful in annotating common objects (human, animals, vehicles), but they fail on specialized domains with almost zero assistance.
 Conventional workflows such as Human-in-the-loop and Active Learning involve manual coordination that always create coordination overhead and idle time, resulting in high costs and timelines of annotation projects.
 
-### How to use
+## How to use
 
-**1. Launch the Application**
+### 1. Launch the Application
 
 To start Live Training, click the **Launch App** button in your project workspace. This opens the configuration interface where you can initialize the training session.
 
-**2. Choose a Model Type**
+### 2. Choose a Model Type
 
 You will be prompted to select the type of model that fits your annotation task. There are two main options:
 
@@ -32,7 +32,7 @@ You will be prompted to select the type of model that fits your annotation task.
 
 <figure><img src="../../.gitbook/assets/live-training/live-training-1.jpg" alt=""><figcaption></figcaption></figure>
 
-#### Live Training Segmentation
+**Live Training Segmentation**
 
 Segmentation is used when you need pixel-level precision. The model learns to generate detailed masks that outline the exact shape of objects in an image.
 
@@ -44,7 +44,7 @@ Segmentation is used when you need pixel-level precision. The model learns to ge
 
 As you annotate, the model begins producing pre-labeled masks that closely follow object boundaries, significantly reducing manual effort.
 
-#### Live Trainig Detection
+**Live Trainig Detection**
 
 Detection is used when you need to identify and localize objects using bounding boxes. The model predicts rectangular regions around objects of interest.
 
@@ -60,11 +60,11 @@ While the app is launching, you can view the logs here.
 
 <figure><img src="../../.gitbook/assets/live-training/live-training-2.jpg" alt=""><figcaption></figcaption></figure>
 
-**3. Start Live Training**
+### 3. Start Live Training
 
 <figure><img src="../../.gitbook/assets/live-training/live-training-3.1.jpg" alt=""><figcaption></figcaption></figure>
 
-**4. Annotate initial samples**
+### 4. Annotate initial samples
 
 The AI needs a few labeled images before it can generate predictions.
 Annotate each image completely and click `Finish & Next` to add it to the training data and to proceed to the next image.
@@ -84,13 +84,13 @@ The training quality will improve over time.
 
 <figure><img src="../../.gitbook/assets/live-training/live-training-6.jpg" alt=""><figcaption></figcaption></figure>
 
-**5. Labeling with Live Training assistance**
+### 5. Labeling with Live Training assistance
 
 As you can see, the model’s prediction accuracy gradually improves during training. At a certain point, the model begins to automatically suggest shapes (annotations). You can add, modify, or delete them, as well as either accept or reject the suggestions and move on to the next image, where Live Training will again propose annotations.
 
 {% embed url="https://youtu.be/H1aJknl1NtM" %}
 
-**6. Save and Load your trained models**
+### 6. Save and Load your trained models
 
 <figure><img src="../../.gitbook/assets/live-training/live-training-7.jpg" alt=""><figcaption></figcaption></figure>
 
