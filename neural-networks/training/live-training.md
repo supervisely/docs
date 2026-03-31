@@ -93,3 +93,10 @@ As you can see, the model’s prediction accuracy gradually improves during trai
 **6. Save and Load your trained models**
 
 <figure><img src="../../.gitbook/assets/live-training/live-training-7.jpg" alt=""><figcaption></figcaption></figure>
+
+
+During training, your model automatically appears on the Experiments page. From there, you can access and manage training runs, as well as load a model to continue training at any time.
+
+The Experiments page automatically saves model checkpoints at regular intervals. If training is paused or interrupted, you can resume it later from the latest checkpoint. A checkpoint represents the state of the model weights at a specific point in time, allowing training to continue without losing progress.
+
+Additionally, from the Experiments page, you can navigate to the project’s file storage to locate and access your saved model files and checkpoints.
