@@ -21,11 +21,19 @@ Conventional workflows such as Human-in-the-loop and Active Learning involve man
 
 ### 1. Launch Live Training
 
-  - To start Live Training, click the blue ✨ **Auto Labeling** button in the Labeling Interface. This opens the configuration interface of AI assistance. Choose the **Live Training** option. Then click the **Launch App** button in your project workspace. This opens the configuration interface where you can initialize the training session. We need to make the model available for real data processing.
+  - To start Live Training, click the blue ✨ **Auto Labeling** button in the Labeling Interface. This opens the AI assistance configuration panel.<br>
+  Choose the **Live Training** option.<br>
+  <br>
+  You will see several settings, including:
 
-  <figure><img src="../../.gitbook/assets/live-training/live-training0.jpg" alt=""><figcaption></figcaption></figure>
+    - **Don't auto-predict if image contains objects** (figures/annotations) — Live Training will not automatically suggest annotations if the current image already contains labeled objects. This is useful when your dataset is partially annotated, or when the image queue loops and you return to already labeled images.
+
+    - **Confidence Threshold** — defines the prediction confidence level required for the model to start suggesting annotations. Higher values mean the model needs more manually labeled images before it begins generating automatic predictions.
+
+  <figure><img src="../../.gitbook/assets/live-training/live-training.jpg" alt=""><figcaption></figcaption></figure>
 
  - **Choose a Model Type**<br>
+  Then click the **Launch App**. This opens the setup interface where you can initialize the training session and make the model available for real data processing.<br>
   You will be prompted to select the type of model that fits your annotation task. There are two main options: **Live Training Segmentation**, **Live Training Detection**.
 
   <figure><img src="../../.gitbook/assets/live-training/live-training1.jpg" alt=""><figcaption></figcaption></figure>
