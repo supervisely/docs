@@ -23,6 +23,8 @@ Conventional workflows such as Human-in-the-loop and Active Learning involve man
 
 To start Live Training, click the **Launch App** button in your project workspace. This opens the configuration interface where you can initialize the training session.
 
+<figure><img src="../../.gitbook/assets/live-training/live-training0.jpg" alt=""><figcaption></figcaption></figure>
+
 ### 2. Choose a Model Type
 
 You will be prompted to select the type of model that fits your annotation task. There are two main options:
@@ -30,7 +32,7 @@ You will be prompted to select the type of model that fits your annotation task.
 - Live Training Segmentation
 - Live Training Detection
 
-<figure><img src="../../.gitbook/assets/live-training/live-training-1.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/live-training/live-training1.jpg" alt=""><figcaption></figcaption></figure>
 
 **Live Training Segmentation**
 
@@ -58,11 +60,11 @@ With each labeled image, the model improves its ability to generate accurate pre
 
 While the app is launching, you can view the logs here.
 
-<figure><img src="../../.gitbook/assets/live-training/live-training-2.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/live-training/live-training2.jpg" alt=""><figcaption></figcaption></figure>
 
 ### 3. Start Live Training
 
-<figure><img src="../../.gitbook/assets/live-training/live-training-3.1.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/live-training/live-training3.jpg" alt=""><figcaption></figcaption></figure>
 
 ### 4. Annotate initial samples
 
@@ -70,19 +72,19 @@ The AI needs a few labeled images before it can generate predictions.
 Annotate each image completely and click `Finish & Next` to add it to the training data and to proceed to the next image.
 The more you annotate, the better the AI gets. Once quality is sufficient, it will start suggesting predictions automatically.
 
-<figure><img src="../../.gitbook/assets/live-training/live-training-4.1.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/live-training/live-training4.jpg" alt=""><figcaption></figcaption></figure>
 
 Even after just 2 annotated images, the **Predict** button will appear. However, at the very beginning, the prediction accuracy will be close to zero, and **Live Training** will not yet suggest annotations automatically.
 
 At this stage, you can continue annotating images manually until the **Live Training** quality improves to an acceptable level and starts suggesting annotations automatically. Alternatively, you can already request predictions from Live Training by clicking the **Predict** button.
 
-<figure><img src="../../.gitbook/assets/live-training/live-training-5.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/live-training/live-training5.jpg" alt=""><figcaption></figcaption></figure>
 
 If you are not satisfied with the result, you can reject the proposed annotations by clicking **Discard**, or edit/add shapes and continue training and annotation by clicking **Finish and Next**.
 
 The training quality will improve over time.
 
-<figure><img src="../../.gitbook/assets/live-training/live-training-6.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/live-training/live-training6.jpg" alt=""><figcaption></figcaption></figure>
 
 ### 5. Labeling with Live Training assistance
 
@@ -92,10 +94,9 @@ As you can see, the model’s prediction accuracy gradually improves during trai
 
 ### 6. Save and Load your trained models
 
-<figure><img src="../../.gitbook/assets/live-training/live-training-7.jpg" alt=""><figcaption></figcaption></figure>
-
-
 During training, your model automatically appears on the Experiments page. From there, you can access and manage training runs, as well as load a model to continue training at any time.
+
+<figure><img src="../../.gitbook/assets/live-training/live-training-7.jpg" alt=""><figcaption></figcaption></figure>
 
 The Experiments page automatically saves model checkpoints at regular intervals. If training is paused or interrupted, you can resume it later from the latest checkpoint. A checkpoint represents the state of the model weights at a specific point in time, allowing training to continue without losing progress.
 
