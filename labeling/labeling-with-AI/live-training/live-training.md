@@ -1,8 +1,9 @@
 ---
 description: >-
   This guide shows how Live Training in Supervisely lets models learn from human annotation in real time, improving predictions and speeding up labeling.
-pagination:
-  visible: false
+layout:
+  pagination:
+    visible: false
 ---
 
 # Live Training
