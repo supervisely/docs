@@ -1,6 +1,6 @@
 ---
 description: >-
-  In this article you will learn how to use Live Training.
+  In this guide, you'll learn how Live Training in Supervisely enables models to learn alongside human annotation, automatically improving predictions and accelerating labeling without complex coordination.
 ---
 
 # Live Training
@@ -12,7 +12,7 @@ Live Training is a novel framework built by Supervisely where AI models train in
 By project completion, you get both a fully annotated dataset and a trained model ready for deployment, with accuracy equivalent to a model trained through conventional offline training.
 Live Training transforms annotation projects from a multi-week, multi-team coordination challenge into a streamlined single-phase workflow where AI assistance grows naturally from the first annotation onward.
 
-### Live Training solves two critical limitations in AI-assisted annotation:
+**Live Training solves two critical limitations in AI-assisted annotation:**
 
 Zero-shot foundation models (SAM, GroundingDINO) are helpful in annotating common objects (human, animals, vehicles), but they fail on specialized domains with almost zero assistance.
 Conventional workflows such as Human-in-the-loop and Active Learning involve manual coordination that always create coordination overhead and idle time, resulting in high costs and timelines of annotation projects.
