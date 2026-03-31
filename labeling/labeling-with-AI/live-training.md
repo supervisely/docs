@@ -1,6 +1,6 @@
 ---
 description: >-
-  In this guide, you'll learn how Live Training in Supervisely enables models to learn alongside human annotation, automatically improving predictions and accelerating labeling without complex coordination.
+  This guide shows how Live Training in Supervisely lets models learn from human annotation in real time, improving predictions and speeding up labeling.
 ---
 
 # Live Training
@@ -21,7 +21,7 @@ Conventional workflows such as Human-in-the-loop and Active Learning involve man
 
 ### 1. Launch the Application
 
-To start Live Training, click the **Launch App** button in your project workspace. This opens the configuration interface where you can initialize the training session.
+To start Live Training, click the **Launch App** button in your project workspace. This opens the configuration interface where you can initialize the training session. We need to make the model available for real data processing.
 
 <figure><img src="../../.gitbook/assets/live-training/live-training0.jpg" alt=""><figcaption></figcaption></figure>
 
@@ -64,7 +64,9 @@ While the app is launching, you can view the logs here.
 
 ### 3. Start Live Training
 
-<figure><img src="../../.gitbook/assets/live-training/live-training3.jpg" alt=""><figcaption></figcaption></figure>
+After launching the Live Training application, click the **Start** button to confirm the beginning of real-time training and data analysis from that moment onward.
+
+<figure><img src="../../.gitbook/assets/live-training/live-training-3.jpg" alt=""><figcaption></figcaption></figure>
 
 ### 4. Annotate initial samples
 
