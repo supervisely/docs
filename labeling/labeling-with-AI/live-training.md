@@ -19,47 +19,48 @@ Conventional workflows such as Human-in-the-loop and Active Learning involve man
 
 ## How to use
 
-### 1. Launch Live Training
+### Step 1: Launch Live Training
 
-  - To start Live Training, click the blue ✨ **Auto Labeling** button in the Labeling Interface. This opens the AI assistance configuration panel.<br>
-  Choose the **Live Training** option.<br>
-  <br>
-  You will see several settings, including:
+First, enter the Labeling Tool interface. On the top panel, click the blue ✨ **Auto Labeling** button. This opens the AI assistance configuration panel.<br>
+Then choose the **Live Training** option.<br>
+  
+<figure><img src="../../.gitbook/assets/live-training/live-training.jpg" alt=""><figcaption></figcaption></figure>
 
-    - **Don't auto-predict if image contains objects** (figures/annotations) — Live Training will not automatically suggest annotations if the current image already contains labeled objects. This is useful when your dataset is partially annotated, or when the image queue loops and you return to already labeled images.
 
-    - **Confidence Threshold** — defines the prediction confidence level required for the model to start suggesting annotations. Higher values mean the model needs more manually labeled images before it begins generating automatic predictions.
+If a Live Training session is already running, you will see it in the dropdown list. You can use the existing session, or start a new one if needed.<br>
 
-  <figure><img src="../../.gitbook/assets/live-training/live-training.jpg" alt=""><figcaption></figcaption></figure>
+For new session click the **Launch App** - you will be prompted to select the type of model that fits your annotation task. There are two main options: **Live Training Segmentation**, **Live Training Detection**.
+This opens the setup interface where you can run the training app session and make the model available for real data processing.<br>
+ 
+<figure><img src="../../.gitbook/assets/live-training/live-training1.jpg" alt=""><figcaption></figcaption></figure>
 
- - **Choose a Model Type**<br>
-  Then click the **Launch App**. This opens the setup interface where you can initialize the training session and make the model available for real data processing.<br>
-  You will be prompted to select the type of model that fits your annotation task. There are two main options: **Live Training Segmentation**, **Live Training Detection**.
+**Start Live Training**<br>
+While the Live Training application is launching, you will see a floating panel displaying the progress of the app startup. 
 
-  <figure><img src="../../.gitbook/assets/live-training/live-training1.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/live-training/live-training-2.jpg" alt=""><figcaption></figcaption></figure>
 
-  With each labeled image, the model improves its ability to generate accurate pre-labeled bounding boxes, speeding up the annotation process.
+Once the application is ready, the floating panel will show the **Start Live Training** button. Click this button to confirm the beginning of real-time training and data analysis from that moment onward.
 
-  While the app is launching, you can view the logs here.
+<figure><img src="../../.gitbook/assets/live-training/live-training-3.jpg" alt=""><figcaption></figcaption></figure>
 
-  <figure><img src="../../.gitbook/assets/live-training/live-training2.jpg" alt=""><figcaption></figcaption></figure>
+Additionally, the AI assistance configuration panel includes the following settings:
 
-  - **Start Live Training**<br>
-  After launching the **Live Training** application, click the **Start** button to confirm the beginning of real-time training and data analysis from that moment onward.
+  - **Don't auto-predict if image contains objects** (figures/annotations) — Live Training will not automatically suggest annotations if the current image already contains labeled objects. This is useful when your dataset is partially annotated, or when the image queue loops, and you return to already labeled images.
 
-  <figure><img src="../../.gitbook/assets/live-training/live-training-3.jpg" alt=""><figcaption></figcaption></figure>
+  - **Confidence Threshold** — defines the prediction confidence level required for the model to start suggesting annotations. Higher values mean the model needs more manually labeled images before it begins generating automatic predictions.
 
-### 2. Annotate initial samples
 
-The AI needs a few labeled images before it can generate predictions.
+### Step 2: Annotate Initial Samples
+
+Before the model can start generating predictions, it needs a few labeled images for initial training.
 Annotate each image completely and click `Finish & Next` to add it to the training data and to proceed to the next image.
-The more you annotate, the better the AI gets. Once quality is sufficient, it will start suggesting predictions automatically.
+The more you annotate, the better the model gets. Once quality is sufficient (depends on threshold settings), it will start suggesting predictions automatically.
 
 <figure><img src="../../.gitbook/assets/live-training/live-training4.jpg" alt=""><figcaption></figcaption></figure>
 
 Even after just 2 annotated images, the **Predict** button will appear. However, at the very beginning, the prediction accuracy will be close to zero, and **Live Training** will not yet suggest annotations automatically.
 
-At this stage, you can continue annotating images manually until the **Live Training** quality improves to an acceptable level and starts suggesting annotations automatically. Alternatively, you can already request predictions from Live Training by clicking the **Predict** button.
+At this stage, you can continue annotating images manually until the **Live Training** quality improves to an acceptable level. Alternatively, you can already request predictions from Live Training by clicking the **Predict** button.
 
 <figure><img src="../../.gitbook/assets/live-training/live-training5.jpg" alt=""><figcaption></figcaption></figure>
 
@@ -69,13 +70,13 @@ The training quality will improve over time.
 
 <figure><img src="../../.gitbook/assets/live-training/live-training6.jpg" alt=""><figcaption></figcaption></figure>
 
-### 3. Labeling with Live Training assistance
+### Step 3: Labeling with Live Training Assistance
 
 As you can see, the model’s prediction accuracy gradually improves during training. At a certain point, the model begins to automatically suggest shapes (annotations). You can add, modify, or delete them, as well as either accept or reject the suggestions and move on to the next image, where Live Training will again propose annotations.
 
 {% embed url="https://youtu.be/H1aJknl1NtM" %}
 
-### 4. Save and Load your trained models
+### Step 4: Save and Load Your Trained Models
 
 During training, your model automatically appears on the Experiments page. From there, you can access and manage training runs, as well as load a model to continue training at any time.
 
