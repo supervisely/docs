@@ -1,6 +1,8 @@
 ---
 description: >-
   This guide shows how Live Training in Supervisely lets models learn from human annotation in real time, improving predictions and speeding up labeling.
+pagination:
+  visible: false
 ---
 
 # Live Training
@@ -22,22 +24,23 @@ Conventional workflows such as Human-in-the-loop and Active Learning involve man
 ### Step 1: Launch Live Training
 
 Navigate to the Labeling Tool interface. On the top panel, click the blue ✨ **Auto Labeling** button to open the AI assistance configuration panel, then select the **Live Training** option.
-  
+
 <figure><img src="../../../.gitbook/assets/live-training/live-training.jpg" alt="Select Live Training from the Auto Labeling menu"><figcaption></figcaption></figure>
 
-If a Live Training session is already running, you will see it in the dropdown list and can use the existing session. To start a new one, click **Launch App**. 
+If a Live Training session is already running, you will see it in the dropdown list and can use the existing session. To start a new one, click **Launch App**.
 
 You will be prompted to select the type of model that fits your annotation task. There are two main options:
+
 - **Live Training Segmentation**
 - **Live Training Detection**
 
 This opens the setup interface where you can run the training app session and make the model available for real data processing.
- 
+
 <figure><img src="../../../.gitbook/assets/live-training/live-training1.jpg" alt="Launch a new Live Training session and select model type"><figcaption></figcaption></figure>
 
 **Start Live Training**
 
-While the Live Training application is launching, a floating panel will display the progress of the app startup. 
+While the Live Training application is launching, a floating panel will display the progress of the app startup.
 
 <figure><img src="../../../.gitbook/assets/live-training/live-training-2.jpg" alt="Live Training app startup progress"><figcaption></figcaption></figure>
 
@@ -52,10 +55,9 @@ Additionally, the AI assistance configuration panel includes the following setti
 - **Don't auto-predict if image contains objects** (figures/annotations) — Live Training will not automatically suggest annotations if the current image already contains labeled objects. This is useful when your dataset is partially annotated, or when the image queue loops, and you return to already labeled images.
 - **Confidence Threshold** — Defines the prediction confidence level required for the model to start suggesting annotations. Higher values mean the model needs more manually labeled images before it begins generating automatic predictions.
 
-
 ### Step 2: Annotate Initial Samples
 
-Before the model can generate reliable predictions, it requires a small set of labeled images to learn your specific domain. 
+Before the model can generate reliable predictions, it requires a small set of labeled images to learn your specific domain.
 
 1. Fully annotate your first image manually.
 2. Click **Finish & Next** to add the image to the training queue and advance to the next one.
@@ -64,6 +66,7 @@ Before the model can generate reliable predictions, it requires a small set of l
 <figure><img src="../../../.gitbook/assets/live-training/live-training4.jpg" alt="Annotate initial samples manually to start training"><figcaption></figcaption></figure>
 
 After annotating just two images, the **Predict** button becomes available. At this early stage, prediction accuracy is low, so Live Training will not auto-suggest annotations yet. You have two options:
+
 - Continue annotating manually to build a stronger baseline dataset.
 - Click **Predict** to force the model to generate initial shapes.
 
@@ -77,7 +80,7 @@ If you request predictions and are unsatisfied with the results, click **Discard
 
 As you feed more corrected annotations into the system, the model's accuracy rapidly improves. Once the model crosses your configured confidence threshold, it transitions from manual prediction to active assistance.
 
-Live Training will now automatically suggest shapes for each new image you open. Simply review the proposed annotations, adjust or delete any incorrect shapes, and accept the correct ones before moving to the next image. 
+Live Training will now automatically suggest shapes for each new image you open. Simply review the proposed annotations, adjust or delete any incorrect shapes, and accept the correct ones before moving to the next image.
 
 {% embed url="https://youtu.be/H1aJknl1NtM" %}
 
@@ -87,7 +90,7 @@ Your active Live Training sessions automatically sync to the **Experiments** pag
 
 <figure><img src="../../../.gitbook/assets/live-training/live-training-7.jpg" alt="Experiments page showing saved models and checkpoints"><figcaption></figcaption></figure>
 
-The system automatically saves model checkpoints at regular intervals. A checkpoint preserves the exact state of your model weights at a specific point in time. 
+The system automatically saves model checkpoints at regular intervals. A checkpoint preserves the exact state of your model weights at a specific point in time.
 
 {% hint style="success" %}
 💡 **Tip**: If your annotation session is paused or interrupted, you can safely resume it later by loading the latest checkpoint from the **Experiments** page without losing any progress.
@@ -99,4 +102,4 @@ To download or integrate your trained model into a production pipeline, navigate
 
 Live Training excels in specialized domains where standard foundation models fall short. Explore the real-world examples below to discover how adapting AI on the fly can accelerate your specific annotation workflows and solve complex industry challenges.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Automated Tomato Phenotyping and Segmentation</strong></td><td>Live Training on a real-world agricultural segmentation task: extracting phenotypic measurements from tomato fruit cross-sections.</td><td><a href="./use-cases/tomatoes.md">unix-based.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Automated Tomato Phenotyping and Segmentation 🍅</strong></td><td>Live Training on a real-world agricultural segmentation task: extracting phenotypic measurements from tomato fruit cross-sections.</td><td><a href="./use-cases/tomatoes.md">unix-based.md</a></td></tr></tbody></table>
