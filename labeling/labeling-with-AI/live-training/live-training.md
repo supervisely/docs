@@ -55,7 +55,7 @@ Configure the app's settings in the modal window and click **Run** to launch the
 Each Live Training session is attached to a specific project and its classes. If you want to use Live Training for a different project, you should launch a new session from that project's labeling interface.
 
 {% hint style="info" %}
-💡 Alternatively, you can start Live Training from the Ecosystem, like a regular Supervisely application. In this way you should select the needed project from the app's launch menu.
+💡 **Tip**: Alternatively, you can start Live Training from the **Ecosystem**, like a regular Supervisely application. In this way you should select the needed project from the app's launch menu.
 {% endhint %}
 
 **Start Live Training**
@@ -92,7 +92,11 @@ The model quality is now displayed in the floating panel, it will be refreshed a
 
 ### 5. Continuous Improvement
 
-As you continue annotating with the model assistance, the accuracy rapidly improves. The more you annotate, the better the model becomes at understanding your specific data and annotation style. Over time, the model will generate almost perfect predictions, allowing you to simply review and accept them, significantly speeding up your annotation workflow.
+As you continue annotating with the model assistance, the accuracy rapidly improves. The more you annotate, the better the model becomes at understanding your specific data and annotation style.
+
+{% hint style="success" %}
+Over time, the model will generate almost perfect predictions, allowing you to simply review and accept them, significantly speeding up your annotation workflow.
+{% endhint %}
 
 <figure><img src="../../../.gitbook/assets/live-training/live-training6.jpg" alt="Model prediction quality improves over time"><figcaption></figcaption></figure>
 
