@@ -1,6 +1,6 @@
 ---
 description: >-
-  🔴🔴🔴 Live Training lets AI models learn from your annotations in real time, delivering increasingly accurate predictions from the very first labeled images — so you finish with both a complete dataset and a trained model.
+  Live Training by Supervisely adapts an AI model to your domain in real time as you annotate, so the model gets smarter with each annotation you submit.
 layout:
   pagination:
     visible: false
