@@ -78,7 +78,7 @@ After starting Live Training, the floating panel will show the status **Annotate
 
 <figure><img src="../../../.gitbook/assets/live-training/live-training4.jpg" alt="Annotate initial samples manually to start training"><figcaption></figcaption></figure>
 
-### 3. Learning
+### 3. Initial Learning
 
 After annotating 2-3 initial images, the status changes to **Learning**. At this stage, the model begins learning from your annotations in the background. Continue annotating and submitting images by clicking **Finish & Next**. After a short while, the model will start generating predictions.
 
