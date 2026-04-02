@@ -90,3 +90,37 @@ Consider another scenario using the same function.
 If the object is manually annotated on three frames that are not adjacent, and you then navigate to an annotated frame located between the two outermost ones and apply Interpolate until next real frame, the system will automatically annotate all frames in both directions, up to the two nearest manually annotated frames.
 
 <figure><img src="../../.gitbook/assets/oriented-b-box/oriented-bbox-08.jpg" alt=""><figcaption></figcaption></figure>
+
+### Editing modes
+
+The Oriented Bounding Box Tool supports two editing modes:
+
+**1. Corner Drag Mode (Default):**
+
+- This is the standard editing behavior.
+- Dragging a side adjusts the rectangle along its local axis.
+- Dragging a corner adjusts both width and height simultaneously in the dragged direction.
+- The rectangle expands or contracts from the side or corner being manipulated, preserving its current rotation.
+
+<figure><img src="../../.gitbook/assets/oriented-b-box/oriented-bbox-dragmode.jpg" alt=""><figcaption></figcaption></figure>
+
+**2. Center Out Mode:**
+
+- In this mode, the rectangle is resized relative to its center point.
+- Dragging any side or corner scales the rectangle uniformly from the center.
+- The center point remains fixed.
+
+<figure><img src="../../.gitbook/assets/oriented-b-box/oriented-bbox-dragmode-center.jpg" alt=""><figcaption></figcaption></figure>
+
+## Hotkeys
+
+Control the Oriented BBox tool more efficiently with `HOTKEYS`.
+
+<table data-full-width="false">
+<thead>
+<tr><th width="454">Oriented Bounding Box Tool</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Switch between drag modes<br>(Corner Drag ⇄ Center-Out)</td><td>Hold Control or Ctrl</td></tr>
+</tbody>
+</table>

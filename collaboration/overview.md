@@ -1,13 +1,13 @@
 # Collaboration
 
-Supervisely provides a comprehensive suite of tools for team management, user coordination, 
+Supervisely provides a comprehensive suite of tools for team management, user coordination,
 and collaborative workflows. The Collaboration section enables seamless teamwork across your organization with capabilities designed for scale - from small teams to enterprise-level operations.
 
 ## Supervisely Collaboration Ecosystem
 
-Supervisely's collaboration ecosystem is built to support large-scale annotation teams and complex 
-project workflows. The platform organizes users, resources, and access permissions through a 
-hierarchical structure of teams and workspaces, complemented by powerful tools for job management, 
+Supervisely's collaboration ecosystem is built to support large-scale annotation teams and complex
+project workflows. The platform organizes users, resources, and access permissions through a
+hierarchical structure of teams and workspaces, complemented by powerful tools for job management,
 performance tracking, issue resolution, quality assurance, and team coordination.
 
 **Collaboration features include:**
@@ -28,7 +28,7 @@ performance tracking, issue resolution, quality assurance, and team coordination
 
 ## Teams & Workspaces
 
-**Teams** are the fundamental organizational unit in Supervisely - a group of users who share the 
+**Teams** are the fundamental organizational unit in Supervisely - a group of users who share the
 same resources such as projects, models, and datasets.
 Users can be members of multiple teams, and all entities like projects and models belong to a specific team. You can easily switch between teams using the sidebar menu.
 
@@ -36,7 +36,7 @@ Users can be members of multiple teams, and all entities like projects and model
 
 ## Members & Roles
 
-Access control in Supervisely is managed through [member roles](/collaboration/members.md). Each team member has a role that 
+Access control in Supervisely is managed through [member roles](/collaboration/members.md). Each team member has a role that
 determines their permissions and capabilities within that team.
 
 **Available Roles:**
@@ -53,13 +53,13 @@ Every team must have at least one Admin, but can have multiple Admins.
 ![Team Members and Roles](../.gitbook/assets/collaboration/team-roles.png)
 
 **Roles in Labeling Context:**
-The role system is especially important when managing Labeling Jobs. Managers, Annotators, and 
+The role system is especially important when managing Labeling Jobs. Managers, Annotators, and
 Reviewers have distinct responsibilities in the annotation workflow.
 
 ## Labeling Jobs - Core Collaboration Feature
 
-[Labeling Jobs](/labeling/jobs/README.md) is the central mechanism for efficiently organizing and distributing data annotation 
-tasks within a team. It enables managers to assign well-defined annotation tasks to team members, 
+[Labeling Jobs](/labeling/jobs/README.md) is the central mechanism for efficiently organizing and distributing data annotation
+tasks within a team. It enables managers to assign well-defined annotation tasks to team members,
 ensure consistent quality, and track progress in real time.
 
 **Why Labeling Jobs Matter:**
@@ -81,9 +81,10 @@ In the context of labeling, **Managers** create and manage jobs, provide instruc
 
 ### Labeling Jobs Workflow
 
-The labeling process follows a simple, structured workflow. 
-- First, a **Manager** creates a labeling job by defining the task, providing instructions, selecting the data, and assigning **Annotators** and **Reviewers**. 
-- Next, **Annotators** complete the job by labeling the data according to the specifications and submitting their work. 
+The labeling process follows a simple, structured workflow.
+
+- First, a **Manager** creates a labeling job by defining the task, providing instructions, selecting the data, and assigning **Annotators** and **Reviewers**.
+- Next, **Annotators** complete the job by labeling the data according to the specifications and submitting their work.
 - Finally, **Reviewers** check the submitted annotations, either accepting them or rejecting them for re-annotation. Throughout this process, **Managers** and **Reviewers** can track progress and view performance metrics such as completion rates and quality scores.
 
 ### Labeling Queues
@@ -105,7 +106,7 @@ In this approach, multiple team members independently annotate identical images,
 
 **Automated Validation System**
 
-[Quality Control](/labeling/jobs/Labeling-Quality-Control.md) functionality enables you to assign random samples of annotated images to reviewers 
+[Quality Control](/labeling/jobs/Labeling-Quality-Control.md) functionality enables you to assign random samples of annotated images to reviewers
 for validation. The system automatically generates summary reports with quality insights.
 
 **QC Process & Benefits:**
@@ -121,8 +122,8 @@ You can use flexible filtering by time period, data type, project, or specific l
 
 ## Issues
 
-[Issues](/labeling/issues/README.md) are an integrated collaboration tool for tracking and resolving annotation problems at scale. 
-Built with professional labeling teams in mind, Issues enable your team to discuss, track, and 
+[Issues](/labeling/issues/README.md) are an integrated collaboration tool for tracking and resolving annotation problems at scale.
+Built with professional labeling teams in mind, Issues enable your team to discuss, track, and
 resolve quality issues without switching interfaces.
 
 **Core Features & Use Cases:**
@@ -132,7 +133,7 @@ Issues can be private for project-specific discussions or public for organizatio
 
 ## Guides & Exams
 
-Training and assessing your annotation team is critical for quality data. [Guides & Exams](/labeling/exams/README.md) provide 
+Training and assessing your annotation team is critical for quality data. [Guides & Exams](/labeling/exams/README.md) provide
 the tools to educate annotators and measure their understanding of your annotation policies.
 
 **Labeling Guides** are educational resources that document your annotation policy using videos, documents, and examples of correct and incorrect annotations. They can be easily attached to Labeling Jobs and Exams for reference.
@@ -141,7 +142,7 @@ the tools to educate annotators and measure their understanding of your annotati
 
 ## Activity Log
 
-Monitor and track all team activities for effective project management and team oversight. 
+Monitor and track all team activities for effective project management and team oversight.
 The [Activity Log](/collaboration/Activity-Log.md) records detailed information about your team's collaborative efforts.
 
 **Capabilities:**
@@ -153,21 +154,20 @@ The [Activity Log](/collaboration/Activity-Log.md) records detailed information 
 
 ## Sharing & Resource Distribution
 
-Supervisely provides multiple methods to [share resources](/collaboration/sharing.md) between teams and users while 
+Supervisely provides multiple methods to [share resources](/collaboration/sharing.md) between teams and users while
 maintaining security and organization.
 
 **Sharing Methods:**
 
- - **Cloning** - the simplest way to copy resources between teams from the context menu 
-specifying the target team.
- - **Share as Link** - generate unique links to grant access to resources. 
- - **Data Commander** - advanced tool for complex data exchange operations between teams and workspaces.
- - **Instance Copying** - dedicated application for transferring resources between different platform instances or 
-environments.
+- **Cloning** - the simplest way to copy resources between teams from the context menu
+  specifying the target team.
+- **Share as Link** - generate unique links to grant access to resources.
+- **Data Commander** - advanced tool for complex data exchange operations between teams and workspaces.
+- **Instance Copying** - dedicated application for transferring resources between different platform instances or environments.
 
 ## Admin Panel
 
-System administrators have access to server-level management tools through the [Admin Panel](/collaboration/admin-panel/README.md). 
+System administrators have access to server-level management tools through the [Admin Panel](/collaboration/admin-panel/README.md).
 These tools are designed for infrastructure management and server oversight.
 
 **Admin Features:**
@@ -179,7 +179,7 @@ These tools are designed for infrastructure management and server oversight.
 - **Server Cleanup** - Optimize and clean server resources
 - **Server Stats & Errors** - View system statistics and error logs
 
-**Note:** Admin panel features are typically available only to system administrators, 
+**Note:** Admin panel features are typically available only to system administrators,
 not regular team administrators.
 
 ## Collaboration Workflow

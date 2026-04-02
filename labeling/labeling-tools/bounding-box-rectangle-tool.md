@@ -9,13 +9,13 @@ description: >-
 
 ## What is Bounding Box Annotation Tool?
 
-The[ Bounding Box](https://supervisely.com/blog/bounding-box-annotation-for-object-detection/#what-is-object-detection) is a fundamental tool in Computer Vision used for image annotation, object detection and tracking tasks.&#x20;
+The[ Bounding Box](https://supervisely.com/blog/bounding-box-annotation-for-object-detection/#what-is-object-detection) is a fundamental tool in Computer Vision used for image annotation, object detection and tracking tasks.
 
 Rectangles that precisely enclose an object are commonly referred to as bounding boxes. These boxes are defined by coordinates that indicate the position and size of the object. Coordinates are usually specified as the top-left and bottom-right corners (or alternatively, by the center point, width, and height).
 
 The main goal of a bounding box is to provide a clear boundary that the machine learning model can use to identify and locate objects in images or videos.
 
-<figure><img src="../../.gitbook/assets/easy-clicks.gif" alt=""><figcaption></figcaption></figure>
+{% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-M4BHwRbuyIoH-xoF3Gv%2Fuploads%2F0FkPa5ebrnu7Ctd88GGn%2Feasy-clicks.mp4?alt=media&token=d099e097-18be-4a10-a1bb-10c315ca7ecd&autoplay=1&loop=1" %}
 
 ## Video Tutorial
 
@@ -29,7 +29,7 @@ We'll explore how to create and manually apply bounding boxes, including advance
 
 ### Create class with Bounding Box shape
 
-You can create a new class directly from the [Annotation Toolbox](https://app.supervisely.com/ecosystem/annotation\_tools/image-labeling-tool-v2?). To do this:
+You can create a new class directly from the [Annotation Toolbox](https://app.supervisely.com/ecosystem/annotation_tools/image-labeling-tool-v2?). To do this:
 
 1. Click the **Rectangle Icon** in the toolbar of the labeling interface.
 2. **Or** select an existing object class or add a new class by clicking **Add new class definition**.
@@ -50,26 +50,47 @@ You can create a new class directly from the [Annotation Toolbox](https://app.su
 Always aim to create bounding boxes that tightly fit around the object to minimize background noise and enhance model performance.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/bbox-place.gif" alt=""><figcaption></figcaption></figure>
+{% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-M4BHwRbuyIoH-xoF3Gv%2Fuploads%2FGURMVPQngvBGJWzqq8vo%2Fbbox-place.mp4?alt=media&token=68bfb6b8-1249-440e-8662-df43a2ea90d2&autoplay=1&loop=1" %}
 
 ### Pro Tips
 
-* Use **Auto-select** to switch between classes by hovering over the desired object. Also easily edit existing bounding boxes, including those predicted by Neural Networks.
-* Use the **Object Color Randomizer** to instantly change the color of any object with a single click, as often as you like. This is particularly useful if you have many objects of the same class, or if they are close together, so you can easily differentiate between bounding boxes.
+- Use **Auto-select** to switch between classes by hovering over the desired object. Also easily edit existing bounding boxes, including those predicted by Neural Networks.
+- Use the **Object Color Randomizer** to instantly change the color of any object with a single click, as often as you like. This is particularly useful if you have many objects of the same class, or if they are close together, so you can easily differentiate between bounding boxes.
 
 <figure><img src="../../.gitbook/assets/bbox-labeling.png" alt=""><figcaption></figcaption></figure>
+
+### Editing modes
+
+The Bounding Box Tool supports two editing modes:
+
+**1. Corner Drag Mode (Default):**
+
+* This is the standard editing behavior.
+* Dragging a side adjusts the rectangle along that axis.
+* Dragging a corner adjusts both width and height simultaneously in the dragged direction.
+* The rectangle expands or contracts from the side or corner being manipulated.
+
+<figure><img src="../../.gitbook/assets/b-box-tool/bbox-drag-mode.jpg" alt=""><figcaption></figcaption></figure>
+
+**2. Center Out Mode:**
+
+* In this mode, the rectangle is resized relative to its center point.
+* Dragging any side or corner scales the rectangle uniformly from the center.
+* The center point remains fixed.
+
+<figure><img src="../../.gitbook/assets/b-box-tool/bbox-dragmode-center.jpg" alt=""><figcaption></figcaption></figure>
 
 ## Hotkeys
 
 Control the BBox tool more efficiently with `HOTKEYS`.
 
-<table data-full-width="false"><thead><tr><th width="454">Bounding Box (Rectangle) Tool</th><th>5</th></tr></thead><tbody><tr><td>Create &#x26; add point </td><td><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiB3aWR0aD0iMTAwLjAwMDAwMHB0IiBoZWlnaHQ9IjEwMC4wMDAwMDBwdCIgdmlld0JveD0iMCAwIDEwMC4wMDAwMDAgMTAwLjAwMDAwMCIKIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgoKPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsMTAwLjAwMDAwMCkgc2NhbGUoMC4xMDAwMDAsLTAuMTAwMDAwKSIgc3Ryb2tlPSJub25lIj4KPHBhdGggZD0iTTQzMiA5MTAgYy0xMDUgLTIyIC0yMDQgLTEwNyAtMjQyIC0yMDYgLTI5IC04MCAtMjkgLTMyOCAwIC00MDggMjkKLTc2IDg4IC0xMzkgMTY2IC0xNzcgNTcgLTI4IDc2IC0zMyAxNDQgLTMzIDY4IDAgODcgNSAxNDQgMzMgNzggMzggMTM3IDEwMQoxNjYgMTc3IDI5IDgwIDI5IDMyOCAwIDQwOCAtNTUgMTQ1IC0yMjQgMjM4IC0zNzggMjA2eiBtMTc0IC0xMDEgYzYzIC0yMyAxMjgKLTExMCAxNDAgLTE4OCBsNyAtNDEgLTEwNyAwIC0xMDYgMCAwIDEyNiAwIDEyNSAyMyAtNyBjMTIgLTQgMzIgLTEwIDQzIC0xNXoKbTE0MiAtMzg2IGMtNiAtOTQgLTI5IC0xNDUgLTkwIC0xOTcgLTg5IC03NyAtMjI3IC03NyAtMzE2IDAgLTYxIDUyIC04NCAxMDMKLTkwIDE5NyBsLTUgNzcgMjUzIDAgMjUzIDAgLTUgLTc3eiIvPgo8L2c+Cjwvc3ZnPgo=" alt="" data-size="line">, <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiB3aWR0aD0iMTAwLjAwMDAwMHB0IiBoZWlnaHQ9IjEwMC4wMDAwMDBwdCIgdmlld0JveD0iMCAwIDEwMC4wMDAwMDAgMTAwLjAwMDAwMCIKIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgoKPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsMTAwLjAwMDAwMCkgc2NhbGUoMC4xMDAwMDAsLTAuMTAwMDAwKSIgc3Ryb2tlPSJub25lIj4KPHBhdGggZD0iTTQzMiA5MTAgYy0xMDUgLTIyIC0yMDQgLTEwNyAtMjQyIC0yMDYgLTI5IC04MCAtMjkgLTMyOCAwIC00MDggMjkKLTc2IDg4IC0xMzkgMTY2IC0xNzcgNTcgLTI4IDc2IC0zMyAxNDQgLTMzIDY4IDAgODcgNSAxNDQgMzMgNzggMzggMTM3IDEwMQoxNjYgMTc3IDI5IDgwIDI5IDMyOCAwIDQwOCAtNTUgMTQ1IC0yMjQgMjM4IC0zNzggMjA2eiBtMTc0IC0xMDEgYzYzIC0yMyAxMjgKLTExMCAxNDAgLTE4OCBsNyAtNDEgLTEwNyAwIC0xMDYgMCAwIDEyNiAwIDEyNSAyMyAtNyBjMTIgLTQgMzIgLTEwIDQzIC0xNXoKbTE0MiAtMzg2IGMtNiAtOTQgLTI5IC0xNDUgLTkwIC0xOTcgLTg5IC03NyAtMjI3IC03NyAtMzE2IDAgLTYxIDUyIC04NCAxMDMKLTkwIDE5NyBsLTUgNzcgMjUzIDAgMjUzIDAgLTUgLTc3eiIvPgo8L2c+Cjwvc3ZnPgo=" alt="" data-size="line"></td></tr><tr><td>Edit point</td><td>Drag</td></tr><tr><td>Drag bounding box</td><td>Alt + Hold <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiB3aWR0aD0iMTAwLjAwMDAwMHB0IiBoZWlnaHQ9IjEwMC4wMDAwMDBwdCIgdmlld0JveD0iMCAwIDEwMC4wMDAwMDAgMTAwLjAwMDAwMCIKIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgoKPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsMTAwLjAwMDAwMCkgc2NhbGUoMC4xMDAwMDAsLTAuMTAwMDAwKSIgc3Ryb2tlPSJub25lIj4KPHBhdGggZD0iTTQzMiA5MTAgYy0xMDUgLTIyIC0yMDQgLTEwNyAtMjQyIC0yMDYgLTI5IC04MCAtMjkgLTMyOCAwIC00MDggMjkKLTc2IDg4IC0xMzkgMTY2IC0xNzcgNTcgLTI4IDc2IC0zMyAxNDQgLTMzIDY4IDAgODcgNSAxNDQgMzMgNzggMzggMTM3IDEwMQoxNjYgMTc3IDI5IDgwIDI5IDMyOCAwIDQwOCAtNTUgMTQ1IC0yMjQgMjM4IC0zNzggMjA2eiBtMTc0IC0xMDEgYzYzIC0yMyAxMjgKLTExMCAxNDAgLTE4OCBsNyAtNDEgLTEwNyAwIC0xMDYgMCAwIDEyNiAwIDEyNSAyMyAtNyBjMTIgLTQgMzIgLTEwIDQzIC0xNXoKbTE0MiAtMzg2IGMtNiAtOTQgLTI5IC0xNDUgLTkwIC0xOTcgLTg5IC03NyAtMjI3IC03NyAtMzE2IDAgLTYxIDUyIC04NCAxMDMKLTkwIDE5NyBsLTUgNzcgMjUzIDAgMjUzIDAgLTUgLTc3eiIvPgo8L2c+Cjwvc3ZnPgo=" alt="" data-size="line"></td></tr><tr><td>Drag bounding box</td><td>Alt + Arrow Keys</td></tr><tr><td><strong>You can create new bounding box immediately after.</strong></td><td></td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="454">Bounding Box (Rectangle) Tool</th><th>5</th></tr></thead><tbody><tr><td>Create &#x26; add point</td><td><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiB3aWR0aD0iMTAwLjAwMDAwMHB0IiBoZWlnaHQ9IjEwMC4wMDAwMDBwdCIgdmlld0JveD0iMCAwIDEwMC4wMDAwMDAgMTAwLjAwMDAwMCIKIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgoKPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsMTAwLjAwMDAwMCkgc2NhbGUoMC4xMDAwMDAsLTAuMTAwMDAwKSIgc3Ryb2tlPSJub25lIj4KPHBhdGggZD0iTTQzMiA5MTAgYy0xMDUgLTIyIC0yMDQgLTEwNyAtMjQyIC0yMDYgLTI5IC04MCAtMjkgLTMyOCAwIC00MDggMjkKLTc2IDg4IC0xMzkgMTY2IC0xNzcgNTcgLTI4IDc2IC0zMyAxNDQgLTMzIDY4IDAgODcgNSAxNDQgMzMgNzggMzggMTM3IDEwMQoxNjYgMTc3IDI5IDgwIDI5IDMyOCAwIDQwOCAtNTUgMTQ1IC0yMjQgMjM4IC0zNzggMjA2eiBtMTc0IC0xMDEgYzYzIC0yMyAxMjgKLTExMCAxNDAgLTE4OCBsNyAtNDEgLTEwNyAwIC0xMDYgMCAwIDEyNiAwIDEyNSAyMyAtNyBjMTIgLTQgMzIgLTEwIDQzIC0xNXoKbTE0MiAtMzg2IGMtNiAtOTQgLTI5IC0xNDUgLTkwIC0xOTcgLTg5IC03NyAtMjI3IC03NyAtMzE2IDAgLTYxIDUyIC04NCAxMDMKLTkwIDE5NyBsLTUgNzcgMjUzIDAgMjUzIDAgLTUgLTc3eiIvPgo8L2c+Cjwvc3ZnPgo=" alt="" data-size="line">, <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiB3aWR0aD0iMTAwLjAwMDAwMHB0IiBoZWlnaHQ9IjEwMC4wMDAwMDBwdCIgdmlld0JveD0iMCAwIDEwMC4wMDAwMDAgMTAwLjAwMDAwMCIKIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgoKPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsMTAwLjAwMDAwMCkgc2NhbGUoMC4xMDAwMDAsLTAuMTAwMDAwKSIgc3Ryb2tlPSJub25lIj4KPHBhdGggZD0iTTQzMiA5MTAgYy0xMDUgLTIyIC0yMDQgLTEwNyAtMjQyIC0yMDYgLTI5IC04MCAtMjkgLTMyOCAwIC00MDggMjkKLTc2IDg4IC0xMzkgMTY2IC0xNzcgNTcgLTI4IDc2IC0zMyAxNDQgLTMzIDY4IDAgODcgNSAxNDQgMzMgNzggMzggMTM3IDEwMQoxNjYgMTc3IDI5IDgwIDI5IDMyOCAwIDQwOCAtNTUgMTQ1IC0yMjQgMjM4IC0zNzggMjA2eiBtMTc0IC0xMDEgYzYzIC0yMyAxMjgKLTExMCAxNDAgLTE4OCBsNyAtNDEgLTEwNyAwIC0xMDYgMCAwIDEyNiAwIDEyNSAyMyAtNyBjMTIgLTQgMzIgLTEwIDQzIC0xNXoKbTE0MiAtMzg2IGMtNiAtOTQgLTI5IC0xNDUgLTkwIC0xOTcgLTg5IC03NyAtMjI3IC03NyAtMzE2IDAgLTYxIDUyIC04NCAxMDMKLTkwIDE5NyBsLTUgNzcgMjUzIDAgMjUzIDAgLTUgLTc3eiIvPgo8L2c+Cjwvc3ZnPgo=" alt="" data-size="line"></td></tr><tr><td>Edit point</td><td>Drag</td></tr><tr><td>Drag bounding box</td><td>Alt + Hold <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiB3aWR0aD0iMTAwLjAwMDAwMHB0IiBoZWlnaHQ9IjEwMC4wMDAwMDBwdCIgdmlld0JveD0iMCAwIDEwMC4wMDAwMDAgMTAwLjAwMDAwMCIKIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgoKPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsMTAwLjAwMDAwMCkgc2NhbGUoMC4xMDAwMDAsLTAuMTAwMDAwKSIgc3Ryb2tlPSJub25lIj4KPHBhdGggZD0iTTQzMiA5MTAgYy0xMDUgLTIyIC0yMDQgLTEwNyAtMjQyIC0yMDYgLTI5IC04MCAtMjkgLTMyOCAwIC00MDggMjkKLTc2IDg4IC0xMzkgMTY2IC0xNzcgNTcgLTI4IDc2IC0zMyAxNDQgLTMzIDY4IDAgODcgNSAxNDQgMzMgNzggMzggMTM3IDEwMQoxNjYgMTc3IDI5IDgwIDI5IDMyOCAwIDQwOCAtNTUgMTQ1IC0yMjQgMjM4IC0zNzggMjA2eiBtMTc0IC0xMDEgYzYzIC0yMyAxMjgKLTExMCAxNDAgLTE4OCBsNyAtNDEgLTEwNyAwIC0xMDYgMCAwIDEyNiAwIDEyNSAyMyAtNyBjMTIgLTQgMzIgLTEwIDQzIC0xNXoKbTE0MiAtMzg2IGMtNiAtOTQgLTI5IC0xNDUgLTkwIC0xOTcgLTg5IC03NyAtMjI3IC03NyAtMzE2IDAgLTYxIDUyIC04NCAxMDMKLTkwIDE5NyBsLTUgNzcgMjUzIDAgMjUzIDAgLTUgLTc3eiIvPgo8L2c+Cjwvc3ZnPgo=" alt="" data-size="line"></td></tr><tr><td>Drag bounding box</td><td>Alt + Arrow Keys</td></tr><tr><td>Switch between drag modes<br>(Corner Drag ⇄ Center-Out)</td><td>Hold Control or Ctrl</td></tr><tr><td><strong>You can create new bounding box immediately after.</strong></td><td></td></tr></tbody></table>
 
 | Scene Navigation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Zoom with `Mouse wheel`. Hold <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiB3aWR0aD0iMTAwLjAwMDAwMHB0IiBoZWlnaHQ9IjEwMC4wMDAwMDBwdCIgdmlld0JveD0iMCAwIDEwMC4wMDAwMDAgMTAwLjAwMDAwMCIKIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgoKPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsMTAwLjAwMDAwMCkgc2NhbGUoMC4xMDAwMDAsLTAuMTAwMDAwKSIgc3Ryb2tlPSJub25lIj4KPHBhdGggZD0iTTQzMiA5MTAgYy0xMDUgLTIyIC0yMDQgLTEwNyAtMjQyIC0yMDYgLTI5IC04MCAtMjkgLTMyOCAwIC00MDggMjkKLTc2IDg4IC0xMzkgMTY2IC0xNzcgNTcgLTI4IDc2IC0zMyAxNDQgLTMzIDY4IDAgODcgNSAxNDQgMzMgNzggMzggMTM3IDEwMQoxNjYgMTc3IDI5IDgwIDI5IDMyOCAwIDQwOCAtNTUgMTQ1IC0yMjQgMjM4IC0zNzggMjA2eiBtMjggLTIwNSBsMCAtMTI1IC0xMDYKMCAtMTA3IDAgNyA0MSBjOSA1OSA0MCAxMTMgODUgMTUwIDMzIDI4IDg2IDU1IDExNCA1OCA0IDEgNyAtNTUgNyAtMTI0eiBtMjg4Ci0yODIgYy02IC05NCAtMjkgLTE0NSAtOTAgLTE5NyAtODkgLTc3IC0yMjcgLTc3IC0zMTYgMCAtNjEgNTIgLTg0IDEwMyAtOTAKMTk3IGwtNSA3NyAyNTMgMCAyNTMgMCAtNSAtNzd6Ii8+CjwvZz4KPC9zdmc+Cg==" alt="" data-size="line"> to move scene. |
 
-***
+---
 
 ## Integrating Bounding Boxes with Semi-Automated and Automated Tools
 
@@ -77,18 +98,18 @@ Bounding boxes can be seamlessly combined with both semi-automated and fully aut
 
 ### **Semi-Automated Object Detection with OWL-ViT**
 
-[OWL-ViT](https://ecosystem.supervisely.com/apps/serve-owl-vit?utm\_source=blog) (Vision Transformer for Open-World Localization) uses bounding boxes as a reference to improve object detection. Here's how it works:
+[OWL-ViT](https://ecosystem.supervisely.com/apps/serve-owl-vit?utm_source=blog) (Vision Transformer for Open-World Localization) uses bounding boxes as a reference to improve object detection. Here's how it works:
 
-* **Reference Image Mode**: Annotate an object with a bounding box in a reference image, and OWL-ViT will use this to identify similar objects in other images.
-* **Text Prompt Mode**: Define objects using text descriptions, and OWL-ViT will detect these objects across your dataset.
+- **Reference Image Mode**: Annotate an object with a bounding box in a reference image, and OWL-ViT will use this to identify similar objects in other images.
+- **Text Prompt Mode**: Define objects using text descriptions, and OWL-ViT will detect these objects across your dataset.
 
 ### **Automated Pre-Labeling with YOLOv8**
 
-[YOLOv8](https://ecosystem.supervisely.com/apps/yolov8/serve?utm\_source=blog) offers a fully automated approach to object detection. It uses bounding boxes to quickly and accurately label objects in large datasets:
+[YOLOv8](https://ecosystem.supervisely.com/apps/yolov8/serve?utm_source=blog) offers a fully automated approach to object detection. It uses bounding boxes to quickly and accurately label objects in large datasets:
 
-* **Automatic Detection**: YOLOv8 generates bounding boxes around objects without the need for manual input.
-* **Batch Processing**: Apply the model to all images in a project for efficient pre-labeling.
+- **Automatic Detection**: YOLOv8 generates bounding boxes around objects without the need for manual input.
+- **Batch Processing**: Apply the model to all images in a project for efficient pre-labeling.
 
-For more information on using bounding boxes with [OWL-ViT](https://ecosystem.supervisely.com/apps/serve-owl-vit?utm\_source=blog) and [YOLOv8](https://ecosystem.supervisely.com/apps/yolov8/serve?utm\_source=blog) models, check out our [**comprehensive Bounding Box guide.**](https://supervisely.com/blog/bounding-box-annotation-for-object-detection/#what-is-object-detection)
+For more information on using bounding boxes with [OWL-ViT](https://ecosystem.supervisely.com/apps/serve-owl-vit?utm_source=blog) and [YOLOv8](https://ecosystem.supervisely.com/apps/yolov8/serve?utm_source=blog) models, check out our [**comprehensive Bounding Box guide.**](https://supervisely.com/blog/bounding-box-annotation-for-object-detection/#what-is-object-detection)
 
 {% embed url="https://supervisely.com/blog/bounding-box-annotation-for-object-detection/#what-is-object-detection" %}

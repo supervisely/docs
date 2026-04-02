@@ -20,9 +20,9 @@ For more complex and extensive data exchange operations between teams and worksp
 
 <figure><img src="../.gitbook/assets/data-commander (2).png" alt=""><figcaption></figcaption></figure>
 
-### [Instance Copying Application](https://app.supervisely.com/ecosystem/apps/copy-project-between-instances?id=40)
+### [Instance Sync Application](https://ecosystem.supervisely.com/apps/one-way-instance-sync)
 
-To transfer resources between different instances of the platform, a dedicated [application](https://app.supervisely.com/ecosystem/apps/copy-project-between-instances?id=40) is available. It offers a convenient way to transfer resources and data between various environments, providing broader collaboration opportunities.
+To transfer or synchronize resources between different instances of the platform, a dedicated [application](https://ecosystem.supervisely.com/apps/one-way-instance-sync) is present in ecosystem. It offers a convenient way to transfer data between various environments, providing broader collaboration opportunities.
 
-<figure><img src="../.gitbook/assets/copy-app.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/collaboration/sync-app.png" alt=""><figcaption></figcaption></figure>
 
