@@ -31,7 +31,7 @@ The Live Training approach transforms annotation projects from a multi-week, mul
 ## Quickstart
 
 {% hint style="info" %}
-🔴🔴🔴 Currently, Live Training is available only in **Enterprise** instances.
+Currently, Live Training is available only in **Enterprise** instances.
 {% endhint %}
 
 ### 1. Launch Live Training
@@ -104,11 +104,9 @@ Over time, the model will generate nearly perfect predictions, allowing you to s
 
 ## Save & Load Live Training Sessions
 
-Your Live Training sessions automatically sync to the **Experiments** page. This centralized dashboard lets you manage training runs, monitor progress, and reload models to resume training later.
+The system automatically saves model **checkpoints** at regular intervals and when you stop the Live Training session. All checkpoints are stored in Team Files and are accessible from the **[Experiments](/neural-networks/training/experiments.md)** page. This centralized dashboard lets you manage training runs, monitor progress, and resume training later.
 
 <figure><img src="../../../.gitbook/assets/live-training/live-training-7.jpg" alt="Experiments page showing saved models and checkpoints"><figcaption></figcaption></figure>
-
-The system automatically saves model **checkpoints** at regular intervals. A checkpoint preserves the exact state of your model weights at a specific point in time.
 
 {% hint style="success" %}
 💡 **Tip**: If your annotation session is paused or interrupted, you can safely resume later by loading the latest checkpoint from the **Experiments** page — no progress will be lost.
@@ -121,7 +119,9 @@ To download your trained model or integrate it into a production pipeline, navig
 The AI assistance configuration panel offers the following settings:
 
 - **Don't auto-predict if image contains objects** (figures/annotations) — By default, Live Training suggests predictions for every new image. Enable this option to skip automatic prediction when the current image already contains any labeled objects. This is useful when your dataset is partially annotated.
-- **Confidence Threshold** — Filters the detections returned by the model. Only predictions with a confidence score above this threshold will be shown as suggestions. Lower values show more predictions (including uncertain ones), while higher values show only the model's most confident detections. Adjust this to balance recall and precision based on your annotation needs.
+- **Confidence Threshold** (only for detection model) — Filters the detections returned by the model. Only predictions with a confidence score above this threshold will be shown as suggestions. Lower values show more predictions (including uncertain ones), while higher values show only the model's most confident detections. Adjust this to balance recall and precision based on your annotation needs.
+- **Predict as instance masks** (only for segmentation model) — By default, the segmentation model returns predictions as instance masks (each object is a separate mask). Disable this option to receive semantic segmentation predictions instead (all objects of the same class are merged into one mask). This can be useful for cases where instance-level separation is not necessary, or when objects are very small and densely packed.
+
 
 ## Use Cases
 
