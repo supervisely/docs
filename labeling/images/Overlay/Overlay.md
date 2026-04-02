@@ -24,26 +24,26 @@ DAPI (4′,6-diamidino-2-phenylindole) is a fluorescent stain that binds strongl
 
 This makes DAPI an important reference layer for:
 
-- detecting and counting nuclei;
-- checking cell distribution and density;
-- aligning and comparing other microscopy channels.
+* detecting and counting nuclei;
+* checking cell distribution and density;
+* aligning and comparing other microscopy channels.
 
 ## How the Overlay interface helps
 
 The `Overlay` labeling interface helps users review microscopy data faster and with better visual clarity by providing:
 
-- linked base image and overlay layers for direct visual comparison;
-- adjustable overlay opacity for inspecting faint or partially overlapping structures;
-- a simple workspace focused on quality control, analysis, and interpretation of microscopy results.
+* linked base image and overlay layers for direct visual comparison;
+* adjustable overlay opacity for inspecting faint or partially overlapping structures;
+* a simple workspace focused on quality control, analysis, and interpretation of microscopy results.
 
 ## Interface controls
 
 The overlay panel includes the following controls:
 
-- **Opacity slider** — changes overlay transparency for clearer comparison with the base image.
-- **Scale mode dropdown** — selects how the overlay is fitted to the viewer area.
-- **Preserve aspect ratio toggle** — keeps the original image proportions during scaling.
-- **Overlay layer preview / selector** — shows the active overlay and allows quick switching between linked overlays.
+* **Opacity slider** — changes overlay transparency for clearer comparison with the base image.
+* **Scale mode dropdown** — selects how the overlay is fitted to the viewer area.
+* **Preserve aspect ratio toggle** — keeps the original image proportions during scaling.
+* **Overlay layer preview / selector** — shows the active overlay and allows quick switching between linked overlays.
 
 ![](<../../../.gitbook/assets/overlay example.png>)
 
@@ -58,4 +58,4 @@ To start working with the `Overlay` labeling interface:
 
 The standard image annotation workflow remains available, while the overlay panel adds a dedicated way to inspect linked layers in the same scene.
 
-You can also open and explore a [sample `Overlay` project](https://app.supervisely.com/ecosystem/projects/overlay-sample-project?id=452) in Supervisely to see how this interface works in practice.
+You can also open and explore a [sample Overlay project](https://app.supervisely.com/ecosystem/projects/overlay-sample-project?id=452) in Supervisely to see how this interface works in practice.
