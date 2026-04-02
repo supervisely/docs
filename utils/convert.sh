@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Usage:
-#   convert.sh <file|folder> [--force] [--scale=WIDTH]
+#   convert.sh <file|folder> [--force] [--scale=WIDTH] [--speedup=xN]
 #
 # Converts video/gif files to .mp4 next to originals.
 # Skips .mp4 sources unless --force is passed.
@@ -10,18 +10,20 @@
 
 FORCE=0
 SCALE=""
+SPEEDUP=""
 INPUT=""
 
 for arg in "$@"; do
   case "$arg" in
     --force|-f) FORCE=1 ;;
     --scale=*) SCALE="${arg#--scale=}" ;;
+    --speedup=*) SPEEDUP="${arg#--speedup=}" ;;
     *) INPUT="$arg" ;;
   esac
 done
 
 if [ -z "$INPUT" ]; then
-  echo "Usage: $0 <file|folder> [--force]"
+  echo "Usage: $0 <file|folder> [--force] [--scale=WIDTH] [--speedup=xN]"
   exit 1
 fi
 
@@ -35,9 +37,20 @@ convert_file() {
   local dst_mp4="${base}.mp4"
 
   # Build shared scale filter arg
-  local vf_arg=""
+  local vf_filters=()
   if [ -n "$SCALE" ]; then
-    vf_arg="-vf scale=${SCALE}:-2"
+    vf_filters+=("scale=${SCALE}:-2")
+  fi
+  if [ -n "$SPEEDUP" ]; then
+    local factor="${SPEEDUP#x}"
+    vf_filters+=("setpts=PTS/${factor}")
+  fi
+  local vf_arg=""
+  if [ "${#vf_filters[@]}" -gt 0 ]; then
+    local IFS_bak="$IFS"
+    IFS=','
+    vf_arg="-vf ${vf_filters[*]}"
+    IFS="$IFS_bak"
   fi
 
   # Backup helper: copies $1 to $1.bak.ext if it exists and FORCE is set

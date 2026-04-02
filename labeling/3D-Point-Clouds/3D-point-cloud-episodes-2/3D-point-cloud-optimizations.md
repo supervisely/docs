@@ -11,7 +11,7 @@ To handle the increasing scale and complexity of modern 3D datasets, the [3D Poi
 
 As a result, the tool now handles **point clouds of unprecedented scale** without sacrificing responsiveness or annotation quality. Users on everyday hardware can comfortably work with datasets that were previously impractical, while high-end workstations can push into entirely new territory.
 
-{% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F9mM1dNm0uHlRsfWgJmow%2Fuploads%2FteQmm0BXOeQlFIgUcpa5%2Fpcde-tool-performance.mp4?alt=media&token=198f6ef1-d93e-40bf-8a1b-f9173adc8a67" %}
+{% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F9mM1dNm0uHlRsfWgJmow%2Fuploads%2FteQmm0BXOeQlFIgUcpa5%2Fpcde-tool-performance.mp4?alt=media&token=198f6ef1-d93e-40bf-8a1b-f9173adc8a67&loop=1&autoplay=1" %}
 Smoothly exploring point cloud scene without frame rate drops.
 {% endembed %}
 
@@ -30,7 +30,7 @@ What this means in practice:
 WebGPU is supported in: **Chrome** 113+, **Edge** 113+, **Firefox** 141+ (macOS) / 145+ (Windows), and **Safari** 26+ (macOS Tahoe 26, iOS 26).
 {% endhint %}
 
-{% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F9mM1dNm0uHlRsfWgJmow%2Fuploads%2F3BkyDBEzBdzGLspT43Bz%2Foverall-performance.mp4?alt=media&token=8b1a0edd-fc05-4682-b1b4-c342d486c13d" fullWidth="false" %}
+{% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F9mM1dNm0uHlRsfWgJmow%2Fuploads%2F3BkyDBEzBdzGLspT43Bz%2Foverall-performance.mp4?alt=media&token=8b1a0edd-fc05-4682-b1b4-c342d486c13d&loop=1&autoplay=1" %}
 Even dense point clouds with over 62 million points render smoothly and remain fully interactive.
 {% endembed %}
 
@@ -61,7 +61,7 @@ Alongside the rendering pipeline upgrade, two core annotation tools have been op
 
 The **Point Cloud Pen** tool has been re-engineered to remain precise and responsive even when working with extremely dense scenes. Point selection, brush strokes, and fill operations now perform efficiently regardless of the total number of points in the scene.
 
-{% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F9mM1dNm0uHlRsfWgJmow%2Fuploads%2FnjwNrsFjTO0t95J27lYy%2Fpen-tool.mp4?alt=media&token=dec46f49-4eab-4066-a3dc-2221512589f7" %}
+{% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F9mM1dNm0uHlRsfWgJmow%2Fuploads%2FnjwNrsFjTO0t95J27lYy%2Fpen-tool.mp4?alt=media&token=dec46f49-4eab-4066-a3dc-2221512589f7&loop=1&autoplay=1" %}
 Smoothly annotating a tree in a highly dense urban scene.
 {% endembed %}
 
@@ -69,7 +69,7 @@ Smoothly annotating a tree in a highly dense urban scene.
 
 The **Select tool** has been updated to handle high point counts without lag when interacting with annotated objects. Selections that previously caused noticeable delays on dense clouds now respond instantly.
 
-{% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F9mM1dNm0uHlRsfWgJmow%2Fuploads%2FXK5r5CxKFbFOvMG1U8TX%2Fselect-tool.mp4?alt=media&token=cae6b500-d2d6-424c-9dd2-85d2b6d015e7" %}
+{% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F9mM1dNm0uHlRsfWgJmow%2Fuploads%2FXK5r5CxKFbFOvMG1U8TX%2Fselect-tool.mp4?alt=media&token=cae6b500-d2d6-424c-9dd2-85d2b6d015e7&loop=1&autoplay=1" %}
 Instant object selection and seamless interaction
 {% endembed %}
 
