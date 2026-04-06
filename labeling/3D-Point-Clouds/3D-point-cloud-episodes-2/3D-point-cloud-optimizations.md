@@ -26,9 +26,9 @@ What this means in practice:
 * **Higher frame rates** on powerful hardware, keeping the annotation experience fluid even at extreme point counts.
 * No configuration required — the improvement is automatic for all users running a supported browser.
 
-Additionally, the new pipeline drastically improves overall scene scalability. Previously, interface performance would noticeably degrade after annotating just 20 to 40 objects. The main workspace can now comfortably handle up to 1,000 annotated objects in a single scene, ensuring that complex, large-scale labeling tasks remain completely fluid.
+Additionally, the new pipeline drastically improves overall scene scalability. While interface performance previously degraded after annotating just 20 to 40 objects, the main workspace can now comfortably handle up to 1000 objects in a single scene. 
 
-For teams in autonomous driving, robotics, and geospatial mapping, these scalability upgrades are transformative. Production pipelines in these fields routinely generate dense LiDAR scenes filled with hundreds of vehicles, pedestrians, and structural elements. The ability to smoothly render 100M points and handle up to 1000 objects simultaneously means annotators no longer need to downsample critical data or split environments into artificially small chunks. They can work with full spatial context and maximum precision, exactly as the sensors captured it.
+For teams in autonomous driving, robotics, and geospatial mapping, this upgrade is transformative. Production pipelines routinely generate dense LiDAR scenes filled with hundreds of vehicles, pedestrians, and structural elements. The ability to smoothly render 100M points alongside such massive object counts means annotators no longer need to downsample critical data or split environments into artificially small chunks. They can work with full spatial context and maximum precision, exactly as the sensors captured it.
 
 ### Rich Visualizations with Zero Overhead
 
