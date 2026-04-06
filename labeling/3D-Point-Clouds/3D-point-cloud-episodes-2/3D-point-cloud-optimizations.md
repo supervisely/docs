@@ -1,5 +1,4 @@
 ---
-title: '3D Point Cloud Performance Upgrade: Faster Rendering for Dense Clouds'
 description: >-
   This article describes performance improvements in the 3D Point Cloud labeling
   tool, including the migration to a WebGPU-based rendering pipeline and
@@ -7,7 +6,7 @@ description: >-
 ---
 
 
-# 3D Point Cloud Performance Upgrade: Faster Rendering for Dense Clouds
+# Performance Upgrade for Dense Clouds
 
 To handle the increasing scale and complexity of modern 3D datasets, the [3D Point Cloud labeling tool](./) has undergone a series of significant performance improvements. The most impactful change is the migration of the rendering pipeline from **WebGL** to **WebGPU** — a next-generation graphics API that enables substantially better GPU utilization directly in the browser.
 
