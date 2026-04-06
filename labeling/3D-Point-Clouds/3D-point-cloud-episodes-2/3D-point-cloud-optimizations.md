@@ -26,6 +26,8 @@ What this means in practice:
 * **Higher frame rates** on powerful hardware, keeping the annotation experience fluid even at extreme point counts.
 * No configuration required — the improvement is automatic for all users running a supported browser.
 
+Additionally, the new pipeline drastically improves overall scene scalability. Previously, interface performance would noticeably degrade after annotating just 20 to 40 objects. The main workspace can now comfortably handle up to 1,000 annotated objects in a single scene, ensuring that complex, large-scale labeling tasks remain completely fluid.
+
 {% hint style="success" %}
 WebGPU is supported in: **Chrome** 113+, **Edge** 113+, **Firefox** 141+ (macOS) / 145+ (Windows), and **Safari** 26+ (macOS Tahoe 26, iOS 26).
 {% endhint %}
@@ -51,7 +53,9 @@ The table below shows measured frame rates across a range of devices and point c
 These results reflect real-world annotation sessions. Actual performance may vary depending on browser version, system load, and scene complexity.
 {% endhint %}
 
-The key takeaway: **even entry-level hardware can now work comfortably with 3D point clouds containing tens of millions of points**, while professional-grade machines handle scenes of 100M+ points at full interactive frame rates.
+Historically, macOS devices (particularly MacBooks) experienced significantly lower performance when dealing with point clouds compared to systems equipped with dedicated RTX graphics cards. The new WebGPU pipeline completely changes this dynamic. Even older, entry-level Apple Silicon laptops (like the base M1) now deliver excellent results, providing a perfectly comfortable workflow. On the other end of the spectrum, powerful systems like the M4 Pro deliver astronomical performance, standing toe-to-toe with high-end GPUs like the RTX 5090.
+
+**The key takeaway**: whether you're using an entry-level laptop or a professional-grade workstation, you can now comfortably work with scenes containing tens to hundreds of millions of points at full interactive frame rates.
 
 ## Tool Optimizations
 
@@ -81,5 +85,6 @@ The performance improvements introduced in `v6.15.57` update make the 3D Point C
 * **Low-end hardware** can now handle 40M+ point scenes at usable frame rates.
 * **High-end hardware** reaches 100M+ points at 100–120+ fps.
 * **Pen and Select tools** are optimized to stay fast and accurate regardless of scene density.
+* **Massive object scalability** allows for up to 1,000 annotated objects in a single scene without performance degradation.
 
 These changes are transparent to the user — no settings need to be changed to benefit from the improvements.
