@@ -8,7 +8,7 @@ description: >-
 
 The `Overlay` labeling interface is designed for image projects where a base image is displayed together with one or more linked overlay layers. It allows users to inspect aligned layers in a single viewer and adjust overlay opacity in real time.
 
-![](../../../.gitbook/assets/LI.gif)
+{% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F9mM1dNm0uHlRsfWgJmow%2Fuploads%2FqxTPXEr91YhZTegMKTC3%2FLI.mp4?alt=media&token=db893ee3-ee05-4b64-8d95-6207392a7a27" %}
 
 This interface is especially useful for microscopy and similar imaging workflows where one channel acts as a visual reference and additional layers need to be compared directly on top of it.
 
@@ -45,7 +45,7 @@ The overlay panel includes the following controls:
 * **Preserve aspect ratio toggle** — keeps the original image proportions during scaling.
 * **Overlay layer preview / selector** — shows the active overlay and allows quick switching between linked overlays.
 
-![](./overlay-example.png)
+![](../../../.gitbook/assets/overlay-example.png)
 
 ## Getting Started
 
