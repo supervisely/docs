@@ -112,6 +112,7 @@
     * [3D Point Cloud and Episodes (legacy)](labeling/3D-Point-Clouds/3D-Point-Clouds-episodes-1.md)
   * [DICOM](labeling/DICOM/DICOM.md)
   * [Multiview images](<labeling/images/Multi-view images/Multi-view-images.md>)
+  * [Overlay](labeling/images/Overlay/overlay.md)
   * [Multiview videos](labeling/videos/Multi-view-videos/Multi-view-videos.md)
   * [Fisheye](labeling/images/Fisheye/Fisheye.md)
   * [Video tracking](labeling/videos/video-tracking.md)
