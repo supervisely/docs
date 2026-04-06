@@ -71,7 +71,12 @@ convert_file() {
   else
     backup_if_needed "$dst_mp4"
     echo "Converting to mp4: $src -> $dst_mp4"
-    ffmpeg -y -i "$src" -c:v libx264 -preset slow -crf 22 $vf_arg -an "$dst_mp4"
+    if [ "$src" = "$dst_mp4" ]; then
+      local tmp="${dst_mp4%.mp4}.tmp$$.mp4"
+      ffmpeg -y -i "$src" -c:v libx264 -preset slow -crf 22 $vf_arg -an "$tmp" && mv "$tmp" "$dst_mp4"
+    else
+      ffmpeg -y -i "$src" -c:v libx264 -preset slow -crf 22 $vf_arg -an "$dst_mp4"
+    fi
   fi
 }
 
