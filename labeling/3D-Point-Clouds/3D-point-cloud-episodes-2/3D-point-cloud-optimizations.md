@@ -5,7 +5,7 @@ description: >-
   optimizations for the Pen and Select tools.
 ---
 
-# Performance Optimizations
+# 3D Point Cloud Performance Upgrade: Faster Rendering for Massive Datasets
 
 To handle the increasing scale and complexity of modern 3D datasets, the [3D Point Cloud labeling tool](./) has undergone a series of significant performance improvements. The most impactful change is the migration of the rendering pipeline from **WebGL** to **WebGPU** — a next-generation graphics API that enables substantially better GPU utilization directly in the browser.
 
