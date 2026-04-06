@@ -28,6 +28,18 @@ What this means in practice:
 
 Additionally, the new pipeline drastically improves overall scene scalability. Previously, interface performance would noticeably degrade after annotating just 20 to 40 objects. The main workspace can now comfortably handle up to 1,000 annotated objects in a single scene, ensuring that complex, large-scale labeling tasks remain completely fluid.
 
+For teams in autonomous driving, robotics, and geospatial mapping, these scalability upgrades are transformative. Production pipelines in these fields routinely generate dense LiDAR scenes filled with hundreds of vehicles, pedestrians, and structural elements. The ability to smoothly render 100M points and handle up to 1000 objects simultaneously means annotators no longer need to downsample critical data or split environments into artificially small chunks. They can work with full spatial context and maximum precision, exactly as the sensors captured it.
+
+### Rich Visualizations with Zero Overhead
+
+When working with complex scans, adjusting the visual representation is often necessary to spot fine details or distinguish overlapping objects. The labeling interface provides a comprehensive Settings Panel for customizing how point clouds are displayed:
+
+* **Dynamic Color Modes:** Instantly switch between true-color **RGB**, elevation-based heatmaps (**Z-coord**), distance from the center, or camera device colors.
+* **Intensity Adjustments:** Toggle **Intensity** mapping on or off and tweak the multiplier to highlight highly reflective surfaces—a critical feature for precise LiDAR analysis.
+* **Instant Object Recoloring:** Randomize the colors of annotated objects and bounding boxes on the fly to improve contrast and scene readability.
+
+Crucially, because all rendering calculations now run directly on the GPU via the new pipeline, applying these visual filters has **no impact on performance**. You can switch color palettes, adjust point sizes, and recolor thousands of objects instantaneously, keeping your frame rates buttery smooth even on 100M point scenes.
+
 {% hint style="success" %}
 WebGPU is supported in: **Chrome** 113+, **Edge** 113+, **Firefox** 141+ (macOS) / 145+ (Windows), and **Safari** 26+ (macOS Tahoe 26, iOS 26).
 {% endhint %}
@@ -84,7 +96,8 @@ The performance improvements introduced in `v6.15.57` update make the 3D Point C
 * **WebGPU rendering** unlocks smooth annotation at scales previously unachievable in the browser.
 * **Low-end hardware** can now handle 40M+ point scenes at usable frame rates.
 * **High-end hardware** reaches 100M+ points at 100–120+ fps.
-* **Pen and Select tools** are optimized to stay fast and accurate regardless of scene density.
 * **Massive object scalability** allows for up to 1,000 annotated objects in a single scene without performance degradation.
+* **Zero-overhead visual adjustments** enable instant switching between RGB, Intensity, and custom color modes without dropping frames.
+* **Pen and Select tools** are optimized to stay fast and accurate regardless of scene density.
 
 These changes are transparent to the user — no settings need to be changed to benefit from the improvements.
