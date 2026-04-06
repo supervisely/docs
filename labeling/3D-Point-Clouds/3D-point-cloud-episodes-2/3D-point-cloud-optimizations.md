@@ -5,7 +5,6 @@ description: >-
   optimizations for the Pen and Select tools.
 ---
 
-
 # Performance Upgrade for Dense Clouds
 
 To handle the increasing scale and complexity of modern 3D datasets, the [3D Point Cloud labeling tool](./) has undergone a series of significant performance improvements. The most impactful change is the migration of the rendering pipeline from **WebGL** to **WebGPU** — a next-generation graphics API that enables substantially better GPU utilization directly in the browser.
@@ -44,6 +43,10 @@ Crucially, because all rendering calculations now run directly on the GPU via th
 {% hint style="success" %}
 WebGPU is supported in: **Chrome** 113+, **Edge** 113+, **Firefox** 141+ (macOS) / 145+ (Windows), and **Safari** 26+ (macOS Tahoe 26, iOS 26).
 {% endhint %}
+
+{% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F9mM1dNm0uHlRsfWgJmow%2Fuploads%2FXJ1AXinoMjqusbTPSeZl%2Foverall-performance-ds.mp4?alt=media&token=11204242-5c50-498b-a491-0637bc72abcd" %}
+Even dense point clouds with over 62 million points render smoothly and remain fully interactive.
+{% endembed %}
 
 {% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F9mM1dNm0uHlRsfWgJmow%2Fuploads%2F3BkyDBEzBdzGLspT43Bz%2Foverall-performance.mp4?alt=media&token=8b1a0edd-fc05-4682-b1b4-c342d486c13d&loop=1&autoplay=1" %}
 Even dense point clouds with over 62 million points render smoothly and remain fully interactive.
