@@ -94,13 +94,15 @@ Multi-model detection ensemble is implemented in a form of AI image labeling ass
 
 {% embed url="https://github.com/user-attachments/assets/f6770e26-1a0c-4ec2-8349-22cd5d5d3bf7" %}
 
-## Online learning
+## Live Training
 
-Online learning enables a model to continuously improve by training on new human annotations in real time. As annotators correct predictions or add new labels, the model updates its parameters on the fly - it allows to instantly adapt to the dataset's style, domain and corner cases. Instead of waiting until dataset will be labeled completely, model learns incrementally from each interaction, steadily reducing error rates and boosting pre-labeling quality.
+[Live Training](../live-training/live-training.md) is a real-time AI annotation framework that continuously fine-tunes models **in parallel with human labeling**. As annotators work, the model quickly adapts to your custom dataset and specific domain patterns. After just 5–10 labeled images, it begins generating useful predictions (*pre-labels*) that accelerate labeling — and continues improving with every new image labeled.
 
-This approach allows the model to rapidly internalize rare classes, domain-specific nuances and ambiguous scenarios as soon as they appear in the labeling workflow. Over time, the model becomes increasingly tailored to the project, leading to fewer manual corrections. Online learning transforms model training into a dynamic feedback loop, where every human interaction makes the system smarter and more efficient.
+Live Training solves two key limitations of AI-assisted annotation. First, zero-shot foundation models (like SAM and GroundingDINO) often struggle with specialized domains — Live Training overcomes this by fine-tuning foundation models on the fly. Second, conventional Human-in-the-Loop and Active Learning workflows require manual coordination that creates overhead and idle time. Live Training eliminates this by transforming annotation into a single-phase workflow where AI assistance grows naturally from the first annotation onward.
 
-Supervisely Ecosystem supports online learning for two task types: object detection and semantic segmentation - there is a corresponding app for each task. You can see how model predictions are gradually improving step by step:
+By project completion, you get both a fully annotated dataset and a trained model ready for deployment — with accuracy equivalent to a model trained through conventional offline training.
+
+Supervisely Ecosystem supports Live Training for two task types: object detection and instance/semantic segmentation. You can see how model predictions are gradually improving step by step:
 
 {% embed url="https://github.com/user-attachments/assets/48086a61-eb37-4600-9549-b41dd6db7f54" %}
 
