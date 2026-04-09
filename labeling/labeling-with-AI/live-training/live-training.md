@@ -88,7 +88,7 @@ After annotating initial images, the status changes to **Learning**. At this sta
 
 Once the model has adapted to the initial annotations, it starts generating predictions every time you click **Finish & Next**. Review the model predictions, correct any mistakes, and submit the annotations to further improve the model. At this early stage, results may be rough — you can click **Discard** to remove predictions and annotate manually if the suggestions aren't helpful. Use the **Predict** button to request new predictions after discarding.
 
-Model quality is now shown in the floating panel and refreshes after each newly labeled image.
+**Model Quality** is now shown in the floating panel and refreshes after each newly labeled image. [See how it is calculated ↓](#model-quality-score)
 
 <figure><img src="../../../.gitbook/assets/live-training/live-training5.jpg" alt="Predict button appears in the labeling interface"></figure>
 
@@ -103,6 +103,34 @@ Over time, the model will generate nearly perfect predictions, allowing you to s
 <figure><img src="../../../.gitbook/assets/live-training/live-training6.jpg" alt="Model prediction quality improves over time"></figure>
 
 {% embed url="https://youtu.be/H1aJknl1NtM" %}
+
+## Model Quality Score
+
+The **Model Quality** percentage shown in the floating panel reflects how well the model's predictions matched your final annotations. It updates each time you click **Finish & Next** and is averaged across all images you have labeled so far.
+
+### Detection
+
+For each submitted image, the system compares what the model predicted against what you actually annotated. Each predicted box is evaluated and placed into one of these categories:
+
+- **Correct prediction** — the box is in the right place and has the right class
+- **Imprecise box** — the class is right, but the box fits loosely
+- **Wrong class** — the box is in the right place, but the class is wrong
+- **Extra object** — the model predicted a box where there was nothing
+- **Missed object** — the model missed an object that you annotated
+
+The score is then calculated as:
+
+`Score = (1.0 × Correct + 0.5 × Imprecise + 0.7 × WrongClass − 0.1 × Extra) / Total annotated objects`
+
+Where each term represents the count of predictions in that category.
+
+{% hint style="info" %}
+A score of 70–80% means the model is generating useful pre-labels that need only minor corrections.
+{% endhint %}
+
+### Segmentation
+
+For segmentation tasks, model quality reflects how well the predicted masks overlap with your annotations — the better the overlap, the higher the score.
 
 ## Save & Load Live Training Sessions
 
