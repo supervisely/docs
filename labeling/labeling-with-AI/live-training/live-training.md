@@ -10,7 +10,7 @@ layout:
 
 ## Introduction
 
-Live Training is a real-time AI annotation framework built by Supervisely. It enables continuous model fine-tuning in **parallel with human labeling**. As annotators work, the model quickly adapts to your custom dataset and specific domain patterns. After just 5-10 labeled images, it begins generating useful predictions (*pre-labels*) that accelerate labeling. The quality of these predictions continuously improves with every new image labeled.
+Live Training is a real-time AI annotation framework pioneered by Supervisely. It enables continuous model fine-tuning in **parallel with human labeling**. As annotators work, the model quickly adapts to your custom dataset and specific domain patterns. After just 5-10 labeled images, it begins generating useful predictions (*pre-labels*) that accelerate labeling. The quality of these predictions continuously improves with every new image labeled.
 
 By project completion, you get both a fully annotated dataset and a trained model ready for deployment — with accuracy equivalent to a model trained through conventional offline training.
 
@@ -120,7 +120,7 @@ For each submitted image, the system compares what the model predicted against w
 
 The score is then calculated as:
 
-`Score = (1.0 × Correct + 0.5 × Imprecise + 0.7 × WrongClass − 0.1 × Extra) / Total annotated objects`
+<figure><img src="../../../.gitbook/assets/live-training/lt-formula.png" alt="Live Training Formula"></figure>
 
 Where each term represents the count of predictions in that category.
 
