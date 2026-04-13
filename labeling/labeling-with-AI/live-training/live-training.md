@@ -1,9 +1,6 @@
 ---
 description: >-
   Live Training by Supervisely is a real-time AI annotation framework. Continuously fine-tune models on the fly to accelerate custom dataset labeling.
-layout:
-  pagination:
-    visible: false
 ---
 
 # Live Training
