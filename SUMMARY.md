@@ -139,7 +139,6 @@
   * [Overview](labeling/labeling-with-AI/overview.md)
   * [Live Training while Annotating](labeling/labeling-with-AI/live-training/live-training.md)
     * [Quickstart Guide](labeling/labeling-with-AI/live-training/live-training.md)
-    * [Use Case: Automated Tomato Phenotyping and Segmentation](labeling/labeling-with-AI/live-training/use-cases/tomatoes.md)
   * [Smart Tool for Segmentation](labeling/labeling-with-AI/smart-tool-labeling/README.md)
   * [Images](labeling/labeling-with-AI/images/README.md)
   * [Videos](labeling/labeling-with-AI/videos/README.md)

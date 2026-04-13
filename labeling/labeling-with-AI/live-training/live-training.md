@@ -28,6 +28,8 @@ The Live Training approach transforms annotation projects from a multi-week, mul
 3. You review and correct the predictions.
 4. The model learns from your corrected annotations in real time, improving its accuracy with every new annotation.
 
+{% embed url="https://youtu.be/p6-t62S7c7A" %}
+
 ## Quickstart
 
 {% hint style="info" %}
@@ -48,9 +50,6 @@ Choose the model type that fits your annotation task. Currently, there are two o
 - **Live Training Detection**
 
 Configure the app settings in the modal window and click **Run** to launch the Live Training application.
-
-<!--
-<figure><img src="../../../.gitbook/assets/live-training/live-training1.jpg" alt="Launch a new Live Training session and select model type"></figure> -->
 
 Each Live Training session is attached to a specific project and its classes. To use Live Training for a different project, launch a new session from that project's labeling interface.
 
@@ -157,4 +156,4 @@ The AI assistance configuration panel offers the following settings:
 
 Live Training excels in specialized domains where standard foundation models fall short. Explore the real-world examples below to discover how adapting AI on the fly can accelerate your specific annotation workflows and solve complex industry challenges.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Automated Tomato Phenotyping and Segmentation 🍅</strong></td><td>Live Training on a real-world agricultural segmentation task: extracting phenotypic measurements from tomato fruit cross-sections.</td><td><a href="./use-cases/tomatoes.md">tomatoes.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>[Coming Soon]</td><td><strong>Automated Tomato Phenotyping and Segmentation 🍅</strong></td><td>Live Training on a real-world agricultural segmentation task: extracting phenotypic measurements from tomato fruit cross-sections.</td><td><a href="">tomatoes.md</a></td></tr></tbody></table>
