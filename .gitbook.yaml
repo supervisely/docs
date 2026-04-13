@@ -51,3 +51,5 @@ redirects:
   labeling/editors/images/: labeling/images/README.md
   labeling/smart-tool-labeling: labeling/labeling-with-AI/smart-tool-labeling/README.md
   labeling/smart-tool-labeling/: labeling/labeling-with-AI/smart-tool-labeling/README.md
+  labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/: labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md
+  labeling/3D-Point-Clouds/3D-point-cloud-episodes-2: labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md
