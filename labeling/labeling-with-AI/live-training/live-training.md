@@ -119,7 +119,17 @@ For each submitted image, the system compares what the model predicted against w
 
 The score is then calculated as:
 
-<figure><img src="../../../.gitbook/assets/live-training/lt-formula.png" alt="Live Training Formula"></figure>
+$$
+\text{Score} =
+\frac{
+1.0 \cdot \text{Correct}
++ 0.5 \cdot \text{Imprecise}
++ 0.7 \cdot \text{Wrong Class}
+- 0.1 \cdot \text{Extra}
+}{
+\text{Total Annotated Objects}
+}
+$$
 
 Where each term represents the count of predictions in that category.
 
