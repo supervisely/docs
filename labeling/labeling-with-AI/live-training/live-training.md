@@ -101,8 +101,6 @@ Over time, the model will generate nearly perfect predictions, allowing you to s
 
 <figure><img src="../../../.gitbook/assets/live-training/live-training6.jpg" alt="Model prediction quality improves over time"></figure>
 
-{% embed url="https://youtu.be/H1aJknl1NtM" %}
-
 ## Model Quality Score
 
 The **Model Quality** percentage shown in the floating panel reflects how well the model's predictions matched your final annotations. It updates each time you click **Finish & Next** and is averaged across all images you have labeled so far.

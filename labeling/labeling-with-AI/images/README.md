@@ -104,7 +104,7 @@ By project completion, you get both a fully annotated dataset and a trained mode
 
 Supervisely Ecosystem supports Live Training for two task types: object detection and instance/semantic segmentation. You can see how model predictions are gradually improving step by step:
 
-{% embed url="https://github.com/user-attachments/assets/48086a61-eb37-4600-9549-b41dd6db7f54" %}
+{% embed url="https://youtu.be/p6-t62S7c7A" %}
 
 ## Image filtering
 
