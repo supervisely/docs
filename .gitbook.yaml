@@ -5,34 +5,21 @@ structure:
   summary: SUMMARY.md
 
 redirects:
-  data-organization/00_ann_format_navi/08_supervisely_format_volume/: data-organization/Annotation-JSON-format/08_Supervisely_format_volume.md
-  data-organization/00_ann_format_navi/08_supervisely_format_volume: data-organization/Annotation-JSON-format/08_Supervisely_format_volume.md
-  data-organization/00_ann_format_navi: data-organization/Annotation-JSON-format/00_ann_format_navi.md
-  getting-started/connect-your-computer/agents/ami: agents/ami/README.md
-  getting-started/connect-your-computer/agents/add_delete_node: agents/add_delete_node/add_delete_node.md
-  enterprise/installation: enterprise/installation/README.md
-  enterprise/installation/: enterprise/installation/README.md
-  enterprise-edition/installation: enterprise/installation/README.md
-  enterprise-edition/installation/: enterprise/installation/README.md
-  enterprise/post-installation: enterprise/post-installation/README.md
-  enterprise/post-installation/: enterprise/post-installation/README.md
-  enterprise/advanced-tuning/index-1: enterprise/sso/README.md
-  enterprise-edition/advanced-tuning/index-1: enterprise/sso/README.md
+  ann_format: data-organization/Annotation-JSON-format/00_ann_format_navi.md
+  ann_format/: data-organization/Annotation-JSON-format/00_ann_format_navi.md
   cluster/overview: getting-started/connect-your-computer/README.md
   cluster/overview/: getting-started/connect-your-computer/README.md
   cluster/manage/manage: agents/manage/manage.md
   cluster/manage/manage/: agents/manage/manage.md
-  ann_format: data-organization/Annotation-JSON-format/00_ann_format_navi.md
-  ann_format/: data-organization/Annotation-JSON-format/00_ann_format_navi.md
   customization/agents/status: agents/status_and_troubleshooting/status.md
   customization/agents/status/: agents/status_and_troubleshooting/status.md
   customization/agents: getting-started/connect-your-computer/README.md
   customization/agents/: getting-started/connect-your-computer/README.md
-  getting-started/first-steps: getting-started/How-to-import.md
-  getting-started/first-steps/: getting-started/How-to-import.md
-  labeling/editors/images: labeling/images/README.md
-  labeling/editors/images/: labeling/images/README.md
   customization/agents/agent-storage: agents/agent-storage/agent-storage.md
+  customization/agents/agent-storage/: agents/agent-storage/agent-storage.md
+  data-organization/00_ann_format_navi/08_supervisely_format_volume/: data-organization/Annotation-JSON-format/08_Supervisely_format_volume.md
+  data-organization/00_ann_format_navi/08_supervisely_format_volume: data-organization/Annotation-JSON-format/08_Supervisely_format_volume.md
+  data-organization/00_ann_format_navi: data-organization/Annotation-JSON-format/00_ann_format_navi.md
   data-organization/quality-assurance-and-statistics: data-organization/project-dataset/quality-assurance-and-statistics/README.md
   data-organization/quality-assurance-and-statistics/practical-applications-of-statistics/: data-organization/project-dataset/quality-assurance-and-statistics/practical-applications-of-statistics.md
   data-organization/quality-assurance-and-statistics/practical-applications-of-statistics: data-organization/project-dataset/quality-assurance-and-statistics/practical-applications-of-statistics.md
@@ -48,5 +35,21 @@ redirects:
   data-organization/projects/collections/: data-organization/project-dataset/collections.md
   data-organization/import-export/upload: data-organization/import/upload/README.md
   data-organization/import-export/upload/: data-organization/import/upload/README.md
+  enterprise/installation: enterprise/installation/README.md
+  enterprise/installation/: enterprise/installation/README.md
+  enterprise-edition/installation: enterprise/installation/README.md
+  enterprise-edition/installation/: enterprise/installation/README.md
+  enterprise/post-installation: enterprise/post-installation/README.md
+  enterprise/post-installation/: enterprise/post-installation/README.md
+  enterprise/advanced-tuning/index-1: enterprise/sso/README.md
+  enterprise-edition/advanced-tuning/index-1: enterprise/sso/README.md
+  getting-started/connect-your-computer/agents/ami: agents/ami/README.md
+  getting-started/connect-your-computer/agents/add_delete_node: agents/add_delete_node/add_delete_node.md
+  getting-started/first-steps: getting-started/How-to-import.md
+  getting-started/first-steps/: getting-started/How-to-import.md
+  labeling/editors/images: labeling/images/README.md
+  labeling/editors/images/: labeling/images/README.md
+  labeling/smart-tool-labeling: labeling/labeling-with-AI/smart-tool-labeling/README.md
+  labeling/smart-tool-labeling/: labeling/labeling-with-AI/smart-tool-labeling/README.md
   labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/: labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md
   labeling/3D-Point-Clouds/3D-point-cloud-episodes-2: labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md
