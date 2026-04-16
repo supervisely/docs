@@ -16,16 +16,23 @@ sudo supervisely upgrade
 
 To be sure you can always go back to any previous versions we make automatic backups every time you run the `sudo supervisely upgrade` command.
 
-We backup configuration and database files only:
+We back up configuration and database files only:
 - Configuration folder: directory where you have your `docker-compose.yml` and `.env` files. We usually choose `/opt/supervisely` or `/supervisely`, but if you have installed Supervisely yourself, this folder can be somewhere else.
-- Database folder: sometimes your upgrade requires database migration so it's a good idea to backup the db before. Database files are stored in `${DATA_PATH}/db`. Default value is `/supervisely/data/db`.
+- Database folder: sometimes your upgrade requires database migration, so it's a good idea to back up the db before. Database files are stored in `${DATA_PATH}/db`. Default value is `/supervisely/data/db`.
 
 ### Step 3. Check your new version
 
-Wait a couple minutes and open Supervisely. Everything should work fine and you can start using the new functionality.
+Wait a couple of minutes and open Supervisely. Everything should work fine, and you can start using the new functionality.
 
 ## Troubleshooting
 
-**My agent changed its status to WAITING**: There are two possible reasons - either agents were disconnected during the update (in this case just wait a couple more minutes), or you forgot to set `SERVER_ADDRESS` in `.env`.
+**My agent changed its status to WAITING**: There are two possible reasons - either agent were disconnected during the update (in this case just wait a couple more minutes), or you forgot to set `SERVER_ADDRESS` in `.env`.
 
 **Nothing works now. How do I go back?**: In case of any problems with the new release it's easy to go back to a previous version. Just replace your new configuration files with the previous ones from the backup, do the same with the database folder and hit `supervisely up -d` once again.
+
+**Upgrade fails with `service "postgres" is not running`**: If the upgrade command exits with a `curl: (22) The requested URL returned error: 500` and the message `service "postgres" is not running`, start the Postgres service first and then re-run the upgrade:
+```
+sudo supervisely start postgres
+sudo supervisely upgrade --skip-backup
+```
+
