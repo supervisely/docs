@@ -36,7 +36,7 @@ Ensure that the box includes the object with a 10% padding for better segmentati
 {% endhint %}
 
 {% hint style="success" %}
-**SAM 3 only — Reference Bounding Box Prompts:** If you are using **Segment Anything 3 (SAM 3)**, you can enable the **reference bounding box prompts** mode from the toolbar. Draw a box around one example of an object and SAM 3 will automatically find and segment all visually similar objects across the entire image — ideal for images with many repeated instances. See the [Smart Tool reference](../../../labeling/labeling-tools/smart-tool.md#reference-bounding-box-prompts-sam-3-only) for details.
+**SAM 3 only — Reference Bounding Box Prompts:** If you are using **Segment Anything 3 (SAM 3)**, you can enable the **reference bounding box prompts** mode from the toolbar. Draw a box around one example of an object and SAM 3 will automatically find and segment all visually similar objects across the entire image — ideal for images with many repeated instances. See the [Smart Tool reference](../../../labeling/labeling-tools/smart-tool.md#reference-bounding-box-prompts-sam-3-exclusive) for details.
 {% endhint %}
 
 ### Step 4. Adjust the Mask with Points
