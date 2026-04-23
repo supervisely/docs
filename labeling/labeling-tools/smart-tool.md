@@ -92,9 +92,43 @@ Use the **Brush** or **Pen Tool** for any necessary manual adjustments
 * **Add parts**: Select the missing section of the object and draw it in.
 * **Delete parts**: Hold the **SHIFT** key and draw over areas you want to remove.
 
+### Reference Bounding Box Prompts (SAM 3 Exclusive)
+
+The **reference bounding box prompts** mode is an advanced AI-assisted feature of the Smart Tool, available exclusively when using **Segment Anything 3 (SAM 3)**. It enables rapid **one-to-many instance segmentation**: simply draw a single bounding box around one example of an object, and the model will automatically detect and segment all visually similar instances across the entire image.
+
+{% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F9mM1dNm0uHlRsfWgJmow%2Fuploads%2Fotig9PGyVnxi4p3Ub1qL%2Fst-bbox-prompt.mp4?alt=media&token=bb6ef3bd-9d53-4373-98a4-f3da7cf5e24d&autoplay=1&loop=1" %}
+
+#### How it works
+
+1. Deploy the **SAM 3** model via the [Serve SAM 3](https://ecosystem.supervisely.com/apps/sam3/serve) app in the Supervisely Ecosystem.
+2. Open the **Image Labeling Interface** for your computer vision project.
+3. Select the target object class you want to annotate.
+4. Activate the **Smart Tool** in the left toolbar, click the **ID** (Select Model) button, and choose **SAM 3**.
+5. Enable the mode by clicking the **reference bounding box prompts** icon (a dashed bounding box) in the Smart Tool settings.
+6. Draw a bounding box around a single instance to serve as your visual baseline.
+7. SAM 3 generates a mask for the object inside the box, using it as an **exemplar prompt**.
+8. The model then scans the image for objects matching the exemplar's visual features and automatically creates high-precision masks for all detected instances.
+
+{% hint style="warning" %}
+This auto-labeling mode requires **SAM 3** to be selected as the active model in the Smart Tool. It is not available with SAM 2, RITM, or other interactive segmentation models.
+{% endhint %}
+
+#### Benefits for CV Workflows
+
+* **Accelerated dataset labeling:** Drastically speeds up annotation for dense scenes. Label dozens of objects in a single interaction instead of manually processing each one.
+* **Consistent segmentation quality:** All generated masks are derived from the same exemplar, minimizing variance between annotators and ensuring high-quality ground truth data.
+* **Class-agnostic recognition:** You don't need to pre-configure or train the model for specific classes. By drawing a box, you provide the visual context, and SAM 3 infers what to look for based purely on appearance.
+* **Reduced cognitive load:** Annotators can focus entirely on selecting one high-quality example rather than meticulously tracking every instance manually.
+
+#### Best use cases
+
+* **Dense scenes:** Crowd images, retail product shelves, agricultural fields, and repeated structures in aerial or satellite imagery.
+* **Medical image analysis:** Annotating repeated anatomical structures (e.g., cells, lesions, polyps) across microscopic frames or MRI slices.
+* **Industrial inspection:** Detecting multiple identical manufacturing defects or specific components on a production line.
+* **Wildlife and ecology:** Efficiently labeling multiple animals of the same species within a single camera trap frame.
+
 ### Pro Tips
 
-* **Initial bounding box placement:** You don't need to draw the bounding box precisely around the object's boundaries. Leave about a **10% padding** around the object. This allows the AI to capture more context, resulting in more accurate segmentation, especially near the object's edges.
 * **Model switching for best results:** If you're working with a variety of images or tasks, experiment with different models to identify which one yields the most accurate segmentation for your data.
 * **Leverage custom models:** For highly specialized tasks, integrating a custom-trained model can significantly enhance accuracy and efficiency.
 
