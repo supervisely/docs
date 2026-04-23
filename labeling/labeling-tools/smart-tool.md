@@ -96,6 +96,8 @@ Use the **Brush** or **Pen Tool** for any necessary manual adjustments
 
 The **reference bounding box prompts** mode is an advanced AI-assisted feature of the Smart Tool, available exclusively when using **Segment Anything 3 (SAM 3)**. It enables rapid **one-to-many instance segmentation**: simply draw a single bounding box around one example of an object, and the model will automatically detect and segment all visually similar instances across the entire image.
 
+{% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F9mM1dNm0uHlRsfWgJmow%2Fuploads%2Fotig9PGyVnxi4p3Ub1qL%2Fst-bbox-prompt.mp4?alt=media&token=bb6ef3bd-9d53-4373-98a4-f3da7cf5e24d&autoplay=1&loop=1" %}
+
 #### How it works
 
 1. Deploy the **SAM 3** model via the [Serve SAM 3](https://ecosystem.supervisely.com/apps/sam3/serve) app in the Supervisely Ecosystem.
