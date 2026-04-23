@@ -2,7 +2,7 @@
 
 ## What is Smart Tool?
 
-The Smart Tool is an AI-assisted interactive segmentation tool designed to speed up object segmentation tasks. It integrates various neural network models like RITM and Segment Anything, allowing precise mask creation with minimal user input. Users can customize models and annotations for specific task.&#x20;
+The Smart Tool is an AI-assisted interactive segmentation tool designed to speed up object segmentation tasks. It integrates various neural network models like RITM and Segment Anything, allowing precise mask creation with minimal user input. Users can customize models and annotations for specific task.
 
 ## Video Tutorial
 
@@ -24,7 +24,7 @@ These models use machine learning algorithms trained on large datasets, enabling
 
 #### **Model Switching**
 
-Different models work better for different types of tasks or images. The Smart Tool allows users to switch between models easily, which is useful when dealing with diverse image sets.&#x20;
+Different models work better for different types of tasks or images. The Smart Tool allows users to switch between models easily, which is useful when dealing with diverse image sets.
 
 **Example:** one model may perform better on medical scans, while another may be more suited for satellite imagery. Users can switch between these models without needing to start the annotation process from scratch.
 
@@ -96,6 +96,8 @@ Use the **Brush** or **Pen Tool** for any necessary manual adjustments
 
 The **reference bounding box prompts** mode is an advanced AI-assisted feature of the Smart Tool, available exclusively when using **Segment Anything 3 (SAM 3)**. It enables rapid **one-to-many instance segmentation**: simply draw a single bounding box around one example of an object, and the model will automatically detect and segment all visually similar instances across the entire image.
 
+{% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F9mM1dNm0uHlRsfWgJmow%2Fuploads%2Fotig9PGyVnxi4p3Ub1qL%2Fst-bbox-prompt.mp4?alt=media&token=bb6ef3bd-9d53-4373-98a4-f3da7cf5e24d&autoplay=1&loop=1" %}
+
 #### How it works
 
 1. Deploy the **SAM 3** model via the [Serve SAM 3](https://ecosystem.supervisely.com/apps/sam3/serve) app in the Supervisely Ecosystem.
@@ -130,8 +132,6 @@ This auto-labeling mode requires **SAM 3** to be selected as the active model in
 * **Initial bounding box placement:** You don't need to draw the bounding box precisely around the object's boundaries. Leave about a **10% padding** around the object. This allows the AI to capture more context, resulting in more accurate segmentation, especially near the object's edges.
 * **Model switching for best results:** If you're working with a variety of images or tasks, experiment with different models to identify which one yields the most accurate segmentation for your data.
 * **Leverage custom models:** For highly specialized tasks, integrating a custom-trained model can significantly enhance accuracy and efficiency.
-
-
 
 ***
 

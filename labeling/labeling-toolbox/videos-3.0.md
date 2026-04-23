@@ -278,20 +278,20 @@ All step numbers align with those on the accompanying image:
 
 1. Select the “Merge objects” mode on the timeline.
 
-<figure><img src="../../.gitbook/assets/2026-01-05_16-08.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2026-01-05_16-08 (1).png" alt=""><figcaption></figcaption></figure>
 
 2. Move the slider to the desired frames to view the relevant objects in the preview.
 3. Select the object you wish to merge.
 4. Click “Add to merger.”
 5. An indicator will confirm that the object has been added.
 
-<figure><img src="../../.gitbook/assets/2026-01-05_16-08_1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2026-01-05_16-08_1 (1).png" alt=""><figcaption></figcaption></figure>
 
 6. Move the slider on the timeline to the frame containing the next object of interest.
 7. Click “Add to merger” for this object as well.
 8. Once both objects are selected, click the now-active “Merge 2 objects” button.
 
-<figure><img src="../../.gitbook/assets/2026-01-05_16-09.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2026-01-05_16-09 (1).png" alt=""><figcaption></figcaption></figure>
 
 ***
 

@@ -4,7 +4,7 @@
 
 Challenging to annotate images with fisheye distortion? Activate the **fisheye labeling interface** in Supervisely to correct the distortion and annotate objects with ease in Supervisely.
 
-![](../../../.gitbook/assets/Fisheye-Interface-frame.jpg)
+![](../../../.gitbook/assets/fisheye_interface-frame.jpg)
 
 Fisheye images are a special type of images that are captured with an ultra-wide-angle lens (a.k.a. fisheye lens). The fisheye lens produces strong visual distortion intended to create a wide panoramic or hemispherical image. It is a popular choice for many applications, such as surveillance, automotive, and VR/AR.
 
@@ -40,7 +40,7 @@ Here are the key points and fields descriptions:
 * The values of the translation are given in meters and the rotation is given as a quaternion.
 * The intrinsic calibration is given in a calibration model that describes the radial distortion using an Nth-order polynomial. The radial distortion is given by the formula:
 
-![](<../../../.gitbook/assets/formula_img (1).svg>)
+![](../../../.gitbook/assets/Formula.svg)
 
 * Formula: `theta` is the angle of incidence with respect to the optical axis and rho is the distance between the image center and projected point - focal distance.
 * Offsets (`cxOffset`, `cyOffset`) of the principal point are given in pixels.
