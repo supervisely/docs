@@ -129,7 +129,6 @@ This auto-labeling mode requires **SAM 3** to be selected as the active model in
 
 ### Pro Tips
 
-* **Initial bounding box placement:** You don't need to draw the bounding box precisely around the object's boundaries. Leave about a **10% padding** around the object. This allows the AI to capture more context, resulting in more accurate segmentation, especially near the object's edges.
 * **Model switching for best results:** If you're working with a variety of images or tasks, experiment with different models to identify which one yields the most accurate segmentation for your data.
 * **Leverage custom models:** For highly specialized tasks, integrating a custom-trained model can significantly enhance accuracy and efficiency.
 
