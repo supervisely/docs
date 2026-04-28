@@ -64,7 +64,7 @@ Four technical components make this possible and reliable at scale:
 
 By the time annotation is complete, the team has both a fully labeled dataset and a trained model — without a separate training phase, and without ever leaving the annotation interface.
 
-### **Training Lifecycle**
+## Training Lifecycle
 
 Training begins automatically after a minimum two images have been labeled. The first two images are labeled manually using standard tools for annotation, other AI-assisted models can be used too. Once the model completes its first training steps and reaches non-zero accuracy on Live Evaluation metrics, it begins providing predictions automatically for each new image. As annotators work, the model trains in the background on the labeled data accumulated so far.
 
@@ -76,7 +76,7 @@ Training begins automatically after a minimum two images have been labeled. The 
 
 **Live Evaluation.** Traditional training relies on held-out validation sets to monitor progress and detect overfitting. Live Training, especially in early stages, has insufficient data for statistically meaningful validation, yet validation is critical due to unpredictable annotation pacing and continuous distribution drift. We leverage an inherent property of the annotation workflow: each time an annotator opens a new image, the model generates a prediction to provide pre-labeling assistance. We save this prediction, and when the annotator completes the image, we compute accuracy metrics by comparing the prediction against the final ground truth annotation. To make this robust to single-sample noise, we maintain an exponential moving average of metrics across recent evaluations. This approach provides real-time quality monitoring with zero computational overhead (predictions are already generated for annotation assistance) and 100% data efficiency (every sample contributes to both training and validation).
 
-### **Foundation Model Initialization**
+## Foundation Model Initialization
 
 A natural concern with any continuous learning system is cold start: how useful can a model be after only two or three labeled images? Live Training addresses this through careful model selection and initialization.
 
@@ -86,7 +86,7 @@ The practical impact of this initialization is significant. In few-shot experime
 
 **A note on catastrophic forgetting.** Full fine-tuning on a small and rapidly growing dataset raises a legitimate concern: as the model adapts to domain-specific patterns, could it lose the general visual priors that make early predictions possible? In our experiments, catastrophic forgetting did not occur. We attribute this to the strong representational priors embedded in the foundation model weights — they appear to act as a stable initialization that resists degenerating under limited data fine-tuning.
 
-### **Infrastracture**
+## Infrastructure
 
 **Dynamic dataset growth.** Conventional training dataloaders are initialized once against a fixed dataset. Live Training requires a dataloader that accepts new samples mid-training — without restarting the training process, or interrupting the current batch. We built this capability into the Supervisely framework, allowing samples to be enqueued from the annotation interface and picked up by next training batches. 
 
@@ -119,7 +119,7 @@ To compare these approaches, we estimate the time required to annotate 10,000 im
 - **Review-only cap:** We set the time for an annotator to review a pre-labeled image at 30 seconds. This is the irreducible cost of a human verifying a model's prediction — even with a perfect model, this floor cannot be beaten.  
 - **Annotator working hours:** 6 hours per day. This is used to express results in calendar days rather than raw uninterrupted hours, which would not reflect real working conditions.
 
-### Results:
+### Results
 
 **Plot 1. Annotation progress vs calendar days.** This plot shows the timeline of an annotation project across all four approaches. The x-axis is calendar time (including both annotation and training periods); the y-axis is cumulative progress (% of dataset labeled). In the first \~10 hours, SAM 3 outperforms Live Training and HITL, thanks to its pre-trained foundation knowledge. Later, Live Training quickly takes the lead due to its continuous adaptation to new data. HITL follows the same trend but with a notable time lag caused by its discrete retraining schedule.
 
