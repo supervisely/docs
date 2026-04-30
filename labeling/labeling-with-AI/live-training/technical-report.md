@@ -1,6 +1,6 @@
 ---
 description: >-
-  A novel annotation approach that trains a model in parallel with manual annotation, allowing it to quickly adapt to domain-specific data and provide effective assistance from the very start of the project.
+  A novel annotation approach that trains a model in parallel with manual annotation, allowing it to quickly adapt to domain-specific data and effectively assist from the very start of the project.
 ---
 
 # Introduction
