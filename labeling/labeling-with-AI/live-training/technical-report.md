@@ -26,9 +26,9 @@ We identified foundational inefficiencies common to all AI-assisted labeling app
 
 Together, these two problems mean that companies are paying full price for annotation while getting diminishing help from AI. 
 
-Live Training addresses these inefficiencies through a single architectural shift: running annotation and model training in parallel, continuously. As annotators label each image, the system immediately incorporates it into the training process. When they open the next image, they receive predictions (pre-labels) from a model that has already learned from all previous samples. The quality of these predictions continuously improves with every new image labeled. 
+**Live Training** addresses these inefficiencies through a single architectural shift: running annotation and model training in parallel, continuously. As annotators label each image, the system immediately incorporates it into the training process. When they open the next image, they receive predictions (pre-labels) from a model that has already learned from all previous samples. The quality of these predictions continuously improves with every new image labeled. 
 
-This approach transforms annotation projects from a multi-week, multi-team coordination challenge into a single-phase workflow where AI assistance grows naturally from the first annotation onward. There are no batches to coordinate, no training cycles to schedule, no additional decisions required. ML engineers configure the system once, and it runs automatically. By project completion, you get both a fully annotated dataset and a trained model with accuracy comparable to a model trained through conventional offline training.
+This approach transforms annotation projects from a multi-week, multi-team coordination challenge into a single-phase workflow where AI assistance grows naturally from the first annotation onward. There are no training cycles to coordinate. ML engineers configure the system once, and it runs automatically. By project completion, you get both a fully annotated dataset and a trained model with accuracy comparable to a model trained through conventional offline training.
 
 # Background and Related Work
 
@@ -61,6 +61,10 @@ The fundamental limitation of interactive segmentation models is manual effort: 
 Live Training is built on a single design principle: the model trains continuously alongside annotation, on a single GPU, with no separation between the training and deployment phases.
 
 In practice, this works as follows. As soon as an annotator completes two images, training begins — the model starts updating its weights in the background using the labeled data accumulated so far. When the annotator opens the next image, training is briefly paused, the model switches to inference mode, and predictions are generated from the latest model state. The annotator receives pre-labels reflecting everything the model has learned up to that moment. When they correct the annotation and confirm it, that sample is immediately added to the training dataset.
+
+{% hint style="info" %}
+Check the [Quickstart](./live-training.md) guide to get started with Live Training in Supervisely.
+{% endhint %}
 
 ![Live Training Diagram](/.gitbook/assets/live-training/live-training-diagram.png)
 
