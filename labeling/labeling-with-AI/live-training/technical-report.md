@@ -1,6 +1,15 @@
+---
+description: >-
+  A novel annotation approach that trains a model in parallel with manual annotation, allowing it to quickly adapt to domain-specific data and provide effective assistance from the very start of the project.
+---
+
 # Introduction
 
 Live Training is a novel annotation approach in which a computer vision model trains in parallel with the manual annotation. It allows the model to quickly adapt to the domain-specific patterns of your dataset and effectively assist in labeling from the very start of the annotation project, improving continuously from the first labeled image onward.
+
+{% hint style="info" %}
+Read the [Quickstart](./live-training.md) guide for a step-by-step walkthrough of setting up Live Training in your annotation project.
+{% endhint %}
 
 # Motivation
 
