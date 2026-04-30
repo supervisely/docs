@@ -12,7 +12,7 @@ Yet despite this progress, projects requiring domain-specific datasets still rem
 
 We identified foundational inefficiencies common to all AI-assisted labeling approaches:
 
-1. **Zero-shot foundation models do not adapt to domain-specific tasks.** They provide consistent predictions but never adapt – the 1st and 1,000th image receive identical annotation assistance. They also work best on common object categories such as people or vehicles, and tend to underperform on specialized domains. We found that SAM 2 [[4]](https://arxiv.org/abs/2408.00714) on domain-specific data offered almost no time savings: the model's imprecise boundaries required so much manual correction that it negated any assistance it provided.   
+1. **Zero-shot foundation models do not adapt to domain-specific tasks.** They provide consistent predictions but never adapt – the 1st and 1,000th image receive identical annotation assistance. They also work best on common object categories such as people or vehicles, and tend to underperform on specialized domains. In our internal tests, we found that SAM 2 [[4]](https://arxiv.org/abs/2408.00714) on tomatoes phenotyping task offered almost no time savings: the model's imprecise boundaries required so much manual correction that it negated any assistance it provided.
 2. **Sequential workflows create coordination overhead and idle time.** In batch-based approaches (Human-in-the-loop, Active Learning) annotation and training must take turns: annotators or domain experts label a batch of images over several days, then wait while ML engineers train a model. Meanwhile, when annotators work, training GPUs and ML engineers sit idle. Each cycle requires cross-team coordination and involves human decisions about resource allocation, training configurations and quality assurance of data and models. This fragmentation inevitably results in greater waste of time and resources.
 
 Together, these two problems mean that companies are paying full price for annotation while getting diminishing help from AI. 
@@ -39,7 +39,7 @@ SSL integrates naturally with HITL pipelines, particularly in early iterations w
 
 **Zero-shot foundation models.** Vision-language models such as Grounding DINO [[2]](https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/6319_ECCV_2024_paper.php), Florence-2 [[3]](https://openaccess.thecvf.com/content/CVPR2024/html/Xiao_Florence-2_Advancing_a_Unified_Representation_for_a_Variety_of_Vision_CVPR_2024_paper.html), YOLO-World [[11]](https://openaccess.thecvf.com/content/CVPR2024/html/Cheng_YOLO-World_Real-Time_Open-Vocabulary_Object_Detection_CVPR_2024_paper.html), OWL-ViT [[12]](https://arxiv.org/abs/2205.06230), and CLIP [[13]](https://proceedings.mlr.press/v139/radford21a.html) are trained on large-scale collections of image-text pairs, enabling open-vocabulary object detection and segmentation from natural language prompts without task-specific training. These models can detect a wide range of object categories and generalize to related concepts through learned visual-semantic correspondences. For common objects — people, vehicles, animals, everyday items — they provide remarkably effective out-of-the-box annotation assistance.
 
-However, zero-shot performance degrades sharply when target objects fall outside the model's training distribution. In domain-specific applications such as semiconductor defect detection, medical pathology imaging, or specialized infrastructure inspection, these models offer minimal help: the visual patterns and object categories involved are largely absent from internet-scale image collections on which these models are trained.
+However, zero-shot performance degrades sharply when target objects fall outside the model's training distribution. In domain-specific applications such as agricultural [[18]](https://openaccess.thecvf.com/content/CVPR2025W/V4A/html/Singh_Few-Shot_Adaptation_of_Grounding_DINO_for_Agricultural_Domain_CVPRW_2025_paper.html), medical imaging, or specialized infrastructure inspection, these models offer minimal help: the visual patterns and object categories involved are largely absent from internet-scale image collections on which these models are trained.
 
 **Interactive segmentation models.** The SAM family [[14]](https://openaccess.thecvf.com/content/ICCV2023/html/Kirillov_Segment_Anything_ICCV_2023_paper.html) [[4]](https://arxiv.org/abs/2408.00714) [[1]](https://arxiv.org/abs/2511.16719) has become widely adopted in projects requiring mask annotations. Rather than generating automatic predictions, these models let annotators refine boundaries through clicks and prompts. Unlike semantic foundation models, SAM was trained to respond to generic visual cues — edges, color discontinuities, texture transitions — that transfer across domains more reliably than semantic understanding does. This makes it considerably more robust to domain shift than classification-based models: a boundary between tissue and background in a medical scan shares low-level structure with a boundary between a component and its mounting surface in an industrial inspection image. That said, robustness is not universally guaranteed — performance in automatic mode can degrade in specialized domains, and the model remains dependent on prompt quality [[15]](https://arxiv.org/abs/2408.02924).
 
@@ -49,7 +49,7 @@ The fundamental limitation of interactive segmentation models is manual effort: 
 
 # How Live Training Works
 
-Live Training is built on a single design principle: the model trains continuously alongside annotation, on the same GPU, with no separation between the training and deployment phases.
+Live Training is built on a single design principle: the model trains continuously alongside annotation, on a single GPU, with no separation between the training and deployment phases.
 
 In practice, this works as follows. As soon as an annotator completes two images, training begins — the model starts updating its weights in the background using the labeled data accumulated so far. When the annotator opens the next image, training is briefly paused, the model switches to inference mode, and predictions are generated from the latest model state. The annotator receives pre-labels reflecting everything the model has learned up to that moment. When they correct the annotation and confirm it, that sample is immediately added to the training dataset.
 
@@ -132,10 +132,10 @@ The table below summarizes the total working hours and calendar days each approa
 
 | Approach | Working hours | Calendar days |  
 |---|---|---|  
-| Manual | 583 h | **97 d** |  
-| SAM 3 | 250 h | **42 d** |  
-| HITL | 145 h | **24 d** |  
-| Live Training | 102 h | **17 d** |
+| Manual | 583 h | 97 d |  
+| SAM 3 | 250 h | 42 d |  
+| HITL | 145 h | 24 d |  
+| Live Training | **102 h** | **17 d** |
 
 Compared to HITL, Live Training begins assisting annotators after the very first labeled images — much earlier in absolute terms. HITL requires at least 100-200 images labeled before the first retrain, which is a significant time investment at manual speed.
 
@@ -149,38 +149,48 @@ The comparison with **SAM 3** is also worth noting. A strong promptable foundati
 
 ![Annotation Speed vs Images Labeled](/.gitbook/assets/live-training/3_speed_vs_images_labeled.png)
 
+# Conclusion
+
+Live Training reframes data annotation as a single, continuous process rather than an alternation between human and machine phases. By training a model in the background, the system eliminates the coordination overhead and idle time that accumulate across every cycle of conventional HITL workflows — while also surpassing zero-shot foundation models on domain-specific tasks that fall outside their training distribution.
+
+A practical implication is that the barrier to domain-specific model development is lower than it has been. A team that previously needed ML engineers, training infrastructure, and multi-week iteration cycles to produce a useful model can now generate one as a byproduct of ordinary annotation work, on a single consumer-grade GPU, without leaving the labeling interface.
+
+The core idea — that every labeled sample should immediately benefit the next — distinguishes Live Training from all prior approaches and makes it well suited to the reality of applied computer vision: data is scarce at the start, domain-specific throughout, and expensive to collect.
+
 # References
 
-[1] Carion, N., Gustafson, L., Hu, Y.-T., et al. (2025). *SAM 3: Segment Anything with Concepts*. https://ai.meta.com/research/publications/sam-3-segment-anything-with-concepts
+[1] Carion, N., Gustafson, L., Hu, Y.-T., et al. (2025). *[SAM 3: Segment Anything with Concepts](https://ai.meta.com/research/publications/sam-3-segment-anything-with-concepts)*. arxiv:2511.16719
 
-[2] Liu, S., Zeng, Z., Ren, T., et al. (2024). *Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection*. ECCV 2024. https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/6319_ECCV_2024_paper.php
+[2] Liu, S., Zeng, Z., Ren, T., et al. (2024). *[Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection](https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/6319_ECCV_2024_paper.php)*. ECCV 2024.
 
-[3] Xiao, B., Wu, H., Xu, W., et al. (2024). *Florence-2: Advancing a Unified Representation for a Variety of Vision Tasks*. CVPR 2024. https://openaccess.thecvf.com/content/CVPR2024/html/Xiao_Florence-2_Advancing_a_Unified_Representation_for_a_Variety_of_Vision_CVPR_2024_paper.html
+[3] Xiao, B., Wu, H., Xu, W., et al. (2024). *[Florence-2: Advancing a Unified Representation for a Variety of Vision Tasks](https://openaccess.thecvf.com/content/CVPR2024/html/Xiao_Florence-2_Advancing_a_Unified_Representation_for_a_Variety_of_Vision_CVPR_2024_paper.html)*. CVPR 2024.
 
-[4] Ravi, N., Gabeur, V., Hu, Y.-T., et al. (2024). *SAM 2: Segment Anything in Images and Videos*. arXiv:2408.00714. https://arxiv.org/abs/2408.00714
+[4] Ravi, N., Gabeur, V., Hu, Y.-T., et al. (2024). *[SAM 2: Segment Anything in Images and Videos](https://arxiv.org/abs/2408.00714)*. arXiv:2408.00714.
 
-[5] Hacohen, G., Dekel, A., & Weinshall, D. (2022). *Active Learning on a Budget: Opposite Strategies Suit High and Low Budgets*. ICML 2022. https://proceedings.mlr.press/v162/hacohen22a.html
+[5] Hacohen, G., Dekel, A., & Weinshall, D. (2022). *[Active Learning on a Budget: Opposite Strategies Suit High and Low Budgets](https://proceedings.mlr.press/v162/hacohen22a.html)*. ICML 2022.
 
-[6] Siméoni, O., Budnik, M., Avrithis, Y., & Gravier, G. (2021). *Rethinking Deep Active Learning: Using Unlabeled Data at Model Training*. ICPR 2020. https://arxiv.org/abs/1911.08177
+[6] Siméoni, O., Budnik, M., Avrithis, Y., & Gravier, G. (2021). *[Rethinking Deep Active Learning: Using Unlabeled Data at Model Training](https://arxiv.org/abs/1911.08177)*. ICPR 2020.
 
-[7] Gupte, S. R., Aklilu, J., Nirschl, J. J., & Yeung-Levy, S. (2024). *Revisiting Active Learning in the Era of Vision Foundation Models*. TMLR. https://openreview.net/forum?id=u8K83M9mbG
+[7] Gupte, S. R., Aklilu, J., Nirschl, J. J., & Yeung-Levy, S. (2024). *[Revisiting Active Learning in the Era of Vision Foundation Models](https://openreview.net/forum?id=u8K83M9mbG)*. TMLR.
 
-[8] Lee, D.-H. (2013). *Pseudo-Label: The Simple and Efficient Semi-Supervised Learning Method for Deep Neural Networks*. ICML 2013 Workshop on Challenges in Representation Learning. https://www.semanticscholar.org/paper/Pseudo-Label-%3A-The-Simple-and-Efficient-Learning-Lee/798d9840d2439a0e5d47bcf5d164aa46d5e7dc26
+[8] Lee, D.-H. (2013). *[Pseudo-Label: The Simple and Efficient Semi-Supervised Learning Method for Deep Neural Networks](https://www.semanticscholar.org/paper/Pseudo-Label-%3A-The-Simple-and-Efficient-Learning-Lee/798d9840d2439a0e5d47bcf5d164aa46d5e7dc26)*. ICML 2013 Workshop on Challenges in Representation Learning.
 
-[9] Sajjadi, M., Javanmardi, M., & Tasdizen, T. (2016). *Regularization With Stochastic Transformations and Perturbations for Deep Semi-Supervised Learning*. NeurIPS 2016. https://proceedings.neurips.cc/paper/2016/hash/30ef30b64204a3088a26bc2e6ecf7602-Abstract.html
+[9] Sajjadi, M., Javanmardi, M., & Tasdizen, T. (2016). *[Regularization With Stochastic Transformations and Perturbations for Deep Semi-Supervised Learning](https://proceedings.neurips.cc/paper/2016/hash/30ef30b64204a3088a26bc2e6ecf7602-Abstract.html)*. NeurIPS 2016.
 
-[10] Laine, S., & Aila, T. (2017). *Temporal Ensembling for Semi-Supervised Learning*. ICLR 2017. https://openreview.net/forum?id=BJ6oOfqge
+[10] Laine, S., & Aila, T. (2017). *[Temporal Ensembling for Semi-Supervised Learning](https://openreview.net/forum?id=BJ6oOfqge)*. ICLR 2017.
 
-[11] Cheng, T., Song, L., Ge, Y., Liu, W., Wang, X., & Shan, Y. (2024). *YOLO-World: Real-Time Open-Vocabulary Object Detection*. CVPR 2024. https://openaccess.thecvf.com/content/CVPR2024/html/Cheng_YOLO-World_Real-Time_Open-Vocabulary_Object_Detection_CVPR_2024_paper.html
+[11] Cheng, T., Song, L., Ge, Y., Liu, W., Wang, X., & Shan, Y. (2024). *[YOLO-World: Real-Time Open-Vocabulary Object Detection](https://openaccess.thecvf.com/content/CVPR2024/html/Cheng_YOLO-World_Real-Time_Open-Vocabulary_Object_Detection_CVPR_2024_paper.html)*. CVPR 2024.
 
-[12] Minderer, M., Gritsenko, A., Stone, A., et al. (2022). *Simple Open-Vocabulary Object Detection with Vision Transformers*. ECCV 2022. https://arxiv.org/abs/2205.06230
+[12] Minderer, M., Gritsenko, A., Stone, A., et al. (2022). *[Simple Open-Vocabulary Object Detection with Vision Transformers](https://arxiv.org/abs/2205.06230)*. ECCV 2022.
 
-[13] Radford, A., Kim, J. W., Hallacy, C., et al. (2021). *Learning Transferable Visual Models From Natural Language Supervision*. ICML 2021. https://proceedings.mlr.press/v139/radford21a.html
+[13] Radford, A., Kim, J. W., Hallacy, C., et al. (2021). *[Learning Transferable Visual Models From Natural Language Supervision](https://proceedings.mlr.press/v139/radford21a.html)*. ICML 2021.
 
-[14] Kirillov, A., Mintun, E., Ravi, N., et al. (2023). *Segment Anything*. ICCV 2023. https://openaccess.thecvf.com/content/ICCV2023/html/Kirillov_Segment_Anything_ICCV_2023_paper.html
+[14] Kirillov, A., Mintun, E., Ravi, N., et al. (2023). *[Segment Anything](https://openaccess.thecvf.com/content/ICCV2023/html/Kirillov_Segment_Anything_ICCV_2023_paper.html)*. ICCV 2023.
 
-[15] Lian, S., & Li, H. (2024). *Evaluation of Segment Anything Model 2: The Role of SAM2 in the Underwater Environment*. arXiv:2408.02924. https://arxiv.org/abs/2408.02924
+[15] Lian, S., & Li, H. (2024). *[Evaluation of Segment Anything Model 2: The Role of SAM2 in the Underwater Environment](https://arxiv.org/abs/2408.02924)*. arXiv:2408.02924.
 
-[16] Zhao, X., Chen, Y., Xu, S., et al. (2024). *An Open and Comprehensive Pipeline for Unified Object Grounding and Detection* (MM-Grounding-DINO). arXiv:2401.02361. https://arxiv.org/abs/2401.02361
+[16] Zhao, X., Chen, Y., Xu, S., et al. (2024). *[An Open and Comprehensive Pipeline for Unified Object Grounding and Detection](https://arxiv.org/abs/2401.02361)* (MM-Grounding-DINO). arXiv:2401.02361.
 
-[17] Cheng, B., Misra, I., Schwing, A. G., Kirillov, A., & Girdhar, R. (2022). *Masked-attention Mask Transformer for Universal Image Segmentation*. CVPR 2022. https://openaccess.thecvf.com/content/CVPR2022/html/Cheng_Masked-Attention_Mask_Transformer_for_Universal_Image_Segmentation_CVPR_2022_paper.html
+[17] Cheng, B., Misra, I., Schwing, A. G., Kirillov, A., & Girdhar, R. (2022). *[Masked-attention Mask Transformer for Universal Image Segmentation](https://openaccess.thecvf.com/content/CVPR2022/html/Cheng_Masked-Attention_Mask_Transformer_for_Universal_Image_Segmentation_CVPR_2022_paper.html)*. CVPR 2022.
+
+[18] Singh, R., Bidese Puhl, R., Dhakal, K., & Sornapudi, S. (2025). *[Few-Shot Adaptation of Grounding DINO for Agricultural Domain](https://openaccess.thecvf.com/content/CVPR2025W/V4A/html/Singh_Few-Shot_Adaptation_of_Grounding_DINO_for_Agricultural_Domain_CVPRW_2025_paper.html)*. CVPR 2025 Workshop.
