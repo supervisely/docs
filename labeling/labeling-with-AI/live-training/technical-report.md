@@ -111,7 +111,7 @@ The practical impact of this initialization is significant. In few-shot experime
 
 We created a simulating model to visualize and compare 4 annotation approaches on a segmentation project. The point is to simulate the underlying mechanics so the comparison is clear and close to reality.
 
-**The setup**
+## The setup
 
 A segmentation project with 10,000 images. One annotator. Four approaches:
 
@@ -132,7 +132,7 @@ To compare these approaches, we estimate the time required to annotate 10,000 im
 - **Review-only cap:** We set the time for an annotator to review a pre-labeled image at 30 seconds. This is the irreducible cost of a human verifying a model's prediction — even with a perfect model, this floor cannot be beaten.  
 - **Annotator working hours:** 6 hours per day. This is used to express results in calendar days rather than raw uninterrupted hours, which would not reflect real working conditions.
 
-### Results
+## Results
 
 **Plot 1. Annotation progress vs calendar days.** This plot shows the timeline of an annotation project across all four approaches. The x-axis is calendar time (including both annotation and training periods); the y-axis is cumulative progress (% of dataset labeled). In the first \~10 hours, SAM 3 outperforms Live Training and HITL, thanks to its pre-trained foundation knowledge. Later, Live Training quickly takes the lead due to its continuous adaptation to new data. HITL follows the same trend but with a notable time lag caused by its discrete retraining schedule.
 
