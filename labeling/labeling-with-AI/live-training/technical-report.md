@@ -66,7 +66,7 @@ In practice, this works as follows. As soon as an annotator completes two images
 Check the [Quickstart](./live-training.md) guide to get started with Live Training in Supervisely.
 {% endhint %}
 
-![Live Training Diagram](/.gitbook/assets/live-training/live-training-diagram.png)
+<figure><img src="/.gitbook/assets/live-training/live-training-diagram.png" alt="Live Training Diagram"></figure>
 
 Four technical components make this possible and reliable at scale:
 
@@ -136,10 +136,10 @@ To compare these approaches, we estimate the time required to annotate 10,000 im
 
 **Plot 1. Annotation progress vs calendar days.** This plot shows the timeline of an annotation project across all four approaches. The x-axis is calendar time (including both annotation and training periods); the y-axis is cumulative progress (% of dataset labeled). In the first \~10 hours, SAM 3 outperforms Live Training and HITL, thanks to its pre-trained foundation knowledge. Later, Live Training quickly takes the lead due to its continuous adaptation to new data. HITL follows the same trend but with a notable time lag caused by its discrete retraining schedule.
 
-![Annotation Progress vs Calendar Days](/.gitbook/assets/live-training/4_progress_vs_days.png)
+<figure><img src="/.gitbook/assets/live-training/4_progress_vs_days.png" alt="Annotation Progress vs Calendar Days"></figure>
 
 **Plot 2. Annotation progress vs working time.** This chart measures elapsed time in hours, as if annotators worked nonstop. Overall trends are similar to Plot 1\. Live Training reaches 100% in approximately 102 working hours. HITL takes around 145 working hours — 35% longer — due to bootstrap overhead and four training pauses. SAM 3 takes 250 hours; fully manual annotation takes 583 hours.  
-![Annotation Progress vs Working Time](/.gitbook/assets/live-training/2_progress_vs_time_hours.png)
+<figure><img src="/.gitbook/assets/live-training/2_progress_vs_time_hours.png" alt="Annotation Progress vs Working Time"></figure>
 
 The table below summarizes the total working hours and calendar days each approach takes to complete the annotation project:
 
@@ -156,11 +156,11 @@ The comparison with **SAM 3** is also worth noting. A strong promptable foundati
 
 **Plot 3. Annotation speed vs working time.** This is another view of the same experiment showing momentary annotation rate across the project. Live Training rises smoothly from manual speed up to the review-only cap, approaching that plateau after roughly 40 working hours. HITL is a stairstep with four flat-zero gaps where training pauses occur. Manual labeling and SAM 3 appear as flat lines — SAM 3 does not adapt to the data, so its speed is independent of how much has already been annotated.  
 
-![Annotation Speed vs Working Time](/.gitbook/assets/live-training/1_speed_vs_time.png)
+<figure><img src="/.gitbook/assets/live-training/1_speed_vs_time.png" alt="Annotation Speed vs Working Time"></figure>
 
 **Plot 4. Annotation speed vs images labeled.** Here the x-axis is replaced with the count of images labeled rather than elapsed time. With time removed, the relationship between the four methods becomes purely geometric: HITL is a piecewise-constant approximation of the Live Training curve, sampled at four retrain points. The two converge near the right edge, where any model trained on sufficient data reaches the review-only cap. SAM 3 appears as a flat line that HITL crosses immediately after its first retrain — meaning a model trained on just 200 domain-specific images already outperforms SAM 3 on this task.
 
-![Annotation Speed vs Images Labeled](/.gitbook/assets/live-training/3_speed_vs_images_labeled.png)
+<figure><img src="/.gitbook/assets/live-training/3_speed_vs_images_labeled.png" alt="Annotation Speed vs Images Labeled"></figure>
 
 # Conclusion
 
