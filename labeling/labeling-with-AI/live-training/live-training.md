@@ -11,6 +11,10 @@ Live Training is a real-time AI annotation framework pioneered by Supervisely. I
 
 By project completion, you get both a fully annotated dataset and a trained model ready for deployment — with accuracy equivalent to a model trained through conventional offline training.
 
+{% hint style="info" %}
+Check the [Technical Report](./technical-report.md) for a deep dive into the architecture and research behind Live Training.
+{% endhint %}
+
 **Live Training solves two key limitations of AI-assisted annotation:**
 
  - While zero-shot foundation models (like SAM and GroundingDINO) work well for common objects, they often struggle with specialized domains. Live Training overcomes these limitations by fine-tuning foundation models on the fly, providing immediate automated image annotation for complex, niche use cases.
@@ -155,3 +159,7 @@ The AI assistance configuration panel offers the following settings:
 - **Don't auto-predict if image contains objects** (figures/annotations) — By default, Live Training suggests predictions for every new image. Enable this option to skip automatic prediction when the current image already contains any labeled objects. This is useful when your dataset is partially annotated.
 - **Confidence Threshold** (only for detection model) — Filters the detections returned by the model. Only predictions with a confidence score above this threshold will be shown as suggestions. Lower values show more predictions (including uncertain ones), while higher values show only the model's most confident detections. Adjust this to balance recall and precision based on your annotation needs.
 - **Predict as instance masks** (only for segmentation model) — By default, the segmentation model returns predictions as instance masks (each object is a separate mask). Disable this option to receive semantic segmentation predictions instead (all objects of the same class are merged into one mask). This can be useful for cases where instance-level separation is not necessary, or when objects are very small and densely packed.
+
+---
+
+Check the [Technical Report](./technical-report.md) for a deep dive into the architecture and research behind Live Training.
