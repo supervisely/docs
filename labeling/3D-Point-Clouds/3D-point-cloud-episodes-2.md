@@ -411,7 +411,7 @@ However, for more control or special cases, you can use dedicated Supervisely Ap
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-import-apps.jpg" alt=""><figcaption></figcaption></figure>
 
-Similarly, you can export your labeled point cloud data into various formats using standard Supervisely Export Apps. These apps support exporting annotations, projects, or specific point cloud formats including **KITTI 3D**, **ROS Bag**, and others.
+Similarly, you can export your labeled point cloud data into various formats using standard Supervisely Export Apps. These apps support exporting annotations, projects, or specific point cloud formats including **KITTI 3D**, **Semantic KITTI**, **ROS Bag**, and others.
 
 <figure><img src="../../.gitbook/assets/3d-pc-episode/3d-pc-export-apps.jpg" alt=""><figcaption></figcaption></figure>
 
