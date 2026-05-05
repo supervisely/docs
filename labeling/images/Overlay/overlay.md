@@ -24,28 +24,42 @@ DAPI (4′,6-diamidino-2-phenylindole) is a fluorescent stain that binds strongl
 
 This makes DAPI an important reference layer for:
 
-* Detecting and counting nuclei;
-* Checking cell distribution and density;
-* Aligning and comparing other microscopy channels.
+- Detecting and counting nuclei;
+- Checking cell distribution and density;
+- Aligning and comparing other microscopy channels.
 
 ## How the Overlay Interface Helps
 
 The `Overlay` labeling interface helps users review microscopy data faster and with better visual clarity by providing:
 
-* Linked base image and overlay layers for direct visual comparison;
-* Adjustable overlay opacity for inspecting faint or partially overlapping structures;
-* Simple workspace focused on quality control, analysis, and interpretation of microscopy results.
+- Linked base image and overlay layers for direct visual comparison;
+- Adjustable overlay opacity for inspecting faint or partially overlapping structures;
+- Simple workspace focused on quality control, analysis, and interpretation of microscopy results.
 
 ## Interface Controls
 
 The overlay panel includes the following controls:
 
-* **Opacity slider** — changes overlay transparency for clearer comparison with the base image.
-* **Scale mode dropdown** — selects how the overlay is fitted to the viewer area.
-* **Preserve aspect ratio toggle** — keeps the original image proportions during scaling.
-* **Overlay layer preview / selector** — shows the active overlay and allows quick switching between linked overlays.
+- **Opacity slider** — changes overlay transparency for clearer comparison with the base image.
+- **Scale mode dropdown** — selects how the overlay is fitted to the viewer area.
+- **Preserve aspect ratio toggle** — keeps the original image proportions during scaling.
+- **Overlay layer preview / selector** — shows the active overlay and allows quick switching between linked overlays.
 
 ![](../../../.gitbook/assets/overlay-example.png)
+
+## Working with Multiple Overlays
+
+The `Overlay` interface supports **any number of overlay layers** for each base image. This is particularly useful when working with multi-channel microscopy data or comparing multiple imaging modalities.
+
+### Managing Multiple Overlays
+
+- **Switching between overlays**: Use the overlay layer selector to switch between different overlay layers linked to the current base image.
+- **Layer visibility**: Only one overlay can be displayed at a time, but you can quickly toggle between them to compare different channels or imaging modes.
+- **Individual opacity control**: Each overlay can have its own opacity setting adjusted via the opacity slider when that overlay is active.
+
+![Multiple Overlays](../../../.gitbook/assets/overlays.png)
+
+This makes it easy to inspect multiple data sources aligned to the same base image without leaving the labeling workspace or switching between separate projects.
 
 ## Getting Started
 
