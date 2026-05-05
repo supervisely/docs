@@ -1,15 +1,15 @@
-# Overview
+# What is the SemanticKITTI Format?
 
 {% hint style="success" %}
-Easily import your point cloud episodes with annotations in the SemanticKITTI format.
+Easily import your **LiDAR point cloud sequences** and **3D semantic annotations** using the SemanticKITTI format into Supervisely.
 {% endhint %}
 
-The SemanticKITTI format is designed for semantic scene understanding of LiDAR sequences. It provides dense point-wise semantic annotations for point cloud episodes, enabling tasks like semantic segmentation, panoptic segmentation, and semantic scene completion. The format supports multiple sequences with semantic classes covering vehicles, buildings, vegetation, road surfaces, and other urban environment objects.
+The **SemanticKITTI** format is a widely used standard designed for semantic scene understanding and **autonomous driving** applications. It provides dense point-wise annotations for 3D point cloud episodes, enabling advanced machine learning tasks like **semantic segmentation**, **instance segmentation**, panoptic segmentation, and 3D scene completion. The format supports processing continuous tracking sequences with diverse semantic classes, covering vehicles, pedestrians, buildings, vegetation, road surfaces, and other urban environment objects.
 
-# Input files structure
+# Input Files Structure
 
 {% hint style="success" %}
-Example data: [download ⬇️](https://github.com/supervisely-ecosystem/demo-semantic-kitti-pointcloud-episodes-annotated/releases/download/v1.0.0/project.zip) - sample data from the official SemanticKITTI dataset<br>
+[Download sample dataset](https://github.com/supervisely-ecosystem/demo-semantic-kitti-pointcloud-episodes-annotated/releases/download/v1.0.0/project-example.zip) in SemanticKITTI format (15 MB)
 {% endhint %}
 
 **Format directory structure:**
@@ -52,11 +52,14 @@ Example data: [download ⬇️](https://github.com/supervisely-ecosystem/demo-se
     - `poses.txt` - camera poses for each scan
     - `times.txt` - timestamps for each scan
 
+
 # SemanticKITTI Annotation format
 
-## Point Cloud Files (`.bin`)
+## Point Cloud Files
 
-Point cloud files are stored in binary format with `.bin` extension. Each file contains a list of 3D points with intensity values.
+Filename: `NNNNNN.bin`
+
+Point cloud files are stored in binary format with `.bin` extension in `velodyne` folder. Each file contains a list of 3D points with intensity values.
 
 **Format:** Each point is represented by 4 float32 values:
 
@@ -65,9 +68,11 @@ Point cloud files are stored in binary format with `.bin` extension. Each file c
 - `z` - Z coordinate (float32)
 - `intensity` - Reflectance value (float32)
 
-## Label Files (`.label`)
+## Label Files
 
-The label files are stored in binary format with the `.label` extension. Each label file corresponds to a single point cloud scan and contains semantic and instance annotations for each point.
+Filename: `NNNNNN.label`
+
+The label files are stored in binary format with the `.label` extension in `labels` folder. Each label file corresponds to a single point cloud scan and contains semantic and instance annotations for each point.
 
 **Format:**
 Each label is a 32-bit unsigned integer (`uint32_t`) encoding both semantic class and instance ID:
@@ -77,20 +82,26 @@ Each label is a 32-bit unsigned integer (`uint32_t`) encoding both semantic clas
 
 The instance IDs are consistent over the whole sequence, meaning the same object in different scans gets the same ID. This applies to both moving and static objects.
 
-## Calibration File (`calib.txt`)
+## Calibration File
+
+Filename: `calib.txt`
 
 The calibration file contains projection matrices for transforming between coordinate systems. It includes:
 
 - `P0`, `P1`, `P2`, `P3` - Camera projection matrices (3x4)
 - `Tr` - Transformation matrix from Velodyne to camera coordinates (3x4 or 4x4)
 
-## Poses File (`poses.txt`)
+## Poses File
+
+Filename: `poses.txt`
 
 The poses file contains the camera pose (transformation from camera coordinates to world coordinates) for each scan in the sequence. Each line represents a pose as a 3x4 transformation matrix (flattened to 12 values).
 
 **Format:** Each line contains 12 float values representing the first three rows of a 4x4 transformation matrix (the last row is [0, 0, 0, 1]).
 
-## Times File (`times.txt`)
+## Times File
+
+Filename: `times.txt`
 
 The times file contains timestamps for each scan in the sequence. Each line contains a single float value representing the timestamp in seconds.
 
