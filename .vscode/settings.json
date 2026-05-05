@@ -2,5 +2,6 @@
     "cSpell.words": [
         "CVAT",
         "Roboflow"
-    ]
+    ],
+    "markdown.validate.enabled": true
 }
