@@ -283,6 +283,6 @@ This file set mapping between pointcloud files and annotation frames in the corr
 # Useful Links
 
 - <a href="../../../Annotation-JSON-format/00_ann_format_navi.md" target="_blank">Supervisely Annotation Format</a>
-- <a href="../../../Annotation-JSON-format/07_supervisely_format_pointcloud_episode#sdk" target="_blank">Supervisely Pointcloud Episodes Annotation</a>
+- <a href="../../../Annotation-JSON-format/07_supervisely_format_pointcloud_episode.md#sdk" target="_blank">Supervisely Pointcloud Episodes Annotation</a>
 - <a href="https://developer.supervisely.com/getting-started/command-line-interface/sdk-cli#upload-a-project" target="_blank">[SDK CLI] Upload projects in Supervisely format</a>
 - <a href="https://developer.supervisely.com/getting-started/command-line-interface/cli-tool/workflow-automation#upload-projects-in-supervisely-format" target="_blank">[Supervisely Ecosystem] Import Pointcloud Episodes in Supervisely</a>
