@@ -371,9 +371,9 @@ By default, **AutoImport** automatically detects and supports the following form
 
 AutoImport supports a **wider range of formats** than individual apps and does **automatic format detection**, which makes it the recommended method for most users.
 
-However, for more control or special cases, you can use dedicated Supervisely Apps to import point clouds from specific formats such as **KITTI**, **ROS bag**, **PLY**, and more.
+However, for more control or special cases, you can use dedicated Supervisely Apps to import point clouds from specific formats such as **KITTI**, **Semantic KITTI**, **ROS bag**, **PLY**, and more.
 
-Similarly, you can export your labeled point cloud data into various formats using standard Supervisely Export Apps. These apps support exporting annotations, projects, or specific point cloud formats including **KITTI 3D**, **ROS Bag**, and others.
+Similarly, you can export your labeled point cloud data into various formats using standard Supervisely Export Apps. These apps support exporting annotations, projects, or specific point cloud formats including **KITTI 3D**, **Semantic KITTI**, **ROS Bag**, and others.
 
 You can find all available import and export apps in the **Import → Pointclouds** and **Export → Pointclouds** categories in the [Supervisely Ecosystem](https://ecosystem.supervisely.com).
 
