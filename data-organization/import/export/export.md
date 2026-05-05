@@ -28,7 +28,7 @@ Of course, there are countless other Supervisely Apps that will help download yo
 * [Export to YOLOv8 format](https://ecosystem.supervisely.com/apps/export-to-yolov8)
 * [Export to DOTA](https://ecosystem.supervisely.com/apps/export-to-dota)
 * [Export to Cityscapes](https://ecosystem.supervisely.com/apps/export-to-cityscapes)
-* [Export to Semantic KITTI](https://ecosystem.supervisely.com/apps/export-to-semantic-kitti) - for point cloud episodes
+* [Export to SemanticKITTI](https://ecosystem.supervisely.com/apps/export-to-semantic-kitti) - for point cloud episodes
 Explore more [export applications](https://ecosystem.supervisely.com/export) in the Ecosystem.
 
 **For Python developers** –you can use our Python SDK to download and convert your data to COCO, YOLO, Pascal VOC formats:

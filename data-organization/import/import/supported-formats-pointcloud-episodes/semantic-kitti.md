@@ -1,15 +1,15 @@
 # Overview
 
 {% hint style="success" %}
-Easily import your point cloud episodes with annotations in the Semantic KITTI format.
+Easily import your point cloud episodes with annotations in the SemanticKITTI format.
 {% endhint %}
 
-The Semantic KITTI format is designed for semantic scene understanding of LiDAR sequences. It provides dense point-wise semantic annotations for point cloud episodes, enabling tasks like semantic segmentation, panoptic segmentation, and semantic scene completion. The format supports multiple sequences with semantic classes covering vehicles, buildings, vegetation, road surfaces, and other urban environment objects.
+The SemanticKITTI format is designed for semantic scene understanding of LiDAR sequences. It provides dense point-wise semantic annotations for point cloud episodes, enabling tasks like semantic segmentation, panoptic segmentation, and semantic scene completion. The format supports multiple sequences with semantic classes covering vehicles, buildings, vegetation, road surfaces, and other urban environment objects.
 
 # Input files structure
 
 {% hint style="success" %}
-Example data: [download ⬇️](https://github.com/supervisely-ecosystem/demo-semantic-kitti-pointcloud-episodes-annotated/releases/download/v1.0.0/project.zip) - sample data from the official Semantic KITTI dataset<br>
+Example data: [download ⬇️](https://github.com/supervisely-ecosystem/demo-semantic-kitti-pointcloud-episodes-annotated/releases/download/v1.0.0/project.zip) - sample data from the official SemanticKITTI dataset<br>
 {% endhint %}
 
 **Format directory structure:**
@@ -42,7 +42,7 @@ Example data: [download ⬇️](https://github.com/supervisely-ecosystem/demo-se
 │   └──📂...
 ```
 
-**The Semantic KITTI structure is organized as follows:**
+**The SemanticKITTI structure is organized as follows:**
 
 - `sequences/` - contains numbered sequence folders
   - `XX/` - sequence folder (e.g., 00, 01, 02...)
@@ -52,7 +52,7 @@ Example data: [download ⬇️](https://github.com/supervisely-ecosystem/demo-se
     - `poses.txt` - camera poses for each scan
     - `times.txt` - timestamps for each scan
 
-# Semantic KITTI Annotation format
+# SemanticKITTI Annotation format
 
 ## Point Cloud Files (`.bin`)
 
@@ -96,13 +96,13 @@ The times file contains timestamps for each scan in the sequence. Each line cont
 
 # Export
 
-You can export your labeled point cloud episodes data to Semantic KITTI format using the <a href="https://ecosystem.supervisely.com/apps/export-to-semantic-kitti" target="_blank">Export to Semantic KITTI</a> application from the Supervisely Ecosystem.
+You can export your labeled point cloud episodes data to SemanticKITTI format using the <a href="https://ecosystem.supervisely.com/apps/export-to-semantic-kitti" target="_blank">Export to SemanticKITTI</a> application from the Supervisely Ecosystem.
 
 # License
 
-The Semantic KITTI dataset is distributed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license. You are free to share and adapt the data, but you must give appropriate credit and may not use the work for commercial purposes.
+The SemanticKITTI dataset is distributed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license. You are free to share and adapt the data, but you must give appropriate credit and may not use the work for commercial purposes.
 
-When using the Semantic KITTI dataset, please cite:
+When using the SemanticKITTI dataset, please cite:
 
 ```bibtex
 @inproceedings{behley2019iccv,

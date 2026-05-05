@@ -35,7 +35,7 @@ Difference between 3D Point Cloud and 3D Point Cloud Episodes:
 
 Supervisely's 3D AI assistant is a universal tool for automating 3D point cloud labeling. It covers all types of labeling scenarios for 3D point clouds: 3D object detection, ground segmentation, 3D cuboid tracking, transfer of 2D annotations from photo context images to original 3D point clouds. This tool is class-agnostic - it means that it works with any type of objects regardless of their shape and point density.
 
-### Automatic cuboid adjustment
+### Automatic Сuboid Фdjustment
 
 * Automatically adjusts manually created cuboids.
 
@@ -91,7 +91,7 @@ Patchwork++ segments ground points in 3D point clouds by dividing the space into
 It improves upon the original Patchwork by introducing **adaptive plane modeling** and better handling of **non-flat terrain** using **hierarchical spatial partitioning** and **local elevation statistics**.\
 Patchwork++ also includes mechanisms to handle **sparse or occluded regions** and improves **computational efficiency**, making it suitable for **real-time applications** in **autonomous driving** and **robotics**.
 
-[**GndNet**](https://inria.hal.science/hal-02927350/document) is a **neural network architecture** for **ground plane estimation**, trained on the **Semantic KITTI** dataset.\
+[**GndNet**](https://inria.hal.science/hal-02927350/document) is a **neural network architecture** for **ground plane estimation**, trained on the **SemanticKITTI** dataset.\
 GndNet first performs **point cloud discretization** into a **2D grid**, then converts the point cloud into a **sparse pseudo-image** via a **pillar encoding feature network**,\
 and finally processes this pseudo-image via a **2D convolutional encoder-decoder network** to generate a **high-level representation** of ground elevation per cell.
 
@@ -373,7 +373,7 @@ AutoImport supports a **wider range of formats** than individual apps and does *
 
 However, for more control or special cases, you can use dedicated Supervisely Apps to import point clouds from specific formats such as **KITTI**, **ROS bag**, **PLY**, and more.
 
-Similarly, you can export your labeled point cloud data into various formats using standard Supervisely Export Apps. These apps support exporting annotations, projects, or specific point cloud formats including **KITTI 3D**, **Semantic KITTI**, **ROS Bag**, and others.
+Similarly, you can export your labeled point cloud data into various formats using standard Supervisely Export Apps. These apps support exporting annotations, projects, or specific point cloud formats including **KITTI 3D**, **SemanticKITTI**, **ROS Bag**, and others.
 
 You can find all available import and export apps in the **Import → Pointclouds** and **Export → Pointclouds** categories in the [Supervisely Ecosystem](https://ecosystem.supervisely.com).
 
