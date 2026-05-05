@@ -9,7 +9,7 @@ The **SemanticKITTI** format is a widely used standard designed for semantic sce
 # Input Files Structure
 
 {% hint style="success" %}
-[Download sample dataset in SemanticKITTI format (15 MB)](https://github.com/supervisely-ecosystem/demo-semantic-kitti-pointcloud-episodes-annotated/releases/download/v1.0.0/project-example.zip)
+[Download sample dataset](https://github.com/supervisely-ecosystem/demo-semantic-kitti-pointcloud-episodes-annotated/releases/download/v1.0.0/project-example.zip) in SemanticKITTI format (15 MB)
 {% endhint %}
 
 **Format directory structure:**
@@ -42,7 +42,7 @@ The **SemanticKITTI** format is a widely used standard designed for semantic sce
 │   └──📂...
 ```
 
-**The Semantic KITTI structure is organized as follows:**
+**The SemanticKITTI structure is organized as follows:**
 
 - `sequences/` - contains numbered sequence folders
   - `XX/` - sequence folder (e.g., 00, 01, 02...)
@@ -52,13 +52,14 @@ The **SemanticKITTI** format is a widely used standard designed for semantic sce
     - `poses.txt` - camera poses for each scan
     - `times.txt` - timestamps for each scan
 
-# Semantic KITTI Annotation Format
+
+# SemanticKITTI Annotation format
 
 ## Point Cloud Files
 
-Filename: `.bin`
+Filename: `NNNNNN.bin`
 
-Point cloud files are stored in binary format with `.bin` extension. Each file contains a list of 3D points with intensity values.
+Point cloud files are stored in binary format with `.bin` extension in `velodyne` folder. Each file contains a list of 3D points with intensity values.
 
 **Format:** Each point is represented by 4 float32 values:
 
@@ -69,9 +70,9 @@ Point cloud files are stored in binary format with `.bin` extension. Each file c
 
 ## Label Files
 
-Filename: `.label`
+Filename: `NNNNNN.label`
 
-The label files are stored in binary format with the `.label` extension. Each label file corresponds to a single point cloud scan and contains semantic and instance annotations for each point.
+The label files are stored in binary format with the `.label` extension in `labels` folder. Each label file corresponds to a single point cloud scan and contains semantic and instance annotations for each point.
 
 **Format:**
 Each label is a 32-bit unsigned integer (`uint32_t`) encoding both semantic class and instance ID:
@@ -104,15 +105,15 @@ Filename: `times.txt`
 
 The times file contains timestamps for each scan in the sequence. Each line contains a single float value representing the timestamp in seconds.
 
-# Export
+# Export to SemanticKITTI Format
 
-You can export your labeled point cloud episodes data to Semantic KITTI format using the <a href="https://ecosystem.supervisely.com/apps/export-to-semantic-kitti" target="_blank">Export to Semantic KITTI</a> application from the Supervisely Ecosystem.
+You can export your labeled point cloud episodes data to SemanticKITTI format using the <a href="https://ecosystem.supervisely.com/apps/export-to-semantic-kitti" target="_blank">Export to SemanticKITTI</a> application from the Supervisely Ecosystem.
 
 # License
 
-The Semantic KITTI dataset is distributed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license. You are free to share and adapt the data, but you must give appropriate credit and may not use the work for commercial purposes.
+The SemanticKITTI dataset is distributed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license. You are free to share and adapt the data, but you must give appropriate credit and may not use the work for commercial purposes.
 
-When using the Semantic KITTI dataset, please cite:
+When using the SemanticKITTI dataset, please cite:
 
 ```bibtex
 @inproceedings{behley2019iccv,
