@@ -18,6 +18,7 @@ from the context menu of a project or dataset or launch the application directly
     * [Export activity as csv](https://ecosystem.supervisely.com/apps/export-activity-as-csv)
     * [Export to YOLOv8 format](https://ecosystem.supervisely.com/apps/export-to-yolov8)
     * [Export to DOTA](https://ecosystem.supervisely.com/apps/export-to-dota)
+    * [Export to SemanticKITTI](https://ecosystem.supervisely.com/apps/export-to-semantic-kitti) - for point cloud episodes
 
 3. [**Export only certain items.**](https://ecosystem.supervisely.com/apps/export-only-labeled-items) App exports only labeled items from project and prepares downloadable tar archive. Annotations will be in Supervisely format. App works with all types of projects: Images, Videos , Point Clouds. Unlabeled items will be skipped. Also there is the additional option to export only annotations without actual data.
 

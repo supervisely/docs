@@ -1,15 +1,15 @@
-# What is the SemanticKITTI Format?
+# Overview
 
 {% hint style="success" %}
-Easily import your **LiDAR point cloud sequences** and **3D semantic annotations** using the SemanticKITTI format into Supervisely.
+Easily import your point cloud episodes with annotations in the SemanticKITTI format.
 {% endhint %}
 
-The **SemanticKITTI** format is a widely used standard designed for semantic scene understanding and **autonomous driving** applications. It provides dense point-wise annotations for 3D point cloud episodes, enabling advanced machine learning tasks like **semantic segmentation**, **instance segmentation**, panoptic segmentation, and 3D scene completion. The format supports processing continuous tracking sequences with diverse semantic classes, covering vehicles, pedestrians, buildings, vegetation, road surfaces, and other urban environment objects.
+The SemanticKITTI format is designed for semantic scene understanding of LiDAR sequences. It provides dense point-wise semantic annotations for point cloud episodes, enabling tasks like semantic segmentation, panoptic segmentation, and semantic scene completion. The format supports multiple sequences with semantic classes covering vehicles, buildings, vegetation, road surfaces, and other urban environment objects.
 
-# Input Files Structure
+# Input files structure
 
 {% hint style="success" %}
-[Download sample dataset in SemanticKITTI format (15 MB)](https://github.com/supervisely-ecosystem/demo-semantic-kitti-pointcloud-episodes-annotated/releases/download/v1.0.0/project-example.zip)
+Example data: [download ⬇️](https://github.com/supervisely-ecosystem/demo-semantic-kitti-pointcloud-episodes-annotated/releases/download/v1.0.0/project.zip) - sample data from the official SemanticKITTI dataset<br>
 {% endhint %}
 
 **Format directory structure:**
@@ -42,7 +42,7 @@ The **SemanticKITTI** format is a widely used standard designed for semantic sce
 │   └──📂...
 ```
 
-**The Semantic KITTI structure is organized as follows:**
+**The SemanticKITTI structure is organized as follows:**
 
 - `sequences/` - contains numbered sequence folders
   - `XX/` - sequence folder (e.g., 00, 01, 02...)
@@ -52,11 +52,9 @@ The **SemanticKITTI** format is a widely used standard designed for semantic sce
     - `poses.txt` - camera poses for each scan
     - `times.txt` - timestamps for each scan
 
-# Semantic KITTI Annotation Format
+# SemanticKITTI Annotation format
 
-## Point Cloud Files
-
-Filename: `.bin`
+## Point Cloud Files (`.bin`)
 
 Point cloud files are stored in binary format with `.bin` extension. Each file contains a list of 3D points with intensity values.
 
@@ -67,9 +65,7 @@ Point cloud files are stored in binary format with `.bin` extension. Each file c
 - `z` - Z coordinate (float32)
 - `intensity` - Reflectance value (float32)
 
-## Label Files
-
-Filename: `.label`
+## Label Files (`.label`)
 
 The label files are stored in binary format with the `.label` extension. Each label file corresponds to a single point cloud scan and contains semantic and instance annotations for each point.
 
@@ -81,38 +77,32 @@ Each label is a 32-bit unsigned integer (`uint32_t`) encoding both semantic clas
 
 The instance IDs are consistent over the whole sequence, meaning the same object in different scans gets the same ID. This applies to both moving and static objects.
 
-## Calibration File
-
-Filename: `calib.txt`
+## Calibration File (`calib.txt`)
 
 The calibration file contains projection matrices for transforming between coordinate systems. It includes:
 
 - `P0`, `P1`, `P2`, `P3` - Camera projection matrices (3x4)
 - `Tr` - Transformation matrix from Velodyne to camera coordinates (3x4 or 4x4)
 
-## Poses File
-
-Filename: `poses.txt`
+## Poses File (`poses.txt`)
 
 The poses file contains the camera pose (transformation from camera coordinates to world coordinates) for each scan in the sequence. Each line represents a pose as a 3x4 transformation matrix (flattened to 12 values).
 
 **Format:** Each line contains 12 float values representing the first three rows of a 4x4 transformation matrix (the last row is [0, 0, 0, 1]).
 
-## Times File
-
-Filename: `times.txt`
+## Times File (`times.txt`)
 
 The times file contains timestamps for each scan in the sequence. Each line contains a single float value representing the timestamp in seconds.
 
 # Export
 
-You can export your labeled point cloud episodes data to Semantic KITTI format using the <a href="https://ecosystem.supervisely.com/apps/export-to-semantic-kitti" target="_blank">Export to Semantic KITTI</a> application from the Supervisely Ecosystem.
+You can export your labeled point cloud episodes data to SemanticKITTI format using the <a href="https://ecosystem.supervisely.com/apps/export-to-semantic-kitti" target="_blank">Export to SemanticKITTI</a> application from the Supervisely Ecosystem.
 
 # License
 
-The Semantic KITTI dataset is distributed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license. You are free to share and adapt the data, but you must give appropriate credit and may not use the work for commercial purposes.
+The SemanticKITTI dataset is distributed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license. You are free to share and adapt the data, but you must give appropriate credit and may not use the work for commercial purposes.
 
-When using the Semantic KITTI dataset, please cite:
+When using the SemanticKITTI dataset, please cite:
 
 ```bibtex
 @inproceedings{behley2019iccv,

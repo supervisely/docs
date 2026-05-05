@@ -51,6 +51,7 @@
       * [Lyft](data-organization/import/import/supported-formats-pointcloud-episodes/lyft.md)
       * [nuScenes](data-organization/import/import/supported-formats-pointcloud-episodes/nuscenes.md)
       * [KITTI 360](data-organization/import/import/supported-formats-pointcloud-episodes/kitti360.md)
+      * [SemanticKITTI](data-organization/import/import/supported-formats-pointcloud-episodes/semantic-kitti.md)
     * [Volumes](import-and-export/import/supported-annotation-formats/volumes/README.md)
       * [Supervisely](data-organization/import/import/supported-formats-volumes/supervisely.md)
       * [.NRRD, .DCM volumes](data-organization/import/import/supported-formats-volumes/volumes.md)
