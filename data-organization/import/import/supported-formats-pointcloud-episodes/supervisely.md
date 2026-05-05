@@ -1,288 +1,136 @@
-# Overview
+# What is the SemanticKITTI Format?
 
 {% hint style="success" %}
-Easily import your pointcloud episodes with annotations in the Supervisely format. The Supervisely json-based annotation format supports `cuboid_3d` shape figures. It is a universal format that supports various types of annotations and is used in the Supervisely platform.
+Easily import your **LiDAR point cloud sequences** and **3D semantic annotations** using the SemanticKITTI format into Supervisely.
 {% endhint %}
 
-{% hint style="info" %}
-All information about the Supervisely JSON format can be found <a href="https://docs.supervise.ly/data-organization/00_ann_format_navi" target="_blank">here</a>
-{% endhint %}
+The **SemanticKITTI** format is a widely used standard designed for semantic scene understanding and **autonomous driving** applications. It provides dense point-wise annotations for 3D point cloud episodes, enabling advanced machine learning tasks like **semantic segmentation**, **instance segmentation**, panoptic segmentation, and 3D scene completion. The format supports processing continuous tracking sequences with diverse semantic classes, covering vehicles, pedestrians, buildings, vegetation, road surfaces, and other urban environment objects.
 
-Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process.
-
-# Format description
-
-**Supported point cloud format:** `.pcd`<br>
-**With annotations:** yes<br>
-**Supported annotation format:** `.json`.<br>
-**Data structure:** Information is provided below.
-
-# Input files structure
+# Input Files Structure
 
 {% hint style="success" %}
-Example data: [download ⬇️](https://github.com/supervisely-ecosystem/demo-kitti-3d-episodes/releases/download/v0.0.1/demo_kitti_pointcloud_episodes.zip).
+[Download sample dataset in SemanticKITTI format (15 MB)](https://github.com/supervisely-ecosystem/demo-semantic-kitti-pointcloud-episodes-annotated/releases/download/v1.0.0/project-example.zip)
 {% endhint %}
 
-Both directory and archive are supported.
+**Format directory structure:**
 
-**Recommended directory structure:**
+```text
+📦SemanticKITTI
+├──📂sequences
+│   ├──📂00
+│   │   ├──📂velodyne
+│   │   │   ├──📄000000.bin
+│   │   │   ├──📄000001.bin
+│   │   │   ├──📄000002.bin
+│   │   │   └──📄...
+│   │   ├──📂labels
+│   │   │   ├──📄000000.label
+│   │   │   ├──📄000001.label
+│   │   │   ├──📄000002.label
+│   │   │   └──📄...
+│   │   ├──📄calib.txt
+│   │   ├──📄poses.txt
+│   │   └──📄times.txt
+│   ├──📂01
+│   │   ├──📂velodyne
+│   │   │   └──📄...
+│   │   ├──📂labels
+│   │   │   └──📄...
+│   │   ├──📄calib.txt
+│   │   ├──📄poses.txt
+│   │   └──📄times.txt
+│   └──📂...
+```
 
-Root folder for the project named `project name`
+**The Semantic KITTI structure is organized as follows:**
 
-- `meta.json` file
-- `key_id_map.json` file
-- Dataset folders, that represents single episode. Each named `dataset_name`, which contains:
-  - `annotation.json` - file with whole episode annotation
-  - `frame_pointcloud_map.json` - file with pointcloud to episode frame mapping
-  - `pointcloud` folder, contains source point cloud files, for example `frame1.pcd, frame2.pcd`
-  - `related_images` optional folder, contains photo-context data:
-    - Frame folder, each named according to pointcloud (`/related_images/frame1/`), which contains:
-      - image files (`.png \ .jpg`)
-      - photo context image annotation file (`.json`) - json files, named according to image name (`1.png -> 1.png.json`). Read more in the "Photo context image annotation file" section below.
+- `sequences/` - contains numbered sequence folders
+  - `XX/` - sequence folder (e.g., 00, 01, 02...)
+    - `velodyne/` - contains LiDAR point cloud files in binary format
+    - `labels/` - contains semantic and instance labels for each scan
+    - `calib.txt` - calibration file containing projection matrices
+    - `poses.txt` - camera poses for each scan
+    - `times.txt` - timestamps for each scan
 
-# Format of Annotations
+# Semantic KITTI Annotation Format
 
-```json
-{
-  "description": "",
-  "key": "e9f0a3ae21be41d08eec166d454562be",
-  "tags": [],
-  "objects": [
-    {
-      "key": "6663ca1d20c74bea83bd48c24568989d",
-      "classTitle": "car",
-      "tags": []
-    }
-  ],
-  "framesCount": 48,
-  "frames": [
-    {
-      "index": 0,
-      "figures": [
-        {
-          "key": "cb8e067dadfc423aa8575a0c4e62de33",
-          "objectKey": "6663ca1d20c74bea83bd48c24568989d",
-          "geometryType": "cuboid_3d",
-          "geometry": {
-            "position": {
-              "x": -10.863547325134277,
-              "y": -93.57706451416016,
-              "z": -4.598618030548096
-            },
-            "rotation": {
-              "x": 0,
-              "y": 0,
-              "z": 3.250733629393711
-            },
-            "dimensions": {
-              "x": 1.978,
-              "y": 4.607,
-              "z": 1.552
-            }
-          }
-        }
-      ]
-    },
-    {
-      "index": 1,
-      "figures": [
-        {
-          "key": "71e0fe52dc4f4f6aaf059ad095f43c1f",
-          "objectKey": "6663ca1d20c74bea83bd48c24568989d",
-          "labelerLogin": "username",
-          "updatedAt": "2021-11-11T17:19:11.448Z",
-          "createdAt": "2021-11-11T16:53:03.670Z",
-          "geometryType": "cuboid_3d",
-          "geometry": {
-            "position": {
-              "x": -11.10418701171875,
-              "y": -91.33098602294922,
-              "z": -4.5446248054504395
-            },
-            "rotation": {
-              "x": 0,
-              "y": 0,
-              "z": 3.24780199600921
-            },
-            "dimensions": {
-              "x": 1.978,
-              "y": 4.607,
-              "z": 1.552
-            }
-          }
-        }
-      ]
-    }
-  ]
+## Point Cloud Files
+
+Filename: `.bin`
+
+Point cloud files are stored in binary format with `.bin` extension. Each file contains a list of 3D points with intensity values.
+
+**Format:** Each point is represented by 4 float32 values:
+
+- `x` - X coordinate (float32)
+- `y` - Y coordinate (float32)
+- `z` - Z coordinate (float32)
+- `intensity` - Reflectance value (float32)
+
+## Label Files
+
+Filename: `.label`
+
+The label files are stored in binary format with the `.label` extension. Each label file corresponds to a single point cloud scan and contains semantic and instance annotations for each point.
+
+**Format:**
+Each label is a 32-bit unsigned integer (`uint32_t`) encoding both semantic class and instance ID:
+
+- **Lower 16 bits** - semantic label (class ID)
+- **Upper 16 bits** - instance ID (temporally consistent across the sequence)
+
+The instance IDs are consistent over the whole sequence, meaning the same object in different scans gets the same ID. This applies to both moving and static objects.
+
+## Calibration File
+
+Filename: `calib.txt`
+
+The calibration file contains projection matrices for transforming between coordinate systems. It includes:
+
+- `P0`, `P1`, `P2`, `P3` - Camera projection matrices (3x4)
+- `Tr` - Transformation matrix from Velodyne to camera coordinates (3x4 or 4x4)
+
+## Poses File
+
+Filename: `poses.txt`
+
+The poses file contains the camera pose (transformation from camera coordinates to world coordinates) for each scan in the sequence. Each line represents a pose as a 3x4 transformation matrix (flattened to 12 values).
+
+**Format:** Each line contains 12 float values representing the first three rows of a 4x4 transformation matrix (the last row is [0, 0, 0, 1]).
+
+## Times File
+
+Filename: `times.txt`
+
+The times file contains timestamps for each scan in the sequence. Each line contains a single float value representing the timestamp in seconds.
+
+# Export
+
+You can export your labeled point cloud episodes data to Semantic KITTI format using the <a href="https://ecosystem.supervisely.com/apps/export-to-semantic-kitti" target="_blank">Export to Semantic KITTI</a> application from the Supervisely Ecosystem.
+
+# License
+
+The Semantic KITTI dataset is distributed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license. You are free to share and adapt the data, but you must give appropriate credit and may not use the work for commercial purposes.
+
+When using the Semantic KITTI dataset, please cite:
+
+```bibtex
+@inproceedings{behley2019iccv,
+  author = {J. Behley and M. Garbade and A. Milioto and J. Quenzel and S. Behnke and C. Stachniss and J. Gall},
+  title = {{SemanticKITTI: A Dataset for Semantic Scene Understanding of LiDAR Sequences}},
+  booktitle = {Proc. of the IEEE/CVF International Conf.~on Computer Vision (ICCV)},
+  year = {2019}
 }
 ```
 
-**Optional fields and loading**
-These fields are optional and are not needed when loading the project.
-The server can automatically fill in these fields while project is loading.
+And the original KITTI Vision Benchmark:
 
-- `id` - unique identifier of the current object
-- `classId` - unique class identifier of the current object
-- `labelerLogin` - string - the name of user who created the current figure
-- `createdAt` - string - date and time of figure creation
-- `updatedAt` - string - date and time of the last figure update
-
-Main idea of `key` fields and `id` you can see below in "Key id map file" section.
-
-**Fields definitions:**
-
-- `description` - string - (optional) - this field is used to store the text to assign to the sequence.
-- `key` - string, unique key for a given sequence (used in key_id_map.json to get the sequence ID)
-- `tags` - list of strings that will be interpreted as episode tags
-- `objects` - list of objects that may be present on the episode
-- `frames` - list of frames of which the episode consists. List contains only frames with an object from the 'objects' field
-  - `index` - integer - number of the current frame
-  - `figures` - list of figures in the current frame.
-- `framesCount` - integer - total number of frames in the episode
-- `geometryType` - "cuboid_3d" - class shape
-
-**Fields definitions for `objects` field:**
-
-- `key` - string - unique key for a given object (used in key_id_map.json)
-- `classTitle` - string - the title of a class. It's used to identify the class shape from the `meta.json` file
-- `tags` - list of strings that will be interpreted as object tags (can be empty)
-
-**Fields description for `figures` field:**
-
-- `key` - string - unique key for a given figure (used in key_id_map.json)
-- `objectKey` - string - unique key to link figure to object (used in key_id_map.json)
-- `geometryType` - "cuboid_3d" -class shape
-- `geometry` - geometry of the object
-
-**Description for `geometry` field:**
-
-- `position` 3D vector X, Y, Z values matches the axes on world coordinates, defined in global frame of reference as:
-
-  - **+x** - forward in the direction of travel ego vehicle
-  - **+y** - left
-  - **+z** - up
-
-- `dimensions` is 3D vector with:
-
-  - **x** - width
-  - **y** - length
-  - **z** - height
-
-- `rotation`is 3D Vector with:
-  - **x** - pitch
-  - **y** - roll
-  - **z** - yaw (direction)
-
-Rotation values bound inside \[**-pi** ; **pi** ]
-When `yaw = 0` box direction will be strict `+y`
-
-## Key id map file
-
-You can avoid using key-id-map directly with API and SDK to create your own file structure.
-
-The basic idea behind key-id-map is that it maps the unique identifiers of the object to the frame on which the shape is located. The server works with an identifier, but the file system of the loaded project stores these identifiers and object keys on disk, which is necessary for navigation and use of the high-level API and applications.
-
-When loading a `dataset` (sequence), the system returns its identifier, after which it is saved to a file on disk, along with the key of the loaded sequence in key-id-map file.
-
-When uploading `objects` to the server, a sequence ID is required (to determine which sequence the object belongs to), and it can be read from the key-id-map file by key. The system then returns the IDs of the successfully loaded objects.
-
-Then, while `figures` uploading to the server, an object identifier is required (which loaded object the shape belongs to), which can again be read from the key-id-map file.
-
-While annotating the episode inside Supervisely interface key-id-map file is created automatically, and will be downloaded with the entire project.
-Json format of key_id_map.json:
-
-```json
-{
-  "tags": {},
-  "objects": {
-    "198f727d40c749eebcacc4aed299b39a": 20520
-  },
-  "figures": {
-    "65f21690780e43b49863c3cbd07eab3a": 503130811
-  },
-  "videos": {
-    "e9f0a3ae21be41d08eec166d454562be": 42656
-  }
+```bibtex
+@inproceedings{geiger2012cvpr,
+  author = {A. Geiger and P. Lenz and R. Urtasun},
+  title = {{Are we ready for Autonomous Driving? The KITTI Vision Benchmark Suite}},
+  booktitle = {Proc.~of the IEEE Conf.~on Computer Vision and Pattern Recognition (CVPR)},
+  pages = {3354--3361},
+  year = {2012}
 }
 ```
-
-- `objects` - dictionary, where the key is a unique string, generated inside Supervisely environment to set correspondence of current object in annotation, and values are unique integer ID corresponding to the current object
-- `figures` - dictionary, where the key is a unique string, generated inside Supervisely environment to set correspondence of object on current frame in annotation, and values are unique integer ID corresponding to the current frame
-- `videos` - dictionary, where the key is unique string, generated inside Supervisely environment to set correspondence of sequence (dataset) in annotation, and value is a unique integer ID corresponding to the current sequence
-- `tags` - dictionary, where the keys are unique strings, generated inside Supervisely environment to set correspondence of tag on current frame in annotation, and values are a unique integer ID corresponding to the current tag
-
-- **Key** - <a href="https://docs.python.org/3/library/uuid.html#uuid.uuid4" target="_blank">generated by python3 function `uuid.uuid4().hex`</a>. The unique string. All key values and id's should be unique inside single project and can not be shared between frames\sequences.
-- **Value** - returned by server integer identifier while uploading object / figure / sequence / tag
-
-## Format of frame_pointcloud_map.json
-
-This file set mapping between pointcloud files and annotation frames in the correct order.
-
-```json
-{
-  "0": "frame1.pcd",
-  "1": "frame2.pcd",
-  "2": "frame3.pcd"
-}
-```
-
-**Keys** - frame order number\
-**Values** - point cloud name (with extension)
-
-## Photo context image annotation file
-
-```json
-    {
-        "name": "host-a005_cam4_1231201437716091006.jpeg"
-        "entityId": 2359620,
-        "meta": {
-            "deviceId": "CAM_BACK_LEFT",
-            "timestamp": "2019-01-11T03:23:57.802Z",
-            "sensorsData": {
-                "extrinsicMatrix": [
-                    -0.8448329028461443,
-                    -0.5350302199120708,
-                    0.00017334762588639086,
-                    -0.012363736761232369,
-                    -0.0035124448582330757,
-                    0.005222293412494302,
-                    -0.9999801949951969,
-                    -0.16621728572112304,
-                    0.5350187183638307,
-                    -0.8448167798004226,
-                    -0.006291229448121315,
-                    -0.3527897896721229
-                ],
-                "intrinsicMatrix": [
-                    882.42699274,
-                    0,
-                    602.047851885,
-                    0,
-                    882.42699274,
-                    527.99972239,
-                    0,
-                    0,
-                    1
-                ]
-            }
-        }
-    }
-```
-
-**Fields description:**
-
-- name - string - Name of image file
-- Id - (OPTIONAL) - integer >= 1 ID of the photo in the system. It is not required when upload and is filled in automatically when the project is loaded.
-- entityId (OPTIONAL) - integer >= 1 ID of the Point Cloud in the system, that photo attached to. Doesn't required while uploading.
-- deviceId - string- Device ID or name.
-- timestamp - string <date-time> - Time when the frame occurred in ISO 8601 format
-- sensorsData - Sensors data such as Pinhole camera model parameters. See wiki: <a href="https://en.wikipedia.org/wiki/Pinhole_camera_model" target="_blank">Pinhole camera model</a> and <a href="https://docs.opencv.org/2.4/modules/calib3d/doc/camera_calibration_and_3d_reconstruction.html" target="_blank">OpenCV docs for 3D reconstruction</a>.
-  - intrinsicMatrix - Array of number <float> - 3x3 flatten matrix (dropped last zeros column) of intrinsic parameters in row-major order, also called camera matrix. It's used to denote camera calibration parameters. See <a href="https://en.wikipedia.org/wiki/Camera_resectioning#Intrinsic_parameters" target="_blank">Intrinsic parameters</a>.
-  - extrinsicMatrix - Array of number <float> - 4x3 flatten matrix (dropped last zeros column) of extrinsic parameters in row-major order, also called joint rotation-translation matrix. It's used to denote the coordinate system transformations from 3D world coordinates to 3D camera coordinates. See <a href="https://en.wikipedia.org/wiki/Camera_resectioning#Extrinsic_parameters" target="_blank">Extrinsic_parameters</a>.
-
-# Useful links
-
-- <a href="https://docs.supervisely.com/customization-and-integration/00_ann_format_navi" target="_blank">Supervisely Annotation Format</a>
-- <a href="https://docs.supervisely.com/customization-and-integration/00_ann_format_navi/07_supervisely_format_pointcloud_episode#sdk" target="_blank">Supervisely Pointcloud Episodes Annotation</a>
-- <a href="https://developer.supervisely.com/getting-started/command-line-interface/sdk-cli#upload-a-project" target="_blank">[SDK CLI] Upload projects in Supervisely format</a>
-- <a href="https://developer.supervisely.com/getting-started/command-line-interface/cli-tool/workflow-automation#upload-projects-in-supervisely-format" target="_blank">[Supervisely Ecosystem] Import Pointcloud Episodes in Supervisely</a>
