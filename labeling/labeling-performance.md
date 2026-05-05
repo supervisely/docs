@@ -4,7 +4,7 @@ description: >-
 ---
 
 {% hint style="info" %}
-If you are looking for the 3D Point Cloud Labeling Toolbox page, you can find it [here](./3D-Point-Clouds/3D-point-cloud-episodes-2.md)
+If you are looking for the 3D Point Cloud Labeling Toolbox page, you can find it [here](./3D-Point-Clouds/3D-point-cloud-episodes-2/README.md)
 {% endhint %}
 
 The **Labeling Performance** page is a powerful analytics tool designed to provide detailed statistics about the data annotation process within your projects. It helps you track team efficiency, monitor each member's contributions, identify bottlenecks, manage annotation quality, and make informed decisions based on real data.

@@ -13,7 +13,11 @@ Traditional manual data labeling can be time-consuming and expensive. Data annot
 
 ## Data labeling automation with AI in Supervisely Ecosystem
 
-Supervisely Ecosystem provides numerous ways of data labeling optimization with AI across several modalities: images, videos, 3D point clouds and DICOM volumes.
+Supervisely Ecosystem provides numerous ways of data labeling optimization with AI across several modalities:
+
+[Live Training](live-training/live-training.md)
+
+[Smart Tool](smart-tool-labeling/README.md)
 
 [Images](images/README.md)
 

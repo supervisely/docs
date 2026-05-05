@@ -8,7 +8,7 @@ description: >-
 
 ## What is Smart Tool?
 
-**Smart Tool** is a powerful interactive segmentation tool. This powerful tool uses the latest artificial intelligence (AI) technologies to create highly accurate object masks, significantly speeding up the annotation process. With seamless integration of several state-of-the-art neural network models, including Segment Anything 2 (SAM 2), ClickSEG and others, Smart Tool easily adapts to a wide range of use cases and domains.
+**Smart Tool** is a powerful interactive segmentation tool. This powerful tool uses the latest artificial intelligence (AI) technologies to create highly accurate object masks, significantly speeding up the annotation process. With seamless integration of several state-of-the-art neural network models, including Segment Anything 3 (SAM 3), ClickSEG and others, Smart Tool easily adapts to a wide range of use cases and domains.
 
 ## Availability of SmartTool
 
@@ -24,7 +24,7 @@ Access to Smart Tool features depends on your Supervisely plan. In the Community
 ### Step 2. Select the Neural Network Model
 
 1. Click on the **Model ID** button in the left toolbar.
-2. Choose a neural network model, such as **Segment Anything 2 (SAM 2)**, or **ClickSEG**, depending on your project requirements. The selected model will be activated for segmentation tasks.
+2. Choose a neural network model, such as **Segment Anything 3 (SAM 3)**, or **ClickSEG**, depending on your project requirements. The selected model will be activated for segmentation tasks.
 
 ### Step 3. Create a Bounding Box
 
@@ -33,6 +33,10 @@ Access to Smart Tool features depends on your Supervisely plan. In the Community
 
 {% hint style="warning" %}
 Ensure that the box includes the object with a 10% padding for better segmentation accuracy.
+{% endhint %}
+
+{% hint style="success" %}
+**SAM 3 only — Reference Bounding Box Prompts:** If you are using **Segment Anything 3 (SAM 3)**, you can enable the **reference bounding box prompts** mode from the toolbar. Draw a box around one example of an object and SAM 3 will automatically find and segment all visually similar objects across the entire image — ideal for images with many repeated instances. See the [Smart Tool reference](../../../labeling/labeling-tools/smart-tool.md#reference-bounding-box-prompts-sam-3-exclusive) for details.
 {% endhint %}
 
 ### Step 4. Adjust the Mask with Points
@@ -109,7 +113,7 @@ These tools use training of specific models like RITM, YOLOv8, UNet, and MMDetec
 
 Another substantial thing about neural networks is that it's easy to adapt it to different modalities. That means, that the Smart Tools not only work on images, but on sequential frames, such as videos or multi-slice medial imaging and even 3D point clouds with more than two dimensions!
 
-<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Images</strong></td><td><a href="../../.gitbook/assets/ai-images (1).gif">ai-images (1).gif</a></td><td><a href="images/">images</a></td></tr><tr><td><strong>Video</strong></td><td><a href="../../.gitbook/assets/ai-video (1).gif">ai-video (1).gif</a></td><td><a href="videos/">videos</a></td></tr><tr><td><strong>3D Point Cloud</strong></td><td><a href="../../.gitbook/assets/ai-pontcloud (1).gif">ai-pontcloud (1).gif</a></td><td><a href="3D-Point-Clouds/3D-Point-Clouds.md">3D-Point-Clouds.md</a></td></tr><tr><td><strong>DICOM</strong></td><td><a href="../../.gitbook/assets/ai-dicom (1).gif">ai-dicom (1).gif</a></td><td><a href="DICOM/DICOM.md">DICOM.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Images</strong></td><td><a href="../../.gitbook/assets/ai-images.gif">ai-images.gif</a></td><td><a href="../images/README.md">images</a></td></tr><tr><td><strong>Video</strong></td><td><a href="../../.gitbook/assets/ai-video.gif">ai-video.gif</a></td><td><a href="../labeling-toolbox/videos-3.0.md">videos</a></td></tr><tr><td><strong>3D Point Cloud</strong></td><td><a href="../../.gitbook/assets/ai-pontcloud.gif">ai-pontcloud.gif</a></td><td><a href="../3D-Point-Clouds/3D-Point-Clouds.md">3D-Point-Clouds.md</a></td></tr><tr><td><strong>DICOM</strong></td><td><a href="../../.gitbook/assets/ai-dicom.gif">ai-dicom.gif</a></td><td><a href="../DICOM/DICOM.md">DICOM.md</a></td></tr></tbody></table>
 
 {% hint style="info" %}
 Please check the those awesome tutorials and guides:
