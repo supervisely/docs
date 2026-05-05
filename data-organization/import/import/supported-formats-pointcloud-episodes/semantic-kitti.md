@@ -94,7 +94,7 @@ The poses file contains the camera pose (transformation from camera coordinates 
 
 The times file contains timestamps for each scan in the sequence. Each line contains a single float value representing the timestamp in seconds.
 
-# Export
+# Export to SemanticKITTI Format
 
 You can export your labeled point cloud episodes data to SemanticKITTI format using the <a href="https://ecosystem.supervisely.com/apps/export-to-semantic-kitti" target="_blank">Export to SemanticKITTI</a> application from the Supervisely Ecosystem.
 
