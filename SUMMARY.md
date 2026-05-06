@@ -142,7 +142,7 @@
   * [Overview](labeling/labeling-with-AI/overview.md)
   * [Live Training while Annotating](labeling/labeling-with-AI/live-training/live-training.md)
     * [Quickstart Guide](labeling/labeling-with-AI/live-training/live-training.md)
-    * [Live Training: Technical Report](labeling/labeling-with-AI/live-training/technical-report.md)
+    * [Introducing Live Training](labeling/labeling-with-AI/live-training/technical-report.md)
   * [Smart Tool for Segmentation](labeling/labeling-with-AI/smart-tool-labeling/README.md)
   * [Images](labeling/labeling-with-AI/images/README.md)
   * [Videos](labeling/labeling-with-AI/videos/README.md)

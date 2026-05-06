@@ -1,9 +1,11 @@
 ---
 description: >-
-  A novel annotation approach that trains a model in parallel with manual annotation, allowing it to quickly adapt to domain-specific data and effectively assist from the very start of the project.
+  Introducing Live Training: Model Training during Annotation. A novel annotation approach enables models to quickly adapt to domain-specific data and effectively assist in labeling.
 ---
 
-# Introduction
+# Introducing Live Training: Model Training during Annotation
+
+## Introduction
 
 Live Training is a novel annotation approach in which a computer vision model trains in parallel with the manual annotation. It allows the model to quickly adapt to the domain-specific patterns of your dataset and effectively assist in labeling from the very start of the annotation project, improving continuously from the first labeled image onward.
 
@@ -11,7 +13,7 @@ Live Training is a novel annotation approach in which a computer vision model tr
 Read the [Quickstart](./live-training.md) guide for a step-by-step walkthrough of setting up Live Training in your annotation project.
 {% endhint %}
 
-# Motivation
+## Motivation
 
 Data annotation remains one of the most resource-intensive bottlenecks in applied computer vision. Labeling a high quality dataset typically requires thousands of annotator-hours and weeks of calendar time. The costs scales with every new domain, edge case, and project iteration.
 
@@ -30,7 +32,7 @@ Together, these two problems mean that companies are paying full price for annot
 
 This approach transforms annotation projects from a multi-week, multi-team coordination challenge into a single-phase workflow where AI assistance grows naturally from the first annotation onward. There are no training cycles to coordinate. ML engineers configure the system once, and it runs automatically. By project completion, you get both a fully annotated dataset and a trained model with accuracy comparable to a model trained through conventional offline training.
 
-# Background and Related Work
+## Background and Related Work
 
 **Human-in-the-Loop (HITL)** has become the industry standard for efficient data annotation, representing a significant improvement over traditional offline pipelines where datasets were labeled entirely before any model training began. HITL introduces iterative cycles: annotate a small batch, train a model on that data, use the model's predictions to pre-label the next batch, then repeat. Annotators shift from drawing annotations from scratch to correcting model predictions — a faster and less demanding task. The approach also reduces project risk: teams can evaluate model performance after each iteration and adjust their annotation strategy before committing to a full dataset.
 
@@ -56,7 +58,7 @@ The fundamental limitation of interactive segmentation models is manual effort: 
 
 **None of the approaches above enables continuous model adaptation during annotation** — where each newly labeled image contributes to a model that improves throughout the project, without discrete training cycles, cross-team coordination, or interruptions to the annotation workflow. This is the gap Live Training addresses. 
 
-# How Live Training Works
+## How Live Training Works
 
 Live Training is built on a single design principle: the model trains continuously alongside annotation, on a single GPU, with no separation between the training and deployment phases.
 
@@ -77,7 +79,7 @@ Four technical components make this possible and reliable at scale:
 
 By the time annotation is complete, the team has both a fully labeled dataset and a trained model — without a separate training phase, and without ever leaving the annotation interface.
 
-## Training Lifecycle
+### Training Lifecycle
 
 Training begins automatically after a minimum two images have been labeled. The first two images are labeled manually using standard tools for annotation, other AI-assisted models can be used too. Once the model completes its first training steps and reaches non-zero accuracy on Live Evaluation metrics, it begins providing predictions automatically for each new image. As annotators work, the model trains in the background on the labeled data accumulated so far.
 
@@ -89,7 +91,7 @@ Training begins automatically after a minimum two images have been labeled. The 
 
 **Live Evaluation.** Traditional training relies on held-out validation sets to monitor progress and detect overfitting. Live Training, especially in early stages, has insufficient data for statistically meaningful validation, yet validation is critical due to unpredictable annotation pacing and continuous distribution drift. We leverage an inherent property of the annotation workflow: each time an annotator opens a new image, the model generates a prediction to provide pre-labeling assistance. We save this prediction, and when the annotator completes the image, we compute accuracy metrics by comparing the prediction against the final ground truth annotation. To make this robust to single-sample noise, we maintain an exponential moving average of metrics across recent evaluations. This approach provides real-time quality monitoring with zero computational overhead (predictions are already generated for annotation assistance) and 100% data efficiency (every sample contributes to both training and validation).
 
-## Foundation Model Initialization
+### Foundation Model Initialization
 
 A natural concern with any continuous learning system is cold start: how useful can a model be after only two or three labeled images? Live Training addresses this through careful model selection and initialization.
 
@@ -99,7 +101,7 @@ The practical impact of this initialization is significant. In few-shot experime
 
 **A note on catastrophic forgetting.** Full fine-tuning on a small and rapidly growing dataset raises a legitimate concern: as the model adapts to domain-specific patterns, could it lose the general visual priors that make early predictions possible? In our experiments, catastrophic forgetting did not occur. We attribute this to the strong representational priors embedded in the foundation model weights — they appear to act as a stable initialization that resists degenerating under limited data fine-tuning.
 
-## Infrastructure
+### Infrastructure
 
 **Dynamic dataset growth.** Conventional training dataloaders are initialized once against a fixed dataset. Live Training requires a dataloader that accepts new samples mid-training — without restarting the training process, or interrupting the current batch. We built this capability into the Supervisely framework, allowing samples to be enqueued from the annotation interface and picked up by next training batches. 
 
@@ -107,11 +109,11 @@ The practical impact of this initialization is significant. In few-shot experime
 
 **Hardware requirements.** Live Training runs on a single GPU with 10–14 GB of VRAM, making it compatible with consumer-grade hardware such as an NVIDIA RTX 3090 or newer.
 
-# Comparing annotation approaches
+## Comparing annotation approaches
 
 We created a simulating model to visualize and compare 4 annotation approaches on a segmentation project. The point is to simulate the underlying mechanics so the comparison is clear and close to reality.
 
-## The setup
+### The setup
 
 A segmentation project with 10,000 images. One annotator. Four approaches:
 
@@ -132,7 +134,7 @@ To compare these approaches, we estimate the time required to annotate 10,000 im
 - **Review-only cap:** We set the time for an annotator to review a pre-labeled image at 30 seconds. This is the irreducible cost of a human verifying a model's prediction — even with a perfect model, this floor cannot be beaten.  
 - **Annotator working hours:** 6 hours per day. This is used to express results in calendar days rather than raw uninterrupted hours, which would not reflect real working conditions.
 
-## Results
+### Results
 
 **Plot 1. Annotation progress vs calendar days.** This plot shows the timeline of an annotation project across all four approaches. The x-axis is calendar time (including both annotation and training periods); the y-axis is cumulative progress (% of dataset labeled). In the first \~10 hours, SAM 3 outperforms Live Training and HITL, thanks to its pre-trained foundation knowledge. Later, Live Training quickly takes the lead due to its continuous adaptation to new data. HITL follows the same trend but with a notable time lag caused by its discrete retraining schedule.
 
@@ -162,7 +164,7 @@ The comparison with **SAM 3** is also worth noting. A strong promptable foundati
 
 <figure><img src="/.gitbook/assets/live-training/3_speed_vs_images_labeled.png" alt="Annotation Speed vs Images Labeled"></figure>
 
-# Conclusion
+## Conclusion
 
 Live Training reframes data annotation as a single, continuous process rather than an alternation between human and machine phases. By training a model in the background, the system eliminates the coordination overhead and idle time that accumulate across every cycle of conventional HITL workflows — while also surpassing zero-shot foundation models on domain-specific tasks that fall outside their training distribution.
 
@@ -170,7 +172,7 @@ A practical implication is that the barrier to domain-specific model development
 
 The core idea — that every labeled sample should immediately benefit the next — distinguishes Live Training from all prior approaches and makes it well suited to the reality of applied computer vision: data is scarce at the start, domain-specific throughout, and expensive to collect.
 
-# References
+## References
 
 [1] Carion, N., Gustafson, L., Hu, Y.-T., et al. (2025). *[SAM 3: Segment Anything with Concepts](https://ai.meta.com/research/publications/sam-3-segment-anything-with-concepts)*. arxiv:2511.16719
 
