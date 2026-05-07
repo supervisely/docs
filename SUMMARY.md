@@ -210,6 +210,10 @@
   * [Train custom Neural Networks](neural-networks/legacy/custom-nn/custom-nn.md)
   * [Run pre-trained models](neural-networks/legacy/pre-trained-models.md)
 
+## 🎯 Use Cases
+* [Overview](use-cases/overview.md)
+* [Geospatial Data](use-cases/geospatial-data.md)
+
 ## 👔 Enterprise Edition
 
 * [Get Supervisely](enterprise-edition/get-supervisely/README.md)
