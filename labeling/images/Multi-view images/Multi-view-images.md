@@ -67,6 +67,14 @@ Use Supervisely's team features to manage labeling jobs, monitor progress, and e
 
 Convert existing projects to a multiview setup using the "Group Images for MultiView Labeling" app. This enables synchronized annotation for already uploaded images.
 
+## Geospatial Use Case: Satellite + DTM Side by Side
+
+MultiView is a practical interface for geospatial annotation when you need to inspect optical imagery and elevation context at the same time.
+
+In a typical workflow, one view shows the satellite tile and the second view shows the matching DTM layer. Because navigation and annotations are synchronized between views, annotators can use elevation context to make more accurate decisions on boundaries and object classes, for example separating roads from embankments or identifying terrain-driven structures.
+
+Read the full end-to-end geospatial workflow in [Geospatial Data Annotation](../../../use-cases/geospatial-data.md), including data download, labeling interfaces, and OSM export.
+
 ## Python SDK Integration
 
 Automate your multiview annotation processes with the Supervisely Python SDK. This allows for efficient batch processing, custom integrations, and more streamlined workflows.
