@@ -212,8 +212,8 @@
 
 ## 🎯 Use Cases
 * [Overview](use-cases/overview.md)
-* Geospatial
-  * [Satellite, DTM, and OSM](use-cases/geospatial-data.md)
+* [Geospatial](use-cases/geospatial.md)
+  * [Geospatial Data Annotation](use-cases/geospatial-data.md)
 
 ## 👔 Enterprise Edition
 
