@@ -90,3 +90,7 @@ Geospatial datasets in Supervisely are first-class image datasets. This means th
 - **Python SDK** — automate any part of the pipeline, from data ingestion to annotation export, using the [Supervisely Python SDK](https://developer.supervisely.com).
 
 Geospatial data is no longer a specialized silo that requires dedicated tooling at each stage. With Supervisely, satellite imagery, elevation data, and OpenStreetMap annotations are part of the same unified environment as every other computer vision dataset on the platform.
+
+## Developer Documentation
+
+If you want to reproduce this workflow programmatically, see the corresponding Developer Portal tutorial: [Working with Geospatial Images in Python SDK](https://developer.supervisely.com/getting-started/python-sdk-tutorials/images/geospatial-images).

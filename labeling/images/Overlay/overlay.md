@@ -61,6 +61,14 @@ The `Overlay` interface supports **any number of overlay layers** for each base 
 
 This makes it easy to inspect multiple data sources aligned to the same base image without leaving the labeling workspace or switching between separate projects.
 
+## Geospatial Use Case: Elevation Overlay on Satellite Imagery
+
+Overlay is also effective for geospatial workflows where the DTM elevation layer is rendered directly on top of a satellite image.
+
+This setup allows annotators to tune transparency in real time and quickly validate terrain-related structures in a single scene. Instead of switching between separate files, teams can interpret optical texture and elevation signal together, which is useful for refining boundaries and resolving ambiguous areas.
+
+For the complete geospatial pipeline, see [Geospatial Data Annotation](../../../use-cases/geospatial-data.md), where Overlay and MultiView are used together with downloader and export tools.
+
 ## Getting Started
 
 To start working with the `Overlay` labeling interface:
