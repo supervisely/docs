@@ -65,13 +65,15 @@ Geospatial images often contain information across multiple data layers. Supervi
 
 [Multiview labeling](https://docs.supervisely.com/labeling/labeling-toolbox/multi-view-images) displays the satellite image and the DTM elevation layer side by side in a single labeling session. Both views are synchronized — panning, zooming, and annotations are shared across the pair. This is useful when elevation context is needed for annotation decisions, for example distinguishing embankments from roads or identifying vegetation by canopy height.
 
-<figure><img src="../.gitbook/assets/geospatial/dtm3.jpg" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="../.gitbook/assets/geospatial/multivew.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/geospatial/dtm4.jpg" alt=""><figcaption></figcaption></figure>
 
 ### Overlay
 
 [Overlay mode](https://docs.supervisely.com/labeling/labeling-toolbox/overlay) composites the DTM layer on top of the satellite image. The transparency of the overlay can be adjusted on the fly during labeling. This provides a single unified view with elevation information blended in, which can help identify terrain boundaries and surface anomalies that are not visible in the optical image alone.
+
+<figure><img src="../.gitbook/assets/geospatial/overlay1.jpg" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/geospatial/overlay2.jpg" alt=""><figcaption></figcaption></figure>
 
 Both modes are available as options in the downloader app. If only one data source is needed, the app also supports **Satellite only** and **DTM only** configurations that produce standard single-image datasets compatible with all other Supervisely labeling tools.
 
