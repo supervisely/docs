@@ -65,7 +65,7 @@ Geospatial images often contain information across multiple data layers. Supervi
 
 [Multiview labeling](https://docs.supervisely.com/labeling/labeling-toolbox/multi-view-images) displays the satellite image and the DTM elevation layer side by side in a single labeling session. Both views are synchronized — panning, zooming, and annotations are shared across the pair. This is useful when elevation context is needed for annotation decisions, for example distinguishing embankments from roads or identifying vegetation by canopy height.
 
-<figure><img src="../.gitbook/assets/geospatial/dtm2.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/geospatial/dtm3.jpg" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/geospatial/multivew.jpg" alt=""><figcaption></figcaption></figure>
 
