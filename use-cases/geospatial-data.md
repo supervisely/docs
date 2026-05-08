@@ -23,6 +23,8 @@ No external preprocessing or format conversion is required at any step.
 
 ## Collecting Data
 
+<figure><img src="../.gitbook/assets/geospatial/app.jpg" alt=""><figcaption></figcaption></figure>
+
 The [Satellite, DTM & OSM Downloader](https://ecosystem.supervisely.com/apps/slyosm/import_osm) app downloads three types of geospatial data simultaneously for any set of geographic locations:
 
 - **Satellite imagery** — optical tiles from the provider of your choice.
@@ -37,17 +39,27 @@ The app supports three strategies for selecting locations:
 
 **Coordinates** — provide an explicit list of `lat, lon` pairs. Use this when you have a known set of locations from a survey, an external dataset, or a previous pipeline stage.
 
+<figure><img src="../.gitbook/assets/geospatial/coordinates.jpg" alt=""><figcaption></figcaption></figure>
+
 **Random sampling** — specify a place name and a tile count. The app geocodes the name to a boundary polygon and randomly samples tile centers inside it, with a configurable minimum distance between tiles to avoid redundant coverage. Sampling state is persisted between runs, so you can incrementally grow an existing dataset.
 
+<figure><img src="../.gitbook/assets/geospatial/random.jpg" alt=""><figcaption></figcaption></figure>
+
 **Grid** — define a top-left corner, row and column counts, and tile size. Tiles are placed contiguously with no gaps, producing a seamless mosaic — useful for exhaustive coverage of a specific area or building spatially structured validation sets.
+
+<figure><img src="../.gitbook/assets/geospatial/grid.jpg" alt=""><figcaption></figcaption></figure>
 
 ### OSM Class Mapping
 
 The set of OpenStreetMap features to download — and how they map to Supervisely object classes — is configured as a JSON array in the app UI. The mapping is saved automatically to the dataset's custom metadata when images are uploaded. The companion export app reads it back from there, so annotations round-trip correctly without any manual reconfiguration.
 
+<figure><img src="../.gitbook/assets/geospatial/osm1.jpg" alt=""><figcaption></figcaption></figure>
+
 ## Labeling Interfaces
 
 Geospatial images often contain information across multiple data layers. Supervisely provides two dedicated labeling interfaces that are particularly well suited to multi-layer imagery.
+
+<figure><img src="../.gitbook/assets/geospatial/multiview_overlay.jpg" alt=""><figcaption></figcaption></figure>
 
 ### Multiview
 
@@ -69,7 +81,11 @@ The **Smart Tool** provides interactive AI-assisted segmentation — click on an
 
 ## Exporting Geodata
 
+<figure><img src="../.gitbook/assets/geospatial/app-osm.jpg" alt=""><figcaption></figcaption></figure>
+
 The [Export to OSM Format](https://ecosystem.supervisely.com/apps/slyosm/export_to_osm) app converts Supervisely annotations back to geographic coordinates and produces standard [OSM XML](https://wiki.openstreetmap.org/wiki/OSM_XML) files. It can be launched from a single dataset or from an entire project.
+
+<figure><img src="../.gitbook/assets/geospatial/osmexport.jpg" alt=""><figcaption></figcaption></figure>
 
 For each dataset the export produces:
 
