@@ -205,7 +205,6 @@
   - [Object Detection with YOLO26](neural-networks/scenarios/yolo26.md)
 - [Solutions](neural-networks/solutions/README.md)
   - [Temporal Action Localization with MVD](solution/action_recognition/temporal_action_localization_with_mvd.md)
-  - [Industrial Bolt Detection with Live Training](solution/autolabeling/industrial_bolt_detection_with_live_training.md)
 - [Legacy](neural-networks/legacy/README.md)
   - [Starting with Neural Networks](neural-networks/legacy/overview/overview.md)
   - [Train custom Neural Networks](neural-networks/legacy/custom-nn/custom-nn.md)
@@ -215,8 +214,8 @@
 
 - [Overview](use-cases/overview.md)
 - [Geospatial](use-cases/geospatial.md)
-  - [Geospatial Data Annotation](use-cases/geospatial-data.md)
-
+  - [Geospatial Data Annotation](use-cases/geospatial-data.md)* [Manufacturing](use-cases/manufacturing.md)
+  * [Industrial Bolt Detection with Live Training](use-cases/manufacturing-bolt-detection.md)
 ## 👔 Enterprise Edition
 
 - [Get Supervisely](enterprise-edition/get-supervisely/README.md)
