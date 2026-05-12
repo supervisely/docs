@@ -214,8 +214,9 @@
 
 - [Overview](use-cases/overview.md)
 - [Geospatial](use-cases/geospatial.md)
-  - [Geospatial Data Annotation](use-cases/geospatial-data.md)* [Manufacturing](use-cases/manufacturing.md)
-  * [Industrial Bolt Detection with Live Training](use-cases/manufacturing-bolt-detection.md)
+  - [Geospatial Data Annotation](use-cases/geospatial-data.md)
+- [Manufacturing](use-cases/manufacturing.md)
+
 ## 👔 Enterprise Edition
 
 - [Get Supervisely](enterprise-edition/get-supervisely/README.md)
