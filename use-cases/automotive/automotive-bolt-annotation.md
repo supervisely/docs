@@ -53,11 +53,11 @@ Manual labeling from scratch with corner-to-corner boxes for circular objects, n
 
 **The Economic Reality**
 
-5,000 images need about 100 hours or a month of work of manual annotation, which is costly and time-consuming.
+5,000 images need about 83 hours of manual annotation, which is costly and time-consuming. With Live Training, this drops to just 25 hours — saving 58 hours of annotation work.
 
 **The Solution**
 
-Supervisely's Live Training auto-predicts from initial annotations and "Center out" tool handles circles—50-70% faster, more consistent.
+Supervisely's Live Training auto-predicts from initial annotations and "Center out" tool handles circles—70% faster, more consistent.
 
 ## Two Essential Tools for Fast Annotation
 
@@ -99,18 +99,21 @@ You can learn more about Live Training in our [Live Training Documentation](http
 
 ## Performance Metrics and Time Savings
 
-<figure><img src="time_cost.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="timecost.png" alt=""><figcaption></figcaption></figure>
 
-As you can see from the time cost comparison, the combination of the "Center out" tool and Live Training results in a dramatic reduction in annotation time. The initial manual labeling of 3-5 images takes about 1 minute per image, but once Live Training is activated, the time per image drops to around 30 seconds for review and correction. This represents a 50% reduction in annotation time, allowing you to create production-ready datasets much faster.
+As you can see from the time cost comparison, the combination of the "Center out" tool and Live Training results in a dramatic reduction in annotation time. The initial manual labeling of 3-5 images takes about 1 minute per image, but once Live Training is activated, the time per image drops to around 20 seconds for review and correction. This represents a 70% reduction in annotation time, allowing you to create production-ready datasets much faster.
 
 ## How These Supervisely Tools Impact Your Business
 
 Live Training with advanced labeling tools delivers measurable results for manufacturing quality control:
 
-- **50% faster dataset annotation**: Cut labeling time in half for production-scale datasets (1000 images: 16.7 hours of manual labeling against 8.4 hours of labeling with live training)
+- **70% faster dataset annotation**: Reduce labeling time dramatically for production-scale datasets
+  - **For 1,000 images:** 16.7 hours manual → 5.1 hours with Live Training
+  - **Time saved:** 11.6 hours (695 minutes)
+  - **Cost savings:** $290 at $25/hour annotation rate
 - **Reduced annotation errors**: "Center out" bounding box option ensures consistent labeling of round objects
 - **Scalable system deployment**: Training datasets ready in days instead of weeks
-- **Lower quality control costs**: Dramatically reduced data preparation time and expenses
+- **Lower quality control costs**: For 5,000 images, save 58+ hours—dramatically reduced data preparation time and expenses
 - **Improved inspection accuracy**: Better-quality training data leads to more reliable detection models
 
 ## How to Annotate Bolts Using Live Training and Center Out Tool: Step-by-Step Guide
@@ -158,7 +161,7 @@ After labeling 3-5 images manually, Live Training starts generating automatic pr
   - Click **"Finish & Next"** when satisfied
 - **If predictions are unusable**: Click **"Discard"** to remove all predictions, then click **"Predict"** to generate new predictions, or annotate manually.
 
-**This step takes ~30 seconds per image** compared to 1-2 minutes for full manual labeling.
+**This step takes ~18 seconds per image** compared to 1 minute for full manual labeling.
 
 ### Step 5: Iterate and Improve
 
@@ -189,7 +192,7 @@ Want to test this workflow immediately without collecting your own images? We've
 
 1. Import the dataset directly from Supervisely Ecosystem to your workspace
 2. Follow Steps 2-6 from the guide above
-3. Experience the 50% annotation time reduction firsthand
+3. Experience the 70% annotation time reduction firsthand
 
 **Want to create your own dataset?** For best results:
 
