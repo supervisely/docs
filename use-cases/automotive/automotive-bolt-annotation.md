@@ -108,9 +108,6 @@ As you can see from the time cost comparison, the combination of the "Center out
 Live Training with advanced labeling tools delivers measurable results for manufacturing quality control:
 
 - **70% faster dataset annotation**: Reduce labeling time dramatically for production-scale datasets
-  - **For 1,000 images:** 16.7 hours manual → 5.1 hours with Live Training
-  - **Time saved:** 11.6 hours (695 minutes)
-  - **Cost savings:** $290 at $25/hour annotation rate
 - **Reduced annotation errors**: "Center out" bounding box option ensures consistent labeling of round objects
 - **Scalable system deployment**: Training datasets ready in days instead of weeks
 - **Lower quality control costs**: For 5,000 images, save 58+ hours—dramatically reduced data preparation time and expenses
@@ -192,7 +189,6 @@ Want to test this workflow immediately without collecting your own images? We've
 
 1. Import the dataset directly from Supervisely Ecosystem to your workspace
 2. Follow Steps 2-6 from the guide above
-3. Experience the 70% annotation time reduction firsthand
 
 **Want to create your own dataset?** For best results:
 
