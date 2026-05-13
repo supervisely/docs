@@ -215,7 +215,7 @@
 - [Overview](use-cases/overview.md)
 - [Geospatial](use-cases/geospatial.md)
   - [Geospatial Data Annotation](use-cases/geospatial-data.md)
-- [Manufacturing](use-cases/manufacturing.md)
+- [Automotive Bolt Annotation](use-cases/automotive/automotive-bolt-annotation.md)
 
 ## 👔 Enterprise Edition
 

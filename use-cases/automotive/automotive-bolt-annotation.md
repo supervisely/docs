@@ -21,7 +21,19 @@ keywords:
 
 ML engineers, QA specialists, and data scientists in automotive manufacturing face a critical challenge when building object detection systems for assembly line inspection. Computer vision can automate this and this guide demonstrates how Supervisely's Live Training and "Center Out" tool (designed for circular objects) reduce annotation time by 70% while improving consistency, getting your automated inspection system into production faster.
 
-<figure><img src="automated-quality-control.png" alt=""><figcaption></figcaption></figure>
+### Automated Quality Control for Manufacturing Teams
+
+**The Scenario**
+
+An automotive assembly plant produces 2,000 wheels per day. Each wheel has 4–10 bolts that must be properly installed. Quality control inspectors stand at checkpoints along the conveyor belt, visually verifying that all bolts are present and correctly positioned.
+
+**The Problem**
+
+Human inspection is slow (15–20 seconds per wheel), inconsistent (fatigue after hours of repetitive checking), and creates bottlenecks that slow down the entire production line. A single missed bolt can lead to safety recalls costing millions.
+
+**The Solution Approach**
+
+The plant deploys computer vision cameras above the conveyor belt to automatically photograph each wheel and detect bolt presence in real-time. But first, they need to train the detection model – and that requires thousands of labeled images showing wheels with correctly annotated bolt positions.
 
 ## Computer Vision in Automotive Manufacturing: Research Evidence
 
@@ -33,9 +45,19 @@ These studies collectively demonstrate that computer vision systems significantl
 
 ## Demonstration Dataset: Automotive Wheel Bolts
 
-To solve the automated quality control challenge described above—deploying computer vision for real-time bolt detection on the assembly line — we first need to create a training dataset. We use 18 front-view images of automotive wheels with 3-10 bolts per wheel to demonstrate how Live Training dramatically accelerates this dataset creation process. All bolts are labeled with a single class "bolt" using the "Center out" bounding box mode, which is specifically designed for annotating circular objects like bolt heads.
+To solve the automated quality control challenge described above—deploying computer vision for real-time bolt detection on the assembly line — we first need to create a training dataset. We use 17 front-view images of automotive wheels with 3-10 bolts per wheel to demonstrate how Live Training dramatically accelerates this dataset creation process. All bolts are labeled with a single class "bolt" using the "Center out" bounding box mode, which is specifically designed for annotating circular objects like bolt heads.
 
-<figure><img src="the-training-data-challenge.png" alt=""><figcaption></figcaption></figure>
+**The Problem**
+
+Manual labeling from scratch with corner-to-corner boxes for circular objects, no predictions, no learning, thousands of repetitive annotations.
+
+**The Economic Reality**
+
+5,000 images need about 100 hours or a month of work of manual annotation, which is costly and time-consuming.
+
+**The Solution**
+
+Supervisely's Live Training auto-predicts from initial annotations and "Center out" tool handles circles—50-70% faster, more consistent.
 
 ## Two Essential Tools for Fast Annotation
 
@@ -43,7 +65,7 @@ To solve the automated quality control challenge described above—deploying com
 
 This specialized drawing mode solves the problem of annotating circular objects: instead of awkward corner-to-corner dragging, you click the center of a bolt and drag to its edge, creating accurate bounding boxes in less time. Ideal for bolts, screws, rivets, washers, bearings, and any round fasteners.
 
-<figure><img src="c_out.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="c_out1.gif" alt=""><figcaption></figcaption></figure>
 
 Learn more about this tool in the [Rectangle Tool Documentation](https://docs.supervisely.com/labeling/labeling-tools/bounding-box-rectangle-tool).
 
@@ -57,7 +79,21 @@ The Live Training system provides several advantages:
 - **Adaptive predictions**: Improves with each labeled image
 - **Context awareness**: Considers spatial relationships between objects
 
-<figure><img src="live_training.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="live_training1.gif" alt=""><figcaption></figcaption></figure>
+
+#### Monitoring Training Progress
+
+When Live Training is active, you can hover over the learning panel to see real-time training metrics for each iteration:
+
+<figure><img src="metrics.png" alt=""><figcaption></figcaption></figure>
+
+- **Images count**: Number of labeled images used for training
+- **Iteration**: Current training cycle number
+- **Ready to predict**: Status indicator showing when the model is ready to generate predictions
+- **Loss**: Training loss value showing how well the model is learning (lower is better)
+- **Model quality**: Overall quality metric of the current model
+
+These metrics help you understand when the model has learned enough to start making reliable predictions. Typically, after 3-5 manually labeled images, the model quality improves enough to provide useful predictions that you can quickly review and correct.
 
 You can learn more about Live Training in our [Live Training Documentation](https://docs.supervisely.com/labeling/overview/live-training) and [technical report](https://docs.supervisely.com/labeling/overview/live-training/technical-report), which provides a comprehensive guide to setup, workflow, and model quality metrics.
 
@@ -94,15 +130,13 @@ Before beginning annotation:
 3. Press **"Launch app"** and then **"Start Live Training"** to activate the system
 4. The Live Training session is now ready to learn from your annotations
 
-<figure><img src="launch.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="launch1.gif" alt=""><figcaption></figcaption></figure>
 
 ### Step 3: Create Initial Manual Annotations
 
 With Live Training activated, manually label the first 3-5 images to establish the annotation pattern that the system will learn from.
 
 When creating annotations for bolts, use the **Rectangle tool with "Center out" option**, which is specifically designed for round objects:
-
-<figure><img src="center_out.png" alt=""><figcaption></figcaption></figure>
 
 **Important labeling guidelines:**
 
@@ -149,7 +183,7 @@ Want to test this workflow immediately without collecting your own images? We've
 
 **Download the demo dataset:**
 
-- [Automotive Wheel Bolts Dataset](https://ecosystem.supervisely.com/projects/wheel-bolts-demo) - 18 front-view wheel images with 3-10 bolts per image, perfect for testing Live Training
+- [Automotive Wheel Bolts Dataset](https://ecosystem.supervisely.com/projects/wheel-bolts-demo) - 17 front-view wheel images with 3-10 bolts per image, perfect for testing Live Training
 
 **How to use it:**
 
