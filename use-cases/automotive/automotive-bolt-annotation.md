@@ -183,7 +183,7 @@ Want to test this workflow immediately without collecting your own images? We've
 
 **Download the demo dataset:**
 
-- [Automotive Wheel Bolts Dataset](https://ecosystem.supervisely.com/projects/wheel-bolts-demo) - 17 front-view wheel images with 3-10 bolts per image, perfect for testing Live Training
+- [Automotive Wheel Bolts Dataset](https://app.supervisely.com/ecosystem/projects/automotive-bolt-annotation-sample-project?id=532) - 17 front-view wheel images with 3-10 bolts per image, perfect for testing Live Training
 
 **How to use it:**
 
