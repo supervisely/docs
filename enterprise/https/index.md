@@ -113,3 +113,42 @@ Run generated command on your machine to re-deploy this agent and to apply the c
 {% hint style="info" %}
 If you have multiple CAs you need to concat all of them into one file and use that file so it trusts the whole chain, i.e. `cat globalroot.crt secondary.crt > ca_chain.crt`
 {% endhint %}
+
+### Enabling HSTS (HTTP Strict Transport Security)
+
+HSTS instructs browsers to always connect to Supervisely over HTTPS, preventing protocol-downgrade attacks. This setting only takes effect when HTTPS is already active on your instance.
+
+1. Navigate to the Supervisely working directory:
+
+```bash
+cd $(sudo supervisely where)
+```
+
+2. Open `docker-compose.override.yml` in a text editor. If the file does not exist, create it. If it already exists, merge the snippet below into the existing content — do not overwrite the whole file:
+
+```yaml
+services:
+  proxy:
+    environment:
+      ENABLE_HSTS: 'true'
+```
+
+By default this sets `max-age` to `31536000` seconds (one year) with the `includeSubDomains` directive, which satisfies the recommended configuration. If you need a different value, add the `HSTS_MAX_AGE` variable with the desired number of seconds:
+
+```yaml
+services:
+  proxy:
+    environment:
+      ENABLE_HSTS: 'true'
+      HSTS_MAX_AGE: '31536000'
+```
+
+3. Apply the changes by restarting only the `proxy` service:
+
+```bash
+sudo supervisely up -d proxy
+```
+
+{% hint style="info" %}
+Only the `proxy` service is restarted — all other Supervisely services remain running and unaffected.
+{% endhint %}
