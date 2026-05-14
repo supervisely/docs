@@ -181,6 +181,22 @@ A clone can be created in the same frame as the original shape, or moved to anot
 
 **Select Figure**: Select and modify existing annotations; essential for refining objects.
 
+### Measure Distance
+
+The **Measure Distance** tool is a precision measurement instrument that allows you to measure distances between any two points in the 3D point cloud scene. This tool is essential for:
+
+- **Object dimension verification**: Measure the actual size of objects in the scene to ensure annotation accuracy
+- **Distance calculations**: Determine the distance between different objects or features in the point cloud
+- **Quality control**: Verify that annotated objects match real-world dimensions
+- **Scene understanding**: Better understand spatial relationships and scale within the 3D environment
+
+**How to use:**
+
+1. Select the **Measure Distance** tool from the instruments panel
+2. Click on the first point in the 3D scene where you want to start measuring
+3. Click on the second point to complete the measurement
+4. The tool will display the distance between the two points in real-time
+
 ### Cuboid
 
 The **Cuboid** tool is fundamental for creating 3D bounding boxes around objects in the point cloud. Here's how to use it and its key subtools:
