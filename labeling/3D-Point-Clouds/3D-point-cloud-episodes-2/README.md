@@ -35,7 +35,7 @@ Difference between 3D Point Cloud and 3D Point Cloud Episodes:
 
 Supervisely's 3D AI assistant is a universal tool for automating 3D point cloud labeling. It covers all types of labeling scenarios for 3D point clouds: 3D object detection, ground segmentation, 3D cuboid tracking, transfer of 2D annotations from photo context images to original 3D point clouds. This tool is class-agnostic - it means that it works with any type of objects regardless of their shape and point density.
 
-### Automatic Сuboid Фdjustment
+### Automatic Сuboid Adjustment
 
 * Automatically adjusts manually created cuboids.
 
@@ -110,9 +110,22 @@ If the **approximate ground level** is known, an **adaptive slope threshold** ca
 
 ### 3D Point Cloud Pen
 
-The **Point Cloud Pen** is a versatile tool designed for direct point-level editing in 3D space.
+The **Point Cloud Pen** is a versatile tool designed for direct point-level editing in 3D space. It intelligently combines two annotation modes in one seamless workflow:
 
-You can use it in two main ways:
+**How it works:**
+
+- **Single clicks** - Create polygon points by clicking at different locations. The tool draws straight lines between points to define precise boundaries.
+- **Click and drag** - Hold down the mouse button and draw freeform strokes, similar to a brush. Perfect for painting over irregular shapes and organic areas.
+
+<figure><img src="../car.gif" alt=""><figcaption></figcaption></figure>
+
+Both modes work together in the same tool without switching - simply use clicks for edges and drag for fills.
+
+**Practical example - Annotating vehicles:**
+
+When labeling a car, click around the vehicle body to create a clean polygon outline with straight edges that precisely follow the car's geometry. Then, without closing the polygon, hold and drag your mouse to paint over complex areas like wheels, mirrors, or irregular sections. This combination efficiently captures both the structured body and detailed components in one workflow.
+
+**Usage scenarios:**
 
 As an **editing** tool - to add or remove points from an existing point cloud object.
 
@@ -122,7 +135,7 @@ As a **creation** tool - to define and create a new object.
 
 {% embed url="https://youtu.be/sLefC2-0r3w" %}
 
-This makes the **Point Cloud Pen** tool especially useful for refining segmentations, fixing noisy detections, or manually annotating small or complex areas within a scene.
+This combined freeform and polygon approach makes the **Point Cloud Pen** tool especially useful for refining segmentations, fixing noisy detections, or manually annotating small or complex areas within a scene. Switch between modes depending on whether you need quick coverage or precise boundary control.
 
 ### 3D Cuboid Tracking
 
