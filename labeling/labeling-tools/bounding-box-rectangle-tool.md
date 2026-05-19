@@ -80,9 +80,7 @@ The Bounding Box Tool supports two editing modes:
 
 <figure><img src="../../.gitbook/assets/b-box-tool/bbox-dragmode-center.jpg" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
 **Use Case Example:** Center Out mode is particularly effective for annotating circular objects like bolt heads. See our practical guide: [Automotive Bolt Annotation with Live Training and Center Out Tool](https://docs.supervisely.com//use-cases/automotive/automotive-bolt-annotation)
-{% endhint %}
 
 ## Hotkeys
 

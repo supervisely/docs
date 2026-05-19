@@ -31,9 +31,7 @@ The Live Training approach transforms annotation projects from a multi-week, mul
 
 {% embed url="https://youtu.be/p6-t62S7c7A" %}
 
-{% hint style="success" %}
 **Practical Example:** See Live Training in action with our use case: [Automotive Bolt Annotation with Live Training and Center Out Tool](https://docs.supervisely.com/use-cases/automotive/automotive-bolt-annotation). This real-world example demonstrates how Live Training reduces annotation time by 70% for quality control in automotive manufacturing.
-{% endhint %}
 
 ## Quickstart
 
