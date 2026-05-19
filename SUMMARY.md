@@ -9,7 +9,7 @@
 
 * [How to import](getting-started/How-to-import.md)
 * [How to annotate](getting-started/How-to-annotate.md)
-* [How to invite team members](getting-started/Invite-member.md)
+*  [How to invite team members](getting-started/Invite-member.md)
 * [How to connect agents](getting-started/connect-your-computer.md)
 * [How to train models](getting-started/how-to-train-models.md)
 
@@ -211,9 +211,12 @@
   * [Run pre-trained models](neural-networks/legacy/pre-trained-models.md)
 
 ## 🎯 Use Cases
+
 * [Overview](use-cases/overview.md)
 * [Geospatial](use-cases/geospatial.md)
   * [Geospatial Data Annotation](use-cases/geospatial-data.md)
+* [Automotive](use-cases/automotive/README.md)
+  * [Automotive Bolt Annotation](use-cases/automotive/automotive-bolt-annotation.md)
 
 ## 👔 Enterprise Edition
 
