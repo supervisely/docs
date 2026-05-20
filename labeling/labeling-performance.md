@@ -371,8 +371,47 @@ This table consolidates statistics by **class** or **tag**. By default, class st
 * **Assets** – The number of assets (images, videos, DICOM volumes, point clouds, point cloud episodes) where this tag appears on at least one object or at the asset level.
 
 <figure><img src="../.gitbook/assets/labeling-performance/lp-tag.jpg" alt=""><figcaption></figcaption></figure>
+<br>
 
-Here's a clear and user-friendly addition in English for the article, explaining all the ways to navigate to the **Labeling Performance** page with contextual filters applied:
+# Export Performance Metrics
+
+The **Labeling Performance** page now supports exporting all performance metrics and statistics to **PDF** and **Excel** formats. This feature allows you to save, share, and analyze annotation data outside of the platform.
+
+## What gets exported
+
+When you export the performance report, it includes:
+
+* All visible charts and graphs based on your current filter settings
+* **Members Performance Table** with all individual team member statistics
+* **Class and Tag Statistics Table** with detailed breakdown by classes or tags
+* Summary metrics for the selected time period
+
+## How to export
+
+To export performance metrics:
+
+1. Configure the filters at the top of the page to select the data you want to export:
+   - Set the desired **time period**
+   - Choose **data type** (images, videos, DICOM, point clouds, etc.)
+   - Select specific **projects** or **labeling jobs** if needed
+
+2. Click the **Export** button located in the top-right corner of the page
+
+3. Choose your preferred format:
+   - **PDF** - ideal for reports and presentations, preserves visual charts and formatting
+   - **Excel** - best for further data analysis, filtering, and custom calculations
+
+{% hint style="info" %}
+**Tip:** The exported file will reflect exactly what you see on the page based on your current filter settings. Make sure to configure all filters before exporting to get the most relevant data.
+{% endhint %}
+
+**Use cases for export:**
+
+* **Team reporting** - Share performance reports with managers or stakeholders
+* **Historical tracking** - Archive performance data for specific time periods
+* **Custom analysis** - Import Excel data into your own analytics tools
+* **Budget planning** - Use time and speed metrics for resource allocation
+<br>
 
 # How to Access the Labeling Performance Page
 
