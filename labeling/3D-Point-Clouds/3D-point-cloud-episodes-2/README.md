@@ -108,6 +108,22 @@ The **optimal quantile value** can be selected using a **ground segmentation pre
 **Grid-based slope filtering** divides point cloud space into **grid cells**, finds the **lowest point** in each cell, computes **local slopes**, and **rejects steep points**.\
 If the **approximate ground level** is known, an **adaptive slope threshold** can be used to improve segmentation accuracy.
 
+### Measure Distance
+
+The **Measure Distance** tool is a precision measurement instrument that allows you to measure distances between any two points in the 3D point cloud scene. This tool is essential for:
+
+- **Object dimension verification**: Measure the actual size of objects in the scene to ensure annotation accuracy
+- **Distance calculations**: Determine the distance between different objects or features in the point cloud
+- **Quality control**: Verify that annotated objects match real-world dimensions
+- **Scene understanding**: Better understand spatial relationships and scale within the 3D environment
+
+**How to use:**
+
+1. Select the **Measure Distance** tool from the instruments panel
+2. Click on the first point in the 3D scene where you want to start measuring
+3. Click on the second point to complete the measurement
+4. The tool will display the distance between the two points in real-time
+
 ### 3D Point Cloud Pen
 
 The **Point Cloud Pen** is a versatile tool designed for direct point-level editing in 3D space. It intelligently combines two annotation modes in one seamless workflow:
