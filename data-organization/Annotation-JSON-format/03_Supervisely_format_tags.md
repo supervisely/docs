@@ -102,7 +102,9 @@ Fields definitions:
 
 ## Tag with 'Date' Value
 
-Tags of type 'date' store an ISO 8601 datetime string. Adding a value that does not conform to the ISO 8601 format will result in an error. The `possible_values` parameter cannot be used with this type.
+Tags of type 'date' store an ISO 8601 datetime string. Use this tag type to record dates and times for images or objects in the Labeling Tool via the date picker—for widget. 
+
+This tag type can be useful for various purposes, such as tracking the date and time of image review, recording when a specific event occurred, or any other scenario where associating a timestamp with an image or annotation is beneficial.
 
 Json format for 'date' tags:
 
