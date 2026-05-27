@@ -26,7 +26,7 @@ Fields definitions:
 
 * `name` - string - name of the tag
 * `value` - value of the current tag (always null for any tag of type 'none')
-* Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](03_Supervisely_format_tags.md#Optional-fields)
+* Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](03_Supervisely_format_tags.md#optional-fields)
 
 ## Tag with 'Number' Value
 
@@ -50,7 +50,7 @@ Fields definitions:
 
 * `name` - string - name of the tag
 * `value` - value of the current tag
-* Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](03_Supervisely_format_tags.md#Optional-fields)
+* Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](03_Supervisely_format_tags.md#optional-fields)
 
 ## Tag with String('Text') Value
 
@@ -74,7 +74,7 @@ Fields definitions:
 
 * `name` - string - name of the tag
 * `value` - value of current tag
-* Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](03_Supervisely_format_tags.md#Optional-fields)
+* Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](03_Supervisely_format_tags.md#optional-fields)
 
 ## Tag with value from a given list ('One Of')
 
@@ -98,7 +98,7 @@ Fields definitions:
 
 * `name` - string - name of the tag
 * `value` - value of current tag
-* Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](03_Supervisely_format_tags.md#Optional-fields)
+* Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](03_Supervisely_format_tags.md#optional-fields)
 
 ## Tag with 'Date' Value
 
@@ -126,7 +126,7 @@ Fields definitions:
   * `2026-05-12T21:14:12.000Z` (UTC with milliseconds)
   * `2026-04-27 11:00:46` (space separator instead of T)
   * `2026-05-12T21:14:12+00:00` (explicit timezone offset)
-* Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](03_Supervisely_format_tags.md#Optional-fields)
+* Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](03_Supervisely_format_tags.md#optional-fields)
 
 ## Optional fields
 
