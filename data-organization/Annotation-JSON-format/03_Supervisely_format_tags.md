@@ -2,7 +2,7 @@
 
 In Supervisely tags provide an option to associate some additional information with the labeled image or the labels on it. Each individual tag can be attached to a single image or asingle annotation only once, but there's not limit on how many times the same tag can be attached to different parts of the scene. There are different lists of tags for images and figures in the annotation file.
 
-When defining a tag, you assign it a name, possible values for a tag instance and what types of things it can be attached to. We support values of the following types: None (without an assigned value), Text, Number, and One of.
+When defining a tag, you assign it a name, possible values for a tag instance and what types of things it can be attached to. We support values of the following types: None (without an assigned value), Text, Number, One of, and Date.
 
 ## Tags With 'None' Value
 
@@ -98,6 +98,34 @@ Fields definitions:
 
 * `name` - string - name of the tag
 * `value` - value of current tag
+* Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](03_Supervisely_format_tags.md#Optional-fields)
+
+## Tag with 'Date' Value
+
+Tags of type 'date' store an ISO 8601 datetime string. Adding a value that does not conform to the ISO 8601 format will result in an error. The `possible_values` parameter cannot be used with this type.
+
+Json format for 'date' tags:
+
+```json
+{
+    "id": 102837465,
+    "tagId": 28256210,
+    "labelerLogin": "alexxx",
+    "createdAt": "2026-04-23T15:15:48.000Z",
+    "updatedAt": "2026-04-23T15:15:48.000Z",
+    "name": "reviewed_at",
+    "value": "2026-04-23T15:15:48"
+}
+```
+
+Fields definitions:
+
+* `name` - string - name of the tag
+* `value` - ISO 8601 datetime string. Accepted formats:
+  * `2026-04-23T15:15:48` (basic ISO format)
+  * `2026-05-12T21:14:12.000Z` (UTC with milliseconds)
+  * `2026-04-27 11:00:46` (space separator instead of T)
+  * `2026-05-12T21:14:12+00:00` (explicit timezone offset)
 * Optional fields `id`, `tagId`, `labelerLogin`, `createdAt`, `updatedAt` will be described [below](03_Supervisely_format_tags.md#Optional-fields)
 
 ## Optional fields
