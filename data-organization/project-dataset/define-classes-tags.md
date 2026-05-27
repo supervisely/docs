@@ -90,6 +90,7 @@ Tags provide a more flexible and free way to describe, while classes provide a f
   * **Text Tag:** Contains textual descriptions or comments about the object or image.
   * **Number Tag:** Represents numeric properties, useful for regression tasks (e.g., size, weight).
   * **One of:** Indicates that the value must be one of a predefined set, such as colors (Red, Blue, Green).
+  * **Date Tag:** Stores a datetime value in ISO 8601 format. Useful for recording timestamps such as review date, creation date, or any event time.
 * **COLOR** - the color displayed on the screen to make the tag easily identifiable.
 
 <figure><img src="../../.gitbook/assets/tags-1.png" alt=""><figcaption></figcaption></figure>
@@ -109,6 +110,7 @@ Tags provide a more flexible and free way to describe, while classes provide a f
    * **Text**: allows adding a text description or comments.
    * **Number**: represents numerical properties.
    * **Single choice (One of)**: select one option from a predefined set.
+   * **Date**: stores a datetime value in ISO 8601 format (e.g. `2026-04-23T15:15:48`).
 7. Additional **Scope** option for video projects:
    * **Global and Frame-based**: tag can be applied globally or to specific frames.
    * **Frame-based**: tag is applied only to specific frames.
