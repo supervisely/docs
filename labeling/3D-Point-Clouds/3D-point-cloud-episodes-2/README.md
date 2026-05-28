@@ -110,7 +110,7 @@ If the **approximate ground level** is known, an **adaptive slope threshold** ca
 
 ### Measure Distance
 
-The **Measure Distance** tool is a precision measurement instrument that allows you to measure distances between any two points in the 3D point cloud scene. This tool is essential for:
+The **Measure Distance** tool is a precision measurement instrument that allows you to measure distances along a path in the 3D point cloud scene. This tool is essential for:
 
 - **Object dimension verification**: Measure the actual size of objects in the scene to ensure annotation accuracy
 - **Distance calculations**: Determine the distance between different objects or features in the point cloud
@@ -121,11 +121,19 @@ The **Measure Distance** tool is a precision measurement instrument that allows 
 
 1. Select the **Measure Distance** tool from the instruments panel
 2. Click on the first point in the 3D scene where you want to start measuring
-3. Click on the second point to complete the measurement
-4. The tool will display the distance between the two points in real-time
+3. Click on the next point to create the first segment
+4. Continue clicking to add more points if you want to measure a multi-segment route
+5. The tool updates all measurements in real time as you extend the ruler
+
+**What the ruler shows:**
+
+- **Point coordinates** — each selected point displays its `X, Y, Z` coordinates above the marker.
+- **Segment length** — each ruler segment shows the distance between the current point and the previous one.
+- **Cumulative distance** — the blue value shows the total measured distance from the first point to the current point along the full path.
+- **Polyline path** — the ruler is drawn as a connected line, so you can follow curved roads, building edges, or other non-linear routes instead of measuring only a straight line.
 
 
-<figure><img src="../../../.gitbook/assets/3d-pc-episode/3d-pc-measure-tool.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/3d-pc-episode/3d-pc-measure-tool.jpg" alt="Measure Distance tool showing point coordinates, per-segment distance, and cumulative path length on a point cloud scene"></figure>
 
 
 ### 3D Point Cloud Pen
