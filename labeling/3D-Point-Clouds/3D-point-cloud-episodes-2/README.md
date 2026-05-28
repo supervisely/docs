@@ -124,6 +124,10 @@ The **Measure Distance** tool is a precision measurement instrument that allows 
 3. Click on the second point to complete the measurement
 4. The tool will display the distance between the two points in real-time
 
+
+<figure><img src="../../../.gitbook/assets/3d-pc-episode/3d-pc-measure-tool.jpg" alt=""><figcaption></figcaption></figure>
+
+
 ### 3D Point Cloud Pen
 
 The **Point Cloud Pen** is a versatile tool designed for direct point-level editing in 3D space. It intelligently combines two annotation modes in one seamless workflow:

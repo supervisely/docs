@@ -103,6 +103,33 @@ Exact feature name as it appears in the UI. No taglines, no version numbers.
 - `-` (dash) for all unordered lists. Never mix `-` and `*` in the same file.
 - `1.` only for ordered steps where sequence matters.
 
+### Directory trees and folder structures
+
+When documenting input/output file structures, use a fenced `text` block with consistent tree formatting.
+
+- Use **thin tree connectors**: `├──`, `│   `, `└──`.
+- Add a **space after every emoji icon**: `📦 folder`, `📂 pointcloud`, `📜 frame_pointcloud_map.json`.
+- Keep indentation consistent and visually aligned across sibling branches.
+- Use emoji by item type:
+  - Root archive / project: `📦`
+  - Directory/folder: `📂`
+  - Image file: `🖼️` or `🏞️`
+  - Video file: `🎬`
+  - Medical volume: `🩻`
+  - Point cloud file: `📄`
+  - JSON / text file: `📜` or `📄`
+
+```text
+📦 root
+├── 📂 folder1
+│   ├── 📜 file1.json
+│   └── 📜 file2.json
+└── 📂 folder2
+    └── 📄 data.pcd
+```
+
+For side-by-side structure examples, keep both trees in a single `text` block and preserve branch readability in each column.
+
 ### Hint blocks
 
 | Intent | Style |

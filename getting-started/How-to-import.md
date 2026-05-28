@@ -50,7 +50,8 @@ You can learn more about Import, such as importing different formats, import fro
 <summary><strong>Point Cloud Datasets</strong></summary>
 
 * Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter_docs/point_cloud/supervisely.md) format.
-* Point clouds in any directory structure without annotations in `PCD`, `LAS`, `LAZ`, `PLY` formats.
+* Point clouds in any directory structure without annotations in `PCD`, `PLY`, `LAS`, `LAZ` formats.
+* In Import Wizard, `PCD`, `PLY`, `LAS`, and `LAZ` files are imported natively without conversion.
 
 </details>
 
@@ -59,7 +60,8 @@ You can learn more about Import, such as importing different formats, import fro
 <summary><strong>Point Cloud Episode Datasets</strong></summary>
 
 * Auto-detect annotations in [Supervisely](https://github.com/supervisely-ecosystem/import-wizard-docs/blob/master/converter_docs/point_cloud_episodes/supervisely.md) format.
-* Point cloud episodes without annotations in `PCD` format.
+* Point cloud episodes without annotations in `PCD`, `PLY`, `LAS`, `LAZ` formats.
+* In Import Wizard, `PCD`, `PLY`, `LAS`, and `LAZ` files are imported natively without conversion.
 
 </details>
 

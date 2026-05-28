@@ -82,6 +82,15 @@ Each project in Supervisely has a set of predetermined classes and tags. This in
             "hotkey": "",
             "applicable_type": "all",
             "classes": ["car"]
+        },
+        {
+            "name": "reviewed_at",
+            "color": "#5A6C8D",
+            "value_type": "date",
+            "id": 27859,
+            "hotkey": "",
+            "applicable_type": "all",
+            "classes": []
         }
     ],
     "projectType": "images",
@@ -107,7 +116,7 @@ Each project in Supervisely has a set of predetermined classes and tags. This in
   * `hotkey` (string) [optional] - hotkey for the Labeling Tool to quickly change active annotation class
 * `tags`(string) - list of all possible tags that can be assigned to images or objects. Read more [here](../supervisely-annotation-json-format/tags.md)
   * `name`(string) - the unique identifier of a tag
-  * `value_type`(string) - one of the possible tag
+  * `value_type`(string) - one of the possible tag value types: `none`, `any_number`, `any_string`, `oneof_string`, `date`
   * `color`(string) - hex color code  
   * `values`(string) [optional] - initially predefined set of possible values
   * `id` (int) [optional] - the unique identification value of the tag  

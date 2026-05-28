@@ -49,8 +49,9 @@ If a Live Training session is already running, it will appear in the dropdown li
 
 Choose the model type that fits your annotation task. Currently, there are two options:
 
-- **Live Training Segmentation**
 - **Live Training Detection**
+- **Live Training Segmentation** `In Development`
+
 
 Configure the app settings in the modal window and click **Run** to launch the Live Training application.
 
@@ -139,6 +140,8 @@ A score of 70–80% means the model is generating useful pre-labels that need on
 {% endhint %}
 
 ### Segmentation
+
+`In Development`
 
 For segmentation tasks, model quality reflects how well the predicted masks overlap with your annotations — the better the overlap, the higher the score.
 
