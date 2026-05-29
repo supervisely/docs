@@ -25,6 +25,12 @@ The latest version introduces a completely redesigned interface that unifies bot
 
 Together, these enhancements provide an integrated and efficient workspace for working with large-scale 3D datasets.
 
+## Quickstart video
+
+If you want a fast end-to-end walkthrough of the 3D point cloud workflow, this quickstart covers import, supported formats, the difference between single-frame point clouds and point cloud episodes, manual tools, AI-assisted tools, object tracking, specialized labeling workflows, and export options.
+
+{% embed url="https://youtu.be/L3o6aE9JI7s" %}
+
 Difference between 3D Point Cloud and 3D Point Cloud Episodes:
 
 **3D Point Cloud**: A static representation of a scene captured at a single moment in time.
