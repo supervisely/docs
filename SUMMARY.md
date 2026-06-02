@@ -45,6 +45,7 @@
       * [Lyft](data-organization/import/import/supported-formats-pointcloud/lyft.md)
       * [nuScenes](data-organization/import/import/supported-formats-pointcloud/nuscenes.md)
       * [KITTI 3D](data-organization/import/import/supported-formats-pointcloud/kitti3d.md)
+      * [PCD with labels](data-organization/import/import/supported-formats-pointcloud/pcd_with_labels.md)
     * [Pointcloud Episodes](import-and-export/import/supported-annotation-formats/pointcloud_episodes/README.md)
       * [Supervisely](data-organization/import/import/supported-formats-pointcloud-episodes/supervisely.md)
       * [.PCD, .PLY, .LAS, .LAZ pointclouds](data-organization/import/import/supported-formats-pointcloud-episodes/point_clouds_episodes.md)
