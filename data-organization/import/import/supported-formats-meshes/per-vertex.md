@@ -156,4 +156,13 @@ An `object_id` is expected to belong to a single class — an object instance ca
 
 # Mesh Cleanup on Import
 
-The label data baked into the `.ply` files is used only to build the annotations. The mesh files stored on the platform are cleaned up during import: `class_id`/`object_id` properties are removed, and label paint is reset (annotated vertices are repainted with neutral white; if every vertex was annotated, the color properties are removed entirely). Original, non-label vertex colors are preserved.
+The colors and `class_id`/`object_id` values baked into the `.ply` files are only a transport for the annotations. During import they are extracted and converted into regular, editable annotation objects — the same objects you get when labeling in the Mesh Labeling Toolbox.
+
+The mesh file itself is stored in a cleaned-up form:
+
+- the `class_id` and `object_id` properties are removed;
+- previously annotated vertices are repainted with neutral white — the original color underneath is unknown, because the export overwrote it with the class color;
+- vertices that were not annotated keep their original colors;
+- if every vertex carried label paint, the color properties are removed from the file entirely.
+
+This keeps the mesh looking clean in the labeling tool: annotations are displayed as an editable overlay on top of the mesh instead of colors permanently painted into the file, and exporting and re-importing the project gives consistent results on every round trip.

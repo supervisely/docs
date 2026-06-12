@@ -1,6 +1,6 @@
 ---
 description: >-
-  The Mesh Labeling Toolbox lets you annotate 3D mesh surfaces — PLY, STL, and OBJ files — by painting vertex selections directly on the mesh. Each labeled region becomes a named object tied to a class defined in your project.
+  Annotate 3D mesh surfaces — PLY, STL, OBJ — with vertex painting: segmentation, tags, and metadata in your browser.
 ---
 
 # Meshes
@@ -10,7 +10,7 @@ The Mesh Labeling Toolbox in Supervisely is a browser-based annotation interface
 It provides a streamlined workspace with features such as:
 
 * **Vertex painting** with an adjustable brush — including face-based and single-vertex precision modes
-* **Instance and semantic labeling** — each painted region becomes a separate object tied to a project class
+* **Instance and semantic labeling** — each painted region becomes a separate object tied to an annotation class
 * **Tags and metadata** on two levels: the whole mesh and individual objects
 * **Definitions panel** for managing classes and tags without leaving the tool
 * **Mesh navigation** across the dataset, including nested datasets
@@ -44,7 +44,7 @@ The interface is divided into four areas:
 
 ## Top Bar
 
-- **Breadcrumb** — shows the current project, dataset, and mesh filename. Click any level to navigate up.
+- **Project and dataset** — the names of the project and dataset the opened mesh belongs to, followed by the mesh filename. Click any of them to navigate up.
 - **NEXT / PREV** — move to the next or previous mesh in the dataset.
 - **Undo / Redo** — step backward or forward through annotation actions.
 - **Hotkeys** — open the full hotkey reference for all tools and shortcuts.
@@ -91,7 +91,7 @@ The Objects panel in the top-right corner lists all labeled objects on the curre
 
 Each row shows the class color, the object class (a dropdown — select a different class to reassign the object), and action icons: attach tags, edit metadata, toggle visibility, delete.
 
-**Creating a new object** — at the top of the panel, use the **Click on scene to create new** selector to choose a class, then paint directly on the mesh. The new object is created as soon as you paint the first vertices.
+**Creating a new object** — at the top of the panel, use the **Click on scene to create new** selector to choose a class, then paint directly on the mesh. The new object is created as soon as you paint the first vertices. When you finish an object, press `Space` to save it and start a new object of the same class right away.
 
 Selecting an object expands two sections:
 
@@ -148,7 +148,10 @@ Click **Reset to defaults** to revert all settings.
 
 - **Rotate** — drag with the left mouse button on the scene.
 - **Zoom** — scroll the mouse wheel.
-- **Step rotation** — use the on-screen `Q W E` / `A S D` keys or the arrow buttons in the corners of the scene.
+- **Move** — use the `W` `A` `S` `D` keys to move the camera forward, left, backward, and right, and `Q` / `E` to move it up and down.
+- **Step rotation** — press the arrow keys to rotate the view in fixed steps.
+
+The on-screen key badges in the corners of the scene are keyboard hints, not clickable buttons.
 - **Fit to view** — click the frame icon in the scene toolbar to center and fit the mesh.
 
 ## Hotkeys
@@ -162,7 +165,7 @@ Using keyboard shortcuts helps reduce mouse clicks and saves time during large-s
 | | `5` | Vertex paint tool |
 | Objects | `Shift` + `-` / `Shift` + `=` | Decrease / increase figure opacity |
 | | `Backspace` | Remove selected figure |
-| | `Shift` + `D` | Remove all figures on current frame |
+| | `Shift` + `D` | Remove the selected figure, or all figures on the mesh if none is selected |
 | | `Ctrl/⌘` + `C` / `X` / `V` | Copy / cut / paste visible figures |
 | | `Alt` + `P` / `Alt` + `N` | Select previous / next figure |
 | Scene | `Enter` / `Shift` + `Enter` | Open next / previous mesh |
@@ -179,7 +182,7 @@ Using keyboard shortcuts helps reduce mouse clicks and saves time during large-s
 
 Supervisely provides flexible tools for importing and exporting meshes with annotations.
 
-For a general overview, see the [Import Overview page](../../import-and-export/import/supported-annotation-formats/README.md). By default, **AutoImport** automatically detects and supports the following formats:
+For a general overview, see the [Import Overview page](../../import-and-export/import/supported-annotation-formats/README.md). By default, **Auto Import** automatically detects and supports the following formats:
 
 * [Supervisely format for meshes](../../data-organization/import/import/supported-formats-meshes/supervisely.md) — mesh files with `.json` annotations and binary geometry files.
 * [Per-Vertex Annotation format](../../data-organization/import/import/supported-formats-meshes/per-vertex.md) — ASCII PLY files with labels encoded directly in vertex attributes.
