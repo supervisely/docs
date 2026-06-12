@@ -1,11 +1,11 @@
 ---
 description: >-
-  The Mesh Labeling Toolbox lets you annotate 3D mesh surfaces — PLY, STL, and OBJ files — by painting face selections directly on the mesh. Each labeled region becomes a named object tied to a class defined in your project.
+  The Mesh Labeling Toolbox lets you annotate 3D mesh surfaces — PLY, STL, and OBJ files — by painting vertex selections directly on the mesh. Each labeled region becomes a named object tied to a class defined in your project.
 ---
 
 # Meshes
 
-The Mesh Labeling Toolbox is a browser-based annotation interface for 3D surface data. It allows you to select and label groups of mesh faces, assign them to classes, attach tags and metadata, and navigate between multiple meshes in a dataset — all without leaving the browser.
+The Mesh Labeling Toolbox is a browser-based annotation interface for 3D surface data. It allows you to select and label regions of the mesh surface (stored as vertex selections), assign them to classes, attach tags and metadata, and navigate between multiple meshes in a dataset — all without leaving the browser.
 
 <figure><img src="../../.gitbook/assets/meshes/mesh-toolbox-overview.png" alt="Mesh labeling toolbox with a dental scan annotated into tooth and caries classes"></figure>
 
