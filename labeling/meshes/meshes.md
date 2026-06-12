@@ -87,7 +87,7 @@ The eraser follows the active painting mode: with face painting it removes entir
 
 The Objects panel in the top-right corner lists all labeled objects on the current mesh.
 
-<figure><img src="../../.gitbook/assets/meshes/mesh-objects-panel.png" alt="Objects panel with a selected object showing its tags and metadata" style="display:block; width:50%; margin:0 auto;"></figure>
+<figure><img src="../../.gitbook/assets/meshes/mesh-objects-panel.png" alt="Objects panel with a selected object showing its tags and metadata" width="375"></figure>
 
 Each row shows the class color, the object class (a dropdown — select a different class to reassign the object), and action icons: attach tags, edit metadata, toggle visibility, delete.
 
@@ -115,7 +115,7 @@ The bottom-right panel contains three tabs.
 
 ### Definitions
 
-<figure><img src="../../.gitbook/assets/meshes/mesh-definitions-panel.png" alt="Definitions tab with the project classes list and current mesh tags" style="display:block; width:50%; margin:0 auto;"></figure>
+<figure><img src="../../.gitbook/assets/meshes/mesh-definitions-panel.png" alt="Definitions tab with the project classes list and current mesh tags" width="375"></figure>
 
 Manage project classes and tags without leaving the tool:
 
@@ -124,7 +124,7 @@ Manage project classes and tags without leaving the tool:
 
 ### Meshes
 
-<figure><img src="../../.gitbook/assets/meshes/mesh-meshes-panel.png" alt="Meshes tab showing the mesh list, mesh tags, and metadata" style="display:block; width:50%; margin:0 auto;"></figure>
+<figure><img src="../../.gitbook/assets/meshes/mesh-meshes-panel.png" alt="Meshes tab showing the mesh list, mesh tags, and metadata" width="375"></figure>
 
 - **Mesh list** — all meshes in the current dataset. Click any mesh to switch to it. The active mesh is highlighted and shows its object and tag counts.
 - **Mesh tags** — tags attached to the mesh as a whole, not to individual objects. Use them for properties that describe the entire scan, such as `scan quality` or `reviewed`. Toggle a tag to attach it; tags with values get a dropdown or input.
@@ -132,7 +132,7 @@ Manage project classes and tags without leaving the tool:
 
 ### Settings
 
-<figure><img src="../../.gitbook/assets/meshes/mesh-settings-panel.png" alt="Settings tab with object, tag, and user interface options" style="display:block; width:50%; margin:0 auto;"></figure>
+<figure><img src="../../.gitbook/assets/meshes/mesh-settings-panel.png" alt="Settings tab with object, tag, and user interface options" width="375"></figure>
 
 Customize the toolbox behavior and appearance:
 
