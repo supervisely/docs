@@ -75,13 +75,13 @@ We recommend to use the following EC2-instances for deployment in AWS:
 
 #### Software
 
-To run Supervisely you will need Linux OS with kernel 3.10 or newer. The following configuration is recommended:
+To run Supervisely you will need Linux OS with kernel 5.15 or newer. The following configuration is recommended:
 
-* OS: Ubuntu 18.04 or later
-* NVIDIA graphics driver: 460.27.03 or later (for Neural Network module only)
-* nvidia-docker2 (for Neural Network module only)
+* OS: Ubuntu 22.04 LTS or later
+* NVIDIA graphics driver: 535 or later (for Neural Network module only)
+* NVIDIA Container Toolkit (for Neural Network module only)
 
-All pre-requirements can be automatically installed via `supervisely` utility for Ubuntu 18.04 and later. In case of a different Linux distribution, you can install Supervisely and pre-requirements manually, but we won't be able to provide installation support.
+All pre-requirements can be automatically installed via `supervisely` utility for Ubuntu 22.04 and later. In case of a different Linux distribution, you can install Supervisely and pre-requirements manually, but we won't be able to provide installation support.
 
 ### Installation
 
