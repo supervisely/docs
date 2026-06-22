@@ -11,24 +11,34 @@ This tutorial explains how to deploy the Supervisely agent on Linux OS.
 
 ## Table of Contents
 
-* [Prerequisites](gpu-agent-linux-installation.md#prerequisites)
-* [How to install](gpu-agent-linux-installation.md#how-to-install)
-* [Step 1. Install Docker](gpu-agent-linux-installation.md#step-1-install-docker)
-* [Step 2. Install CUDA Toolkit](gpu-agent-linux-installation.md#step-2-install-cuda-toolkit)
-* [Step 3. Install NVIDIA Driver](gpu-agent-linux-installation.md#step-3-install-nvidia-driver)
-* [Step 4. Install NVIDIA Container Toolkit](gpu-agent-linux-installation.md#step-4-install-nvidia-container-toolkit)
-* [Step 5. Deploy Supervisely Agent](gpu-agent-linux-installation.md#step-5-deploy-supervisely-agent)
-* [Troubleshooting](gpu-agent-linux-installation.md#troubleshooting)
+* [Prerequisites](unix-based.md#prerequisites)
+* [How to install](unix-based.md#how-to-install)
+* [Step 1. Install Docker](unix-based.md#step-1-install-docker)
+* [Step 2. Install CUDA Toolkit](unix-based.md#step-2-install-cuda-toolkit)
+* [Step 3. Install NVIDIA Driver](unix-based.md#step-3-install-nvidia-driver)
+* [Step 4. Install NVIDIA Container Toolkit](unix-based.md#step-4-install-nvidia-container-toolkit)
+* [Step 5. Deploy Supervisely Agent](unix-based.md#step-5-deploy-supervisely-agent)
+* [Troubleshooting](unix-based.md#troubleshooting)
 
 ## Prerequisites
 
-* Linux OS (Kernel 3.10 or higher)
-* [Docker](https://docs.docker.com/engine/install/ubuntu/) (Version 19.3 or higher)
-* [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads) (Version 9.0 or higher)
-* [NVIDIA Driver](https://developer.nvidia.com/cuda-downloads) (Version 452.39 or higher)
-* [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+The agent is shipped as a Docker image built on top of CUDA 12.8 (`nvidia/cuda:12.8.1-cudnn-runtime-ubuntu24.04`). The agent itself only reads GPU information via the host driver (NVML / `nvidia-smi`), so it starts on a wide range of driver versions. However, the GPU applications that the agent launches in separate containers are built against newer CUDA versions, so the host driver determines whether those workloads run reliably.
 
-### How to install
+For this reason there are two tiers of requirements — the **minimum** needed for the agent to run, and the **recommended** setup for stable execution of GPU applications:
+
+| Component | Minimum required | Recommended (stable) |
+|---|---|---|
+| Linux OS | Kernel 5.15 or higher | Ubuntu 24.04 LTS or later |
+| [Docker](https://docs.docker.com/engine/install/ubuntu/) | 19.03 or higher | Latest stable |
+| [NVIDIA Driver](https://developer.nvidia.com/cuda-downloads) | 535 (CUDA 12.2 branch) | **570.26 or higher** |
+| [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads) | 12.2 | **12.8** |
+| [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) | Any recent version | Latest |
+
+> **Why the difference?** CUDA 12.8 workloads run **natively** on driver **≥ 570.26**. On older drivers — down to the **535 branch (CUDA 12.2)** — they run via the [CUDA forward-compatibility package](https://docs.nvidia.com/deploy/cuda-compatibility/latest/forward-compatibility.html) (`cuda-compat-12-8`), whose lowest supported base branch is 535. Below 535 there is no supported path for CUDA 12.8. Forward compatibility is officially supported on **NVIDIA Data Center GPUs**; on other GPUs (e.g. GeForce) install driver **570.26 or higher**, which removes the need for the compat package and avoids edge cases (PTX JIT from a newer toolkit, the newest GPU architectures such as Blackwell, features introduced after the installed driver branch).
+>
+> **CPU-only machines** don't need any of the NVIDIA components — you can skip the driver, CUDA Toolkit, and Container Toolkit steps below.
+
+## How to install
 
 ### Step 1. Install Docker
 
@@ -66,7 +76,40 @@ Check out the official [Docker documentation](https://docs.docker.com/engine/ins
 
 ### Step 2. Install CUDA Toolkit
 
-Install the CUDA Toolkit using the following commands:
+Install the CUDA Toolkit 12.8 using the local installer. The `.deb` is self-contained, so it also works on **air-gapped / isolated hosts** — you can download it on a machine with internet access, transfer it to the target host, and install offline:
+
+```bash
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-ubuntu2404.pin
+sudo mv cuda-ubuntu2404.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/12.8.0/local_installers/cuda-repo-ubuntu2404-12-8-local_12.8.0-570.86.10-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu2404-12-8-local_12.8.0-570.86.10-1_amd64.deb
+sudo cp /var/cuda-repo-ubuntu2404-12-8-local/cuda-*-keyring.gpg /usr/share/keyrings/
+sudo apt-get update
+sudo apt-get -y install cuda-toolkit-12-8
+```
+
+> The commands target **Ubuntu 24.04**. If your host runs Ubuntu 22.04, replace `ubuntu2404` with `ubuntu2204` in both URLs — CUDA 12.8 and driver 570 are available for both. For a different patch release, find the matching `.deb` on the [official downloads page](https://developer.nvidia.com/cuda-downloads).
+
+<details>
+
+<summary>Online installation (network repository)</summary>
+
+If the host has direct internet access, the network repository is simpler and keeps the toolkit updated via `apt`:
+
+```bash
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb
+sudo dpkg -i cuda-keyring_1.1-1_all.deb
+sudo apt-get update
+sudo apt-get -y install cuda-toolkit-12-8
+```
+
+</details>
+
+<details>
+
+<summary>Legacy installation (CUDA 12.4, minimum supported)</summary>
+
+CUDA 12.4 is still supported as a minimum, but CUDA 12.8 above is recommended.
 
 ```bash
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin
@@ -78,16 +121,32 @@ sudo apt-get update
 sudo apt-get -y install cuda-toolkit-12-4
 ```
 
+</details>
+
 Check out the official [CUDA Toolkit documentation](https://developer.nvidia.com/cuda-downloads) for more information and the latest version.
 
 
-## Step 3. Install NVIDIA Driver
+### Step 3. Install NVIDIA Driver
 
 Install the NVIDIA driver using the following commands:
 
 ```bash
+sudo apt-get install -y cuda-drivers-570
+```
+
+> On **air-gapped / isolated hosts** you don't need a separate download — the local CUDA installer from Step 2 already bundles driver 570 in its local repository, so this command installs it offline from there.
+
+<details>
+
+<summary>Legacy driver (550, minimum supported)</summary>
+
+Driver 550 is the minimum that pairs with CUDA 12.4. It still works for CUDA 12.8 workloads via the forward-compatibility package, but driver 570 above is recommended.
+
+```bash
 sudo apt-get install -y cuda-drivers-550
 ```
+
+</details>
 
 To verify the installation, run the following command:
 
@@ -104,13 +163,13 @@ The output should display the NVIDIA driver version, CUDA version, and GPU infor
 
 ![nvidia-smi](https://github.com/supervisely/developer-portal/assets/118521851/0816dc4f-8ac7-4a80-b4c0-09652a7f21d9)
 
-If you can see this information, the installation was successful. Otherwise, please check the [Troubleshooting](gpu-agent-linux-installation.md#troubleshooting) section.
+If you can see this information, the installation was successful. Otherwise, please check the [Troubleshooting](unix-based.md#troubleshooting) section.
 
 Check out the official [NVIDIA Driver documentation](https://developer.nvidia.com/cuda-downloads) for more information and the latest version.
 
 
-## Step 4. Install NVIDIA Container Toolkit
-The NVIDIA drivers must be also available in the Docker containers so the agent can utilize the GPU. To do this, install the NVIDIA Container Toolkit using the following commands:
+### Step 4. Install NVIDIA Container Toolkit
+The NVIDIA drivers must be also available in the Docker containers, so the agent can utilize the GPU. To do this, install the NVIDIA Container Toolkit using the following commands:
 
 ```bash
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
@@ -136,16 +195,16 @@ sudo systemctl restart docker
 Now, we'll need to ensure that the NVIDIA Container Toolkit is installed and working correctly and that the NVIDIA runtime is available inside the Docker containers. To do this, run the following command:
 
 ```bash
-sudo docker run --rm --runtime=nvidia --gpus all nvidia/cuda:12.4.1-base-ubuntu22.04 nvidia-smi
+sudo docker run --rm --runtime=nvidia --gpus all nvidia/cuda:12.8.1-base-ubuntu24.04 nvidia-smi
 ```
 
 The output should display the NVIDIA driver version, CUDA version, and GPU information.
   
 ![nvidia-smi in Docker](https://github.com/supervisely/developer-portal/assets/118521851/d117b3f3-2d59-4fa7-a735-37edc8f49804)
 
-If you can't see this information, please check the [Troubleshooting](gpu-agent-linux-installation.md#troubleshooting) section.
+If you can't see this information, please check the [Troubleshooting](unix-based.md#troubleshooting) section.
 
-## Step 5. Deploy Supervisely Agent
+### Step 5. Deploy Supervisely Agent
 
 Now it's time to deploy the Supervisely agent.
 
