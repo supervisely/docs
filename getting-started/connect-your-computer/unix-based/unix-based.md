@@ -7,18 +7,18 @@ description: >-
 ## Deploy Supervisely agent on Linux
 
 Supervisely agent can work both with and without GPU support. If you don't have a GPU, you can deploy the agent on any machine with Linux OS and you can skip the GPU installation steps.
-This tutorial explains how to deploy the Supervisely agent on Linux OS. 
+This tutorial explains how to deploy the Supervisely agent on Linux OS.
 
 ## Table of Contents
 
-* [Prerequisites](./unix-based.md#prerequisites)
-* [How to install](./unix-based.md#how-to-install)
-* [Step 1. Install Docker](./unix-based.md#step-1-install-docker)
-* [Step 2. Install CUDA Toolkit](./unix-based.md#step-2-install-cuda-toolkit)
-* [Step 3. Install NVIDIA Driver](./unix-based.md#step-3-install-nvidia-driver)
-* [Step 4. Install NVIDIA Container Toolkit](./unix-based.md#step-4-install-nvidia-container-toolkit)
-* [Step 5. Deploy Supervisely Agent](./unix-based.md#step-5-deploy-supervisely-agent)
-* [Troubleshooting](./unix-based.md#troubleshooting)
+- [Prerequisites](./unix-based.md#prerequisites)
+- [How to install](./unix-based.md#how-to-install)
+- [Step 1: Install Docker](./unix-based.md#step-1-install-docker)
+- [Step 2: Install CUDA Toolkit](./unix-based.md#step-2-install-cuda-toolkit)
+- [Step 3: Install NVIDIA Driver](./unix-based.md#step-3-install-nvidia-driver)
+- [Step 4: Install NVIDIA Container Toolkit](./unix-based.md#step-4-install-nvidia-container-toolkit)
+- [Step 5: Deploy Supervisely Agent](./unix-based.md#step-5-deploy-supervisely-agent)
+- [Troubleshooting](./unix-based.md#troubleshooting)
 
 ## Prerequisites
 
@@ -26,19 +26,21 @@ The agent is shipped as a Docker image built on top of CUDA 12.8 (`nvidia/cuda:1
 
 For this reason there are two tiers of requirements — the **minimum** needed for the agent to run, and the **recommended** setup for stable execution of GPU applications:
 
-| Component | Minimum required | Recommended (stable) |
-|---|---|---|
-| Linux OS | Kernel 5.15 or higher | Ubuntu 24.04 LTS or later |
-| [Docker](https://docs.docker.com/engine/install/ubuntu/) | 19.03 or higher | Latest stable |
-| [NVIDIA Driver](https://developer.nvidia.com/cuda-downloads) | 535 (CUDA 12.2 branch) | **570.26 or higher** |
-| [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads) | 12.2 | **12.8** |
-| [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) | Any recent version | Latest |
+| Component                                                                                                               | Minimum required       | Recommended (stable)      |
+| ----------------------------------------------------------------------------------------------------------------------- | ---------------------- | ------------------------- |
+| Linux OS                                                                                                                | Kernel 5.15 or higher  | Ubuntu 24.04 LTS or later |
+| [Docker](https://docs.docker.com/engine/install/ubuntu/)                                                                | 19.03 or higher        | Latest stable             |
+| [NVIDIA Driver](https://developer.nvidia.com/cuda-downloads)                                                            | 535 (CUDA 12.2 branch) | **570.26 or higher**      |
+| [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads)                                                             | 12.2                   | **12.8**                  |
+| [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) | Any recent version     | Latest                    |
 
 > **Why the difference?** CUDA 12.8 workloads run **natively** on driver **≥ 570.26**. On older drivers — down to the **535 branch (CUDA 12.2)** — they run via the [CUDA forward-compatibility package](https://docs.nvidia.com/deploy/cuda-compatibility/latest/forward-compatibility.html) (`cuda-compat-12-8`), whose lowest supported base branch is 535. Below 535 there is no supported path for CUDA 12.8. Forward compatibility is officially supported on **NVIDIA Data Center GPUs**; on other GPUs (e.g. GeForce) install driver **570.26 or higher**, which removes the need for the compat package and avoids edge cases (PTX JIT from a newer toolkit, the newest GPU architectures such as Blackwell, features introduced after the installed driver branch).
 >
 > **CPU-only machines** don't need any of the NVIDIA components — you can skip the driver, CUDA Toolkit, and Container Toolkit steps below.
 
 ## How to install
+
+All commands assume Ubuntu 24.04 on an `x86_64` host; notes throughout point out where to adjust for Ubuntu 22.04. Run them as a user with `sudo` privileges, and reboot when prompted after the driver installation.
 
 ### Step 1: Install Docker
 
@@ -125,7 +127,6 @@ sudo apt-get -y install cuda-toolkit-12-4
 
 Check out the official [CUDA Toolkit documentation](https://developer.nvidia.com/cuda-downloads) for more information and the latest version.
 
-
 ### Step 3: Install NVIDIA Driver
 
 Install the NVIDIA driver using the following commands:
@@ -151,6 +152,7 @@ To verify the installation, run the following command:
 ```bash
 nvidia-smi
 ```
+
 It's recommended to restart your system after installing the NVIDIA driver with the following command:
 
 ```bash
@@ -165,8 +167,8 @@ If you can see this information, the installation was successful. Otherwise, ple
 
 Check out the official [NVIDIA Driver documentation](https://developer.nvidia.com/cuda-downloads) for more information and the latest version.
 
-
 ### Step 4: Install NVIDIA Container Toolkit
+
 The NVIDIA drivers must be also available in the Docker containers, so the agent can utilize the GPU. To do this, install the NVIDIA Container Toolkit using the following commands:
 
 ```bash
@@ -197,7 +199,7 @@ sudo docker run --rm --runtime=nvidia --gpus all nvidia/cuda:12.8.1-base-ubuntu2
 ```
 
 The output should display the NVIDIA driver version, CUDA version, and GPU information.
-  
+
 ![nvidia-smi in Docker](https://github.com/supervisely/developer-portal/assets/118521851/d117b3f3-2d59-4fa7-a735-37edc8f49804)
 
 If you can't see this information, please check the [Troubleshooting](unix-based.md#troubleshooting) section.
