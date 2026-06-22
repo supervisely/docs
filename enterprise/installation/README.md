@@ -78,8 +78,17 @@ We recommend to use the following EC2-instances for deployment in AWS:
 To run Supervisely you will need Linux OS with kernel 5.15 or newer. The following configuration is recommended:
 
 * OS: Ubuntu 22.04 LTS or later
-* NVIDIA graphics driver: 535 or later (for Neural Network module only)
+* NVIDIA graphics driver (for Neural Network module only) — see the table below
 * NVIDIA Container Toolkit (for Neural Network module only)
+
+GPU workloads (Neural Networks, Smart Tool) run in containers built on **CUDA 12.8**, regardless of whether they execute on the instance host or on a separate [agent](../../getting-started/connect-your-computer/README.md) host. The host NVIDIA driver therefore must be able to serve CUDA 12.8 images:
+
+| Component | Minimum required | Recommended (stable) |
+|---|---|---|
+| [NVIDIA Driver](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/#driver-installation) | 535 (CUDA 12.2 branch) | **570.26 or higher** |
+| CUDA | 12.2 | **12.8** |
+
+> CUDA 12.8 workloads run **natively** on driver **≥ 570.26**. On older drivers — down to the **535 branch (CUDA 12.2)** — they run via the [CUDA forward-compatibility package](https://docs.nvidia.com/deploy/cuda-compatibility/latest/forward-compatibility.html) (`cuda-compat-12-8`), whose lowest supported base branch is 535; below 535 there is no supported path for CUDA 12.8. Forward compatibility is officially supported on **NVIDIA Data Center GPUs** — on other GPUs (e.g. GeForce) install driver **570.26 or higher**. This requirement applies only to the Neural Network module.
 
 All pre-requirements can be automatically installed via `supervisely` utility for Ubuntu 22.04 and later. In case of a different Linux distribution, you can install Supervisely and pre-requirements manually, but we won't be able to provide installation support.
 
