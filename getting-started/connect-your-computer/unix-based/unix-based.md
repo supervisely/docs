@@ -147,16 +147,16 @@ sudo apt-get install -y cuda-drivers-550
 
 </details>
 
-To verify the installation, run the following command:
-
-```bash
-nvidia-smi
-```
-
 It's recommended to restart your system after installing the NVIDIA driver with the following command:
 
 ```bash
 sudo reboot
+```
+
+To verify the installation, run the following command:
+
+```bash
+nvidia-smi
 ```
 
 The output should display the NVIDIA driver version, CUDA version, and GPU information.
