@@ -4,7 +4,7 @@ description: >-
   operating systems
 ---
 
-## Deploy Supervisely agent on Linux
+# Deploy Supervisely agent on Linux
 
 Supervisely agent can work both with and without GPU support. If you don't have a GPU, you can deploy the agent on any machine with Linux OS and you can skip the GPU installation steps.
 This tutorial explains how to deploy the Supervisely agent on Linux OS.
