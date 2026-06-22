@@ -11,14 +11,14 @@ This tutorial explains how to deploy the Supervisely agent on Linux OS.
 
 ## Table of Contents
 
-* [Prerequisites](unix-based.md#prerequisites)
-* [How to install](unix-based.md#how-to-install)
-* [Step 1. Install Docker](unix-based.md#step-1-install-docker)
-* [Step 2. Install CUDA Toolkit](unix-based.md#step-2-install-cuda-toolkit)
-* [Step 3. Install NVIDIA Driver](unix-based.md#step-3-install-nvidia-driver)
-* [Step 4. Install NVIDIA Container Toolkit](unix-based.md#step-4-install-nvidia-container-toolkit)
-* [Step 5. Deploy Supervisely Agent](unix-based.md#step-5-deploy-supervisely-agent)
-* [Troubleshooting](unix-based.md#troubleshooting)
+* [Prerequisites](./unix-based.md#prerequisites)
+* [How to install](./unix-based.md#how-to-install)
+* [Step 1. Install Docker](./unix-based.md#step-1-install-docker)
+* [Step 2. Install CUDA Toolkit](./unix-based.md#step-2-install-cuda-toolkit)
+* [Step 3. Install NVIDIA Driver](./unix-based.md#step-3-install-nvidia-driver)
+* [Step 4. Install NVIDIA Container Toolkit](./unix-based.md#step-4-install-nvidia-container-toolkit)
+* [Step 5. Deploy Supervisely Agent](./unix-based.md#step-5-deploy-supervisely-agent)
+* [Troubleshooting](./unix-based.md#troubleshooting)
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ For this reason there are two tiers of requirements — the **minimum** needed f
 
 ## How to install
 
-### Step 1. Install Docker
+### Step 1: Install Docker
 
 First, set up the Docker apt repository:
 
@@ -74,9 +74,9 @@ Finally, verify that the Docker Engine installation is successful by running the
 
 Check out the official [Docker documentation](https://docs.docker.com/engine/install/ubuntu/) for more information.
 
-### Step 2. Install CUDA Toolkit
+### Step 2: Install CUDA Toolkit
 
-Install the CUDA Toolkit 12.8 using the local installer. The `.deb` is self-contained, so it also works on **air-gapped / isolated hosts** — you can download it on a machine with internet access, transfer it to the target host, and install offline:
+Install the CUDA Toolkit 12.8 using the local installer:
 
 ```bash
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-ubuntu2404.pin
@@ -126,15 +126,13 @@ sudo apt-get -y install cuda-toolkit-12-4
 Check out the official [CUDA Toolkit documentation](https://developer.nvidia.com/cuda-downloads) for more information and the latest version.
 
 
-### Step 3. Install NVIDIA Driver
+### Step 3: Install NVIDIA Driver
 
 Install the NVIDIA driver using the following commands:
 
 ```bash
 sudo apt-get install -y cuda-drivers-570
 ```
-
-> On **air-gapped / isolated hosts** you don't need a separate download — the local CUDA installer from Step 2 already bundles driver 570 in its local repository, so this command installs it offline from there.
 
 <details>
 
@@ -168,7 +166,7 @@ If you can see this information, the installation was successful. Otherwise, ple
 Check out the official [NVIDIA Driver documentation](https://developer.nvidia.com/cuda-downloads) for more information and the latest version.
 
 
-### Step 4. Install NVIDIA Container Toolkit
+### Step 4: Install NVIDIA Container Toolkit
 The NVIDIA drivers must be also available in the Docker containers, so the agent can utilize the GPU. To do this, install the NVIDIA Container Toolkit using the following commands:
 
 ```bash
@@ -204,7 +202,7 @@ The output should display the NVIDIA driver version, CUDA version, and GPU infor
 
 If you can't see this information, please check the [Troubleshooting](unix-based.md#troubleshooting) section.
 
-### Step 5. Deploy Supervisely Agent
+### Step 5: Deploy Supervisely Agent
 
 Now it's time to deploy the Supervisely agent.
 
@@ -218,7 +216,7 @@ Copy the command and run it in the terminal on the machine where you want to dep
 
 That's it! Now your agent is deployed and running.
 
-### TroubleShooting
+### Troubleshooting
 
 If the `nvidia-smi` command does not display the GPU information from OS or the Docker container, the NVIDIA drivers were not successfully installed.
 In this case, you can try to uninstall the NVIDIA drivers and CUDA Toolkit:
