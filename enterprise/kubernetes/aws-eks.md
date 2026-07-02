@@ -13,7 +13,9 @@ The example uses this configuration:
 - Public worker nodes
 - NAT gateway disabled to reduce baseline cost
 
-This is suitable for testing and initial integration. For production, review networking, ingress, DNS, TLS, node sizing, scaling, monitoring, and security requirements. To run GPU workloads, use a GPU-capable node group instead of `t3.large` and install the [NVIDIA device plugin](https://github.com/NVIDIA/k8s-device-plugin).
+This is suitable for testing and initial integration. For production, review networking, ingress, DNS, TLS, node sizing, scaling, monitoring, and security requirements.
+
+**What you'll do:** install a few CLI tools → create an EKS cluster → install the Supervisely agent with Helm → see the cluster appear in Supervisely. If you want GPU tasks, there's a short optional section for that too.
 
 ## Prerequisites
 
@@ -22,6 +24,7 @@ This is suitable for testing and initial integration. For production, review net
 - AWS permissions for EKS, IAM, CloudFormation, EC2, VPC, Auto Scaling, and public SSM parameters
 - `aws`, `kubectl`, `eksctl`, and `helm` (v3) installed locally
 - An existing, reachable Supervisely instance and your license key
+- An agent `values.yaml` for your instance (Supervisely can generate one for you — see [Step 6](#step-6-install-the-kubernetes-agent))
 - A Bash or another POSIX-compatible shell with AWS credentials configured
 
 ### Network requirements
@@ -116,6 +119,10 @@ managedNodeGroups:
         disableIMDSv1: true
 ```
 
+{% hint style="info" %}
+Want GPU tasks (training/inference)? Use a GPU instance type instead of `t3.large` **now**, before creating the cluster — see [GPU nodes](#gpu-nodes-optional) below.
+{% endhint %}
+
 Create the cluster:
 
 ```bash
@@ -148,6 +155,43 @@ Expected result:
 
 Immediately after control plane creation, `kubectl get nodes` may temporarily return `No resources found` while the node group is still provisioning. Wait a few minutes and retry.
 
+## GPU nodes (optional)
+
+Most people add a Kubernetes cluster so Supervisely can run **GPU** tasks (model training and inference). To do that, create the cluster in Step 3 with a GPU node group instead of `t3.large` — use the `managedNodeGroups` block below (for example, a `g4dn.xlarge` instance):
+
+```yaml
+managedNodeGroups:
+    - name: gpu
+        instanceType: g4dn.xlarge
+        amiFamily: AmazonLinux2023
+        desiredCapacity: 1
+        minSize: 1
+        maxSize: 2
+        volumeType: gp3
+        volumeSize: 100
+        privateNetworking: false
+        disableIMDSv1: true
+```
+
+After the cluster is up, install the [NVIDIA device plugin](https://github.com/NVIDIA/k8s-device-plugin) so Kubernetes can schedule GPUs (follow the plugin's install instructions for the current version):
+
+```bash
+kubectl create namespace nvidia-device-plugin
+helm repo add nvdp https://nvidia.github.io/k8s-device-plugin
+helm repo update
+helm upgrade -i nvdp nvdp/nvidia-device-plugin --namespace nvidia-device-plugin
+```
+
+Confirm the nodes now report GPUs:
+
+```bash
+kubectl get nodes -o custom-columns=NAME:.metadata.name,'GPU:.status.allocatable.nvidia\.com/gpu'
+```
+
+You'll turn on GPU in the agent's values in [Step 6](#step-6-install-the-kubernetes-agent).
+
+If you don't need GPU, skip this section and keep the `t3.large` node group.
+
 ## Step 5. Install an ingress controller (optional)
 
 If you want to run GUI apps in the browser, install an ingress controller in the cluster (for example, [ingress-nginx](https://kubernetes.github.io/ingress-nginx/deploy/#quick-start)). On EKS this typically provisions an AWS load balancer. Note its external address — you'll point app traffic at it. See [Ingress](ingress.md).
@@ -156,7 +200,7 @@ If you only run non-GUI workloads, you can skip this step.
 
 ## Step 6. Install the Kubernetes agent
 
-Download the Helm chart for your license and unpack it (replace `<YOUR_LICENSE>`):
+**Download the chart.** Get the Helm chart for your license and unpack it (replace `<YOUR_LICENSE>`):
 
 ```bash
 curl -X POST \
@@ -169,7 +213,9 @@ mkdir supervisely-agent && tar -xf supervisely-helm-chart.tar -C supervisely-age
 cd supervisely-agent
 ```
 
-Create a `values.yaml` that selects agent mode and points at your existing Supervisely instance:
+**Prepare your values.** The agent needs your Supervisely instance address and an agent token. The simplest and most reliable way is to get a ready-made `values.yaml` from Supervisely (via the config portal or support) — it comes pre-filled for your instance, so you don't have to look anything up.
+
+The file looks like this:
 
 ```yaml
 mode: kubernetes-agent
@@ -185,17 +231,15 @@ services:
         value: "<TASK_EXECUTION_TOKEN>"
 ```
 
-{% hint style="info" %}
-The exact agent connection values depend on your instance. The simplest path is to have Supervisely generate a ready-to-use agent `values.yaml` for you. See [Install the Kubernetes agent](kubernetes-agent.md) for the full list of values, plus storage and GPU settings.
-{% endhint %}
+If you set up GPU nodes above, also enable a GPU pod preset — the generated `values.yaml` ships a commented example under `nodeManager.node.options.podsPresets` that you just uncomment. See [Install the Kubernetes agent](kubernetes-agent.md) for the full list of values and storage/GPU options.
 
-Install the chart:
+**Install.** Deploy the agent with Helm:
 
 ```bash
 helm upgrade -i supervisely-agent . \
   --namespace supervisely \
   --create-namespace \
-  -f values.yaml
+  -f /path/to/your/values.yaml
 ```
 
 ## Step 7. Verify the deployment
