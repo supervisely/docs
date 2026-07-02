@@ -98,9 +98,8 @@ kubectl -n supervisely get jobs
 
 The registration job should show `Completed`, and the logs agent pod should be `Running`. Then open your Supervisely instance — the cluster should now appear as an available compute backend, ready to run apps and tasks.
 
-## Alternative: connect from the UI
+## A worked example on the cloud
 
-If you'd rather not install a Helm chart, you can connect an existing cluster directly from the Supervisely web interface by applying a small service-account manifest and pasting the cluster details into the UI. This also works with the Supervisely SaaS/cloud instance.
+For an end-to-end walkthrough on a managed Kubernetes service, including creating the cluster, see:
 
-* [Connect a cluster from the UI](agent.md)
-* [Step-by-step example on AWS EKS](aws-eks.md)
+* [Deploy the agent on AWS EKS](aws-eks.md)

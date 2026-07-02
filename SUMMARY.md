@@ -235,7 +235,6 @@
   * [Install full Supervisely](enterprise/kubernetes/installation.md)
   * [Install the Kubernetes agent](enterprise/kubernetes/kubernetes-agent.md)
   * [Ingress](enterprise/kubernetes/ingress.md)
-  * [Connect cluster](enterprise/kubernetes/agent.md)
   * [AWS EKS](enterprise/kubernetes/aws-eks.md)
 * [Advanced Tuning](enterprise-edition/advanced-tuning/README.md)
   * [HTTPS](enterprise/https/index.md)

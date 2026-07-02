@@ -11,8 +11,7 @@ Start here:
 * [Install full Supervisely](../../enterprise/kubernetes/installation.md) — deploy the whole platform
 * [Install the Kubernetes agent](../../enterprise/kubernetes/kubernetes-agent.md) — add a cluster as compute
 * [Ingress](../../enterprise/kubernetes/ingress.md) — expose Supervisely through your ingress controller
-* [Connect a cluster from the UI](../../enterprise/kubernetes/agent.md) — the no-Helm alternative
-* [AWS EKS](../../enterprise/kubernetes/aws-eks.md) — a step-by-step example
+* [AWS EKS](../../enterprise/kubernetes/aws-eks.md) — a step-by-step example of deploying the agent on the cloud
 
 {% hint style="info" %}
 Prefer the simplest single-machine setup? The [Docker Compose installation](../../enterprise/installation/README.md) is the easier path when you don't need Kubernetes.

@@ -52,11 +52,8 @@ If you don't have a license key or you'd like the Supervisely team to pre-fill a
 * A **storage class** for persistent data (a fast SSD/CSI storage class is recommended for production)
 * [NVIDIA device plugin](https://github.com/NVIDIA/k8s-device-plugin) on GPU nodes if you plan to run GPU workloads
 
-## An alternative: connect a cluster from the UI
+## A worked example on the cloud
 
-If you only need Kubernetes as extra compute and you don't want to install a Helm chart, you can instead connect an existing cluster directly from the Supervisely web interface. You apply a small manifest that creates a service account, then paste the cluster details into Supervisely. This works even with the Supervisely SaaS/cloud instance.
+For an end-to-end walkthrough on a managed Kubernetes service — creating the cluster and deploying the agent — see:
 
-* [Connect a cluster from the UI](agent.md)
-* [Step-by-step example on AWS EKS](aws-eks.md)
-
-The Helm **Kubernetes agent** mode and the UI **Connect cluster** flow achieve the same goal (running apps on your cluster) — pick whichever fits your setup.
+* [Deploy the agent on AWS EKS](aws-eks.md)
