@@ -1,6 +1,10 @@
 # Connect cluster
 
-Follow these steps to connect Kubernetes cluster with Supervisely to run Apps on it.
+Follow these steps to connect Kubernetes cluster with Supervisely to run Apps on it. This page describes the **UI-based** flow: you apply a small manifest and paste the cluster details into the Supervisely web interface. It works with any Supervisely instance, including the SaaS/cloud one.
+
+{% hint style="info" %}
+If you self-host Supervisely and prefer to manage everything with Helm, you can instead install the [Kubernetes agent](kubernetes-agent.md) chart, which registers the cluster for you. Both approaches achieve the same result.
+{% endhint %}
 
 {% hint style="warning" %}
 **BETA** Keep in mind that this is a beta version and some features may not work as expected.
