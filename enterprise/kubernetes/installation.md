@@ -22,24 +22,21 @@ Make sure you have:
 
 ## Step 1: Download the chart
 
-Download and unpack the chart from the Supervisely config service (replace `<YOUR_LICENSE>` with your license key):
+Use the **Supervisely CLI** to fetch the chart for your license (the same `supervisely` command from the standard [installation](../installation/README.md); if you don't have it yet, see that page and set your license with `supervisely set-license <YOUR_LICENSE>`):
 
 ```bash
-curl -X POST \
-  -H "Content-Type: application/json" \
-  -d '{"license": "<YOUR_LICENSE>"}' \
-  -fL -o supervisely-helm-chart.tar \
-  "https://config.enterprise.supervisely.com/init?configType=helm"
+# latest version
+supervisely k8s fetch-chart
 
-mkdir supervisely-chart && tar -xf supervisely-helm-chart.tar -C supervisely-chart
-cd supervisely-chart
+# or a specific Supervisely version
+supervisely k8s fetch-chart --version 6.12.3
 ```
 
-The bundle contains `Chart.yaml`, a documented `values.yaml`, a `README.md`, and the `templates/` directory. The image registry is already configured for your version, so you don't need to set it up yourself.
+This downloads and unpacks the chart into `supervisely-k8s/chart/` and prints the exact paths. The bundle contains `Chart.yaml`, a documented `values.yaml`, a `README.md`, and the `templates/` directory. The image registry is already configured for your version, so you don't need to set it up yourself.
 
 ## Step 2: Configure your values
 
-Open `values.yaml` and set the handful of values that describe **your** environment. Everything else has sensible defaults.
+Open the `values.yaml` that the CLI reported in Step 1 and set the handful of values that describe **your** environment. Everything else has sensible defaults.
 
 ```yaml
 # Which mode to install. "full" installs the whole platform.
@@ -91,25 +88,25 @@ If your cluster has GPU nodes with the NVIDIA device plugin installed, enable GP
 
 ## Step 3: Install the chart
 
-Install (or upgrade) the release with Helm:
+Install the release with the CLI:
 
 ```bash
-helm upgrade -i supervisely . \
-  --namespace supervisely \
-  --create-namespace \
-  --set ingress.controller=nginx \
-  -f values.yaml
+supervisely k8s install
 ```
 
-* `upgrade -i` installs the chart the first time and upgrades it on every later run — use the same command to update.
-* `--create-namespace` creates the `supervisely` namespace if it doesn't exist.
+`k8s install` fetches the chart if needed and runs `helm upgrade -i` for you, using the `values.yaml` from Step 1 and the release/namespace `supervisely` (both overridable — run `supervisely k8s --help`, or use the `SUPERVISELY_K8S_*` environment variables). The same command installs the first time and upgrades on later runs.
 
 {% hint style="info" %}
-Want to review the generated manifests before applying anything? Render them without installing:
+Prefer to drive Helm yourself? Run it directly against the fetched chart:
 
 ```bash
-helm template supervisely . --namespace supervisely --set ingress.controller=nginx -f values.yaml
+helm upgrade -i supervisely supervisely-k8s/chart \
+  --namespace supervisely \
+  --create-namespace \
+  -f supervisely-k8s/chart/values.yaml
 ```
+
+To review the generated manifests before applying anything, swap `upgrade -i` for `template`.
 {% endhint %}
 
 ## Step 4: Wait for the platform to come up
@@ -141,17 +138,24 @@ After the instance is up, follow the [Post-installation](../post-installation/RE
 
 ## Updating and uninstalling
 
-**Update** to a new version: download a fresh chart (Step 1), copy over your `values.yaml`, and re-run the same `helm upgrade -i` command. See also [Upgrade](../update/upgrade.md).
+**Update** to a new version — fetch the newer chart and re-run install (your edited `values.yaml` is preserved):
+
+```bash
+supervisely k8s fetch-chart --version 6.13.0   # or omit --version for latest
+supervisely k8s upgrade
+```
+
+See also [Upgrade](../update/upgrade.md).
 
 **Uninstall** the release (this removes the workloads; persistent volumes may remain depending on your storage class reclaim policy):
 
 ```bash
-helm uninstall supervisely --namespace supervisely
+supervisely k8s uninstall
 ```
 
 ## Troubleshooting
 
 * **Pods stuck in `Pending`** — usually no node can satisfy the CPU/memory request or no volume can be provisioned. Check `kubectl -n supervisely describe pod <name>` and confirm your storage class works.
-* **Bootstrap or migration job fails** — inspect its logs with `kubectl -n supervisely logs job/<job-name>`. Re-running `helm upgrade -i` re-runs the jobs.
+* **Bootstrap or migration job fails** — inspect its logs with `kubectl -n supervisely logs job/<job-name>`. Re-running `supervisely k8s upgrade` re-runs the jobs.
 * **Site not reachable** — confirm the ingress controller is installed, `kubectl -n supervisely get ingress` shows an address, and DNS for `ingress.host` resolves to it. See [Ingress](ingress.md).
 * **Images can't be pulled** — nodes need outbound access to the Supervisely registry. The chart configures the pull secret automatically; verify with `kubectl -n supervisely get secrets`.

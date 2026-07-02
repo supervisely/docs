@@ -1,8 +1,8 @@
 # AWS EKS
 
-A step-by-step example of deploying the Supervisely **Kubernetes agent** on an Amazon EKS cluster using the Helm chart. At the end, your EKS cluster is connected to an existing Supervisely instance as a compute backend that runs apps and tasks.
+A from-scratch tutorial for building an **Amazon EKS** Kubernetes cluster that's ready to run Supervisely. It covers creating the cluster, storage, ingress, and (optionally) GPU nodes. When the cluster is ready, you deploy Supervisely on it with the Helm chart — either the [full platform](installation.md) or the [Kubernetes agent](kubernetes-agent.md).
 
-This page focuses on the EKS-specific parts (creating the cluster, AWS access, networking). For the agent chart itself and all its values, see [Install the Kubernetes agent](kubernetes-agent.md).
+If you already have a Kubernetes cluster, you can skip this page and go straight to those install guides.
 
 The example uses this configuration:
 
@@ -13,35 +13,16 @@ The example uses this configuration:
 - Public worker nodes
 - NAT gateway disabled to reduce baseline cost
 
-This is suitable for testing and initial integration. For production, review networking, ingress, DNS, TLS, node sizing, scaling, monitoring, and security requirements.
+This is fine for testing and initial integration. For production, review node sizing, scaling, private networking, DNS, TLS, monitoring, and security.
 
-**What you'll do:** install a few CLI tools → create an EKS cluster → install the Supervisely agent with Helm → see the cluster appear in Supervisely. If you want GPU tasks, there's a short optional section for that too.
+**What you'll build:** install CLI tools → create an EKS cluster → add a storage class → install an ingress controller → (optionally) add GPU nodes → deploy Supervisely.
 
 ## Prerequisites
 
-- AWS account that is allowed to launch EC2 instances
-- Kubernetes 1.21 or above
+- An AWS account allowed to launch EC2 instances
 - AWS permissions for EKS, IAM, CloudFormation, EC2, VPC, Auto Scaling, and public SSM parameters
 - `aws`, `kubectl`, `eksctl`, and `helm` (v3) installed locally
-- An existing, reachable Supervisely instance and your license key
-- An agent `values.yaml` for your instance (Supervisely can generate one for you — see [Step 6](#step-6-install-the-kubernetes-agent))
-- A Bash or another POSIX-compatible shell with AWS credentials configured
-
-### Network requirements
-
-- The Supervisely instance address must be reachable **from** the EKS cluster (the agent connects to it and streams task logs to it).
-- If you want to open GUI apps in the browser, the ingress address must resolve to the ingress controller or load balancer that serves app traffic.
-
-## How it works
-
-The EKS cluster provides the Kubernetes control plane and worker nodes. The Supervisely **Kubernetes agent** Helm chart (`mode: kubernetes-agent`) installs only the pieces needed to run tasks on the cluster:
-
-- A task namespace (with a network policy) where app/task pods run
-- RBAC and a service account so Supervisely can manage task pods
-- A one-time registration job that adds the cluster to your Supervisely instance as a compute node
-- A logs agent that streams task logs back to the instance
-
-Once the chart is installed, the cluster shows up in your Supervisely instance as an available compute backend.
+- AWS credentials configured in your shell
 
 ## Step 1. Verify required tools
 
@@ -79,44 +60,49 @@ Important: successful AWS authentication is not enough on its own. The AWS accou
 
 ## Step 3. Create the EKS cluster
 
-Save the following configuration as `eksctl-supervisely-cluster.yaml`:
+Save the following as `eksctl-supervisely-cluster.yaml`. It creates the cluster, a node group, and the **EBS CSI driver** add-on (needed for persistent storage in Step 5):
 
 ```yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-    name: supervisely-eks
-    region: us-east-1
-    version: "1.35"
+  name: supervisely-eks
+  region: us-east-1
+  version: "1.35"
 
 autoModeConfig:
-    enabled: false
+  enabled: false
 
 accessConfig:
-    authenticationMode: API_AND_CONFIG_MAP
+  authenticationMode: API_AND_CONFIG_MAP
 
 iam:
-    withOIDC: true
+  withOIDC: true
+
+addons:
+  - name: aws-ebs-csi-driver
+    wellKnownPolicies:
+      ebsCSIController: true
 
 vpc:
-    nat:
-        gateway: Disable
-    clusterEndpoints:
-        publicAccess: true
-        privateAccess: false
+  nat:
+    gateway: Disable
+  clusterEndpoints:
+    publicAccess: true
+    privateAccess: false
 
 managedNodeGroups:
-    - name: general
-        instanceType: t3.large
-        amiFamily: AmazonLinux2023
-        desiredCapacity: 1
-        minSize: 1
-        maxSize: 2
-        volumeType: gp3
-        volumeSize: 30
-        privateNetworking: false
-        disableIMDSv1: true
+  - name: general
+    instanceType: t3.large
+    amiFamily: AmazonLinux2023
+    desiredCapacity: 1
+    minSize: 1
+    maxSize: 2
+    volumeType: gp3
+    volumeSize: 30
+    privateNetworking: false
+    disableIMDSv1: true
 ```
 
 {% hint style="info" %}
@@ -131,17 +117,9 @@ eksctl create cluster -f ./eksctl-supervisely-cluster.yaml
 
 Expected duration: 15 to 30 minutes.
 
-This command creates:
-
-- The EKS control plane
-- VPC networking for the cluster
-- IAM resources required by EKS
-- One managed node group
-- A local kubeconfig entry for the cluster
+This creates the EKS control plane, VPC networking, the IAM resources EKS needs, one managed node group, the EBS CSI driver add-on, and a local kubeconfig entry.
 
 ## Step 4. Verify cluster access
-
-After cluster creation completes, run:
 
 ```bash
 kubectl get nodes
@@ -155,31 +133,81 @@ Expected result:
 
 Immediately after control plane creation, `kubectl get nodes` may temporarily return `No resources found` while the node group is still provisioning. Wait a few minutes and retry.
 
+## Step 5. Set up a storage class
+
+Supervisely stores data on persistent volumes, so the cluster needs a storage class that provisions them. Create a `gp3` class backed by the EBS CSI driver, make it the default, and use `Retain` so volumes aren't deleted by accident.
+
+Save this as `gp3-storageclass.yaml`:
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: gp3
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+provisioner: ebs.csi.aws.com
+parameters:
+  type: gp3
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
+reclaimPolicy: Retain
+```
+
+Apply it and make sure it's the only default class (EKS ships a default `gp2` class — unset it):
+
+```bash
+kubectl apply -f gp3-storageclass.yaml
+kubectl patch storageclass gp2 -p '{"metadata":{"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
+kubectl get storageclass
+```
+
+`gp3` should be marked `(default)`.
+
+## Step 6. Install an ingress controller
+
+An ingress controller exposes Supervisely (and browser-based apps) outside the cluster. This example uses [ingress-nginx](https://kubernetes.github.io/ingress-nginx/), which provisions an AWS load balancer on EKS:
+
+```bash
+helm upgrade -i ingress-nginx ingress-nginx \
+  --repo https://kubernetes.github.io/ingress-nginx \
+  --namespace ingress-nginx --create-namespace
+```
+
+Find the external address of the load balancer (you'll point your domain at it later):
+
+```bash
+kubectl -n ingress-nginx get service ingress-nginx-controller
+```
+
+{% hint style="info" %}
+An ingress controller is required for the full platform's web UI, and for opening GUI apps in the browser when using the agent. If you only run non-GUI agent workloads, you can skip this step. See [Ingress](ingress.md) for other controllers and TLS.
+{% endhint %}
+
 ## GPU nodes (optional)
 
-Most people add a Kubernetes cluster so Supervisely can run **GPU** tasks (model training and inference). To do that, create the cluster in Step 3 with a GPU node group instead of `t3.large` — use the `managedNodeGroups` block below (for example, a `g4dn.xlarge` instance):
+Most people add a Kubernetes cluster so Supervisely can run **GPU** tasks. To do that, create the cluster in Step 3 with a GPU node group instead of `t3.large` — use this `managedNodeGroups` block (for example, a `g4dn.xlarge` instance):
 
 ```yaml
 managedNodeGroups:
-    - name: gpu
-        instanceType: g4dn.xlarge
-        amiFamily: AmazonLinux2023
-        desiredCapacity: 1
-        minSize: 1
-        maxSize: 2
-        volumeType: gp3
-        volumeSize: 100
-        privateNetworking: false
-        disableIMDSv1: true
+  - name: gpu
+    instanceType: g4dn.xlarge
+    amiFamily: AmazonLinux2023
+    desiredCapacity: 1
+    minSize: 1
+    maxSize: 2
+    volumeType: gp3
+    volumeSize: 100
+    privateNetworking: false
+    disableIMDSv1: true
 ```
 
-After the cluster is up, install the [NVIDIA device plugin](https://github.com/NVIDIA/k8s-device-plugin) so Kubernetes can schedule GPUs (follow the plugin's install instructions for the current version):
+After the cluster is up, install the [NVIDIA device plugin](https://github.com/NVIDIA/k8s-device-plugin) so Kubernetes can schedule GPUs (follow the plugin's instructions for the current version):
 
 ```bash
-kubectl create namespace nvidia-device-plugin
-helm repo add nvdp https://nvidia.github.io/k8s-device-plugin
-helm repo update
-helm upgrade -i nvdp nvdp/nvidia-device-plugin --namespace nvidia-device-plugin
+helm upgrade -i nvdp nvidia-device-plugin \
+  --repo https://nvidia.github.io/k8s-device-plugin \
+  --namespace nvidia-device-plugin --create-namespace
 ```
 
 Confirm the nodes now report GPUs:
@@ -188,78 +216,18 @@ Confirm the nodes now report GPUs:
 kubectl get nodes -o custom-columns=NAME:.metadata.name,'GPU:.status.allocatable.nvidia\.com/gpu'
 ```
 
-You'll turn on GPU in the agent's values in [Step 6](#step-6-install-the-kubernetes-agent).
+You then enable GPU pod presets in the Supervisely values file — see [Install full Supervisely](installation.md#gpu-workloads) or [Install the Kubernetes agent](kubernetes-agent.md).
 
 If you don't need GPU, skip this section and keep the `t3.large` node group.
 
-## Step 5. Install an ingress controller (optional)
+## Step 7. Deploy Supervisely
 
-If you want to run GUI apps in the browser, install an ingress controller in the cluster (for example, [ingress-nginx](https://kubernetes.github.io/ingress-nginx/deploy/#quick-start)). On EKS this typically provisions an AWS load balancer. Note its external address — you'll point app traffic at it. See [Ingress](ingress.md).
+The cluster is ready. Now install Supervisely on it with the Helm chart. Pick the mode that fits your case:
 
-If you only run non-GUI workloads, you can skip this step.
+* **Run the whole platform on this cluster** → [Install full Supervisely](installation.md). Use the ingress host from Step 6 and the `gp3` storage class from Step 5.
+* **Connect this cluster as extra compute for an existing instance** → [Install the Kubernetes agent](kubernetes-agent.md).
 
-## Step 6. Install the Kubernetes agent
-
-**Download the chart.** Get the Helm chart for your license and unpack it (replace `<YOUR_LICENSE>`):
-
-```bash
-curl -X POST \
-  -H "Content-Type: application/json" \
-  -d '{"license": "<YOUR_LICENSE>"}' \
-  -fL -o supervisely-helm-chart.tar \
-  "https://config.enterprise.supervisely.com/init?configType=helm"
-
-mkdir supervisely-agent && tar -xf supervisely-helm-chart.tar -C supervisely-agent
-cd supervisely-agent
-```
-
-**Prepare your values.** The agent needs your Supervisely instance address and an agent token. The simplest and most reliable way is to get a ready-made `values.yaml` from Supervisely (via the config portal or support) — it comes pre-filled for your instance, so you don't have to look anything up.
-
-The file looks like this:
-
-```yaml
-mode: kubernetes-agent
-
-options:
-  serverAddress: https://your-instance-address.com
-
-services:
-  logsAggregator:
-    taskExecution:
-      apiUrl: https://your-instance-address.com
-      token:
-        value: "<TASK_EXECUTION_TOKEN>"
-```
-
-If you set up GPU nodes above, also enable a GPU pod preset — the generated `values.yaml` ships a commented example under `nodeManager.node.options.podsPresets` that you just uncomment. See [Install the Kubernetes agent](kubernetes-agent.md) for the full list of values and storage/GPU options.
-
-**Install.** Deploy the agent with Helm:
-
-```bash
-helm upgrade -i supervisely-agent . \
-  --namespace supervisely \
-  --create-namespace \
-  -f /path/to/your/values.yaml
-```
-
-## Step 7. Verify the deployment
-
-Check that the agent pods and the registration job are healthy:
-
-```bash
-kubectl -n supervisely get pods
-kubectl -n supervisely get jobs
-```
-
-The registration job should show `Completed`, and the logs agent pod should be `Running`.
-
-Then open your Supervisely instance: the EKS cluster should now appear as an available compute backend. Launch a simple workload and confirm that Kubernetes resources are created in the `supervisely` namespace:
-
-```bash
-kubectl -n supervisely get pods
-```
-
-If ingress is configured, launch a GUI app and confirm it opens in the browser.
+Both start by fetching the chart with `supervisely k8s fetch-chart` and installing it with `supervisely k8s install`.
 
 ## Cleanup
 
@@ -269,7 +237,7 @@ Delete the cluster when it is no longer needed:
 eksctl delete cluster --name supervisely-eks --region us-east-1
 ```
 
-The example configuration creates billable AWS resources. Remove the cluster after testing to avoid unnecessary charges.
+The example creates billable AWS resources. Remove the cluster after testing to avoid unnecessary charges. Note: with the `Retain` reclaim policy, EBS volumes created for Supervisely are **not** deleted automatically — remove any leftover volumes in the EC2 console if you no longer need the data.
 
 ## Troubleshooting
 
@@ -279,21 +247,15 @@ The AWS credentials are missing or invalid. Reconfigure AWS access and retry.
 
 ### `RunInstances` returns `Blocked`
 
-This is an AWS account-level restriction. The IAM user may be valid, but the account is not currently allowed to launch EC2 instances. Resolve it with the AWS account owner or AWS Support before retrying EKS creation.
+An AWS account-level restriction. The IAM user may be valid, but the account is not currently allowed to launch EC2 instances. Resolve it with the AWS account owner or AWS Support before retrying.
 
 ### Managed node group stays in `CREATING`
 
-If the control plane is healthy but worker nodes do not appear, inspect:
-
-- EKS node group status
-- Auto Scaling activities
-- CloudFormation events for the node group stack
-
-Common causes include EC2 quota limits, blocked EC2 instance launches, or account verification restrictions.
+If the control plane is healthy but worker nodes do not appear, inspect the EKS node group status, Auto Scaling activities, and CloudFormation events for the node group stack. Common causes: EC2 quota limits, blocked EC2 launches, or account verification restrictions.
 
 ### `kubectl get nodes` returns `No resources found`
 
-The control plane may be ready while the node group is still provisioning. Wait a few minutes and run the command again.
+The control plane may be ready while the node group is still provisioning. Wait a few minutes and retry.
 
 ### `kubectl get nodes` fails after cluster creation
 
@@ -304,25 +266,14 @@ aws eks update-kubeconfig --region us-east-1 --name supervisely-eks
 kubectl get nodes
 ```
 
-### The Supervisely instance is not reachable from the cluster
+### PersistentVolumeClaims stay `Pending`
 
-The agent must be able to reach your Supervisely instance URL. Check DNS resolution, routing, proxies, firewalls, and security groups. If the instance uses a private-only address, add a network path from the EKS VPC to it.
+Usually the storage class or the EBS CSI driver isn't ready. Confirm the `gp3` class exists and is default (Step 5), and that the driver is running: `kubectl -n kube-system get pods | grep ebs-csi`.
 
-### The registration job fails
+### The load balancer has no external address
 
-Inspect its logs:
+On EKS the ingress controller's load balancer can take a couple of minutes to get an address. Re-run `kubectl -n ingress-nginx get service ingress-nginx-controller`. If it never appears, check the controller pod logs and your subnet/role configuration.
 
-```bash
-kubectl -n supervisely get jobs
-kubectl -n supervisely logs job/<registration-job-name>
-```
+### GPU nodes don't report GPUs
 
-Most failures come from an unreachable instance address or incorrect agent connection values. Fix the values and re-run `helm upgrade -i`.
-
-### Images cannot be pulled in the cluster
-
-Worker nodes need outbound internet access to pull Supervisely images. The chart configures the pull secret, but the example uses public worker nodes for egress. If you move to private worker nodes, add the required egress (NAT/endpoints) before deploying workloads.
-
-### GUI apps do not open
-
-Confirm an ingress controller is installed, its external address is reachable, and DNS resolves to it. See [Ingress](ingress.md).
+Confirm you used a GPU instance type and that the NVIDIA device plugin pods are `Running` (`kubectl -n nvidia-device-plugin get pods`).

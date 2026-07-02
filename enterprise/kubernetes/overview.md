@@ -22,27 +22,25 @@ Both modes come from the **same chart** — you don't download anything differen
 
 ## How you get the chart
 
-The chart is generated specifically for your license and Supervisely version. You download it from the Supervisely enterprise config service:
-
-**[config.enterprise.supervisely.com](https://config.enterprise.supervisely.com)**
-
-This is the same service that serves the Docker Compose configuration and the `supervisely` CLI. When you request the chart, you get a ready-to-use bundle: `Chart.yaml`, a documented `values.yaml`, and all templates — already pointed at the correct image registry for your version.
-
-You can download it with a single command (replace `<YOUR_LICENSE>` with your license key):
-
-```bash
-curl -X POST \
-  -H "Content-Type: application/json" \
-  -d '{"license": "<YOUR_LICENSE>"}' \
-  -fL -o supervisely-helm-chart.tar \
-  "https://config.enterprise.supervisely.com/init?configType=helm"
-
-mkdir supervisely-chart && tar -xf supervisely-helm-chart.tar -C supervisely-chart
-```
+You download the chart with the **Supervisely CLI** — the same `supervisely` command used for the standard [installation](../installation/README.md). The CLI fetches a chart built for your license and version, so it always matches your entitlements and points at the correct image registry.
 
 {% hint style="info" %}
-If you don't have a license key or you'd like the Supervisely team to pre-fill a `values.yaml` for your environment, just reach out to Supervisely support and we'll generate the chart for you.
+Don't have the CLI yet? Supervisely provides a `supervisely` installation command together with your license — see [Installation](../installation/README.md). Once it's installed and your license is set (`supervisely set-license <YOUR_LICENSE>`), the commands below work.
 {% endhint %}
+
+Fetch the chart:
+
+```bash
+# latest version
+supervisely k8s fetch-chart
+
+# a specific Supervisely version
+supervisely k8s fetch-chart --version 6.12.3
+```
+
+This downloads and unpacks the chart into `supervisely-k8s/chart/` (change the location with `--output`). The bundle is a ready-to-use Helm chart: `Chart.yaml`, a documented `values.yaml`, a `README.md`, and the `templates/`. The CLI prints the exact paths when it finishes.
+
+Later, `supervisely k8s install` / `upgrade` / `uninstall` drive the deploy for you (they wrap `helm upgrade -i` / `helm uninstall`). You can always run `helm` directly against the fetched chart if you prefer.
 
 ## Prerequisites
 
@@ -52,8 +50,8 @@ If you don't have a license key or you'd like the Supervisely team to pre-fill a
 * A **storage class** for persistent data (a fast SSD/CSI storage class is recommended for production)
 * [NVIDIA device plugin](https://github.com/NVIDIA/k8s-device-plugin) on GPU nodes if you plan to run GPU workloads
 
-## A worked example on the cloud
+## No cluster yet?
 
-For an end-to-end walkthrough on a managed Kubernetes service — creating the cluster and deploying the agent — see:
+If you don't have a Kubernetes cluster, there's a from-scratch tutorial for building one on a managed cloud service (cluster, storage, ingress, optional GPU), ready to deploy either mode onto:
 
-* [Deploy the agent on AWS EKS](aws-eks.md)
+* [Build a cluster on AWS EKS](aws-eks.md)

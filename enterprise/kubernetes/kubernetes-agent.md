@@ -28,21 +28,20 @@ Once installed, the cluster shows up as an available compute backend in your Sup
 
 ## Step 1: Download the chart
 
-The chart is the same one used for the full install — you just select agent mode in the values. Download and unpack it:
+The chart is the same one used for the full install — you just select agent mode in the values. Fetch it with the **Supervisely CLI** (the same `supervisely` command from the standard [installation](../installation/README.md); set your license first with `supervisely set-license <YOUR_LICENSE>` if needed):
 
 ```bash
-curl -X POST \
-  -H "Content-Type: application/json" \
-  -d '{"license": "<YOUR_LICENSE>"}' \
-  -fL -o supervisely-helm-chart.tar \
-  "https://config.enterprise.supervisely.com/init?configType=helm"
+# latest version
+supervisely k8s fetch-chart
 
-mkdir supervisely-agent && tar -xf supervisely-helm-chart.tar -C supervisely-agent
-cd supervisely-agent
+# or a specific Supervisely version
+supervisely k8s fetch-chart --version 6.12.3
 ```
 
+The CLI downloads and unpacks the chart into `supervisely-k8s/chart/` and prints the paths.
+
 {% hint style="info" %}
-Agent mode needs to be pointed at your existing instance, and the exact connection values depend on your setup. The easiest path is to ask Supervisely support (or use the config portal) to generate a ready-to-use agent `values.yaml` for your instance — then you only adjust storage and GPU settings below.
+Agent mode needs to be pointed at your existing instance, and the exact connection values depend on your setup. The easiest path is to ask Supervisely support to generate a ready-to-use agent `values.yaml` for your instance — then you only adjust storage and GPU settings below.
 {% endhint %}
 
 ## Step 2: Configure your values
@@ -81,11 +80,10 @@ Agent mode requires the instance connection details (`serverAddress`, the logs `
 ## Step 3: Install the chart
 
 ```bash
-helm upgrade -i supervisely-agent . \
-  --namespace supervisely \
-  --create-namespace \
-  -f values.yaml
+supervisely k8s install
 ```
+
+This fetches the chart if needed and runs `helm upgrade -i` using your `values.yaml`, into the `supervisely` namespace. (You can also run `helm upgrade -i` directly against `supervisely-k8s/chart` if you prefer.)
 
 ## Step 4: Verify
 
@@ -98,8 +96,8 @@ kubectl -n supervisely get jobs
 
 The registration job should show `Completed`, and the logs agent pod should be `Running`. Then open your Supervisely instance — the cluster should now appear as an available compute backend, ready to run apps and tasks.
 
-## A worked example on the cloud
+## No cluster yet?
 
-For an end-to-end walkthrough on a managed Kubernetes service, including creating the cluster, see:
+If you need to create a cluster first, there's a from-scratch tutorial for building one on AWS (cluster, storage, ingress, optional GPU nodes):
 
-* [Deploy the agent on AWS EKS](aws-eks.md)
+* [Build a cluster on AWS EKS](aws-eks.md)
