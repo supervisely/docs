@@ -200,18 +200,17 @@ Most people add a Kubernetes cluster so Supervisely can run **GPU** tasks. To do
 ```yaml
 managedNodeGroups:
   - name: gpu
+    amiFamily: Bottlerocket
     instanceType: g4dn.xlarge
-    amiFamily: AmazonLinux2023
     desiredCapacity: 1
     minSize: 1
     maxSize: 2
     volumeType: gp3
     volumeSize: 100
     privateNetworking: false
-    disableIMDSv1: true
 ```
 
-You don't need to install GPU drivers or the device plugin yourself. When you use a GPU instance type, `eksctl` selects the GPU-optimized EKS AMI and installs the [NVIDIA device plugin](https://github.com/NVIDIA/k8s-device-plugin) automatically, so GPUs are advertised to Kubernetes as the `nvidia.com/gpu` resource. (The EKS Bottlerocket accelerated AMI ships the plugin pre-installed, too.)
+This uses the EKS **Bottlerocket accelerated AMI** (`amiFamily: Bottlerocket`), which ships the NVIDIA driver and device plugin **pre-installed** — so GPUs are exposed to Kubernetes as the `nvidia.com/gpu` resource with zero extra setup. (If you'd rather use the Amazon Linux 2023 GPU AMI, `eksctl` installs the [NVIDIA device plugin](https://github.com/NVIDIA/k8s-device-plugin) for you automatically — same result.)
 
 Once the GPU nodes are up, confirm they report GPUs:
 
@@ -279,4 +278,4 @@ On EKS the ingress controller's load balancer can take a couple of minutes to ge
 
 ### GPU nodes don't report GPUs
 
-Confirm you used a GPU instance type. `eksctl` installs the NVIDIA device plugin automatically — check its pods are `Running` with `kubectl get pods -A | grep nvidia-device-plugin`. If they aren't, the node group may not be using a GPU-optimized AMI.
+Confirm you used a GPU instance type and a GPU-capable AMI. With **Bottlerocket** the driver and plugin run on the node itself. With the **AL2023** GPU AMI, `eksctl` installs the device plugin — check its pods with `kubectl get pods -A | grep nvidia-device-plugin`.
