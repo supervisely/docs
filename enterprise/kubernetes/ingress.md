@@ -75,16 +75,20 @@ ingress:
 
 ### Gateway API
 
+[Gateway API](https://gateway-api.sigs.k8s.io/) is the official successor to the Ingress API and the direction the ecosystem is moving in. Note that it's a **specification**, not a controller — you run an implementation of it (Traefik, Envoy Gateway, Istio, NGINX Gateway Fabric, the AWS Load Balancer Controller, and others all support it). Install the Gateway API CRDs and an implementation, create a `Gateway`, then point the chart at it:
+
 ```yaml
 ingress:
   controller: gateway
   host: supervisely.mycompany.com
   options:
-    gateway: my-gateway
+    gateway: my-gateway            # name of your existing Gateway
     gatewayNamespace: default
     sectionName: https
     port: 443
 ```
+
+The chart generates `HTTPRoute`s that attach to the `Gateway` you reference — it does not install the CRDs, the implementation, or the `Gateway` itself.
 
 ### Contour
 

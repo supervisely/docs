@@ -190,7 +190,7 @@ kubectl -n traefik get service traefik
 {% hint style="info" %}
 An ingress controller is required for the full platform's web UI, and for opening GUI apps in the browser when using the agent. If you only run non-GUI agent workloads, you can skip this step.
 
-Avoid the upstream **ingress-nginx** controller for new clusters — the Kubernetes project is [retiring it](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/) (end of maintenance ~March 2026). Prefer Traefik (the chart default) or the Gateway API. The chart also supports nginx, projectcontour, gateway, and istio — see [Ingress](ingress.md).
+This example uses **Traefik** because it's the chart default and a single install. The [Gateway API](https://gateway-api.sigs.k8s.io/) is the strategic successor to Ingress — the chart supports it via `controller: gateway` (it needs a few more steps: CRDs + an implementation + a `Gateway`). Traefik also speaks Gateway API, so starting here isn't a dead end. Avoid the upstream **ingress-nginx** controller for new clusters — the Kubernetes project is [retiring it](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/) (end of maintenance ~March 2026). See [Ingress](ingress.md) for all options.
 {% endhint %}
 
 ## GPU nodes (optional)
