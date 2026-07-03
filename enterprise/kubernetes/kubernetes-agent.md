@@ -38,7 +38,7 @@ supervisely k8s fetch-chart
 supervisely k8s fetch-chart --version 6.12.3
 ```
 
-The CLI downloads and unpacks the chart into `supervisely-k8s/chart/` and prints the paths.
+The CLI downloads and unpacks the chart into `~/.supervisely/k8s/chart/` and prints the paths.
 
 {% hint style="info" %}
 Agent mode needs to be pointed at your existing instance, and the exact connection values depend on your setup. The easiest path is to ask Supervisely support to generate a ready-to-use agent `values.yaml` for your instance — then you only adjust storage and GPU settings below.
@@ -83,7 +83,7 @@ Agent mode requires the instance connection details (`serverAddress`, the logs `
 supervisely k8s install
 ```
 
-This fetches the chart if needed and runs `helm upgrade -i` using your `values.yaml`, into the `supervisely` namespace. (You can also run `helm upgrade -i` directly against `supervisely-k8s/chart` if you prefer.)
+This fetches the chart if needed and runs `helm upgrade -i` using your `values.yaml`, into the `supervisely` namespace. (You can also run helm yourself — see the note in [Install full Supervisely](installation.md#step-3-install-the-chart) about layering the ingress values file.)
 
 ## Step 4: Verify
 

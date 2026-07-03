@@ -38,7 +38,7 @@ supervisely k8s fetch-chart
 supervisely k8s fetch-chart --version 6.12.3
 ```
 
-This downloads and unpacks the chart into `supervisely-k8s/chart/` (change the location with `--output`). The bundle is a ready-to-use Helm chart: `Chart.yaml`, a documented `values.yaml`, a `README.md`, and the `templates/`. The CLI prints the exact paths when it finishes.
+This downloads and unpacks the chart into `~/.supervisely/k8s/chart/` (change the location with `--chart-dir`). The bundle is a ready-to-use Helm chart: `Chart.yaml`, a documented `values.yaml`, a `README.md`, and the `templates/`. The CLI prints the exact paths when it finishes.
 
 Later, `supervisely k8s install` / `upgrade` / `uninstall` drive the deploy for you (they wrap `helm upgrade -i` / `helm uninstall`). You can always run `helm` directly against the fetched chart if you prefer.
 
