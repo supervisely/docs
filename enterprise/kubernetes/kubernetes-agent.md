@@ -83,7 +83,7 @@ Agent mode requires the instance connection details (`serverAddress`, the logs `
 supervisely k8s install
 ```
 
-This fetches the chart if needed and runs `helm upgrade -i` using your `values.yaml`, into the `supervisely` namespace. (You can also run helm yourself — see the note in [Install full Supervisely](installation.md#step-3-install-the-chart) about layering the ingress values file.)
+This fetches the chart if needed and runs `helm upgrade -i` using your `values.yaml`, into the `supervisely` namespace. (You can also run `helm upgrade -i` directly against `~/.supervisely/k8s/chart` if you prefer.)
 
 ## Step 4: Verify
 

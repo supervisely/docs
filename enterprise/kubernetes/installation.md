@@ -97,18 +97,16 @@ supervisely k8s install
 `k8s install` fetches the chart if needed and runs `helm upgrade -i` for you, using the `values.yaml` from Step 1 and the release/namespace `supervisely` (both overridable — run `supervisely k8s --help`, or use the `SUPERVISELY_K8S_*` environment variables). The same command installs the first time and upgrades on later runs.
 
 {% hint style="info" %}
-Prefer to drive Helm yourself? The chart needs the controller-specific ingress values layered **before** your own values (the CLI does this for you). For example, with Traefik:
+Prefer to drive Helm yourself? Run it directly against the fetched chart:
 
 ```bash
-CHART=~/.supervisely/k8s/chart
-helm upgrade -i supervisely "$CHART" \
+helm upgrade -i supervisely ~/.supervisely/k8s/chart \
   --namespace supervisely \
   --create-namespace \
-  -f "$CHART/values/ingress/traefik.yaml" \
   -f ~/.supervisely/k8s/values.yaml
 ```
 
-Swap `traefik.yaml` for your controller (`nginx.yaml`, `gateway.yaml`, `istio.yaml`, `projectcontour.yaml`). To review the manifests first, swap `upgrade -i` for `template`.
+To review the generated manifests before applying anything, swap `upgrade -i` for `template`.
 {% endhint %}
 
 ## Step 4: Wait for the platform to come up
