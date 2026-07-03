@@ -1,9 +1,10 @@
 # Scalability Tuning
 
-This guide provides instructions on how to tune your Supervisely installation for better performance and scalability. It covers two main aspects:
+This guide provides instructions on how to tune your Supervisely installation for better performance and scalability. It covers three main aspects:
 
 1. Increasing the number of replicas for key services
-2. Tuning the PostgreSQL database for better performance
+2. Increasing API database query timeouts for large projects or heavy requests
+3. Tuning the PostgreSQL database for better performance
 
 ## Increasing Service Replicas
 
@@ -46,6 +47,65 @@ sudo supervisely up -d
 This configuration will start 3 replicas each of the `api` and `api-public` services, which will improve the stability and performance of the Supervisely platform.
 
 `POSTGRES_POOL_MAX` is the maximum number of connections to the PostgreSQL database that each service can use. You can adjust this value based on your server's available resources.
+
+## Increasing API Database Query Timeouts
+
+Some API requests may run long database queries, especially on large projects with many images, annotations, objects, or figures. If the query reaches the configured timeout before PostgreSQL returns a result, the client may receive a retry or internal server error.
+
+From a Python application or SDK call, the error can look similar to:
+
+```text
+Retry limit exceeded ('<your-server-address>/public/api/v3/projects.stats')
+```
+
+or:
+
+```text
+500 Server Error: Internal Server Error for url: <your-server-address>/public/api/v3/projects.stats ({"error":"Internal Server Error"})
+```
+
+The endpoint above is only an example. The same issue may appear on other API endpoints that need to aggregate or read a large amount of data.
+
+To confirm that the error is caused by a database query timeout, check the `api-public` logs:
+
+```bash
+sudo supervisely logs api-public
+```
+
+You may see messages similar to:
+
+```json
+{
+  "stack": "Error: Query read timeout\n    at Timeout._onTimeout",
+  "message": "select \"datasetId\", \"classId\", sum(\"realArea\") as \"area\" from \"figures\" left join \"figures_data\" on \"figures\".\"dataId\" = \"figures_data\".\"id\" where \"classId\" is not null and \"projectId\" = $1 and \"figures\".\"groupId\" = $2 and \"figures\".\"disabled\" = $3 group by \"classId\", \"datasetId\" order by \"classId\" asc - Query read timeout"
+}
+```
+
+To allow longer-running queries for public API requests, create or edit the `docker-compose.override.yml` file in the Supervisely installation directory:
+
+```bash
+cd $(sudo supervisely where)
+```
+
+Add the following configuration:
+
+```yaml
+services:
+  api-public:
+    environment:
+      POSTGRES_STATEMENT_TIMEOUT: '300000'
+      POSTGRES_QUERY_TIMEOUT: '300000'
+```
+
+The values are specified in milliseconds. In this example, both timeouts are set to 5 minutes. If `docker-compose.override.yml` already exists, merge this snippet into the existing `services` section instead of replacing the whole file.
+
+Apply the changes by redeploying the services:
+
+```bash
+sudo supervisely up -d
+```
+
+After the service is restarted, repeat the API request and check the logs again. If requests still time out, the project may require additional PostgreSQL tuning, more database resources, or query-specific investigation.
 
 ## PostgreSQL Database Tuning
 
