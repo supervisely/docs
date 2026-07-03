@@ -135,7 +135,7 @@ Immediately after control plane creation, `kubectl get nodes` may temporarily re
 
 ## Step 5. Set up a storage class
 
-Supervisely stores data on persistent volumes, so the cluster needs a storage class that provisions them. Create a `gp3` class backed by the EBS CSI driver, make it the default, and use `Retain` so volumes aren't deleted by accident.
+Supervisely stores data on persistent volumes, so the cluster needs a storage class that provisions them. Recent EKS versions (1.30+) don't mark **any** storage class as default and don't provision volumes until the **EBS CSI driver** is present — that's why Step 3 added the driver add-on. Here you create a `gp3` class, make it the default, and use `Retain` so volumes aren't deleted by accident.
 
 Save this as `gp3-storageclass.yaml`:
 
@@ -154,34 +154,43 @@ allowVolumeExpansion: true
 reclaimPolicy: Retain
 ```
 
-Apply it and make sure it's the only default class (EKS ships a default `gp2` class — unset it):
+Apply it:
 
 ```bash
 kubectl apply -f gp3-storageclass.yaml
-kubectl patch storageclass gp2 -p '{"metadata":{"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
 kubectl get storageclass
 ```
 
 `gp3` should be marked `(default)`.
 
-## Step 6. Install an ingress controller
-
-An ingress controller exposes Supervisely (and browser-based apps) outside the cluster. This example uses [ingress-nginx](https://kubernetes.github.io/ingress-nginx/), which provisions an AWS load balancer on EKS:
+{% hint style="info" %}
+If your cluster is an older version that still ships a `gp2` class marked default, unset it so there's only one default:
 
 ```bash
-helm upgrade -i ingress-nginx ingress-nginx \
-  --repo https://kubernetes.github.io/ingress-nginx \
-  --namespace ingress-nginx --create-namespace
+kubectl patch storageclass gp2 -p '{"metadata":{"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
+```
+{% endhint %}
+
+## Step 6. Install an ingress controller
+
+An ingress controller exposes Supervisely (and browser-based apps) outside the cluster. The Supervisely chart defaults to **Traefik**, so this example installs Traefik, which provisions an AWS load balancer on EKS:
+
+```bash
+helm upgrade -i traefik traefik \
+  --repo https://traefik.github.io/charts \
+  --namespace traefik --create-namespace
 ```
 
 Find the external address of the load balancer (you'll point your domain at it later):
 
 ```bash
-kubectl -n ingress-nginx get service ingress-nginx-controller
+kubectl -n traefik get service traefik
 ```
 
 {% hint style="info" %}
-An ingress controller is required for the full platform's web UI, and for opening GUI apps in the browser when using the agent. If you only run non-GUI agent workloads, you can skip this step. See [Ingress](ingress.md) for other controllers and TLS.
+An ingress controller is required for the full platform's web UI, and for opening GUI apps in the browser when using the agent. If you only run non-GUI agent workloads, you can skip this step.
+
+Avoid the upstream **ingress-nginx** controller for new clusters — the Kubernetes project is [retiring it](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/) (end of maintenance ~March 2026). Prefer Traefik (the chart default) or the Gateway API. The chart also supports nginx, projectcontour, gateway, and istio — see [Ingress](ingress.md).
 {% endhint %}
 
 ## GPU nodes (optional)
@@ -202,21 +211,15 @@ managedNodeGroups:
     disableIMDSv1: true
 ```
 
-After the cluster is up, install the [NVIDIA device plugin](https://github.com/NVIDIA/k8s-device-plugin) so Kubernetes can schedule GPUs (follow the plugin's instructions for the current version):
+You don't need to install GPU drivers or the device plugin yourself. When you use a GPU instance type, `eksctl` selects the GPU-optimized EKS AMI and installs the [NVIDIA device plugin](https://github.com/NVIDIA/k8s-device-plugin) automatically, so GPUs are advertised to Kubernetes as the `nvidia.com/gpu` resource. (The EKS Bottlerocket accelerated AMI ships the plugin pre-installed, too.)
 
-```bash
-helm upgrade -i nvdp nvidia-device-plugin \
-  --repo https://nvidia.github.io/k8s-device-plugin \
-  --namespace nvidia-device-plugin --create-namespace
-```
-
-Confirm the nodes now report GPUs:
+Once the GPU nodes are up, confirm they report GPUs:
 
 ```bash
 kubectl get nodes -o custom-columns=NAME:.metadata.name,'GPU:.status.allocatable.nvidia\.com/gpu'
 ```
 
-You then enable GPU pod presets in the Supervisely values file — see [Install full Supervisely](installation.md#gpu-workloads) or [Install the Kubernetes agent](kubernetes-agent.md).
+Each GPU node should show its GPU count. Then enable GPU pod presets in the Supervisely values file — see [Install full Supervisely](installation.md#gpu-workloads) or [Install the Kubernetes agent](kubernetes-agent.md).
 
 If you don't need GPU, skip this section and keep the `t3.large` node group.
 
@@ -272,8 +275,8 @@ Usually the storage class or the EBS CSI driver isn't ready. Confirm the `gp3` c
 
 ### The load balancer has no external address
 
-On EKS the ingress controller's load balancer can take a couple of minutes to get an address. Re-run `kubectl -n ingress-nginx get service ingress-nginx-controller`. If it never appears, check the controller pod logs and your subnet/role configuration.
+On EKS the ingress controller's load balancer can take a couple of minutes to get an address. Re-run `kubectl -n traefik get service traefik`. If it never appears, check the controller pod logs and your subnet/role configuration.
 
 ### GPU nodes don't report GPUs
 
-Confirm you used a GPU instance type and that the NVIDIA device plugin pods are `Running` (`kubectl -n nvidia-device-plugin get pods`).
+Confirm you used a GPU instance type. `eksctl` installs the NVIDIA device plugin automatically — check its pods are `Running` with `kubectl get pods -A | grep nvidia-device-plugin`. If they aren't, the node group may not be using a GPU-optimized AMI.

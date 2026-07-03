@@ -45,7 +45,7 @@ mode: full
 # The domain where Supervisely will be reachable.
 ingress:
   enabled: true
-  controller: nginx          # nginx | traefik | projectcontour | gateway | istio
+  controller: traefik        # traefik (default) | nginx | projectcontour | gateway | istio
   host: supervisely.mycompany.com
 
 options:

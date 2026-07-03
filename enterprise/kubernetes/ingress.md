@@ -11,7 +11,7 @@ The chart does **not** install an ingress controller. You need one already runni
 ```yaml
 ingress:
   enabled: true              # set false only if you handle routing yourself
-  controller: nginx          # which controller to generate rules for
+  controller: traefik        # which controller to generate rules for
   host: supervisely.mycompany.com   # your domain
 ```
 
@@ -29,6 +29,10 @@ ingress:
 | `istio` | Istio | [install](https://istio.io/latest/docs/setup/getting-started/) |
 
 Sensible defaults for each controller are applied automatically, so most installs only need `controller` and `host`.
+
+{% hint style="warning" %}
+For a **new** cluster, prefer **Traefik** (the default) or the **Gateway API**. The upstream `ingress-nginx` controller is being [retired by the Kubernetes project](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/) (end of maintenance ~March 2026). The chart still supports `nginx` for clusters that already run it, but it's not recommended for fresh deployments.
+{% endhint %}
 
 ## Per-controller options
 

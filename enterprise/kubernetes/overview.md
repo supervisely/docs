@@ -46,7 +46,7 @@ Later, `supervisely k8s install` / `upgrade` / `uninstall` drive the deploy for 
 
 * A Kubernetes cluster, version **1.21 or later**
 * [`kubectl`](https://kubernetes.io/docs/tasks/tools/) and [`helm`](https://helm.sh/docs/intro/install/) (v3) installed and pointed at your cluster
-* An **ingress controller** already installed in the cluster. The chart supports `nginx`, `traefik` (default), `projectcontour`, the Kubernetes `gateway` API, and `istio`. See [Ingress](ingress.md).
+* An **ingress controller** already installed in the cluster. The chart supports `traefik` (default), `nginx`, `projectcontour`, the Kubernetes `gateway` API, and `istio`. See [Ingress](ingress.md).
 * A **storage class** for persistent data (a fast SSD/CSI storage class is recommended for production)
 * [NVIDIA device plugin](https://github.com/NVIDIA/k8s-device-plugin) on GPU nodes if you plan to run GPU workloads
 
