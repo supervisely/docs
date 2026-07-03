@@ -243,23 +243,23 @@ The example creates billable AWS resources. Remove the cluster after testing to 
 
 ## Troubleshooting
 
-### `aws sts get-caller-identity` fails
+### aws sts get-caller-identity fails
 
 The AWS credentials are missing or invalid. Reconfigure AWS access and retry.
 
-### `RunInstances` returns `Blocked`
+### RunInstances returns Blocked
 
 An AWS account-level restriction. The IAM user may be valid, but the account is not currently allowed to launch EC2 instances. Resolve it with the AWS account owner or AWS Support before retrying.
 
-### Managed node group stays in `CREATING`
+### Managed node group stays in CREATING
 
 If the control plane is healthy but worker nodes do not appear, inspect the EKS node group status, Auto Scaling activities, and CloudFormation events for the node group stack. Common causes: EC2 quota limits, blocked EC2 launches, or account verification restrictions.
 
-### `kubectl get nodes` returns `No resources found`
+### kubectl get nodes returns No resources found
 
 The control plane may be ready while the node group is still provisioning. Wait a few minutes and retry.
 
-### `kubectl get nodes` fails after cluster creation
+### kubectl get nodes fails after cluster creation
 
 Refresh the kubeconfig entry and retry:
 
@@ -268,7 +268,7 @@ aws eks update-kubeconfig --region us-east-1 --name supervisely-eks
 kubectl get nodes
 ```
 
-### PersistentVolumeClaims stay `Pending`
+### PersistentVolumeClaims stay Pending
 
 Usually the storage class or the EBS CSI driver isn't ready. Confirm the `gp3` class exists and is default (Step 5), and that the driver is running: `kubectl -n kube-system get pods | grep ebs-csi`.
 
