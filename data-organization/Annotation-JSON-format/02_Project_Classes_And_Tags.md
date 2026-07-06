@@ -26,6 +26,14 @@ Each project in Supervisely has a set of predetermined classes and tags. This in
             "hotkey": ""            
         },
         {
+            "title": "building_group",
+            "shape": "multipolygon",
+            "color": "#FF0079",
+            "geometry_config": {},
+            "id": 6509768,
+            "hotkey": ""
+        },
+        {
             "title": "person",
             "shape": "bitmap",
             "color": "#00FF12",
