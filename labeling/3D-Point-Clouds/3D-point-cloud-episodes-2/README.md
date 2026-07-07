@@ -118,10 +118,10 @@ If the **approximate ground level** is known, an **adaptive slope threshold** ca
 
 The **Measure Distance** tool is a precision measurement instrument that allows you to measure distances along a path in the 3D point cloud scene. This tool is essential for:
 
-- **Object dimension verification**: Measure the actual size of objects in the scene to ensure annotation accuracy
-- **Distance calculations**: Determine the distance between different objects or features in the point cloud
-- **Quality control**: Verify that annotated objects match real-world dimensions
-- **Scene understanding**: Better understand spatial relationships and scale within the 3D environment
+* **Object dimension verification**: Measure the actual size of objects in the scene to ensure annotation accuracy
+* **Distance calculations**: Determine the distance between different objects or features in the point cloud
+* **Quality control**: Verify that annotated objects match real-world dimensions
+* **Scene understanding**: Better understand spatial relationships and scale within the 3D environment
 
 **How to use:**
 
@@ -133,14 +133,12 @@ The **Measure Distance** tool is a precision measurement instrument that allows 
 
 **What the ruler shows:**
 
-- **Point coordinates** — each selected point displays its `X, Y, Z` coordinates above the marker.
-- **Segment length** — each ruler segment shows the distance between the current point and the previous one.
-- **Cumulative distance** — the blue value shows the total measured distance from the first point to the current point along the full path.
-- **Polyline path** — the ruler is drawn as a connected line, so you can follow curved roads, building edges, or other non-linear routes instead of measuring only a straight line.
+* **Point coordinates** — each selected point displays its `X, Y, Z` coordinates above the marker.
+* **Segment length** — each ruler segment shows the distance between the current point and the previous one.
+* **Cumulative distance** — the blue value shows the total measured distance from the first point to the current point along the full path.
+* **Polyline path** — the ruler is drawn as a connected line, so you can follow curved roads, building edges, or other non-linear routes instead of measuring only a straight line.
 
-
-<figure><img src="../../../.gitbook/assets/3d-pc-episode/3d-pc-measure-tool.jpg" alt="Measure Distance tool showing point coordinates, per-segment distance, and cumulative path length on a point cloud scene"></figure>
-
+<figure><img src="../../../.gitbook/assets/3d-pc-episode/3d-pc-measure-tool.jpg" alt="Measure Distance tool showing point coordinates, per-segment distance, and cumulative path length on a point cloud scene"><figcaption></figcaption></figure>
 
 ### 3D Point Cloud Pen
 
@@ -148,10 +146,10 @@ The **Point Cloud Pen** is a versatile tool designed for direct point-level edit
 
 **How it works:**
 
-- **Single clicks** - Create polygon points by clicking at different locations. The tool draws straight lines between points to define precise boundaries.
-- **Click and drag** - Hold down the mouse button and draw freeform strokes, similar to a brush. Perfect for painting over irregular shapes and organic areas.
+* **Single clicks** - Create polygon points by clicking at different locations. The tool draws straight lines between points to define precise boundaries.
+* **Click and drag** - Hold down the mouse button and draw freeform strokes, similar to a brush. Perfect for painting over irregular shapes and organic areas.
 
-<figure><img src="../car.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/car.gif" alt=""><figcaption></figcaption></figure>
 
 Both modes work together in the same tool without switching - simply use clicks for edges and drag for fills.
 

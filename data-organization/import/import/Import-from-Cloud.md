@@ -56,6 +56,6 @@ You also have the opportunity to use applications [Import images from cloud stor
 
 [Remote import](https://ecosystem.supervisely.com/apps/remote-import) allows you connect your remote data storage to Supervisely Platform without data duplication.
 
-Most frequent use case is when Enterprise Customer would like to connect huge existing data storage (tens of terabytes) and avoid data duplication. In other cases we recommend to use general import procedure to store data in [Supervisely Data Storage](storage/)
+Most frequent use case is when Enterprise Customer would like to connect huge existing data storage (tens of terabytes) and avoid data duplication. In other cases we recommend to use general import procedure to store data in [Supervisely Data Storage](https://github.com/supervisely/docs/blob/master/data-organization/import/import/storage/README.md)
 
 ![Remote Import APP](../../../.gitbook/assets/remote-import.png)

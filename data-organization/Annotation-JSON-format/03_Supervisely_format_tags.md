@@ -6,7 +6,7 @@ When defining a tag, you assign it a name, possible values for a tag instance an
 
 ## Tags With 'None' Value
 
-Tags of 'none' type can't be assigned a value. Adding one manually will result in an error. Also it [could not be used](../supervisely-annotation-json-format/project-classes-and-tags.md#fields-definitions) as a group tag for the multiview mode.
+Tags of 'none' type can't be assigned a value. Adding one manually will result in an error. Also it [could not be used](https://github.com/supervisely/docs/blob/master/data-organization/supervisely-annotation-json-format/project-classes-and-tags.md#fields-definitions) as a group tag for the multiview mode.
 
 Json format for 'None' tags:
 
@@ -102,7 +102,7 @@ Fields definitions:
 
 ## Tag with 'Date' Value
 
-Tags of type 'date' store an ISO 8601 datetime string. Use this tag type to record dates and times for images or objects in the Labeling Tool via the date picker—for widget. 
+Tags of type 'date' store an ISO 8601 datetime string. Use this tag type to record dates and times for images or objects in the Labeling Tool via the date picker—for widget.
 
 This tag type can be useful for various purposes, such as tracking the date and time of image review, recording when a specific event occurred, or any other scenario where associating a timestamp with an image or annotation is beneficial.
 

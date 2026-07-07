@@ -22,6 +22,6 @@ For more complex data structures like videos and medical images (DICOM), Supervi
 
 ## Deploy an Agent
 
-Before you start training or running neural networks, you would need to connect your PC or a cloud server with GPU to Supervisely by running a simple command in your terminal. That will allow you to train neural networks and run inference right from the Supervisely web interface. You can find information on how to do this [here.](../../getting-started/connect-your-computer/)
+Before you start training or running neural networks, you would need to connect your PC or a cloud server with GPU to Supervisely by running a simple command in your terminal. That will allow you to train neural networks and run inference right from the Supervisely web interface. You can find information on how to do this [here.](https://github.com/supervisely/docs/blob/master/neural-networks/getting-started/connect-your-computer/README.md)
 
 {% embed url="https://www.youtube.com/watch?v=aO7Zc4kTrVg&ab_channel=Supervisely" %}

@@ -2,8 +2,7 @@
 description: >-
   Download georeferenced satellite imagery, DTM elevation data, and
   OpenStreetMap vector annotations directly into Supervisely. Label with
-  powerful multi-layer interfaces, apply AI assistance, and export back
-  to geodata formats — all within a single platform.
+  powerful multi-layer interfaces, apply AI assistance, and expor
 ---
 
 # Geospatial Data Annotation
@@ -27,9 +26,9 @@ No external preprocessing or format conversion is required at any step.
 
 The [Satellite, DTM & OSM Downloader](https://ecosystem.supervisely.com/apps/slyosm/import_osm) app downloads three types of geospatial data simultaneously for any set of geographic locations:
 
-- **Satellite imagery** — optical tiles from the provider of your choice.
-- **DTM (Digital Terrain Model)** — elevation data for the same coverage area.
-- **OpenStreetMap vector features** — roads, buildings, water bodies, forests, and other features fetched from the [OpenStreetMap](https://www.openstreetmap.org/) API and stored as Supervisely object annotations.
+* **Satellite imagery** — optical tiles from the provider of your choice.
+* **DTM (Digital Terrain Model)** — elevation data for the same coverage area.
+* **OpenStreetMap vector features** — roads, buildings, water bodies, forests, and other features fetched from the [OpenStreetMap](https://www.openstreetmap.org/) API and stored as Supervisely object annotations.
 
 Every downloaded image carries embedded geo metadata — center coordinates, local coordinate reference system, and a homography matrix — so geographic context is never lost regardless of how the data is processed later.
 
@@ -95,9 +94,9 @@ The [Export to OSM Format](https://ecosystem.supervisely.com/apps/slyosm/export_
 
 For each dataset the export produces:
 
-- `img/` — original satellite images.
-- `ann/` — Supervisely annotation JSON files.
-- `osm/` — OSM XML files with annotations projected to longitude/latitude, ready to open in [JOSM](https://josm.openstreetmap.de/) or any other OSM-compatible tool.
+* `img/` — original satellite images.
+* `ann/` — Supervisely annotation JSON files.
+* `osm/` — OSM XML files with annotations projected to longitude/latitude, ready to open in [JOSM](https://josm.openstreetmap.de/) or any other OSM-compatible tool.
 
 The OSM class mapping stored in the dataset's metadata is read automatically, so every exported feature carries the correct OSM tags. The complete archive is delivered as a downloadable file directly from the task interface.
 
@@ -105,11 +104,11 @@ The OSM class mapping stored in the dataset's metadata is read automatically, so
 
 Geospatial datasets in Supervisely are first-class image datasets. This means the entire platform feature set is available without compromise:
 
-- **Team labeling and jobs** — distribute annotation work across teams, track progress, and enforce review workflows.
-- **Quality control** — use consensus labeling, review queues, and inter-annotator agreement metrics.
-- **Data versioning** — snapshot datasets at any point, compare annotation revisions, and roll back changes.
-- **Model training** — train and fine-tune computer vision models directly on geospatial datasets within the platform.
-- **Python SDK** — automate any part of the pipeline, from data ingestion to annotation export, using the [Supervisely Python SDK](https://developer.supervisely.com).
+* **Team labeling and jobs** — distribute annotation work across teams, track progress, and enforce review workflows.
+* **Quality control** — use consensus labeling, review queues, and inter-annotator agreement metrics.
+* **Data versioning** — snapshot datasets at any point, compare annotation revisions, and roll back changes.
+* **Model training** — train and fine-tune computer vision models directly on geospatial datasets within the platform.
+* **Python SDK** — automate any part of the pipeline, from data ingestion to annotation export, using the [Supervisely Python SDK](https://developer.supervisely.com).
 
 Geospatial data is no longer a specialized silo that requires dedicated tooling at each stage. With Supervisely, satellite imagery, elevation data, and OpenStreetMap annotations are part of the same unified environment as every other computer vision dataset on the platform.
 

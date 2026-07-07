@@ -4,7 +4,7 @@ description: >-
   with the help of interactive smart tools.
 ---
 
-# Labeling with Smart Tool
+# Smart Tool for Segmentation
 
 ## What is Smart Tool?
 
@@ -36,7 +36,7 @@ Ensure that the box includes the object with a 10% padding for better segmentati
 {% endhint %}
 
 {% hint style="success" %}
-**SAM 3 only — Reference Bounding Box Prompts:** If you are using **Segment Anything 3 (SAM 3)**, you can enable the **reference bounding box prompts** mode from the toolbar. Draw a box around one example of an object and SAM 3 will automatically find and segment all visually similar objects across the entire image — ideal for images with many repeated instances. See the [Smart Tool reference](../../../labeling/labeling-tools/smart-tool.md#reference-bounding-box-prompts-sam-3-exclusive) for details.
+**SAM 3 only — Reference Bounding Box Prompts:** If you are using **Segment Anything 3 (SAM 3)**, you can enable the **reference bounding box prompts** mode from the toolbar. Draw a box around one example of an object and SAM 3 will automatically find and segment all visually similar objects across the entire image — ideal for images with many repeated instances. See the [Smart Tool reference](../../labeling-tools/smart-tool.md#reference-bounding-box-prompts-sam-3-exclusive) for details.
 {% endhint %}
 
 ### Step 4. Adjust the Mask with Points
@@ -70,7 +70,7 @@ Master the Smart Tool with our detailed 5-minute video tutorial.
 
 To successfully deploy and run SmartTool models on your own server, you must have a GPU-enabled compute agent. This ensures optimal performance and efficiency of the tool.
 
-We also provide detailed guide on [how to deploy your own computer agent](../../getting-started/connect-your-computer/) to make setting up and using SmartTool easier.
+We also provide detailed guide on [how to deploy your own computer agent](https://github.com/supervisely/docs/blob/master/labeling/getting-started/connect-your-computer/README.md) to make setting up and using SmartTool easier.
 
 {% hint style="info" %}
 **Note:** Using a GPU Compute Agent is an important requirement for SmartTool models to function correctly.
@@ -113,7 +113,7 @@ These tools use training of specific models like RITM, YOLOv8, UNet, and MMDetec
 
 Another substantial thing about neural networks is that it's easy to adapt it to different modalities. That means, that the Smart Tools not only work on images, but on sequential frames, such as videos or multi-slice medial imaging and even 3D point clouds with more than two dimensions!
 
-<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Images</strong></td><td><a href="../../.gitbook/assets/ai-images.gif">ai-images.gif</a></td><td><a href="../images/README.md">images</a></td></tr><tr><td><strong>Video</strong></td><td><a href="../../.gitbook/assets/ai-video.gif">ai-video.gif</a></td><td><a href="../labeling-toolbox/videos-3.0.md">videos</a></td></tr><tr><td><strong>3D Point Cloud</strong></td><td><a href="../../.gitbook/assets/ai-pontcloud.gif">ai-pontcloud.gif</a></td><td><a href="../3D-Point-Clouds/3D-Point-Clouds.md">3D-Point-Clouds.md</a></td></tr><tr><td><strong>DICOM</strong></td><td><a href="../../.gitbook/assets/ai-dicom.gif">ai-dicom.gif</a></td><td><a href="../DICOM/DICOM.md">DICOM.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Images</strong></td><td></td><td><a href="../images/">images</a></td></tr><tr><td><strong>Video</strong></td><td></td><td><a href="https://github.com/supervisely/docs/blob/master/labeling/labeling-with-AI/labeling-toolbox/videos-3.0.md">https://github.com/supervisely/docs/blob/master/labeling/labeling-with-AI/labeling-toolbox/videos-3.0.md</a></td></tr><tr><td><strong>3D Point Cloud</strong></td><td></td><td><a href="https://github.com/supervisely/docs/blob/master/labeling/labeling-with-AI/3D-Point-Clouds/3D-Point-Clouds.md">https://github.com/supervisely/docs/blob/master/labeling/labeling-with-AI/3D-Point-Clouds/3D-Point-Clouds.md</a></td></tr><tr><td><strong>DICOM</strong></td><td></td><td><a href="https://github.com/supervisely/docs/blob/master/labeling/labeling-with-AI/DICOM/DICOM.md">https://github.com/supervisely/docs/blob/master/labeling/labeling-with-AI/DICOM/DICOM.md</a></td></tr></tbody></table>
 
 {% hint style="info" %}
 Please check the those awesome tutorials and guides:

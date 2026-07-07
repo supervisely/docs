@@ -92,7 +92,7 @@ First you need to [register app](https://docs.microsoft.com/en-us/azure/active-d
 
 On [Add redirect URI(s) step](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-redirect-uris-to-your-application) add new URI `<https_instance_domain>/api/account/auth/microsoft/callback`
 
-![](<../../.gitbook/assets/microsoft_aad_cb (1).png>)
+![](../../.gitbook/assets/microsoft_aad_cb.png)
 
 Now, you can add a new OpenID provider as described above. Your credentials may look something like this:
 

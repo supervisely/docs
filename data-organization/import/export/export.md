@@ -8,7 +8,7 @@ You can export data in different ways: from the context menu of a project or a d
 
 ### Export to Supervisely Format
 
-The best way to export and download your dataset from Supervisely is by saving it to the [Supervisely Format](../../supervisely-format.md). Since it has the full support of every capability available on the platform, no matter how complex your annotations and data are (for example, 3D labels of cloud point episodes with photo context), you can be 100% sure that all the information is saved in the convenient .json-based format.
+The best way to export and download your dataset from Supervisely is by saving it to the [Supervisely Format](https://github.com/supervisely/docs/blob/master/data-organization/supervisely-format.md). Since it has the full support of every capability available on the platform, no matter how complex your annotations and data are (for example, 3D labels of cloud point episodes with photo context), you can be 100% sure that all the information is saved in the convenient .json-based format.
 
 To download a project or dataset in `Supervisely format`, select Download in the context menu by **three dots icon (⋮)** and choose **Export in Supervisely Format**.
 
@@ -28,8 +28,7 @@ Of course, there are countless other Supervisely Apps that will help download yo
 * [Export to YOLOv8 format](https://ecosystem.supervisely.com/apps/export-to-yolov8)
 * [Export to DOTA](https://ecosystem.supervisely.com/apps/export-to-dota)
 * [Export to Cityscapes](https://ecosystem.supervisely.com/apps/export-to-cityscapes)
-* [Export to SemanticKITTI](https://ecosystem.supervisely.com/apps/export-to-semantic-kitti) - for point cloud episodes
-Explore more [export applications](https://ecosystem.supervisely.com/export) in the Ecosystem.
+* [Export to SemanticKITTI](https://ecosystem.supervisely.com/apps/export-to-semantic-kitti) - for point cloud episodes Explore more [export applications](https://ecosystem.supervisely.com/export) in the Ecosystem.
 
 **For Python developers** –you can use our Python SDK to download and convert your data to COCO, YOLO, Pascal VOC formats:
 
@@ -46,7 +45,7 @@ sly.convert.project_to_yolo("./sly_project", "./result_yolo")
 sly.convert.project_to_pascal_voc("./sly_project", "./result_pascal")
 ```
 
-Check out the [documentation](../../Operations-with-Data/Converting-Splitdata.md#convert-data-using-supervisely-python-sdk) for more details on how to convert data using the Supervisely Python SDK and the [Developer Portal](https://developer.supervisely.com/getting-started/basics-of-authentication) to get started with the API.
+Check out the [documentation](https://github.com/supervisely/docs/blob/master/data-organization/Operations-with-Data/Converting-Splitdata.md#convert-data-using-supervisely-python-sdk) for more details on how to convert data using the Supervisely Python SDK and the [Developer Portal](https://developer.supervisely.com/getting-started/basics-of-authentication) to get started with the API.
 
 ### **Export only certain items**
 
@@ -71,7 +70,7 @@ For developers: you can use the sources of this app as a starting point for your
 
 ## **Export via SDK**
 
-Utilize our [Software Development Kit (SDK)](https://supervisely.readthedocs.io/en/latest/sdk\_packages.html) to create custom solutions for data export, tailored to your unique requirements and processes.
+Utilize our [Software Development Kit (SDK)](https://supervisely.readthedocs.io/en/latest/sdk_packages.html) to create custom solutions for data export, tailored to your unique requirements and processes.
 
 ## **Export via API**
 
