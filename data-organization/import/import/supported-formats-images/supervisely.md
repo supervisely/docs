@@ -6,7 +6,7 @@
 Easiest way to import your images with annotations is to use the Supervisely format. Check out the [Supervisely JSON format](../../../Annotation-JSON-format/00_ann_format_navi.md) documentation for more details.
 {% endhint %}
 
-The Supervisely json-based annotation format supports such figures: `rectangle`, `line (polyline)`, `polygon`, `point`, `bitmap` (`mask`), `graph` (`keypoints`), `alpha mask`, `2D cuboid`. It is a universal format for various task types and is used in the Supervisely platform.
+The Supervisely json-based annotation format supports such figures: `rectangle`, `line (polyline)`, `polygon`, `multipolygon`, `point`, `bitmap` (`mask`), `graph` (`keypoints`), `alpha mask`, `2D cuboid`. It is a universal format for various task types and is used in the Supervisely platform.
 
 Enterprise users have access to "Import as links" option, which supports import of this format with annotations. This option might be beneficial in many cases, as it allows data import to Supervisely platform without re-uploading, maintaining a single source and speeding up import process.
 
