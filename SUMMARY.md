@@ -184,6 +184,7 @@
 * [Status and monitoring](agents/status_and_troubleshooting/status.md)
 * [Storage and cleanup](agents/agent-storage/agent-storage.md)
 * [Integration with Docker](agents/custom-docker-registry/README.md)
+* [Hardened Docker Images](agents/hardened-docker-images/README.md)
 
 ## 🔮 Neural Networks
 
