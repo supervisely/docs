@@ -138,7 +138,7 @@ Steps to configure IAM Roles Anywhere:
 
 **1. Generate certificates and keys.**
 
-We've prepared two bash scripts for you. Download [⬇︎ cert.zip](cert.zip) and extract them. Update `genCACert.sh` and `genCert.sh` scripts with your values for `DURATION_DAYS`, `CN`, `OU`, `O` variables. You can set any values you want.
+We've prepared two bash scripts for you. Download [⬇︎ cert.zip](https://github.com/supervisely/docs/blob/master/enterprise/s3/cert.zip) and extract them. Update `genCACert.sh` and `genCert.sh` scripts with your values for `DURATION_DAYS`, `CN`, `OU`, `O` variables. You can set any values you want.
 
 Generate master certificate and key (will be used in the AWS trust anchor)
 

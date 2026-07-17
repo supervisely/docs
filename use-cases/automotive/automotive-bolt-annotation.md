@@ -1,21 +1,21 @@
 ---
-description: "Learn how to accelerate bounding box annotation for automotive bolt detection using Supervisely's Live Training and Center Out tool for circular objects."
 keywords:
-  [
-    "bounding box annotation",
-    "bolt detection",
-    "automotive quality control",
-    "manufacturing inspection",
-    "live training",
-    "active learning",
-    "object detection",
-    "supervisely",
-    "industrial computer vision",
-    "defect detection",
-  ]
+  - bounding box annotation
+  - bolt detection
+  - automotive quality control
+  - manufacturing inspection
+  - live training
+  - active learning
+  - object detection
+  - supervisely
+  - industrial computer vision
+  - defect detection
+description: >-
+  Learn how to accelerate bounding box annotation for automotive bolt detection
+  using Supervisely's Live Training and Center Out tool for circular objects.
 ---
 
-# Bounding Box Annotation of Wheel Bolts for Automotive QA: Live Training in Supervisely
+# Automotive Bolt Annotation
 
 ## The Dataset Creation Challenge
 
@@ -39,7 +39,7 @@ The plant deploys computer vision cameras above the conveyor belt to automatical
 
 Recent research demonstrates the effectiveness of computer vision systems in automotive manufacturing quality control:
 
-- [A Deep Learning-Based Computer Vision System for Automated Screw Detection in Vehicle Wheel Boxes](https://link.springer.com/chapter/10.1007/978-3-031-96997-3_1) (Sakuma et al., Springer 2025) presents a computer vision system specifically designed to replace manual visual inspection of screws in automotive wheel assemblies, demonstrating the critical role of automated inspection.
+* [A Deep Learning-Based Computer Vision System for Automated Screw Detection in Vehicle Wheel Boxes](https://link.springer.com/chapter/10.1007/978-3-031-96997-3_1) (Sakuma et al., Springer 2025) presents a computer vision system specifically designed to replace manual visual inspection of screws in automotive wheel assemblies, demonstrating the critical role of automated inspection.
 
 These studies collectively demonstrate that computer vision systems significantly reduce inspection time, improve consistency, and enable real-time quality control—but all require substantial annotated training datasets to achieve production-ready performance.
 
@@ -65,7 +65,7 @@ Supervisely's Live Training auto-predicts from initial annotations and "Center o
 
 This specialized drawing mode solves the problem of annotating circular objects: instead of awkward corner-to-corner dragging, you click the center of a bolt and drag to its edge, creating accurate bounding boxes in less time. Ideal for bolts, screws, rivets, washers, bearings, and any round fasteners.
 
-<figure><img src="c_out1.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/c_out1.gif" alt=""><figcaption></figcaption></figure>
 
 Learn more about this tool in the [Rectangle Tool Documentation](https://docs.supervisely.com/labeling/labeling-tools/bounding-box-rectangle-tool).
 
@@ -75,23 +75,23 @@ This is Supervisely's active learning system that learns from your annotations i
 
 The Live Training system provides several advantages:
 
-- **Pattern recognition**: Learns from your annotation style and object characteristics
-- **Adaptive predictions**: Improves with each labeled image
-- **Context awareness**: Considers spatial relationships between objects
+* **Pattern recognition**: Learns from your annotation style and object characteristics
+* **Adaptive predictions**: Improves with each labeled image
+* **Context awareness**: Considers spatial relationships between objects
 
-<figure><img src="live_training1.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/live_training1.gif" alt=""><figcaption></figcaption></figure>
 
 #### Monitoring Training Progress
 
 When Live Training is active, you can hover over the learning panel to see real-time training metrics for each iteration:
 
-<figure><img src="metrics.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/metrics.png" alt=""><figcaption></figcaption></figure>
 
-- **Images count**: Number of labeled images used for training
-- **Iteration**: Current training cycle number
-- **Ready to predict**: Status indicator showing when the model is ready to generate predictions
-- **Loss**: Training loss value showing how well the model is learning (lower is better)
-- **Model quality**: Overall quality metric of the current model
+* **Images count**: Number of labeled images used for training
+* **Iteration**: Current training cycle number
+* **Ready to predict**: Status indicator showing when the model is ready to generate predictions
+* **Loss**: Training loss value showing how well the model is learning (lower is better)
+* **Model quality**: Overall quality metric of the current model
 
 These metrics help you understand when the model has learned enough to start making reliable predictions. Typically, after 3-5 manually labeled images, the model quality improves enough to provide useful predictions that you can quickly review and correct.
 
@@ -99,7 +99,7 @@ You can learn more about Live Training in our [Live Training Documentation](http
 
 ## Performance Metrics and Time Savings
 
-<figure><img src="timecost.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/timecost.png" alt=""><figcaption></figcaption></figure>
 
 As you can see from the time cost comparison, the combination of the "Center out" tool and Live Training results in a dramatic reduction in annotation time. The initial manual labeling of 3-5 images takes about 1 minute per image, but once Live Training is activated, the time per image drops to around 20 seconds for review and correction. This represents a 70% reduction in annotation time, allowing you to create production-ready datasets much faster.
 
@@ -107,11 +107,11 @@ As you can see from the time cost comparison, the combination of the "Center out
 
 Live Training with advanced labeling tools delivers measurable results for manufacturing quality control:
 
-- **70% faster dataset annotation**: Reduce labeling time dramatically for production-scale datasets
-- **Reduced annotation errors**: "Center out" bounding box option ensures consistent labeling of round objects
-- **Scalable system deployment**: Training datasets ready in days instead of weeks
-- **Lower quality control costs**: For 5,000 images, save 58+ hours—dramatically reduced data preparation time and expenses
-- **Improved inspection accuracy**: Better-quality training data leads to more reliable detection models
+* **70% faster dataset annotation**: Reduce labeling time dramatically for production-scale datasets
+* **Reduced annotation errors**: "Center out" bounding box option ensures consistent labeling of round objects
+* **Scalable system deployment**: Training datasets ready in days instead of weeks
+* **Lower quality control costs**: For 5,000 images, save 58+ hours—dramatically reduced data preparation time and expenses
+* **Improved inspection accuracy**: Better-quality training data leads to more reliable detection models
 
 ## How to Annotate Bolts Using Live Training and Center Out Tool: Step-by-Step Guide
 
@@ -119,18 +119,18 @@ Live Training with advanced labeling tools delivers measurable results for manuf
 
 First, we upload our wheel inspection image dataset to the Supervisely platform. The dataset contains front-view images of automotive wheels. Once uploaded, we open the images in Supervisely's [annotation interface](https://docs.supervisely.com/labeling/labeling-toolbox) to begin the labeling process.
 
-<figure><img src="step_1.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/step_1.gif" alt=""><figcaption></figcaption></figure>
 
 ### Step 2: Create Object Class and Start Live Training
 
 Before beginning annotation:
 
-1. Create a new class with a consistent name (e.g., "bolt" or "wheel_bolt")
+1. Create a new class with a consistent name (e.g., "bolt" or "wheel\_bolt")
 2. Click the **"Live Training"** button in the interface
 3. Press **"Launch app"** and then **"Start Live Training"** to activate the system
 4. The Live Training session is now ready to learn from your annotations
 
-<figure><img src="launch1.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/launch1.gif" alt=""><figcaption></figcaption></figure>
 
 ### Step 3: Create Initial Manual Annotations
 
@@ -140,10 +140,10 @@ When creating annotations for bolts, use the **Rectangle tool with "Center out" 
 
 **Important labeling guidelines:**
 
-- Use the "Center out" drawing mode: click the center of each bolt and drag to its edge
-- Label all visible bolts on each wheel, including partially visible ones
-- Maintain consistent bounding box sizes relative to the bolt heads
-- Click **"Finish & Next"** after completing each image to submit it to the training system
+* Use the "Center out" drawing mode: click the center of each bolt and drag to its edge
+* Label all visible bolts on each wheel, including partially visible ones
+* Maintain consistent bounding box sizes relative to the bolt heads
+* Click **"Finish & Next"** after completing each image to submit it to the training system
 
 ### Step 4: Review and Correct AI Predictions
 
@@ -151,23 +151,23 @@ After labeling 3-5 images manually, Live Training starts generating automatic pr
 
 **Quick review workflow:**
 
-- **If predictions are good**: Click **"Finish & Next"** to accept and move to the next image
-- **If predictions need adjustment**:
-  - Adjust boxes that are slightly misaligned (drag corners or edges)
-  - Add boxes for any missed bolts
-  - Click **"Finish & Next"** when satisfied
-- **If predictions are unusable**: Click **"Discard"** to remove all predictions, then click **"Predict"** to generate new predictions, or annotate manually.
+* **If predictions are good**: Click **"Finish & Next"** to accept and move to the next image
+* **If predictions need adjustment**:
+  * Adjust boxes that are slightly misaligned (drag corners or edges)
+  * Add boxes for any missed bolts
+  * Click **"Finish & Next"** when satisfied
+* **If predictions are unusable**: Click **"Discard"** to remove all predictions, then click **"Predict"** to generate new predictions, or annotate manually.
 
-**This step takes ~18 seconds per image** compared to 1 minute for full manual labeling.
+**This step takes \~18 seconds per image** compared to 1 minute for full manual labeling.
 
 ### Step 5: Iterate and Improve
 
 As you continue labeling with **"Finish & Next"**:
 
-- Live Training predictions become progressively more accurate
-- The model learns your specific annotation style
-- Review time decreases with each image
-- You can process entire batches with minimal adjustments
+* Live Training predictions become progressively more accurate
+* The model learns your specific annotation style
+* Review time decreases with each image
+* You can process entire batches with minimal adjustments
 
 The system continuously learns from every confirmed annotation, improving prediction quality in real-time.
 
@@ -183,7 +183,7 @@ Want to test this workflow immediately without collecting your own images? We've
 
 **Download the demo dataset:**
 
-- [Automotive Wheel Bolts Dataset](https://app.supervisely.com/ecosystem/projects/automotive-bolt-annotation-sample-project?id=532) - 17 front-view wheel images with 3-10 bolts per image, perfect for testing Live Training
+* [Automotive Wheel Bolts Dataset](https://app.supervisely.com/ecosystem/projects/automotive-bolt-annotation-sample-project?id=532) - 17 front-view wheel images with 3-10 bolts per image, perfect for testing Live Training
 
 **How to use it:**
 

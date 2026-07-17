@@ -8,6 +8,8 @@ Supervisely json-based annotation format supports such figures:
 
 * polygon
 
+* multipolygon
+
 * point
 
 * bitmap
@@ -64,7 +66,7 @@ Fields description:
 * "classes" - list of objects - all possible object classes. Each object has the following fields:
     - "title" - string - the unique identifier of a class
 
-    - "shape" - string - one of ["bitmap", "polygon", "rectangle", "line", "point"]
+    - "shape" - string - one of ["bitmap", "polygon", "multipolygon", "rectangle", "line", "point"]
 
     - "color" - string - hex color code
 
@@ -212,6 +214,44 @@ Fields description:
     - "exterior" - list of points (```x``` and ```y``` coordinates), e.g. ```[[x1, y1], [x2, y2], [x3, y3], [x4, y4], ...]```. The object contour is defined with these points
 
     - "interior" - list of elements that has the same structure like the "exterior" field. In other words, this is the list of polygons that define object holes.
+
+
+### Multipolygon
+
+```json
+{
+    "description": "",
+    "tags": ["other"],
+    "classTitle": "several_eggs",
+    "geometryType": "multipolygon",
+    "parts": [
+        {
+            "exterior": [[1126, 753], [1200, 780], [1180, 850]],
+            "interior": []
+        },
+        {
+            "exterior": [[1300, 700], [1380, 750], [1340, 840]],
+            "interior": []
+        }
+    ]
+}
+```
+
+Fields description:
+
+* "description" (optional) - string - the text description of an object
+
+* "tags" - list of strings - object tags
+
+* "classTitle" - string - the title of a class. It is used to identify the class shape from file ```meta.json```
+
+* "geometryType" - string - always equals to ```multipolygon``` for this shape
+
+* "parts" - list of polygon parts. Each part contains:
+
+    - "exterior" - list of points (```x``` and ```y``` coordinates), e.g. ```[[x1, y1], [x2, y2], [x3, y3], ...]```
+
+    - "interior" - list of holes for this part. Each hole has the same structure as the "exterior" field.
 
 
 ### Point

@@ -178,12 +178,13 @@
   * [Linux](getting-started/connect-your-computer/unix-based/unix-based.md)
   * [Windows](getting-started/connect-your-computer/windows-wsl/windows-wsl.md)
   * [AMI AWS](agents/ami/README.md)
-  * [Kubernetes](enterprise/kubernetes/installation.md)
+  * [Kubernetes](enterprise/kubernetes/overview.md)
 * [How agents work](agents/agent/agent.md)
 * [Restart and delete agents](agents/add_delete_node/add_delete_node.md)
 * [Status and monitoring](agents/status_and_troubleshooting/status.md)
 * [Storage and cleanup](agents/agent-storage/agent-storage.md)
 * [Integration with Docker](agents/custom-docker-registry/README.md)
+* [Hardened Docker Images](agents/hardened-docker-images/README.md)
 
 ## 🔮 Neural Networks
 
@@ -232,8 +233,9 @@
   * [License Update](enterprise/updating-the-license/README.md)
 * [Kubernetes](enterprise-edition/kubernetes/README.md)
   * [Overview](enterprise/kubernetes/overview.md)
-  * [Installation](enterprise/kubernetes/installation.md)
-  * [Connect cluster](enterprise/kubernetes/agent.md)
+  * [Install full Supervisely](enterprise/kubernetes/installation.md)
+  * [Install the Kubernetes agent](enterprise/kubernetes/kubernetes-agent.md)
+  * [Ingress](enterprise/kubernetes/ingress.md)
   * [AWS EKS](enterprise/kubernetes/aws-eks.md)
 * [Advanced Tuning](enterprise-edition/advanced-tuning/README.md)
   * [HTTPS](enterprise/https/index.md)

@@ -18,7 +18,7 @@ This 5-minute tutorial is a part of introduction to Supervisely series. You can 
 {% endhint %}
 
 {% hint style="success" %}
-You can learn more about Import, such as importing different formats, import from the cloud or adding data to existing datasets in [this section.](broken-reference/)
+You can learn more about Import, such as importing different formats, import from the cloud or adding data to existing datasets in [this section.](https://github.com/supervisely/docs/blob/master/getting-started/broken-reference/README.md)
 {% endhint %}
 
 ### Supported formats and modalities

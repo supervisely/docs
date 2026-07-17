@@ -36,6 +36,12 @@ You can create a new class directly from the [Annotation Toolbox](https://app.su
 
 <figure><img src="../../.gitbook/assets/create-polygon.png" alt=""><figcaption></figcaption></figure>
 
+### Multipolygon annotations
+
+If one real object is split into several separate visible regions, you can annotate it as a **Multipolygon** instead of creating several independent polygon objects. A multipolygon stores multiple polygon parts under one object, and each part can still have its own holes. This is useful for partially occluded objects, objects separated by gaps, or classes where several disconnected areas should be treated as one annotation.
+
+To use it, create or select a class with the **Multipolygon** shape, then draw the polygon parts that belong to the same object. For technical details about how multipolygons are stored in Supervisely format, see the [Multipolygon](../../data-organization/Annotation-JSON-format/04_Supervisely_Format_objects.md#multipolygon) section.
+
 ### Manual Annotation Guide
 
 1. Click along the outline of the object to add points. Each click creates a new point connected by a line.

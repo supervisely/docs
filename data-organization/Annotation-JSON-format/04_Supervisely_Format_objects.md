@@ -8,6 +8,7 @@ Supervisely Annotation Format supports the following figures:
 * rectangle
 * oriented\_bbox
 * polygon
+* multipolygon
 * line / polyline
 * bitmap
 * alpha\_mask
@@ -287,6 +288,61 @@ Fields definitions:
 * `points` - object with two fields:
 * `exterior` - list of points \[point1, point2, point3, etc ...] where each point is a list of two numbers (coordinates) \[col, row]
 * `interior` - list of elements with the same structure as the "exterior" field. In other words, this is the list of polygons that define object holes.
+
+## Multipolygon
+
+Multipolygon stores several polygon parts as one annotation object. Each part has the same `exterior` and `interior` structure as a regular polygon.
+
+```json
+{
+  "id": 29164747,
+  "classId": 214973,
+  "description": "",
+  "geometryType": "multipolygon",
+  "nnCreated": false,
+  "nnUpdated": false,
+  "tags": [],
+  "classTitle": "building_group",
+  "parts": [
+    {
+      "exterior": [
+        [120, 160],
+        [220, 160],
+        [220, 260],
+        [120, 260]
+      ],
+      "interior": []
+    },
+    {
+      "exterior": [
+        [320, 170],
+        [430, 170],
+        [430, 290],
+        [320, 290]
+      ],
+      "interior": [
+        [
+          [350, 200],
+          [390, 200],
+          [390, 240],
+          [350, 240]
+        ]
+      ]
+    }
+  ]
+}
+```
+
+Fields definitions:
+
+* Optional fields `id`, `classId`, `labelerLogin`, `createdAt`, `updatedAt` are described [above](04_Supervisely_Format_objects.md#general-fields)
+* `description` - string - text description (optional)
+* `geometryType: "multipolygon"` - class shape
+* `tags` - list of tags assigned to the current object
+* `classTitle` - string - the title of the current class. It's used to identify the corresponding class shape from the `meta.json` file
+* `parts` - list of polygon parts:
+  * `exterior` - list of points where each point is a list of two numbers (`x` and `y` coordinates)
+  * `interior` - list of holes for this part. Each hole has the same point structure as `exterior`. For parts without holes, this field is empty
 
 ## Polyline
 

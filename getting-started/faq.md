@@ -11,7 +11,7 @@ description: >-
 
 <summary>Is Supervisely free?</summary>
 
-Supervisely offers a free Community plan with certain limitations, which is ideal for open-source projects, individuals, ML researchers and small teams. For more or full access to advanced features or to work on a commercial project, you can upgrade to a paid edition. \
+Supervisely offers a free Community plan with certain limitations, which is ideal for open-source projects, individuals, ML researchers and small teams. For more or full access to advanced features or to work on a commercial project, you can upgrade to a paid edition.\
 Detailed information on the differences between plans, pricing, limitations and features can be found on our [Pricing page](https://supervisely.com/pricing/).
 
 If you are interested in a self-hosted or cloud solution for company with custom requirements of any size and with no limitations, please [contact us](https://supervisely.com/contact-us/).
@@ -24,7 +24,7 @@ If you are interested in a self-hosted or cloud solution for company with custom
 
 Your data is yours.
 
-We respect your privacy and when you create an account you don't grant us any rights to your data, except for the ones that needs for the application functioning. We don't use your data for any commercial or non-commercial purposes and share it with nobody. Supervisely uses industry-standard encryption to protect data at rest. You can learn more in the [terms of service](https://supervisely.com/terms-of-service).&#x20;
+We respect your privacy and when you create an account you don't grant us any rights to your data, except for the ones that needs for the application functioning. We don't use your data for any commercial or non-commercial purposes and share it with nobody. Supervisely uses industry-standard encryption to protect data at rest. You can learn more in the [terms of service](https://supervisely.com/terms-of-service).
 
 </details>
 
@@ -86,7 +86,7 @@ Yes, Supervisely offers integrations with various tools and platforms, including
 
 <details>
 
-<summary>How can I import/export data in Supervisely? </summary>
+<summary>How can I import/export data in Supervisely?</summary>
 
 Supervisely allows you to easily import data in various formats such as COCO, Pascal VOC, Cityscapes and more. Exporting your annotated data is also easy and supports formats compatible with many machine learning frameworks. You can also customize the export settings to include specific metadata or annotation details as needed. Detailed guides for importing and exporting data are available in our documentation.
 
@@ -120,7 +120,7 @@ Supervisely provides a variety of annotation tools tailored for different data t
 
 <summary>How does Supervisely help me collaborate?</summary>
 
-Supervisely provides powerful collaboration features, including teams, shared workspaces, project sharing, role-based access control, and tools for quality assurance and data statistics. Team members can create labeling jobs, leave issues, make and review annotations, and track annotation updates in real time. The platform also supports versioning in the Pro and Enterprise editions, so you can track the history of annotations made to your data. For more information, see our [Collaboration](/broken/pages/-M4ZA797pP7MQduL6ZXV) section.
+Supervisely provides powerful collaboration features, including teams, shared workspaces, project sharing, role-based access control, and tools for quality assurance and data statistics. Team members can create labeling jobs, leave issues, make and review annotations, and track annotation updates in real time. The platform also supports versioning in the Pro and Enterprise editions, so you can track the history of annotations made to your data. For more information, see our [Collaboration](https://app.gitbook.com/s/-M4BHwRbuyIoH-xoF3Gv/collaboration) section.
 
 </details>
 
@@ -147,4 +147,3 @@ Yes, we have an active community [Slack chat](https://supervisely.slack.com/join
 Users can report bugs or request new features through our support channel <mark style="color:blue;">support@supervisely.com</mark> or our community [Slack chat](https://supervisely.slack.com/join/shared_invite/enQtNzUwMDYwNTMzODI1LWJlNTFiM2VkYzQ1ZDg1NmU4MWJkNzY1NDRjMDYzMWVlZDQwNzk5YzI0YTZiOWI3NDcwMjgzNDJhMDNlMzFhYzk#/shared-invite/email). We prioritize these reports based on their impact and relevance to our user base.
 
 </details>
-
