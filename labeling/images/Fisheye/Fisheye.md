@@ -86,7 +86,7 @@ Click a figure on the image to select it, right-click to open the context menu. 
 
 ### Cuboid 3D
 
-The signature tool of the fisheye interface — see [Special Tool for Fisheye Images: Cuboid](#special-tool-for-fisheye-images-cuboid) below.
+The signature tool of the fisheye interface — see [Special Tool for Fisheye Images: Cuboid](#special-tool-for-fisheye-images-cuboid-3d) below.
 
 ### Bounding Box (Rectangle) Tool (`5`)
 
@@ -108,7 +108,7 @@ Minimum 3 points. Click to add points or insert a point on an edge, finish with 
 
 The `Fisheye` labeling interface includes the `Cuboid 3D` tool for annotating objects such as cars, pedestrians, and other traffic participants. The created figure has the `Cuboid 2D` geometry — a true **3D cuboid projected onto the 2D image**: it is placed in vehicle-space coordinates, has physical dimensions in meters and rotation angles, and its projection onto the fisheye image is computed from the camera calibration. The dimensions, rotation, and source are shown in the Object Metadata panel.
 
-<figure><img src="../../../.gitbook/assets/Cuboid-2d-frame.jpg" alt="" width="350"><figcaption></figcaption></figure>
+{% embed url="../../../.gitbook/assets/fisheye/fisheye-cuboid-3d.mp4?alt=media&token=db893ee3-ee05-4b64-8d95-6207392a7a27&autoplay=1&loop=1""}
 
 Check out the [Cuboid](../../../data-organization/Annotation-JSON-format/04_Supervisely_Format_objects.md#cuboids-2d-annotation) section of the documentation to learn more about the 2D `Cuboid` geometry JSON format.
 
