@@ -4,7 +4,7 @@
 
 Challenging to annotate images with fisheye distortion? Activate the **fisheye labeling interface** in Supervisely to annotate fisheye images with calibration-aware tools, including a 3D cuboid projected onto the image.
 
-![](../../../.gitbook/assets/Fisheye-Interface-frame.jpg)
+{% embed url="https://youtu.be/nWBiSWdZRcY" %}
 
 Fisheye images are a special type of images that are captured with an ultra-wide-angle lens (a.k.a. fisheye lens). The fisheye lens produces strong visual distortion intended to create a wide panoramic or hemispherical image. It is a popular choice for many applications, such as surveillance, automotive, and VR/AR.
 
@@ -104,7 +104,7 @@ Click to add points, click an edge to insert a point, `Shift` + click to remove 
 
 Minimum 3 points. Click to add points or insert a point on an edge, finish with `Space` or by clicking the first point. Instead of clicking point by point, hold the mouse button to auto-place points along the cursor path.
 
-## Special Tool for Fisheye Images: Cuboid
+## Special Tool for Fisheye Images: Cuboid 3D
 
 The `Fisheye` labeling interface includes the `Cuboid 3D` tool for annotating objects such as cars, pedestrians, and other traffic participants. The created figure has the `Cuboid 2D` geometry — a true **3D cuboid projected onto the 2D image**: it is placed in vehicle-space coordinates, has physical dimensions in meters and rotation angles, and its projection onto the fisheye image is computed from the camera calibration. The dimensions, rotation, and source are shown in the Object Metadata panel.
 
