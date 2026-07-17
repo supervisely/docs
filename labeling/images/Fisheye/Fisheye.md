@@ -108,7 +108,7 @@ Minimum 3 points. Click to add points or insert a point on an edge, finish with 
 
 The `Fisheye` labeling interface includes the `Cuboid 3D` tool for annotating objects such as cars, pedestrians, and other traffic participants. The created figure has the `Cuboid 2D` geometry — a true **3D cuboid projected onto the 2D image**: it is placed in vehicle-space coordinates, has physical dimensions in meters and rotation angles, and its projection onto the fisheye image is computed from the camera calibration. The dimensions, rotation, and source are shown in the Object Metadata panel.
 
-{% embed url="../../../.gitbook/assets/fisheye/fisheye-cuboid-3d.mp4?alt=media&token=db893ee3-ee05-4b64-8d95-6207392a7a27&autoplay=1&loop=1""}
+{% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F9mM1dNm0uHlRsfWgJmow%2Fuploads%2Fe07YKDWtviuVsASL3gZJ%2Ffisheye-cuboid-3d.mp4?alt=media&token=e86a8cb6-e7ee-4025-a706-8b0e0db09f0f&autoplay=1&loop=1"}
 
 Check out the [Cuboid](../../../data-organization/Annotation-JSON-format/04_Supervisely_Format_objects.md#cuboids-2d-annotation) section of the documentation to learn more about the 2D `Cuboid` geometry JSON format.
 
