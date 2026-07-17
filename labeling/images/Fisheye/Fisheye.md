@@ -11,7 +11,7 @@ Fisheye images are a special type of images that are captured with an ultra-wide
 Annotation happens directly on the fisheye image: the toolbox reads the camera calibration from the image metadata and uses it to project annotations — most notably the 3D `Cuboid` — onto the distorted image, so figures follow the lens geometry without manual correction.
 
 {% hint style="info" %}
-Currently, the toolbox supports the `cylindrical_equidist` camera model for calibration.
+Currently, the toolbox supports the `cylindrical_equidist` camera model for calibration. Support for other projections — **Equirectangular**, **Cubemap**, **Rectilinear (Perspective)**, and **Stereographic** — is in active development and will be available soon.
 {% endhint %}
 
 To use the fisheye labeling interface, follow these steps:
@@ -104,12 +104,18 @@ Click to add points, click an edge to insert a point, `Shift` + click to remove 
 
 Minimum 3 points. Click to add points or insert a point on an edge, finish with `Space` or by clicking the first point. Instead of clicking point by point, hold the mouse button to auto-place points along the cursor path.
 
+{% hint style="success" %}
+The Polygon tool is calibration-aware too: polygon edges are projected along the fisheye lens geometry, so they follow the image distortion instead of being drawn as straight lines.
+{% endhint %}
+
 ## Special Tool for Fisheye Images: Cuboid 3D
 
 The `Fisheye` labeling interface includes the `Cuboid 3D` tool for annotating objects such as cars, pedestrians, and other traffic participants. The created figure has the `Cuboid 2D` geometry — a true **3D cuboid projected onto the 2D image**: it is placed in vehicle-space coordinates, has physical dimensions in meters and rotation angles, and its projection onto the fisheye image is computed from the camera calibration. The dimensions, rotation, and source are shown in the Object Metadata panel.
 
+To make **3D object annotation on 2D images** fast and intuitive, the toolbox uses **automatic depth approximation**: a depth estimation algorithm combines the camera calibration (intrinsic and extrinsic parameters) with the scene geometry to predict how far the object is from the camera, so a single click places the 3D cuboid at a realistic distance in the scene — no manual depth tuning required. This depth-aware placement dramatically speeds up 3D bounding box labeling for autonomous driving, ADAS, and surveillance datasets captured with fisheye cameras.
+
 {% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F9mM1dNm0uHlRsfWgJmow%2Fuploads%2FfQTE2KHt1zzOrlGujqR1%2Ffisheye-cuboid-3d.mp4?alt=media&token=ddcc4708-f94c-432d-8a80-ada377456003&autoplay=1&loop=1" %}
-Annotation Process with Cuboid 3D
+Cuboid 3D: click to place, then rotate, scale, and transform to fit
 {% endembed %}
 
 Check out the [Cuboid](../../../data-organization/Annotation-JSON-format/04_Supervisely_Format_objects.md#cuboids-2d-annotation) section of the documentation to learn more about the 2D `Cuboid` geometry JSON format.
@@ -121,7 +127,7 @@ Follow these steps to label an object with the `Cuboid 3D` tool on an image that
 1. Open a project with the `Fisheye` labeling interface enabled and open an image in the labeling toolbox. Make sure the image has calibration metadata — the projection is computed from it.
 2. Create a new class with the `Cuboid` shape (or select an existing one) in the `Definitions` panel.
 3. Select the `Cuboid 3D` tool on the toolbar.
-4. Click on the object in the image — a 3D cuboid is placed at that point and projected onto the fisheye image. The annotation is saved automatically.
+4. Click on the object in the image — a 3D cuboid is placed at that point, with its distance set automatically by the depth estimation algorithm, and projected onto the fisheye image. The annotation is saved automatically.
 5. Fit the cuboid to the object using the editing modes that appear below the tool icon:
    - **Rotate** — rotate the cuboid around its axes.
    - **Scale** — change the physical dimensions of the cuboid.

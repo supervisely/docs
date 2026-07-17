@@ -4,7 +4,9 @@
 
 Annotate fisheye images with ease using the fisheye labeling interface in Supervisely.
 
-![](../../../../.gitbook/assets/fisheye_interface-frame.jpg)
+{% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F9mM1dNm0uHlRsfWgJmow%2Fuploads%2FfQTE2KHt1zzOrlGujqR1%2Ffisheye-cuboid-3d.mp4?alt=media&token=ddcc4708-f94c-432d-8a80-ada377456003&autoplay=1&loop=1" %}
+Fisheye labeling interface
+{% endembed %}
 
 To use the fisheye labeling interface, you need to:
 
@@ -97,7 +99,7 @@ The `extrinsic` block is optional — the minimal valid metadata file contains o
 
 Here are the key points and fields descriptions:
 
-- `cameraModel` - the camera projection model. Currently, only `cylindrical_equidist` is supported.
+- `cameraModel` - the camera projection model. Currently, only `cylindrical_equidist` is supported; support for Equirectangular, Cubemap, Rectilinear (Perspective), and Stereographic projections is in active development.
 - `fx`, `fy` - the focal lengths of the camera in pixels.
 - `cx`, `cy` - the coordinates of the principal point (optical image center) in pixels, e.g., half of the image width and height for a centered principal point.
 - Optionally, the `extrinsic` block with the `quaternion` (rotation) and `translation` (in meters) fields can be provided. It describes the coordinate transformation from the camera coordinate system to the vehicle coordinate system.
