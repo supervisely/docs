@@ -64,6 +64,7 @@
   * [Import into an existing dataset](data-organization/import/import/existing-dataset.md)
   * [Import using Team Files](data-organization/import/import/Import-Team-Files.md)
   * [Import from Cloud](data-organization/import/import/Import-from-Cloud.md)
+  * [Import using CLI](data-organization/import/import/import-cli.md)
   * [Import using API & SDK](data-organization/import/import/import-sdk-api.md)
   * [Import using agent](data-organization/import/import/import-using-agent/import-using-agent.md)
 * [Migrations](data-organization/import/migration/migrations.md)
