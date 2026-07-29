@@ -17,6 +17,8 @@ This opens the **Remote Storages** page, listing every cloud storage connected t
 
 <figure><img src="../../../.gitbook/assets/connect-cloud-storage/team-cloud-storages.jpg" alt=""><figcaption></figcaption></figure>
 
+In the **Buckets** column, each bucket name is followed by a unique identifier in parentheses, e.g. `test-bucket (test-bucket-2ee7eps5)`. Supervisely generates this identifier automatically so that buckets sharing the same name — across different connections or providers — can still be told apart.
+
 ## Add a new connection
 
 1. On the **Remote Storages** page, click **+ ADD** in the top-right corner.
@@ -80,6 +82,6 @@ Once a cloud storage is connected, it becomes available as a source in the impor
 1. Open a project (or start creating a new one) and go to the **Data** tab.
 2. Click **Add** → **Import data**.
 3. Choose the **Cloud Storage** import method.
-4. Browse **Cloud Storages** → the provider you connected → the bucket → the folder/files you need, and check the ones to import.
+4. Browse **Cloud Storages** → the provider you connected → the bucket → the folder/files you need, and check the ones to import. Buckets are listed here by their unique identifier (the same one shown in parentheses on the Remote Storages page) rather than the plain bucket name, so buckets with identical names don't get mixed up.
 5. Optionally check **Import as Links** to keep the files in the cloud and reference them by link, instead of copying them into Supervisely storage — useful for very large datasets.
 6. Click **Run**. Supervisely detects the data and annotation format automatically (images, videos, point clouds, COCO, Pascal VOC, Supervisely format, and more) and imports it into the selected dataset.
