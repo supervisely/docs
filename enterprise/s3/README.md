@@ -2,6 +2,10 @@
 
 In Enterprise Edition you can not only store files on a hard drive, but also connect Azure Blob Storage, Google Cloud or any S3 compatible storage (i.e. AWS S3).
 
+{% hint style="info" %}
+This page describes instance-wide remote storage, configured by an administrator via `.env`. If you instead want a single **team** to connect its own cloud storage account for importing data (without changing the instance's storage backend), see [Connect Cloud Storage for a Team](../../data-organization/import/import/Connect-Cloud-Storage.md).
+{% endhint %}
+
 You can upload files from your PC to connected cloud storage or use already uploaded files from cloud storage as a source (without duplicating it).
 
 ### How we store files
