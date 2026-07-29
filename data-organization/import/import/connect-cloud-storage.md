@@ -15,6 +15,8 @@ Connecting a cloud storage to a team is available on a **Pro** subscription for 
 
 This opens the **Remote Storages** page, listing every cloud storage connected to the instance. Entries you add here are marked with the **Team** scope; any entries configured by an instance administrator are marked **Global**.
 
+<figure><img src="../../../.gitbook/assets/connect-cloud-storage/team-cloud-storages.jpg" alt=""><figcaption></figcaption></figure>
+
 ## Add a new connection
 
 1. On the **Remote Storages** page, click **+ ADD** in the top-right corner.
