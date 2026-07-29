@@ -3,7 +3,7 @@
 It's also worth mentioning that we have applications to import data not from your computer, but from cloud services.
 
 {% hint style="info" %}
-If your team has connected its own cloud storage (AWS S3, Google Cloud Storage, or Azure), you can browse and import from it directly in the standard import wizard, without any of the apps below. See [Connect Cloud Storage for a Team](Connect-Cloud-Storage.md).
+If your team has connected its own cloud storage (AWS S3, Google Cloud Storage, or Azure), you can browse and import from it directly in the standard import wizard, without any of the apps below. See [Connect Cloud Storage for a Team](connect-cloud-storage.md).
 {% endhint %}
 
 No matter which method you choose, you have the option to import files by links, meaning they won't be stored directly on the Supervisely disk. These files will only be accessible through the provided links. This method offers flexibility in data management, and you can still use both this approach and the traditional file import for the convenience of your workflows.
