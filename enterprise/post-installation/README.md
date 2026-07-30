@@ -441,7 +441,8 @@ Cloud credentials allow Supervisely to connect to external cloud services or rem
 3. **Azure Example**:
    * Add:
      * **Storage Account Name**: The name of your Azure Storage account.
-     * **Access Key**: The key to authenticate access to Azure Storage.
+     * **Authentication**: Choose an account access key or SAS token, or authenticate with a Microsoft Entra service principal.
+     * **Entra ID Credentials**: Provide the tenant ID, client ID, and client secret. The service principal needs the **Storage Blob Data Contributor** role on the storage account. See [Authenticate with Microsoft Entra ID](../../data-organization/import/import/import-from-cloud.md#authenticate-with-microsoft-entra-id) for setup instructions.
 4. **Server File System Example**:
    * Specify:
      * **Server Address**: The IP or hostname of the server.

@@ -278,8 +278,11 @@ my-boats-datasets:
   provider: azure
   endpoint: https://<account name>.blob.core.windows.net
   access_key: <account name>
-  secret_key: <secret key 88 chars long or so: aflmg+wg23fWA+6gAafWmgF4a>
-  secret_key: or you can also use SAS token here: ?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2020-10-10T00:00:00Z&st=2020-10-10T00:00:00Z&spr=https&sig=...
+  # Choose one authentication method:
+  secret_key: <account access key or SAS token>
+  # tenant_id: <Microsoft Entra tenant ID>
+  # client_id: <service principal application (client) ID>
+  # client_secret: <service principal client secret value>
   # array of buckets
   buckets:
   - boats_bucket_2020_20_10
@@ -295,6 +298,8 @@ my-planes-datasets:
   - planes_bucket_2020_20_10
   - another_planes_bucket_2020_10_10
 ```
+
+For Microsoft Entra ID authentication, omit `secret_key` and provide `tenant_id`, `client_id`, and `client_secret` together. The service principal needs the **Storage Blob Data Contributor** role on the storage account. See [Authenticate with Microsoft Entra ID](../../data-organization/import/import/import-from-cloud.md#authenticate-with-microsoft-entra-id) for the Azure CLI setup and field mapping.
 
 Links file structure:
 
