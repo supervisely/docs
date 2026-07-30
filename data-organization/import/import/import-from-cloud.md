@@ -73,7 +73,7 @@ The new connection appears in the table with scope **Team**.
 
   Leave empty to let Supervisely discover all buckets the credentials have access to.
 
-* **Users** — by default, **All users** in the team can use this connection to import data. Pick specific team members instead to limit who can use it for imports. This only restricts the *import* feature — it does not affect who can view or edit data already imported into a project (that's controlled by regular [project sharing](../../team-files/README.md)).
+* **Users** — by default, **All users** in the team can use this connection to import data. Pick specific team members instead to limit who can use it for imports. This only restricts the *import* feature — it does not affect who can view or edit a project once the data is imported; that's still governed by each member's [team role](../../../collaboration/members.md).
 
 ### Verify, edit, or remove a connection
 
