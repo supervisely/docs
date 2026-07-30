@@ -23,6 +23,10 @@ This is a **Team**-level connection: it is visible and usable only within the te
 
 This opens the **Remote Storages** page, listing every cloud storage connected to the instance. Entries you add here are marked with the **Team** scope; any entries configured by an instance administrator are marked **Global**.
 
+{% hint style="warning" %}
+Only a team **Admin** can open the Remote Storages page and add, edit, test, or remove connections. See [team roles](../../../collaboration/members.md) for the full list of permissions per role.
+{% endhint %}
+
 <figure><img src="../../../.gitbook/assets/connect-cloud-storage/team-cloud-storages.jpg" alt=""><figcaption></figcaption></figure>
 
 In the **Buckets** column, each bucket name is followed by a unique identifier in parentheses, e.g. `test-bucket (test-bucket-2ee7eps5)`. Supervisely generates this identifier automatically so that buckets sharing the same name — across different connections or providers — can still be told apart.
