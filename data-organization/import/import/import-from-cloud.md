@@ -6,12 +6,14 @@ No matter which method you choose, you have the option to import files by links,
 
 ## Connect Cloud Storage for a Team
 
+{% hint style="success" %}
+Available by default on **Enterprise Edition**. On **Community Edition**, it requires a **Pro** subscription and is enabled upon request — contact Supervisely support to turn it on for your instance.
+{% endhint %}
+
 Any team can connect its own cloud storage account (AWS S3, Google Cloud Storage, Azure Blob Storage, or any S3-compatible storage) directly to Supervisely. Once connected, team members can browse the storage and import images, videos, or entire annotated projects straight from the bucket — without downloading the data to their computer first and, optionally, without duplicating it inside Supervisely at all. This is the recommended way to import from cloud storage; the apps described further down on this page are an alternative that don't require a persistent connection.
 
 {% hint style="info" %}
 This is a **Team**-level connection: it is visible and usable only within the team that created it. It's a separate feature from the [instance-wide Remote Storage](../../../enterprise/s3/README.md) that an Enterprise admin can configure as the platform's primary data backend.
-
-Connecting a cloud storage to a team is available on a **Pro** subscription for Community Edition, and for **Enterprise Edition** upon request — contact Supervisely support to enable it for your instance.
 {% endhint %}
 
 ### Open Remote Storages
