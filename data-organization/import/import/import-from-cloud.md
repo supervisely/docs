@@ -62,8 +62,41 @@ The new connection appears in the table with scope **Team**.
 | Field | Description |
 | --- | --- |
 | Storage account name | Your Azure storage account name. |
-| Secret key or SAS token | Either the account's secret key (looks like `aflmg+wg23fWA+6gAafWmgF4a...`) or a SAS token (looks like `sp=r&st=2026-05-27T10:50:57Z&se=...`). |
+| Authentication | Choose **Access key or SAS token** for shared-key authentication, or **Entra ID** for a Microsoft Entra service principal. |
+| Secret key or SAS token | With **Access key or SAS token**, enter either the account access key or a SAS token. |
+| Tenant ID | With **Entra ID**, enter the Microsoft Entra tenant (directory) ID. |
+| Client ID | With **Entra ID**, enter the service principal's application (client) ID. |
+| Client secret | With **Entra ID**, enter the secret value created for the service principal. Do not enter the secret ID. |
 | Endpoint | **Auto** derives the endpoint from the account name, or switch to **Manual** to set a custom one (e.g. Azurite or another Azure-compatible endpoint). |
+
+##### Authenticate with Microsoft Entra ID
+
+Entra ID authentication lets an Azure administrator disable storage account key access without interrupting Supervisely. Supervisely authenticates as a service principal, so the credentials remain separate from an individual user's Azure account.
+
+1. Sign in to Azure CLI and select the subscription that contains the storage account:
+
+   ```bash
+   az login
+   az account set --subscription <subscription-id>
+   ```
+
+2. Create a service principal and grant it the **Storage Blob Data Contributor** role at the storage account scope:
+
+   ```bash
+   az ad sp create-for-rbac \
+     --name supervisely-remote-storage \
+     --role "Storage Blob Data Contributor" \
+     --scopes /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>
+   ```
+
+   This role lets Supervisely list containers and read, create, update, and delete blobs. Azure permissions can take several minutes to propagate after the role assignment.
+
+3. Store the command output in your secret manager. Map `tenant` to **Tenant ID**, `appId` to **Client ID**, and `password` to **Client secret**. Azure displays the client secret value only when it is created.
+4. In Supervisely, set **Storage account name**, select **Entra ID** under **Authentication**, fill in all three Entra fields, and click **ADD**. Use **Test** from the connection's **⋮** menu to verify access.
+
+{% hint style="warning" %}
+Treat the client secret like a password. Do not paste it into tickets, logs, or source control; rotate it in Microsoft Entra ID before it expires.
+{% endhint %}
 
 #### Restricting buckets and users
 
