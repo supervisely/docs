@@ -90,27 +90,19 @@ services:
       NODE_EXTRA_CA_CERTS: '/usr/local/share/ca-certificates/'
     volumes:
       - /usr/local/share/ca-certificates/:/usr/local/share/ca-certificates/:ro
-  api-public:
-    environment:
-      NODE_EXTRA_CA_CERTS: '/usr/local/share/ca-certificates/'
-    volumes:
-      - /usr/local/share/ca-certificates/:/usr/local/share/ca-certificates/:ro
-  http-storage:
-    environment:
-      NODE_EXTRA_CA_CERTS: '/usr/local/share/ca-certificates/'
-    volumes:
-      - /usr/local/share/ca-certificates/:/usr/local/share/ca-certificates/:ro
-  migrator:
-    environment:
-      NODE_EXTRA_CA_CERTS: '/usr/local/share/ca-certificates/'
-    volumes:
-      - /usr/local/share/ca-certificates/:/usr/local/share/ca-certificates/:ro
   worker-general:
     environment:
       NODE_EXTRA_CA_CERTS: '/usr/local/share/ca-certificates/'
     volumes:
       - /usr/local/share/ca-certificates/:/usr/local/share/ca-certificates/:ro
 ```
+
+{% hint style="info" %}
+`api` covers the database migrations too: they run as the `api` service, so whatever you configure
+here applies to them. Older versions needed the same block repeated on `api-public`,
+`http-storage` and `migrator` — those services no longer exist. If your override file still names
+them, `supervisely upgrade` offers to merge those sections into `api` for you.
+{% endhint %}
 
 3. Deploy the changes:
 

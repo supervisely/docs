@@ -103,7 +103,7 @@ Now create `docker-compose.override.yml` under `cd $(sudo supervisely where)`:
 
 ```yaml
 services:
-  http-storage:
+  api:
     volumes:
       - <path to the secret file>:/gcs.json:ro
 ```
@@ -319,7 +319,7 @@ Create a new file `docker-compose.override.yml` under `cd $(sudo supervisely whe
 
 ```yaml
 services:
-  http-storage:
+  api:
     volumes:
       - <path to the configuration file>:/remote_links.yml:ro
 ```
@@ -327,14 +327,20 @@ services:
 Then execute the following to apply the changes:
 
 ```
-sudo supervisely up -d http-storage
+sudo supervisely up -d api
 ```
+
+{% hint style="info" %}
+`api` serves the storage and runs the migrations, so this one section covers both. Older versions
+had a separate `http-storage` service and the bind went there; if your override file still names
+it, `supervisely upgrade` offers to merge that section into `api` for you.
+{% endhint %}
 
 Google Cloud Storage secret file example, `docker-compose.override.yml`:
 
 ```yaml
 services:
-  http-storage:
+  api:
     volumes:
       - <path to the secret file>:/secret_planes.json:ro
 ```

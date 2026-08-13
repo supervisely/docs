@@ -12,7 +12,7 @@ For high-load environments, you can increase the number of replicas for certain 
 
 ### Creating a docker-compose.override.yml
 
-To increase the number of replicas for the `api` and `api-public` services, create a `docker-compose.override.yml` file in the Supervisely installation directory:
+To increase the number of replicas for the `api` service, create a `docker-compose.override.yml` file in the Supervisely installation directory:
 
 ```bash
 cd $(sudo supervisely where)
@@ -27,13 +27,13 @@ services:
       POSTGRES_POOL_MAX: '20'
     deploy:
       replicas: 3
-
-  api-public:
-    environment:
-      POSTGRES_POOL_MAX: '20'
-    deploy:
-      replicas: 3
 ```
+
+{% hint style="info" %}
+One service, not two: `api` is what the `api-public` service was renamed to, and it also serves
+the browser API, the storage and the frame renderers. If your override file still has an
+`api-public` section, `supervisely upgrade` offers to merge it into `api` for you.
+{% endhint %}
 
 The values provided above are just examples. You can adjust the number of replicas and pool size based on your server's load.\
 If you notice "Timeout acquiring a connection. The pool is probably full" in the logs, you may need to increase the `POSTGRES_POOL_MAX` / replicas value.
@@ -44,7 +44,7 @@ After creating or modifying this file, apply the changes by redeploying the serv
 sudo supervisely up -d
 ```
 
-This configuration will start 3 replicas each of the `api` and `api-public` services, which will improve the stability and performance of the Supervisely platform.
+This configuration will start 3 replicas of the `api` service, which will improve the stability and performance of the Supervisely platform.
 
 `POSTGRES_POOL_MAX` is the maximum number of connections to the PostgreSQL database that each service can use. You can adjust this value based on your server's available resources.
 
@@ -66,10 +66,10 @@ or:
 
 The endpoint above is only an example. The same issue may appear on other API endpoints that need to aggregate or read a large amount of data.
 
-To confirm that the error is caused by a database query timeout, check the `api-public` logs:
+To confirm that the error is caused by a database query timeout, check the `api` logs:
 
 ```bash
-sudo supervisely logs api-public
+sudo supervisely logs api
 ```
 
 You may see messages similar to:
@@ -91,7 +91,7 @@ Add the following configuration:
 
 ```yaml
 services:
-  api-public:
+  api:
     environment:
       POSTGRES_STATEMENT_TIMEOUT: '300000'
       POSTGRES_QUERY_TIMEOUT: '300000'
