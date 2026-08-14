@@ -54,22 +54,22 @@ $ cd $(sudo supervisely where)
     scope: <array> (list of additional scopes)
     token_endpoint_auth_method: <string>
     acr_values: <string>
-    identifier_field: <string> / <array> (claim carrying the user identifier)
+    login_field: <string> / <array> (claim used as the account login)
 ```
 
 By default a user is identified by the `email` claim, falling back to `upn`. If your provider
 authenticates by an internal user id and sends neither, name the claim that carries it with
-`identifier_field` — a single claim name, or a list tried in order:
+`login_field` — a single claim name, or a list tried in order:
 
 ```yaml
   extra_settings:
-    identifier_field: Uid
+    login_field: Uid
     # or, to prefer the internal id and fall back to email:
-    # identifier_field: [Uid, email]
+    # login_field: [Uid, email]
 ```
 
 The claim is looked for in the userinfo response first and then in the `id_token`. Leave
-`identifier_field` unset to keep the default `email` → `upn` behaviour.
+`login_field` unset to keep the default `email` → `upn` behaviour.
 
 {% hint style="warning" %}
 **The claim you choose must identify a user uniquely.** Its value becomes both the login and the
@@ -78,13 +78,19 @@ share it, the second one to sign in is logged into the first one's account — w
 projects and role. Nothing fails and nothing is logged: the account is found and reused before any
 new one would be created, so the uniqueness constraints on the account never come into play.
 
-Pick a claim the provider guarantees is unique and stable per user, such as an internal user id,
-`upn` or `email`. Never pick a descriptive attribute like a department, display name, given name or
-locale, even when it happens to look distinct in your directory today.
+**Changing it later re-keys every login.** Existing users are looked up by the new claim, do not
+match the accounts they have been using, and get new empty ones — the originals, with their teams,
+projects and roles, are left behind. Treat this as a decision made once, when the provider is set up.
+
+Pick a claim the provider guarantees is unique and stable per user, such as an internal user id or
+`email`. Never pick a descriptive attribute like a department, display name, given name or locale,
+even when it happens to look distinct in your directory today. Note that `upn` — Microsoft's User
+Principal Name, in the default fallback for historical reasons — is documented by Microsoft as
+mutable and reusable, so prefer something durable when you have the choice.
 {% endhint %}
 
 The same setting is available in the UI: **Instance settings → Authorization → Open ID
-authorization → EDIT → User identifier claim**. **Fetch claims** reads `claims_supported` from the
+authorization → EDIT → Login claim**. **Fetch claims** reads `claims_supported` from the
 provider's discovery document and offers those names.
 
 Treat that list as a starting point rather than a contract. `claims_supported` states which claims
