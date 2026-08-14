@@ -54,7 +54,31 @@ $ cd $(sudo supervisely where)
     scope: <array> (list of additional scopes)
     token_endpoint_auth_method: <string>
     acr_values: <string>
+    identifier_field: <string> / <array> (claim carrying the user identifier)
 ```
+
+By default a user is identified by the `email` claim, falling back to `upn`. If your provider
+authenticates by an internal user id and sends neither, name the claim that carries it with
+`identifier_field` — a single claim name, or a list tried in order:
+
+```yaml
+  extra_settings:
+    identifier_field: Uid
+    # or, to prefer the internal id and fall back to email:
+    # identifier_field: [Uid, email]
+```
+
+The claim is looked for in the userinfo response first and then in the `id_token`. Leave
+`identifier_field` unset to keep the default `email` → `upn` behaviour.
+
+The same setting is available in the UI: **Instance settings → Authorization → Open ID
+authorization → EDIT → User identifier claim**, where **Fetch claims** lists the claims the
+provider advertises in its discovery document. That list is instance-wide, so a provider may
+advertise a claim it does not send to your client (and may send one it never advertises) — use
+**Custom** to enter a claim name directly when that happens.
+
+Whichever claim you pick becomes both the login and the email of the created user, so it does not
+have to look like an email address.
 
 3\. Create `docker-compose.override.yml` file
 
