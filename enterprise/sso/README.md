@@ -54,22 +54,22 @@ $ cd $(sudo supervisely where)
     scope: <array> (list of additional scopes)
     token_endpoint_auth_method: <string>
     acr_values: <string>
-    login_field: <string> / <array> (claim used as the account login)
+    identifier_field: <string> / <array> (claim that identifies the user)
 ```
 
 By default a user is identified by the `email` claim, falling back to `upn`. If your provider
 authenticates by an internal user id and sends neither, name the claim that carries it with
-`login_field` — a single claim name, or a list tried in order:
+`identifier_field` — a single claim name, or a list tried in order:
 
 ```yaml
   extra_settings:
-    login_field: Uid
+    identifier_field: Uid
     # or, to prefer the internal id and fall back to email:
-    # login_field: [Uid, email]
+    # identifier_field: [Uid, email]
 ```
 
 The claim is looked for in the userinfo response first and then in the `id_token`. Leave
-`login_field` unset to keep the default `email` → `upn` behaviour.
+`identifier_field` unset to keep the default `email` → `upn` behaviour.
 
 {% hint style="warning" %}
 **The claim you choose must identify a user uniquely.** Its value becomes both the login and the
@@ -90,7 +90,7 @@ mutable and reusable, so prefer something durable when you have the choice.
 {% endhint %}
 
 The same setting is available in the UI: **Instance settings → Authorization → Open ID
-authorization → EDIT → Login claim**. **Fetch claims** reads `claims_supported` from the
+authorization → EDIT → User identifier claim**. **Fetch claims** reads `claims_supported` from the
 provider's discovery document and offers those names.
 
 Treat that list as a starting point rather than a contract. `claims_supported` states which claims
