@@ -71,6 +71,18 @@ authenticates by an internal user id and sends neither, name the claim that carr
 The claim is looked for in the userinfo response first and then in the `id_token`. Leave
 `identifier_field` unset to keep the default `email` → `upn` behaviour.
 
+{% hint style="warning" %}
+**The claim you choose must identify a user uniquely.** Its value becomes both the login and the
+email of the Supervisely account, and a returning user is matched by that value alone. If two people
+share it, the second one to sign in is logged into the first one's account — with their teams,
+projects and role. Nothing fails and nothing is logged: the account is found and reused before any
+new one would be created, so the uniqueness constraints on the account never come into play.
+
+Pick a claim the provider guarantees is unique and stable per user, such as an internal user id,
+`upn` or `email`. Never pick a descriptive attribute like a department, display name, given name or
+locale, even when it happens to look distinct in your directory today.
+{% endhint %}
+
 The same setting is available in the UI: **Instance settings → Authorization → Open ID
 authorization → EDIT → User identifier claim**. **Fetch claims** reads `claims_supported` from the
 provider's discovery document and offers those names.
