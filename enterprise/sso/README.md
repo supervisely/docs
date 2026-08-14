@@ -72,10 +72,14 @@ The claim is looked for in the userinfo response first and then in the `id_token
 `identifier_field` unset to keep the default `email` → `upn` behaviour.
 
 The same setting is available in the UI: **Instance settings → Authorization → Open ID
-authorization → EDIT → User identifier claim**, where **Fetch claims** lists the claims the
-provider advertises in its discovery document. That list is instance-wide, so a provider may
-advertise a claim it does not send to your client (and may send one it never advertises) — use
-**Custom** to enter a claim name directly when that happens.
+authorization → EDIT → User identifier claim**. **Fetch claims** reads `claims_supported` from the
+provider's discovery document and offers those names.
+
+Treat that list as a starting point rather than a contract. `claims_supported` states which claims
+the provider declares support for, and an advertised claim is not guaranteed to be available: it may
+be unimplemented, not released to your client, or empty for a particular user. The reverse also
+happens — a provider may issue claims it never advertises. When the claim you need is not in the
+list, switch to **Custom** and enter its name.
 
 Whichever claim you pick becomes both the login and the email of the created user, so it does not
 have to look like an email address.
