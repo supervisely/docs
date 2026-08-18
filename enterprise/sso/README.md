@@ -54,22 +54,41 @@ $ cd $(sudo supervisely where)
     scope: <array> (list of additional scopes)
     token_endpoint_auth_method: <string>
     acr_values: <string>
-    identifier_field: <string> / <array> (claim that identifies the user)
+    login_field: <string> / <array> (claim the account login is taken from)
+    email_field: <string> / <array> (claim the account email is taken from)
 ```
 
-By default a user is identified by the `email` claim, falling back to `upn`. If your provider
+By default the account login is taken from the `email` claim, falling back to `upn`. If your provider
 authenticates by an internal user id and sends neither, name the claim that carries it with
-`identifier_field` — a single claim name, or a list tried in order:
+`login_field` — a single claim name, or a list tried in order:
 
 ```yaml
   extra_settings:
-    identifier_field: Uid
+    login_field: Uid
     # or, to prefer the internal id and fall back to email:
-    # identifier_field: [Uid, email]
+    # login_field: [Uid, email]
 ```
 
 The claim is looked for in the userinfo response first and then in the `id_token`. Leave
-`identifier_field` unset to keep the default `email` → `upn` behaviour.
+`login_field` unset to keep the default `email` → `upn` behaviour.
+
+`email_field` names the claim the account's **email** is taken from, separately from the login,
+because the two are different facts: the login is the key your provider asserts, the email is a
+mailbox. It defaults to the standard `email` claim.
+
+```yaml
+  extra_settings:
+    login_field: Uid
+    email_field: Mail
+```
+
+The email is read only when an account is created, and it is stored only if the value is an address —
+a claim carrying something else is ignored, with a line in the log naming it. A provider that sends no
+address leaves the field **empty**, which is allowed: an account without an email works, it simply
+receives no mail. If the address already belongs to another account it is skipped rather than shared,
+so a duplicate can never fail the login. When `email_field` is unset and the login itself is an
+address — the default `email` → `upn` case — that address is used, which is what happened before this
+setting existed.
 
 Values that look like an address are lowercased, whatever the claim is called, because an address is
 the same address in any case. Anything else is stored and matched exactly as the provider sends it —
@@ -77,8 +96,8 @@ an internal id is opaque, and `sub` is defined as case-sensitive — so a provid
 of such a value would produce two accounts.
 
 {% hint style="warning" %}
-**The claim you choose must identify a user uniquely.** Its value becomes both the login and the
-email of the Supervisely account, and a returning user is matched by that value alone. If two people
+**The claim you choose as `login_field` must identify a user uniquely.** Its value becomes the login of
+the Supervisely account, and a returning user is matched by that value alone. If two people
 share it, the second one to sign in is logged into the first one's account — with their teams,
 projects and role. Nothing fails and nothing is logged: the account is found and reused before any
 new one would be created, so the uniqueness constraints on the account never come into play.
@@ -95,8 +114,8 @@ Principal Name, in the default fallback for historical reasons — is documented
 mutable and reusable, so prefer something durable when you have the choice.
 {% endhint %}
 
-The same setting is available in the UI: **Instance settings → Authorization → Open ID
-authorization → EDIT → User identifier claim**. **Fetch claims** reads `claims_supported` from the
+Both settings are available in the UI: **Instance settings → Authorization → Open ID authorization →
+EDIT → User login claim** and **Email claim**. **Fetch claims** reads `claims_supported` from the
 provider's discovery document and offers those names.
 
 Treat that list as a starting point rather than a contract. `claims_supported` states which claims
