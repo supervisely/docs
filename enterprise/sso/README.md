@@ -71,6 +71,11 @@ authenticates by an internal user id and sends neither, name the claim that carr
 The claim is looked for in the userinfo response first and then in the `id_token`. Leave
 `identifier_field` unset to keep the default `email` → `upn` behaviour.
 
+Values of `email` and `upn` are lowercased, because an address is the same address in any case. A
+claim you name is stored and matched exactly as the provider sends it — an internal id is opaque, and
+`sub` is defined as case-sensitive — so a provider that varies the case of the same user's value
+would produce two accounts.
+
 {% hint style="warning" %}
 **The claim you choose must identify a user uniquely.** Its value becomes both the login and the
 email of the Supervisely account, and a returning user is matched by that value alone. If two people
