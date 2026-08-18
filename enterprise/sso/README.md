@@ -71,10 +71,10 @@ authenticates by an internal user id and sends neither, name the claim that carr
 The claim is looked for in the userinfo response first and then in the `id_token`. Leave
 `identifier_field` unset to keep the default `email` → `upn` behaviour.
 
-Values of `email` and `upn` are lowercased, because an address is the same address in any case. A
-claim you name is stored and matched exactly as the provider sends it — an internal id is opaque, and
-`sub` is defined as case-sensitive — so a provider that varies the case of the same user's value
-would produce two accounts.
+Values that look like an address are lowercased, whatever the claim is called, because an address is
+the same address in any case. Anything else is stored and matched exactly as the provider sends it —
+an internal id is opaque, and `sub` is defined as case-sensitive — so a provider that varies the case
+of such a value would produce two accounts.
 
 {% hint style="warning" %}
 **The claim you choose must identify a user uniquely.** Its value becomes both the login and the
@@ -87,8 +87,9 @@ new one would be created, so the uniqueness constraints on the account never com
 match the accounts they have been using, and get new empty ones — the originals, with their teams,
 projects and roles, are left behind. Treat this as a decision made once, when the provider is set up.
 
-Pick a claim the provider guarantees is unique and stable per user, such as an internal user id or
-`email`. Never pick a descriptive attribute like a department, display name, given name or locale,
+Pick a claim the provider guarantees is unique and stable per user **and that the provider itself
+sets**, such as an internal user id or `email`. A value users can edit in the directory lets them
+choose which Supervisely account they land on, including an existing one. Never pick a descriptive attribute like a department, display name, given name or locale,
 even when it happens to look distinct in your directory today. Note that `upn` — Microsoft's User
 Principal Name, in the default fallback for historical reasons — is documented by Microsoft as
 mutable and reusable, so prefer something durable when you have the choice.
