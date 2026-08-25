@@ -85,6 +85,7 @@ Tags provide a more flexible and free way to describe, while classes provide a f
   * **Global** - the tag applies to the entire video or object.
   * **Frame-based** - the tag applies only to specific frames in the video.
   * **Global and Frame-based** - allows you to use a tag for the entire video or object as well as for individual frames at the same time. This means that you can set a global tag for the entire video or object, denoting a permanent property, and apply it to individual frames to label temporary changes or events.
+* **LIMIT FRAME RANGE TAG LENGTH** (**for videos and point cloud episodes)** - an optional minimum and maximum length, in frames, for a finished frame-based tag. A tag whose range falls outside the limits cannot be finished. `0` in either field means that side is unlimited. See [Frame-based tagging](../../labeling/labeling-tools/frame-based-tags.md#limiting-the-length-of-a-tag) for what this looks like while labeling.
 * **TAG VALUE TYPE** - the type of value associated with the tag:
   * **None (Tag without Value):** Used to flag specific properties. For example, a tag "train" might mark data for neural network training.
   * **Text Tag:** Contains textual descriptions or comments about the object or image.
@@ -115,7 +116,8 @@ Tags provide a more flexible and free way to describe, while classes provide a f
    * **Global and Frame-based**: tag can be applied globally or to specific frames.
    * **Frame-based**: tag is applied only to specific frames.
    * **Global**: tag applies to the entire video or object as a whole.
-8. Click **Save** to complete the creation of the new tag.
+8. Optionally **limit the frame range tag length** (video and point cloud episode projects): tick **Limit frame range tag length** and set **Min frames** / **Max frames**. Leave a field at `0` to leave that side unlimited.
+9. Click **Save** to complete the creation of the new tag.
 
 <figure><img src="../../.gitbook/assets/new-tag.png" alt="" width="359"><figcaption></figcaption></figure>
 

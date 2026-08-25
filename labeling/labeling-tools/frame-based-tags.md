@@ -115,6 +115,42 @@ Click the _**Extend tag range**_ button represented by arrows pointing in opposi
 **Tip:** Use the **Default Action** setting in the pop-up to simplify repetitive actions (e.g., set **"From here to end"** as the default behavior).
 {% endhint %}
 
+## Limiting the length of a tag
+
+A frame-based tag can carry a minimum and a maximum length, in frames. Set them per tag on the [project definitions](https://docs.supervisely.com/data-organization/projects/definitions) page, or in the **Create tag** dialog inside the toolbox: tick **Limit frame range tag length** and fill **Min frames** / **Max frames**.
+
+<figure><img src="../../.gitbook/assets/new-tag.png" alt="" width="359"><figcaption>A tag that has to cover between 5 and 30 frames</figcaption></figure>
+
+### Why limit it
+
+Frame ranges are drawn by hand along a timeline, and the timeline is the one place in annotation where being slightly wrong is almost invisible. A few failure modes show up again and again in video projects:
+
+* **Stray one-frame tags.** A mis-click on a tag checkbox creates a range that starts and ends on the same frame. Nobody notices it in the tool, and it survives into the dataset as a labelled "event" one frame long.
+* **Events too short to be events.** A "lane change" or "fall" that lasts three frames is not a shorter version of the real thing — it is usually a misplaced start or end edge. Models trained on clips need a certain number of frames to have anything to learn from, and such a tag becomes noise in the training set rather than a hard example.
+* **Ranges that ran away.** **From here to end** and **Whole range** are one click each and easy to hit by accident, which turns a two-second event into the rest of the video.
+* **Segments that must be comparable.** When the tag feeds a metric — time in a state, event counts per minute — wildly out-of-range segments quietly distort the aggregate instead of failing loudly.
+
+Every one of these is cheap to fix at the moment of labelling, while the labeler is still looking at the frames, and expensive to fix later: it has to be found by QA or by a script, matched back to a video, and re-opened by someone who no longer remembers the clip. A length limit turns "find it later" into "cannot be saved wrong".
+
+Both limits are optional and independent. A minimum on its own is the common case — it rejects mis-clicks and too-short events without constraining how long a real event may run.
+
+### How it behaves while labeling
+
+* **Length counts inclusively.** A tag from frame 10 to frame 12 is 3 frames long, not 2.
+* **Only the finished tag is checked.** You can start a range and pass through any length while it is still unfinished — the limits apply at the moment you finish it. Until then the dashed range extends freely, exactly as described above.
+* **Finishing outside the limits does not go through.** The tag stays unfinished, so you can keep dragging the edge until the range is valid instead of losing the work. The number of frames next to the tag in the **Definitions** panel tells you where you are.
+* **`0` means no limit.** There is no separate on/off switch: setting a field to `0` disables that side.
+
+{% hint style="info" %}
+**Note:** Limits apply to frame-based tags in video and point cloud episode projects. A **Global** tag has no range, so nothing to limit.
+{% endhint %}
+
+{% hint style="warning" %}
+Setting a minimum above the maximum is refused when you save the tag — such a tag could never be finished at any length.
+{% endhint %}
+
+Existing tags are not touched when you add a limit: it applies to tags finished from that point on, so ranges recorded earlier stay as they are.
+
 ## Configuring the tag range for clearing tags
 
 When you need to adjust or remove an existing tag's range, select the frame-based tag and uncheck it. The **"Where to Clear Tag"** modal will appear, offering several options to customize how and where the tag should be cleared.
