@@ -117,7 +117,10 @@ Click the _**Extend tag range**_ button represented by arrows pointing in opposi
 
 ## Limiting the length of a tag
 
-A frame-based tag can carry a minimum and a maximum length, in frames. Set them per tag on the [project definitions](https://docs.supervisely.com/data-organization/projects/definitions) page, or in the **Create tag** dialog inside the toolbox: tick **Limit frame range tag length** and fill **Min frames** / **Max frames**.
+A frame-based tag can carry a minimum and a maximum length, in frames. Set them per tag in either place the tag can be defined:
+
+* on the [project definitions](https://docs.supervisely.com/data-organization/projects/definitions) page — tick **Limit frame range tag length**, then fill **Min frames** / **Max frames**;
+* in the **Create tag** dialog inside the toolbox — the two fields are shown next to **Limit frame range tag length** already, as in the screenshot at the top of this page.
 
 <figure><img src="../../.gitbook/assets/new-tag.png" alt="" width="359"><figcaption>A tag that has to cover between 5 and 30 frames</figcaption></figure>
 
