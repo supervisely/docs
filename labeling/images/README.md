@@ -229,3 +229,13 @@ The Settings Panel is the control center for personalizing the interface. It hou
 
 
 <figure><img src="../../.gitbook/assets/windows-frame.png" alt=""><figcaption></figcaption></figure>
+
+### Resolution scale
+
+Resolution scale controls how sharply the image is displayed in the main scene of the Image Labeling Toolbox. At the maximum value, the main scene is rendered using the full resolution available on your device and display, providing the clearest view while you work.
+
+The maximum available value depends on your device, browser, and display settings. Because of this, the top value may differ from one computer to another and can be lower than `1` in some cases. Even then, the maximum value still means the highest available display quality on that device.
+
+Lower values reduce the number of pixels used to render the main scene. This can be useful on limited hardware or when working with large images, as it reduces rendering load and can improve overall responsiveness. In this mode, the image may appear slightly less sharp on screen.
+
+This setting affects only how the image is displayed while you work in the toolbox. It does not modify the original image, does not change annotations, and does not affect export results.
