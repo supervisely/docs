@@ -136,13 +136,13 @@ Sending us that namespace lets our team find your logs straight away.
 
 ##### Extended Remote Logs
 
-For more detailed troubleshooting, you can enable extended remote logs, which forward every log level rather than only the problem ones.
+For more detailed troubleshooting, you can enable extended remote logs that include more verbose log levels.
 
 ```bash
 sudo supervisely enable-remote-logs --mode all
 ```
 
-To go back to problem-level logs only:
+To go back to the default:
 
 ```bash
 sudo supervisely enable-remote-logs --mode essential
@@ -150,16 +150,14 @@ sudo supervisely enable-remote-logs --mode essential
 
 Both restart the log forwarder for you. Running `enable-remote-logs` without `--mode` leaves the current verbosity untouched.
 
-> `--mode` requires Enterprise CLI **2.2.0** or newer — run `sudo supervisely self-update` first, or edit `SEND_LOGS_REMOTE_SERVER_MODE` in `$(sudo supervisely where)/.env` by hand and apply it with `sudo supervisely up -d vector`.
+> `--mode` requires Enterprise CLI **2.2.1** or newer — run `sudo supervisely self-update` first, or edit `SEND_LOGS_REMOTE_SERVER_MODE` in `$(sudo supervisely where)/.env` by hand and apply it with `sudo supervisely up -d vector`.
 
 
-**What's sent? System logs only.**
+**What's sent? Only error-level system logs.**
 
-By default, remote logging transmits **only problem-level system logs** - errors, warnings and fatal entries - such as error traces, service failures, and critical system diagnostics. `--mode all` widens that to every log level; it does not change what a log line may contain.
+Remote logging transmits **only error-level system logs** that are non-sensitive and necessary for technical troubleshooting, such as error traces, service failures, and critical system diagnostics. It does **not include any personal data, customer content, project files, credentials, or identifiable information**.
 
-In either mode, remote logs are system logs. They do **not include any personal data, customer content, project files, credentials, or identifiable information**.
-
-We take customer privacy seriously. Remote logs are limited to the entries required for technical troubleshooting and are handled securely by the Supervisely team. This ensures faster support without compromising your data integrity or confidentiality.
+We take customer privacy seriously. Remote logs are strictly limited to error-level entries required for technical troubleshooting and are handled securely by the Supervisely team. This ensures faster support without compromising your data integrity or confidentiality.
 
 ### Slow performance
 
