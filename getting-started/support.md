@@ -125,30 +125,32 @@ To disable it at any time, use:
 sudo supervisely disable-remote-logs
 ```
 
+Either command prints the resulting state, along with the namespace your logs arrive under on our side:
+
+```text
+Remote logs are on, error-level only.
+They arrive as namespace=supervisely-enterprise-<your company id> — give that to support.
+```
+
+Sending us that namespace lets our team find your logs straight away.
+
 ##### Extended Remote Logs
 
 For more detailed troubleshooting, you can enable extended remote logs that include more verbose log levels.
 
-To enable extended remote logs, do the following:
+```bash
+sudo supervisely enable-remote-logs --mode all
+```
 
-1. Open the Supervisely configuration file:
+To go back to the default:
 
 ```bash
-cd $(sudo supervisely where) nano ./.env
+sudo supervisely enable-remote-logs --mode essential
 ```
 
-2. Find the line that starts with `SEND_LOGS_REMOTE_SERVER_MODE=`.
-3. Change its value to `all`. The resulting line should look like this:
+Both restart the log forwarder for you. Running `enable-remote-logs` without `--mode` leaves the current verbosity untouched.
 
-```text
-SEND_LOGS_REMOTE_SERVER_MODE=all
-```
-
-4. Save the file and execute the following command to apply the changes:
-
-```bash
-sudo supervisely up -d vector
-```
+> `--mode` requires Enterprise CLI **2.2.1** or newer — run `sudo supervisely self-update` first, or edit `SEND_LOGS_REMOTE_SERVER_MODE` in `$(sudo supervisely where)/.env` by hand and apply it with `sudo supervisely up -d vector`.
 
 
 **What's sent? Only error-level system logs.**
