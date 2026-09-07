@@ -152,6 +152,48 @@ Fields definitions:
 * `createdAt` - string - date and time of figure creation
 * `updatedAt` - string - date and time of the last figure update
 
+## Custom data
+
+A tag assignment can carry arbitrary user JSON in the optional `customData` field. It is
+independent of the tag definition and of the tag value, so the same tag can carry different
+custom data on every entity it is attached to.
+
+```json
+{
+    "id": 503051990,
+    "tagId": 1693352,
+    "name": "cat",
+    "value": "fluffy",
+    "customData": {
+        "confidence": 0.92,
+        "source": "model_v3",
+        "reviewed": false,
+        "bbox_hint": [10, 20, 30, 40],
+        "meta": { "title": "kept as-is", "groupId": 7 }
+    }
+}
+```
+
+Fields definitions:
+
+* `customData` - object - arbitrary JSON. Nested objects and arrays are allowed, and keys are
+  never renamed or stripped, so reserved-looking names such as `title` or `groupId` come back
+  exactly as they were stored.
+
+The key is present only when it is not empty, so annotations of projects that never use the
+feature are unchanged. Image, object (figure) and annotation object tags all support it.
+
+In the Python SDK it is the `custom_data` property of `Tag`, `VideoTag`, `VolumeTag` and
+`PointcloudTag`, and it is preserved through annotation download and upload:
+
+```python
+tag = sly.Tag(
+    meta=project_meta.get_tag_meta("cat"),
+    value="fluffy",
+    custom_data={"confidence": 0.92, "source": "model_v3"},
+)
+```
+
 ## Examples
 
 **Image tags:**
