@@ -10,6 +10,10 @@ An image can carry one or more **audio files as references** — a dictated desc
 
 This is useful whenever the correct label depends on context that is not in the pixels.
 
+{% hint style="info" %}
+Requires a Supervisely instance running `6.17.25` or newer. Attaching audio needs Supervisely Python SDK version `6.74.36` or newer.
+{% endhint %}
+
 ## What audio references are not
 
 Audio references are **reference only**:
