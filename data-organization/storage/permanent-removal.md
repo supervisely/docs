@@ -50,6 +50,31 @@ All methods live under `/public/api/v3/` on your instance and authenticate with 
 | `datasets.remove.permanently` | `{"datasets": [{"id": 222}]}` | — |
 | `instance.data.cleanup-unused` | — (root only) | `{"taskId": 989}` |
 
+## Finding what is already archived
+
+Permanent removal only accepts entities that are already archived, so you need a way to list
+them. Every v3 list method takes a top-level `archived` property:
+
+| Value | Returns |
+| --- | --- |
+| omitted / `false` | live entities only — the default |
+| `true` | archived (Trash Bin) entities instead |
+| `"forever"` | archived entities including those already queued for permanent removal, where the entity has that state. Root only |
+
+```bash
+curl -X POST "$SERVER_ADDRESS/public/api/v3/projects.list"   -H "x-api-key: $API_TOKEN" -H "Content-Type: application/json"   -d '{"workspaceId": 7, "archived": true}'
+```
+
+`teams.list` takes no parent id, `workspaces.list` takes `teamId`, `projects.list` takes
+`workspaceId`, and `datasets.list` takes `projectId` — so enumerating a whole instance means
+walking those four levels in order.
+
+{% hint style="info" %}
+The `archived` property requires Supervisely instance **6.17.22** or newer. On older instances
+the list methods are hard-scoped to live entities and there is no way to enumerate the Trash
+Bin over the public API.
+{% endhint %}
+
 ## Team and Workspace removal runs in the background
 
 `teams.remove.permanently` and `workspaces.remove.permanently` return a **task id** immediately and then drain in the background. A single team can hold thousands of projects, files and job artifacts, so the work is deliberately asynchronous.
@@ -248,11 +273,52 @@ When passing a list of ids to `remove_permanently`, all ids must belong to the s
 Do not confuse `api.project.remove_permanently()` with the SDK's `api.project.archive(id, archive_url)`. The latter is an unrelated legacy method that offloads a project to an external backup archive; it is not the `projects.archive` soft-removal step described on this page.
 {% endhint %}
 
+## Emptying the whole Trash Bin from Python
+
+Walking four levels by hand is rarely what you want. The Python SDK wraps the whole sweep:
+
+```python
+import supervisely as sly
+
+api = sly.Api.from_env()
+
+# See what is in the Trash Bin before removing anything
+for item in api.trash.get_list():
+    print(item.type, item.id, item.name)
+
+# Permanently remove all of it, then reclaim the storage
+print(api.trash.clear())
+# Output: {'team': 1, 'workspace': 0, 'project': 4, 'dataset': 2}
+```
+
+`api.trash.get_list()` walks the instance top-down and returns the archived Teams, Workspaces,
+Projects and Datasets, skipping anything already covered by an archived parent — removing a
+Team removes everything nested inside it, so its Projects are not listed separately.
+
+`api.trash.clear()` removes all of them in the same order, waits for the background Team and
+Workspace removal tasks to finish before descending, and then triggers
+`instance.data.cleanup-unused`. Both accept `team_id` to restrict the sweep to a single Team,
+and `include_datasets=False` to skip the per-Project scan for archived Datasets, which costs
+one API call per live Project.
+
+{% hint style="danger" %}
+`api.trash.clear()` is irreversible and root only. There is no second Trash Bin behind it.
+Always read `api.trash.get_list()` first.
+{% endhint %}
+
+{% hint style="warning" %}
+The Trash Bin page also lists models, checkpoints, python notebooks and DTL archives. Those
+have no public API, so neither the methods on this page nor `api.trash.clear()` touch them —
+remove them from the [Server trash bin](../../collaboration/admin-panel/server-trash-bin.md)
+page instead.
+{% endhint %}
+
 ## Notes and limitations
 
 * **The admin Team (id `1`) cannot be removed.** Attempts to archive or permanently remove it are rejected.
 * **Permanent removal is idempotent.** Ids that are already removed are silently skipped, so it is safe to retry a batch after a partial failure or a task that ended in `error`.
 * **Only archived entities can be removed permanently.** The one exception is `projects.remove.permanently` with `preserveProjectCard: true` — see below.
+* **`preserveProjectCard` defaults to `true`.** Pass `false` explicitly whenever you mean to delete the project. A call of `{"projects": [{"id": 111}]}` takes the default, so it keeps the project card, drops only the data, and leaves the row in the Trash Bin — while still answering `{"success": true}`. `api.project.remove_permanently()` and `api.trash.clear()` always send `false`.
 * **`preserveProjectCard: true` is a different operation.** Instead of deleting the project, it keeps the project card in place and drops only its data. Use it when you want to retain the project's identity, history and place in the UI while releasing its storage. Because the project itself survives, this variant does **not** require the project to be archived first.
 
 ## See also
