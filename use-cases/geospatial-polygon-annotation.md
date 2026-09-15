@@ -14,17 +14,13 @@ A [Brush Tool](../labeling/labeling-tools/brush-tool.md) or [Segment Anything mo
 
 If positive and negative Smart Tool points are not enough, an annotator can refine the mask locally with a brush by adding a missing region or removing an unwanted one. This corrects the mask content, but it does not turn its pixel-based edge into a straight geometric boundary.
 
-[![Video preview: editing a Segment Anything mask with the Brush Tool in Supervisely](../.gitbook/assets/scalable-polygon-annotation-mask-brush-preview.jpg)](../.gitbook/assets/scalable-polygon-annotation-mask-brush.webm?raw=true)
-
-**Video:** [Watch mask editing with the Brush Tool in Supervisely](../.gitbook/assets/scalable-polygon-annotation-mask-brush.webm?raw=true).
+{% embed url="https://raw.githubusercontent.com/supervisely/docs/scalable-polygon-annotation/.gitbook/assets/scalable-polygon-annotation-mask-brush.webm" %}
 
 *This video shows a mask created by Meta AI's pretrained Segment Anything model being edited with the Brush Tool in Supervisely. The brush lets an annotator add or remove individual regions when model-guidance points are not enough. The outer edge still remains a mask boundary and may retain irregularities.*
 
 Supervisely also supports another path: convert the mask into a polygon, then edit its vertices. This produces a vector object, but every small irregularity in the original mask becomes part of a contour with many points.
 
-[![Video preview: converting a Segment Anything mask into a polygon in Supervisely](../.gitbook/assets/scalable-polygon-annotation-mask-to-polygon-preview.jpg)](../.gitbook/assets/scalable-polygon-annotation-mask-to-polygon.webm?raw=true)
-
-**Video:** [Watch a Segment Anything mask being converted into a polygon in Supervisely](../.gitbook/assets/scalable-polygon-annotation-mask-to-polygon.webm?raw=true).
+{% embed url="https://raw.githubusercontent.com/supervisely/docs/scalable-polygon-annotation/.gitbook/assets/scalable-polygon-annotation-mask-to-polygon.webm" %}
 
 *This video shows a Segment Anything mask being converted directly into a polygon in Supervisely. The resulting outline can be edited manually, but it inherits the mask's complex boundary and contains many vertices. For an object with straight sides, this polygon may be harder to edit than a clean outline drawn with only a few points.*
 
@@ -52,9 +48,7 @@ A building, lawn, and paved area meet along the same lines. If every polygon is 
 
 [Automatic object linking](../labeling/labeling-tools/polygon-tool.md#automatic-object-linking) in the Polygon Tool provides snapping to an existing annotation contour. The annotator selects points on the existing boundary, and the new polygon follows that boundary between them. In the property example, the building outline can be reused when drawing the lawn and paved area instead of aligning every vertex manually.
 
-[![Video preview: snapping a lawn polygon to an existing building boundary in Supervisely](../.gitbook/assets/scalable-polygon-annotation-snapping-preview.jpg)](../.gitbook/assets/scalable-polygon-annotation-snapping.webm?raw=true)
-
-**Video:** [Watch the Polygon Tool reuse an existing object boundary in Supervisely](../.gitbook/assets/scalable-polygon-annotation-snapping.webm?raw=true).
+{% embed url="https://raw.githubusercontent.com/supervisely/docs/scalable-polygon-annotation/.gitbook/assets/scalable-polygon-annotation-snapping.webm" %}
 
 *This video shows Automatic object linking in the Supervisely Polygon Tool. When drawing the lawn polygon, the annotator selects points on the existing building contour and reuses the boundary between them. The two objects share the same precise line without placing the same vertices twice or manually correcting gaps and overlaps.*
 
@@ -68,9 +62,7 @@ In the [Polygon Tool](../labeling/labeling-tools/polygon-tool.md#manual-annotati
 
 [Holes creation](../labeling/labeling-tools/polygon-tool.md#holes-creation) lets an annotator exclude an internal area from an existing polygon. A lawn can remain one object while a planting bed, pond, building, or landscaped island is cut out inside it. The outer lawn geometry stays intact, while the excluded region keeps its own precise shape.
 
-[![Video preview: creating a polygon hole for a planting bed inside a lawn annotation in Supervisely](../.gitbook/assets/scalable-polygon-annotation-hole-preview.jpg)](../.gitbook/assets/scalable-polygon-annotation-hole.webm?raw=true)
-
-**Video:** [Watch a hole being created inside a polygon in Supervisely](../.gitbook/assets/scalable-polygon-annotation-hole.webm?raw=true).
+{% embed url="https://raw.githubusercontent.com/supervisely/docs/scalable-polygon-annotation/.gitbook/assets/scalable-polygon-annotation-hole.webm" %}
 
 *This video shows a hole being drawn for a planting bed inside an existing lawn polygon in Supervisely. The internal area is excluded from the lawn while the outer lawn remains a single object. The hole follows its own editable boundary, so the planting bed does not have to split the surrounding polygon into several annotations.*
 
