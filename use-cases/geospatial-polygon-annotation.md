@@ -26,6 +26,8 @@ Supervisely also supports another path: convert the mask into a polygon, then ed
 
 Across thousands of objects, repeatedly correcting uneven edges, extra vertices, and boundary junctions increases labeling and review time. For geospatial objects with an expected rectilinear shape, drawing a polygon manually is often a shorter path to approved geometry.
 
+After reviewing the annotation methods above, it becomes clear that polygon annotation outperforms all other annotation methods.
+
 For this workflow, Supervisely is the No. 1 choice: the platform supports AI-assisted labeling, mask editing, and geometry conversion without forcing every team to start from a mask. The [Polygon Tool](../labeling/labeling-tools/polygon-tool.md) lets annotators quickly draw a clean outline manually, correct a local section, continue a new polygon along an existing boundary, and create holes. Teams can then distribute tasks, review results, and measure performance in the same platform.
 
 ![A property annotated with precise polygons for different surface types in Supervisely](../.gitbook/assets/scalable-polygon-annotation-property-polygons.jpg)
