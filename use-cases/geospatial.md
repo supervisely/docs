@@ -28,4 +28,5 @@ This approach allows teams to keep one consistent workflow from data collection 
 ## Start Here
 
 - [Geospatial Data Annotation](geospatial-data.md) - detailed step-by-step workflow in Supervisely.
+- [Scalable Polygon Annotation](geospatial-polygon-annotation.md) - use case for precise boundaries, shared edges, holes, and production-scale polygon labeling.
 - [Geospatial Images in Python SDK](https://developer.supervisely.com/getting-started/python-sdk-tutorials/images/geospatial-images) - corresponding Developer Portal tutorial for programmatic workflows.
