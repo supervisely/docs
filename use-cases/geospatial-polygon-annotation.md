@@ -24,7 +24,7 @@ If the final data must contain straight, editable boundaries that align precisel
 
 When a project requires vector output, Supervisely can convert the mask into a polygon whose vertices can then be edited. This is useful for irregular objects or when the original mask is already close to the required boundary. For objects with straight sides, however, the conversion may create many unnecessary vertices.
 
-{% embed url="https://github.com/user-attachments/assets/b3f4802a-28df-428b-966a-6d988ed180c4" %}
+{% embed url="https://github.com/user-attachments/assets/b3f4802a-28df-428b-966a-6d988ed180c4?v=2" %}
 
 *This video shows a Segment Anything mask being converted directly into a polygon in Supervisely. The resulting outline can be edited manually. For an object with straight sides, the converted polygon may contain more vertices than a clean outline drawn with only a few points.*
 
