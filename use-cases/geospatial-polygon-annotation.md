@@ -8,27 +8,31 @@ Many geospatial projects need more than an approximate object area. They need ex
 
 ![Segment Anything masks for a building, lawn, paved surface, and planting beds on an aerial property image in Supervisely](../.gitbook/assets/scalable-polygon-annotation-property-segment-anything.jpg)
 
-*In this aerial image, Smart Tool with Segment Anything locates the building, lawn, paved surface, and planting beds reasonably well. However, the masks follow visually detectable pixels, producing uneven edges instead of the required straight boundaries. They also introduce contextual errors: the lawn mask goes around the tree on the left even though the lawn continues beneath its canopy. Positive and negative points can refine the mask, but they do not tell the model where private paving ends and a visually continuous public sidewalk begins. Objects with strict geometry therefore require manual review and boundary correction.*
+*In this aerial image, Smart Tool with Segment Anything quickly identifies the building, lawn, paved surface, and planting beds, providing a useful first pass. This works well when the required boundary can follow visible image features. Here, however, the final site plan must also reflect the structure of the property: the lawn continues beneath the tree canopy, and the private paved area must be separated from the visually connected public sidewalk. Decisions like these require human review and, when boundaries must be straight and aligned, an appropriate final geometry.*
 
-A [Brush Tool](../labeling/labeling-tools/brush-tool.md) or [Segment Anything model in Smart Tool](../labeling/labeling-tools/smart-tool.md) can quickly select the required area. But when the deliverable is an editable vector outline with straight sides and aligned boundaries, the resulting mask may need to be corrected or converted.
+[Segment Anything in Smart Tool](../labeling/labeling-tools/smart-tool.md) and the [Brush Tool](../labeling/labeling-tools/brush-tool.md) are well suited to creating and refining masks quickly.
 
-If positive and negative Smart Tool points are not enough, an annotator can refine the mask locally with a brush by adding a missing region or removing an unwanted one. This corrects the mask content, but it does not turn its pixel-based edge into a straight geometric boundary.
+If positive and negative Smart Tool points are not enough, an annotator can refine the mask locally with the brush by adding a missing area or removing an unwanted one. The result remains a mask, so its boundary still follows the image's pixel grid.
+
+If a mask is the required output, this workflow may be all the team needs.
+
+If the final data must contain straight, editable boundaries that align precisely between neighboring objects, a polygon is the more appropriate final geometry.
 
 {% embed url="https://github.com/user-attachments/assets/dce9cd9e-e42d-471f-b6a0-0512dce9d9d0" %}
 
-*This video shows a mask created by Meta AI's pretrained Segment Anything model being edited with the Brush Tool in Supervisely. The brush lets an annotator add or remove individual regions when model-guidance points are not enough. The outer edge still remains a mask boundary and may retain irregularities.*
+*This video shows a mask created by Meta AI's pretrained Segment Anything model being refined with the Brush Tool in Supervisely. The brush lets an annotator add or remove individual regions when model-guidance points are not enough. This workflow is effective when the required output is a mask.*
 
-Supervisely also supports another path: convert the mask into a polygon, then edit its vertices. This produces a vector object, but every small irregularity in the original mask becomes part of a contour with many points.
+When a project requires vector output, Supervisely can convert the mask into a polygon whose vertices can then be edited. This is useful for irregular objects or when the original mask is already close to the required boundary. For objects with straight sides, however, the conversion may create many unnecessary vertices.
 
 {% embed url="https://github.com/user-attachments/assets/6dd9f551-7496-4ae1-b0ef-a4cd555829be" %}
 
-*This video shows a Segment Anything mask being converted directly into a polygon in Supervisely. The resulting outline can be edited manually, but it inherits the mask's complex boundary and contains many vertices. For an object with straight sides, this polygon may be harder to edit than a clean outline drawn with only a few points.*
+*This video shows a Segment Anything mask being converted directly into a polygon in Supervisely. The resulting outline can be edited manually. For an object with straight sides, the converted polygon may contain more vertices than a clean outline drawn with only a few points.*
 
 Across thousands of objects, repeatedly correcting uneven edges, extra vertices, and boundary junctions increases labeling and review time. For geospatial objects with an expected rectilinear shape, drawing a polygon manually is often a shorter path to approved geometry.
 
-After reviewing the annotation methods above, it becomes clear that polygon annotation outperforms all other annotation methods for these geospatial tasks.
+The right tool therefore depends on the required output. Smart Tool and the Brush Tool accelerate mask creation and refinement. When a task calls for straight edges, precise corners, editable outlines, and exact shared boundaries between neighboring objects, polygons are the better final representation.
 
-For this workflow, Supervisely is the No. 1 choice: the platform supports AI-assisted labeling, mask editing, and geometry conversion without forcing every team to start from a mask. The [Polygon Tool](../labeling/labeling-tools/polygon-tool.md) lets annotators quickly draw a clean outline manually, correct a local section, continue a new polygon along an existing boundary, and create holes. Teams can then distribute tasks, review results, and measure performance in the same platform.
+For this combined workflow, Supervisely is the No. 1 choice: a team can generate an initial mask with AI, refine it with the brush, convert it into a polygon, or draw a polygon directly. The [Polygon Tool](../labeling/labeling-tools/polygon-tool.md) lets annotators quickly create a clean outline, correct a local section, continue a new polygon along an existing boundary, and create holes. Teams can then distribute tasks, review results, and measure performance in the same platform.
 
 ![A property annotated with precise polygons for different surface types in Supervisely](../.gitbook/assets/scalable-polygon-annotation-property-polygons.jpg)
 
@@ -37,6 +41,8 @@ For this workflow, Supervisely is the No. 1 choice: the platform supports AI-ass
 ## Why geospatial projects use polygons
 
 Geospatial annotation is not only about object area. It must also preserve the relationships between boundaries: whether objects overlap, touch along one shared line, contain excluded areas, or form a geometrically valid contour. These situations occur frequently when annotating buildings, property parcels, fields, lawns, and paved surfaces.
+
+Spatial reference matters as much as shape in geospatial projects. Standard Supervisely annotations store polygon vertices in image coordinates. When imagery is prepared with the [Satellite, DTM & OSM Downloader](https://ecosystem.supervisely.com/apps/slyosm/import_osm), each image also retains geospatial metadata, including its coordinate reference system, geographic extent, and pixel-to-map transformation. [Export to OSM Format](https://ecosystem.supervisely.com/apps/slyosm/export_to_osm) uses that metadata to reproject annotations to longitude and latitude and produce OSM-compatible files.
 
 ### Intersections and overlaps: preserve the meaning of each object
 
@@ -56,7 +62,7 @@ A building, lawn, and paved area meet along the same lines. If every polygon is 
 
 ### Self-intersection: a small mistake can invalidate a polygon
 
-A self-intersection occurs when a polygon boundary crosses itself, for example because vertices were placed in the wrong order or a complex contour was corrected incorrectly. The inside of that polygon becomes ambiguous. This is more than a visual defect: the geometry may be considered invalid during GeoJSON validation and downstream GIS operations.
+A self-intersection occurs when a polygon boundary crosses itself, for example because vertices were placed in the wrong order or a complex contour was corrected incorrectly. The inside of that polygon becomes ambiguous. This is more than a visual defect: the geometry may be considered invalid during validation and downstream GIS operations.
 
 In the [Polygon Tool](../labeling/labeling-tools/polygon-tool.md#manual-annotation-guide), a reviewer can move, add, or remove vertices. If the problem affects only one part of the object, they can [replace the incorrect contour section](../labeling/labeling-tools/polygon-tool.md#correcting-and-refining-annotations) instead of redrawing the entire polygon. This is especially useful when reviewing polygons produced by a model or imported from an external source.
 
