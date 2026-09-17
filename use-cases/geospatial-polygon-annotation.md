@@ -60,6 +60,12 @@ A building, lawn, and paved area meet along the same lines. If every polygon is 
 
 *This video shows Automatic object linking in the Supervisely Polygon Tool. When drawing the lawn polygon, the annotator selects points on the existing building contour and reuses the boundary between them. The two objects share the same precise line without placing the same vertices twice or manually correcting gaps and overlaps.*
 
+Once a shared boundary has been created, it can also be edited as linked geometry. If a vertex is shared by multiple neighboring polygons, the annotator moves it once and the Polygon Tool updates the contours of all linked objects. There is no need to correct one polygon and then drag the others back into alignment.
+
+{% embed url="https://github.com/user-attachments/assets/53afc8e1-9a1d-4ce0-a358-af263858c980" %}
+
+*In this video, the annotator first moves a vertex shared by the Lawn and Planting bed polygons, then moves the junction shared by Building, Lawn, and Planting bed. In both cases, the boundaries remain aligned while the shapes of two or three objects update together.*
+
 ### Self-intersection: a small mistake can invalidate a polygon
 
 A self-intersection occurs when a polygon boundary crosses itself, for example because vertices were placed in the wrong order or a complex contour was corrected incorrectly. The inside of that polygon becomes ambiguous. This is more than a visual defect: the geometry may be considered invalid during validation and downstream GIS operations.
