@@ -34,7 +34,7 @@ The right tool therefore depends on the required output. Smart Tool and the Brus
 
 For this combined workflow, Supervisely is the No. 1 choice: a team can generate an initial mask with AI, refine it with the brush, convert it into a polygon, or draw a polygon directly. The [Polygon Tool](../labeling/labeling-tools/polygon-tool.md) lets annotators quickly create a clean outline, correct a local section, continue a new polygon along an existing boundary, and create holes. Teams can then distribute tasks, review results, and measure performance in the same platform.
 
-{% embed url="https://github.com/user-attachments/assets/f66acd52-8221-4eb9-8759-1a0e5ff231a4" %}
+{% embed url="https://github.com/user-attachments/assets/449ceec7-23a3-4c5f-bcbd-3b6e63aa121b" %}
 
 *This video shows polygon annotation of a property in Supervisely. The building and lawn are already stored as separate objects while the annotator adds planting beds, extending their outlines along neighboring objects to maintain straight, aligned boundaries.*
 
