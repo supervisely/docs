@@ -223,6 +223,7 @@
 * [Overview](use-cases/overview.md)
 * [Geospatial](use-cases/geospatial.md)
   * [Geospatial Data Annotation](use-cases/geospatial-data.md)
+  * [Scalable Polygon Annotation](use-cases/geospatial-polygon-annotation.md)
 * [Automotive](use-cases/automotive/README.md)
   * [Automotive Bolt Annotation](use-cases/automotive/automotive-bolt-annotation.md)
 
