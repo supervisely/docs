@@ -102,13 +102,16 @@ what is already there.
 
 This works for **Mask**, **Polygon** and **Multipolygon** objects, and for **Any shape**
 objects that are one of those. The corrected object keeps its own shape: a polygon stays
-a polygon, a mask stays a mask.
+a polygon, a mask stays a mask. The model answers with a mask either way, so a polygon is
+retraced from that answer and keeps its largest piece; stray specks elsewhere in the crop
+are dropped.
 
 {% hint style="info" %}
 An interactive segmentation model has to be running for the menu entry to be active.
 Starting from a polygon or multipolygon also needs a serving app that accepts the object
-it is asked to refine; **Serve Segment Anything 2** does from the 1.0.22 image onwards.
-An older app still refines masks, and starts a polygon session from your clicks alone.
+it is asked to refine; **Serve Segment Anything 2** does from the image that carries this
+update onwards. An older app still refines masks, and starts a polygon session from your
+clicks alone.
 {% endhint %}
 
 ### Reference Bounding Box Prompts (SAM 3 Exclusive)
