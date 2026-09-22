@@ -92,6 +92,25 @@ Use the **Brush** or **Pen Tool** for any necessary manual adjustments
 * **Add parts**: Select the missing section of the object and draw it in.
 * **Delete parts**: Hold the **SHIFT** key and draw over areas you want to remove.
 
+### Edit an Existing Object with the Smart Tool
+
+An object you already labeled can be handed back to the model instead of being deleted
+and drawn again. Open the object's menu — in the sidebar, or by right-clicking the
+object on the image — and choose **Edit via Smart Tool**. The object reopens in the
+Smart Tool with its bounding box, and your positive 🟢 and negative 🔴 points refine
+what is already there.
+
+This works for **Mask**, **Polygon** and **Multipolygon** objects, and for **Any shape**
+objects that are one of those. The corrected object keeps its own shape: a polygon stays
+a polygon, a mask stays a mask.
+
+{% hint style="info" %}
+An interactive segmentation model has to be running for the menu entry to be active.
+Starting from a polygon or multipolygon also needs a serving app that accepts the object
+it is asked to refine; **Serve Segment Anything 2** does from the 1.0.22 image onwards.
+An older app still refines masks, and starts a polygon session from your clicks alone.
+{% endhint %}
+
 ### Reference Bounding Box Prompts (SAM 3 Exclusive)
 
 The **reference bounding box prompts** mode is an advanced AI-assisted feature of the Smart Tool, available exclusively when using **Segment Anything 3 (SAM 3)**. It enables rapid **one-to-many instance segmentation**: simply draw a single bounding box around one example of an object, and the model will automatically detect and segment all visually similar instances across the entire image.
