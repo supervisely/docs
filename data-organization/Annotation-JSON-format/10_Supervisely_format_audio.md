@@ -13,7 +13,7 @@ Root 📁 `project_name` folder named with the project name
 
 ## Annotation file
 
-A label on a recording is a tag applied to a range of samples.
+A label on a recording is a tag, applied either to a range of samples (a segment) or to the whole recording (a recording tag, "Entire recording" in the labeling tool).
 
 ```json
 {
@@ -32,18 +32,24 @@ A label on a recording is a tag applied to a range of samples.
       "frameRange": [0, 47999],
       "channel": null,
       "value": "engine"
+    },
+    {
+      "name": "scene",
+      "frameRange": null,
+      "value": "test bench"
     }
   ]
 }
 ```
 
 - `sampleCount`, `sampleRate`, `channels` — the shape of the recording. The platform does not store them, so they are written on export to make sample ranges convertible to seconds. Optional on import.
-- `tags` — the segment labels.
+- `tags` — the labels: segments and recording tags in one list.
 - `name` — the tag's name in `meta.json`.
-- `frameRange` — first and last sample of the segment, **both inclusive**, as zero-based indices into the original recording. The name is shared with videos, but for audio the numbers are samples, not frames and not milliseconds: at 16 kHz, `[16000, 23999]` is 1.0 s to 1.5 s.
-- `channel` — the zero-based channel the label is about, or `null` for all channels.
+- `frameRange` — first and last sample of the segment, **both inclusive**, as zero-based indices into the original recording. The name is shared with videos, but for audio the numbers are samples, not frames and not milliseconds: at 16 kHz, `[16000, 23999]` is 1.0 s to 1.5 s. `null` marks a recording tag, which labels the whole file; a tag can be on a recording only once.
+- `channel` — the zero-based channel a segment is about, or `null` for all channels. A recording tag has no channel.
 - `value` — the tag value, for tags that have one.
 - `meta` — optional free-form object, kept as is.
+- `customData` — optional object any client may attach to a label, kept as is.
 - `tagId`, `id`, `labelerLogin` — written on export and ignored on import.
 
 ## Spectrogram settings

@@ -1,7 +1,7 @@
 # Overview
 
 {% hint style="success" %}
-Import audio recordings with their segment labels and the project's spectrogram settings in the Supervisely format. A downloaded Audio project is already in this format.
+Import audio recordings with their segments, whole-recording tags and the project's spectrogram settings in the Supervisely format. A downloaded Audio project is already in this format.
 {% endhint %}
 
 {% hint style="info" %}
@@ -38,6 +38,6 @@ Both a directory and an archive are supported. Each dataset is a directory with 
 # What is imported
 
 * **Recordings**, unchanged.
-* **Segments**, matched to the destination project's tags by name. A tag that conflicts with an existing one is renamed, as for other project types. Ids from the source are replaced.
+* **Segments and whole-recording tags**, with their values, channels, `meta` and `customData`, matched to the destination project's tags by name. A tag that conflicts with an existing one is renamed, as for other project types. Ids from the source are replaced.
 * **Datasets**, including nested ones.
 * **Spectrogram settings** from `meta.json`, but only when the destination project has none yet and holds no recordings. A project that is already configured, or already has recordings, keeps its own settings, because changing them would change what its existing labels mean; the import log says when the imported settings differ.

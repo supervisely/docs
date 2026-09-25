@@ -27,7 +27,7 @@ Audio projects need a Supervisely license that includes the audio recordings mod
 Supported formats: **WAV, FLAC, MP3, OGG, M4A**.
 
 * **Plain recordings** in any folder structure are uploaded to one dataset, without labels.
-* **Supervisely format** keeps datasets, segments and the project's spectrogram settings. See [Supervisely audio format](../../data-organization/Annotation-JSON-format/10_Supervisely_format_audio.md).
+* **Supervisely format** keeps datasets, segments, whole-recording tags and the project's spectrogram settings. See [Supervisely audio format](../../data-organization/Annotation-JSON-format/10_Supervisely_format_audio.md).
 
 Use the import wizard on the project, Team Files, Cloud Storage or the [Python SDK](https://developer.supervisely.com/getting-started/python-sdk-tutorials/audio/audio). Audio is always uploaded; it cannot be added by link.
 
