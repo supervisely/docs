@@ -37,6 +37,14 @@ The panel appears in the Image Labeling Toolbox for image projects. It lists eve
 
 Multiple recordings per image are supported — one is simply the common case.
 
+## Create a project for audio references
+
+1. Start creating a new project and choose the `Images` project type.
+2. In the `Labeling interface` list, select `Audio references`. Hover the `?` icon next to it for a short description.
+3. Finish creating the project, import your images and attach the recordings as described in [Attaching audio](#attaching-audio).
+
+The project opens in the Image Labeling Toolbox, where the Audio panel plays the recordings attached to each image.
+
 ## Attaching audio
 
 Audio is attached with the Python SDK, either while importing images or afterwards. In the simplest form, one call uploads a local file to Team Files and attaches it to the image:
