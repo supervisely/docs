@@ -224,6 +224,8 @@
 
 ## 🎯 Use Cases
 
+* [Railway Infrastructure Inspection with GPS Telemetry](use-cases/railway-gps-telemetry.md)
+
 * [Overview](use-cases/overview.md)
 * [Geospatial](use-cases/geospatial.md)
   * [Geospatial Data Annotation](use-cases/geospatial-data.md)
