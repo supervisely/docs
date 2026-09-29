@@ -79,7 +79,7 @@ Upload original GoPro files without re-encoding. Video converters and editors ca
 
 <video controls preload="metadata" src="../../.gitbook/assets/gps-synchronized-navigation.webm">Watch the synchronized navigation demo.</video>
 
-[![Synchronized navigation demo — click to watch](../../.gitbook/assets/gps-synchronized-navigation-preview.jpg)](https://github.com/supervisely/docs/raw/refs/heads/video-gps-telemetry/.gitbook/assets/gps-synchronized-navigation.webm)
+[![Synchronized navigation demo — click to watch](../../.gitbook/assets/gps-synchronized-navigation-preview.jpg)](https://github.com/supervisely/docs/raw/refs/heads/review/video-gps-telemetry/.gitbook/assets/gps-synchronized-navigation.webm)
 
 [Watch the synchronized navigation demo](../../.gitbook/assets/gps-synchronized-navigation.webm).
 
@@ -139,7 +139,7 @@ Hover over a chart to read the tooltip values for that time position. In the dem
 
 <video controls preload="metadata" src="../../.gitbook/assets/gps-hover-tooltip.webm">Hover tooltips on the telemetry charts.</video>
 
-[![Hover tooltip demo — click to watch](../../.gitbook/assets/gps-hover-tooltip-preview.jpg)](https://github.com/supervisely/docs/raw/refs/heads/video-gps-telemetry/.gitbook/assets/gps-hover-tooltip.webm)
+[![Hover tooltip demo — click to watch](../../.gitbook/assets/gps-hover-tooltip-preview.jpg)](https://github.com/supervisely/docs/raw/refs/heads/review/video-gps-telemetry/.gitbook/assets/gps-hover-tooltip.webm)
 
 [Watch the hover tooltip demo](../../.gitbook/assets/gps-hover-tooltip.webm).
 
@@ -165,7 +165,7 @@ The chart helps locate the moment of interest, while reviewing nearby frames hel
 
 <video controls preload="metadata" src="../../.gitbook/assets/gps-slowdown-tag.webm">Annotating a slowdown with the slowdown tag.</video>
 
-[![Slowdown annotation example — click to watch](../../.gitbook/assets/gps-slowdown-tag-preview.jpg)](https://github.com/supervisely/docs/raw/refs/heads/video-gps-telemetry/.gitbook/assets/gps-slowdown-tag.webm)
+[![Slowdown annotation example — click to watch](../../.gitbook/assets/gps-slowdown-tag-preview.jpg)](https://github.com/supervisely/docs/raw/refs/heads/review/video-gps-telemetry/.gitbook/assets/gps-slowdown-tag.webm)
 
 [Watch the slowdown annotation example](../../.gitbook/assets/gps-slowdown-tag.webm).
 
@@ -177,7 +177,7 @@ If a segment is short and individual frames are difficult to select on the full 
 
 <video controls preload="metadata" src="../../.gitbook/assets/gps-turn-tag.webm">Annotating a turn and comparing the turn and slowdown tag ranges.</video>
 
-[![Turn annotation and Timeline Zoom example — click to watch](../../.gitbook/assets/gps-turn-tag-preview.jpg)](https://github.com/supervisely/docs/raw/refs/heads/video-gps-telemetry/.gitbook/assets/gps-turn-tag.webm)
+[![Turn annotation and Timeline Zoom example — click to watch](../../.gitbook/assets/gps-turn-tag-preview.jpg)](https://github.com/supervisely/docs/raw/refs/heads/review/video-gps-telemetry/.gitbook/assets/gps-turn-tag.webm)
 
 [Watch the turn annotation example](../../.gitbook/assets/gps-turn-tag.webm).
 

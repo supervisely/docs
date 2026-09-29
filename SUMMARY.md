@@ -116,7 +116,6 @@
   * [Images](labeling/images/README.md)
   * [Videos 2.0](labeling/videos/README.md)
   * [Videos 3.0](labeling/labeling-toolbox/videos-3.0.md)
-  * [Video + GPS Telemetry](labeling/videos/video-gps-telemetry.md)
   * [3D Point Cloud and Episodes](labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md)
     * [Performance Upgrade for Dense Clouds](labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/3D-point-cloud-optimizations.md)
     * [3D Point Cloud and Episodes (legacy)](labeling/3D-Point-Clouds/3D-Point-Clouds-episodes-1.md)
