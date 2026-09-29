@@ -101,6 +101,18 @@ All three navigation methods are synchronized: seeking updates the video frame, 
 
 See the Video Labeling Tool guide for [annotation tools](../labeling-toolbox/videos-3.0.md#instruments-panel). To configure object categories and tags, see [Classes and Tags](../../data-organization/project-dataset/define-classes-tags.md).
 
+### Jump to a frame from the route
+
+In **Map**, click a section of the drawn GPS route. The video seeks to the recorded moment associated with that location; the marker and chart playhead update with the frame. Select the route itself: an arbitrary point on the basemap does not necessarily correspond to recorded footage. Use [frame navigation](../labeling-toolbox/videos-3.0.md#playback-controls) to refine the position after seeking.
+
+In the layout shown here, **blue** represents the route up to the current playback position and **ochre** represents the remaining section. The colors indicate playback progress, not road condition or speed. The **orange marker** shows the camera's position. The badge at the bottom of the map displays **latitude, longitude and speed in km/h** for the current position.
+
+![Seeking along the route updates the video and telemetry charts together](../../.gitbook/assets/gps-route-seek.gif)
+
+[“Driving in Marin County, CA Countryside”](https://archive.org/details/MarinCountyCADriving) by HelloColby, Internet Archive, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). An excerpt of the interface recording converted to GIF.
+
+> Editorial verification before publication: check how the implementation selects a GPS sample when clicking between points or on overlapping route sections. Also verify a GPS dropout during playback: whether the last marker remains or disappears, how route gaps appear, and what the coordinate badge displays. The no-GPS state described below does not establish behavior during a temporary signal loss.
+
 ## Read the telemetry charts
 
 The **Telemetry** panel contains three charts. The horizontal axis represents video time, and the orange vertical line marks the current playback position. Use it to match the video frame with the readings on all three charts. The current speed and altitude appear above the charts.
@@ -118,6 +130,38 @@ The **Telemetry** panel contains three charts. The horizontal axis represents vi
 **Altitude depends on the reference system and the accuracy of the source data.** A negative value, such as −21 m, does not mean depth and does not by itself indicate an error. Small fluctuations may reflect measurement uncertainty rather than changes in terrain.
 
 To investigate an event, move to the corresponding moment on the video timeline and compare the footage, map position and chart readings.
+
+### Hover tooltips and long recordings
+
+Hover over a chart to read the tooltip values for that time position. In the demonstration, the tooltip contains speed and altitude. Hover to inspect the values; click the chart to seek to the corresponding frame. The values under the mouse pointer may differ from the current-frame readings above the charts.
+
+For a long recording, use the chart as an overview: locate a noticeable change, click it, then refine the event's start and end using frame navigation in the player. A brief event occupies little space on the full timeline, so inspect the video to distinguish nearby events. Allow telemetry to load before reviewing the complete route.
+
+> Editorial verification before publication: confirm chart loading and detail on a long recording. Chart zoom, range selection, loading resumption and caching are not presented here as verified capabilities.
+
+## Annotate frames found through telemetry
+
+The map and charts help you find a frame; annotation takes place in the video. First configure [classes and tags](../../data-organization/project-dataset/define-classes-tags.md). Use a frame-based video tag for an event spanning a segment, or a class with an appropriate geometry for a visible object.
+
+### Example: find a slowdown and add a tag
+
+1. Create a frame-based video tag named `slowdown` in **Definitions**.
+2. Click a dip on the blue speed chart or select a bend on the map. Check that the frame, marker and chart playhead refer to the event you want to review.
+3. Pause playback. Use frame navigation to locate the start of the slowdown.
+4. Deselect annotation objects so the tag applies to the video. Check `slowdown` in **Definitions** and set its start and end frames. Do not leave the range extending to the end of the recording if the event ends earlier.
+5. Review the segment and refine its final frame. Check the tag's position and duration on the timeline in **Objects & Tags**.
+
+The tag describes the observed slowdown. Assign a cause, such as negotiating a bend, only after reviewing the video and map.
+
+### Annotate an object in the selected frame
+
+On the selected frame, click a class in **Definitions**, such as `road_sign` with rectangle geometry, and draw a box around a visible sign. Use the standard Video Labeling Tool features to annotate subsequent frames; creating an object on one frame does not automatically annotate the entire recording. See the [annotation and tracking guide](../labeling-toolbox/videos-3.0.md).
+
+GPS describes the camera's position at recording time. Drawing a box or adding a tag does not automatically produce geographic coordinates for the object.
+
+## Anonymization with telemetry preservation
+
+**Anonymize Data v1.4.1+** supports preserving GPS and telemetry when anonymizing video; check the route and synchronization in the resulting copy after processing.
 
 ## Create a project with the Python SDK
 
