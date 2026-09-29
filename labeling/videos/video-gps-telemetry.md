@@ -4,13 +4,45 @@ description: Review video alongside its GPS route, speed, acceleration and altit
 
 # Video + GPS Telemetry
 
-The Telemetry interface brings video, a GPS map and telemetry charts into one labeling workspace. See what the camera recorded, where it was recorded and how the camera was moving.
+**Video + GPS Telemetry** is a labeling and review interface for footage recorded by a moving camera, whether from a car, a train or during a route survey. It brings together the image, map position and motion metrics so reviewers can understand **what happened, where and under what conditions**, then annotate the corresponding frames.
 
-The **Map** panel displays the recorded route and the current position. The **Telemetry** panel displays speed, acceleration and altitude. During playback, the map marker and chart playhead follow the video timeline.
+In a long recording, a timestamp alone may not help you find a particular bend, level crossing or slowdown. Telemetry lets you start with a location on the map or a change on a chart and jump directly to the corresponding video. These views share a timeline, so you do not have to match them manually.
+
+The **Map** panel displays the recorded GPS route and the camera's position at the current moment. The **Telemetry** panel displays speed, acceleration and altitude. During playback, the map marker and chart playhead follow the video; selecting a point on the map or a chart also updates the frame in the player.
 
 ![Video synchronized with the GPS route marker and telemetry chart playhead](../../.gitbook/assets/GPS-video-how-to-create-3.jpg)
 
 [“Driving in Marin County, CA Countryside”](https://archive.org/details/MarinCountyCADriving) by HelloColby, Internet Archive, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Explanatory annotations added.
+
+## Questions the tool helps answer
+
+| Review question | How Telemetry helps |
+| --- | --- |
+| Where was this frame recorded? | The map marker shows the camera's position at the selected moment. |
+| What happened at a particular location along the route? | Click a route point to open the corresponding frame without searching through the entire recording. |
+| Where did the speed drop, and what was happening there? | Select a dip on the speed chart and compare the frame with its map position. For example, the slowdown may coincide with a bend or a stop. |
+| Which moment needs closer review because of shaking or sudden movement? | Find a change on the acceleration chart and review the corresponding segment. Use the footage and recording conditions to investigate the cause. |
+| How can I record an observed event or object? | Annotate an object in the frame or tag a segment using the Video Labeling Tool. |
+
+## Interface capabilities
+
+- **Video and route in one workspace.** View frames alongside the map, current coordinates and speed. The map helps you locate a section of the route, while the video lets you inspect its details.
+- **Three synchronized navigation methods.** Seek on the video timeline, click the route in **Map**, or click a chart in **Telemetry**. The video, map marker and chart playhead show the same moment.
+- **Metrics across the recording.** Speed, acceleration and altitude charts help you find a segment of interest and compare it with nearby sections. Available metrics depend on the data in the file.
+- **Embedded telemetry support.** Use original videos with GoPro GPMF or compatible CAMM telemetry. These recordings do not require manually matching a separate GPS track to the video.
+- **Annotation in the same workspace.** After selecting a moment, use [video annotation tools](../labeling-toolbox/videos-3.0.md#instruments-panel) and [classes and tags](../../data-organization/project-dataset/define-classes-tags.md) to describe objects and events for review or dataset preparation.
+
+## When to use it
+
+**Road and railway infrastructure inspection.** Find sections along a route, review road surfaces, signs, level crossings and other visible objects, and flag segments that need attention. Railway workflows require footage of the relevant railway route with telemetry.
+
+**Dashcam review.** Investigate stops, slowdowns and turns by comparing the scene with its location and motion metrics.
+
+**Route survey and mapping footage review.** Use the map to orient yourself and the video to visually inspect landmarks and objects along the recorded route.
+
+**Computer vision dataset preparation.** Find events of interest by location or motion metrics, then annotate the corresponding frames and segments.
+
+Telemetry helps reviewers select and investigate a moment in a recording; determining the cause requires interpretation. An acceleration peak alone does not prove a track defect, and a drop in speed does not establish a dangerous situation. The GPS marker represents the camera's position, not the precise coordinates of every object in the frame.
 
 ## Before you start
 
