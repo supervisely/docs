@@ -135,29 +135,55 @@ To investigate an event, move to the corresponding moment on the video timeline 
 
 Hover over a chart to read the tooltip values for that time position. In the demonstration, the tooltip contains speed and altitude. Hover to inspect the values; click the chart to seek to the corresponding frame. The values under the mouse pointer may differ from the current-frame readings above the charts.
 
+<video controls preload="metadata" src="../../.gitbook/assets/gps-hover-tooltip.webm">Hover tooltips on the telemetry charts.</video>
+
+[Watch the hover tooltip demo](../../.gitbook/assets/gps-hover-tooltip.webm).
+
+[“Driving in Marin County, CA Countryside”](https://archive.org/details/MarinCountyCADriving) by HelloColby, Internet Archive, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). An excerpt shown in a recording of the Supervisely interface.
+
 For a long recording, use the chart as an overview: locate a noticeable change, click it, then refine the event's start and end using frame navigation in the player. A brief event occupies little space on the full timeline, so inspect the video to distinguish nearby events. Allow telemetry to load before reviewing the complete route.
 
 > Editorial verification before publication: confirm chart loading and detail on a long recording. Chart zoom, range selection, loading resumption and caching are not presented here as verified capabilities.
 
 ## Annotate frames found through telemetry
 
-The map and charts help you find a frame; annotation takes place in the video. First configure [classes and tags](../../data-organization/project-dataset/define-classes-tags.md). Use a frame-based video tag for an event spanning a segment, or a class with an appropriate geometry for a visible object.
+The map and charts help you find a frame; annotation takes place in the video. The aim is to record road conditions that may have affected movement and speed. For example, a vehicle ahead may have slowed down, or there may be an obstacle, pothole or speed bump.
 
-### Example: find a slowdown and add a tag
+Configure [classes and tags](../../data-organization/project-dataset/define-classes-tags.md) for your task. A slowdown can be marked with a frame-based video tag such as `slowdown`, while visible objects can be annotated using classes with appropriate geometries, such as `vehicle`, `pothole`, `speed_bump` or `obstacle`. Use the classes relevant to objects actually present in your footage.
 
-1. Create a frame-based video tag named `slowdown` in **Definitions**.
-2. Click a dip on the blue speed chart or select a bend on the map. Check that the frame, marker and chart playhead refer to the event you want to review.
-3. Pause playback. Use frame navigation to locate the start of the slowdown.
-4. Deselect annotation objects so the tag applies to the video. Check `slowdown` in **Definitions** and set its start and end frames. Do not leave the range extending to the end of the recording if the event ends earlier.
-5. Review the segment and refine its final frame. Check the tag's position and duration on the timeline in **Objects & Tags**.
+These annotations help relate speed changes to observable road conditions and prepare examples for analysis and model training. Events occurring at the same time may be related, but timing alone does not establish the cause of a slowdown.
 
-The tag describes the observed slowdown. Assign a cause, such as negotiating a bend, only after reviewing the video and map.
+### Example: annotating a slowdown and a turn
+
+In the Marin County recording, you can find a drop in speed on the chart and examine what is happening on the road at that moment. In the example below, the slowdown is marked with the tag `slowdown`. This name is chosen for the demonstration; tags and their names depend on the annotation task.
+
+The chart helps locate the moment of interest, while reviewing nearby frames helps refine the event boundaries and identify objects that may have affected movement.
+
+<video controls preload="metadata" src="../../.gitbook/assets/gps-slowdown-tag.webm">Annotating a slowdown with the slowdown tag.</video>
+
+[Watch the slowdown annotation example](../../.gitbook/assets/gps-slowdown-tag.webm).
+
+[“Driving in Marin County, CA Countryside”](https://archive.org/details/MarinCountyCADriving) by HelloColby, Internet Archive, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). An excerpt shown in a recording of the Supervisely interface.
+
+In the same segment, the turn is marked with the tag `turn`. The slowdown is identified using the speed chart, while the turn is identified using the video and map. Their tag ranges may differ: for example, the vehicle may begin slowing down before entering the turn.
+
+If a segment is short and individual frames are difficult to select on the full timeline, use **Timeline Zoom** to enlarge the relevant section. It takes up more space on screen, making it easier to move between frames and refine where the event starts and ends.
+
+<video controls preload="metadata" src="../../.gitbook/assets/gps-turn-tag.webm">Annotating a turn and comparing the turn and slowdown tag ranges.</video>
+
+[Watch the turn annotation example](../../.gitbook/assets/gps-turn-tag.webm).
+
+[“Driving in Marin County, CA Countryside”](https://archive.org/details/MarinCountyCADriving) by HelloColby, Internet Archive, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). An excerpt shown in a recording of the Supervisely interface.
 
 ### Annotate an object in the selected frame
 
-On the selected frame, click a class in **Definitions**, such as `road_sign` with rectangle geometry, and draw a box around a visible sign. Use the standard Video Labeling Tool features to annotate subsequent frames; creating an object on one frame does not automatically annotate the entire recording. See the [annotation and tracking guide](../labeling-toolbox/videos-3.0.md).
+If a visible vehicle ahead may have contributed to the slowdown, you can select a `vehicle` class with rectangle geometry in **Definitions** and draw a box around it. A visible pothole, speed bump or other obstacle can similarly be annotated with the appropriate class.
 
-GPS describes the camera's position at recording time. Drawing a box or adding a tag does not automatically produce geographic coordinates for the object.
+For Marin County, annotate only what is visible in the selected segment. If it shows a turn and a vehicle ahead, the turn can be marked with a frame-based `turn` tag and the vehicle with the `vehicle` class. Potholes and speed bumps are examples for recordings in which those objects are present.
+
+Use the standard Video Labeling Tool features to annotate subsequent frames; creating an object on one frame does not automatically annotate the entire recording. See the [annotation and tracking guide](../labeling-toolbox/videos-3.0.md).
+
+Speed, acceleration and GPS readings describe the camera mounted on the recording vehicle, not the annotated vehicle ahead. A `vehicle` box does not associate that object with the telemetry readings, and drawing a box or adding a tag does not automatically produce geographic coordinates for the object.
 
 ## Anonymization with telemetry preservation
 
