@@ -79,6 +79,8 @@ Upload original GoPro files without re-encoding. Video converters and editors ca
 
 <video controls preload="metadata" src="../../.gitbook/assets/gps-synchronized-navigation.webm">Watch the synchronized navigation demo.</video>
 
+[![Synchronized navigation demo — click to watch](../../.gitbook/assets/gps-synchronized-navigation-preview.jpg)](https://github.com/supervisely/docs/raw/refs/heads/video-gps-telemetry/.gitbook/assets/gps-synchronized-navigation.webm)
+
 [Watch the synchronized navigation demo](../../.gitbook/assets/gps-synchronized-navigation.webm).
 
 The Marin County example shows a countryside drive recorded on a GoPro with embedded GPS data.
@@ -137,6 +139,8 @@ Hover over a chart to read the tooltip values for that time position. In the dem
 
 <video controls preload="metadata" src="../../.gitbook/assets/gps-hover-tooltip.webm">Hover tooltips on the telemetry charts.</video>
 
+[![Hover tooltip demo — click to watch](../../.gitbook/assets/gps-hover-tooltip-preview.jpg)](https://github.com/supervisely/docs/raw/refs/heads/video-gps-telemetry/.gitbook/assets/gps-hover-tooltip.webm)
+
 [Watch the hover tooltip demo](../../.gitbook/assets/gps-hover-tooltip.webm).
 
 [“Driving in Marin County, CA Countryside”](https://archive.org/details/MarinCountyCADriving) by HelloColby, Internet Archive, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). An excerpt shown in a recording of the Supervisely interface.
@@ -161,6 +165,8 @@ The chart helps locate the moment of interest, while reviewing nearby frames hel
 
 <video controls preload="metadata" src="../../.gitbook/assets/gps-slowdown-tag.webm">Annotating a slowdown with the slowdown tag.</video>
 
+[![Slowdown annotation example — click to watch](../../.gitbook/assets/gps-slowdown-tag-preview.jpg)](https://github.com/supervisely/docs/raw/refs/heads/video-gps-telemetry/.gitbook/assets/gps-slowdown-tag.webm)
+
 [Watch the slowdown annotation example](../../.gitbook/assets/gps-slowdown-tag.webm).
 
 [“Driving in Marin County, CA Countryside”](https://archive.org/details/MarinCountyCADriving) by HelloColby, Internet Archive, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). An excerpt shown in a recording of the Supervisely interface.
@@ -170,6 +176,8 @@ In the same segment, the turn is marked with the tag `turn`. The slowdown is ide
 If a segment is short and individual frames are difficult to select on the full timeline, use **Timeline Zoom** to enlarge the relevant section. It takes up more space on screen, making it easier to move between frames and refine where the event starts and ends.
 
 <video controls preload="metadata" src="../../.gitbook/assets/gps-turn-tag.webm">Annotating a turn and comparing the turn and slowdown tag ranges.</video>
+
+[![Turn annotation and Timeline Zoom example — click to watch](../../.gitbook/assets/gps-turn-tag-preview.jpg)](https://github.com/supervisely/docs/raw/refs/heads/video-gps-telemetry/.gitbook/assets/gps-turn-tag.webm)
 
 [Watch the turn annotation example](../../.gitbook/assets/gps-turn-tag.webm).
 
