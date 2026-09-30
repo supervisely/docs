@@ -77,7 +77,11 @@ Upload original GoPro files without re-encoding. Video converters and editors ca
 4. Open a video in the [Video Labeling Tool](../labeling-toolbox/videos-3.0.md). Wait for telemetry to load: the **Map** and **Telemetry** panels appear beside the player.
 5. Play the video or move to a specific moment on the timeline to inspect the corresponding location and telemetry.
 
-[![Synchronized navigation demo — click to watch](../../.gitbook/assets/gps-synchronized-navigation-preview.jpg)](../../.gitbook/assets/gps-synchronized-navigation.webm)
+<!-- GitHub review: animated GIF fallback. For GitBook publication, upload gps-synchronized-navigation.webm and embed its hosted URL as a video block; replace the GIF and download link. -->
+
+![Synchronized navigation demo](../../.gitbook/assets/gps-synchronized-navigation.gif)
+
+[Download the full-resolution video (WebM)](https://github.com/supervisely/docs/raw/refs/heads/review/video-gps-telemetry/.gitbook/assets/gps-synchronized-navigation.webm).
 
 The Marin County example shows a countryside drive recorded on a GoPro with embedded GPS data.
 
@@ -127,7 +131,11 @@ To investigate an event, move to the corresponding moment on the video timeline 
 
 Hover over a chart to read the tooltip values for that time position. In the demonstration, the tooltip contains speed and altitude. Hover to inspect the values; click the chart to seek to the corresponding frame. The values under the mouse pointer may differ from the current-frame readings above the charts.
 
-[![Hover tooltip demo — click to watch](../../.gitbook/assets/gps-hover-tooltip-preview.jpg)](../../.gitbook/assets/gps-hover-tooltip.webm)
+<!-- GitHub review: animated GIF fallback. For GitBook publication, upload gps-hover-tooltip.webm and embed its hosted URL as a video block; replace the GIF and download link. -->
+
+![Hover tooltip demo](../../.gitbook/assets/gps-hover-tooltip.gif)
+
+[Download the full-resolution video (WebM)](https://github.com/supervisely/docs/raw/refs/heads/review/video-gps-telemetry/.gitbook/assets/gps-hover-tooltip.webm).
 
 For a long recording, use the chart as an overview: locate a noticeable change, click it, then refine the event's start and end using frame navigation in the player. A brief event occupies little space on the full timeline, so inspect the video to distinguish nearby events. Allow telemetry to load before reviewing the complete route.
 
@@ -145,13 +153,21 @@ In the Marin County recording, you can find a drop in speed on the chart and exa
 
 The chart helps locate the moment of interest, while reviewing nearby frames helps refine the event boundaries and identify objects that may have affected movement.
 
-[![Slowdown annotation example — click to watch](../../.gitbook/assets/gps-slowdown-tag-preview.jpg)](../../.gitbook/assets/gps-slowdown-tag.webm)
+<!-- GitHub review: animated GIF fallback. For GitBook publication, upload gps-slowdown-tag.webm and embed its hosted URL as a video block; replace the GIF and download link. -->
+
+![Slowdown annotation example](../../.gitbook/assets/gps-slowdown-tag.gif)
+
+[Download the full-resolution video (WebM)](https://github.com/supervisely/docs/raw/refs/heads/review/video-gps-telemetry/.gitbook/assets/gps-slowdown-tag.webm).
 
 In the same segment, the turn is marked with the tag `turn`. The slowdown is identified using the speed chart, while the turn is identified using the video and map. Their tag ranges may differ: for example, the vehicle may begin slowing down before entering the turn.
 
 If a segment is short and individual frames are difficult to select on the full timeline, use **Timeline Zoom** to enlarge the relevant section. It takes up more space on screen, making it easier to move between frames and refine where the event starts and ends.
 
-[![Turn annotation and Timeline Zoom example — click to watch](../../.gitbook/assets/gps-turn-tag-preview.jpg)](../../.gitbook/assets/gps-turn-tag.webm)
+<!-- GitHub review: animated GIF fallback. For GitBook publication, upload gps-turn-tag.webm and embed its hosted URL as a video block; replace the GIF and download link. -->
+
+![Turn annotation and Timeline Zoom example](../../.gitbook/assets/gps-turn-tag.gif)
+
+[Download the full-resolution video (WebM)](https://github.com/supervisely/docs/raw/refs/heads/review/video-gps-telemetry/.gitbook/assets/gps-turn-tag.webm).
 
 ### Annotate an object in the selected frame
 
@@ -160,6 +176,8 @@ If a visible vehicle ahead may have contributed to the slowdown, you can select 
 Use the standard Video Labeling Tool features to annotate subsequent frames: creating an object on one frame does not automatically annotate the entire recording. [Auto-Tracking](../labeling-toolbox/videos-3.0.md#auto-tracking) can help extend the annotation, including the **Interpolate until next real frame** quick action, which fills the intermediate frames between two manually annotated keyframes.
 
 For example, draw a box around a vehicle on the first frame of the segment, then move to the last frame you want to annotate and adjust the annotation for the same object, keeping its ID. Return to the first annotated frame, select the object and run **Interpolate until next real frame** from the Auto Track quick actions. Annotations will be generated automatically between the two keyframes. Review the result and adjust the boxes where needed. See the [keyframe interpolation example](../labeling-tools/oriented-bounding-box-tool.md#usage-scenarios-interpolation-between-keyframes) for more details.
+
+<!-- GitHub review: animated GIF fallback. For GitBook publication, upload gps-object-labeling.webm and embed its hosted URL as a video block; replace the GIF and download link. -->
 
 ![Vehicle annotation and interpolation between two keyframes](../../.gitbook/assets/gps-object-labeling.gif)
 
