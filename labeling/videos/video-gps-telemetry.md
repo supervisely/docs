@@ -161,7 +161,9 @@ Use the standard Video Labeling Tool features to annotate subsequent frames: cre
 
 For example, draw a box around a vehicle on the first frame of the segment, then move to the last frame you want to annotate and adjust the annotation for the same object, keeping its ID. Return to the first annotated frame, select the object and run **Interpolate until next real frame** from the Auto Track quick actions. Annotations will be generated automatically between the two keyframes. Review the result and adjust the boxes where needed. See the [keyframe interpolation example](../labeling-tools/oriented-bounding-box-tool.md#usage-scenarios-interpolation-between-keyframes) for more details.
 
-[![Vehicle annotation and interpolation — click to watch](../../.gitbook/assets/gps-object-labeling-preview.jpg)](../../.gitbook/assets/gps-object-labeling.webm)
+![Vehicle annotation and interpolation between two keyframes](../../.gitbook/assets/gps-object-labeling.gif)
+
+[Download the full-resolution video (WebM)](https://github.com/supervisely/docs/raw/refs/heads/review/video-gps-telemetry/.gitbook/assets/gps-object-labeling.webm).
 
 Speed, acceleration and GPS readings describe the camera mounted on the recording vehicle, not the annotated vehicle ahead. A `vehicle` box does not associate that object with the telemetry readings, and drawing a box or adding a tag does not automatically produce geographic coordinates for the object.
 
