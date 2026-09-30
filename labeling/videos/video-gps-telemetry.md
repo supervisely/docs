@@ -12,7 +12,7 @@ The **Map** panel displays the recorded GPS route and the camera's position at t
 
 ![Video synchronized with the GPS route marker and telemetry chart playhead](../../.gitbook/assets/GPS-video-how-to-create-3.jpg)
 
-[“Driving in Marin County, CA Countryside”](https://archive.org/details/MarinCountyCADriving) by HelloColby, Internet Archive, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Explanatory annotations added.
+*All footage on this page: [“Driving in Marin County, CA Countryside”](https://archive.org/details/MarinCountyCADriving) by HelloColby, Internet Archive, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), shown in screenshots and recordings of the Supervisely interface; explanatory annotations added.*
 
 ## Questions the tool helps answer
 
@@ -77,15 +77,9 @@ Upload original GoPro files without re-encoding. Video converters and editors ca
 4. Open a video in the [Video Labeling Tool](../labeling-toolbox/videos-3.0.md). Wait for telemetry to load: the **Map** and **Telemetry** panels appear beside the player.
 5. Play the video or move to a specific moment on the timeline to inspect the corresponding location and telemetry.
 
-<video controls preload="metadata" src="../../.gitbook/assets/gps-synchronized-navigation.webm">Watch the synchronized navigation demo.</video>
-
-[![Synchronized navigation demo — click to watch](../../.gitbook/assets/gps-synchronized-navigation-preview.jpg)](https://github.com/supervisely/docs/raw/refs/heads/review/video-gps-telemetry/.gitbook/assets/gps-synchronized-navigation.webm)
-
-[Watch the synchronized navigation demo](../../.gitbook/assets/gps-synchronized-navigation.webm).
+[![Synchronized navigation demo — click to watch](../../.gitbook/assets/gps-synchronized-navigation-preview.jpg)](../../.gitbook/assets/gps-synchronized-navigation.webm)
 
 The Marin County example shows a countryside drive recorded on a GoPro with embedded GPS data.
-
-[“Driving in Marin County, CA Countryside”](https://archive.org/details/MarinCountyCADriving) by HelloColby, Internet Archive, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Excerpts shown in a recording of the Supervisely interface.
 
 ## Navigate using the video, map and telemetry charts
 
@@ -111,10 +105,6 @@ In the layout shown here, **blue** represents the route up to the current playba
 
 ![Seeking along the route updates the video and telemetry charts together](../../.gitbook/assets/gps-route-seek.gif)
 
-[“Driving in Marin County, CA Countryside”](https://archive.org/details/MarinCountyCADriving) by HelloColby, Internet Archive, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). An excerpt of the interface recording converted to GIF.
-
-> Editorial verification before publication: check how the implementation selects a GPS sample when clicking between points or on overlapping route sections. Also verify a GPS dropout during playback: whether the last marker remains or disappears, how route gaps appear, and what the coordinate badge displays. The no-GPS state described below does not establish behavior during a temporary signal loss.
-
 ## Read the telemetry charts
 
 The **Telemetry** panel contains three charts. The horizontal axis represents video time, and the orange vertical line marks the current playback position. Use it to match the video frame with the readings on all three charts. The current speed and altitude appear above the charts.
@@ -137,17 +127,9 @@ To investigate an event, move to the corresponding moment on the video timeline 
 
 Hover over a chart to read the tooltip values for that time position. In the demonstration, the tooltip contains speed and altitude. Hover to inspect the values; click the chart to seek to the corresponding frame. The values under the mouse pointer may differ from the current-frame readings above the charts.
 
-<video controls preload="metadata" src="../../.gitbook/assets/gps-hover-tooltip.webm">Hover tooltips on the telemetry charts.</video>
-
-[![Hover tooltip demo — click to watch](../../.gitbook/assets/gps-hover-tooltip-preview.jpg)](https://github.com/supervisely/docs/raw/refs/heads/review/video-gps-telemetry/.gitbook/assets/gps-hover-tooltip.webm)
-
-[Watch the hover tooltip demo](../../.gitbook/assets/gps-hover-tooltip.webm).
-
-[“Driving in Marin County, CA Countryside”](https://archive.org/details/MarinCountyCADriving) by HelloColby, Internet Archive, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). An excerpt shown in a recording of the Supervisely interface.
+[![Hover tooltip demo — click to watch](../../.gitbook/assets/gps-hover-tooltip-preview.jpg)](../../.gitbook/assets/gps-hover-tooltip.webm)
 
 For a long recording, use the chart as an overview: locate a noticeable change, click it, then refine the event's start and end using frame navigation in the player. A brief event occupies little space on the full timeline, so inspect the video to distinguish nearby events. Allow telemetry to load before reviewing the complete route.
-
-> Editorial verification before publication: confirm chart loading and detail on a long recording. Chart zoom, range selection, loading resumption and caching are not presented here as verified capabilities.
 
 ## Annotate frames found through telemetry
 
@@ -163,25 +145,13 @@ In the Marin County recording, you can find a drop in speed on the chart and exa
 
 The chart helps locate the moment of interest, while reviewing nearby frames helps refine the event boundaries and identify objects that may have affected movement.
 
-<video controls preload="metadata" src="../../.gitbook/assets/gps-slowdown-tag.webm">Annotating a slowdown with the slowdown tag.</video>
-
-[![Slowdown annotation example — click to watch](../../.gitbook/assets/gps-slowdown-tag-preview.jpg)](https://github.com/supervisely/docs/raw/refs/heads/review/video-gps-telemetry/.gitbook/assets/gps-slowdown-tag.webm)
-
-[Watch the slowdown annotation example](../../.gitbook/assets/gps-slowdown-tag.webm).
-
-[“Driving in Marin County, CA Countryside”](https://archive.org/details/MarinCountyCADriving) by HelloColby, Internet Archive, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). An excerpt shown in a recording of the Supervisely interface.
+[![Slowdown annotation example — click to watch](../../.gitbook/assets/gps-slowdown-tag-preview.jpg)](../../.gitbook/assets/gps-slowdown-tag.webm)
 
 In the same segment, the turn is marked with the tag `turn`. The slowdown is identified using the speed chart, while the turn is identified using the video and map. Their tag ranges may differ: for example, the vehicle may begin slowing down before entering the turn.
 
 If a segment is short and individual frames are difficult to select on the full timeline, use **Timeline Zoom** to enlarge the relevant section. It takes up more space on screen, making it easier to move between frames and refine where the event starts and ends.
 
-<video controls preload="metadata" src="../../.gitbook/assets/gps-turn-tag.webm">Annotating a turn and comparing the turn and slowdown tag ranges.</video>
-
-[![Turn annotation and Timeline Zoom example — click to watch](../../.gitbook/assets/gps-turn-tag-preview.jpg)](https://github.com/supervisely/docs/raw/refs/heads/review/video-gps-telemetry/.gitbook/assets/gps-turn-tag.webm)
-
-[Watch the turn annotation example](../../.gitbook/assets/gps-turn-tag.webm).
-
-[“Driving in Marin County, CA Countryside”](https://archive.org/details/MarinCountyCADriving) by HelloColby, Internet Archive, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). An excerpt shown in a recording of the Supervisely interface.
+[![Turn annotation and Timeline Zoom example — click to watch](../../.gitbook/assets/gps-turn-tag-preview.jpg)](../../.gitbook/assets/gps-turn-tag.webm)
 
 ### Annotate an object in the selected frame
 
@@ -193,9 +163,9 @@ Use the standard Video Labeling Tool features to annotate subsequent frames; cre
 
 Speed, acceleration and GPS readings describe the camera mounted on the recording vehicle, not the annotated vehicle ahead. A `vehicle` box does not associate that object with the telemetry readings, and drawing a box or adding a tag does not automatically produce geographic coordinates for the object.
 
-## Anonymization with telemetry preservation
-
-**Anonymize Data v1.4.1+** supports preserving GPS and telemetry when anonymizing video; check the route and synchronization in the resulting copy after processing.
+{% hint style="info" %}
+**Anonymize Data v1.4.1+** preserves GPS and telemetry when it anonymizes a video. Check the route and synchronization in the resulting copy.
+{% endhint %}
 
 ## Create a project with the Python SDK
 
