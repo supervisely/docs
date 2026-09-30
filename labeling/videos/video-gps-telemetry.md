@@ -157,9 +157,11 @@ If a segment is short and individual frames are difficult to select on the full 
 
 If a visible vehicle ahead may have contributed to the slowdown, you can select a `vehicle` class with rectangle geometry in **Definitions** and draw a box around it. A visible pothole, speed bump or other obstacle can similarly be annotated with the appropriate class.
 
-For Marin County, annotate only what is visible in the selected segment. If it shows a turn and a vehicle ahead, the turn can be marked with a frame-based `turn` tag and the vehicle with the `vehicle` class. Potholes and speed bumps are examples for recordings in which those objects are present.
+Use the standard Video Labeling Tool features to annotate subsequent frames: creating an object on one frame does not automatically annotate the entire recording. [Auto-Tracking](../labeling-toolbox/videos-3.0.md#auto-tracking) can help extend the annotation, including the **Interpolate until next real frame** quick action, which fills the intermediate frames between two manually annotated keyframes.
 
-Use the standard Video Labeling Tool features to annotate subsequent frames; creating an object on one frame does not automatically annotate the entire recording. See the [annotation and tracking guide](../labeling-toolbox/videos-3.0.md).
+For example, draw a box around a vehicle on the first frame of the segment, then move to the last frame you want to annotate and adjust the annotation for the same object, keeping its ID. Return to the first annotated frame, select the object and run **Interpolate until next real frame** from the Auto Track quick actions. Annotations will be generated automatically between the two keyframes. Review the result and adjust the boxes where needed. See the [keyframe interpolation example](../labeling-tools/oriented-bounding-box-tool.md#usage-scenarios-interpolation-between-keyframes) for more details.
+
+[![Vehicle annotation and interpolation — click to watch](../../.gitbook/assets/gps-object-labeling-preview.jpg)](../../.gitbook/assets/gps-object-labeling.webm)
 
 Speed, acceleration and GPS readings describe the camera mounted on the recording vehicle, not the annotated vehicle ahead. A `vehicle` box does not associate that object with the telemetry readings, and drawing a box or adding a tag does not automatically produce geographic coordinates for the object.
 
