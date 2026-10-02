@@ -49,8 +49,8 @@ If a Live Training session is already running, it will appear in the dropdown li
 
 Choose the model type that fits your annotation task. Currently, there are two options:
 
-- **Live Training Detection** (Ecosystem app: **Live Training - Object Detection**) — for bounding box annotation.
-- **Live Training Segmentation** (Ecosystem app: **Live Training - Semantic Segmentation**) — for mask annotation. See [Semantic Segmentation](#semantic-segmentation) for details.
+- **Live Training Detection** (Ecosystem app: [Live Training - Object Detection](https://ecosystem.supervisely.com/apps/live-training-detection)) — for bounding box annotation.
+- **Live Training Segmentation** (Ecosystem app: [Live Training - Semantic Segmentation](https://ecosystem.supervisely.com/apps/live-training-segmentation)) — for mask annotation. See [Semantic Segmentation](#semantic-segmentation) for details.
 
 
 Configure the app settings in the modal window and click **Run** to launch the Live Training application.
@@ -114,7 +114,7 @@ Over time, the model will generate nearly perfect predictions, allowing you to s
 - **Predictions.** Predicted masks are marked with an **A** (Auto) label, which means the mask was proposed by the model. Review and correct each prediction, then click **Finish & Next** to confirm the final annotation and add it to the training data, or click **Discard** to reject it.
 - **What the model learns from.** Only the final annotations you submit are added to the training data. Accepting or rejecting a prediction does not affect training by itself.
 - **Model.** The application fine-tunes Mask2Former with a Swin-T backbone, initialized from weights pre-trained on ADE20K.
-- **Requirements.** The application requires a GPU and is available for **Enterprise** instances with the Semantic Segmentation Live Training license extension. [Contact us](https://supervisely.com/contact-us) to enable it.
+- **Requirements.** The application requires a GPU and Supervisely instance version 6.17.25 or later. It is available for **Enterprise** instances with the Semantic Segmentation Live Training license extension. [Contact us](https://supervisely.com/contact-us) to enable it.
 
 ## Model Quality Score
 
