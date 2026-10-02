@@ -50,7 +50,7 @@ If a Live Training session is already running, it will appear in the dropdown li
 Choose the model type that fits your annotation task. Currently, there are two options:
 
 - **Live Training Detection** (Ecosystem app: [Live Training - Object Detection](https://ecosystem.supervisely.com/apps/live-training-detection)) — for bounding box annotation.
-- **Live Training Segmentation** (Ecosystem app: [Live Training - Semantic Segmentation](https://ecosystem.supervisely.com/apps/live-training-segmentation)) — for mask annotation. See [Semantic Segmentation](#semantic-segmentation) for details.
+- **Live Training Segmentation** (Ecosystem app: [Live Training - Segmentation](https://ecosystem.supervisely.com/apps/live-training-segmentation)) — for mask annotation. See [Live Training Segmentation](#live-training-segmentation) for details.
 
 
 Configure the app settings in the modal window and click **Run** to launch the Live Training application.
@@ -105,13 +105,13 @@ Over time, the model will generate nearly perfect predictions, allowing you to s
 
 <figure><img src="../../../.gitbook/assets/live-training/live-training6.jpg" alt="Model prediction quality improves over time"></figure>
 
-## Semantic Segmentation
+## Live Training Segmentation
 
-**Live Training - Semantic Segmentation** applies the same workflow to mask annotation: the model trains in the background while you draw masks and starts predicting after a few annotated images. The steps in the [Quickstart](#quickstart) above are the same; the differences are listed below.
+**Live Training - Segmentation** applies the same workflow to mask annotation: the model trains in the background while you draw masks and starts predicting after a few annotated images. The steps in the [Quickstart](#quickstart) above are the same; the differences are listed below.
 
 - **Classes.** Create all object classes before starting. The model produces predictions as bitmap masks, so set the class shape to **Mask** or **Any Shape**. If a class uses **Any Shape**, annotate it with the [Brush Tool](../../labeling-tools/brush-tool.md) so that the resulting annotation is a mask. Live Training Detection, in contrast, uses only `Rectangle` (bounding box) objects.
 - **Initial samples.** The model needs at least two completed images (click **Finish & Next** after each) to create its initial training set. In practice, it typically starts suggesting predictions after 5–10 annotated images.
-- **Predictions.** Predicted masks are marked with an **A** (Auto) label, which means the mask was proposed by the model. Review and correct each prediction, then click **Finish & Next** to confirm the final annotation and add it to the training data, or click **Discard** to reject it.
+- **Predictions.** Predicted masks are marked with an **A** (Auto) label, which means the mask was proposed by the model. By default, each object is a separate mask; to get one mask per class, disable **Predict as instance masks** in [AI Prediction Settings](#ai-prediction-settings). Review and correct each prediction, then click **Finish & Next** to confirm the final annotation and add it to the training data, or click **Discard** to reject it.
 - **What the model learns from.** Only the final annotations you submit are added to the training data. Accepting or rejecting a prediction does not affect training by itself.
 - **Model.** The application fine-tunes Mask2Former with a Swin-T backbone, initialized from weights pre-trained on ADE20K.
 - **Requirements.** The application requires a GPU and Supervisely instance version 6.17.25 or later. It is available for **Enterprise** instances with the Semantic Segmentation Live Training license extension. [Contact us](https://supervisely.com/contact-us) to enable it.
