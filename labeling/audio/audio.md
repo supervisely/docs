@@ -44,8 +44,6 @@ From Python, install the SDK with the audio extra, `pip install "supervisely[aud
 
 The toolbox opens when you click a recording in an Audio project.
 
-> 📷 **S03** — the full layout, no popups, with numbered callouts.
-
 1. **Top bar** — previous and next recording, undo and redo, theme, the hotkeys reference and **More**.
 2. **Toolbar** — the **Label range** tool.
 3. **Audio** panel — the time ruler, the waveform and the spectrogram, the overview strip and the transport bar.
@@ -58,10 +56,6 @@ The toolbox opens when you click a recording in an Audio project.
 * **Theme** switches between the dark and the light theme.
 * The hotkeys button opens the full list of hotkeys.
 * Tabs can be dragged to another column or stacked together. **More** → **Restore Default Layout** puts them back.
-
-> 📷 **S04** — top bar close-up with the More menu open.
-
-> 🎞️ **G05** — drag a tab to the other column, then More → Restore Default Layout.
 
 ## Label a segment
 
@@ -76,8 +70,6 @@ The segment is saved at once. It covers the selected samples, both ends included
 You can also label from the **Labels** tab. The line at the top shows the selected range and its channel. Each label row has two buttons: **selected range** and **whole recording**. Clicking a label, or pressing its hotkey, labels the selected range, or the whole recording when no range is selected.
 
 > 📷 **S05** — Labels tab with a range selected: the status line and both per-row buttons.
-
-> 📷 **S06** — the value dialog for a one-of tag, with numbered options.
 
 A label's scope, set in the project's tag settings, decides where it can go: on ranges, on the whole recording, or both. Labels that apply to objects only are not listed.
 
@@ -115,8 +107,6 @@ The headphones menu in the transport bar chooses what you see and hear: **Mix al
 
 When one channel is selected, segments on other channels are hidden. If the selected segment is on another channel, **Show ch N** switches to it.
 
-> 📷 **S09** — the channel menu open on a stereo file, Ch 2 selected.
-
 ## Navigation and playback
 
 * **Scroll** to zoom around the pointer, **Shift**-scroll to pan, or drag the time ruler to scrub.
@@ -126,8 +116,6 @@ When one channel is selected, segments on other channels are hidden. If the sele
 * **Play selection** and **Loop selection** (**Shift+L**) play just the selected range.
 * Playback speed: 0.25×, 0.5×, 0.75×, 1×, 1.25×, 1.5× or 2×.
 * The time field shows the playhead position and accepts a time to jump to. Its tooltip shows the sample rate, channel count and length in samples.
-
-> 🎞️ **G03** — wheel zoom → Shift-wheel pan → drag the overview window → Alt+F fit.
 
 ## Hotkeys
 
@@ -172,8 +160,6 @@ A change is saved to the project as soon as you make it.
 | **Advanced analysis** | **FFT window** (32 to 32768 samples), **Step (samples)**, **Window function** (Hann, Hamming, Blackman), **Mel bands** (2 to 512, Mel only) |
 
 The defaults are Linear, a 2048-sample window with a 512-sample step, Hann, 128 mel bands, −100 to 0 dBFS, Magma, Sharp.
-
-> 📷 **S12** — one strip, the same recording three ways: Linear / Logarithmic / Mel (or Timing / Pitch).
 
 > 🎞️ **G04** — change Frequency display or Colors in the View tab; the spectrogram redraws.
 
