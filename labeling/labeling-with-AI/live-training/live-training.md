@@ -1,13 +1,13 @@
 ---
 description: >-
-  Live Training by Supervisely is a real-time AI annotation framework. Continuously fine-tune object detection and semantic segmentation models on the fly to accelerate custom dataset labeling.
+  Live Training by Supervisely is a real-time AI annotation framework. Continuously fine-tune object detection and segmentation models on the fly to accelerate custom dataset labeling.
 ---
 
 # Live Training
 
 ## Introduction
 
-Live Training is a real-time AI annotation framework pioneered by Supervisely. It introduces a new approach to auto-labeling for object detection and semantic segmentation, enabling continuous model fine-tuning **in parallel with human labeling**. As annotators work, the model quickly adapts to your custom dataset and specific domain patterns. After just even 5 labeled images, it begins generating useful high-quality predictions (pre-labels) that accelerate labeling. The quality of these predictions continuously improves with every new image labeled.
+Live Training is a real-time AI annotation framework pioneered by Supervisely. It introduces a new approach to auto-labeling for object detection and segmentation, enabling continuous model fine-tuning **in parallel with human labeling**. As annotators work, the model quickly adapts to your custom dataset and specific domain patterns. After just even 5 labeled images, it begins generating useful high-quality predictions (pre-labels) that accelerate labeling. The quality of these predictions continuously improves with every new image labeled.
 
 By project completion, you get both a fully annotated dataset and a trained model ready for deployment — with accuracy equivalent to a model trained through conventional offline training.
 
@@ -85,7 +85,7 @@ After starting Live Training, the floating panel will show the status **Annotate
 
 #### Background Learning
 
-After annotating initial images, the status changes to **Learning**. At this stage, the adaptive AI model begins its online learning process in the background, analyzing your inputs to improve object detection or semantic segmentation accuracy. Continue annotating and submitting images by clicking **Finish & Next**. After a short while, the model will start generating predictions.
+After annotating initial images, the status changes to **Learning**. At this stage, the adaptive AI model begins its online learning process in the background, analyzing your inputs to improve object detection or segmentation accuracy. Continue annotating and submitting images by clicking **Finish & Next**. After a short while, the model will start generating predictions.
 
 #### Initial Predictions
 
@@ -114,7 +114,7 @@ Over time, the model will generate nearly perfect predictions, allowing you to s
 - **Predictions.** Predicted masks are marked with an **A** (Auto) label, which means the mask was proposed by the model. By default, each object is a separate mask; to get one mask per class, disable **Predict as instance masks** in [AI Prediction Settings](#ai-prediction-settings). Review and correct each prediction, then click **Finish & Next** to confirm the final annotation and add it to the training data, or click **Discard** to reject it.
 - **What the model learns from.** Only the final annotations you submit are added to the training data. Accepting or rejecting a prediction does not affect training by itself.
 - **Model.** The application fine-tunes Mask2Former with a Swin-T backbone, initialized from weights pre-trained on ADE20K.
-- **Requirements.** The application requires a GPU and Supervisely instance version 6.17.25 or later. It is available for **Enterprise** instances with the Semantic Segmentation Live Training license extension. [Contact us](https://supervisely.com/contact-us) to enable it.
+- **Requirements.** The application requires a GPU and Supervisely instance version 6.17.25 or later. It is available for **Enterprise** instances with the Images Live Training license extension. [Contact us](https://supervisely.com/contact-us) to enable it.
 
 ## Model Quality Score
 
