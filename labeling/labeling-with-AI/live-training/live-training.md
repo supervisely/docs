@@ -1,13 +1,13 @@
 ---
 description: >-
-  Live Training by Supervisely is a real-time AI annotation framework. Continuously fine-tune models on the fly to accelerate custom dataset labeling.
+  Live Training by Supervisely is a real-time AI annotation framework. Continuously fine-tune object detection and semantic segmentation models on the fly to accelerate custom dataset labeling.
 ---
 
 # Live Training
 
 ## Introduction
 
-Live Training is a real-time AI annotation framework pioneered by Supervisely. It introduces a new approach to auto-labeling for object detection, enabling continuous model fine-tuning **in parallel with human labeling**. As annotators work, the model quickly adapts to your custom dataset and specific domain patterns. After just even 5 labeled images, it begins generating useful high-quality predictions (pre-labels) that accelerate labeling. The quality of these predictions continuously improves with every new image labeled.
+Live Training is a real-time AI annotation framework pioneered by Supervisely. It introduces a new approach to auto-labeling for object detection and semantic segmentation, enabling continuous model fine-tuning **in parallel with human labeling**. As annotators work, the model quickly adapts to your custom dataset and specific domain patterns. After just even 5 labeled images, it begins generating useful high-quality predictions (pre-labels) that accelerate labeling. The quality of these predictions continuously improves with every new image labeled.
 
 By project completion, you get both a fully annotated dataset and a trained model ready for deployment — with accuracy equivalent to a model trained through conventional offline training.
 
@@ -49,8 +49,8 @@ If a Live Training session is already running, it will appear in the dropdown li
 
 Choose the model type that fits your annotation task. Currently, there are two options:
 
-- **Live Training Detection**
-- **Live Training Segmentation** `In Development`
+- **Live Training Detection** (Ecosystem app: **Live Training - Object Detection**) — for bounding box annotation.
+- **Live Training Segmentation** (Ecosystem app: **Live Training - Semantic Segmentation**) — for mask annotation. See [Semantic Segmentation](#semantic-segmentation) for details.
 
 
 Configure the app settings in the modal window and click **Run** to launch the Live Training application.
@@ -105,6 +105,17 @@ Over time, the model will generate nearly perfect predictions, allowing you to s
 
 <figure><img src="../../../.gitbook/assets/live-training/live-training6.jpg" alt="Model prediction quality improves over time"></figure>
 
+## Semantic Segmentation
+
+**Live Training - Semantic Segmentation** applies the same workflow to mask annotation: the model trains in the background while you draw masks and starts predicting after a few annotated images. The steps in the [Quickstart](#quickstart) above are the same; the differences are listed below.
+
+- **Classes.** Create all object classes before starting. The model produces predictions as bitmap masks, so set the class shape to **Mask** or **Any Shape**. If a class uses **Any Shape**, annotate it with the [Brush Tool](../../labeling-tools/brush-tool.md) so that the resulting annotation is a mask. Live Training Detection, in contrast, uses only `Rectangle` (bounding box) objects.
+- **Initial samples.** The model needs at least two completed images (click **Finish & Next** after each) to create its initial training set. In practice, it typically starts suggesting predictions after 5–10 annotated images.
+- **Predictions.** Predicted masks are marked with an **A** (Auto) label, which means the mask was proposed by the model. Review and correct each prediction, then click **Finish & Next** to confirm the final annotation and add it to the training data, or click **Discard** to reject it.
+- **What the model learns from.** Only the final annotations you submit are added to the training data. Accepting or rejecting a prediction does not affect training by itself.
+- **Model.** The application fine-tunes Mask2Former with a Swin-T backbone, initialized from weights pre-trained on ADE20K.
+- **Requirements.** The application requires a GPU and is available for **Enterprise** instances with the Semantic Segmentation Live Training license extension. [Contact us](https://supervisely.com/contact-us) to enable it.
+
 ## Model Quality Score
 
 The **Model Quality** percentage shown in the floating panel reflects how well the model's predictions matched your final annotations. It updates each time you click **Finish & Next** and is averaged across all images you have labeled so far.
@@ -141,9 +152,7 @@ A score of 70–80% means the model is generating useful pre-labels that need on
 
 ### Segmentation
 
-`In Development`
-
-For segmentation tasks, model quality reflects how well the predicted masks overlap with your annotations — the better the overlap, the higher the score.
+For segmentation, model quality is measured with **mean Boundary IoU**. For each submitted image, the system compares the model's predicted masks with the masks you submitted, separately for every class that you annotated on that image (background is excluded). For each class, it computes the intersection over union of the thin bands along the edges of the predicted and annotated masks. The score is the average over these classes, so the better the predicted mask edges match your annotation, the higher the score.
 
 ## Save & Load Live Training Sessions
 
