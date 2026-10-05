@@ -102,7 +102,7 @@ Live Training solves two key limitations of AI-assisted annotation. First, zero-
 
 By project completion, you get both a fully annotated dataset and a trained model ready for deployment — with accuracy equivalent to a model trained through conventional offline training.
 
-Supervisely Ecosystem supports Live Training for two task types: object detection and instance/semantic segmentation. You can see how model predictions are gradually improving step by step:
+Supervisely Ecosystem supports Live Training for two task types: object detection and segmentation (instance or semantic masks). You can see how model predictions are gradually improving step by step:
 
 {% embed url="https://youtu.be/p6-t62S7c7A" %}
 
