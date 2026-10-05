@@ -17,7 +17,7 @@ The **Audio Labeling Toolbox** is a browser-based interface for labeling recordi
 * **Spectrogram settings set once per project**, so every annotator sees the same analysis and the analysis can be reproduced later for training
 * **Playback** of the whole recording or of the selection, looped, at 0.25× to 2×
 
-> 🎬 **Demo video** — embed slot.
+> 🔗 **Sample project** — link slot.
 
 ## Create an Audio project
 
