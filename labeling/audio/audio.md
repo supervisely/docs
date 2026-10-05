@@ -167,10 +167,6 @@ The defaults are Linear, a 2048-sample window with a 512-sample step, Hann, 128 
 Existing labels are not changed when a setting changes, but they were drawn on a picture that no longer matches. Choose the settings before labeling starts.
 {% endhint %}
 
-Only users who can edit the project can change the settings. Everyone else sees them locked: "Every recording is measured the same way. Only users who can edit the project can change these settings."
-
-> 📷 **S11** — View tab, annotator-only account: the locked banner.
-
 The settings are saved in the project and exported with it, so the same spectrogram can be computed outside Supervisely — for example as training input in PyTorch or TensorFlow.
 
 ## Recordings tab
