@@ -8,7 +8,7 @@ description: >-
 
 The **Audio Labeling Toolbox** is a browser-based interface for labeling recordings with **time segments**: acoustic events, speech, machine noise, anything that has a start and an end. It is built for tasks where the evidence is in the frequency content, such as NVH and acoustic quality inspection, bioacoustics, and sound event detection.
 
-> 📷 **S01** — hero: the full toolbox with a labeled recording, segments and whole-recording badges, and a spectrogram with clear events.
+![Audio Labeling Toolbox](../../.gitbook/assets/audio-s01-toolbox.png)
 
 * **Waveform and spectrogram** of the same recording on one playhead
 * **Segments** labeled with tags, down to a single sample, on all channels or on one channel
@@ -25,7 +25,7 @@ The **Audio Labeling Toolbox** is a browser-based interface for labeling recordi
 2. Choose **Audio** as the type of project. The type cannot be changed later.
 3. Name the project and create it.
 
-> 📷 **S02** — the Create Project page with the Audio card selected.
+![Create Project page with Audio selected](../../.gitbook/assets/audio-s02-create-project.png)
 
 Audio projects need a Supervisely license that includes the audio recordings module.
 
@@ -65,11 +65,11 @@ The toolbox opens when you click a recording in an Audio project.
 
 The segment is saved at once. It covers the selected samples, both ends included, and it is about the channel you are viewing: **Mix** labels all channels, **Ch N** labels channel N only.
 
-> 🎞️ **G01** — drag a range → Choose a label → pick a one-of value → the segment appears.
+![Labeling a segment](../../.gitbook/assets/audio-g01-label-a-segment.gif)
 
 You can also label from the **Labels** tab. The line at the top shows the selected range and its channel. Each label row has two buttons: **selected range** and **whole recording**. Clicking a label, or pressing its hotkey, labels the selected range, or the whole recording when no range is selected.
 
-> 📷 **S05** — Labels tab with a range selected: the status line and both per-row buttons.
+![Labels tab with a range selected](../../.gitbook/assets/audio-s05-labels-tab.png)
 
 A label's scope, set in the project's tag settings, decides where it can go: on ranges, on the whole recording, or both. Labels that apply to objects only are not listed.
 
@@ -81,7 +81,7 @@ Use the **whole recording** button on a label row, or click a label when no rang
 
 Tick **Go to next recording after labeling the whole recording** to move on as soon as the tag is added.
 
-> 📷 **S07** — the badge row above the plots with 2–3 whole-recording tags.
+![Whole-recording tag badges](../../.gitbook/assets/audio-s07-whole-recording-tags.png)
 
 ## Edit and delete
 
@@ -90,7 +90,7 @@ Tick **Go to next recording after labeling the whole recording** to move on as s
 * Drag its edges to resize it; **Alt**-drag moves it. Changes stay a draft until you click the check mark (**Save changes**). **Esc** or the cross cancels them.
 * **Change label** swaps the label and keeps the range and the channel.
 
-> 🎞️ **G02** — select a segment → drag an edge → Alt-drag → ✓ save.
+![Editing a segment](../../.gitbook/assets/audio-g02-edit-a-segment.gif)
 
 **In the Annotations tab.** Every segment and whole-recording tag of the recording is listed, with a small timeline.
 
@@ -99,7 +99,7 @@ Tick **Go to next recording after labeling the whole recording** to move on as s
 * The pencil opens an inline editor under the list: **Start**, **End (inclusive)** in seconds or in samples, **Channel**, and the value. **Save** or **Cancel** it there. **Change label** is there too, for segments and whole-recording tags.
 * Tick several rows to show, hide or delete them together. Deleting always asks to confirm.
 
-> 📷 **S08** — Annotations tab: filters, a few rows, the inline editor open (Start / End / Channel).
+![Annotations tab with the inline editor](../../.gitbook/assets/audio-s08-annotations-tab.png)
 
 ## Channels
 
@@ -148,7 +148,7 @@ They are in the **View** tab. A banner at the top says whether they are set:
 
 A change is saved to the project as soon as you make it.
 
-> 📷 **S10** — View tab, editor account: "Set for this project", Advanced analysis expanded.
+![View tab with spectrogram settings](../../.gitbook/assets/audio-s10-view-tab.png)
 
 | Setting | Options |
 |---|---|
@@ -161,7 +161,7 @@ A change is saved to the project as soon as you make it.
 
 The defaults are Linear, a 2048-sample window with a 512-sample step, Hann, 128 mel bands, −100 to 0 dBFS, Magma, Sharp.
 
-> 🎞️ **G04** — change Frequency display or Colors in the View tab; the spectrogram redraws.
+![Changing spectrogram colors](../../.gitbook/assets/audio-g04-spectrogram-settings.gif)
 
 {% hint style="warning" %}
 Existing labels are not changed when a setting changes, but they were drawn on a picture that no longer matches. Choose the settings before labeling starts.
