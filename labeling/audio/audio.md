@@ -17,7 +17,7 @@ The **Audio Labeling Toolbox** is a browser-based interface for labeling recordi
 * **Spectrogram settings set once per project**, so every annotator sees the same analysis and the analysis can be reproduced later for training
 * **Playback** of the whole recording or of the selection, looped, at 0.25× to 2×
 
-> 🔗 **Sample project** — link slot.
+> 🔗 **Sample project**: try the toolbox on the [Audio Annotation Sample Project](https://app.supervisely.com/ecosystem/projects/audio-annotation-sample-project?id=633) from the Ecosystem.
 
 ## Create an Audio project
 
