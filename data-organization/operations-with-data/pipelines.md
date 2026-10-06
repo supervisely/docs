@@ -1,158 +1,117 @@
 ---
 description: >-
-  Easily combine data management, augmentation, filtering, and neural network
-  operations with drag-and-drop pipelines, which include a set of over 150 nodes
-  for different modalities.
+  Build data pipelines from nodes in the ML Pipelines app: filter, transform,
+  augment and label images and videos, apply neural networks, and save the
+  results to projects, archives or labeling jobs.
 ---
 
 # Pipelines
 
-Supervisely introduces a robust Computer Vision Pipelines system designed to simplify MLOps (Machine Learning Operations) and DataOps (Data Operations) with a node-based architecture.&#x20;
+**Pipelines** are built in the [ML Pipelines](https://ecosystem.supervisely.com/apps/data-nodes) app. A pipeline is a graph of nodes on a canvas: it starts with an input (a project, some of its datasets, filtered items or a labeling job), passes the data through transformations, filters and neural networks, and ends with one or more outputs (a new project, an existing project, an archive in Team Files or a labeling job).
 
-This innovative system allows users to manage data, perform augmentations, apply filters and run neural network operations seamlessly using an intuitive drag-and-drop interface. The system includes over 150 nodes to cater to various data processing needs.
+Your source data is not changed: results go to new projects, datasets or files. The exceptions are the nodes that write into existing data on purpose: **Move**, which removes the items from the source, **Add to Existing Project**, **Output Project** saving to an existing project, and **Copy Annotations**.
 
-<figure><img src="../../.gitbook/assets/pipelines-frame.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ml-pipelines-frame.png" alt="An images pipeline in ML Pipelines: a model is deployed, applied to the images, and the results are saved to a new project"><figcaption></figcaption></figure>
 
-## What are Pipelines?
+One session of the app works with one data type: **images** or **videos**. The list of nodes depends on it. To work with the other type, start the app again.
 
-Pipelines in Supervisely are a modular approach to data processing and workflow management. They enable users to create complex workflows by connecting different nodes, each representing a specific operation, such as data transformation, neural network application, collaboration or data enhancement. This node-based system, inspired by similar approaches in video editing, 3D graphics, and game development, streamlines the process of building and managing sophisticated data workflows.
+## Start the app
 
-<figure><img src="../../.gitbook/assets/ml-pipelines-frame.png" alt=""><figcaption></figcaption></figure>
+* **From a project:** open the project and click the **Pipelines** tab. The pipeline starts with an **Images Project** or **Videos Project** node with this project.
 
-* **Transform Data:** Apply a wide variety of data transformation operations to images within a project. These transformations include rotation, cropping, blurring, resizing, and many more.
-* **Use Neural Networks:** Apply deployed models on your data to perform object detection, instance segmentation, and other tasks. You can use any of the neural network models available in the Supervisely Ecosystem, or train your custom models.
-* **Enhance Data:** Improve the quality and usability of your image data by adjusting contrast, brightness, and noise levels.
-* **Object-Level Manipulation:** Perform operations on individual objects or instances within images, such as cropping, duplicating, or changing their color classes.
-* **Customize Workflows:** Create complex data transformation workflows by combining multiple transformation nodes to meet your specific requirements.
-* **Node Documentation:** Detailed documentation is available for each transformation node, explaining how to use it effectively. These guides provide step-by-step instructions and examples for each node, making it easy for users to understand and leverage the full power of the application.
-* **Save & Load Presets:** Save your customized transformation workflows as presets for future use. This feature allows you to store and reuse your preferred configurations quickly.
-* **Output Flexibility:** Choose from multiple export options to save your transformed data in a format that best suits your needs.
-* **MLOps:** Manage ML workflows from data annotation to model deployment, incorporating CI/CD (Continuous Integration/Continuous Deployment) and continuous training principles.
-* **DataOps:** Efficiently process and manage data throughout its lifecycle with an emphasis on collaboration, quality assurance, and automation.
+<figure><img src="../../.gitbook/assets/run-pipelines-frame.png" alt="The Pipelines tab of a project"><figcaption></figcaption></figure>
 
-## How to use Pipelines?
+* **From a project or dataset menu:** choose **Run pipeline → Custom ML pipeline...** to start with the project or dataset as the input, or one of the ready pipelines (**Object detection augs**, **Segmentation augs**) to open a complete augmentation pipeline for it.
 
-Using Computer Vision Pipelines in Supervisely is easy and powerful. With an intuitive, easy-to-understand interface, users can create advanced workflows without extensive programming knowledge. Drag-and-drop functionality and a wide range of customization options allow pipelines to be tailored to specific needs.
+<figure><img src="../../.gitbook/assets/run-shortcuts-frame.png" alt="Run pipeline in the context menu of a dataset"><figcaption></figcaption></figure>
 
-From managing datasets - copying, moving, filtering, merging and splitting - to performing complex transformations and augmentations, Supervisely makes it straightforward. Users can easily crop and resize images, convert shapes (such as polygons to bounding boxes for object detection tasks), and apply a variety of operations to enrich and modify data.
+* **From filters:** filter the images of a project, or select some of them, and run the pipeline. It starts with a **Filtered Project** node with exactly these images.
+* **From the Ecosystem:** run **ML Pipelines** and choose the data type (images or videos). The canvas is empty.
+* **From a saved pipeline:** in Team Files, open the context menu of a preset (`.json`) and run ML Pipelines on it. The app opens with that pipeline.
 
-### Step 1. Launch Pipelines <a href="#step-1-launch-pipelines" id="step-1-launch-pipelines"></a>
+## Build a pipeline
 
-You have several options to run a pipeline, offering flexibility based on your workflow and preferences.
+<figure><img src="../../.gitbook/assets/library-context-menu-frame.png" alt="The node library on the left and the context menu of the canvas"><figcaption></figcaption></figure>
 
-#### **Running Pipelines from the Project Interface**
+* **Add nodes** from the library on the left (type in the search field to find one), or right-click the canvas and choose a node from its groups. **Select...** in the same menu opens a searchable list of all nodes, and **Clear** removes all nodes.
+* **Connect nodes** by dragging from an output of one node to an input of another. With **Auto-connect node** on, a new node is connected to the last one you added.
+* **Configure nodes** on the node card: **SELECT** and **EDIT** open the settings in a side panel, where you confirm them with **SAVE**. Other settings are edited on the card itself.
+* **Preview** (images only): **Update** on a node shows a random image of the input as it looks after this node, with its labels.
+* **Read about a node:** the **?** icon next to its name opens its documentation, with every setting explained.
+* **Remove** a node with **×**.
 
-You can run the `Pipelines` from the project's interface, allowing for project-specific workflows, or start the pipeline from dataset, enabling dataset-specific processing and transformations.
+How data flows between nodes:
 
-<figure><img src="../../.gitbook/assets/run-pipelines-frame.png" alt=""><figcaption></figcaption></figure>
+* Every item goes to one output of a node. Filters and **If** have several outputs, for example **Output True** and **Output False**: connect only the one you need, and the items of the other are dropped.
+* Several connections into one input merge the data, for example two branches of an augmentation into one output project.
+* One output can feed several nodes, to save the same data in different ways.
+* Input nodes choose which classes and tags go into the pipeline. Classes and tags that are not selected are removed from the annotations.
 
-#### **Other Shortcuts**
+## Run a pipeline
 
-There are several other convenient ways to start a pipeline. You can launch the desired application directly from the Supervisely Ecosystem, access and run the app from the project's context menu, or run the app directly from the dataset's context menu to streamline the process.
+Click **RUN**. The app checks the pipeline first: it needs at least one input and one output node, and every node's settings must be complete. Then it processes the items and shows the progress. You can close the run window and open it again with the progress circle next to **RUN**. **STOP** ends the run early; the results can be incomplete.
 
-<figure><img src="../../.gitbook/assets/run-shortcuts-frame.png" alt=""><figcaption></figcaption></figure>
+When the run finishes, the run window lists the results: links to the new or updated projects, to the archives in Team Files and to the labeling jobs. The run is also recorded in the **Workflow** of the input and output projects.
 
-In addition, you can apply filters to your data before running pipelines to ensure precise and targeted transformations.
+* Media is downloaded only when a node needs it. A pipeline that only filters, changes annotations or reorganizes datasets does not download the images, and images that no node needs are added to the output by reference, without uploading them again. A video is downloaded only when a node reads it, so videos dropped by a filter are never downloaded.
+* If some items fail, the run goes on without them and the error is written to the session's log. If the output has fewer items than you expected, check the log.
+* Archives are saved in Team Files, in `/data-nodes/archives/<images or videos>/<task id>/`.
 
-### Step 2. Drag-and-Drop and Connect Nodes
+## Save and load pipelines
 
-Creating a pipeline in Supervisely involves adding and connecting nodes to define your data processing workflow:
+<figure><img src="../../.gitbook/assets/save-frame.png" alt="The Save Preset window"><figcaption></figcaption></figure>
 
-* **Add Nodes:** Select the necessary nodes from the library or use the context menu to quickly add nodes. Nodes represent different operations such as data transformation, Neural Network application, and data enhancement.
+* **SAVE** saves the pipeline as a preset, a `.json` file in Team Files, in `/data-nodes/presets/images` or `/data-nodes/presets/videos`.
+* **Save as template** makes the preset reusable for any project: when you load it in a session started from another project, the input node takes that project instead of the saved one.
+* **LOAD** opens a preset from the same folder. You can change the loaded pipeline and run it again, or save it under another name.
 
-<figure><img src="../../.gitbook/assets/library-context-menu-frame.png" alt=""><figcaption></figcaption></figure>
+Presets are plain JSON, so you can share them with your team through Team Files, or open them from Team Files directly (see [Start the app](#start-the-app)).
 
-* **Configure Nodes:** For each node, set up its parameters according to your requirements. This could include specifying transformation types, Neural Network models, or enhancement settings.
-* **Connect Nodes:** Use the **drag-and-drop** interface to connect nodes in the desired sequence. The connections represent the data flow from one operation to the next, creating a streamlined and logical processing path.
-* **Customize Workflow:** Adjust and rearrange nodes as needed to tailor the workflow to your specific needs. You can combine multiple nodes to handle complex data processing tasks.
+## Nodes
 
-### Step 3. Run Pipelines <a href="#step-3-run-pipelines" id="step-3-run-pipelines"></a>
+| Group | Nodes | Images | Videos |
+| --- | --- | --- | --- |
+| **Input** | **Images Project**, **Input Labeling Job**, **Filtered Project** (only when started from filters) | ✓ | |
+| | **Videos Project** | | ✓ |
+| **Pixel-level transforms** | Anonymize, Blur, Contrast / Brightness, Noise, Random Color | ✓ | |
+| **Spatial-level transforms** | Crop, Flip, Instances Crop, Multiply, Orientation, Resize, Rotate, Sliding Window | ✓ | |
+| **ImgAug Augmentations** | ImgAug Studio, imgcorruptlike Noise, Blur, Weather, Color and Compression, Elastic Transformation, Perspective Transform | ✓ | |
+| **Annotation transforms** | Approx Vector, Bitwise Masks, Change Class Color, Drop Lines by Length, Drop Noise, Drop Object by Class, Duplicate Objects, Image Tag, Line to Mask, Mask Morphology, Mask to Lines, Mask to Polygon, Merge Classes, Merge Masks, Objects Filter, Objects Filter by Area, Polygon to Mask, Rasterize, Rename Classes, Skeletonize, Split Masks | ✓ | |
+| | Background, Bounding Box, BBox to Polygon | ✓ | ✓ |
+| **Video transforms** | Split Video by Duration | | ✓ |
+| **Filters and conditions** | Filter Images by Objects, Filter Images by Tags, Filter Images without Objects, If | ✓ | |
+| | Filter Videos by Objects, Filter Videos by Tags, Filter Videos without Object Classes, Filter Videos without Annotations, Filter Videos by Duration | | ✓ |
+| **Neural networks** | Apply NN Inference; Deploy YOLOv5, YOLO v8 - v11, YOLO v8 - v26, MMDetection, MMSegmentation, RT-DETR, RT-DETRv2, DEIM | ✓ | |
+| **Other** | Dataset, Split Data, Dummy, Copy, Move | ✓ | |
+| **Output** | Create New Project, Add to Existing Project, Export Archive, Create Labeling Job | ✓ | ✓ |
+| | Output Project, Export Archive with Masks, Copy Annotations | ✓ | |
 
-Once your pipeline is set up, you can easily manage its execution and reuse:
+The documentation of every node is in the app (the **?** icon) and in the [app's repository](https://github.com/supervisely-ecosystem/data-nodes#available-layers).
 
-* **Run Pipeline:** Start the pipeline by clicking the run button. Supervisely will process the data according to the defined workflow, applying each node's operations in sequence.
-* **Monitor Progress:** As the pipeline runs, monitor its progress through the interface. You can view real-time updates and ensure each step is completed successfully.
-* **Modify and Re-run:** If needed, modify the loaded pipeline by adding, removing, or reconfiguring nodes. Once adjusted, re-run the pipeline to apply the updated workflow to your data.
+## Neural networks
 
-### Step 4. Save Pipelines <a href="#step-4-save-pipelines" id="step-4-save-pipelines"></a>
+To label data with a model in a pipeline, use two nodes:
 
-* **Custom Templates:** Create custom templates for your pipelines and save your configured pipelines as a preset for future use. Custom templates allow you to standardize and share specific workflows across your team or organization. By using templates, you can ensure that everyone member follows best practices for data processing tasks and quickly replicates the same workflow without having to set it up again.
-* **Load Pipelines:** Load a previously saved pipeline preset to reuse your customized workflows. This feature enhances efficiency by allowing you to apply consistent processing steps across different projects and datasets.
+1. A **Deploy** node (for example **Deploy YOLO v8 - v26**): select an agent and a model and press **SERVE**. The model is deployed on that agent as a serving app. With **Auto stop model on pipeline finish**, it is stopped when the run ends.
+2. **Apply NN Inference**: connect the **Deploy** node to its **Deployed model** input, or connect it to a model that is already running. Choose the model's classes and tags to keep and how to add the predictions to the existing labels.
 
-<figure><img src="../../.gitbook/assets/save-frame.png" alt=""><figcaption></figcaption></figure>
+You can chain several models, for example detect objects with one model and segment them with another, and filter the predictions with the annotation nodes before you save them.
 
-### Dataset Management with Pipelines
+<figure><img src="../../.gitbook/assets/labeling-job-nn-prediction.png" alt="Images are labeled by a deployed model and sent to a labeling job for review"><figcaption></figcaption></figure>
 
-Even basic dataset operations such as copying, moving, filtering, merging, and splitting datasets and projects are now made incredibly easy thanks to pipelines.
+## Examples
 
-Imagine you have a large dataset of images that needs to be prepared for a machine learning project. Here's how you can leverage Supervisely Pipelines to streamline this process:
+**Prepare a training set from images.** Images Project → Filter Images by Tags (keep the reviewed images) → Rename Classes or Merge Classes → Split Data (train and val datasets) → Create New Project.
 
-**Copying and Moving Data**
+**Augment a detection dataset.** Run **Object detection augs** from the dataset menu, or build it yourself: Images Project → If (by probability) → Flip, Crop, Contrast / Brightness, Blur and so on in branches → merge the branches into one Create New Project.
 
-**Node 1. Copy Dataset:** Use a node to duplicate your original dataset. This ensures that your original data remains intact while you work on the copy.
+**Pre-label images with a model and review them.** Images Project → Deploy YOLO v8 - v26 + Apply NN Inference → Objects Filter by Area (drop tiny boxes) → Create Labeling Job. The labelers get the model's predictions to correct.
 
-**Node 2. Move Data:** Add a node to move specific subsets of the copied data to different directories based on your organizational needs.
+**Cut long videos into clips.** Videos Project → Filter Videos by Tags → Split Video by Duration → Create New Project. Every clip keeps its objects and tags for its frames.
 
-<figure><img src="../../.gitbook/assets/move.png" alt=""><figcaption></figcaption></figure>
+**Move a filtered selection to another project.** Filter the images in the project, run the pipeline from the filters, and connect Filtered Project → Move → Output Project.
 
-#### **Filtering and Splitting Data**
-
-**Node 3. Filter Data:** Apply a filtering node to select images based on specific criteria, such as resolution or file type. This helps in focusing on the most relevant data.
-
-**Node 4. Split Dataset:** Use a split node to divide the filtered dataset into training, validation, and test sets, ensuring a balanced distribution for your machine learning tasks.
-
-#### **Merging Datasets**
-
-**Node 5. Merge Datasets:** If you have multiple datasets that need to be combined, add a merge node. This node will unify different datasets into a single, cohesive set, simplifying further processing and analysis.
-
-<figure><img src="../../.gitbook/assets/dataset (2).png" alt=""><figcaption></figcaption></figure>
-
-#### **Performing Complex Transformations**
-
-**Node 6. Data Augmentation:** Add nodes for various data augmentation techniques such as rotation, flipping, and color adjustments to enrich the dataset.
-
-**Node 7. Convert Shapes:** Use a node to convert shapes, such as changing polygons to bounding boxes, which is crucial for object detection tasks.
-
-By connecting these nodes in a pipeline, you create an automated, repeatable workflow that handles every step of dataset management.
-
-### Transformations & Augmentations
-
-The system supports a wide range of data transformations and augmentations. You can easily convert videos to images or resize images. Additionally, users can transform polygons into bounding boxes for object detection tasks.
-
-Furthermore, features like rotation, cropping, flipping, and adjusting brightness and contrast are available, along with many other capabilities. Data augmentation allows for the creation of numerous variations from a single image, helping models train under diverse conditions and enhancing their generalization ability.
-
-<figure><img src="../../.gitbook/assets/augmentations.png" alt=""><figcaption></figcaption></figure>
-
-### Neural Networks Inference & Model Ensembles <a href="#neural-networks-inference--model-ensembles" id="neural-networks-inference--model-ensembles"></a>
-
-Our Nodes facilitate the creation and deployment of Neural Networks and their ensembles for inference tasks. You can create a Node to deploy a model and then apply this model to your data using another Node. Moreover, you are not limited to a single model; you can use multiple models in conjunction.
-
-For example, you can first apply a model for object detection and then use another model to segment each detected object. This allows you to build model ensembles, significantly improving performance and providing more comprehensive results.
-
-### Labeling Tasks
-
-In Supervisely, you can create labeling tasks based on your input project. For instance, you can perform advanced filtering to isolate images with specific tags or those without annotations, and then create a labeling task based on the results of this filtering.
-
-<figure><img src="../../.gitbook/assets/labeling-job.png" alt=""><figcaption></figcaption></figure>
-
-In another scenario, if you have unlabeled images, you can first apply a Neural Network to these images for automatic annotation, and then create a labeling task based on the generated annotations.
-
-<figure><img src="../../.gitbook/assets/labeling-job-nn-prediction.png" alt=""><figcaption></figcaption></figure>
-
-### Creating Complex Pipelines
-
-With Supervisely Pipelines, you can create complex combinations of your nodes and large and complex pipelines, that include both data processing and Neural Network operations.
-
-**For example:**
-
-1. You can take a large image and split it into smaller blocks using a `sliding window` split.
-2. Then apply a neural network operation to this image to perform detection and segmentation.
-3. Apply a filter to remove all small rectangles with a low-confidence level less than 0.5.&#x20;
-4. Finally, you can create a labeling task based on filtered results.
-
-Supervisely Pipelines support multiple modalities, including images, video, and much more. Our comprehensive set of operations, which already includes over 150 nodes, is constantly being expanded.
-
-### Custom Nodes
+## Custom Nodes
 
 If a step needs your own code or your company's Python packages, add your own nodes:
 
@@ -161,7 +120,4 @@ If a step needs your own code or your company's Python packages, add your own no
 3. Install your packages into the fork's Docker image, for example from a private package index.
 4. Release the fork as a private app on your instance and run it on any agent.
 
-Your code runs only in your fork: nothing is typed into the app's interface. The developer tutorial [Add your own node to ML Pipelines](https://developer.supervisely.com/app-development/ml-pipelines/custom-nodes) shows every step, with example nodes for a video pipeline that selects videos, scans their frames in parallel and cuts clips into a new project.
-
-If you need specific functionality or have any questions, please don't hesitate to contact our support team. We're always here to help!
-
+Your code runs only in your fork: nothing is typed into the app's interface. The developer tutorial [Add your own node to ML Pipelines](https://developer.supervisely.com/app-development/ml-pipelines/custom-nodes) shows every step, with example nodes for a video pipeline that selects videos, scans their frames in parallel and cuts clips into a new project. How the app works inside, its pipeline format and how to run a pipeline from code are in [ML Pipelines for developers](https://developer.supervisely.com/app-development/ml-pipelines).
