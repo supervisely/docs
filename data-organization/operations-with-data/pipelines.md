@@ -152,5 +152,16 @@ With Supervisely Pipelines, you can create complex combinations of your nodes an
 
 Supervisely Pipelines support multiple modalities, including images, video, and much more. Our comprehensive set of operations, which already includes over 150 nodes, is constantly being expanded.
 
+### Custom Nodes
+
+If a step needs your own code or your company's Python packages, add your own nodes:
+
+1. Fork the [ML Pipelines repository](https://github.com/supervisely-ecosystem/data-nodes).
+2. Put your nodes in the `src/custom_nodes/` folder. They appear in the **Custom** group of the app, next to the standard nodes.
+3. Install your packages into the fork's Docker image, for example from a private package index.
+4. Release the fork as a private app on your instance and run it on any agent.
+
+Your code runs only in your fork: nothing is typed into the app's interface. The developer tutorial [Add your own node to ML Pipelines](https://developer.supervisely.com/app-development/ml-pipelines/custom-nodes) shows every step, with example nodes for a video pipeline that selects videos, scans their frames in parallel and cuts clips into a new project.
+
 If you need specific functionality or have any questions, please don't hesitate to contact our support team. We're always here to help!
 
