@@ -139,6 +139,21 @@ In another scenario, if you have unlabeled images, you can first apply a Neural 
 
 <figure><img src="../../.gitbook/assets/labeling-job-nn-prediction.png" alt=""><figcaption></figcaption></figure>
 
+### Custom Code
+
+The **Custom Code** node runs your own Python script on every video and keeps the frame ranges it returns. Each range becomes a clip with its annotations, so one node can select, trim and split videos by any logic: OpenCV, a model, or code from your own packages. For example:
+
+`Videos Project` → `Filter Videos by Tags` → `Custom Code` → `Create New Project`
+
+* **Scripts live in Team Files.** Pick a script of your team from `/ml-pipelines/custom-code/`, any `.py` file in Team Files, or start from a template. Edit it in the node, then **Save** writes it back to Team Files and **Save as** creates a new file. Unsaved changes are saved when the pipeline starts.
+* **The script returns frame ranges.** It defines `process(video_path, video_info, ann, params)` and returns `(start, end)` frame ranges: each range becomes a clip cut at exact frames, `[]` drops the video, and one range over the whole video passes it through unchanged.
+* **Parameters** are a JSON object passed to the script, so one script serves many pipelines.
+* **Parallel.** Several videos are processed at the same time on the cores of the agent the app runs on. A video whose script fails is skipped with an error in the log, and the run continues.
+
+The node runs arbitrary code inside the app, so it is off unless the app's Docker image enables it with the environment variable `ML_PIPELINES_CUSTOM_CODE=1`. To use the node, and to use your own Python packages in your scripts, build your own image of the app and release it as a private app.
+
+The script contract, examples for every step, and how to build the image are in the developer portal: [ML Pipelines: Custom Code node](https://developer.supervisely.com/advanced-user-guide/ml-pipelines-custom-code), [Examples](https://developer.supervisely.com/advanced-user-guide/ml-pipelines-custom-code/examples) and [Your own packages](https://developer.supervisely.com/advanced-user-guide/ml-pipelines-custom-code/own-packages).
+
 ### Creating Complex Pipelines
 
 With Supervisely Pipelines, you can create complex combinations of your nodes and large and complex pipelines, that include both data processing and Neural Network operations.
