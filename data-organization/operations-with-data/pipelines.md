@@ -152,5 +152,9 @@ With Supervisely Pipelines, you can create complex combinations of your nodes an
 
 Supervisely Pipelines support multiple modalities, including images, video, and much more. Our comprehensive set of operations, which already includes over 150 nodes, is constantly being expanded.
 
+### Custom Nodes
+
+If the built-in nodes don't cover your task, you can add your own. Custom nodes are written in Python in a fork of the Pipelines app, can use your own (including private) Python packages, and appear in the node list next to the built-in ones. See [Add your own node](https://developer.supervisely.com/app-development/ml-pipelines/custom-nodes) in the Developer Portal for a step-by-step tutorial.
+
 If you need specific functionality or have any questions, please don't hesitate to contact our support team. We're always here to help!
 
