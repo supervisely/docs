@@ -55,9 +55,11 @@ For Python workflows, install **Supervisely SDK 6.74.39 or later**. The SDK reco
 | Source | Embedded telemetry format | What to upload |
 | --- | --- | --- |
 | GoPro | GPMF in a `gpmd` track | The original camera MP4, recorded with GPS enabled and a stable GPS fix (GPS lock) |
-| Compatible Insta360 cameras and dashcams | CAMM | A recording containing supported CAMM telemetry |
+| Recordings with compatible CAMM metadata | CAMM | The original video containing GPS samples supported by your deployment |
 
-The camera brand alone does not guarantee GPS data. Available metrics depend on the recording and the camera's sensors.
+The camera brand alone does not guarantee compatible telemetry or GPS data. Check the exact camera model, recording mode and file on your deployment before uploading a large dataset. A GPMF or CAMM track may contain only some of the required measurements: GPS, acceleration and altitude are not guaranteed to be present together. See the [CAMM specification](https://developers.google.com/streetview/publish/camm-spec) for the different metadata sample types.
+
+This workflow reads telemetry embedded in the video. A separate GPX, SRT or CSV file is not a substitute for that embedded track. If your camera stores GPS in a separate file, confirm an appropriate import or conversion workflow with your administrator before preparing the dataset.
 
 {% hint style="warning" %}
 Upload original GoPro files without re-encoding. Video converters and editors can remove the embedded GPS stream even when the picture looks unchanged. Keep the camera original.
@@ -81,9 +83,13 @@ Upload original GoPro files without re-encoding. Video converters and editors ca
 
 ![Synchronized navigation demo](../../.gitbook/assets/gps-synchronized-navigation.gif)
 
-[Download the full-resolution video (WebM)](https://github.com/supervisely/docs/raw/refs/heads/review/video-gps-telemetry/.gitbook/assets/gps-synchronized-navigation.webm).
+[Download the full-resolution video (WebM)](https://github.com/supervisely/docs/raw/refs/heads/master/.gitbook/assets/gps-synchronized-navigation.webm).
 
-The Marin County example shows a countryside drive recorded on a GoPro with embedded GPS data.
+To try the Marin County example, download the [original GoPro recording, `GP030064.MP4` (about 4 GB)](https://archive.org/download/MarinCountyCADriving/GP030064.MP4) and upload it to a Telemetry project. Choose the original file with the uppercase `.MP4` extension; Internet Archive also provides a smaller, transcoded `GP030064.mp4` derivative. The WebM downloads on this page are recordings of the Supervisely interface, not camera files for telemetry import.
+
+### Use an existing video project
+
+Open the project's [Settings](../../data-organization/project-dataset/project-settings.md#videos-project), select **Telemetry** under **Project labeling interface**, and save. Open a video to check that its route and charts load. Changing the interface does not add telemetry to files that lack it. If Telemetry is unavailable, check the deployment and license requirements in [Before you start](#before-you-start).
 
 ## Navigate using the video, map and telemetry charts
 
@@ -92,8 +98,6 @@ You can move to a specific moment in the recording in three ways:
 - **Using the video timeline** — select a moment on the track below the player. See [playback controls](../labeling-toolbox/videos-3.0.md#playback-controls) for playback buttons and frame navigation.
 - **Using the Map tab** — click a point on the recorded route.
 - **Using the Telemetry tab** — click a moment on the speed, acceleration or altitude chart.
-
-All three navigation methods are synchronized: seeking updates the video frame, the map marker and the chart playhead. Start with whichever view makes the relevant part of the recording easiest to find.
 
 **Use the map to find a specific place.** Select a route point, such as a bend, to see what happened there on video and compare the footage with the telemetry.
 
@@ -104,6 +108,8 @@ See the Video Labeling Tool guide for [annotation tools](../labeling-toolbox/vid
 ### Jump to a frame from the route
 
 In **Map**, click a section of the drawn GPS route. The video seeks to the recorded moment associated with that location; the marker and chart playhead update with the frame. Select the route itself: an arbitrary point on the basemap does not necessarily correspond to recorded footage. Use [frame navigation](../labeling-toolbox/videos-3.0.md#playback-controls) to refine the position after seeking.
+
+At intersections or on repeated passes, the same location can correspond to several moments. After clicking the route, check the video time and scene to confirm which pass you selected. Use the video timeline or charts to find another pass through the location.
 
 In the layout shown here, **blue** represents the route up to the current playback position and **ochre** represents the remaining section. The colors indicate playback progress, not road condition or speed. The **orange marker** shows the camera's position. The badge at the bottom of the map displays **latitude, longitude and speed in km/h** for the current position.
 
@@ -119,13 +125,9 @@ The **Telemetry** panel contains three charts. The horizontal axis represents vi
 | **Red — acceleration, m/s²** | The acceleration magnitude recorded by the camera's sensor. | Find shaking, vibration and sudden movements for closer video review. |
 | **Green — altitude, m** | Altitude from the telemetry data. | Compare the video with climbs, descents and altitude changes along the route. |
 
-![Telemetry panel showing speed, acceleration and altitude charts with the current video playhead](../../.gitbook/assets/GPS-video-how-to-read-1.jpg)
-
 **Acceleration is not the same as vehicle acceleration or braking.** The sensor also responds to movement of the camera itself. Its readings may include the effect of gravity, so values around 10 m/s² should not be interpreted directly as vehicle acceleration. A peak helps identify a moment to review, but does not by itself prove that the road has a defect.
 
 **Altitude depends on the reference system and the accuracy of the source data.** A negative value, such as −21 m, does not mean depth and does not by itself indicate an error. Small fluctuations may reflect measurement uncertainty rather than changes in terrain.
-
-To investigate an event, move to the corresponding moment on the video timeline and compare the footage, map position and chart readings.
 
 ### Hover tooltips and long recordings
 
@@ -135,7 +137,7 @@ Hover over a chart to read the tooltip values for that time position. In the dem
 
 ![Hover tooltip demo](../../.gitbook/assets/gps-hover-tooltip.gif)
 
-[Download the full-resolution video (WebM)](https://github.com/supervisely/docs/raw/refs/heads/review/video-gps-telemetry/.gitbook/assets/gps-hover-tooltip.webm).
+[Download the full-resolution video (WebM)](https://github.com/supervisely/docs/raw/refs/heads/master/.gitbook/assets/gps-hover-tooltip.webm).
 
 For a long recording, use the chart as an overview: locate a noticeable change, click it, then refine the event's start and end using frame navigation in the player. A brief event occupies little space on the full timeline, so inspect the video to distinguish nearby events. Allow telemetry to load before reviewing the complete route.
 
@@ -157,7 +159,7 @@ The chart helps locate the moment of interest, while reviewing nearby frames hel
 
 ![Slowdown annotation example](../../.gitbook/assets/gps-slowdown-tag.gif)
 
-[Download the full-resolution video (WebM)](https://github.com/supervisely/docs/raw/refs/heads/review/video-gps-telemetry/.gitbook/assets/gps-slowdown-tag.webm).
+[Download the full-resolution video (WebM)](https://github.com/supervisely/docs/raw/refs/heads/master/.gitbook/assets/gps-slowdown-tag.webm).
 
 In the same segment, the turn is marked with the tag `turn`. The slowdown is identified using the speed chart, while the turn is identified using the video and map. Their tag ranges may differ: for example, the vehicle may begin slowing down before entering the turn.
 
@@ -167,7 +169,7 @@ If a segment is short and individual frames are difficult to select on the full 
 
 ![Turn annotation and Timeline Zoom example](../../.gitbook/assets/gps-turn-tag.gif)
 
-[Download the full-resolution video (WebM)](https://github.com/supervisely/docs/raw/refs/heads/review/video-gps-telemetry/.gitbook/assets/gps-turn-tag.webm).
+[Download the full-resolution video (WebM)](https://github.com/supervisely/docs/raw/refs/heads/master/.gitbook/assets/gps-turn-tag.webm).
 
 ### Annotate an object in the selected frame
 
@@ -181,13 +183,21 @@ For example, draw a box around a vehicle on the first frame of the segment, then
 
 ![Vehicle annotation and interpolation between two keyframes](../../.gitbook/assets/gps-object-labeling.gif)
 
-[Download the full-resolution video (WebM)](https://github.com/supervisely/docs/raw/refs/heads/review/video-gps-telemetry/.gitbook/assets/gps-object-labeling.webm).
+[Download the full-resolution video (WebM)](https://github.com/supervisely/docs/raw/refs/heads/master/.gitbook/assets/gps-object-labeling.webm).
 
 Speed, acceleration and GPS readings describe the camera mounted on the recording vehicle, not the annotated vehicle ahead. A `vehicle` box does not associate that object with the telemetry readings, and drawing a box or adding a tag does not automatically produce geographic coordinates for the object.
 
 {% hint style="info" %}
-**Anonymize Data v1.4.1+** preserves GPS and telemetry when it anonymizes a video. Check the route and synchronization in the resulting copy.
+**Anonymize Data v1.4.1+** supports preserving embedded GPS and telemetry in compatible videos. Preservation can be skipped if the output container is incompatible, the video duration changes or stream restoration fails. After processing, verify that the route is available and remains synchronized with the video. See [Anonymize Data](https://ecosystem.supervisely.com/apps/anonymize-faces).
 {% endhint %}
+
+## Export annotations and keep the source telemetry
+
+To download the labeled project or dataset, open its **⋮** menu, choose **Download**, then **Export in Supervisely Format**. See [Export](../../data-organization/import/export/export.md#export-to-supervisely-format) for the complete workflow and download location.
+
+The [video annotation JSON](../../data-organization/Annotation-JSON-format/06_Supervisely_format_videos.md) stores objects, frame annotations and tags. Camera telemetry is a separate data source: do not expect drawing a box or tagging a segment to add GPS coordinates, speed, acceleration or altitude to its annotation JSON.
+
+Keep the original camera video if you need its embedded telemetry for later analysis. For a table combining annotation frames with GPS or motion measurements, extract the telemetry from that video and align the samples with video timestamps in your processing workflow. Verify that any export or conversion app you choose preserves the original video and telemetry before relying on its output.
 
 ## Create a project with the Python SDK
 
@@ -230,6 +240,12 @@ A camera may record video without obtaining a valid GPS fix. If a recording has 
 
 Before recording a new video, enable GPS and wait for a stable GPS lock. Uploading the file again or converting it cannot restore a route that the camera never recorded.
 
+### Partial GPS coverage and missing measurements
+
+A recording may contain valid GPS for only part of its duration, or GPS without acceleration or altitude measurements. Check the beginning, middle and end of the recording before using the route or charts to select events. A displayed route or chart alone does not establish that every video frame has a valid sensor sample.
+
+If a metric is missing or looks inconsistent, compare the file with the camera original and check which sensors and recording options were enabled. Do not interpret unavailable speed as a stop, or unavailable altitude or acceleration as zero. For an interval without usable GPS, use the video timeline to review and annotate the footage.
+
 ## Troubleshooting
 
 | Problem | What to check |
@@ -237,4 +253,6 @@ Before recording a new video, enable GPS and wait for a stable GPS lock. Uploadi
 | Telemetry is unavailable during project creation | Check that the platform version supports the interface and that the Enterprise license permits it. |
 | The original works, but an edited copy has no route | Editing or conversion may have removed telemetry. Use the original and verify that processing preserves the GPS stream and its timing. |
 | An anonymized copy has no route | Check the output in the labeling tool. Successful face or license plate blurring does not guarantee telemetry was preserved. |
+| GPS is available for only part of the video, or a metric is missing | Check GPS reception and the recorded sensor data. Compare with the camera original; missing measurements cannot be recovered by changing the labeling interface. |
+| A route click opens a different pass through the same location | Check the video time and scene, then use the timeline or charts to select the intended pass. |
 | The SDK does not recognize `telemetry` | Upgrade to SDK 6.74.39 or later in the environment running the script or application. |
