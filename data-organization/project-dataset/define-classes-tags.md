@@ -148,7 +148,18 @@ It is not added in any other case:
 Every new car or truck then gets `subtype: sedan`, and annotators change the value only for the others.
 
 {% hint style="warning" %}
-These settings belong to the project's tag definitions. A clone of the project keeps them. The Python SDK up to version 6.74.44 drops them when it copies a project meta: when a project is downloaded and uploaded again, and when a project in Supervisely format is imported into a new project. Set them again on the new project after such a copy.
+These settings belong to the project's tag definitions.
+
+They are kept:
+* in a clone of the project;
+* when data is imported or copied into a project that already has these tags.
+
+They are not copied yet when the copy creates the tags:
+* when a project is downloaded and uploaded again with the Python SDK;
+* when a project in Supervisely format is imported into a new project;
+* when Data Commander copies data into a project that does not have these tags.
+
+After such a copy, set them again on the new project.
 {% endhint %}
 
 ### Multiple tags mode
