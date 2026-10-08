@@ -126,10 +126,16 @@ Tags provide a more flexible and free way to describe, while classes provide a f
 
 Available since Supervisely 6.18.3. A tag can be added to new objects automatically, and a tag can come with a value already filled in. Both are set in the tag's settings in the project's **Definitions**.
 
-**Add automatically to new objects of these classes.** This option is offered when the tag is applicable to **Objects only** and is limited to certain classes. In the image Labeling Tool, the tag is then added:
+**Add automatically to new objects of these classes.** This option is offered when the tag is applicable to **Objects only** and is limited to certain classes.
+
+<figure><img src="../../.gitbook/assets/define-classes-tags/default-tag-settings.png" alt="" width="359"><figcaption></figcaption></figure>
+
+In the image Labeling Tool, the tag is then added:
 
 * when an annotator creates an object of one of those classes;
 * when an annotator changes an object's class to one of those classes.
+
+<figure><img src="../../.gitbook/assets/define-classes-tags/default-tag-labeling-tool.png" alt="" width="359"><figcaption></figcaption></figure>
 
 It is not added in any other case:
 
@@ -138,6 +144,8 @@ It is not added in any other case:
 * If an annotator removes the tag from an object, it is not added again.
 
 **Default value.** Tags of type **Text**, **Number** and **One of** can have a default value. When the tag is assigned without a value, the default value is used. The value input starts with it, so the annotator can accept it or type another one. A tag added automatically gets its default value.
+
+<figure><img src="../../.gitbook/assets/define-classes-tags/default-tag-value-input.png" alt="" width="359"><figcaption></figcaption></figure>
 
 **Example.** Objects of the classes `car` and `truck` each have a subtype, and almost all of them are sedans. Create a tag `subtype` of type **One of** with the values `sedan`, `suv` and `pickup`:
 
