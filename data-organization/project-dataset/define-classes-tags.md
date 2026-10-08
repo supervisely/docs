@@ -117,9 +117,39 @@ Tags provide a more flexible and free way to describe, while classes provide a f
    * **Frame-based**: tag is applied only to specific frames.
    * **Global**: tag applies to the entire video or object as a whole.
 8. Optionally **limit the frame range tag length** (video and point cloud episode projects): tick **Limit frame range tag length** and set **Min frames** / **Max frames**. Leave a field at `0` to leave that side unlimited.
-9. Click **Save** to complete the creation of the new tag.
+9. Optionally set a **default value** and **add the tag automatically** to new objects, see [Default tags and default values](#default-tags-and-default-values).
+10. Click **Save** to complete the creation of the new tag.
 
 <figure><img src="../../.gitbook/assets/new-tag.png" alt="" width="359"><figcaption></figcaption></figure>
+
+### Default tags and default values
+
+Available since Supervisely 6.18.3. A tag can be added to new objects automatically, and a tag can come with a value already filled in. Both are set in the tag's settings in the project's **Definitions**.
+
+**Add automatically to new objects of these classes.** This option is offered when the tag is applicable to **Objects only** and is limited to certain classes. In the image Labeling Tool, the tag is then added:
+
+* when an annotator creates an object of one of those classes;
+* when an annotator changes an object's class to one of those classes.
+
+It is not added in any other case:
+
+* Objects that already exist are not changed.
+* Objects created through the API, the Python SDK, imports or apps are not tagged.
+* If an annotator removes the tag from an object, it is not added again.
+
+**Default value.** Tags of type **Text**, **Number** and **One of** can have a default value. When the tag is assigned without a value, the default value is used. The value input starts with it, so the annotator can accept it or type another one. A tag added automatically gets its default value.
+
+**Example.** Objects of the classes `car` and `truck` each have a subtype, and almost all of them are sedans. Create a tag `subtype` of type **One of** with the values `sedan`, `suv` and `pickup`:
+
+1. Applicable to **Objects only**, limited to the classes `car` and `truck`.
+2. Default value `sedan`.
+3. **Add automatically to new objects of these classes** turned on.
+
+Every new car or truck then gets `subtype: sedan`, and annotators change the value only for the others.
+
+{% hint style="warning" %}
+These settings belong to the project's tag definitions. A clone of the project keeps them. The Python SDK up to version 6.74.44 drops them when it copies a project meta: when a project is downloaded and uploaded again, and when a project in Supervisely format is imported into a new project. Set them again on the new project after such a copy.
+{% endhint %}
 
 ### Multiple tags mode
 
