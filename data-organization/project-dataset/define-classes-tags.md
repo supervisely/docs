@@ -130,7 +130,7 @@ Available since Supervisely 6.18.3. A tag can be added to new objects automatica
 
 <figure><img src="../../.gitbook/assets/define-classes-tags/default-tag-settings.png" alt="" width="359"><figcaption></figcaption></figure>
 
-In the image Labeling Tool, the tag is then added:
+In the labeling tools for images, videos and point clouds, the tag is then added:
 
 * when an annotator creates an object of one of those classes;
 * when an annotator changes an object's class to one of those classes.
@@ -140,6 +140,7 @@ In the image Labeling Tool, the tag is then added:
 It is not added in any other case:
 
 * Objects that already exist are not changed.
+* In a labeling job whose list of tags does not include the tag, it is not added.
 * Objects created through the API, the Python SDK, imports or apps are not tagged.
 * If an annotator removes the tag from an object, it is not added again.
 
