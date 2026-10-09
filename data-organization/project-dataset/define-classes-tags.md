@@ -163,6 +163,7 @@ They are kept:
 * in a clone of the project;
 * when a project is downloaded and uploaded again with the Python SDK 6.74.46 or later;
 * when a project exported with **Export to Supervisely format** 3.6.1 or later is imported into a new project with **Auto Import** 0.10.2 or later.
+* when data is copied or moved to another project with **Data Commander** 1.0.3 or later.
 
 When data is imported or copied into a project that already has a tag with the same name, that project's own tag settings stay as they are.
 

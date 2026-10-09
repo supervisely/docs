@@ -99,6 +99,22 @@ Each project in Supervisely has a set of predetermined classes and tags. This in
             "hotkey": "",
             "applicable_type": "all",
             "classes": []
+        },
+        {
+            "name": "car_type",
+            "color": "#4A90D9",
+            "value_type": "oneof_string",
+            "values": [
+                "sedan",
+                "suv",
+                "pickup"
+            ],
+            "id": 27860,
+            "hotkey": "",
+            "applicable_type": "objectsOnly",
+            "classes": ["car"],
+            "default": true,
+            "default_value": "sedan"
         }
     ],
     "projectType": "images",
@@ -132,6 +148,16 @@ Each project in Supervisely has a set of predetermined classes and tags. This in
   * `applicable_type` (string) [optional] - defines the applicability of Tag only to images (`imagesOnly`), objects (`objectsOnly`), or both (`all`). By default, tag can be assigned to both images and objects.
   * `classes` (list of strings) [optional] - defines the applicability of Tag only to certain classes
   * `target_type` (string) [optional] - Defines the scope of application. It can be applied globally for the entire duration or to individual frames, with the following values: `entitiesOnly`,`framesOnly`, `all`. Since images do not have "frames," the `all` option is used for them.
+  * `frame_range_min_length` (int) [optional] - minimum length, in frames, of a finished frame-based tag. Length is inclusive, so frames 10 to 12 count as 3. `0` means no limit. Applies to videos and point cloud episodes.
+  * `frame_range_max_length` (int) [optional] - maximum length, in frames, of a finished frame-based tag, on the same terms as `frame_range_min_length`. A minimum above a maximum is rejected, since such a tag could never be applied.
+  * `default` (bool) [optional] - `true` makes the labeling tools for images, videos and point clouds add the tag automatically to a new object of one of the tag's `classes`, and to an object whose class is changed to one of them. It applies only to a tag with `applicable_type` `objectsOnly` and a non-empty `classes` list. It is written only when `true`. Available since Supervisely 6.18.3, see [Default tags and default values](../project-dataset/define-classes-tags.md#default-tags-and-default-values).
+  * `default_value` (string or number) [optional] - the value used when the tag is assigned without one, including when it is added automatically. It applies to `any_string`, `any_number` and `oneof_string` tags; for `oneof_string` it is one of the `values`. It is written only when set. Available since Supervisely 6.18.3.
+
+When a project meta is updated and a tag in it omits `default` or `default_value`, the stored settings are kept. To stop adding the tag automatically, send `"default": false`; to clear a default value, send `"default_value": null`.
+
+{% hint style="warning" %}
+The Python SDK before version 6.74.46 does not know `default` and `default_value`, and a meta it reads and writes back loses both. Version 6.74.46 and later keeps them, but cannot clear them in an existing project: see [Project Meta](https://developer.supervisely.com/getting-started/supervisely-annotation-format/project-classes-and-tags) in the developer portal.
+{% endhint %}
 * `projectType`(string) - one of the possible project types: `images`, `videos`, `volumes`, `point_clouds`, and `point_cloud_episodes`
 * `projectSettings`(string) [optional] - additional project properties. For example, multiview settings. Read more [here](https://developer.supervisely.com/getting-started/python-sdk-tutorials/images/multispectral-images#advanced-use-supervisely-format-for-multispectral-images)
   * `multiView` - additional properties for the multiview mode
