@@ -167,8 +167,7 @@ They are kept:
 When data is imported or copied into a project that already has a tag with the same name, that project's own tag settings stay as they are.
 
 They are not copied yet:
-* with older versions of the Python SDK and of these apps;
-* when Data Commander copies or moves data into a project that does not have these tags.
+* with older versions of the Python SDK and of these apps.
 
 After such a copy, set them again on the new project.
 {% endhint %}
