@@ -161,12 +161,13 @@ These settings belong to the project's tag definitions.
 
 They are kept:
 * in a clone of the project;
-* when data is imported or copied into a project that already has these tags.
+* when a project is downloaded and uploaded again with the Python SDK 6.74.46 or later;
+* when a project exported with **Export to Supervisely format** 3.6.1 or later is imported into a new project with **Auto Import** 0.10.2 or later.
 
-They are not copied yet when the copy creates the tags:
-* when a project is downloaded and uploaded again with the Python SDK;
-* when a project in Supervisely format is imported into a new project;
-* when Data Commander copies data into a project that does not have these tags.
+When data is imported or copied into a project that already has a tag with the same name, that project's own tag settings stay as they are.
+
+They are not copied yet:
+* with older versions of the Python SDK and of these apps.
 
 After such a copy, set them again on the new project.
 {% endhint %}
