@@ -1,10 +1,10 @@
 ---
-description: Review video alongside its GPS route, speed, acceleration and altitude in the Video Labeling Tool.
+description: Review video alongside its GPS route, speed, acceleration and altitude in the Video Labeling Tool, and label real-world footage for Physical AI datasets.
 ---
 
 # Video + GPS Telemetry
 
-**Video + GPS Telemetry** is a labeling and review interface for footage recorded by a moving camera, whether from a car, a train or during a route survey. It brings together the image, map position and motion metrics so reviewers can understand **what happened, where and under what conditions**, then annotate the corresponding frames.
+**Video + GPS Telemetry** is a labeling and review interface for footage recorded by a moving camera, whether from a car, a train or during a route survey. It brings together the image, map position and motion metrics so reviewers can understand **what happened, where and under what conditions**, then annotate the corresponding frames. Use it to prepare real-world training data for **Physical AI**: models that perceive and act in the physical world, such as autonomous vehicles, driver-assistance (ADAS) systems, robots and drones.
 
 In a long recording, a timestamp alone may not help you find a particular bend, level crossing or slowdown. Telemetry lets you start with a location on the map or a change on a chart and jump directly to the corresponding video. These views share a timeline, so you do not have to match them manually.
 
@@ -34,13 +34,15 @@ The **Map** panel displays the recorded GPS route and the camera's position at t
 
 ## When to use it
 
+Physical AI models learn from footage recorded by cameras moving through real environments, and the events worth labeling are rare and spread across long recordings. Location and motion metrics help reviewers find them. Typical workflows:
+
 **Road and railway infrastructure inspection.** Find sections along a route, review road surfaces, signs, level crossings and other visible objects, and flag segments that need attention. Railway workflows require footage of the relevant railway route with telemetry.
 
 **Dashcam review.** Investigate stops, slowdowns and turns by comparing the scene with its location and motion metrics.
 
 **Route survey and mapping footage review.** Use the map to orient yourself and the video to visually inspect landmarks and objects along the recorded route.
 
-**Computer vision dataset preparation.** Find events of interest by location or motion metrics, then annotate the corresponding frames and segments.
+**Physical AI and computer vision dataset preparation.** Find rare events and edge cases by location or motion metrics, then annotate the corresponding frames and segments for training and evaluating perception models, for example for autonomous driving, ADAS, robotics or drones.
 
 Telemetry helps reviewers select and investigate a moment in a recording; determining the cause requires interpretation. An acceleration peak alone does not prove a track defect, and a drop in speed does not establish a dangerous situation. The GPS marker represents the camera's position, not the precise coordinates of every object in the frame.
 
