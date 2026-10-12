@@ -54,7 +54,78 @@ $ cd $(sudo supervisely where)
     scope: <array> (list of additional scopes)
     token_endpoint_auth_method: <string>
     acr_values: <string>
+    login_field: <string> / <array> (claim the account login is taken from)
+    email_field: <string> / <array> (claim the account email is taken from)
 ```
+
+By default the account login is taken from the `email` claim, falling back to `upn`. If your provider
+authenticates by an internal user id and sends neither, name the claim that carries it with
+`login_field` — a single claim name, or a list tried in order:
+
+```yaml
+  extra_settings:
+    login_field: Uid
+    # or, to prefer the internal id and fall back to email:
+    # login_field: [Uid, email]
+```
+
+The claim is looked for in the userinfo response first and then in the `id_token`. Leave
+`login_field` unset to keep the default `email` → `upn` behaviour.
+
+`email_field` names the claim the account's **email** is taken from, separately from the login,
+because the two are different facts: the login is the key your provider asserts, the email is a
+mailbox. It defaults to the standard `email` claim.
+
+```yaml
+  extra_settings:
+    login_field: Uid
+    email_field: Mail
+```
+
+The email is read only when an account is created, and it is stored only if the value is an address —
+a claim carrying something else is ignored, with a line in the log naming it. A provider that sends no
+address leaves the field **empty**, which is allowed: an account without an email works, it simply
+receives no mail. If the address already belongs to another account it is skipped rather than shared,
+so a duplicate can never fail the login. When `email_field` is unset and the login itself is an
+address — the default `email` → `upn` case — that address is used, which is what happened before this
+setting existed.
+
+Values that look like an address are lowercased, whatever the claim is called, because an address is
+the same address in any case. Anything else is stored and matched exactly as the provider sends it —
+an internal id is opaque, and `sub` is defined as case-sensitive — so a provider that varies the case
+of such a value would produce two accounts.
+
+{% hint style="warning" %}
+**The claim you choose as `login_field` must identify a user uniquely.** Its value becomes the login of
+the Supervisely account, and a returning user is matched by that value alone. If two people
+share it, the second one to sign in is logged into the first one's account — with their teams,
+projects and role. Nothing fails and nothing is logged: the account is found and reused before any
+new one would be created, so the uniqueness constraints on the account never come into play.
+
+**Changing it later re-keys every login.** Existing users are looked up by the new claim, do not
+match the accounts they have been using, and get new empty ones — the originals, with their teams,
+projects and roles, are left behind. Treat this as a decision made once, when the provider is set up.
+
+Pick a claim the provider guarantees is unique and stable per user **and that the provider itself
+sets**, such as an internal user id or `email`. A value users can edit in the directory lets them
+choose which Supervisely account they land on, including an existing one. Never pick a descriptive attribute like a department, display name, given name or locale,
+even when it happens to look distinct in your directory today. Note that `upn` — Microsoft's User
+Principal Name, in the default fallback for historical reasons — is documented by Microsoft as
+mutable and reusable, so prefer something durable when you have the choice.
+{% endhint %}
+
+Both settings are available in the UI: **Instance settings → Authorization → Open ID authorization →
+EDIT → User login claim** and **Email claim**. **Fetch claims** reads `claims_supported` from the
+provider's discovery document and offers those names.
+
+Treat that list as a starting point rather than a contract. `claims_supported` states which claims
+the provider declares support for, and an advertised claim is not guaranteed to be available: it may
+be unimplemented, not released to your client, or empty for a particular user. The reverse also
+happens — a provider may issue claims it never advertises. When the claim you need is not in the
+list, switch to **Custom** and enter its name.
+
+Whichever claim you pick becomes both the login and the email of the created user, so it does not
+have to look like an email address.
 
 3\. Create `docker-compose.override.yml` file
 
