@@ -42,6 +42,28 @@ The **Server Trash Bin** serves as a temporary holding area for deleted items. I
 
 ***
 
+## Emptying it from code
+
+Everything on this page can also be driven over the public API, which matters when the Trash
+Bin holds more entities than you want to click through, or when an asset shows the
+`This asset is syncing` tooltip and the row cannot be selected.
+
+```python
+import supervisely as sly
+
+api = sly.Api.from_env()
+
+print(api.trash.get_list())   # read this first
+api.trash.clear()             # irreversible, root only
+```
+
+Only Teams, Workspaces, Projects and Datasets are reachable this way; models, checkpoints,
+python notebooks and DTL archives have to be removed from this page. See
+[Permanent removal](../../data-organization/storage/permanent-removal.md) for the full model,
+the underlying API methods, and how storage is actually reclaimed afterwards.
+
+***
+
 ### Best Practices
 
 1. **Review before deleting**: Always double-check items in the trash before clicking "Delete Forever."
