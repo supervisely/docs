@@ -143,6 +143,7 @@ It is not added in any other case:
 * In a labeling job whose list of tags does not include the tag, it is not added.
 * Objects created through the API, the Python SDK, imports or apps are not tagged.
 * If an annotator removes the tag from an object, it is not added again.
+* A tag of type **Text**, **Number**, **One of** or **Date** is not added while it has no default value, because such a tag cannot be saved without a value. Set a default value to have it added; the tag editor shows a warning until you do. **Date** tags can't have a default value, so they are never added automatically.
 
 **Default value.** Tags of type **Text**, **Number** and **One of** can have a default value. When the tag is assigned without a value, the default value is used. The value input starts with it, so the annotator can accept it or type another one. A tag added automatically gets its default value.
 
