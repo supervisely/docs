@@ -105,7 +105,7 @@ Click **Stats** on the queue to see the **Consensus** card:
 ![Consensus statistics of a queue](../../.gitbook/assets/consensus-video-queue-stats.png)
 
 * **Being labeled**, **Ready for review**, **Resolved** and **Failed** count the videos at each stage. **Failed** lists videos whose consensus could not be computed.
-* **Overall agreement** and its five components are averaged over the queue's videos.
+* **Overall agreement** and its five components, pooled over the queue's videos (see [From pairs to videos and queues](#from-pairs-to-videos-and-queues)).
 * **Open**, **Resolved** and **Ignored discrepancies** show how much review work is left.
 * The annotator table shows each annotator's agreement with the others and its components. Sort by a column to find who differs most and in which aspect.
 * **Final dataset** opens the dataset with the reviewed videos.
@@ -126,7 +126,7 @@ Agreement is a number from 0% to 100% that measures how similar the annotators' 
 
 $$\text{Agreement} = \text{Objects} \times \text{mean}(\text{Frames}, \text{Geometry}, \text{Classes}, \text{Tags})$$
 
-This is the same rule as Panoptic Quality ([Kirillov et al.](https://arxiv.org/abs/1801.00868)), a standard metric for comparing segmentations, including between two human annotators: the share of objects matched, times how good the matches are. An object that only one annotator found counts as complete disagreement. An annotator who found 1 of 10 objects and labeled it perfectly agrees on about 18%, not on the near 100% the four quality components alone would suggest.
+This follows the structure of Panoptic Quality ([Kirillov et al.](https://arxiv.org/abs/1801.00868)), a standard metric for comparing segmentations, including between two human annotators: the share of objects matched, times how good the matches are. Unlike Panoptic Quality, where match quality is the mean IoU alone, here it is the mean of four rates, each with equal weight. A component measured on a few items, such as **Tags** on a video with two or three tags, moves the agreement as much as **Geometry** measured over thousands of frames. An object that only one annotator found counts as complete disagreement. An annotator who found 1 of 10 objects and labeled it perfectly agrees on about 18%, not on the near 100% the four quality components alone would suggest.
 
 A low component points to the kind of mistake. For example, high **Objects** with low **Geometry** means the annotators find the same objects but outline them differently.
 
@@ -137,7 +137,7 @@ Components and discrepancies answer different questions, so they do not always m
 Before scoring, the platform decides which objects of different annotators are the same real object:
 
 1. **On every frame**, the shapes of each pair of annotators are matched one to one by IoU (intersection over union). Only pairs with IoU at or above the **IoU threshold** are matched. The class does not matter, so an object two annotators drew in the same place with different classes is one object with a **Class** discrepancy, not two different objects.
-2. **Across frames**, two annotators' objects are linked when they were matched on at least 30% of the frames where either of them exists. Linked objects form a **group**: one real object with each annotator's version of it.
+2. **Across frames**, two annotators' objects are linked when they were matched on at least 30% of the frames where either of them exists, or on at least half of the frames of the shorter one (and on at least 10 frames). The second rule links a short piece of a split track, or an object one annotator labeled only on part of its frames, to the other annotator's full track. The 10-frame minimum keeps two different objects that cross each other briefly apart. Linked objects form a **group**: one real object with each annotator's version of it.
 3. One annotator can have several objects in a group only if they never appear on the same frame. This is a **Split track**: one real object labeled as several objects, one after another.
 
 An object only one annotator has is a group of one. If an annotator's object has several shapes on one frame, only the first one counts. Points and polylines have almost no area, so for IoU they are drawn with a width of 2% of the frame diagonal (at least 9 pixels; about 44 pixels in Full HD), the way lane benchmarks draw lanes. A point is drawn as a disc of that diameter. Two annotators' points a few pixels apart then overlap substantially instead of not at all.
@@ -205,5 +205,5 @@ Ties go to the annotator who submitted the video first. Pre-fill only proposes a
 * 2 to 4 annotators per video.
 * Multi-view queues and Quality Check cannot be combined with consensus.
 * A video is scored once, when the last annotator submits it. Labels changed in the source dataset afterwards are not scored again.
-* Objects are linked across annotators only when they were matched on at least 30% of the frames where either of them exists. If one annotator labeled an object over a much shorter stretch than another (for example, 25 of 100 frames), the two versions are not linked: the object is reported as **Only one** for each of them, rather than as **Missing** frames, and **Objects** drops accordingly.
+* Objects are linked across annotators only when they were matched on enough frames (see [Matching objects](#matching-objects)). Two versions of one object that match on too few frames, for example because they overlap in time only briefly, are not linked: the object is reported as **Only one** for each of them, rather than as **Missing** frames, and **Objects** drops accordingly.
 * Agreement is measured at one IoU threshold. Two shapes that overlap just below it are not matched, so a small change in overlap can turn a matched object into two **Only one** objects. On a video with few objects this moves the agreement a lot; the queue's agreement, pooled over many objects, is much less sensitive.
