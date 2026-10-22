@@ -14,6 +14,10 @@ Example above is Labeling Consensus [application](https://ecosystem.supervisely.
 Learn more about Labeling Consensus in [How to use labeling consensus to get accurate training data](https://supervisely.com/blog/labeling-consensus) tutorial.
 {% endhint %}
 
+{% hint style="info" %}
+For videos, consensus is built into Labeling Queues: annotators label each video independently and reviewers settle the differences in the labeling tool, with no app to launch. See [Video Consensus](video-consensus.md).
+{% endhint %}
+
 ## How to Use the Labeling Consensus Tool
 
 This guide explains how to use the labeling consensus tool on the Supervisely platform to analyze the quality of annotations made by different labelers and produce high-quality training data.

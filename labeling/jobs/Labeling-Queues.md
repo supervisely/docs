@@ -50,6 +50,12 @@ Suppose you want to train a model to recognize strawberries in images. You have 
 
 ***
 
+## Consensus for Videos
+
+In video projects, a queue can give each video to several annotators who label it independently. The platform scores their agreement, and reviewers settle the differences in the consensus view before the labels go to the final dataset. See [Video Consensus](video-consensus.md).
+
+***
+
 ## Labeling Queues Statistics
 
 📊 Managers and Reviewers can view statistics for each Labeling Job in the queue by clicking the **Stats** button. This provides insights into team performance and helps optimize the annotation process.
