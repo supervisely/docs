@@ -146,6 +146,7 @@
 * [Labeling Jobs](labeling/jobs/README.md)
   * [Labeling Queues](labeling/jobs/Labeling-Queues.md)
   * [Labeling Consensus](labeling/jobs/Labeling-Consensus.md)
+  * [Video Consensus](labeling/jobs/video-consensus.md)
   * [Labeling Statistics](labeling/jobs/Labeling-Statistics.md)
   * [Labeling Quality Control](labeling/jobs/Labeling-Quality-Control.md)
 * [Labeling Performance](labeling/labeling-performance.md)
