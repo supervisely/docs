@@ -50,9 +50,9 @@ Suppose you want to train a model to recognize strawberries in images. You have 
 
 ***
 
-## Consensus for Videos
+## Consensus
 
-In video projects, a queue can give each video to several annotators who label it independently. The platform scores their agreement, and reviewers settle the differences in the consensus view before the labels go to the final dataset. See [Video Consensus](video-consensus.md).
+In video and image projects, a queue can give each item to several annotators who label it independently. The platform scores their agreement, and reviewers settle the differences in the consensus view before the labels go to the final dataset. See [Video Consensus](video-consensus.md) and [Image Consensus](image-consensus.md).
 
 ***
 

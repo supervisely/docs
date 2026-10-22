@@ -15,7 +15,7 @@ Learn more about Labeling Consensus in [How to use labeling consensus to get acc
 {% endhint %}
 
 {% hint style="info" %}
-For videos, consensus is built into Labeling Queues: annotators label each video independently and reviewers settle the differences in the labeling tool, with no app to launch. See [Video Consensus](video-consensus.md).
+Consensus is also built into Labeling Queues for videos and images: annotators label each item independently and reviewers settle the differences in the labeling tool, with no app to launch. See [Video Consensus](video-consensus.md) and [Image Consensus](image-consensus.md).
 {% endhint %}
 
 ## How to Use the Labeling Consensus Tool

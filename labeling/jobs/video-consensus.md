@@ -17,7 +17,7 @@ Use it when label quality matters more than labeling speed:
 * **Annotator quality**: agreement per annotator shows who labels differently from the rest of the team, and in which aspect.
 
 {% hint style="info" %}
-Consensus in Labeling Queues is available for **video** projects. For images, use the [Labeling Consensus](Labeling-Consensus.md) app.
+Consensus in Labeling Queues is available for **video** and **image** projects. This page covers videos; for images, see [Image Consensus](image-consensus.md).
 {% endhint %}
 
 ## How it works
@@ -201,7 +201,7 @@ Ties go to the annotator who submitted the video first. Pre-fill only proposes a
 
 ## Limitations
 
-* Only video projects are supported. For images, use the [Labeling Consensus](Labeling-Consensus.md) app.
+* Video and image projects only (see [Image Consensus](image-consensus.md) for images).
 * 2 to 4 annotators per video.
 * Multi-view queues and Quality Check cannot be combined with consensus.
 * A video is scored once, when the last annotator submits it. Labels changed in the source dataset afterwards are not scored again.
