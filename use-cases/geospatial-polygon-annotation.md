@@ -4,11 +4,11 @@ description: See how Supervisely supports scalable polygon annotation for precis
 
 # Scalable Polygon Annotation in Supervisely
 
-Many geospatial projects need more than an approximate object area. They need exact geometry: straight sides, corners, holes, and shared boundaries between neighboring regions. Consider a property where a house meets a lawn and a paved area. These are three separate map objects, but the lines between them must align without gaps, overlaps, or redrawing the same boundary twice.
+Many geospatial projects need more than an approximate object area. They need well-defined vector geometry: straight sides, corners, holes, and shared boundaries between neighboring regions. Consider a property where a house meets a lawn and a paved area. These are three separate map objects, but the lines between them must align without gaps, overlaps, or redrawing the same boundary twice.
 
 ![Segment Anything masks for a building, lawn, paved surface, and planting beds on an aerial property image in Supervisely](../.gitbook/assets/scalable-polygon-annotation-property-segment-anything.jpg)
 
-*In this aerial image, Smart Tool with Segment Anything quickly identifies the building, lawn, paved surface, and planting beds, providing a useful first pass. This works well when the required boundary can follow visible image features. Here, however, the final site plan must also reflect the structure of the property: the lawn continues beneath the tree canopy, and the private paved area must be separated from the visually connected public sidewalk. Decisions like these require human review and, when boundaries must be straight and aligned, an appropriate final geometry.*
+*In this aerial image, Smart Tool with Segment Anything quickly produces candidate masks for the building, lawn, paved surface, and planting beds from annotator prompts. Segment Anything proposes regions; the annotator assigns the appropriate classes. This provides a useful first pass when the required boundary can follow visible image features. Here, however, the final site plan must also reflect the structure of the property: the lawn continues beneath the tree canopy, and the private paved area must be separated from the visually connected public sidewalk. Decisions like these require human review and, when boundaries must be straight and aligned, an appropriate final geometry.*
 
 [Segment Anything in Smart Tool](../labeling/labeling-tools/smart-tool.md) and the [Brush Tool](../labeling/labeling-tools/brush-tool.md) are well suited to creating and refining masks quickly.
 
@@ -30,9 +30,9 @@ When a project requires vector output, Supervisely can convert the mask into a p
 
 Across thousands of objects, repeatedly correcting uneven edges, extra vertices, and boundary junctions increases labeling and review time. For geospatial objects with an expected rectilinear shape, drawing a polygon manually is often a shorter path to approved geometry.
 
-The right tool therefore depends on the required output. Smart Tool and the Brush Tool accelerate mask creation and refinement. When a task calls for straight edges, precise corners, editable outlines, and exact shared boundaries between neighboring objects, polygons are the better final representation.
+The right tool therefore depends on the required output. Smart Tool and the Brush Tool accelerate mask creation and refinement. When a task calls for straight edges, precise corners, editable outlines, and consistent shared boundaries between neighboring objects, polygons are the better final representation.
 
-For this combined workflow, Supervisely is the No. 1 choice: a team can generate an initial mask with AI, refine it with the brush, convert it into a polygon, or draw a polygon directly. The [Polygon Tool](../labeling/labeling-tools/polygon-tool.md) lets annotators quickly create a clean outline, correct a local section, continue a new polygon along an existing boundary, and create holes. Teams can then distribute tasks, review results, and measure performance in the same platform.
+Supervisely supports both paths in one platform: a team can generate an initial mask with AI, refine it with the brush, convert it into a polygon, or draw a polygon directly. The [Polygon Tool](../labeling/labeling-tools/polygon-tool.md) lets annotators quickly create a clean outline, correct a local section, continue a new polygon along an existing boundary, and create holes. Teams can then distribute tasks, review results, and measure performance in the same platform.
 
 {% embed url="https://github.com/user-attachments/assets/449ceec7-23a3-4c5f-bcbd-3b6e63aa121b" %}
 
@@ -42,7 +42,9 @@ For this combined workflow, Supervisely is the No. 1 choice: a team can generate
 
 Geospatial annotation is not only about object area. It must also preserve the relationships between boundaries: whether objects overlap, touch along one shared line, contain excluded areas, or form a geometrically valid contour. These situations occur frequently when annotating buildings, property parcels, fields, lawns, and paved surfaces.
 
-Spatial reference matters as much as shape in geospatial projects. Standard Supervisely annotations store polygon vertices in image coordinates. When imagery is prepared with the [Satellite, DTM & OSM Downloader](https://ecosystem.supervisely.com/apps/slyosm/import_osm), each image also retains geospatial metadata, including its coordinate reference system, geographic extent, and pixel-to-map transformation. [Export to OSM Format](https://ecosystem.supervisely.com/apps/slyosm/export_to_osm) uses that metadata to reproject annotations to longitude and latitude and produce OSM-compatible files.
+Spatial reference matters as much as shape in geospatial projects. Standard Supervisely annotations store polygon vertices in image coordinates. When imagery is prepared with the [Satellite, DTM & OSM Downloader](https://ecosystem.supervisely.com/apps/slyosm/import_osm), each image also retains geospatial metadata, including its coordinate reference system, geographic extent, and pixel-to-map transformation. [Export to OSM Format](https://ecosystem.supervisely.com/apps/slyosm/export_to_osm) uses that metadata to reproject annotations to longitude and latitude and produce OSM XML files.
+
+The geographic accuracy of the result depends on the source imagery, its georeferencing metadata, the pixel-to-map transformation, and annotation quality. Reprojection does not make a boundary survey-grade or legally authoritative. Before uploading exported data to OpenStreetMap, teams must also review the class-to-tag mapping, source-data licenses, attribution requirements, and the [OpenStreetMap import guidelines](https://wiki.openstreetmap.org/wiki/Import/Guidelines).
 
 ### Intersections and overlaps: preserve the meaning of each object
 
@@ -72,6 +74,8 @@ A self-intersection occurs when a polygon boundary crosses itself, for example b
 
 In the [Polygon Tool](../labeling/labeling-tools/polygon-tool.md#manual-annotation-guide), a reviewer can move, add, or remove vertices. If the problem affects only one part of the object, they can [replace the incorrect contour section](../labeling/labeling-tools/polygon-tool.md#correcting-and-refining-annotations) instead of redrawing the entire polygon. This is especially useful when reviewing polygons produced by a model or imported from an external source.
 
+If a downstream GIS system requires specific topology rules, teams should include those rules in the annotation guidelines and validate the exported geometry before delivery.
+
 ### Polygon holes: exclude an internal area
 
 [Holes creation](../labeling/labeling-tools/polygon-tool.md#holes-creation) lets an annotator exclude an internal area from an existing polygon. A lawn can remain one object while a planting bed, pond, building, or landscaped island is cut out inside it. The outer lawn geometry stays intact, while the excluded region keeps its own precise shape.
@@ -82,7 +86,7 @@ In the [Polygon Tool](../labeling/labeling-tools/polygon-tool.md#manual-annotati
 
 ### Why these actions matter at scale
 
-Open geospatial datasets demonstrate the scale at which polygon geometry is used. [Microsoft Global ML Building Footprints](https://github.com/microsoft/GlobalMLBuildingFootprints) contains 1.4 billion building outlines extracted from imagery around the world, while [SpaceNet](https://spacenet.ai/datasets/) contains more than 11 million building footprints. [USDA Crop Sequence Boundaries](https://data.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/) publishes polygon boundaries for agricultural fields. At this scale, redrawing shared edges or recreating an entire object because of one local error becomes a significant operational cost.
+Open geospatial datasets demonstrate the scale at which polygon geometry is used. [Microsoft Global ML Building Footprints](https://github.com/microsoft/GlobalMLBuildingFootprints) contains 1.4 billion building outlines extracted from imagery around the world, while [SpaceNet](https://spacenet.ai/datasets/) contains more than 11 million building footprints. [USDA Crop Sequence Boundaries](https://data.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/) publishes polygon boundaries for agricultural fields. These datasets illustrate how quickly small per-object costs—such as redrawing shared edges or recreating an entire contour because of one local error—can accumulate in large polygon projects.
 
 The first outline can be produced by a person or a specialized model. [Frame Field Learning](https://openaccess.thecvf.com/content/CVPR2021/html/Girard_Polygonal_Building_Extraction_by_Frame_Field_Learning_CVPR_2021_paper.html), [PolyWorld](https://openaccess.thecvf.com/content/CVPR2022/html/Zorzi_PolyWorld_Polygonal_Building_Extraction_With_Graph_Neural_Networks_in_Satellite_CVPR_2022_paper.html), and [Pix2Poly](https://openaccess.thecvf.com/content/WACV2025/html/Adimoolam_Pix2Poly_A_Sequence_Prediction_Method_for_End-to-End_Polygonal_Building_Footprint_WACV_2025_paper.html) demonstrate different approaches to generating polygonal building footprints automatically. Supervisely supports [custom model integration](../neural-networks/custom-model-integration/integrate-custom-inference.md), while the Polygon Tool gives annotators and reviewers the controls required to turn predicted geometry into an approved result.
 
@@ -90,18 +94,22 @@ The first outline can be produced by a person or a specialized model. [Frame Fie
 
 *In this high-resolution aerial image, buildings and neighboring urban areas are stored as separate polygons. Reviewers can inspect individual objects and correct local sections without redrawing an entire outline.*
 
-Aerial imagery also helps digitize property parcels, but it cannot establish a legally authoritative cadastral boundary on its own. A specialist compares the imagery with cadastral records, survey plans, title documents, and field-survey results, then corrects the polygon when a visible fence, hedge, or road differs from the documented boundary. [HM Land Registry guidance](https://www.gov.uk/government/publications/how-to-read-a-title-register-and-title-plan/how-to-read-a-title-plan) similarly emphasizes that a title plan must be read together with the register and property deeds.
+Aerial imagery also helps digitize property parcels, but it cannot establish a legally authoritative cadastral boundary on its own. Legal requirements vary by jurisdiction. A specialist compares the imagery with the applicable cadastral records, survey plans, title documents, and field-survey results, then corrects the polygon when a visible fence, hedge, or road differs from the documented boundary. For example, the [HM Land Registry guidance for England and Wales](https://www.gov.uk/government/publications/how-to-read-a-title-register-and-title-plan/how-to-read-a-title-plan) emphasizes that a title plan must be read together with the register and relevant deeds or leases.
 
 ![A property parcel, road surface, and building annotated with polygons in Supervisely](../.gitbook/assets/scalable-polygon-annotation-parcels.jpg)
 
 *The property parcel, road surface, and building remain separate editable objects. This structure allows a reviewer to check overlaps, shared boundaries, and consistency with source documents.*
 
-For large projects, these editing operations are supported by platform-level workflow tools. [Labeling Jobs](../labeling/jobs/README.md) and [Labeling Queues](../labeling/jobs/Labeling-Queues.md) distribute data among annotators. [Labeling Quality Control](../labeling/jobs/Labeling-Quality-Control.md) supports review and rework, while [Labeling Performance](../labeling/labeling-performance.md) reports active labeling time, average time per object, annotation acceptance rate, and review time.
+For large projects, these editing operations are supported by platform-level workflow tools. [Labeling Jobs](../labeling/jobs/README.md) and [Labeling Queues](../labeling/jobs/Labeling-Queues.md) distribute data among annotators. [Labeling Quality Control](../labeling/jobs/Labeling-Quality-Control.md) supports review and rework, while [Labeling Performance](../labeling/labeling-performance.md) reports active labeling time, average time per object, asset acceptance rate, and review time.
 
 The [Supervisely Image Labeling Tool](../labeling/images/README.md) supports high-resolution imagery, TIFF files, and scenes containing large numbers of objects. Teams can therefore manage geospatial data, polygon annotation, and quality control in one workflow instead of assembling the process from separate tools.
 
-## Precise geometry should remain practical at production scale
+## Summary
 
-When the required output includes straight sides, exact corners, holes, and aligned boundaries between neighboring objects, polygons remain essential in 2026. Supervisely turns that geometry into a complete production workflow: the first polygon can be drawn manually or generated by a model, corrected locally, checked, and submitted for review in the same platform.
+- **Masks** accelerate first-pass segmentation and remain appropriate when raster output is the required deliverable.
+- **Polygons** provide editable vector geometry for straight sides, well-defined corners, holes, and aligned boundaries.
+- **Linked boundaries and local contour editing** reduce repetitive correction work across neighboring objects.
+- **Geospatial metadata** enables reprojection and OSM XML export, while final accuracy still depends on the source imagery, georeferencing, and annotation quality.
+- **Jobs, queues, quality control, and performance metrics** support annotation and review in one production workflow.
 
 [Try Supervisely](https://app.supervisely.com/) or [request a demo](https://supervisely.com/contact-us/) to evaluate polygon annotation on your own geospatial data.
