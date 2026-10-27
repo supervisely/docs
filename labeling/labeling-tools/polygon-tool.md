@@ -59,6 +59,8 @@ To correct or refine an annotation, you can add new areas by clicking along the 
 
 Automatically link objects without the need for precise alignment to individual object boundaries. To use this feature, move the pointer over a labeled object and click the nearest point. Then click subsequent points along the boundary to automatically link shapes.
 
+When neighboring polygons share linked vertices, moving a shared vertex updates the connected contours together so the common boundary remains aligned.
+
 **Auto-placement points**
 
 Simply hold the `SHIFT` key and drag your cursor along the object to automatically set points, making it perfect for objects with smooth and non-linear contours. To add or remove a labeled area, first select or place a starting point, then continue by holding `SHIFT` to segment the area, and finish the path at any existing point.
