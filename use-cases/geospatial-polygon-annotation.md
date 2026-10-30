@@ -28,7 +28,7 @@ When a project requires vector output, Supervisely can convert the mask into a p
 
 *This video shows a Segment Anything mask being converted directly into a polygon in Supervisely. The resulting outline can be edited manually. For an object with straight sides, the converted polygon may contain more vertices than a clean outline drawn with only a few points.*
 
-Across thousands of objects, repeatedly correcting uneven edges, extra vertices, and boundary junctions increases labeling and review time. For geospatial objects with an expected rectilinear shape, drawing a polygon manually is often a shorter path to approved geometry.
+Across thousands of objects, repeatedly correcting uneven edges, extra vertices, and boundary junctions increases labeling and review time. For geospatial objects with an expected rectilinear shape, drawing a polygon manually is often a shorter path to approved geometry. For a curved edge, such as a planting bed or a field boundary, hold `Shift` and the left mouse button and drag along it: the Polygon Tool places the points as you go (auto-placement of points).
 
 The right tool therefore depends on the required output. Smart Tool and the Brush Tool accelerate mask creation and refinement. When a task calls for straight edges, precise corners, editable outlines, and consistent shared boundaries between neighboring objects, polygons are the better final representation.
 
@@ -51,6 +51,8 @@ The geographic accuracy of the result depends on the source imagery, its georefe
 Overlapping polygon areas are not always an error. A building occupies part of a property parcel, for example, but both objects must remain independent. Different thematic layers may likewise store the parcel area, surface types, and built structures separately.
 
 When [overlap is part of the data model](https://supervisely.com/blog/complete-overview-and-comparison-of-manual-segmentation-approaches/), Supervisely can preserve each polygon as a separate object with its own class. But when two surfaces should only touch—such as a lawn and a paved area—an accidental overlap distorts both the area and the boundary. Annotation guidelines must therefore define the required relationship in each case: overlap, shared boundary, or hole.
+
+When two objects should only touch, turn on **Clip new polygons against existing polygons** in the Polygon Tool's toolbar (`Alt` + `C`). A new polygon is then cut where it would cross an existing one, so it ends at the neighbor's edge instead of overlapping it.
 
 ### Snap to object: reuse one shared boundary
 

@@ -61,13 +61,17 @@ Automatically link objects without the need for precise alignment to individual 
 
 When neighboring polygons share linked vertices, moving a shared vertex updates the connected contours together so the common boundary remains aligned.
 
-**Auto-placement points**
+**Auto-placement of points**
 
-Simply hold the `SHIFT` key and drag your cursor along the object to automatically set points, making it perfect for objects with smooth and non-linear contours. To add or remove a labeled area, first select or place a starting point, then continue by holding `SHIFT` to segment the area, and finish the path at any existing point.
+Simply hold the `SHIFT` key and the left mouse button and drag your cursor along the object to automatically set points, making it perfect for objects with smooth and non-linear contours. To add or remove a labeled area, first select or place a starting point, then continue by holding `SHIFT` to segment the area, and finish the path at any existing point.
 
 **Holes creation**
 
 To create a hole in a polygon, hold `SHIFT` and click to define it. You can then hover over the hole and edit it just like any other polygon. To remove a hole, move the cursor over it and press `DELETE`.
+
+**Clip new polygons against existing polygons**
+
+To keep a new polygon from overlapping the objects already on the image, turn on clipping with its button in the toolbar or press `ALT + C`. A new polygon is then cut where it would cross an existing polygon, so it ends exactly at the neighbor's edge. Use it for objects that should only touch, such as a lawn and a driveway.
 
 <div>
 
@@ -121,6 +125,10 @@ Learn more about the advanced capabilities of the Polygon tool and its effective
 | Replace edges in existing polygon                                                          |
 | ------------------------------------------------------------------------------------------ |
 | Click any point, draw a polyline, finish by clicking any other point or the polygon border |
+
+| Clip new polygons against existing polygons |
+| ------------------------------------------- |
+| Alt + C                                     |
 
 
 
