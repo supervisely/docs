@@ -18,10 +18,6 @@ If a mask is the required output, this workflow may be all the team needs.
 
 If the final data must contain straight, editable boundaries that align precisely between neighboring objects, a polygon is the more appropriate final geometry.
 
-{% embed url="https://github.com/user-attachments/assets/dce9cd9e-e42d-471f-b6a0-0512dce9d9d0" %}
-
-*This video shows a mask created by Meta AI's pretrained Segment Anything model being refined with the Brush Tool in Supervisely. The brush lets an annotator add or remove individual regions when model-guidance points are not enough. This workflow is effective when the required output is a mask.*
-
 When a project requires vector output, Supervisely can convert the mask into a polygon whose vertices can then be edited. This is useful for irregular objects or when the original mask is already close to the required boundary. For objects with straight sides, however, the conversion may create many unnecessary vertices.
 
 {% embed url="https://github.com/user-attachments/assets/b3f4802a-28df-428b-966a-6d988ed180c4?v=2" %}
