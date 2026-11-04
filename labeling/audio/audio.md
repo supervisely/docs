@@ -19,6 +19,16 @@ The **Audio Labeling Toolbox** is a browser-based interface for labeling recordi
 
 > 🔗 **Sample project**: try the toolbox on the [Audio Annotation Sample Project](https://app.supervisely.com/ecosystem/projects/audio-annotation-sample-project?id=633) from the Ecosystem.
 
+## Common use cases
+
+### Speech and conversations
+
+Label speaker turns, overlapping speech, pauses and background sounds as time segments. For example, use `speaker_1`, `speaker_2`, `overlap` and `background_noise` as range labels, then add whole-recording tags such as `language: en` and `audio_quality: usable`. The exported segments can be used to prepare datasets for speaker diarization, voice activity detection and call analysis.
+
+### Machine and vehicle sounds
+
+Label the exact intervals of alarms, impacts, squeaks, bearing noise or engine knocks. Add whole-recording tags such as `machine: compressor`, `operating_mode: loaded` or `environment: workshop` to preserve the context of each recording. These labeled intervals can become training and evaluation samples for sound-event detection and condition-monitoring models.
+
 ## Create an Audio project
 
 1. Open **Projects** and click **+ New** → **New project wizard**.
