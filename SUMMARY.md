@@ -233,6 +233,8 @@
   * [Scalable Polygon Annotation](use-cases/geospatial-polygon-annotation.md)
 * [Automotive](use-cases/automotive/README.md)
   * [Automotive Bolt Annotation](use-cases/automotive/automotive-bolt-annotation.md)
+* [Agriculture](use-cases/agriculture/README.md)
+  * [Wheat Head Segmentation](use-cases/agriculture/wheat-head-segmentation.md)
 
 ## 👔 Enterprise Edition
 
