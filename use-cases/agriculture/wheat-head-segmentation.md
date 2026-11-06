@@ -66,11 +66,9 @@ Live Training – Segmentation predicts head masks after the first few images. Y
 
 The first images are labeled manually. With the **Smart Tool**, draw a box around a wheat head, and the model returns its mask. Add positive or negative points if the mask needs refining, then press `SPACE` to finish the head before starting the next one, so every head becomes a separate object.
 
-<!-- GitHub review: animated GIF fallback. For GitBook publication, upload manual-wheat-head-annotation.mp4 and embed its hosted URL as a video block; replace the GIF and download link. -->
+<!-- GitHub review: animated GIF fallback. For GitBook publication, upload manual-wheat-head-annotation.mp4 and embed its hosted URL as a video block; replace the GIF. -->
 
 <figure><img src="../../.gitbook/assets/wheat-head-segmentation/manual-wheat-head-annotation.gif" alt="Drawing a box around a wheat head with the Smart Tool to create its mask"><figcaption><p>Creating separate wheat head masks with the Smart Tool.</p></figcaption></figure>
-
-[Download the full-resolution video (MP4)](https://github.com/supervisely/docs/raw/refs/heads/master/.gitbook/assets/wheat-head-segmentation/manual-wheat-head-annotation.mp4).
 
 Learn more in the [Smart Tool documentation](../../labeling/labeling-tools/smart-tool.md).
 
@@ -80,11 +78,9 @@ This is Supervisely's active learning system that learns from your annotations i
 
 For this use case, keep **Predict as instance masks** enabled in the AI prediction settings (it is on by default). Each separate head is then returned as its own mask. Heads that touch each other come out as one mask, and you can split them during review.
 
-<!-- GitHub review: animated GIF fallback. For GitBook publication, upload live-training-predictions.mp4 and embed its hosted URL as a video block; replace the GIF and download link. -->
+<!-- GitHub review: animated GIF fallback. For GitBook publication, upload live-training-predictions.mp4 and embed its hosted URL as a video block; replace the GIF. -->
 
 <figure><img src="../../.gitbook/assets/wheat-head-segmentation/live-training-predictions.gif" alt="Live Training instance-mask predictions on wheat heads, reviewed and submitted with Finish & Next"><figcaption><p>Generating instance-mask predictions and submitting reviewed images with Finish &#x26; Next (2× speed).</p></figcaption></figure>
-
-[Download the full-resolution video (MP4)](https://github.com/supervisely/docs/raw/refs/heads/master/.gitbook/assets/wheat-head-segmentation/live-training-predictions.mp4).
 
 #### Monitoring Training Progress
 
