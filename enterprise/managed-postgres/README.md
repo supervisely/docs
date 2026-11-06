@@ -121,7 +121,11 @@ Then redeploy the services:
 sudo supervisely up -d
 ```
 
-The `api` container receives `POSTGRES_MIGRATIONS_URL` too, because upgrades run the migrator as a one-off `api` container; a serving `api` never connects with it.
+The `api` container receives `POSTGRES_MIGRATIONS_URL` too, because upgrades can run the migrator as a one-off `api` container; a serving `api` never connects with it.
+
+{% hint style="warning" %}
+With the bundled database, `supervisely pg-upgrade` (the PostgreSQL major-version upgrade) connects as `POSTGRES_USER` and needs the `postgres` superuser. Set `POSTGRES_USER` / `POSTGRES_PASSWORD` back to the owner's credentials while you run it.
+{% endhint %}
 {% endtab %}
 
 {% tab title="Kubernetes (Helm)" %}
