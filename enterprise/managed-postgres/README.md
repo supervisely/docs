@@ -101,6 +101,12 @@ ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT USAGE, SELECT,
 
 The migrator applies the same grants on every upgrade; running them once here means the services work as the new user before the next upgrade.
 
+Optionally, also grant the service user the built-in `pg_read_all_stats` role. `worker-general` periodically logs the active queries from `pg_stat_activity` as the service user, and without this role Postgres shows `<insufficient privilege>` instead of the query text for sessions of other users, so the migrator and `VACUUM` queries are hidden in those logs. Nothing else depends on it. On a managed database, only a user allowed to grant roles can run this:
+
+```sql
+GRANT pg_read_all_stats TO supervisely_app;
+```
+
 2. Point Supervisely at the two users.
 
 {% tabs %}
