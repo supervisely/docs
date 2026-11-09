@@ -11,14 +11,14 @@ keywords:
   - FOR-instance dataset
 description: >-
   Open a UAV LiDAR forest plot in Supervisely, fit a 3D cuboid to each tree with
-  AI Smart Lasso, fix touching crowns by hand and check tree height.
+  AI Smart Lasso, mask a tree by hand and check its height.
 ---
 
 # Label Trees in Forest LiDAR with AI 3D Cuboids
 
 ## What you will do
 
-You open a UAV LiDAR scan of a forest plot in the 3D point cloud labeling tool and look around the stand. Then you label trees: the AI fits a 3D cuboid to a whole tree, from the ground to the treetop, after you circle its crown once, with **Zoom to object** off so the views stay put. Where two crowns touch, you outline the tree point by point with the Point Cloud Pen and cut out the ground and the neighbour's branches. Last, you measure a tree's height with the ruler and compare it with its cuboid.
+You open a UAV LiDAR scan of a forest plot in the 3D point cloud labeling tool and look around the stand. Then you label trees: the AI fits a 3D cuboid to a whole tree, from the ground to the treetop, after you circle its crown once, with **Zoom to object** off so the views stay put. Then you label one tree point by point with the Point Cloud Pen: you outline its crown in a big Top view and cut out the ground in a big Side view. Last, you measure that tree's height with the ruler.
 
 The plot has 1.8 million points, about 28 × 32 m, with trees up to about 29 m tall.
 
@@ -87,40 +87,45 @@ To see what the setting does, turn **Zoom to object** back on and fit one more t
 
 <figure><img src="../.gitbook/assets/use-cases/forest-lidar-tree-annotation/zoom-to-object-on.gif" alt="Turning on Zoom to object in Settings and circling one more crown; the Perspective, Side and Front views move to the new cuboid"><figcaption><p>Zoom to object on: the views move to the new tree.</p></figcaption></figure>
 
-## Fix touching crowns by hand
+## Mask a tree by hand
 
-Where crowns touch, check the tree by hand and label its points with a mask. Turn **Zoom to object** off again, so the views do not move or zoom out when the new mask is selected.
+A cuboid is a box around the tree. For the tree's own points, draw a mask with the **Point Cloud Pen**. Start with an empty scene, so the mask does not mix with a cuboid: the trash button in the **Objects** panel removes all objects (it asks to confirm). Turn **Zoom to object** off again, so the views stay put when the new mask is selected.
 
-1. Press `1` for the Move tool. In the **Top** view, drag the touching crown to the middle and zoom in with the mouse wheel, so you can see each point you click.
-2. Click the class `tree_points` in the **Definitions** panel. If the class does not change right after Smart Lasso, reload the page first.
-3. Press `5` for the **Point Cloud Pen**.
-4. **Outline the crown.** In the **Top** view, click around the crown, then click the first point to close the outline. The mask is saved and shows in orange.
+**Tip: resize the views.** The Top, Side, Front and Perspective views sit in a layout you can change. Drag the border between two views to make one of them bigger. A big view makes each click precise, and switching to another projection is just one more drag. The tool remembers the layout in your browser.
 
-An outline drawn from above takes every point under it, ground included. To remove points, hold `Shift` and outline them:
+1. **Make the Top view big.** Drag the border under the **Side** view down, then the border under the **Top** view down, then the border between the Top view and the **Perspective** view to the right.
+2. **Zoom in on one tree.** With the Move tool (`1`), drag a single standing tree to the middle of the Top view and zoom in with the mouse wheel. The wheel zooms on the middle of the view, so move the tree there first.
+3. Click the class `tree_points` in the **Definitions** panel and press `5` for the **Point Cloud Pen**.
+4. **Outline the crown.** In the **Top** view, click around the crown, then click the first point to close the outline. The mask is saved and shows in orange. An outline from above takes every point under it, the ground included.
+5. **Make the Side view big.** Drag the border under the Top view up: now the **Side** view fills the column.
+6. **Cut the ground.** In the Side view, right-drag the tree's base to the middle and zoom in on the ground band. Hold `Shift`, click the four corners of a thin box around the ground band, and click its first corner again. The ground leaves the mask.
 
-5. **Shift: cut the ground.** In the **Side** view, right-drag the tree's base to the middle and zoom in on the ground band. Hold `Shift`, click the four corners of a thin box around the ground band and its first corner again. The ground leaves the mask.
-6. **Shift: cut the neighbour.** In the **Top** view, hold `Shift` and box the neighbour's branches where the crowns meet. The orange mask now stops at the neighbour.
+Zoom out in the Side view: the orange mask is the tree, from the foot of the stem to the top, without the ground.
 
-On this tree the mask went from 70,308 points to 51,238 without the ground, and to 48,652 without the neighbour's branches. Zoom out in the **Top** view to see the mask in the plot.
+<figure><img src="../.gitbook/assets/use-cases/forest-lidar-tree-annotation/mask-tree-by-hand.gif" alt="Dragging the layout borders to make the Top view big, outlining a single tree's crown with the Point Cloud Pen, then making the Side view big and subtracting the ground with Shift"><figcaption><p>Big Top view for the outline, big Side view for the ground cut (1.25× speed).</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/use-cases/forest-lidar-tree-annotation/correct-touching-crowns.gif" alt="Zooming the Top view in on a touching crown, outlining it with the Point Cloud Pen, then subtracting the ground in the zoomed Side view and the neighbour's branches in the Top view with Shift"><figcaption><p>Outline the crown, cut the ground, cut the neighbour (1.5× speed).</p></figcaption></figure>
+## Check the tree's height
 
-## Check heights and coverage
+Measure the tree you just masked, with nothing else in the scene, so the ruler's labels do not overlap other objects.
 
-Press `6` for **Measure Distance**. In the **Front** view, click the base of a labeled stem, then the top of the same tree. Each marker shows its X, Y, Z; the height is the top Z minus the base Z.
+1. **Make the Side view big**, the same way: drag the border under the Side view down, the border under the Top view up, and the border next to the Perspective view to the right.
+2. Drag the orange tree to the middle and zoom in until you see its whole height.
+3. Press `6` for **Measure Distance**. Click the foot of the stem, then the top of the tree.
 
-The ruler's length is the 3D distance between the two clicks, and a click lands on the nearest point under the cursor. Click the base and the top of the same stem, and read the height from Z. Here the markers read Z 1.999 and 24.220: about 22.2 m from the point clicked on the stem to the top. The tree's cuboid, which starts at the ground, is 23.99 m high.
+Each marker shows its X, Y, Z, and the panel in the corner shows the ruler's length. Read the height from Z: the top Z minus the base Z. Here the markers read Z 1.449 and 26.960, so the tree is about 25.5 m tall from the foot of the stem. The ruler says 25.793 m because it is the 3D distance between the two points, and this stem leans.
 
-Press `Esc` to clear the ruler (it is not saved as a label) and `Esc` again to leave the tool. The **Top** view shows every labeled tree: the cuboids in green, the mask in orange. Select a tree in the **Objects** list to see its cuboid's size in the views; with **Zoom to object** on, the views move to it.
+A view shows every point along the line of sight, and the ruler takes a point under the cursor. Measure in the view where nothing taller stands in front of or behind the treetop. On this tree the Front view put the top click on a tree about 15 m further back; the Side view did not.
 
-<figure><img src="../.gitbook/assets/use-cases/forest-lidar-tree-annotation/check-tree-heights.gif" alt="Measuring a stem from base to top in the Front view, then the whole plot from above and the selected tree's 23.99 m cuboid"><figcaption><p>Checking a tree's height and the labeled plot.</p></figcaption></figure>
+Press `Esc` to clear the ruler (it is not saved as a label) and `Esc` again to leave the tool.
+
+<figure><img src="../.gitbook/assets/use-cases/forest-lidar-tree-annotation/check-tree-heights.gif" alt="Making the Side view big, then measuring the masked tree from the foot of the stem to its top with Measure Distance; the markers read Z 1.449 and 26.960"><figcaption><p>Top Z minus base Z: about 25.5 m (1.35× speed).</p></figcaption></figure>
 
 ## What this workflow does not do
 
 * The points are not coloured by the file's `classification` or `treeID`.
 * The dataset's hand-segmented trees are not imported as labels.
 * Smart Lasso gives a cuboid, not a point mask. There is no cuboid-to-mask conversion, so masks are drawn with the Pen.
-* Touching crowns need a check by hand: the AI box stops where the crowns meet.
+* Where crowns touch, the AI box stops where they meet: check those trees by hand.
 
 ## Next steps
 
