@@ -96,13 +96,15 @@ A cuboid is a box around the tree. For the tree's own points, draw a mask with t
 1. **Make the Top view big.** Drag the border under the **Side** view down, then the border under the **Top** view down, then the border between the Top view and the **Perspective** view to the right.
 2. **Zoom in on one tree.** With the Move tool (`1`), drag a single standing tree to the middle of the Top view and zoom in with the mouse wheel. The wheel zooms on the middle of the view, so move the tree there first.
 3. Click the class `tree_points` in the **Definitions** panel and press `5` for the **Point Cloud Pen**.
-4. **Outline the crown.** In the **Top** view, click around the crown, then click the first point to close the outline. The mask is saved and shows in orange. An outline from above takes every point under it, the ground included.
+4. **Outline the crown.** In the **Top** view, click around the whole crown, a little outside its edge, then click the first point to close the outline. The mask is saved and shows in orange. Points outside the outline stay unlabeled, so leave a margin around side branches. An outline from above takes every point under it, the ground included.
 5. **Make the Side view big.** Drag the border under the Top view up: now the **Side** view fills the column.
-6. **Cut the ground.** In the Side view, right-drag the tree's base to the middle and zoom in on the ground band. Hold `Shift`, click the four corners of a thin box around the ground band, and click its first corner again. The ground leaves the mask.
+6. **Cut the ground.** In the Side view, right-drag the tree's base to the middle and zoom in close on the ground band. Hold `Shift` and click an outline around the ground band, then its first point again. Keep the outline's top edge at the top of the ground band, and step it down around the stem so it stops where the stem starts. The ground leaves the mask, and the stem keeps its foot.
+
+Under a tree the ground and the foot of the stem overlap in height: here the stem starts at about 1.0 m and the ground points reach 1.2 m, so a straight cut across the band either leaves ground in the mask or cuts off the foot of the stem. The step around the stem keeps the whole stem and leaves only a few ground points next to it.
 
 Zoom out in the Side view: the orange mask is the tree, from the foot of the stem to the top, without the ground.
 
-<figure><img src="../.gitbook/assets/use-cases/forest-lidar-tree-annotation/mask-tree-by-hand.gif" alt="Dragging the layout borders to make the Top view big, outlining a single tree's crown with the Point Cloud Pen, then making the Side view big and subtracting the ground with Shift"><figcaption><p>Big Top view for the outline, big Side view for the ground cut (1.25× speed).</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/use-cases/forest-lidar-tree-annotation/mask-tree-by-hand.gif" alt="Dragging the layout borders to make the Top view big, outlining a single tree's whole crown with a margin using the Point Cloud Pen, then making the Side view big, zooming in close and subtracting the ground with a Shift outline that steps down around the stem"><figcaption><p>Big Top view for the outline, big Side view for the ground cut (1.75× speed).</p></figcaption></figure>
 
 ## Check the tree's height
 
@@ -112,13 +114,13 @@ Measure the tree you just masked, with nothing else in the scene, so the ruler's
 2. Drag the orange tree to the middle and zoom in until you see its whole height.
 3. Press `6` for **Measure Distance**. Click the foot of the stem, then the top of the tree.
 
-Each marker shows its X, Y, Z, and the panel in the corner shows the ruler's length. Read the height from Z: the top Z minus the base Z. Here the markers read Z 1.449 and 26.960, so the tree is about 25.5 m tall from the foot of the stem. The ruler says 25.793 m because it is the 3D distance between the two points, and this stem leans.
+Each marker shows its X, Y, Z, and the panel in the corner shows the ruler's length. Read the height from Z: the top Z minus the base Z. Here the markers read Z 1.016 and 27.136, so the tree is about 26.1 m tall from the foot of the stem. The ruler says 26.369 m because it is the 3D distance between the two points, and this stem leans.
 
 A view shows every point along the line of sight, and the ruler takes a point under the cursor. Measure in the view where nothing taller stands in front of or behind the treetop. On this tree the Front view put the top click on a tree about 15 m further back; the Side view did not.
 
 Press `Esc` to clear the ruler (it is not saved as a label) and `Esc` again to leave the tool.
 
-<figure><img src="../.gitbook/assets/use-cases/forest-lidar-tree-annotation/check-tree-heights.gif" alt="Making the Side view big, then measuring the masked tree from the foot of the stem to its top with Measure Distance; the markers read Z 1.449 and 26.960"><figcaption><p>Top Z minus base Z: about 25.5 m (1.35× speed).</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/use-cases/forest-lidar-tree-annotation/check-tree-heights.gif" alt="Making the Side view big, then measuring the masked tree from the foot of the stem to its top with Measure Distance; the markers read Z 1.016 and 27.136"><figcaption><p>Top Z minus base Z: about 26.1 m (1.5× speed).</p></figcaption></figure>
 
 ## What this workflow does not do
 
