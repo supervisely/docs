@@ -231,6 +231,7 @@
 * [Geospatial](use-cases/geospatial.md)
   * [Geospatial Data Annotation](use-cases/geospatial-data.md)
   * [Scalable Polygon Annotation](use-cases/geospatial-polygon-annotation.md)
+  * [Forest LiDAR Tree Annotation](use-cases/forest-lidar-tree-annotation.md)
 * [Automotive](use-cases/automotive/README.md)
   * [Automotive Bolt Annotation](use-cases/automotive/automotive-bolt-annotation.md)
 * [Agriculture](use-cases/agriculture/README.md)
