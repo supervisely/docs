@@ -36,7 +36,7 @@ Each of these needs trees labeled one by one, to train and to check the models. 
 Supervisely holds the whole path from a raw scan to a labeled dataset:
 
 * **Storing and viewing dense clouds.** The [3D point cloud editor](../labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md) shows a cloud in four views and handles up to 50 million points per frame.
-* **Labeling trees** as 3D cuboids (position, size and heading of each tree) or as point masks (the tree's own points).
+* **Labeling trees** as 3D cuboids (position, size and heading of each tree) or as [point masks](#point-masks-for-segmentation) drawn with the Point Cloud Pen (the tree's own points, for segmentation).
 * **AI-placed cuboids.** The [3D AI Assistant](../labeling/labeling-with-AI/3d-point-clouds/README.md#3d-ai-assistant) places a cuboid around a tree from one circle drawn around its crown, instead of a box fitted edge by edge by hand.
 * **Teamwork and review** with [labeling jobs](../labeling/jobs/README.md), [export](../data-organization/import/export/export.md) in Supervisely format, and training 3D detectors with [Train MMDetection3D](https://ecosystem.supervisely.com/apps/mmdetection3d-v1.x/supervisely-train).
 
@@ -95,13 +95,26 @@ The [3D AI Assistant](https://ecosystem.supervisely.com/apps/3d-ai-assistant) is
 
 <figure><img src="../.gitbook/assets/use-cases/forest-lidar-tree-annotation/adjust-cuboid.gif" alt="A big Top view, a cuboid selected with edge handles, its top edge dragged in until orange crown points show outside, then back out past them; the width label goes from 7.49 m to 6.44 m"><figcaption><p>Fitting one edge to the crown by hand (the drags at 4× speed, the rest at 1.25× to 2×).</p></figcaption></figure>
 
+## Point masks for segmentation
+
+A cuboid gives a tree's position and size. Segmentation and species models need more: each tree's own points. The [Point Cloud Pen](../labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md#3d-point-cloud-pen) (`5`) labels them as a point mask, here of one standing tree with the class `tree_points` (Point Cloud).
+
+The scene is empty for this: no cuboids, so the mask does not mix with a box (the trash button in the **Objects** panel removes all objects), and **Zoom to object** is off, so the views stay put when the new mask is selected. Each step works in one projection made big by dragging the borders between the views, so every click lands where it is meant to.
+
+* **The crown, in the Top view.** With the Top view enlarged, the tree is dragged to the middle and zoomed in; the wheel zooms on the middle of the view. Clicks around the whole crown, a little outside its edge, and a click on the first point close the outline. The mask saves at once, in orange. An outline drawn from above takes every point under it, the ground included.
+* **The ground, in the Side view.** With the Side view enlarged and zoomed in close on the ground band, an outline drawn with `Shift` held takes points out of the mask. Its top edge follows the top of the ground band and steps down around the stem. Under this tree the stem starts at about 1.0 m and the ground points reach 1.2 m, so a straight cut would either leave ground in the mask or cut off the foot of the stem.
+
+Checked against the dataset's own tree labels, the mask holds all 85,626 points of the tree, and only 677 of the 51,773 ground points under the crown outline stay in it, next to the foot of the stem. The clip runs from the empty scene to the finished mask, the whole tree from the foot of the stem to the top.
+
+<figure><img src="../.gitbook/assets/use-cases/forest-lidar-tree-annotation/mask-tree-by-hand.gif" alt="Dragging the layout borders to make the Top view big, outlining a single tree's whole crown with a margin using the Point Cloud Pen, then making the Side view big, zooming in close and subtracting the ground with a Shift outline that steps down around the stem"><figcaption><p>Big Top view for the outline, big Side view for the ground cut (1.75× speed).</p></figcaption></figure>
+
 ## From labeled trees to forest data
 
 Back to the uses this data serves:
 
 * **Inventory**: one cuboid per tree gives the tree count and the position of each tree in the plot.
 * **Height and crown size**: each cuboid carries the tree's height and crown width, the measurements biomass models start from.
-* **Species and segmentation models**: labeled trees are training data. Where a model needs each tree's own points rather than a box, the [Point Cloud Pen](../labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md#3d-point-cloud-pen) draws point masks in the same editor.
+* **Species and segmentation models**: labeled trees are training data. Where a model needs each tree's own points rather than a box, the [point masks](#point-masks-for-segmentation) drawn with the Point Cloud Pen give them: the crown outlined from above, the ground cut away from the side, the whole tree from the foot of the stem to the top.
 
 What it speeds up is the fitting: one circle and a check in place of a box built edge by edge for every tree.
 
