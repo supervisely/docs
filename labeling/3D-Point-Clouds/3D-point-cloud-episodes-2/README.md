@@ -17,6 +17,7 @@ The latest version introduces a completely redesigned interface that unifies bot
 * Interactive **3D Object Detection**
 * 3D Point Cloud **Ground Segmentation**
 * **Cuboid Tracking**
+* **Cuboid view tools**: orbit around the selected object, XYZ move arrows, edge dimensions and cuboid vicinity
 * **Synchronized 2D–3D annotation** using photo context images
 * **Timeline navigation** for working with sequential frames
 * **Flexible, resizable UI layout** tailored to your workflow
@@ -137,6 +138,8 @@ The **Measure Distance** tool is a precision measurement instrument that allows 
 * **Segment length** — each ruler segment shows the distance between the current point and the previous one.
 * **Cumulative distance** — the blue value shows the total measured distance from the first point to the current point along the full path.
 * **Polyline path** — the ruler is drawn as a connected line, so you can follow curved roads, building edges, or other non-linear routes instead of measuring only a straight line.
+
+To see the size of a cuboid without measuring it point by point, use [Cuboid Dimensions on Edges](#cuboid-dimensions-on-edges).
 
 <figure><img src="../../../.gitbook/assets/3d-pc-episode/3d-pc-measure-tool.jpg" alt="Measure Distance tool showing point coordinates, per-segment distance, and cumulative path length on a point cloud scene"><figcaption></figcaption></figure>
 
@@ -388,6 +391,67 @@ Additionally, navigation inside the **Perspective Viewport** is also available u
     * **Right mouse button** - pan.
     * **Left mouse button** - rotate.
     * **Mouse scroll** - zoom.
+
+To rotate the camera around a selected object instead of the scene, see [Orbit Around the Selected Object](#orbit-around-the-selected-object).
+
+## Cuboid View Tools
+
+Below the **Cuboid** tool in the left toolbar there is a group of four buttons for inspecting and adjusting the **selected cuboid**. The buttons are available whichever tool is active:
+
+1. [**Lock camera on object**](#orbit-around-the-selected-object) - orbit and zoom around the selected object.
+2. [**XYZ arrows**](#move-a-cuboid-with-xyz-arrows) (`Shift` + `G`) - move the cuboid along one axis.
+3. [**Dimensions on edges**](#cuboid-dimensions-on-edges) - show the length of each cuboid edge.
+4. [**Cuboid vicinity**](#cuboid-vicinity) - show only the points near the cuboid.
+
+Select a cuboid first, then click a button to turn its mode on. The active button is highlighted in blue. Hover over a button to see its tooltip.
+
+### Orbit Around the Selected Object
+
+By default, the left mouse button in the **Perspective** view rotates the whole scene, so a small object easily drifts out of view and you have to pan back to it after each turn.
+
+The **Lock the camera onto the selected object** button makes the selected object the center of the camera:
+
+* The object **stays in the center** of the Perspective view.
+* **Left mouse button** orbits around the object, so you can look at it from every side.
+* **Mouse scroll** zooms in and out on the object.
+
+Use it to check that a cuboid fits its points from all sides: front and back, left and right, top and bottom.
+
+<figure><img src="../../../.gitbook/assets/3d-pc-episode/3d-pc-cuboid-lock-camera.png" alt="The Lock the camera onto the selected object button below the Cuboid tool, with its tooltip"><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/3d-pc-episode/3d-pc-cuboid-orbit.gif" alt="With the camera locked on a selected cyclist cuboid, the Perspective view orbits around it while the cuboid stays in the center"><figcaption></figcaption></figure>
+
+### Move a Cuboid with XYZ Arrows
+
+The **XYZ arrows** button (`Shift` + `G`) replaces the drag handles of the selected cuboid with axis arrows in the **Perspective** view: **red** for X, **green** for Y and **blue** for Z.
+
+Drag an arrow to move the cuboid along that axis only. This is useful when the cuboid is already placed correctly on two axes and needs a shift on the third one, for example, moving it up or down along Z to sit on the ground without shifting it sideways.
+
+<figure><img src="../../../.gitbook/assets/3d-pc-episode/3d-pc-cuboid-xyz-arrows.png" alt="Red, green and blue XYZ arrows on a selected cuboid in the Perspective view, with the button tooltip: Move the selected cuboid with XYZ arrows instead of the drag handles, Shift + G"><figcaption></figcaption></figure>
+
+### Cuboid Dimensions on Edges
+
+The **Measure the selected cuboid along its edges** button labels the edges of the selected cuboid with their lengths in meters:
+
+* Each projection view (**Top**, **Side**, **Front**) shows the two dimensions visible in it, for example, length and width in the Top view.
+* The **Perspective** view shows all three dimensions: length, width and height.
+
+Use it to check an object's size at a glance, for example, to make sure a pedestrian cuboid is not 3 meters tall, or to compare the size of objects of the same class. Unlike the [Measure Distance](#measure-distance) tool, it needs no clicks: the sizes come from the cuboid itself.
+
+<figure><img src="../../../.gitbook/assets/3d-pc-episode/3d-pc-cuboid-dimensions.png" alt="Edge lengths of a selected cuboid in the Top, Side and Perspective views: 1.89 m, 0.53 m and 1.59 m"><figcaption></figcaption></figure>
+
+### Cuboid Vicinity
+
+The **Show only points near the selected cuboid** button hides the points that are far from the selected cuboid. Walls, vegetation and other objects in front of or behind the object no longer overlap it in the projections, so its edges are easier to see and fit.
+
+When the button is on, the **Cuboid vicinity** panel opens next to it:
+
+* **Cuboid vicinity** slider - how far from the cuboid the points are still shown, from 0 to 10. Move it to the left to cut the scene tighter around the object, and to the right to show more of its surroundings.
+* **Apply in Perspective too** - by default, the filter applies to the **Top**, **Side** and **Front** views only. Select this checkbox to apply it to the **Perspective** view as well.
+
+<figure><img src="../../../.gitbook/assets/3d-pc-episode/3d-pc-cuboid-vicinity.png" alt="Cuboid vicinity panel with the slider set to 4.4 and the Apply in Perspective too checkbox; the Side and Front views show only the points around the selected cuboid"><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/3d-pc-episode/3d-pc-cuboid-vicinity.gif" alt="Moving the Cuboid vicinity slider and turning on Apply in Perspective too: the Perspective view is cut down to the points around the selected cuboid and expands again"><figcaption></figcaption></figure>
 
 ## Hotkeys
 
