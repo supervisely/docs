@@ -8,6 +8,7 @@ Import Seyond lidar captures (raw `.pcap` files) as point cloud episodes: each s
 
 **Supported point cloud format:** `.pcap` (classic libpcap, as written by `tcpdump`; not pcapng)<br>
 **Supported lidars:** Seyond Falcon (sphere point cloud packets). Captures from other Seyond models, such as Robin W, are recognised and skipped with a message.<br>
+**Supervisely version:** 6.18.14 or later; Import as Links from cloud storage needs 6.18.17<br>
 **With annotations:** only labels exported by the **Export Seyond lidar pcap** app<br>
 **Data structure:** Information is provided below.
 
