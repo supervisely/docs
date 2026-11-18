@@ -230,6 +230,7 @@
 ## 🎯 Use Cases
 
 * [Overview](use-cases/overview.md)
+* [Massive Point Cloud Annotation](use-cases/massive-point-cloud-octree-annotation.md)
 * [Geospatial](use-cases/geospatial.md)
   * [Geospatial Data Annotation](use-cases/geospatial-data.md)
   * [Scalable Polygon Annotation](use-cases/geospatial-polygon-annotation.md)
