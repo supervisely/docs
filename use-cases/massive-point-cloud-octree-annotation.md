@@ -29,15 +29,6 @@ The business question is therefore not “how do we label a big point cloud?” 
 
 This matters in real renovation projects. At Elland Road Stadium, 5,250 registered scan positions covering the inside and outside of all stands supported a Revit model for future redevelopment ([RIEGL case study](https://www.riegl.com/en-austria/news-insights/article/high-speed-3d-capture-of-elland-road-stadium-with-the-riegl-vz-600i)). At Auburn Arena, an as-built scan of the bowl exposed stair-tread spacing that would not accommodate the designed seating count before the seats arrived ([Autodesk case study](https://images.autodesk.com/adsk/files/robins-morton-customer-story.pdf)). Shopping-center scans are similarly used to document architecture, structures and installations for BIM and asset management ([Hexagon case study](https://multivistaservices.hexagon.com/case-studies/shopping-mall-chain-in-madrid-spain/)).
 
-<!--
-MEDIA 1 — HERO
-File: ../.gitbook/assets/use-cases/massive-point-cloud-octree/01-building-scan-overview.png
-Capture: clean wide Perspective view of pointCloudId=7646416. The building must
-be recognizable, not an unidentifiable close-up. Add the exact total point count
-to the caption only after it is measured.
-Caption: A building-scale point cloud containing [X] points in the Supervisely 3D editor.
--->
-
 ## What Supervisely covers
 
 Supervisely keeps the workflow in the [3D point cloud editor](../labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md):
@@ -86,15 +77,6 @@ Decide before production whether the output is semantic (every point labeled `fl
 
 A seating tier, floor slab or facade can span a large part of the scan and contain millions of points while remaining one structure. Splitting it into fragments just to fit a size limit adds review work and creates false boundaries between parts. With `point_cloud_octree`, the whole component stays one point-level annotation.
 
-<!--
-MEDIA 2 — SCALE OF ONE OBJECT
-File: ../.gitbook/assets/use-cases/massive-point-cloud-octree/02-target-structure.png
-Capture: the target structure in the complete scene before Area of Interest is
-enabled. Keep neighboring geometry visible. If the UI exposes the object or
-scene point count, include it without covering the geometry.
-Caption: The [exact structure] is one logical object even though it contains [Y] points.
--->
-
 ## Isolate the structure with Area of Interest
 
 In a dense building scan, several surfaces can fall on top of one another in a projection. Looking at a seating tier from the side may also show the level above it, columns behind it and part of the roof. A point-growing operation needs a spatial limit that matches the component being labeled.
@@ -129,35 +111,9 @@ The outline is only a visual reference. It does not become an annotation and doe
 
 <figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/area-show-outline-on.png" alt="A thin orange Area of Interest outline around mechanical equipment in the Supervisely point cloud editor while another tool is active; the Show outline tooltip is visible"><figcaption><p>Show outline on: a thin box keeps the working region visible while another tool is active.</p></figcaption></figure>
 
-<!--
-MEDIA 3 — PLACE AREA OF INTEREST
-File: ../.gitbook/assets/use-cases/massive-point-cloud-octree/03-place-area-of-interest.gif
-Capture, 10–20 s: click the new button in the left toolbar; click-drag in
-Perspective; fit the box around the target; adjust one edge in a projection;
-pause on the final box. Keep the tooltip closed.
-Caption: Place and adjust an oriented Area of Interest around the structure being annotated.
--->
-
-<!--
-MEDIA 4 — AREA IN FOUR VIEWS
-File: ../.gitbook/assets/use-cases/massive-point-cloud-octree/04-area-four-views.png
-Capture: final box visible in Perspective, Top, Side and Front. Make one
-projection large enough to show that a neighboring level is outside the box.
-Caption: One Area of Interest limits the working region in all four views.
--->
-
 ## Grow the point selection inside the area
 
 Select the target class and start a point-level object with **Point Cloud Pen**. A single click can grow the selection across connected points, but with Area of Interest enabled it considers only the points inside the oriented box. The target structure is selected without the operation continuing into a neighboring level or geometry behind it.
-
-<!--
-MEDIA 5 — POINT GROWING
-File: ../.gitbook/assets/use-cases/massive-point-cloud-octree/05-grow-selection-inside-area.gif
-Capture, 10–25 s: with the area already fitted, create/grow the target point
-selection; show nearby geometry staying unselected; orbit or enlarge one
-projection to check the boundary.
-Caption: Point growing follows the target inside the Area of Interest without capturing nearby structures.
--->
 
 {% hint style="warning" %}
 Area of Interest is not a universal visibility filter. Lasso, Brush and direct point clicks still operate on the points they can reach in the scene. Check which operation is active before making a large edit.
