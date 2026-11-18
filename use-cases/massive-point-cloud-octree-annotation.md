@@ -31,7 +31,7 @@ This matters in real renovation projects. At Elland Road Stadium, 5,250 register
 
 <!--
 MEDIA 1 — HERO
-File: massive-point-cloud-octree/01-building-scan-overview.png
+File: ../.gitbook/assets/use-cases/massive-point-cloud-octree/01-building-scan-overview.png
 Capture: clean wide Perspective view of pointCloudId=7646416. The building must
 be recognizable, not an unidentifiable close-up. Add the exact total point count
 to the caption only after it is measured.
@@ -59,7 +59,7 @@ The complete scene in this example contains **2,090,815,411 points**. The editor
 
 The screenshot shows a manual budget of 3.10 million points. At that moment, 3.08 million points are resident and the same 3.08 million are drawn. The red **budget-limited** status means the current view requests more octree nodes than the selected budget permits: 230 of 322 wanted nodes remain unloaded, so additional detail is available but is not drawn at this budget.
 
-<figure><img src="massive-point-cloud-octree/point-budget-manual.png" alt="A building-scale point cloud with 2,090,815,411 total points in the Supervisely editor; the streamed-cloud dialog shows a manual 3.10 million point budget, 3.08 million resident and drawn points, and a warning that detail is limited by the budget"><figcaption><p>A 2.09-billion-point scene with a manual streamed-cloud budget of 3.10 million points.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/point-budget-manual.png" alt="A building-scale point cloud with 2,090,815,411 total points in the Supervisely editor; the streamed-cloud dialog shows a manual 3.10 million point budget, 3.08 million resident and drawn points, and a warning that detail is limited by the budget"><figcaption><p>A 2.09-billion-point scene with a manual streamed-cloud budget of 3.10 million points.</p></figcaption></figure>
 
 The two modes serve different purposes:
 
@@ -70,7 +70,7 @@ Raise the manual budget when a boundary needs more visible detail and the workst
 
 For the close inspection below, the manual budget is raised to 10.1 million points. The top bar still reports **budget-limited** because the detailed view requests more data than even this larger budget allows. This status is not an error: it says that the selected budget is full and that more spatial detail could be streamed if the budget were raised again.
 
-<figure><img src="massive-point-cloud-octree/point-budget-10m-detail.png" alt="A close view inside a 2.09-billion-point scene in the Supervisely editor with a manual streamed-cloud point budget of 10.1 million points; the top bar reports 10.1M of 10.1M and budget-limited"><figcaption><p>A close inspection with a 10.1-million-point manual budget; the current view still asks for more detail than the budget allows.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/point-budget-10m-detail.png" alt="A close view inside a 2.09-billion-point scene in the Supervisely editor with a manual streamed-cloud point budget of 10.1 million points; the top bar reports 10.1M of 10.1M and budget-limited"><figcaption><p>A close inspection with a 10.1-million-point manual budget; the current view still asks for more detail than the budget allows.</p></figcaption></figure>
 
 {% hint style="info" %}
 The point budget controls streaming and display detail. It does not delete points, decimate the source cloud, change the saved `point_cloud_octree` annotation, or reduce the point count delivered downstream.
@@ -88,7 +88,7 @@ A seating tier, floor slab or facade can span a large part of the scan and conta
 
 <!--
 MEDIA 2 — SCALE OF ONE OBJECT
-File: massive-point-cloud-octree/02-target-structure.png
+File: ../.gitbook/assets/use-cases/massive-point-cloud-octree/02-target-structure.png
 Capture: the target structure in the complete scene before Area of Interest is
 enabled. Keep neighboring geometry visible. If the UI exposes the object or
 scene point count, include it without covering the geometry.
@@ -119,7 +119,7 @@ The **ON** switch enables or disables the existing Area of Interest without requ
 
 This is a visibility setting. Hiding the surroundings does not remove points from the source scene or add them to the annotation.
 
-<figure><img src="massive-point-cloud-octree/area-show-surroundings-off.png" alt="Area of Interest around mechanical equipment in the Supervisely point cloud editor with Show surroundings off; the tooltip states that points outside the box are hidden"><figcaption><p>Show surroundings off: points outside the Area of Interest are hidden to reduce visual clutter.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/area-show-surroundings-off.png" alt="Area of Interest around mechanical equipment in the Supervisely point cloud editor with Show surroundings off; the tooltip states that points outside the box are hidden"><figcaption><p>Show surroundings off: points outside the Area of Interest are hidden to reduce visual clutter.</p></figcaption></figure>
 
 ### Keep the area outline visible with another tool
 
@@ -127,11 +127,11 @@ Turn **Show outline** on to leave a thin box around the Area of Interest while a
 
 The outline is only a visual reference. It does not become an annotation and does not change the box's filtering behavior.
 
-<figure><img src="massive-point-cloud-octree/area-show-outline-on.png" alt="A thin orange Area of Interest outline around mechanical equipment in the Supervisely point cloud editor while another tool is active; the Show outline tooltip is visible"><figcaption><p>Show outline on: a thin box keeps the working region visible while another tool is active.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/area-show-outline-on.png" alt="A thin orange Area of Interest outline around mechanical equipment in the Supervisely point cloud editor while another tool is active; the Show outline tooltip is visible"><figcaption><p>Show outline on: a thin box keeps the working region visible while another tool is active.</p></figcaption></figure>
 
 <!--
 MEDIA 3 — PLACE AREA OF INTEREST
-File: massive-point-cloud-octree/03-place-area-of-interest.gif
+File: ../.gitbook/assets/use-cases/massive-point-cloud-octree/03-place-area-of-interest.gif
 Capture, 10–20 s: click the new button in the left toolbar; click-drag in
 Perspective; fit the box around the target; adjust one edge in a projection;
 pause on the final box. Keep the tooltip closed.
@@ -140,7 +140,7 @@ Caption: Place and adjust an oriented Area of Interest around the structure bein
 
 <!--
 MEDIA 4 — AREA IN FOUR VIEWS
-File: massive-point-cloud-octree/04-area-four-views.png
+File: ../.gitbook/assets/use-cases/massive-point-cloud-octree/04-area-four-views.png
 Capture: final box visible in Perspective, Top, Side and Front. Make one
 projection large enough to show that a neighboring level is outside the box.
 Caption: One Area of Interest limits the working region in all four views.
@@ -152,7 +152,7 @@ Select the target class and start a point-level object with **Point Cloud Pen**.
 
 <!--
 MEDIA 5 — POINT GROWING
-File: massive-point-cloud-octree/05-grow-selection-inside-area.gif
+File: ../.gitbook/assets/use-cases/massive-point-cloud-octree/05-grow-selection-inside-area.gif
 Capture, 10–25 s: with the area already fitted, create/grow the target point
 selection; show nearby geometry staying unselected; orbit or enlarge one
 projection to check the boundary.
@@ -165,27 +165,9 @@ Area of Interest is not a universal visibility filter. Lasso, Brush and direct p
 
 ## Keep the result as one octree annotation
 
-Save the completed selection as `point_cloud_octree` geometry. In the example for this page, the finished `[structure]` contains `[Y]` points and remains one object of class `[class]`.
+Save the completed selection as `point_cloud_octree` geometry.
 
 The geometry type changes how a very large point-level annotation is represented. It does not change its semantic role: the annotation still says that all of these points belong to the same physical component.
-
-<!--
-MEDIA 6 — COMPLETED OCTREE OBJECT
-File: massive-point-cloud-octree/06-complete-octree-object.png
-Capture: finished object selected; show class, object name, geometry type and
-point count wherever the UI exposes them. Do not add an estimated count.
-Caption: One point_cloud_octree annotation holds the complete [structure], [Y] points.
--->
-
-<!--
-MEDIA 7 — BEFORE / AFTER
-Files:
-  massive-point-cloud-octree/07a-raw-scan.png
-  massive-point-cloud-octree/07b-labeled-structure.png
-Capture: identical camera, point size and color settings. First raw, then the
-completed annotation highlighted. Present as two figures or a slider in the blog.
-Caption: Raw coordinates become a structured point-level building component.
--->
 
 ## Summary
 
