@@ -35,7 +35,7 @@ Supervisely keeps the workflow in the [3D point cloud editor](../labeling/3D-Poi
 
 - **One editor for the whole scan.** Perspective, Top, Side and Front views show the same registered scene and let the annotator inspect a component from different directions.
 - **A streamed point budget.** Auto or Manual mode controls how many points are resident and drawn for the current view, balancing visible detail against GPU workload.
-- **A local working region.** **Area of Interest** places an oriented 3D box around the part of the scene being labeled. Selected fitting and point-growing operations then use only points inside that box.
+- **A local working region.** **Area of Interest** places an oriented 3D box around the part of the scene being labeled.
 - **Point-level geometry at building scale.** The new `point_cloud_octree` geometry keeps a very large selection as one logical annotation instead of forcing it into arbitrary fragments solely because of its point count.
 - **A path to existing pipelines.** An octree annotation can be converted to regular point cloud geometry when a customer's ML, BIM or engineering workflow requires it.
 - **Teamwork and delivery.** [Labeling jobs](../labeling/jobs/README.md) split scenes among annotators and reviewers, while [export](../data-organization/import/export/export.md) and the API connect the approved result to downstream systems.
@@ -79,16 +79,9 @@ A seating tier, floor slab or facade can span a large part of the scan and conta
 
 ## Isolate the structure with Area of Interest
 
-In a dense building scan, several surfaces can fall on top of one another in a projection. Looking at a seating tier from the side may also show the level above it, columns behind it and part of the roof. A point-growing operation needs a spatial limit that matches the component being labeled.
+In a dense building scan, several surfaces can fall on top of one another in a projection. Looking at a seating tier from the side may also show the level above it, columns behind it and part of the roof. Area of Interest narrows the working region to the component being labeled.
 
 Select **Area of Interest** in the left toolbar, then click and drag in the Perspective view to place an oriented box around the target. Move, resize and rotate the box until it contains the component but excludes as much neighboring geometry as possible. The same area appears in the Perspective, Top, Side and Front views.
-
-While the area is enabled:
-
-- **Fit to points** uses only points inside it;
-- **Drop to ground** uses only points inside it;
-- single-click growing with **Point Cloud Pen** uses only points inside it;
-- Lasso, Brush and direct point clicks can still see points across the scene.
 
 The area can be disabled or removed when the local operation is finished. It is workspace context for the current session: it is not saved as an object, and editing it is not an annotation change.
 
@@ -107,17 +100,13 @@ This is a visibility setting. Hiding the surroundings does not remove points fro
 
 Turn **Show outline** on to leave a thin box around the Area of Interest while another annotation tool is active. The outline is useful when Point Cloud Pen, Lasso or another tool is being used: the annotator can still see the intended working region without returning to the Area of Interest tool.
 
-The outline is only a visual reference. It does not become an annotation and does not change the box's filtering behavior.
+The outline is only a visual reference and does not become an annotation.
 
 <figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/area-show-outline-on.png" alt="A thin orange Area of Interest outline around mechanical equipment in the Supervisely point cloud editor while another tool is active; the Show outline tooltip is visible"><figcaption><p>Show outline on: a thin box keeps the working region visible while another tool is active.</p></figcaption></figure>
 
-## Grow the point selection inside the area
+## Select the structure's points
 
-Select the target class and start a point-level object with **Point Cloud Pen**. A single click can grow the selection across connected points, but with Area of Interest enabled it considers only the points inside the oriented box. The target structure is selected without the operation continuing into a neighboring level or geometry behind it.
-
-{% hint style="warning" %}
-Area of Interest is not a universal visibility filter. Lasso, Brush and direct point clicks still operate on the points they can reach in the scene. Check which operation is active before making a large edit.
-{% endhint %}
+Select the target class and mark the structure with the [Point Cloud Pen](../labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md#3d-point-cloud-pen): single clicks place polygon points along straight edges, and click-and-drag paints over irregular areas. The same tool adds or removes points when the boundary needs correction.
 
 ## Keep the result as one octree annotation
 
@@ -129,4 +118,4 @@ The geometry type changes how a very large point-level annotation is represented
 
 ## Summary
 
-A building-scale scan can contain billions of points, and a single structure in it can contain millions. Supervisely handles both: the streamed point budget keeps the full scene navigable, Area of Interest limits point growing to one structure, and `point_cloud_octree` keeps that structure as one annotation, ready for model training, Scan-to-BIM or comparison with a design.
+A building-scale scan can contain billions of points, and a single structure in it can contain millions. Supervisely handles both: the streamed point budget keeps the full scene navigable, Area of Interest isolates one structure from its surroundings, and `point_cloud_octree` keeps that structure as one annotation, ready for model training, Scan-to-BIM or comparison with a design.
