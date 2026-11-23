@@ -35,6 +35,7 @@ Supervisely keeps the workflow in the [3D point cloud editor](../labeling/3D-Poi
 
 - **One editor for the whole scan.** Perspective, Top, Side and Front views show the same registered scene and let the annotator inspect a component from different directions.
 - **A streamed point budget.** Auto or Manual mode controls how many points are resident and drawn for the current view, balancing visible detail against GPU workload.
+- **Panoramas next to the points.** When a scan includes panoramic photos, the annotator can walk through the building panorama by panorama and open the photo that shows a clicked point best.
 - **A local working region.** **Area of Interest** places an oriented 3D box around the part of the scene being labeled.
 - **Point-level geometry at building scale.** The new `point_cloud_octree` geometry keeps a very large selection as one logical annotation instead of forcing it into arbitrary fragments solely because of its point count.
 - **A path to existing pipelines.** An octree annotation can be converted to regular point cloud geometry when a customer's ML, BIM or engineering workflow requires it.
@@ -67,6 +68,26 @@ For the close inspection below, the manual budget is raised to 10.1 million poin
 The point budget controls streaming and display detail. It does not delete points, decimate the source cloud, change the saved `point_cloud_octree` annotation, or reduce the point count delivered downstream.
 {% endhint %}
 
+## Walk through the scan with panoramas
+
+If the scan was captured together with panoramic photos, the editor can show them next to the points. The annotator can then move through the building from one panorama to the next, much like walking along a street in a map service, instead of orbiting the whole cloud from outside.
+
+At the top of the Perspective view:
+
+- the counter, for example **1 / 187**, shows the current panorama and the total; the arrows on both sides switch to the previous or next one;
+- **Show panoramas** (the marker icon) shows or hides the panorama markers in the scene.
+
+The camera panel on the right shows the current panorama:
+
+| Control | What it does |
+| --- | --- |
+| **View in 3D** | Look around this panorama in the Perspective view, from inside the cloud. |
+| **Follow clicks** | A click on the cloud or on a selected object in the 3D views shows the panorama that sees it best, turned toward it. |
+| Camera icon | Colors the points from this camera and shows only the points it can see. |
+| Video camera icon | Adds a new camera tab. |
+
+Use the panorama to check in the photo what a structure is and where its boundary lies before labeling it.
+
 ## Choose components that match the downstream task
 
 Name classes after the structures the customer needs, not just the building type. For a stadium renovation, these may be `seating_tier`, `stairs`, `concrete_structure`, `railing`, `column`, `roof_structure`, `equipment` and `noise`; for a shopping center, floor slabs, walls, columns, facades, escalators and parking levels.
@@ -81,13 +102,11 @@ A seating tier, floor slab or facade can span a large part of the scan and conta
 
 In a dense building scan, several surfaces can fall on top of one another in a projection. Looking at a seating tier from the side may also show the level above it, columns behind it and part of the roof. Area of Interest narrows the working region to the component being labeled.
 
-Select **Area of Interest** in the left toolbar, then click and drag in the Perspective view to place an oriented box around the target. Move, resize and rotate the box until it contains the component but excludes as much neighboring geometry as possible. The same area appears in the Perspective, Top, Side and Front views.
-
-The area can be disabled or removed when the local operation is finished. It is workspace context for the current session: it is not saved as an object, and editing it is not an annotation change.
+Select **Area of Interest** in the left toolbar, then click a point in the Perspective view to place the box and drag to size it. Move, resize and rotate the box until it contains the component but excludes as much neighboring geometry as possible. The same area appears in the Perspective, Top, Side and Front views. While the tool is active, a toolbar at the bottom of the Perspective view controls the box, including **Surroundings** and **Outline**.
 
 ### Hide or show the surroundings
 
-The **ON** switch enables or disables the existing Area of Interest without requiring the box to be placed again. **Show surroundings** controls whether points outside the box remain visible:
+**Surroundings** controls whether points outside the box remain visible:
 
 - switch it **off** to hide outside points and work on the local structure without visual clutter;
 - switch it **on** when the surrounding geometry is needed for orientation or for checking where the component meets its neighbors.
@@ -98,7 +117,7 @@ This is a visibility setting. Hiding the surroundings does not remove points fro
 
 ### Keep the area outline visible with another tool
 
-Turn **Show outline** on to leave a thin box around the Area of Interest while another annotation tool is active. The outline is useful when Point Cloud Pen, Lasso or another tool is being used: the annotator can still see the intended working region without returning to the Area of Interest tool.
+Turn **Outline** on to leave a thin box around the Area of Interest while another annotation tool is active. The outline is useful when Point Cloud Pen, Lasso or another tool is being used: the annotator can still see the intended working region without returning to the Area of Interest tool.
 
 The outline is only a visual reference and does not become an annotation.
 
