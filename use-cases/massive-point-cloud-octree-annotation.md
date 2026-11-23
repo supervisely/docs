@@ -116,6 +116,10 @@ While the tool is active, a toolbar at the bottom of the Perspective view contro
 | **Save as area** | Saves the box as a named area object of the cloud (a cuboid of an area class), listed in the **Areas** panel. |
 | **Delete** (`Backspace`) | Deletes the box; the whole cloud is shown again. |
 
+### Save the box as an area
+
+**Save as area** opens a dialog with two fields: **Class**, an existing area class or a new one, and **Name**, for example `Area 1`. After saving, the box becomes a cuboid of that class: an area of the cloud, listed in the **Areas** panel, that a [labeling job](../labeling/jobs/README.md) can be made for. This lets the team split work on a large scan by area.
+
 ### Hide or show the surroundings
 
 **Surroundings** controls whether points outside the box remain visible:
