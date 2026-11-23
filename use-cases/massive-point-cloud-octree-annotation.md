@@ -42,7 +42,7 @@ Supervisely keeps the workflow in the [3D point cloud editor](../labeling/3D-Poi
 - **Teamwork and delivery.** [Labeling jobs](../labeling/jobs/README.md) split scenes among annotators and reviewers, while [export](../data-organization/import/export/export.md) and the API connect the approved result to downstream systems.
 
 {% hint style="info" %}
-`point_cloud_octree` is an annotation geometry type, while Area of Interest is temporary editor context. The area is not an annotation and does not crop or modify the source point cloud.
+`point_cloud_octree` is an annotation geometry type, while Area of Interest is a working box in the editor. It does not crop or modify the source point cloud and becomes an object only when saved with **Save as area**.
 {% endhint %}
 
 ## Set how many streamed points the editor draws
@@ -102,7 +102,19 @@ A seating tier, floor slab or facade can span a large part of the scan and conta
 
 In a dense building scan, several surfaces can fall on top of one another in a projection. Looking at a seating tier from the side may also show the level above it, columns behind it and part of the roof. Area of Interest narrows the working region to the component being labeled.
 
-Select **Area of Interest** in the left toolbar, then click a point in the Perspective view to place the box and drag to size it. Move, resize and rotate the box until it contains the component but excludes as much neighboring geometry as possible. The same area appears in the Perspective, Top, Side and Front views. While the tool is active, a toolbar at the bottom of the Perspective view controls the box, including **Surroundings** and **Outline**.
+Select **Area of Interest** in the left toolbar, then click a point in the Perspective view to place the box and drag to size it. Move, resize and rotate the box until it contains the component but excludes as much neighboring geometry as possible. The same area appears in the Perspective, Top, Side and Front views.
+
+### Area of Interest toolbar
+
+While the tool is active, a toolbar at the bottom of the Perspective view controls the box:
+
+| Button | What it does |
+| --- | --- |
+| **Surroundings** | Shows or hides the points outside the box. |
+| **Outline** | Keeps a thin box around the area while another tool is active. |
+| **Reset box** | Undoes the changes made to the box since you started editing it. |
+| **Save as area** | Saves the box as a named area object of the cloud (a cuboid of an area class), listed in the **Areas** panel. |
+| **Delete** (`Backspace`) | Deletes the box; the whole cloud is shown again. |
 
 ### Hide or show the surroundings
 
