@@ -1,162 +1,141 @@
 ---
 keywords:
-  - large point cloud annotation
+  - massive point cloud annotation
+  - large point cloud labeling
   - point cloud octree
-  - massive lidar annotation
+  - billion point lidar
+  - industrial lidar annotation
   - scan to bim annotation
-  - building point cloud segmentation
-  - area of interest point cloud
-  - point cloud pen
-  - stadium lidar scan
+  - e57 panoramas point cloud
+  - terrestrial laser scanning annotation
+  - digital twin point cloud
 description: >-
-  Annotate building-scale LiDAR scans in Supervisely: isolate one structure
-  with an Area of Interest, keep millions of selected points in one
-  point_cloud_octree annotation, and convert it when a regular point cloud is
-  required downstream.
+  Label a 2-billion-point industrial LiDAR scan in Supervisely: streamed octree,
+  panoramas, Area of Interest and AI cuboids, each structure one object.
 ---
 
-# Annotate Massive Point Clouds with Octree Geometry
+# Annotate Massive Point Clouds: Billions of LiDAR Points
 
-## A building scan is geometry without meaning
+## Massive point clouds in the real world
 
-Before an existing stadium, shopping center or other large building is renovated, engineers need an accurate record of what was actually built. Terrestrial laser scanners, mobile mapping systems and drones can capture the site as a dense point cloud, including structures that may differ from the original drawings.
+Here is an example of a building-scale indoor scan: [IRIS, Industrial Room In Saclay](https://doi.org/10.5281/zenodo.18671364) (Armangeon et al., 2026). It is published under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/). A 530 m² industrial room was scanned from 67 stations with a terrestrial laser scanner. Merged into one cloud, the scan holds 2,090,815,411 points, and 379 panoramas taken at the stations come with it. Pipes, tanks, valves, pumps and supports fill the room from the floor to the ceiling.
 
-The scan records where each visible surface is, but not what it represents. It does not distinguish a seating tier from the stairs beside it, a concrete slab from a facade, or a roof support from equipment behind it. Point-level labels add that structure to the raw coordinates.
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree-annotation/scan-first-look.gif" alt="The IRIS industrial room in the 3D point cloud editor: the Perspective header shows 2.09B points, the camera flies forward between pipes and a red column, then Home frames the whole cloud"><figcaption><p>IRIS, 2.09 billion points. Data: Armangeon et al. 2026, CC BY-NC-ND 4.0 (GIF at 1.5× speed; the orbit after the fly-through is cut).</p></figcaption></figure>
 
-The business question is therefore not “how do we label a big point cloud?” It is more specific:
+Scans like this one are made to answer questions about what was actually built:
 
-> How do we keep a complete structural element as one point-level object when that element contains millions of points and overlaps other structures in the 3D view?
+* **As-built documentation and dimensional compliance.** Laser scans of a site are matched to the objects of its 3D CAD model to check the built dimensions against the design ([Bosché, 2010](https://doi.org/10.1016/j.aei.2009.08.006)).
+* **Digital twins of industrial facilities.** The points of a plant scan are segmented by class, such as pipes, valves and structural elements ([Agapaki and Brilakis, 2020](https://doi.org/10.1016/j.aei.2020.101121)), and the labelled clusters are matched to CAD models of industrial shapes; the authors call manual twin generation tedious ([Agapaki and Brilakis, 2022](https://arxiv.org/abs/2202.04834)).
+* **Parsing large indoor spaces.** Building-scale indoor scans are parsed into structural elements and objects ([Armeni et al., 2016](https://doi.org/10.1109/CVPR.2016.170)).
+* **Renovation of existing buildings.** Elland Road Stadium was captured from 5,250 registered scan positions covering all stands, and the scan became a Revit model for future redevelopment ([RIEGL case study](https://www.riegl.com/en-austria/news-insights/article/high-speed-3d-capture-of-elland-road-stadium-with-the-riegl-vz-600i)).
 
-This matters in real renovation projects. At Elland Road Stadium, 5,250 registered scan positions covering the inside and outside of all stands supported a Revit model for future redevelopment ([RIEGL case study](https://www.riegl.com/en-austria/news-insights/article/high-speed-3d-capture-of-elland-road-stadium-with-the-riegl-vz-600i)). At Auburn Arena, an as-built scan of the bowl exposed stair-tread spacing that would not accommodate the designed seating count before the seats arrived ([Autodesk case study](https://images.autodesk.com/adsk/files/robins-morton-customer-story.pdf)). Shopping-center scans are similarly used to document architecture, structures and installations for BIM and asset management ([Hexagon case study](https://multivistaservices.hexagon.com/case-studies/shopping-mall-chain-in-madrid-spain/)).
+Each of these needs labelled points: to train segmentation models, to check them, and to tie a structure in the scan to its object in a model. IRIS itself provides a CAD model, a P&ID and labels aligned with the scan in one coordinate frame.
 
 ## What Supervisely covers
 
-Supervisely keeps the workflow in the [3D point cloud editor](../labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md):
+* **Storing and viewing billion-point scans.** A cloud this size is kept as a streamed octree: the [3D point cloud editor](../labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md) loads the parts of it that the view needs, within a point budget, and shows the scanner's panoramas beside the points.
+* **Point-level labels at building scale.** A structure is labelled as one object, however many points it holds: the `point_cloud_octree` geometry keeps millions of selected points in a single annotation instead of fragments. It can be converted to regular point cloud geometry where an existing pipeline needs it.
+* **AI-assisted labeling.** The [3D AI Assistant](../labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md#3d-ai-assistant) places cuboids and labels the floor, reading only the part of the cloud it is pointed at.
+* **Splitting the work.** An Area of Interest saved as an area is a part of the scan that a [labeling job](../labeling/jobs/README.md) can be made for. Review, [export](../data-organization/import/export/export.md) and the [API](https://developer.supervisely.com/) take the result further.
 
-- **One editor for the whole scan.** Perspective, Top, Side and Front views show the same registered scene and let the annotator inspect a component from different directions.
-- **A streamed point budget.** Auto or Manual mode controls how many points are resident and drawn for the current view, balancing visible detail against GPU workload.
-- **Panoramas next to the points.** When a scan includes panoramic photos, the annotator can walk through the building panorama by panorama and open the photo that shows a clicked point best.
-- **A local working region.** **Area of Interest** places an oriented 3D box around the part of the scene being labeled.
-- **Point-level geometry at building scale.** The new `point_cloud_octree` geometry keeps a very large selection as one logical annotation instead of forcing it into arbitrary fragments solely because of its point count.
-- **A path to existing pipelines.** An octree annotation can be converted to regular point cloud geometry when a customer's ML, BIM or engineering workflow requires it.
-- **Teamwork and delivery.** [Labeling jobs](../labeling/jobs/README.md) split scenes among annotators and reviewers, while [export](../data-organization/import/export/export.md) and the API connect the approved result to downstream systems.
+What gets faster: moving through the whole scan without cutting it into tiles first, and labelling a large structure as one object instead of in pieces.
 
-{% hint style="info" %}
-`point_cloud_octree` is an annotation geometry type, while Area of Interest is a working box in the editor. It does not crop or modify the source point cloud and becomes an object only when saved with **Save as area**.
-{% endhint %}
+## Import the data
 
-## Set how many streamed points the editor draws
+### The sample project
 
-The complete scene in this example contains **2,090,815,411 points**. The editor does not need to place all 2.09 billion points in GPU memory at the same time. It streams the spatial nodes needed for the current camera and draws them within the **Point budget of the streamed cloud**.
+The Ecosystem has a ready project for trying the workflow without uploading data: [Dublin City Aerial LiDAR](https://ecosystem.supervisely.com/projects/dublin-city-aerial-lidar-octree). It holds two point clouds cut from four aerial LiDAR tiles of central Dublin, 384.7 million points in total: an 80 × 80 m city block at full density and the 1 km² area of the four tiles thinned out, with empty classes for buildings, roofs, ground and vegetation. The data comes from the [Aerial Laser and Photogrammetry Survey of Dublin City, 2015](https://ultraviolet.library.nyu.edu/records/aqjnq-6c976) (Laefer et al., 2017, NYU Spatial Data Repository), under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Its page explains how to import the four original tiles as one streamed octree.
 
-The screenshot shows a manual budget of 3.10 million points. At that moment, 3.08 million points are resident and the same 3.08 million are drawn. The red **budget-limited** status means the current view requests more octree nodes than the selected budget permits: 230 of 322 wanted nodes remain unloaded, so additional detail is available but is not drawn at this budget.
+To add it, open the project's page in the **App Ecosystem** and click **Get project**. The project goes into the current team and workspace under the name given in the dialog. The copy runs as a task, and its output links to the new project.
 
-<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/point-budget-manual.png" alt="A building-scale point cloud with 2,090,815,411 total points in the Supervisely editor; the streamed-cloud dialog shows a manual 3.10 million point budget, 3.08 million resident and drawn points, and a warning that detail is limited by the budget"><figcaption><p>A 2.09-billion-point scene with a manual streamed-cloud budget of 3.10 million points.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree-annotation/add-sample-project.gif" alt="The Dublin City Aerial LiDAR page in the App Ecosystem, Get project, the Add project from ecosystem dialog, the task, and the new project with its ds0 dataset"><figcaption><p>Adding the sample project (the wait for the task is cut).</p></figcaption></figure>
 
-The two modes serve different purposes:
+### Other ways in
 
-- **Auto** uses GPU timing measurements to adjust the point budget and keep navigation responsive as the view changes.
-- **Manual** keeps the selected point budget fixed. The editor continues measuring the GPU workload but does not move the budget automatically.
+A project's **Import data** page has these options:
 
-Raise the manual budget when a boundary needs more visible detail and the workstation has enough GPU capacity. Lower it when orbiting or zooming becomes slow. The maximum and GPU-buffer values shown in the dialog describe the current browser and device; they are not a universal limit for every installation.
+* **Quick Auto Import** takes `.pcd`, `.ply`, `.las` and `.laz` files by drag and drop. The [Auto Import](https://ecosystem.supervisely.com/apps/main-import) app also reads `E57`. A point cloud of more than 10,000,000 points is imported as a streamed octree; tiles of one scene in one folder that touch or overlap are merged into one cloud, and registered `E57` stations whose extents touch are merged as well. The panoramas and photos inside an `E57` file become related images of its cloud.
+* **Cloud Storage**: data in a bucket (AWS S3, Google Cloud Storage, Azure Blob Storage) can be linked with **Import as Links** instead of uploaded, so it is not duplicated. See [Import from Cloud](../data-organization/import/import/import-from-cloud.md).
+* **Team Files**: when point clouds are imported from Team Files as streamed octrees, files of 256 MiB or more are read while they download, so the import does not wait for the whole file first.
+* **Command line interface (CLI)**, **Python** and the **API**, for imports from code: see the [Developer Portal](https://developer.supervisely.com/).
 
-For the close inspection below, the manual budget is raised to 10.1 million points. The top bar still reports **budget-limited** because the detailed view requests more data than even this larger budget allows. This status is not an error: it says that the selected budget is full and that more spatial detail could be streamed if the budget were raised again.
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree-annotation/import-large-clouds.gif" alt="The Import to Project page: Quick Auto Import with its point cloud formats, a caption saying that a point cloud over 10 million points is imported as a streamed octree, Cloud Storage with its providers and Import as Links, and Team Files"><figcaption><p>Upload, cloud storage and Team Files on the import page (GIF at 720 px).</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/point-budget-10m-detail.png" alt="A close view inside a 2.09-billion-point scene in the Supervisely editor with a manual streamed-cloud point budget of 10.1 million points; the top bar reports 10.1M of 10.1M and budget-limited"><figcaption><p>A close inspection with a 10.1-million-point manual budget; the current view still asks for more detail than the budget allows.</p></figcaption></figure>
+## The 3D point cloud editor for billion-point scans
 
-{% hint style="info" %}
-The point budget controls streaming and display detail. It does not delete points, decimate the source cloud, change the saved `point_cloud_octree` annotation, or reduce the point count delivered downstream.
-{% endhint %}
+The editor is described in [3D Point Cloud and Episodes](../labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md), with its [navigation](../labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md#navigation-behavior) and [hotkeys](../labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md#hotkeys). Dense clouds render with WebGPU: see [Performance Upgrade for Dense Clouds](../labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/3D-point-cloud-optimizations.md). In the Perspective view, `W` `A` `S` `D` fly forward, left, back and right, `E` and `Q` fly up and down, and `Home` frames the whole cloud. For a scan of billions of points, these parts matter.
 
-## Walk through the scan with panoramas
+### The point budget
 
-If the scan was captured together with panoramic photos, the editor can show them next to the points. The annotator can then move through the building from one panorama to the next, much like walking along a street in a map service, instead of orbiting the whole cloud from outside.
+The editor does not hold all 2.09 billion points on the GPU. It keeps a set number of points, the point budget, and draws the octree nodes the current view needs. The chip in the Perspective header opens **Point budget of the streamed cloud**: the points resident on the GPU, the points drawn, and the budget.
 
-<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/panorama-markers.png" alt="Blue panorama markers on the floor of a mechanical room in the Supervisely point cloud editor; the top bar shows Panoramas 379 and the camera panel on the right shows the current panorama photo"><figcaption><p>Panorama markers show where each of the 379 panoramas was captured in the scan.</p></figcaption></figure>
+* **Auto** follows what frames cost on the GPU, and raises the budget while it limits detail and frames stay fast.
+* **Manual** keeps the budget fixed; the editor keeps measuring but does not move it.
 
-At the top of the Perspective view:
+**Detail limited by the budget** means the view asks for more nodes than the budget allows. It is not an error. Here the budget goes to 10 million points in Manual mode, and the view moves closer, so more detail streams in.
 
-- the counter, for example **329 / 379**, shows the current panorama and the total; the arrows on both sides switch to the previous or next one;
-- **Show panoramas** (the marker icon) shows or hides the panorama markers in the scene.
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree-annotation/point-budget.gif" alt="The point budget dialog: resident and drawn points, the budget-limited line, Manual mode with 10 million points typed in, and the view zooming in as more detail loads"><figcaption><p>Auto, then a manual budget of 10 million points (the zoom at 2.5× speed; GIF at 640 px and 1.5× speed).</p></figcaption></figure>
 
-The camera panel on the right shows the current panorama:
+The point budget changes what is streamed and drawn. It does not decimate the cloud or change a saved annotation.
 
-| Control | What it does |
-| --- | --- |
-| **View in 3D** | Look around this panorama in the Perspective view, from inside the cloud. |
-| **Follow clicks** | A click on the cloud or on a selected object in the 3D views shows the panorama that sees it best, turned toward it. |
-| Camera icon | Colors the points from this camera and shows only the points it can see. |
-| Video camera icon | Adds a new camera tab. |
+### Panoramas
 
-<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/panorama-view-in-3d.png" alt="The Perspective view of the Supervisely point cloud editor showing panorama 329 of 379 from inside the cloud: a mechanical room with blue tanks, pipes and a red wall"><figcaption><p>View in 3D: panorama 329 of 379 seen from inside the cloud in the Perspective view.</p></figcaption></figure>
+The scan's panoramas show as markers in the cloud; **Panoramas 379** in the header counts them, and a click on it goes inside the nearest one. A click on a marker goes inside that panorama, and the photo panel shows it with its file name. With **Follow clicks** on, a click on the cloud turns the photo to the panorama that sees that point best. The photo shows what a structure is and where it ends before it is labelled.
 
-Use the panorama to check in the photo what a structure is and where its boundary lies before labeling it.
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree-annotation/panoramas.gif" alt="Blue panorama markers on the floor of the room, a click on one marker, the view inside the panorama, the photo panel with its file name, Follow clicks, and a click on a pipe that turns the photo to it"><figcaption><p>Into a panorama, then Follow clicks (GIF at 640 px).</p></figcaption></figure>
 
-## Choose components that match the downstream task
+### Area of Interest
 
-Name classes after the structures the customer needs, not just the building type. For a stadium renovation, these may be `seating_tier`, `stairs`, `concrete_structure`, `railing`, `column`, `roof_structure`, `equipment` and `noise`; for a shopping center, floor slabs, walls, columns, facades, escalators and parking levels.
+In a room full of equipment, many structures overlap in every view. **Area of interest** in the left toolbar places a box that limits the view to one part of the scan. **Fit to view** places a box centred where the camera looks; the arrow on a face moves that face in or out (with `Alt`, the box keeps its centre). **Surroundings** sets whether the points outside the box show after **Done**, **Outline** keeps a thin box visible under the other tools, and holding **Preview** (`P`) shows the result before **Done** (`Enter`).
 
-Decide before production whether the output is semantic (every point labeled `floor`, `wall` or `column`) or instance-based (each column or slab as a separate object, as Scan-to-BIM often requires), and write it into the guidelines.
+The box does more than hide points: under the other tools the point budget goes inside it, and selections take only the points inside it. The **Area** chip in the header turns it on and off (`Alt+A`) and says how much of the box has loaded.
 
-## Why one annotation can contain millions of points
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree-annotation/area-of-interest.gif" alt="Area of interest chosen in the left toolbar, Fit to view, the box faces dragged in around a group of tanks, Surroundings off, Preview held, and Done; the Area chip shows the box loaded"><figcaption><p>A box around the tank group (the drags at 2× speed; GIF at 640 px).</p></figcaption></figure>
 
-A seating tier, floor slab or facade can span a large part of the scan and contain millions of points while remaining one structure. Splitting it into fragments just to fit a size limit adds review work and creates false boundaries between parts. With `point_cloud_octree`, the whole component stays one point-level annotation.
+## AI on a streamed cloud
 
-## Isolate the structure with Area of Interest
+The [3D AI Assistant](https://ecosystem.supervisely.com/apps/3d-ai-assistant) is class-agnostic: it fits a cuboid around an object without having been trained on that kind of object. It runs as an app on a GPU agent of the team. On a streamed octree it reads only the part of the cloud the outline or the Area of Interest covers.
 
-In a dense building scan, several surfaces can fall on top of one another in a projection. Looking at a seating tier from the side may also show the level above it, columns behind it and part of the roof. Area of Interest narrows the working region to the component being labeled.
+**Smart 3D Lasso** is in the top bar. With the class `tank` (Cuboid) chosen in its bar at the bottom of the view, a loop drawn around one tank gives a cuboid around it. The Top, Side and Front views and the photo panel show the new cuboid.
 
-Select **Area of Interest** in the left toolbar, then click a point in the Perspective view to place the box and drag to size it. Move, resize and rotate the box until it contains the component but excludes as much neighboring geometry as possible. The same area appears in the Perspective, Top, Side and Front views.
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree-annotation/ai-lasso-cuboid.gif" alt="Smart 3D Lasso, the class tank chosen in the bottom bar, a loop drawn around one tank, and an orange cuboid around the tank shown in the Perspective, Top, Side and Front views and the photo panel"><figcaption><p>One loop, one tank (the wait while the AI fits the cuboid is shortened).</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/area-of-interest-column.png" alt="An Area of Interest box of 0.60 by 0.61 by 3.73 meters around a red column in the Supervisely point cloud editor, with move arrows in the Perspective view, the same box in the Top, Side and Front views, and the Area of Interest toolbar at the bottom"><figcaption><p>An Area of Interest around one column, shown in all four views; the toolbar for the box is at the bottom.</p></figcaption></figure>
+**Ground segmentation**, in the 3D AI Assistant's menu next to **Smart 3D Lasso**, labels the floor inside the Area of Interest as one point-level object of the class `Ground`, however many points it holds. On the 2.09-billion-point room it took two to three minutes.
 
-### Area of Interest toolbar
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree-annotation/ai-ground-segmentation.gif" alt="The AI Assistance Tools menu with Ground Segmentation, the command running, and the floor of the area labelled green as one Ground object in the Objects panel"><figcaption><p>The floor of the area as one object (the ~3 minutes the command ran are cut).</p></figcaption></figure>
 
-While the tool is active, a toolbar at the bottom of the Perspective view controls the box:
+**The AI does the bulk, the person corrects.** With the Select tool (`2`) and the cuboid selected, `B` fits it to the points inside it and `End` drops it onto the floor under it. Dragging the arrow on the top face brings the top down to the tank's top.
 
-| Button | What it does |
-| --- | --- |
-| **Surroundings** | Shows or hides the points outside the box. |
-| **Outline** | Keeps a thin box around the area while another tool is active. |
-| **Reset box** | Undoes the changes made to the box since you started editing it. |
-| **Save as area** | Saves the box as a named area object of the cloud (a cuboid of an area class), listed in the **Areas** panel. |
-| **Delete** (`Backspace`) | Deletes the box; the whole cloud is shown again. |
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree-annotation/adjust-cuboid.gif" alt="The Select tool, the tank cuboid selected, B fitting it to its points, End dropping it onto the floor, and the top face dragged down to the top of the tank"><figcaption><p>Fit, drop and resize the AI cuboid (the drag at 3× speed).</p></figcaption></figure>
 
-### Save the box as an area
+## One structure, one annotation
 
-**Save as area** opens a dialog with two fields: **Class**, an existing area class or a new one, and **Name**, for example `Area 1`. After saving, the box becomes a cuboid of that class: an area of the cloud, listed in the **Areas** panel, that a [labeling job](../labeling/jobs/README.md) can be made for. This lets the team split work on a large scan by area.
+The [Point Cloud Pen](../labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md#3d-point-cloud-pen) (`5`) selects points inside an outline, through the depth of the scene by default. Holding `Alt` as the outline closes takes only the visible points. A double-click selects the object under the point: the selection grows over connected points, up to 3 m from the click. `Shift` takes points out instead of adding them.
 
-### Hide or show the surroundings
+Here, with the class `pipe` (Point Cloud), an outline along a pipe run takes its visible points, a double-click grows the selection over a missed section, and an outline with `Shift` takes a part back out. The pipe run is saved as one `point_cloud_octree` object, listed in the **Objects** panel.
 
-**Surroundings** controls whether points outside the box remain visible:
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree-annotation/pen-structure.gif" alt="The class pipe chosen, the Point Cloud Pen, an outline along a pipe run turning it blue, a double-click growing the selection, a Shift outline taking part of it back, and the pipe object in the Objects panel"><figcaption><p>A pipe run as one object (the orbit at the end at 2× speed; GIF at 720 px).</p></figcaption></figure>
 
-- switch it **off** to hide outside points and work on the local structure without visual clutter;
-- switch it **on** when the surrounding geometry is needed for orientation or for checking where the component meets its neighbors.
+A large selection on a large scene is bounded by the Area of Interest: an exact selection too big for the resources is refused with an error, never silently sampled.
 
-This is a visibility setting. Hiding the surroundings does not remove points from the source scene or add them to the annotation.
+**Areas for the team.** **Save as area** in the Area of Interest bar saves the box as a cuboid of an area class with a name, here `Tank group` of the class `Work area`. Saved areas are listed in the **Areas** panel, and **Create labeling jobs** there makes a job for each, so a team shares one scan area by area.
 
-<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/area-show-surroundings-off.png" alt="Area of Interest around mechanical equipment in the Supervisely point cloud editor with Show surroundings off; the tooltip states that points outside the box are hidden"><figcaption><p>Show surroundings off: points outside the Area of Interest are hidden to reduce visual clutter.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree-annotation/save-as-area.gif" alt="Area of interest, Save as area, the dialog with the class Work area and the name Tank group, Save, and the Areas panel with Tank group and Create labeling jobs"><figcaption><p>The box saved as an area (GIF at 10 fps).</p></figcaption></figure>
 
-### Keep the area outline visible with another tool
+## From labeled scans to as-built models and digital twins
 
-Turn **Outline** on to leave a thin box around the Area of Interest while another annotation tool is active. The outline is useful when Point Cloud Pen, Lasso or another tool is being used: the annotator can still see the intended working region without returning to the Area of Interest tool.
+Back to the uses this data serves:
 
-The outline is only a visual reference and does not become an annotation.
+* **As-built checks.** Each structure labelled as one object can be compared, object by object, with its counterpart in the design model.
+* **Digital twins.** Point-level objects by class (pipes, the floor) and cuboids around equipment (tanks) are the labelled clusters that twin generation starts from, and the training data for segmentation models.
+* **Indoor parsing and renovation.** Areas split a building-scale scan into parts that annotators and reviewers work on in parallel, without cutting the scan into files.
 
-<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/area-show-outline-on.png" alt="A thin orange Area of Interest outline around mechanical equipment in the Supervisely point cloud editor while another tool is active; the Show outline tooltip is visible"><figcaption><p>Show outline on: a thin box keeps the working region visible while another tool is active.</p></figcaption></figure>
+What it speeds up: the whole scan opens as one cloud, the Area of Interest isolates one part of it in a few drags, the 3D AI Assistant places cuboids and labels the floor, and a large structure stays one object.
 
-## Select the structure's points
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree-annotation/labeled-scene.gif" alt="The Area of Interest turned off, Home framing the whole cloud, then the tank, Ground and pipe objects selected in the Objects panel one after another and framed with F"><figcaption><p>The labelled objects in the whole scene (GIF at 640 px).</p></figcaption></figure>
 
-Select the target class and mark the structure with the [Point Cloud Pen](../labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md#3d-point-cloud-pen): single clicks place polygon points along straight edges, and click-and-drag paints over irregular areas. The same tool adds or removes points when the boundary needs correction.
+Next steps:
 
-## Keep the result as one octree annotation
-
-Save the completed selection as `point_cloud_octree` geometry.
-
-The geometry type changes how a very large point-level annotation is represented. It does not change its semantic role: the annotation still says that all of these points belong to the same physical component.
-
-<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/octree-wall-annotation.png" alt="A wall section highlighted in magenta as one point_cloud_octree annotation in the Supervisely point cloud editor; its box measures 4.72 by 2.10 by 0.44 meters in a scene of 2,090,815,411 points"><figcaption><p>One <code>point_cloud_octree</code> annotation holds a 4.72 × 2.10 m wall section in the 2.09-billion-point scene.</p></figcaption></figure>
-
-## Summary
-
-A building-scale scan can contain billions of points, and a single structure in it can contain millions. Supervisely handles both: the streamed point budget keeps the full scene navigable, Area of Interest isolates one structure from its surroundings, and `point_cloud_octree` keeps that structure as one annotation, ready for model training, Scan-to-BIM or comparison with a design.
+* Split scans among a team with [labeling jobs](../labeling/jobs/README.md).
+* [Export](../data-organization/import/export/export.md) the labels, or work with them through the [Python SDK and API](https://developer.supervisely.com/).
+* See the AI models for point clouds in [Labeling with AI: 3D point clouds](../labeling/labeling-with-AI/3d-point-clouds/README.md).
