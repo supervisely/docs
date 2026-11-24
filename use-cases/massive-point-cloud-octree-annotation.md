@@ -72,6 +72,8 @@ The point budget controls streaming and display detail. It does not delete point
 
 If the scan was captured together with panoramic photos, the editor can show them next to the points. The annotator can then move through the building from one panorama to the next, much like walking along a street in a map service, instead of orbiting the whole cloud from outside.
 
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/panorama-walkthrough.gif" alt="Moving from one panorama to the next along a row of red columns in the Perspective view of the Supervisely point cloud editor, with the Top, Side and Front views on the left and the camera panel on the right"><figcaption><p>Walking through the scan panorama by panorama in View in 3D.</p></figcaption></figure>
+
 <figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/panorama-markers.png" alt="Blue panorama markers on the floor of a mechanical room in the Supervisely point cloud editor; the top bar shows Panoramas 379 and the camera panel on the right shows the current panorama photo"><figcaption><p>Panorama markers show where each of the 379 panoramas was captured in the scan.</p></figcaption></figure>
 
 At the top of the Perspective view:
