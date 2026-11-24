@@ -112,6 +112,8 @@ Select **Area of Interest** in the left toolbar, then click a point in the Persp
 
 <figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/area-of-interest-column.png" alt="An Area of Interest box of 0.60 by 0.61 by 3.73 meters around a red column in the Supervisely point cloud editor, with move arrows in the Perspective view, the same box in the Top, Side and Front views, and the Area of Interest toolbar at the bottom"><figcaption><p>An Area of Interest around one column, shown in all four views; the toolbar for the box is at the bottom.</p></figcaption></figure>
 
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/area-of-interest-setup.gif" alt="Creating and resizing an Area of Interest box around part of the scan, then turning off Surroundings to hide points outside the box."><figcaption><p>Set the Area of Interest and hide the surrounding points (2? speed).</p></figcaption></figure>
+
 ### Area of Interest toolbar
 
 While the tool is active, a toolbar at the bottom of the Perspective view controls the box:
@@ -127,6 +129,8 @@ While the tool is active, a toolbar at the bottom of the Perspective view contro
 ### Save the box as an area
 
 **Save as area** opens a dialog with two fields: **Class**, an existing area class or a new one, and **Name**, for example `Area 1`. After saving, the box becomes a cuboid of that class: an area of the cloud, listed in the **Areas** panel, that a [labeling job](../labeling/jobs/README.md) can be made for. This lets the team split work on a large scan by area.
+
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/area-save-as-area.gif" alt="The Save as area dialog with Work area selected and Tank group entered, followed by the saved area appearing in the Areas panel."><figcaption><p>Save the box as Tank group and find it in the Areas panel (1.5? speed).</p></figcaption></figure>
 
 ### Hide or show the surroundings
 
