@@ -72,9 +72,11 @@ The point budget controls streaming and display detail. It does not delete point
 
 If the scan was captured together with panoramic photos, the editor can show them next to the points. The annotator can then move through the building from one panorama to the next, much like walking along a street in a map service, instead of orbiting the whole cloud from outside.
 
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/panorama-markers.png" alt="Blue panorama markers on the floor of a mechanical room in the Supervisely point cloud editor; the top bar shows Panoramas 379 and the camera panel on the right shows the current panorama photo"><figcaption><p>Panorama markers show where each of the 379 panoramas was captured in the scan.</p></figcaption></figure>
+
 At the top of the Perspective view:
 
-- the counter, for example **1 / 187**, shows the current panorama and the total; the arrows on both sides switch to the previous or next one;
+- the counter, for example **329 / 379**, shows the current panorama and the total; the arrows on both sides switch to the previous or next one;
 - **Show panoramas** (the marker icon) shows or hides the panorama markers in the scene.
 
 The camera panel on the right shows the current panorama:
@@ -85,6 +87,8 @@ The camera panel on the right shows the current panorama:
 | **Follow clicks** | A click on the cloud or on a selected object in the 3D views shows the panorama that sees it best, turned toward it. |
 | Camera icon | Colors the points from this camera and shows only the points it can see. |
 | Video camera icon | Adds a new camera tab. |
+
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/panorama-view-in-3d.png" alt="The Perspective view of the Supervisely point cloud editor showing panorama 329 of 379 from inside the cloud: a mechanical room with blue tanks, pipes and a red wall"><figcaption><p>View in 3D: panorama 329 of 379 seen from inside the cloud in the Perspective view.</p></figcaption></figure>
 
 Use the panorama to check in the photo what a structure is and where its boundary lies before labeling it.
 
@@ -103,6 +107,8 @@ A seating tier, floor slab or facade can span a large part of the scan and conta
 In a dense building scan, several surfaces can fall on top of one another in a projection. Looking at a seating tier from the side may also show the level above it, columns behind it and part of the roof. Area of Interest narrows the working region to the component being labeled.
 
 Select **Area of Interest** in the left toolbar, then click a point in the Perspective view to place the box and drag to size it. Move, resize and rotate the box until it contains the component but excludes as much neighboring geometry as possible. The same area appears in the Perspective, Top, Side and Front views.
+
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/area-of-interest-column.png" alt="An Area of Interest box of 0.60 by 0.61 by 3.73 meters around a red column in the Supervisely point cloud editor, with move arrows in the Perspective view, the same box in the Top, Side and Front views, and the Area of Interest toolbar at the bottom"><figcaption><p>An Area of Interest around one column, shown in all four views; the toolbar for the box is at the bottom.</p></figcaption></figure>
 
 ### Area of Interest toolbar
 
