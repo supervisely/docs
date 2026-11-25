@@ -239,6 +239,8 @@
   * [Automotive Bolt Annotation](use-cases/automotive/automotive-bolt-annotation.md)
 * [Agriculture](use-cases/agriculture/README.md)
   * [Wheat Head Segmentation](use-cases/agriculture/wheat-head-segmentation.md)
+* [Annotation Services](use-cases/annotation-services/README.md)
+  * [Beyond Annotation: How Supervisely Builds a Production-Ready Instance Segmentation Dataset](use-cases/annotation-services/instance-segmentation-annotation-service.md)
 
 ## 👔 Enterprise Edition
 

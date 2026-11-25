@@ -7,8 +7,8 @@ Import Seyond lidar captures (raw `.pcap` files) as point cloud episodes: each s
 # Format description
 
 **Supported point cloud format:** `.pcap` (classic libpcap, as written by `tcpdump`; not pcapng)<br>
-**Supported lidars:** Seyond Falcon (sphere point cloud packets). Captures from other Seyond models, such as Robin W, are recognised and skipped with a message.<br>
-**Supervisely version:** 6.18.14 or later; Import as Links from cloud storage needs 6.18.17<br>
+**Supported lidars:** Seyond Falcon (sphere point cloud packets) and Seyond Robin W (compact point cloud packets, with the vehicle log that holds each sensor's angle table). Captures from other Seyond models are recognised and skipped with a message.<br>
+**Supervisely version:** 6.18.14 or later; Import as Links from cloud storage needs 6.18.17; Robin W needs 6.18.21<br>
 **With annotations:** only labels exported by the **Export Seyond lidar pcap** app<br>
 **Data structure:** Information is provided below.
 
@@ -32,10 +32,20 @@ Both directory and archive are supported, and so are links to cloud storage (**I
 ├──📄truck-1_forwardRight_falcon_2026-08-26--16-48-00.pcap
 ├──📄truck-1_forwardRight_falcon_2026-08-26--16-49-00.pcap
 ├──📄truck-1_forwardLeft_falcon_2026-08-26--16-48-00.pcap
+├──📄truck-1_forwardCenter_robinW_2026-08-26--16-48-00.pcap
+├──📄truck-1--2026-08-26--16-48-00.log (Robin W: the vehicle log of the recording)
 └──📄...
 ```
 
 Captures named `{device}_{location}_{model}_{timestamp}.pcap` are grouped by sensor (`{device}_{location}`). A capture with any other name is its own sensor, named by its file name without the extension.
+
+## Robin W angle tables
+
+A Robin W capture holds no beam directions. It is decoded with the sensor's angle table, which is measured for each unit and is not in the capture. Upload the vehicle log of the recording (`{device}--{timestamp}.log`) next to its captures: the import reads each Robin W sensor's table from it, matched by the serial number the capture carries, and keeps it with the dataset. Only the tables are read from the log; the log itself is not imported.
+
+- A capture takes the table from the log of its own recording; if that has none, from `<serial>.anglehv` in its folder (the export writes these); if neither, from another log in the upload, the latest recording before it.
+- When the upload has no table for a sensor, the latest table already kept for that sensor in the project, then in the team, is used.
+- A Robin W capture with no table anywhere is skipped with a message naming the sensor.
 
 ## Sensor mount: `sensors.json`
 
@@ -57,11 +67,11 @@ A capture does not record how the lidar is mounted. Give each sensor's mount (se
 
 # What the import creates
 
-- The captures of each sensor are chained by time into episodes. The next capture continues an episode when it starts within `episodes.maxGapSec` (1 second by default) of the previous one, and while the episode stays within `episodes.maxFrames`. A capture is never split.
+- The captures of each sensor are chained by time into episodes. The next capture continues an episode when it starts within `episodes.maxGapSec` (1 second by default) of the previous one, and while the episode stays within `episodes.maxFrames`. A Robin W sensor whose angle table changed between two captures starts a new episode. A capture is never split.
 - Each episode is a dataset named after its sensor, with the start time added when a sensor has several. A single episode goes into the dataset you import into.
 - One frame per lidar frame, named `<capture name>_0000.pcap` and so on. `meta.frame` continues across the captures of an episode.
 - Where two captures meet, the lidar sweep that was cut by the file rotation shows as two partial frames, one from each file.
 
 # Export
 
-The **Export Seyond lidar pcap** app exports the captures (each once, byte-identical), the sensors' mounts and the episode labels. Importing that folder again restores the labels on the same frames.
+The **Export Seyond lidar pcap** app exports the captures (each once, byte-identical), the sensors' mounts, the Robin W angle tables (`<serial>.anglehv` next to the captures) and the episode labels. Importing that folder again restores the labels on the same frames.
