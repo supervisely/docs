@@ -9,13 +9,14 @@ keywords:
   - point cloud pen
   - stadium lidar scan
 description: >-
-  Annotate building-scale LiDAR scans in Supervisely: isolate one structure
-  with an Area of Interest, keep millions of selected points in one
-  point_cloud_octree annotation, and convert it when a regular point cloud is
-  required downstream.
+  Explore and annotate billion-point LiDAR scans in Supervisely. Stream 3D
+  detail as you work, inspect the scene with panoramas, and save millions of
+  selected points as a single octree annotation.
 ---
 
 # Annotate Massive Point Clouds with Octree Geometry
+
+Supervisely built a browser-based editor for exploring and annotating massive 3D scans. You can navigate an entire building, walk through it using panoramic photos, and label a structure containing millions of points in the same workspace. The editor streams the detail needed for the current view and can adjust how many points it draws to match the device's GPU. The example below uses a single scan with more than 2 billion points.
 
 ## A building scan is geometry without meaning
 
@@ -25,7 +26,7 @@ The scan records where each visible surface is, but not what it represents. It d
 
 The business question is therefore not “how do we label a big point cloud?” It is more specific:
 
-> How do we keep a complete structural element as one point-level object when that element contains millions of points and overlaps other structures in the 3D view?
+> How do you label all the points that belong to one structure when it contains millions of points and neighboring structures overlap it in the 3D view?
 
 This matters in real renovation projects. At Elland Road Stadium, 5,250 registered scan positions covering the inside and outside of all stands supported a Revit model for future redevelopment ([RIEGL case study](https://www.riegl.com/en-austria/news-insights/article/high-speed-3d-capture-of-elland-road-stadium-with-the-riegl-vz-600i)). At Auburn Arena, an as-built scan of the bowl exposed stair-tread spacing that would not accommodate the designed seating count before the seats arrived ([Autodesk case study](https://images.autodesk.com/adsk/files/robins-morton-customer-story.pdf)). Shopping-center scans are similarly used to document architecture, structures and installations for BIM and asset management ([Hexagon case study](https://multivistaservices.hexagon.com/case-studies/shopping-mall-chain-in-madrid-spain/)).
 
@@ -37,12 +38,12 @@ Supervisely keeps the workflow in the [3D point cloud editor](../labeling/3D-Poi
 - **A streamed point budget.** Auto or Manual mode controls how many points are resident and drawn for the current view, balancing visible detail against GPU workload.
 - **Panoramas next to the points.** When a scan includes panoramic photos, the annotator can walk through the building panorama by panorama and open the photo that shows a clicked point best.
 - **A local working region.** **Area of Interest** places an oriented 3D box around the part of the scene being labeled.
-- **Point-level geometry at building scale.** The new `point_cloud_octree` geometry keeps a very large selection as one logical annotation instead of forcing it into arbitrary fragments solely because of its point count.
+- **One annotation per structure.** Octree annotations keep millions of selected points together as one object.
 - **A path to existing pipelines.** An octree annotation can be converted to regular point cloud geometry when a customer's ML, BIM or engineering workflow requires it.
-- **Teamwork and delivery.** [Labeling jobs](../labeling/jobs/README.md) split scenes among annotators and reviewers, while [export](../data-organization/import/export/export.md) and the API connect the approved result to downstream systems.
+- **Teamwork and delivery.** [Labeling jobs](../labeling/jobs/README.md) assign scenes or individual work units to annotators and reviewers, while [export](../data-organization/import/export/export.md) and the API connect the approved result to downstream systems.
 
 {% hint style="info" %}
-`point_cloud_octree` is an annotation geometry type, while Area of Interest is a working box in the editor. It does not crop or modify the source point cloud and becomes an object only when saved with **Save as area**.
+An octree annotation stores the points you label. An Area of Interest defines the part of the scan you work in. Use **Save as area** to save that box for later.
 {% endhint %}
 
 ## Set how many streamed points the editor draws
@@ -65,8 +66,17 @@ For the close inspection below, the manual budget is raised to 10.1 million poin
 <figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/point-budget-10m-detail.png" alt="A close view inside a 2.09-billion-point scene in the Supervisely editor with a manual streamed-cloud point budget of 10.1 million points; the top bar reports 10.1M of 10.1M and budget-limited"><figcaption><p>A close inspection with a 10.1-million-point manual budget; the current view still asks for more detail than the budget allows.</p></figcaption></figure>
 
 {% hint style="info" %}
-The point budget controls streaming and display detail. It does not delete points, decimate the source cloud, change the saved `point_cloud_octree` annotation, or reduce the point count delivered downstream.
+The point budget controls streaming and display detail. It does not delete points, decimate the source cloud, change the saved octree annotation, or reduce the point count delivered downstream.
 {% endhint %}
+
+## Switch between RGB and Intensity
+
+Open **Settings**, then use **Cloud points** ? **Color mode** to switch between **RGB** and **Intensity** when the scan includes both attributes.
+
+- **RGB** shows the colors captured at the site. Use it to recognize painted columns, pipes and equipment and match them to what you see in the panorama.
+- **Intensity** colors points by the strength of the LiDAR return. Use the contrast to spot boundaries between surfaces that look similar in RGB, for example where a column meets the floor or where a pipe passes in front of a wall. Differences in return strength can be a clue to a change in material or surface finish. Distance and scan angle also affect intensity, so use the panorama to check what you are looking at before tracing the boundary.
+
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/rgb-vs-intensity.webp" alt="The same mechanical room in RGB on the left and LiDAR intensity on the right. In intensity mode, the columns and floor show different return strengths."><figcaption><p>The same scan in RGB (left) and Intensity (right). Compare the columns, floor and pipes from the same viewpoint.</p></figcaption></figure>
 
 ## Walk through the scan with panoramas
 
@@ -94,15 +104,9 @@ The camera panel on the right shows the current panorama:
 
 Use the panorama to check in the photo what a structure is and where its boundary lies before labeling it.
 
-## Choose components that match the downstream task
-
-Name classes after the structures the customer needs, not just the building type. For a stadium renovation, these may be `seating_tier`, `stairs`, `concrete_structure`, `railing`, `column`, `roof_structure`, `equipment` and `noise`; for a shopping center, floor slabs, walls, columns, facades, escalators and parking levels.
-
-Decide before production whether the output is semantic (every point labeled `floor`, `wall` or `column`) or instance-based (each column or slab as a separate object, as Scan-to-BIM often requires), and write it into the guidelines.
-
 ## Why one annotation can contain millions of points
 
-A seating tier, floor slab or facade can span a large part of the scan and contain millions of points while remaining one structure. Splitting it into fragments just to fit a size limit adds review work and creates false boundaries between parts. With `point_cloud_octree`, the whole component stays one point-level annotation.
+A seating tier, floor slab or facade can span a large part of the scan and contain millions of points while remaining one structure. Splitting it into fragments just to fit a size limit adds review work and creates false boundaries between parts. An octree annotation keeps the selected points for the whole component together.
 
 ## Isolate the structure with Area of Interest
 
@@ -151,18 +155,45 @@ The outline is only a visual reference and does not become an annotation.
 
 <figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/area-show-outline-on.png" alt="A thin orange Area of Interest outline around mechanical equipment in the Supervisely point cloud editor while another tool is active; the Show outline tooltip is visible"><figcaption><p>Show outline on: a thin box keeps the working region visible while another tool is active.</p></figcaption></figure>
 
+## Split a scan into work units for labeling jobs
+
+Use **Split into work units** to automatically divide a large scan into areas that your team can annotate and review separately. For example, in a warehouse, you can assign one annotator an aisle and another the ceiling above it. Each area is a 3D box in the same source scan, so the team can work in parallel without exporting separate point cloud files.
+
+1. Open **AI Assistance Tools** from the dropdown next to **Smart 3D Lasso**, then select **Split into work units**. With **Area of Interest** off, the tool works on the whole scan. With it on, the tool splits only the active area.
+2. Open the **Areas & QA** panel to review the generated areas, such as aisles, ceiling sections, or zones.
+3. Create a separate [labeling job](../labeling/jobs/README.md) for each area you want to assign. The job opens in its assigned area, so annotators and reviewers can go straight to their part of the scan.
+
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/split-into-work-units.gif" alt="Reviewing automatically generated work units in the Areas panel, inspecting one zone in 3D, and creating labeling jobs for the areas."><figcaption><p>Review the generated work units and create labeling jobs from the Areas panel (2? speed, processing wait removed).</p></figcaption></figure>
+
+## Use AI assistance to label and review the scan
+
+The same menu offers **Ground Segmentation** to label flat horizontal surfaces and **Smart Lasso 3D Object Detection** to select an object from a rough outline and create a cuboid or label its points. Enable **Cuboid Tool: Smart Auto-Fit** to have the editor fit newly placed cuboids to detected objects.
+
+Custom enterprise tools can also work on the whole scan or on the active Area of Interest.
+
+- **Detect structure** detects floors, roofs, walls, and columns.
+- **Reflectors & floor markers** uses return intensity to find individual retroreflectors and detects painted floor markings.
+- **Rack Decompose** turns a rack row outlined with Smart 3D Lasso into separate annotations for uprights, beams, decking, support bars, and guards.
+- **Run QA** flags issues such as floating objects, unexpected sizes or shapes, duplicates, and discontinuities at work-unit boundaries. Review the findings in **Areas & QA**.
+
 ## Select the structure's points
 
 Select the target class and mark the structure with the [Point Cloud Pen](../labeling/3D-Point-Clouds/3D-point-cloud-episodes-2/README.md#3d-point-cloud-pen): single clicks place polygon points along straight edges, and click-and-drag paints over irregular areas. The same tool adds or removes points when the boundary needs correction.
 
+### Select an object with Point Click
+
+In **Smart 3D Lasso**, choose **Point Click** and click the object in the scan to select its points. As with the Smart Tool, use positive and negative points to refine the selection. Left-click a missed part of the object to add a positive point. Shift-click or right-click an incorrectly selected surface to add a negative point. Check the updated highlight and select **Done** when it covers the object.
+
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/point-click-annotation.gif" alt="Using Point Click in Smart 3D Lasso to refine a magenta point selection around a pump in a mechanical room."><figcaption><p>Selecting and refining the points of a pump with Point Click (2? speed).</p></figcaption></figure>
+
+The photo context panel in the lower right shows the corresponding 2D image. Annotations stay synchronized between the 3D view and the photo, so you can check the pump's outline in both views as you refine the selection.
+
 ## Keep the result as one octree annotation
 
-Save the completed selection as `point_cloud_octree` geometry.
+Save the selection as a single octree annotation. You can review the entire component as one object and convert it to regular point cloud geometry when a downstream tool requires that format.
 
-The geometry type changes how a very large point-level annotation is represented. It does not change its semantic role: the annotation still says that all of these points belong to the same physical component.
-
-<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/octree-wall-annotation.png" alt="A wall section highlighted in magenta as one point_cloud_octree annotation in the Supervisely point cloud editor; its box measures 4.72 by 2.10 by 0.44 meters in a scene of 2,090,815,411 points"><figcaption><p>One <code>point_cloud_octree</code> annotation holds a 4.72 × 2.10 m wall section in the 2.09-billion-point scene.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/use-cases/massive-point-cloud-octree/octree-wall-annotation.png" alt="A wall section highlighted in magenta as one octree annotation in the Supervisely point cloud editor; its box measures 4.72 by 2.10 by 0.44 meters in a scene of 2,090,815,411 points"><figcaption><p>One octree annotation holds a 4.72 × 2.10 m wall section in the 2.09-billion-point scene.</p></figcaption></figure>
 
 ## Summary
 
-A building-scale scan can contain billions of points, and a single structure in it can contain millions. Supervisely handles both: the streamed point budget keeps the full scene navigable, Area of Interest isolates one structure from its surroundings, and `point_cloud_octree` keeps that structure as one annotation, ready for model training, Scan-to-BIM or comparison with a design.
+A building-scale scan can contain billions of points, and a single structure in it can contain millions. Supervisely handles both: the streamed point budget keeps the full scene navigable, Area of Interest isolates one structure from its surroundings, and an octree annotation keeps that structure as one annotation, ready for model training, Scan-to-BIM or comparison with a design.
