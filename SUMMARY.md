@@ -240,7 +240,7 @@
 * [Agriculture](use-cases/agriculture/README.md)
   * [Wheat Head Segmentation](use-cases/agriculture/wheat-head-segmentation.md)
 * [Annotation Services](use-cases/annotation-services/README.md)
-  * [Instance Segmentation Annotation Service](use-cases/annotation-services/instance-segmentation-annotation-service.md)
+  * [Beyond Annotation: How Supervisely Builds a Production-Ready Instance Segmentation Dataset](use-cases/annotation-services/instance-segmentation-annotation-service.md)
 
 ## 👔 Enterprise Edition
 
